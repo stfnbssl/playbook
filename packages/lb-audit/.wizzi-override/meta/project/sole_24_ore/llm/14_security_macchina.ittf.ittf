@@ -1,0 +1,156 @@
+ittf
+
+   $
+        var cap = 12;
+
+   $file project/from_meta/sole_24_ore/cap_14_security_macchina.md
+
+        # Cap. ${cap} — Canvas (Istruzioni tecniche) — v1.0
+
+        # Cap. ${cap} — Security di Macchina per OEM (Audit, messa a punto, hardening & monitoraggio)
+        regole_editoriali()
+            **Regola d’oro**: **ordine narrativo = AssetOwner**, **profondità tecnica = OEM**.
+            **Target (etichette audience)**
+            * **Primari**: `OEM:Executive` | `OEM:Engineering:Developers`
+            * **Co‑primari**: `AssetOwner:Operational` | `ServiceProvider:Operational`
+            * **Secondari**: `OEM:Legal` | `ServiceProvider:Legal`
+        mini_vademecum_canvas()
+        > **Idea chiave**: per i **produttori di macchine** (OEM), 
+            \b la sicurezza “di prodotto” **non basta**: serve una **security di macchina** 
+            \b dimostrabile lungo il ciclo di vita (messa a punto, esercizio, supporto). 
+            \b Questo capitolo fornisce metodo, deliverable e template 
+            \b per **audit→remediation→documentazione→monitoraggio**, 
+            \b usando IEC **62443‑2‑x/3‑x/4‑1/4‑2** 
+            \b e supporti **LLM** per velocizzare analisi e risposte ai clienti.
+        ## Obiettivo (capitolo)
+        * Definire **metodo e deliverable** per audit/messa a punto security 
+            \b di una **macchina** (CNC, packaging, robotica, ecc.).
+        * Tradurre lo schema *Preliminare → Assessment profondo → Remediation → 
+            \b Documentazione → Monitoraggio* in **artefatti ripetibili**.
+        * Mostrare come i **LLM** aiutano a standardizzare raccolta dati, analisi, 
+            \b generazione di report e pacchetti evidenze.
+        audience()
+            **Obiettivi per audience (1 riga)**
+            * `OEM:Executive` → comprendere ROI/compliance e **barriere d’accesso** ridotte da audit/messa a punto.
+            * `OEM:Engineering:Developers` → applicare **62443‑3‑3 a livello di macchina** (zone/conduits, FR×SL) e integrare controlli 4‑2.
+            * `AssetOwner:Operational` → sapere **cosa chiedere** (evidenze, matrici flussi, runbook) e come validare.
+            * `ServiceProvider:Operational` → procedure di **teleassistenza**, aggiornamenti, logging & evidenze.
+            **Taglio**: *board‑ready* per Executive; *tecnico‑operativo* per Engineering/Operational; *compliance‑oriented* per Legal.
+            **Livello tecnico (1–5)**: 3/5 (Executive 2/5; Developers 4/5).
+            **Tempo lettura target**: 20–25 min.
+        ---
+
+        ## Struttura delle sezioni
+
+        ### ${cap}.1 Executive brief — Perché la security “di macchina” conta per gli OEM
+
+        **Obiettivo sezione ${cap}.1**: 1 pagina per `OEM:Executive` su impatti (vendite, post‑vendita, incidenti), **barriere di mercato**, richieste tipiche AO.
+        **Output**: decision memo con 3 KPI, 90/180/365, decisioni richieste.
+        **Prompt**: "Scrivi una pagina *board‑ready* su valore/ROI e rischi della security di macchina (audit→remediation→doc→monitoraggio)."
+
+        ### ${cap}.2 Profilo macchina & perimetro (scheda parametrica)
+
+        **Obiettivo sezione ${cap}.2**: creare la **scheda macchina** (parametrica) per il caso pilota e per riuso su portfolio.
+        **Campi minimi**: tipo (es. CNC), controllori (CN/PLC), HMI, PC/gateway, protocolli (es. **PROFINET IRT**/**PROFISAFE**, **OPC UA**/**REST**), segmentazione (VLAN/SDN), accessi remoti, firewall/NGFW, dipendenze IT.
+        **Output**: *Machine Fact Sheet* + *Bill of Interfaces* + mappa versioni firmware/software.
+        **Prompt**: "Crea scheda macchina parametrica (campi+esempi), includi interfacce, protocolli, VLAN, punti unici di scambio, firmware."
+
+        ### ${cap}.3 Metodologia (Fase 1) — Analisi preliminare & competenze
+
+        **Obiettivo sezione ${cap}.3**: formazione/metodo su **risk**, **SL‑Target (SL‑T)**, **FR1–FR7**, mappatura controlli.
+        **Output**: matrice **rischi×zone**, bozza **SL‑T**, *gap list*.
+        **Prompt**: "Imposta metodologia e deliverable Fase 1 (risk, SL‑T, gap) con esempi tipici per macchine CNC."
+        **QC**: NA motivati; SL‑T realistici (no *SL4 ovunque*).
+
+        ### ${cap}.4 Assessment profondo (Fase 2) — Architettura & test mirato
+
+        **Obiettivo sezione ${cap}.4**: valutare rete (3 VLAN: automazione/HMI/esterno), conduits, gateway/NGFW, **SDN**, protocolli (PN‑IRT/PROFISAFE), pannello operatore (RDP/VNC), accessi remoti.
+        **Output**: **matrice flussi** approvata; **piano di test** (inclusi 2 **pen‑test** mirati: inizio/fine); **report** assessment.
+        **Prompt**: "Produci piano assessment per macchina pilota con analisi rete/protocolli, test mirati, evidenze richieste."
+        **QC**: safety prima di tutto; test in **staging** dove possibile; *session recording* su accessi.
+
+        ### ${cap}.5 Remediation (Fase 3) — Hardening & misure prioritarie
+
+        **Obiettivo sezione ${cap}.5**: definire **hardening** (least functionality), password policy, gestione certificati, **time sync**, **syslog**, **secure update** (firmware/app), backup/restore.
+        **Output**: **Secure Configuration Guide (Machine)**; piano cambi con finestre/rollback; *exception register*.
+        **Prompt**: "Scrivi guida hardening per la macchina (parametri minimi, protocolli, logging, update firmati, backup, rollback)."
+        **QC**: FR3/FR6/FR7 coperti; prove in **staging**; approvazioni (*two‑person rule*).
+
+        ### ${cap}.6 Documentazione (Fase 4) — Fascicolo tecnico & compliance
+
+        **Obiettivo sezione ${cap}.6**: predisporre fascicolo per **Regolamento Macchine (UE) 2023/1230**, riferimenti **62443**, e documentazione per richieste cliente (incluso **CRA/NIS2** se rilevanti).
+        **Output**: **Machine Security Evidence Package (MSEP)**: scheda, FR×SL, flussi, test, Secure Config, registro cambi, manuali utente.
+        **Prompt**: "Componi indice MSEP e popola segnaposto con riferimenti a prove e versioni."
+
+        ### ${cap}.7 Monitoraggio & manutenzione (Fase 5) — Operazioni & post‑vendita
+
+        **Obiettivo sezione ${cap}.7**: monitoraggio vulnerabilità, **advisory** ai clienti, canali **PSIRT**, teleassistenza **brokered** con **MFA** e **session recording**.
+        **Output**: runbook O\&M (alert, triage, aggiornamenti), **SLA** notifiche incidenti, playbook teleassistenza.
+        **Prompt**: "Scrivi runbook post‑vendita: monitoraggio vuln, advisory, teleassistenza, evidenze per chiusura interventi."
+
+        ### ${cap}.8 Segmentazione, conduits & DMZ (applicazione FR5)
+
+        **Obiettivo sezione ${cap}.8**: progettare **zone & conduits** a livello di macchina: VLAN/SDN, *deny‑by‑default*, whitelisting protocolli, *single point* esterno (OPC UA/REST), **DMZ**.
+        **Output**: diagramma segmentazione + **matrice flussi**.
+        **Prompt**: "Genera diagramma zone/conduits e matrice flussi per la macchina; evidenzia ‘single point’ e policy."
+
+        ### ${cap}.9 Accessi remoti & teleassistenza sicura
+
+        **Obiettivo sezione ${cap}.9**: definire **broker** (jump/gateway), **MFA**, **account time‑bound**, **session recording**, **approvazioni su ticket**.
+        **Output**: manuale teleassistenza sicura e requisiti di integrazione con AO.
+        **Prompt**: "Crea manuale teleassistenza: prerequisiti, flussi, evidenze e revoca permessi."
+
+        ### ${cap}.10 Secure update/OTA & gestione versioni
+
+        **Obiettivo sezione ${cap}.10**: canali di aggiornamento **firmati**, verifica integrità, *rollback*, prerequisiti di rete, staging su banchi prova.
+        **Output**: **specifica ‘secure update di macchina’** e **registro versioni**.
+        **Prompt**: "Redigi specifica aggiornamenti firmati (firmware/app), staging, rollback e registro versioni."
+
+        ### ${cap}.11 Logging, audit & sincronizzazione tempo
+
+        **Obiettivo sezione ${cap}.11**: eventi audit minimi (login, change, update), **syslog** verso collezionatore AO/SP, **NTP** affidabile, protezione origine tempo.
+        **Output**: elenco eventi, policy retention, *log routing*.
+        **Prompt**: "Elenca eventi audit e configura syslog/NTP per compliance a 62443 (FR6)."
+
+        ### ${cap}.12 Safety & modalità degradata (integrazione con HSE)
+
+        **Obiettivo sezione ${cap}.12**: preservare **safety** durante cambi/test; pianificare **modalità degradata** e criteri di stop sicuro.
+        **Output**: checklist safety‑by‑design con HSE; piano di prova degrade.
+        **Prompt**: "Definisci interlock safety e modalità degradata durante hardening/patch."
+
+        ### ${cap}.13 Pen‑test mirato su macchina (scopo, limiti, prove)
+
+        **Obiettivo sezione ${cap}.13**: impostare **pen‑test** controllato *in sicurezza*: perimetro, limitazioni, prove su RDP/VNC, OPC UA, gateway/NGFW, protocolli real‑time.
+        **Output**: **piano di test** con approvazioni, evidenze e criteri di successo.
+        **Prompt**: "Stendi piano pen‑test macchina (in/out of scope, metodi, prove, safety)."
+
+        ### ${cap}.14 KPI & reporting
+
+        **Obiettivo sezione ${cap}.${cap}**: definire KPI misurabili: % macchine con **MSEP** completo, **patch adoption**, **tempo advisory**, % sessioni remote con MFA+recording, **MTTD/MTTR** su eventi macchina.
+        **Output**: tabella KPI con formule, owner, target 12 mesi.
+        **Prompt**: "Definisci KPI e target per programma di security di macchina (OEM/SP)."
+
+        ### ${cap}.15 Programma LLM‑assisted (audit & risposte rapide)
+
+        **Obiettivo sezione ${cap}.15**: usare **LLM** per: estrarre dati da schede/protocolli, generare **MSEP**, risposte a **RFI/RFP**, checklist e piani di prova; **guardrail**.
+        **Output**: architettura RAG, *prompt templates*, policy d’uso.
+        **Prompt**: "Definisci RAG per security di macchina e 6 prompt per MSEP, RFI/RFP, test, advisory, manuale teleassistenza."
+
+        ### ${cap}.16 Template & deliverable
+
+        **Obiettivo sezione ${cap}.16**: raccogliere modelli riusabili: **Machine Fact Sheet**, **Bill of Interfaces**, **Matrice flussi**, **Secure Config Guide (Machine)**, **Piano pen‑test**, **MSEP**, **Runbook teleassistenza**, **Registro versioni**, **Exception register**, **Checklist safety**.
+        **Output**: pacchetto template editabili.
+        **Prompt**: "Genera i template elencati (struttura, sezioni, segnaposto)."
+
+        ---
+
+        ## Checklist qualità (capitolo)
+
+        * [ ] Ogni sezione ha **Obiettivo/Output/Prompt/QC**.
+        * [ ] **Machine Fact Sheet** completo (controllori, HMI, gateway, protocolli, VLAN/SDN, accessi).
+        * [ ] **Matrice flussi** e policy *deny‑by‑default*; “single point” esterno definito.
+        * [ ] **Secure Config Guide** con parametri minimi (password/cert, NTP, syslog, update firmati, backup).
+        * [ ] **MSEP** indicizzato; versioni/firmware e prove dichiarati.
+        * [ ] **Pen‑test** con perimetro/limiti e approvazioni; safety preservata.
+        * [ ] LLM con **guardrail** e citazioni artefatti interni.
+        * [ ] Niente testi finiti: questo file resta **solo istruzioni**.

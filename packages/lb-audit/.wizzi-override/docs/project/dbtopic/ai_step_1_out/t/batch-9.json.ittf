@@ -1,0 +1,1371 @@
+$group
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/9"
+            nome "La IEC 62443 come leva di trasformazione (AI/LLM, organizzazione, valore per
+                +b gli executive)"
+            ruolo "Guida strategica per executive e manager OT/ICS nella trasformazione digitale
+                +b sicura"
+            [ norme_riferimento
+                "IEC 62443"
+                "IEC 27001/2"
+                "NIS2"
+                "CRA"
+                "Direttiva Macchine 2006"
+                "Registro Macchine 2023"
+                "GDPR 2016"
+            descrizione "Questo ambito esplora come lo standard IEC 62443 possa essere utilizzato come
+                +b leva strategica per la trasformazione digitale in contesti OT/ICS, integrando
+                +b tecnologie come AI/LLM, migliorando l'organizzazione e generando valore per gli
+                +b executive attraverso la mitigazione dei rischi e l'ottimizzazione dei processi."
+            [ sezioni
+                {
+                    id "cap/9/9.2"
+                    nome "Business case & KPI (ROI, TCO, rischio evitato)"
+                    { obiettivo
+                        codice "OBJ-9.2"
+                        descrizione "Costruire un business case solido per l'adozione di IEC 62443, identificando
+                            +b KPI misurabili per valutare ROI, TCO e rischio evitato."
+                    [ output_attesi
+                        "Business case documentato con KPI e analisi costi-benefici"
+                        "Presentazione per executive con focus su valore strategico"
+                        "Template di monitoraggio KPI per implementazioni OT/ICS"
+                    prompt_base "Compila un business case con 6 KPI, 4 voci di costo e 3 aree di beneficio
+                        +b quantitativo; specifica ipotesi."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-9.2.1"
+                            titolo "Riduzione dei rischi operativi"
+                            descrizione_astratta "Mitigazione dei rischi legati a fermi non pianificati e violazioni di sicurezza
+                                +b attraverso l'adozione di pratiche conformi a IEC 62443."
+                            [ rischi_mitigati
+                                "Fermi non pianificati di produzione"
+                                "Violazioni di sicurezza OT"
+                                "Non conformità normative (es. NIS2)"
+                            [ pratiche_raccomandate
+                                "Implementazione di controlli di sicurezza IEC 62443-3-3"
+                                "Automazione delle procedure di monitoraggio con AI/LLM"
+                                "Formazione continua del personale OT"
+                            [ metriche_kpi
+                                "% sessioni remote conformi"
+                                "MTTD/MTTR OT"
+                                "Patch coverage"
+                                "% runbook aggiornati"
+                                "Tempo di gap-analysis NIS2"
+                                "Tempo alla prima risposta LLM per procedure"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di gestione patch OT"
+                                    "Procedura di risposta agli incidenti"
+                                [ registri
+                                    "Registro conformità sessioni remote"
+                                    "Registro tempi di risposta"
+                                [ evidenze
+                                    "Report MTTD/MTTR"
+                                    "Documentazione gap-analysis NIS2"
+                            [ placeholders_contesto
+                                "Settore industriale"
+                                "Dimensione impianto"
+                                "Livello di maturità digitale"
+                    { policy_template
+                        titolo "Policy per la gestione del rischio OT basata su IEC 62443"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Riferimenti normativi (IEC 62443, NIS2)"
+                            "Definizione KPI e metriche di monitoraggio"
+                            "Ruoli e responsabilità"
+                            "Revisione e aggiornamento"
+                        [ placeholders_contesto
+                            "Nome organizzazione"
+                            "Settore"
+                            "Asset critici"
+                    { sop_template
+                        titolo "SOP per monitoraggio KPI di sicurezza OT"
+                        [ step
+                            "Identificazione asset critici"
+                            "Raccolta dati per KPI (es. MTTD/MTTR)"
+                            "Analisi e reporting"
+                            "Azione correttiva in caso di deviazioni"
+                            "Aggiornamento runbook"
+                        [ registrazioni
+                            "Log attività monitoraggio"
+                            "Report KPI"
+                            "Registro azioni correttive"
+                    { repo_branching_model
+                        modello "Gitflow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili e approvati"
+                            "Branch 'develop' per contenuti in lavorazione"
+                            "Feature branch per ogni KPI o aspetto di sicurezza"
+                            "Pull request obbligatorie con review"
+                    { raci
+                        [ roles
+                            "Sponsor Progetto (SP)"
+                            "Architetto OT (AO)"
+                            "Security Engineer IT (SI)"
+                            "OT Security Manager (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione KPI"
+                                SP "A"
+                                AO "R"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Monitoraggio KPI"
+                                SP "I"
+                                AO "C"
+                                SI "R"
+                                OTSec "A"
+                            {
+                                attivita "Reporting a executive"
+                                SP "R"
+                                AO "I"
+                                SI "I"
+                                OTSec "A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Business Case"
+                            "Presentazione Executive"
+                            "Report KPI"
+                            "SOP"
+                        [ audience_possibili
+                            "Executive"
+                            "Manager OT"
+                            "Team Tecnico"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico per slide"
+                        [ livello_tecnico
+                            "Alto (Executive)"
+                            "Medio (Manager)"
+                            "Basso (Tecnico operativo)"
+                        [ vincoli
+                            "Conformità a IEC 62443"
+                            "Allineamento con NIS2 e GDPR"
+                            "Focus su metriche quantificabili"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo {tipo_documento} per {audience} con stile {stile} e
+                            +b livello tecnico {livello_tecnico}, focalizzato su {obiettivo}, includendo
+                            +b {elementi_specifici}."
+                        prompt_esempio_articolo "Genera un articolo formale per manager OT con stile tecnico e livello medio,
+                            +b focalizzato su come IEC 62443 migliora il ROI, includendo 6 KPI e 3 benefici
+                            +b quantificabili."
+                        prompt_esempio_slide "Genera una presentazione per executive con stile sintetico e livello alto,
+                            +b focalizzata sul business case di IEC 62443, includendo KPI come MTTD/MTTR e
+                            +b patch coverage."
+                        prompt_esempio_sop "Genera una SOP per team tecnico con stile tecnico e livello basso, focalizzata
+                            +b sul monitoraggio KPI OT, includendo step operativi e registrazioni."
+                    [ checklist
+                        "Definizione di almeno 6 KPI misurabili"
+                        "Identificazione di 4 voci di costo rilevanti"
+                        "Quantificazione di 3 aree di beneficio"
+                        "Allineamento con IEC 62443 e altre norme"
+                        "Validazione con stakeholder chiave"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Settore industriale (es. manifatturiero, energia)"
+                        "Dimensione organizzazione"
+                        "Livello di maturità cybersecurity"
+                        "Asset critici da proteggere"
+                        "Obiettivi strategici aziendali"
+                    [ avvertenze
+                        "I KPI devono essere adattati al contesto specifico dell'organizzazione."
+                        "Le ipotesi di costo e beneficio devono essere validate con dati reali."
+                        "La conformità a norme come NIS2 e GDPR deve essere verificata con esperti legali."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/9"
+            nome "La IEC 62443 come leva di trasformazione (AI/LLM, organizzazione, valore per
+                +b gli executive)"
+            ruolo "Guida strategica per l'integrazione di dati IEC 62443 in processi di
+                +b trasformazione digitale e AI"
+            [ norme_riferimento
+                "IEC 62443"
+                "ISO/IEC 27001"
+                "NIS2"
+                "GDPR 2016"
+            descrizione "Esplorazione del valore dei dati strutturati secondo IEC 62443 come base per
+                +b data products utilizzabili in contesti AI/LLM, con focus su governance,
+                +b sicurezza e pattern architetturali come RAG."
+            [ sezioni
+                {
+                    id "cap/9/9.3"
+                    nome "Dati 62443 → **Data products** per AI/LLM (RAG)"
+                    { obiettivo
+                        codice "OBJ-9.3"
+                        descrizione "Definire un catalogo di data products basati su artefatti IEC 62443 per
+                            +b supportare applicazioni AI/LLM con Retrieval Augmented Generation (RAG),
+                            +b garantendo sicurezza e governance."
+                    [ output_attesi
+                        "Catalogo di data products IEC 62443"
+                        "Schema architetturale RAG con policy e audit"
+                        "Template per classificazione e gestione dati"
+                        "Linee guida per accesso sicuro ai dataset"
+                    prompt_base "Disegna il catalogo data products 62443 (nome, owner, sorgente, sensibilità,
+                        +b uso LLM, refresh)."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "SEC-9.3.1"
+                            titolo "Classificazione e Minimizzazione Dati"
+                            descrizione_astratta "Garantire che i dati IEC 62443 siano classificati in base alla sensibilità e
+                                +b minimizzati per ridurre l'esposizione."
+                            [ rischi_mitigati
+                                "Esposizione dati sensibili"
+                                "Violazione GDPR"
+                            [ pratiche_raccomandate
+                                "Classificazione (pubblico/riservato/segretato)"
+                                "Pseudonimizzazione"
+                                "Minimizzazione dati"
+                            [ metriche_kpi
+                                "Percentuale dati classificati"
+                                "Tempo medio per pseudonimizzazione"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di classificazione dati"
+                                [ registri
+                                    "Registro classificazione dati"
+                                [ evidenze
+                                    "Report audit classificazione"
+                            [ placeholders_contesto
+                                "[SETTORE]"
+                                "[TIPOLOGIA_DATO]"
+                        {
+                            id "SEC-9.3.2"
+                            titolo "Controllo Accessi e Audit"
+                            descrizione_astratta "Implementare controlli di accesso robusti per dataset utilizzati da LLM, con
+                                +b tracciamento delle attività."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Data breach"
+                            [ pratiche_raccomandate
+                                "RBAC"
+                                "MFA"
+                                "Dataset read-only per LLM"
+                                "Audit log"
+                            [ metriche_kpi
+                                "Numero accessi non autorizzati"
+                                "Tempo risposta audit"
+                            { artefatti
+                                [ procedure
+                                    "Procedura gestione accessi"
+                                [ registri
+                                    "Log accessi"
+                                [ evidenze
+                                    "Report MFA"
+                            [ placeholders_contesto
+                                "[RUOLO_UTENTE]"
+                                "[LIVELLO_ACCESSO]"
+                    { policy_template
+                        titolo "Policy di Governance Dati IEC 62443 per AI/LLM"
+                        [ sezioni
+                            "Scopo"
+                            "Classificazione Dati"
+                            "Controlli Accesso"
+                            "Audit e Monitoraggio"
+                            "Responsabilità"
+                        [ placeholders_contesto
+                            "[ORGANIZZAZIONE]"
+                            "[AMBITO_APPLICAZIONE]"
+                    { sop_template
+                        titolo "SOP per Indicizzazione Dati IEC 62443 in Knowledge Base RAG"
+                        [ step
+                            "Identificazione artefatti"
+                            "Classificazione dati"
+                            "Indicizzazione con policy"
+                            "Verifica audit"
+                            "Aggiornamento dataset"
+                        [ registrazioni
+                            "Registro indicizzazione"
+                            "Log audit"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch main per release stabili"
+                            "Branch develop per integrazione"
+                            "Feature branch per nuovi data products"
+                    { raci
+                        [ roles
+                            "SP (Sponsor)"
+                            "AO (Accountable Owner)"
+                            "SI (Security Implementer)"
+                            "OTSec (OT Security Specialist)"
+                        [ matrix
+                            {
+                                attivita "Definizione catalogo data products"
+                                SP "Informed"
+                                AO "Accountable"
+                                SI "Responsible"
+                                OTSec "Consulted"
+                            {
+                                attivita "Implementazione RAG"
+                                SP "Consulted"
+                                AO "Accountable"
+                                SI "Responsible"
+                                OTSec "Responsible"
+                            {
+                                attivita "Audit e monitoraggio"
+                                SP "Informed"
+                                AO "Consulted"
+                                SI "Responsible"
+                                OTSec "Accountable"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Catalogo"
+                            "Report"
+                            "Slide"
+                            "SOP"
+                        [ audience_possibili
+                            "Executive"
+                            "Tecnici OT"
+                            "Security Team"
+                            "AI Developers"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Alto"
+                            "Medio"
+                            "Basso"
+                        [ vincoli
+                            "Conformità GDPR"
+                            "Rispetto IEC 62443"
+                            "Minimizzazione dati"
+                    { prompting
+                        prompt_template_generico "Genera un documento su [TEMA] per [AUDIENCE] con stile [STILE] e livello
+                            +b tecnico [LIVELLO]. Includi [OUTPUT_ATTESO] rispettando [VINCOLI]."
+                        prompt_esempio_articolo "Scrivi un articolo su 'Data Products IEC 62443 per AI' per executive con stile
+                            +b formale e livello tecnico basso. Includi catalogo e schema RAG rispettando
+                            +b conformità GDPR."
+                        prompt_esempio_slide "Crea una presentazione su 'RAG per IEC 62443' per tecnici OT con stile tecnico
+                            +b e livello tecnico alto. Includi diagrammi e policy template rispettando IEC
+                            +b 62443."
+                        prompt_esempio_sop "Redigi una SOP per 'Indicizzazione Dati IEC 62443' per security team con stile
+                            +b tecnico e livello tecnico medio. Includi step operativi rispettando
+                            +b minimizzazione dati."
+                    [ checklist
+                        "Verifica classificazione dati"
+                        "Conferma controlli accesso (RBAC/MFA)"
+                        "Validazione qualità dati (completeness, freshness)"
+                        "Audit log attivi"
+                        "Dataset read-only per LLM"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Settore industriale"
+                        "Tipologia artefatti 62443"
+                        "Livello sensibilità dati"
+                        "Ruoli coinvolti"
+                        "Frequenza aggiornamento dati"
+                    [ avvertenze
+                        "Assicurarsi che i dati sensibili siano pseudonimizzati prima dell'uso in LLM."
+                        "Verificare conformità GDPR per dataset utilizzati in AI."
+                        "Monitorare accessi non autorizzati con audit regolari."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/9"
+            nome "La IEC 62443 come leva di trasformazione (AI/LLM, organizzazione, valore per
+                +b gli executive)"
+            ruolo "Multi-ruolo (Executive, Asset Owner, System Integrator, OEM, OT Security)"
+            [ norme_riferimento
+                "IEC 62443"
+                "IEC 27001"
+                "NIS2"
+                "CRA"
+            descrizione "Esplorazione dei casi d’uso di AI/LLM per migliorare la sicurezza OT/ICS
+                +b attraverso la IEC 62443, con focus su ruoli specifici e valore
+                +b operativo/strategico."
+            [ sezioni
+                {
+                    id "cap/9/9.4"
+                    nome "Casi d’uso AI/LLM **per ruolo**"
+                    { obiettivo
+                        codice "OBJ-9.4"
+                        descrizione "Identificare e strutturare use case di AI/LLM per ciascun ruolo coinvolto nella
+                            +b sicurezza OT/ICS, collegandoli a specifici artefatti IEC 62443."
+                    [ output_attesi
+                        "Report di use case per ruolo con valore e limiti"
+                        "Matrici di correlazione tra ruoli e artefatti IEC 62443"
+                        "Template di prompting per generazione contenuti"
+                    prompt_base "Per ciascun ruolo scrivi 3 use case LLM collegati a un artefatto 62443, con
+                        +b valore e limite."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-9.4.1"
+                            titolo "Supporto decisionale per Executive con AI/LLM"
+                            descrizione_astratta "Utilizzo di modelli linguistici per fornire sintesi strategiche e analisi di
+                                +b rischio agli executive, basate su artefatti IEC 62443."
+                            [ rischi_mitigati
+                                "Mancanza di visibilità su rischi OT"
+                                "Decisioni non informate su budget e roadmap"
+                            [ pratiche_raccomandate
+                                "Utilizzo di Q&A per policy e gap analysis (IEC 62443-2-1)"
+                                "Sintesi KPI per CdA (IEC 62443-1-1)"
+                                "Advisor su procurement con clausole di sicurezza (IEC 62443-4-1)"
+                            [ metriche_kpi
+                                "Tempo di generazione report per CdA"
+                                "Accuratezza delle analisi di rischio"
+                                "Riduzione dei gap di conformità"
+                            { artefatti
+                                [ procedure
+                                    "Policy drafting"
+                                    "Roadmap planning"
+                                [ registri
+                                    "Log delle query AI"
+                                    "Report generati"
+                                [ evidenze
+                                    "Sintesi CdA"
+                                    "Analisi what-if"
+                            [ placeholders_contesto
+                                "Settore industriale"
+                                "Dimensione azienda"
+                                "Livello di maturità sicurezza"
+                        {
+                            id "ASP-9.4.2"
+                            titolo "Supporto operativo per Asset Owner con AI/LLM"
+                            descrizione_astratta "AI come co-pilota per la gestione di asset e cambiamenti operativi, con
+                                +b riferimento a requisiti di sicurezza IEC 62443."
+                            [ rischi_mitigati
+                                "Errori in change management"
+                                "Accessi remoti non conformi"
+                            [ pratiche_raccomandate
+                                "Piani di change/patch con rollback (IEC 62443-2-3)"
+                                "Verifica requisiti accesso remoto (IEC 62443-3-3)"
+                                "Ricerca SOP per asset specifici"
+                            [ metriche_kpi
+                                "Tempo di pianificazione change"
+                                "Conformità accessi remoti"
+                                "Riduzione downtime"
+                            { artefatti
+                                [ procedure
+                                    "Change management"
+                                    "Remote access setup"
+                                [ registri
+                                    "Log verifiche AI"
+                                    "Piani di rollback"
+                                [ evidenze
+                                    "Checklist conformità"
+                                    "Runbook generati"
+                            [ placeholders_contesto
+                                "Tipo di asset"
+                                "Finestra di manutenzione"
+                                "Requisiti SL-Target"
+                        {
+                            id "ASP-9.4.3"
+                            titolo "Automazione deliverable per System Integrator con AI/LLM"
+                            descrizione_astratta "Generazione automatica di documentazione e verifiche di qualità per system
+                                +b integrator, in linea con IEC 62443."
+                            [ rischi_mitigati
+                                "Errori nei deliverable"
+                                "Configurazioni non conformi"
+                            [ pratiche_raccomandate
+                                "Generazione matrici flussi e RACI (IEC 62443-2-4)"
+                                "Confronto baseline vs stato attuale (IEC 62443-3-2)"
+                                "Supporto FAT/SAT con casi di test (IEC 62443-3-3)"
+                            [ metriche_kpi
+                                "Tempo di generazione deliverable"
+                                "Percentuale errori rilevati"
+                                "Conformità ai requisiti SR"
+                            { artefatti
+                                [ procedure
+                                    "Documentazione FAT/SAT"
+                                    "Quality check"
+                                [ registri
+                                    "Log confronti baseline"
+                                    "Report QA"
+                                [ evidenze
+                                    "Matrici generate"
+                                    "Casi di test estratti"
+                            [ placeholders_contesto
+                                "Tipo di progetto"
+                                "Template cliente"
+                                "Baseline di riferimento"
+                    { policy_template
+                        titolo "Policy per utilizzo AI/LLM in OT Security"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Ruoli e responsabilità"
+                            "Linee guida per prompting sicuro"
+                            "Gestione dati sensibili"
+                            "Monitoraggio e audit"
+                        [ placeholders_contesto
+                            "Nome azienda"
+                            "Settore"
+                            "Norme applicabili"
+                    { sop_template
+                        titolo "SOP per generazione contenuti AI/LLM"
+                        [ step
+                            "Definizione obiettivo e audience"
+                            "Selezione template e contesto"
+                            "Generazione contenuto con prompt"
+                            "Revisione umana e validazione"
+                            "Archiviazione e tracciamento"
+                        [ registrazioni
+                            "Log prompt"
+                            "Versioni contenuto"
+                            "Feedback revisione"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti approvati"
+                            "Branch 'develop' per draft e revisioni"
+                            "Feature branch per use case specifici"
+                            "Pull request con review obbligatoria"
+                    { raci
+                        [ roles
+                            "Executive"
+                            "Asset Owner (AO)"
+                            "System Integrator (SI)"
+                            "OT Security (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione use case AI/LLM"
+                                SP "I"
+                                AO "C"
+                                SI "R"
+                                OTSec "A"
+                            {
+                                attivita "Generazione contenuti"
+                                SP "C"
+                                AO "R"
+                                SI "A"
+                                OTSec "I"
+                            {
+                                attivita "Validazione output"
+                                SP "A"
+                                AO "R"
+                                SI "C"
+                                OTSec "R"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Report"
+                            "Slide"
+                            "SOP"
+                            "Policy"
+                        [ audience_possibili
+                            "Executive"
+                            "Tecnici"
+                            "Auditor"
+                            "CdA"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                            "Narrativo"
+                        [ livello_tecnico
+                            "Alto"
+                            "Medio"
+                            "Basso"
+                        [ vincoli
+                            "Conformità a IEC 62443"
+                            "No dati sensibili in input"
+                            "Revisione umana obbligatoria"
+                    { prompting
+                        prompt_template_generico "Genera un [tipo documento] per [ruolo] su [argomento] con focus su [artefatto
+                            +b IEC 62443]. Includi valore e limiti. Usa stile [stile] e livello tecnico
+                            +b [livello]."
+                        prompt_esempio_articolo "Scrivi un articolo per executive su come AI/LLM supporta la sintesi KPI per
+                            +b CdA, collegato a IEC 62443-1-1. Valore: visibilità strategica; Limite:
+                            +b necessità revisione umana. Stile formale, livello medio."
+                        prompt_esempio_slide "Crea una slide per Asset Owner su co-pilot change management con IEC 62443-2-3.
+                            +b Valore: riduzione errori; Limite: contesto specifico richiesto. Stile
+                            +b sintetico, livello tecnico alto."
+                        prompt_esempio_sop "Genera una SOP per OT Security su alert triage con AI, collegata a IEC
+                            +b 62443-3-2. Valore: velocità analisi; Limite: falsi positivi. Stile tecnico,
+                            +b livello alto."
+                    [ checklist
+                        "Verifica conformità artefatti IEC 62443"
+                        "Validazione contesto inserito"
+                        "Revisione umana del contenuto generato"
+                        "Tracciamento versioni e log prompt"
+                        "Conformità policy dati sensibili"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Ruolo target"
+                        "Settore industriale"
+                        "Tipo di asset o sistema"
+                        "Norme di riferimento"
+                        "Livello di maturità sicurezza"
+                    [ avvertenze
+                        "AI/LLM non sostituisce il giudizio umano in decisioni critiche"
+                        "Possibili errori o bias nei contenuti generati"
+                        "Necessità di proteggere dati sensibili in input"
+                        "Validazione obbligatoria per conformità normativa"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/9"
+            nome "La IEC 62443 come leva di trasformazione (AI/LLM, organizzazione, valore per
+                +b gli executive)"
+            ruolo "Framework di riferimento per la sicurezza in contesti OT/ICS con integrazione
+                +b di tecnologie AI/LLM"
+            [ norme_riferimento
+                "IEC 62443"
+                "IEC 27001"
+                "NIS2"
+                "CRA"
+                "GDPR 2016"
+            descrizione "Esplorazione della IEC 62443 come strumento strategico per la trasformazione
+                +b digitale e organizzativa in contesti OT, con focus sull'integrazione sicura di
+                +b AI/LLM e il valore per gli executive."
+            [ sezioni
+                {
+                    id "cap/9/9.5"
+                    nome "**Guardrail & Safety** per AI in OT"
+                    { obiettivo
+                        codice "OBJ-9.5"
+                        descrizione "Definire principi e controlli per l'uso sicuro di AI/LLM in ambienti OT,
+                            +b garantendo segregazione, privacy e mitigazione dei rischi."
+                    [ output_attesi
+                        "Matrice guardrail × controllo"
+                        "Runbook per incident AI"
+                        "Policy per utilizzo LLM in OT"
+                        "Template per logging e monitoraggio"
+                    prompt_base "Definisci 8 guardrail non negoziabili per usare LLM in OT e il loro test
+                        +b periodico."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-9.5.1"
+                            titolo "Human-in-the-loop obbligatorio"
+                            descrizione_astratta "Garantire che nessuna azione diretta su processi di controllo venga eseguita
+                                +b senza supervisione umana."
+                            [ rischi_mitigati
+                                "Automazione non controllata"
+                                "Errore critico in produzione"
+                            [ pratiche_raccomandate
+                                "Implementare checkpoint umani"
+                                "Audit delle decisioni AI"
+                            [ metriche_kpi
+                                "Percentuale di interventi umani su azioni AI"
+                                "Tempo medio di revisione umana"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di revisione umana"
+                                [ registri
+                                    "Log delle decisioni AI con intervento umano"
+                                [ evidenze
+                                    "Report di audit periodico"
+                            [ placeholders_contesto
+                                "[Tipo di processo OT]"
+                                "[Ruolo supervisore]"
+                        {
+                            id "ASP-9.5.2"
+                            titolo "Read-only in produzione"
+                            descrizione_astratta "Limitare l'accesso AI a modalità read-only in ambienti di produzione per
+                                +b evitare modifiche non autorizzate."
+                            [ rischi_mitigati
+                                "Modifiche accidentali"
+                                "Compromissione del sistema"
+                            [ pratiche_raccomandate
+                                "Configurare permessi read-only"
+                                "Test in staging prima di produzione"
+                            [ metriche_kpi
+                                "Numero di tentativi di scrittura bloccati"
+                                "Frequenza di test in staging"
+                            { artefatti
+                                [ procedure
+                                    "Configurazione permessi AI"
+                                [ registri
+                                    "Log dei tentativi di scrittura"
+                                [ evidenze
+                                    "Report di conformità permessi"
+                            [ placeholders_contesto
+                                "[Ambiente di produzione]"
+                                "[Sistema target]"
+                        {
+                            id "ASP-9.5.3"
+                            titolo "Segregazione IT/OT per servizi AI"
+                            descrizione_astratta "Mantenere una separazione rigorosa tra reti IT e OT per i servizi AI, evitando
+                                +b esposizione di dati sensibili."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Leak di dati OT"
+                            [ pratiche_raccomandate
+                                "Implementare firewall dedicati"
+                                "Red-teaming periodico"
+                            [ metriche_kpi
+                                "Frequenza di test di segregazione"
+                                "Numero di vulnerabilità identificate"
+                            { artefatti
+                                [ procedure
+                                    "Configurazione rete segregata"
+                                [ registri
+                                    "Log dei test di red-teaming"
+                                [ evidenze
+                                    "Report di segregazione"
+                            [ placeholders_contesto
+                                "[Architettura rete]"
+                                "[Servizi AI utilizzati]"
+                        {
+                            id "ASP-9.5.4"
+                            titolo "Protezione Privacy/IP"
+                            descrizione_astratta "Minimizzare l'uso di dati sensibili e proteggere la proprietà intellettuale
+                                +b durante l'interazione con AI."
+                            [ rischi_mitigati
+                                "Esposizione di dati IP"
+                                "Violazione GDPR"
+                            [ pratiche_raccomandate
+                                "Anonimizzazione dati"
+                                "Filtro estrazione IP da SBOM"
+                            [ metriche_kpi
+                                "Percentuale di dati anonimizzati"
+                                "Numero di incidenti IP"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di anonimizzazione"
+                                [ registri
+                                    "Log utilizzo dati sensibili"
+                                [ evidenze
+                                    "Report conformità GDPR"
+                            [ placeholders_contesto
+                                "[Tipo di dati OT]"
+                                "[Regolamenti applicabili]"
+                        {
+                            id "ASP-9.5.5"
+                            titolo "Policy LLM e controlli operativi"
+                            descrizione_astratta "Definire regole chiare per l'uso di LLM, con template di prompt e filtri di
+                                +b contenuto."
+                            [ rischi_mitigati
+                                "Uso improprio di LLM"
+                                "Output non conformi"
+                            [ pratiche_raccomandate
+                                "Creare template di prompt"
+                                "Implementare content filtering"
+                            [ metriche_kpi
+                                "Percentuale di prompt conformi"
+                                "Numero di output filtrati"
+                            { artefatti
+                                [ procedure
+                                    "Definizione policy LLM"
+                                [ registri
+                                    "Log invocazioni LLM"
+                                [ evidenze
+                                    "Report di conformità policy"
+                            [ placeholders_contesto
+                                "[Tipologia di LLM]"
+                                "[Contesto operativo]"
+                        {
+                            id "ASP-9.5.6"
+                            titolo "Logging e monitoraggio invocazioni"
+                            descrizione_astratta "Registrare tutte le interazioni con AI per tracciabilità e analisi
+                                +b post-incidente."
+                            [ rischi_mitigati
+                                "Mancanza di tracciabilità"
+                                "Analisi forense limitata"
+                            [ pratiche_raccomandate
+                                "Implementare logging centralizzato"
+                                "Definire retention policy"
+                            [ metriche_kpi
+                                "Percentuale di interazioni loggate"
+                                "Tempo di accesso ai log"
+                            { artefatti
+                                [ procedure
+                                    "Configurazione logging"
+                                [ registri
+                                    "Log delle invocazioni AI"
+                                [ evidenze
+                                    "Report di monitoraggio"
+                            [ placeholders_contesto
+                                "[Sistema di logging]"
+                                "[Periodo di retention]"
+                        {
+                            id "ASP-9.5.7"
+                            titolo "Piano incident AI"
+                            descrizione_astratta "Predisporre un piano per gestire misuse, drift o poisoning dei modelli AI."
+                            [ rischi_mitigati
+                                "Uso improprio"
+                                "Degradazione modello"
+                            [ pratiche_raccomandate
+                                "Definire ruoli e tempi di risposta"
+                                "Simulazioni periodiche"
+                            [ metriche_kpi
+                                "Tempo medio di risposta"
+                                "Frequenza di simulazioni"
+                            { artefatti
+                                [ procedure
+                                    "Runbook incident AI"
+                                [ registri
+                                    "Log degli incidenti AI"
+                                [ evidenze
+                                    "Report di simulazione"
+                            [ placeholders_contesto
+                                "[Team di risposta]"
+                                "[Tipologia di incidente]"
+                        {
+                            id "ASP-9.5.8"
+                            titolo "Eval set per regressioni"
+                            descrizione_astratta "Utilizzare set di valutazione per identificare regressioni nei modelli AI prima
+                                +b dell'implementazione."
+                            [ rischi_mitigati
+                                "Degradazione performance"
+                                "Errore in produzione"
+                            [ pratiche_raccomandate
+                                "Definire eval set"
+                                "Test periodici"
+                            [ metriche_kpi
+                                "Frequenza di test regressione"
+                                "Percentuale di regressioni identificate"
+                            { artefatti
+                                [ procedure
+                                    "Procedura test regressione"
+                                [ registri
+                                    "Log dei test eseguiti"
+                                [ evidenze
+                                    "Report di regressione"
+                            [ placeholders_contesto
+                                "[Modello AI]"
+                                "[Dataset di valutazione]"
+                    { policy_template
+                        titolo "Policy per l'uso di LLM in OT"
+                        [ sezioni
+                            "Scopo"
+                            "Ambito di applicazione"
+                            "Guardrail"
+                            "Controlli operativi"
+                            "Monitoraggio e audit"
+                        [ placeholders_contesto
+                            "[Organizzazione]"
+                            "[Ambiente OT]"
+                            "[Tipologia di LLM]"
+                    { sop_template
+                        titolo "SOP per gestione incident AI in OT"
+                        [ step
+                            "Identificazione incidente"
+                            "Notifica team"
+                            "Analisi preliminare"
+                            "Mitigazione"
+                            "Report finale"
+                        [ registrazioni
+                            "Log incidente"
+                            "Timeline di risposta"
+                            "Azioni correttive"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch main per produzione"
+                            "Branch develop per staging"
+                            "Feature branch per nuovi guardrail"
+                            "Release branch per policy"
+                    { raci
+                        [ roles
+                            "Security Policy (SP)"
+                            "AI Operator (AO)"
+                            "System Integrator (SI)"
+                            "OT Security (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione guardrail"
+                                SP "Responsible"
+                                AO "Accountable"
+                                SI "Consulted"
+                                OTSec "Informed"
+                            {
+                                attivita "Implementazione controlli"
+                                SP "Consulted"
+                                AO "Responsible"
+                                SI "Accountable"
+                                OTSec "Informed"
+                            {
+                                attivita "Monitoraggio e logging"
+                                SP "Informed"
+                                AO "Consulted"
+                                SI "Responsible"
+                                OTSec "Accountable"
+                            {
+                                attivita "Gestione incident AI"
+                                SP "Consulted"
+                                AO "Informed"
+                                SI "Responsible"
+                                OTSec "Accountable"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                            "Slide"
+                        [ audience_possibili
+                            "Executive"
+                            "Tecnici OT"
+                            "Auditor"
+                            "Team AI"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Alto"
+                            "Medio"
+                            "Basso"
+                        [ vincoli
+                            "Conformità IEC 62443"
+                            "Segregazione IT/OT"
+                            "Privacy GDPR"
+                    { prompting
+                        prompt_template_generico "Genera un documento su [argomento] per [audience] con stile [stile] e livello
+                            +b tecnico [livello]. Includi [elementi specifici]."
+                        prompt_esempio_articolo "Scrivi un articolo su 'Guardrail per AI in OT' per tecnici OT, stile tecnico,
+                            +b livello alto. Includi principi e controlli."
+                        prompt_esempio_slide "Crea una presentazione su 'Safety AI in OT' per executive, stile formale,
+                            +b livello basso. Includi matrice guardrail."
+                        prompt_esempio_sop "Redigi una SOP per 'Gestione incident AI in OT' per team AI, stile tecnico,
+                            +b livello medio. Includi step e registrazioni."
+                    [ checklist
+                        "Verifica conformità guardrail"
+                        "Test periodico segregazione IT/OT"
+                        "Audit logging invocazioni AI"
+                        "Simulazione incident AI"
+                        "Revisione policy LLM"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipologia di ambiente OT"
+                        "Modelli AI/LLM utilizzati"
+                        "Regolamenti applicabili"
+                        "Ruoli e responsabilità"
+                        "Architettura di rete"
+                    [ avvertenze
+                        "Non utilizzare dati sensibili nelle prompt senza anonimizzazione."
+                        "Garantire supervisione umana per decisioni critiche."
+                        "Testare sempre in staging prima di produzione."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/9"
+            nome "La IEC 62443 come leva di trasformazione (AI/LLM, organizzazione, valore per
+                +b gli executive)"
+            ruolo "Guida strategica per l'integrazione di tecnologie AI/LLM in contesti OT/ICS con
+                +b focus su conformità IEC 62443"
+            [ norme_riferimento
+                "IEC 62443"
+                "IEC 27001"
+                "NIS2"
+                "CRA"
+            descrizione "Esplorazione dell'uso della IEC 62443 come framework per trasformare i processi
+                +b organizzativi e tecnologici in ambito OT/ICS, con particolare attenzione
+                +b all'integrazione di soluzioni AI/LLM per migliorare la sicurezza e l'efficienza
+                +b operativa. Focus su valore executive e impatti organizzativi."
+            [ sezioni
+                {
+                    id "cap/9/9.6"
+                    nome "Architettura di riferimento: **OT LLM Companion**"
+                    { obiettivo
+                        codice "OBJ-9.6"
+                        descrizione "Definire un'architettura di riferimento per l'OT LLM Companion che supporti
+                            +b l'integrazione sicura di modelli linguistici in contesti OT/ICS, garantendo
+                            +b conformità normativa e protezione dei dati."
+                    [ output_attesi
+                        "Diagramma architetturale dell'OT LLM Companion"
+                        "Matrice di integrazione tra tool OT e artefatti IEC 62443"
+                        "Linee guida per l'implementazione sicura in ambienti sensibili"
+                        "Policy template per la gestione dei dati e dei prompt"
+                    prompt_base "Disegna l’architettura a blocchi dell’‘OT LLM Companion’ indicando flussi dati
+                        +b e controlli."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "SEC-9.6.1"
+                            titolo "Protezione dei dati in transito e a riposo"
+                            descrizione_astratta "Garantire la sicurezza dei dati elaborati dall'OT LLM Companion durante
+                                +b l'ingestion, l'indicizzazione e l'interazione con gli utenti."
+                            [ rischi_mitigati
+                                "Intercettazione dei dati sensibili"
+                                "Accesso non autorizzato ai dati indicizzati"
+                                "Perdita di integrità dei dati"
+                            [ pratiche_raccomandate
+                                "Implementare crittografia end-to-end per i dati in transito"
+                                "Utilizzare storage sicuro con controlli di accesso basati su ABAC/RBAC"
+                                "Monitoraggio continuo delle attività tramite audit logging"
+                            [ metriche_kpi
+                                "Percentuale di dati crittografati in transito e a riposo"
+                                "Tempo medio di rilevazione di accessi non autorizzati"
+                                "Numero di violazioni rilevate per mese"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione della crittografia"
+                                    "Procedura di gestione delle chiavi"
+                                [ registri
+                                    "Log di accesso ai dati"
+                                    "Log di audit delle operazioni"
+                                [ evidenze
+                                    "Report di conformità alla crittografia"
+                                    "Test di penetrazione sui dati"
+                            [ placeholders_contesto
+                                "[Tipo di dati sensibili]"
+                                "[Ambiente di hosting]"
+                                "[Requisiti normativi specifici]"
+                        {
+                            id "SEC-9.6.2"
+                            titolo "Controllo degli accessi e policy enforcement"
+                            descrizione_astratta "Assicurare che solo utenti autorizzati possano accedere alle funzionalità
+                                +b dell'OT LLM Companion e che le policy di sicurezza siano applicate in modo
+                                +b coerente."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato alle interfacce di chat o ai dati"
+                                "Uso improprio delle API da parte di utenti non autorizzati"
+                                "Violazione delle policy aziendali"
+                            [ pratiche_raccomandate
+                                "Implementare controlli ABAC/RBAC per l'accesso ai servizi"
+                                "Configurare rate limiting per prevenire abusi"
+                                "Integrare un gateway per il logging dei prompt"
+                            [ metriche_kpi
+                                "Percentuale di accessi conformi alle policy"
+                                "Numero di tentativi di accesso non autorizzati bloccati"
+                                "Tempo medio di risposta del sistema di rate limiting"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione RBAC"
+                                    "Procedura di monitoraggio accessi"
+                                [ registri
+                                    "Log di autenticazione"
+                                    "Log di policy enforcement"
+                                [ evidenze
+                                    "Report di audit sugli accessi"
+                                    "Configurazioni delle policy attive"
+                            [ placeholders_contesto
+                                "[Ruoli utente]"
+                                "[Policy aziendali]"
+                                "[Requisiti di conformità]"
+                    { policy_template
+                        titolo "Policy di Sicurezza per OT LLM Companion"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Definizione dei ruoli e responsabilità"
+                            "Controlli di accesso (ABAC/RBAC)"
+                            "Gestione dei dati sensibili e crittografia"
+                            "Monitoraggio e audit delle attività"
+                            "Gestione degli incidenti"
+                        [ placeholders_contesto
+                            "[Organizzazione]"
+                            "[Ambiente OT]"
+                            "[Requisiti normativi]"
+                    { sop_template
+                        titolo "SOP per Configurazione e Manutenzione OT LLM Companion"
+                        [ step
+                            "Configurazione iniziale del sistema di ingestion"
+                            "Setup dell'index/vector store con policy enforcement"
+                            "Implementazione del servizio RAG con audit e rate limit"
+                            "Configurazione delle interfacce utente (chat, estensioni)"
+                            "Test di sicurezza e conformità"
+                            "Manutenzione periodica e aggiornamento delle policy"
+                        [ registrazioni
+                            "Registro delle configurazioni iniziali"
+                            "Registro dei test di sicurezza"
+                            "Registro degli aggiornamenti di sistema"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione delle feature"
+                            "Branch 'feature/*' per sviluppo di nuove funzionalità"
+                            "Branch 'hotfix/*' per correzioni urgenti"
+                            "Pull request obbligatorie con code review"
+                    { raci
+                        [ roles
+                            "Security Officer (SP)"
+                            "Architect Owner (AO)"
+                            "System Integrator (SI)"
+                            "OT Security Team (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione requisiti di sicurezza"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Progettazione architettura"
+                                SP "C"
+                                AO "R"
+                                SI "A"
+                                OTSec "I"
+                            {
+                                attivita "Implementazione controlli di sicurezza"
+                                SP "I"
+                                AO "C"
+                                SI "R"
+                                OTSec "A"
+                            {
+                                attivita "Monitoraggio e audit"
+                                SP "A"
+                                AO "I"
+                                SI "C"
+                                OTSec "R"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Diagramma architetturale"
+                            "Policy document"
+                            "SOP"
+                            "Report tecnico"
+                        [ audience_possibili
+                            "Executive"
+                            "Tecnici OT"
+                            "Security Team"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico per slide"
+                        [ livello_tecnico
+                            "Alto (dettagli implementativi)"
+                            "Medio (overview tecnico)"
+                            "Basso (executive summary)"
+                        [ vincoli
+                            "Conformità a IEC 62443 per i controlli di sicurezza"
+                            "Uso di terminologia standardizzata OT/ICS"
+                            "Rispetto delle policy aziendali per la gestione dei dati"
+                    { prompting
+                        prompt_template_generico "Descrivi in dettaglio l'architettura di riferimento per l'OT LLM Companion,
+                            +b includendo i blocchi principali ([Ingestion], [Index/Vector Store], [RAG
+                            +b Service], [Interfacce], [Hosting]), i flussi di dati e i controlli di sicurezza
+                            +b per un contesto [specificare contesto]. Produci un output in formato
+                            +b [specificare formato] per un'audience [specificare audience]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico sull'OT LLM Companion, descrivendo i blocchi
+                            +b architetturali, i flussi di dati e i controlli di sicurezza per un contesto OT
+                            +b industriale. Formato: articolo di 1500 parole per un'audience di tecnici OT."
+                        prompt_esempio_slide "Crea una presentazione di 10 slide sull'architettura OT LLM Companion,
+                            +b evidenziando i blocchi principali e i controlli di sicurezza per un contesto di
+                            +b rete intranet. Audience: executive."
+                        prompt_esempio_sop "Redigi una SOP per la configurazione dell'OT LLM Companion in un ambiente
+                            +b on-prem, includendo step dettagliati per ingestion, index store e controlli di
+                            +b sicurezza. Audience: system integrator."
+                    [ checklist
+                        "Verifica conformità dei blocchi architetturali a IEC 62443"
+                        "Validazione dei controlli di sicurezza (crittografia, ABAC/RBAC)"
+                        "Test di integrazione con tool OT (ticketing, CMDB, SOC)"
+                        "Configurazione di audit logging e rate limiting"
+                        "Documentazione dei flussi di dati e delle policy di accesso"
+                        "Revisione della matrice RACI per chiarezza dei ruoli"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipo di ambiente OT (es. manifatturiero, energetico)"
+                        "Requisiti normativi specifici (es. IEC 62443-3-3, NIS2)"
+                        "Tipologia di dati sensibili gestiti"
+                        "Infrastruttura di hosting (on-prem, intranet, cloud)"
+                        "Audience target per l'output generato"
+                    [ avvertenze
+                        "Assicurarsi che i dati sensibili non vengano esposti durante l'ingestion o l'elaborazione RAG."
+                        "Validare sempre i controlli di accesso prima di implementare interfacce esterne."
+                        "Considerare i requisiti di latenza e performance in ambienti OT critici."
+                        "Documentare ogni interazione con il sistema per garantire tracciabilità in caso di audit."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/9"
+            nome "La IEC 62443 come leva di trasformazione (AI/LLM, organizzazione, valore per
+                +b gli executive)"
+            ruolo "Guida strategica per l'integrazione di sicurezza e innovazione tecnologica in
+                +b contesti OT/ICS"
+            [ norme_riferimento
+                "IEC 62443"
+                "IEC 27001/2"
+                "NIS2"
+                "CRA"
+                "Direttiva Macchine 2006"
+                "Registro Macchine 2023"
+                "GDPR 2016"
+            descrizione "Esplorazione della IEC 62443 come framework per trasformare i processi
+                +b organizzativi e tecnologici in ambito OT/ICS, con focus su AI/LLM, valore
+                +b executive e conformità normativa."
+            [ sezioni
+                {
+                    id "cap/9/9.7"
+                    nome "Procurement, legale & compliance (LLM-aware)"
+                    { obiettivo
+                        codice "OBJ-9.7"
+                        descrizione "Definire clausole contrattuali e requisiti di conformità per l'acquisizione di
+                            +b soluzioni OT/ICS che utilizzano LLM, garantendo sicurezza, privacy e
+                            +b portabilità."
+                    [ output_attesi
+                        "Capitolati con clausole LLM-aware"
+                        "Linee guida per procurement sicuro"
+                        "Template per accordi di conformità legale"
+                        "Checklist di audit per fornitori"
+                    prompt_base "Stendi 8–10 clausole LLM-aware da inserire nei capitolati OT (privacy,
+                        +b sicurezza, portabilità, audit). Le clausole devono includere: 1. Uso dati solo
+                        +b per erogazione servizio, no training su dati cliente senza consenso esplicito.
+                        +b 2. Garanzie su data residency. 3. Diritti su SBOM, advisory e log. 4. Requisiti
+                        +b DPA e audit. 5. Tempi di retention e cancellazione garantita. 6. Requisiti di
+                        +b sicurezza fornitore (SDL 4-1, PSIRT). 7. Portabilità dati per evitare lock-in.
+                        +b 8. Meccanismi di trasparenza su algoritmi LLM utilizzati. 9. Responsabilità in
+                        +b caso di violazioni dati. 10. Obblighi di notifica incidenti entro 24/48 ore."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "SEC-9.7.1"
+                            titolo "Protezione dati in contesti LLM"
+                            descrizione_astratta "Garantire che i dati utilizzati o elaborati da modelli LLM non vengano
+                                +b sfruttati per training non autorizzato o trasferiti in giurisdizioni non
+                                +b conformi."
+                            [ rischi_mitigati
+                                "Violazione privacy dati cliente"
+                                "Trasferimento non autorizzato dati"
+                                "Uso improprio dati per training AI"
+                            [ pratiche_raccomandate
+                                "Definire clausole contrattuali per data residency"
+                                "Richiedere consenso esplicito per uso dati in training"
+                                "Implementare audit periodici su gestione dati"
+                            [ metriche_kpi
+                                "Percentuale contratti con clausole data residency"
+                                "Tempo medio risposta a richieste audit"
+                                "Numero violazioni dati rilevate"
+                            { artefatti
+                                [ procedure
+                                    "Procedura audit fornitori"
+                                    "Procedura verifica conformità dati"
+                                [ registri
+                                    "Registro audit fornitori"
+                                    "Registro consensi uso dati"
+                                [ evidenze
+                                    "Report audit"
+                                    "Documentazione DPA"
+                            [ placeholders_contesto
+                                "[GIURISDIZIONE_DATI]"
+                                "[SETTORE_OT]"
+                                "[TIPOLOGIA_DATI]"
+                    { policy_template
+                        titolo "Policy per Procurement LLM-aware in OT/ICS"
+                        [ sezioni
+                            "Scopo e ambito applicazione"
+                            "Requisiti privacy e data residency"
+                            "Clausole sicurezza fornitore"
+                            "Diritti su SBOM e log"
+                            "Portabilità e lock-in prevention"
+                        [ placeholders_contesto
+                            "[ORGANIZZAZIONE]"
+                            "[SETTORE]"
+                            "[NORME_APPLICABILI]"
+                    { sop_template
+                        titolo "SOP per Audit Fornitori LLM-aware"
+                        [ step
+                            "Identificazione fornitore e soluzioni LLM utilizzate"
+                            "Verifica clausole contrattuali su privacy e sicurezza"
+                            "Raccolta evidenze su data residency e retention"
+                            "Valutazione conformità SDL e PSIRT"
+                            "Report finale e azioni correttive"
+                        [ registrazioni
+                            "Registro audit"
+                            "Checklist conformità"
+                            "Report azioni correttive"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili e validati"
+                            "Branch 'develop' per draft e revisioni"
+                            "Feature branch per clausole specifiche"
+                            "Pull request obbligatorie con review"
+                    { raci
+                        [ roles
+                            "SP (Sponsor)"
+                            "AO (Accountable Owner)"
+                            "SI (Security Implementer)"
+                            "OTSec (OT Security Team)"
+                        [ matrix
+                            {
+                                attivita "Definizione clausole contrattuali"
+                                SP "I"
+                                AO "A"
+                                SI "R"
+                                OTSec "C"
+                            {
+                                attivita "Audit fornitori"
+                                SP "C"
+                                AO "R"
+                                SI "A"
+                                OTSec "I"
+                            {
+                                attivita "Verifica conformità dati"
+                                SP "I"
+                                AO "C"
+                                SI "R"
+                                OTSec "A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Capitolato"
+                            "Policy"
+                            "SOP"
+                            "Checklist"
+                        [ audience_possibili
+                            "Executive"
+                            "Legale"
+                            "Tecnico OT"
+                            "Compliance Officer"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Alto (OT/ICS Expert)"
+                            "Medio (Compliance Manager)"
+                            "Basso (Executive)"
+                        [ vincoli
+                            "Conformità GDPR e NIS2"
+                            "Riferimenti a IEC 62443-4-1"
+                            "Inclusione clausole portabilità"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [TIPO_DOCUMENTO] per [AUDIENCE] con stile [STILE] e
+                            +b livello tecnico [LIVELLO]. Includi clausole su [ARGOMENTI] conformi a [NORME].
+                            +b Usa il contesto [CONTESTO]."
+                        prompt_esempio_articolo "Scrivi un articolo per Compliance Manager con stile formale e livello tecnico
+                            +b medio. Spiega l'importanza delle clausole LLM-aware nei capitolati OT, con
+                            +b focus su privacy e portabilità, conformi a GDPR e IEC 62443. Usa contesto
+                            +b industriale manifatturiero."
+                        prompt_esempio_slide "Crea una presentazione per Executive con stile sintetico e livello tecnico
+                            +b basso. Evidenzia i benefici delle clausole LLM-aware nei contratti OT per
+                            +b sicurezza e conformità. Riferimenti a NIS2. Contesto: azienda energetica."
+                        prompt_esempio_sop "Elabora una SOP per Tecnico OT con stile tecnico e livello tecnico alto.
+                            +b Descrivi i passi per audit fornitori LLM-aware, includendo verifica data
+                            +b residency e SBOM. Conformità a IEC 62443-4-1. Contesto: impianto chimico."
+                    [ checklist
+                        "Clausole privacy incluse nel contratto"
+                        "Data residency specificata"
+                        "Requisiti SBOM e log definiti"
+                        "Tempi retention e cancellazione garantiti"
+                        "Portabilità dati assicurata"
+                        "Audit periodici pianificati"
+                        "Conformità SDL 4-1 verificata"
+                        "Notifica incidenti entro 24/48 ore"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Settore industriale (es. manifatturiero, energetico)"
+                        "Giurisdizione dati applicabile"
+                        "Tipologia dati trattati (es. sensibili, operativi)"
+                        "Norme di riferimento (es. GDPR, NIS2)"
+                        "Dimensioni organizzazione"
+                        "Tipologia fornitore (es. cloud, hardware)"
+                    [ avvertenze
+                        "Verificare conformità legale clausole con giurisdizione applicabile"
+                        "Assicurare che i fornitori forniscano documentazione SBOM aggiornata"
+                        "Monitorare rischi lock-in in assenza di portabilità dati"
+                        "Considerare impatto operativo di audit frequenti su fornitori"

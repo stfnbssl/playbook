@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Renderer JSON → Reveal.js</title>
+
+  <!-- Reveal.js core CSS (CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css" />
+  <!-- Reveal.js theme (choose one, e.g. black) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/black.min.css" />
+  <!-- Highlight plugin CSS for code blocks -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" />
+
+  <style>
+    /* Utilità e reset minimi */
+    :root {
+      --json-bg: #0d1117;
+      --json-text: #e6edf3;
+    }
+    body { background: var(--json-bg); color: var(--json-text); }
+    .reveal { color: var(--json-text); }
+    .reveal-viewport { background: var(--json-bg); }
+
+    /* Contenitore interno per ogni slide che gestisce layout/absolute */
+    .slide-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Supporto object-fit per immagini/video */
+    .fit-cover { object-fit: cover; }
+    .fit-contain { object-fit: contain; }
+    .fit-fill { object-fit: fill; }
+    .fit-none { object-fit: none; }
+    .fit-scale-down { object-fit: scale-down; }
+
+    /* Animazioni base mappate dal modello */
+    @keyframes kf-fade-in { from { opacity: 0 } to { opacity: 1 } }
+    @keyframes kf-slide-up { from { transform: translateY(20px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+    @keyframes kf-slide-down { from { transform: translateY(-20px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+    @keyframes kf-slide-left { from { transform: translateX(20px); opacity: 0 } to { transform: translateX(0); opacity: 1 } }
+    @keyframes kf-slide-right { from { transform: translateX(-20px); opacity: 0 } to { transform: translateX(0); opacity: 1 } }
+    @keyframes kf-zoom-in { from { transform: scale(0.95); opacity: 0 } to { transform: scale(1); opacity: 1 } }
+    @keyframes kf-zoom-out { from { transform: scale(1.05); opacity: 0 } to { transform: scale(1); opacity: 1 } }
+    @keyframes kf-rotate-in { from { transform: rotate(-6deg); opacity: 0 } to { transform: rotate(0); opacity: 1 } }
+  </style>
+</head>
+<body>
+  <!-- Piccola toolbar per caricare un JSON esterno a runtime -->
+  <div style="position: fixed; z-index: 9999; left: 10px; top: 10px; background: rgba(0,0,0,.4); padding: 8px 10px; border-radius: 8px; font: 14px/1.2 system-ui;">
+    <label style="cursor:pointer;">
+      <input id="fileInput" type="file" accept="application/json" style="display:none" />
+      <span>📂 Carica JSON…</span>
+    </label>
+    <button id="btnExport" style="margin-left:8px;">⬇️ Esporta HTML</button>
+  </div>
+
+  <div class="reveal">
+    <div class="slides" id="slides-root"></div>
+  </div>
+
+  <!-- Reveal.js core + plugins (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/highlight/highlight.min.js"></script>
+
+  <script>
+    // ✅ Incolla qui sotto il tuo JSON di presentazione tra i backticks se vuoi un esempio inline
+    const INLINE_PRESENTATION_JSON = `{
+      "schema_version": "1.0.0",
+      "meta": {"title": "Esempio Reveal via JSON", "author": "Demo"},
+      "theme": {
+        "colors": {"background": "#0d1117", "text": "#e6edf3", "primary": "#58a6ff", "secondary": "#8b949e", "accent": "#d2a8ff"},
+        "fonts": {"base": {"family": "Inter, system-ui, sans-serif", "size": "18px", "lineHeight": 1.5}, "heading": {"family":"Poppins, sans-serif"}, "code": {"family":"JetBrains Mono, monospace"}}
+      },
+      "slideDefaults": {
+        "size": {"width": 1280, "height": 720, "margin": 0.04},
+        "transition": "slide",
+        "autoSlideMs": 0,
+        "showProgress": true,
+        "showSlideNumber": true,
+        "background": {"type":"color", "color":"#0d1117"},
+        "layout": {"mode": "none"}
+      },
+      "slides": [
+        {"id":"s1","title":"Benvenuti","layout":{"mode":"flex","flex":{"direction":"column","alignItems":"center","justifyContent":"center","gap":16}},"elements":[
+          {"id":"h1","type":"heading","position":{"kind":"layout","preset":"flex-center","order":1},"style":{"fontSize":"64px","fontWeight":700,"textAlign":"center"},"animations":[{"name":"fade-in","durationMs":600}],"content":{"text":"Presentazione JSON → Reveal.js","level":1}},
+          {"id":"p1","type":"text","position":{"kind":"layout","preset":"flex-center","order":2},"style":{"fontSize":"28px","color":"#8b949e","textAlign":"center"},"animations":[{"name":"slide-up","durationMs":400,"delayMs":120}],"content":{"text":"Formato modulare con layout flex/grid e posizionamento assoluto","format":"plain"}}
+        ]},
+        {"id":"s2","title":"Agenda","layout":{"mode":"grid","grid":{"columns":"1fr 1fr","rows":"auto","areas":[["left","right"]],"gap":24}},"elements":[
+          {"id":"list","type":"list","position":{"kind":"layout","preset":"grid-area","area":"left"},"style":{"fontSize":"24px"},"content":{"items":["Schema globale","Elementi supportati","Animazioni","Background"]}},
+          {"id":"img","type":"image","position":{"kind":"layout","preset":"grid-area","area":"right"},"style":{"borderRadius":"12px","boxShadow":"0 8px 24px rgba(0,0,0,0.35)"},"content":{"src":"https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80","alt":"Unsplash demo","fit":"cover"}}
+        ]},
+        {"id":"s3","title":"Codice","elements":[
+          {"id":"code","type":"code","position":{"kind":"absolute","x":80,"y":80,"width":1120,"height":520},"style":{"fontFamily":"JetBrains Mono, monospace","fontSize":"16px","backgroundColor":"#0b1220","padding":"16px","borderRadius":"12px"},"content":{"language":"bash","code":"echo 'Hello Reveal via JSON'","lineNumbers":false}}
+        ]}
+      ]
+    }`;
+
+    // Utilità: camelCase → CSS property name
+    const cssName = (k) => k.replace(/([A-Z])/g, '-$1').toLowerCase();
+
+    // Applica oggetto style JS/CSS-like a un elemento
+    function applyStyle(el, style) {
+      if (!style) return;
+      for (const [k, v] of Object.entries(style)) {
+        const prop = cssName(k);
+        let val = v;
+        if (typeof v === 'number' && /(width|height|left|top|right|bottom|font-size|margin|padding|gap|border-radius|line-height|letter-spacing)/.test(prop)) {
+          val = v + 'px';
+        }
+        el.style.setProperty(prop, val);
+      }
+    }
+
+    // Costruisce stringhe per multiple animations CSS a partire dal modello
+    function applyAnimations(el, animations = []) {
+      if (!animations.length) return;
+      const names = [];
+      const durations = [];
+      const delays = [];
+      const easings = [];
+      const fillModes = [];
+      const iters = [];
+      for (const a of animations) {
+        const map = {
+          'fade-in': 'kf-fade-in', 'slide-up': 'kf-slide-up', 'slide-down': 'kf-slide-down',
+          'slide-left': 'kf-slide-left', 'slide-right': 'kf-slide-right', 'zoom-in': 'kf-zoom-in',
+          'zoom-out': 'kf-zoom-out', 'rotate-in': 'kf-rotate-in'
+        };
+        names.push(map[a.name] || '');
+        durations.push(((a.durationMs ?? 600) / 1000) + 's');
+        delays.push(((a.delayMs ?? 0) / 1000) + 's');
+        easings.push(a.easing || 'ease');
+        fillModes.push(a.fillMode || 'both');
+        iters.push(String(a.iterationCount || 1));
+      }
+      el.style.animationName = names.join(',');
+      el.style.animationDuration = durations.join(',');
+      el.style.animationDelay = delays.join(',');
+      el.style.animationTimingFunction = easings.join(',');
+      el.style.animationFillMode = fillModes.join(',');
+      el.style.animationIterationCount = iters.join(',');
+    }
+
+    // Markdown semplicissimo (bold/italic/link/linebreak)
+    function simpleMarkdownToHTML(text) {
+      if (!text) return '';
+      return text
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.+?)\*/g, '<em>$1</em>')
+        .replace(/\[(.+?)\]\((https?:[^\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+        .replace(/\n/g, '<br/>');
+    }
+
+    function createElementFromSpec(spec) {
+      const { type, position, style, animations, visible, ariaLabel } = spec;
+      let el;
+
+      function setCommon(elm) {
+        applyStyle(elm, style);
+        if (ariaLabel) elm.setAttribute('aria-label', ariaLabel);
+        if (visible === false) elm.style.display = 'none';
+        applyAnimations(elm, animations);
+        // Posizionamento
+        if (position?.kind === 'absolute') {
+          elm.style.position = 'absolute';
+          if (position.x != null) elm.style.left = position.x + 'px';
+          if (position.y != null) elm.style.top = position.y + 'px';
+          if (position.width != null) elm.style.width = position.width + 'px';
+          if (position.height != null) elm.style.height = position.height + 'px';
+          if (position.zIndex != null) elm.style.zIndex = String(position.zIndex);
+        } else if (position?.kind === 'layout') {
+          if (position.order != null) elm.style.order = String(position.order);
+          if (position.alignSelf) elm.style.alignSelf = position.alignSelf;
+          if (position.justifySelf) elm.style.justifySelf = position.justifySelf;
+          if (position.preset === 'grid-area' && position.area) elm.style.gridArea = position.area;
+        }
+      }
+
+      switch (type) {
+        case 'heading': {
+          const level = Math.min(Math.max(spec.content.level || 2, 1), 6);
+          el = document.createElement('h' + level);
+          el.textContent = spec.content.text || '';
+          setCommon(el);
+          return el;
+        }
+        case 'text': {
+          el = document.createElement('div');
+          const { text, format } = spec.content || {};
+          if (format === 'markdown') {
+            el.innerHTML = simpleMarkdownToHTML(text || '');
+          } else {
+            el.textContent = text || '';
+          }
+          setCommon(el);
+          return el;
+        }
+        case 'list': {
+          const ordered = !!(spec.content && spec.content.ordered);
+          el = document.createElement(ordered ? 'ol' : 'ul');
+          (spec.content?.items || []).forEach(it => {
+            const li = document.createElement('li');
+            li.textContent = String(it);
+            el.appendChild(li);
+          });
+          setCommon(el);
+          return el;
+        }
+        case 'image': {
+          el = document.createElement('img');
+          el.src = spec.content.src;
+          if (spec.content.alt) el.alt = spec.content.alt;
+          const fit = spec.content.fit ? 'fit-' + spec.content.fit.replace(/_/g, '-') : '';
+          if (fit) el.classList.add(fit);
+          el.style.width = '100%';
+          el.style.height = '100%';
+          setCommon(el);
+          return el;
+        }
+        case 'code': {
+          const pre = document.createElement('pre');
+          const code = document.createElement('code');
+          const lang = spec.content.language || '';
+          if (lang) code.classList.add('language-' + lang);
+          code.textContent = spec.content.code || '';
+          pre.appendChild(code);
+          setCommon(pre);
+          return pre;
+        }
+        case 'table': {
+          el = document.createElement('table');
+          const thead = document.createElement('thead');
+          const trh = document.createElement('tr');
+          (spec.content.headers || []).forEach(h => {
+            const th = document.createElement('th');
+            th.textContent = h;
+            trh.appendChild(th);
+          });
+          thead.appendChild(trh);
+          el.appendChild(thead);
+          const tbody = document.createElement('tbody');
+          (spec.content.rows || []).forEach(row => {
+            const tr = document.createElement('tr');
+            row.forEach(cell => {
+              const td = document.createElement('td');
+              td.textContent = String(cell);
+              tr.appendChild(td);
+            });
+            tbody.appendChild(tr);
+          });
+          el.appendChild(tbody);
+          setCommon(el);
+          return el;
+        }
+        case 'video': {
+          el = document.createElement('video');
+          el.src = spec.content.src;
+          if (spec.content.controls) el.controls = true;
+          if (spec.content.autoplay) el.autoplay = true;
+          if (spec.content.loop) el.loop = true;
+          if (spec.content.muted) el.muted = true;
+          el.style.width = '100%';
+          el.style.height = '100%';
+          setCommon(el);
+          return el;
+        }
+        case 'iframe': {
+          el = document.createElement('iframe');
+          el.src = spec.content.src;
+          el.title = spec.content.title || 'iframe';
+          if (spec.content.sandbox) el.setAttribute('sandbox', spec.content.sandbox);
+          el.style.width = '100%';
+          el.style.height = '100%';
+          setCommon(el);
+          return el;
+        }
+        default: {
+          const div = document.createElement('div');
+          div.textContent = `[Elemento non supportato: ${type}]`;
+          setCommon(div);
+          return div;
+        }
+      }
+    }
+
+    function setSlideBackground(section, bg) {
+      if (!bg) return;
+      if (bg.type === 'color') {
+        section.setAttribute('data-background-color', bg.color);
+      } else if (bg.type === 'image') {
+        section.setAttribute('data-background-image', bg.src);
+        if (bg.size) section.setAttribute('data-background-size', bg.size);
+        if (bg.position) section.setAttribute('data-background-position', bg.position);
+        if (bg.opacity != null) section.setAttribute('data-background-opacity', String(bg.opacity));
+      } else if (bg.type === 'video') {
+        section.setAttribute('data-background-video', bg.src);
+        if (bg.loop) section.setAttribute('data-background-video-loop', 'true');
+        if (bg.muted) section.setAttribute('data-background-video-muted', 'true');
+        if (bg.autoplay) section.setAttribute('data-background-video-autoplay', 'true');
+      } else if (bg.type === 'gradient') {
+        const angle = bg.angle != null ? bg.angle : 180;
+        const stops = (bg.stops || []).map(s => `${s.color} ${s.position ?? 0}%`).join(', ');
+        section.style.background = `${bg.kind === 'radial' ? 'radial-gradient' : 'linear-gradient'}(${bg.kind === 'radial' ? '' : angle + 'deg'}, ${stops})`;
+      }
+    }
+
+    function applySlideLayout(container, layout) {
+      if (!layout || layout.mode === 'none') return;
+      if (layout.mode === 'flex') {
+        const f = layout.flex || {};
+        container.style.display = 'flex';
+        container.style.flexDirection = f.direction || 'row';
+        container.style.alignItems = f.alignItems || 'stretch';
+        container.style.justifyContent = f.justifyContent || 'start';
+        if (f.gap != null) container.style.gap = (typeof f.gap === 'number' ? f.gap + 'px' : f.gap);
+      } else if (layout.mode === 'grid') {
+        const g = layout.grid || {};
+        container.style.display = 'grid';
+        if (g.columns) container.style.gridTemplateColumns = g.columns;
+        if (g.rows) container.style.gridTemplateRows = g.rows;
+        if (Array.isArray(g.areas) && g.areas.length) {
+          container.style.gridTemplateAreas = g.areas.map(r => '"' + r.join(' ') + '"').join(' ');
+        }
+        if (g.gap != null) container.style.gap = (typeof g.gap === 'number' ? g.gap + 'px' : g.gap);
+      }
+    }
+
+    function buildSlides(pres) {
+      // Temi globali
+      if (pres.theme?.colors) {
+        if (pres.theme.colors.background) document.documentElement.style.setProperty('--json-bg', pres.theme.colors.background);
+        if (pres.theme.colors.text) document.documentElement.style.setProperty('--json-text', pres.theme.colors.text);
+      }
+      if (pres.theme?.fonts?.base?.family) {
+        document.documentElement.style.setProperty('--json-font-base', pres.theme.fonts.base.family);
+        document.querySelector('.reveal').style.fontFamily = pres.theme.fonts.base.family;
+      }
+
+      const slidesRoot = document.getElementById('slides-root');
+      slidesRoot.innerHTML = '';
+
+      for (const s of pres.slides) {
+        const section = document.createElement('section');
+        if (s.title) section.setAttribute('data-name', s.title);
+        if (s.transition) section.setAttribute('data-transition', s.transition);
+        if (s.timing?.autoAdvanceMs != null) section.setAttribute('data-autoslide', String(s.timing.autoAdvanceMs));
+        setSlideBackground(section, s.background || pres.slideDefaults?.background);
+
+        const inner = document.createElement('div');
+        inner.className = 'slide-inner';
+        applySlideLayout(inner, s.layout || pres.slideDefaults?.layout);
+
+        // Aggiungi elementi
+        (s.elements || []).forEach(elSpec => {
+          const node = createElementFromSpec(elSpec);
+          inner.appendChild(node);
+        });
+
+        // Speaker notes (Reveal supporta <aside class="notes">)
+        if (s.notes) {
+          const notes = document.createElement('aside');
+          notes.className = 'notes';
+          notes.textContent = s.notes;
+          section.appendChild(notes);
+        }
+
+        section.appendChild(inner);
+        slidesRoot.appendChild(section);
+      }
+    }
+
+    function initRevealFromPresentation(pres) {
+      buildSlides(pres);
+      const defaults = pres.slideDefaults || {};
+      const size = defaults.size || {};
+      const deck = new Reveal({
+        hash: true,
+        width: size.width || 1280,
+        height: size.height || 720,
+        margin: (typeof size.margin === 'number') ? size.margin : 0.04,
+        transition: defaults.transition || 'slide',
+        progress: defaults.showProgress !== false,
+        slideNumber: !!defaults.showSlideNumber,
+        autoSlide: defaults.autoSlideMs || 0,
+        plugins: [ RevealHighlight ]
+      });
+      deck.initialize();
+    }
+
+    function loadPresentationFromJSON(jsonText) {
+  const pres = JSON.parse(jsonText);
+  // memorizza il JSON corrente per l'esportazione
+  window.__CURRENT_JSON_TEXT = jsonText;
+  initRevealFromPresentation(pres);
+}
+
+    // Export: genera un HTML autosufficiente con il JSON incorporato
+    function exportSelfContained(jsonText) {
+  let packed;
+  try { packed = JSON.stringify(JSON.parse(jsonText)); }
+  catch (e) { alert('JSON non valido per export: ' + e.message); return; }
+
+  const cssLinks = Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
+    .map(l => `<link rel="stylesheet" href="${l.href}">`).join('');
+  const styles = Array.from(document.querySelectorAll('style'))
+    .map(s => `<style>${s.innerHTML.replace(/<\/style>/g,'<\/style>')}</style>`).join('');
+  const revealHTML = document.querySelector('.reveal').outerHTML;
+  const scripts = Array.from(document.querySelectorAll('script[src]'))
+    .map(s => `<script src="${s.src}"></script>`).join('');
+
+  const boot = `
+<script>
+const __PACKED_JSON__ = ${packed};
+const applyStyle = ${applyStyle.toString()};
+const cssName = ${cssName.toString()};
+const simpleMarkdownToHTML = ${simpleMarkdownToHTML.toString()};
+const createElementFromSpec = ${createElementFromSpec.toString()};
+const setSlideBackground = ${setSlideBackground.toString()};
+const applySlideLayout = ${applySlideLayout.toString()};
+const buildSlides = ${buildSlides.toString()};
+const initRevealFromPresentation = ${initRevealFromPresentation.toString()};
+initRevealFromPresentation(__PACKED_JSON__);
+</script>`;
+
+  const html = `<!doctype html><html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Presentazione Reveal (pacchettizzata)</title>
+${cssLinks}${styles}
+</head><body>
+${revealHTML}
+${scripts}
+${boot}
+</body></html>`;
+
+  const blob = new Blob([html], { type: 'text/html' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'presentazione-reveal.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'presentazione-reveal.html';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+
+    // Inizializza con l'esempio inline
+    try { loadPresentationFromJSON(INLINE_PRESENTATION_JSON); } catch (e) { console.error(e); }
+
+    // Gestione UI: caricamento file
+    document.getElementById('fileInput').addEventListener('change', (ev) => {
+      const file = ev.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try { loadPresentationFromJSON(String(reader.result)); }
+        catch (e) { alert('JSON non valido: ' + e.message); }
+      };
+      reader.readAsText(file);
+    });
+
+    // Esportazione
+    document.getElementById('btnExport').addEventListener('click', () => {
+  try { exportSelfContained(window.__CURRENT_JSON_TEXT || INLINE_PRESENTATION_JSON); }
+  catch (e) { alert('Impossibile esportare: ' + e.message); }
+});
+  </script>
+</body>
+</html>

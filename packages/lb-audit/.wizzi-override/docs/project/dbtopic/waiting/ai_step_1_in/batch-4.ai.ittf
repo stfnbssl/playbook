@@ -1,0 +1,288 @@
+ai dbtopic.step_1
+    api-url http://localhost:3000
+    call **KPI & Metriche**
+        llm_service grok
+        llm_model grok-3
+        max_tokens 8192
+        temperature 0.2
+        description normative_e_standard - **KPI & Metriche**
+        message 
+            role system
+            content 
+                \n Sei un assistente che genera SOLO JSON UTF-8 valido, senza testo fuori dal JSON.
+                \n Sei un esperto di cybersecurity in contesto OT/ICS
+                \n Conosci particolarmente bene lo standard di sicurezza IEC 62443.
+                \n Conosci anche IEC 27001/2, Nis2, CRA, Direttiva macchine 2006, Registro Macchine 2023 e GDPR 2016.
+        message 
+            role user
+            content 
+                \n Genera il “DB Argomenti” seguendo lo schema richiesto. Parametri:
+                \n meta:
+                \n db_name: "DB Argomenti OT/ICS Cybersecurity"
+                \n version: "0.1"
+                \n language: "it-IT"
+                \n notes: "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con placeholders di contesto."
+                \n ambito:
+                \n id: "cap/3"
+                \n nome: "Governance e Security Program (IEC 62443-2-1, -2-3, -2-4)"
+                \n sezione:
+                \n id: "cap/3/3.7"
+                \n nome: "**KPI & Metriche**"
+                \n descrizione:
+                    \n **Cosa misurare**
+                    \n * % **asset inventariati/classificati** per zona.
+                    \n * % zone con **SL‑Target** approvati e verificati.
+                    \n * **Patch coverage** per criticità; **TTR** mediano.
+                    \n * % **sessioni remote** registrate con **MFA**; tempo medio di approvazione.
+                    \n * **MTTD/MTTR** (tempo di rilevazione/ripristino) eventi OT; % **backup/restore** testati.
+                    \n * % **fornitori qualificati** (SDL/PSIRT) in procurement.
+                    \n **Come raccoglierli (senza dati sensibili)**
+                    \n Contatori **aggregati** per zona; no IP/host; conservare **evidenze** (log, ticket, report). Campionare mensilmente e visualizzare **trend**.
+                    \n * Pochi KPI, **stabili** e ripetibili.
+                    \n * Misura → priorità → azione → **verifica**.
+                    \n * I KPI guidano la roadmap, non viceversa.
+                \n safety:
+                    \n La raccolta log non deve impattare **latenza** o **affidabilità** dei sistemi di controllo.
+                \n prompt_base:
+                    \n Elenca 6 KPI misurabili e spiega come raccoglierli senza esporre dati sensibili.
+                \n Popola questo schema
+                \n <output_schema>
+                \n {"$schema":"http://json-schema.org/draft-07/schema#","type":"object","additionalProperties":false,"required":["meta","ambito"],"properties":{"meta":{"type":"object","additionalProperties":false,"required":["db_name","version","last_updated","language","notes"],"properties":{"db_name":{"type":"string"},"version":{"type":"string"},"last_updated":{"type":"string"},"language":{"type":"string"},"notes":{"type":"string"}}},"ambito":{"type":"object","additionalProperties":false,"required":["id","nome","ruolo","descrizione","sezioni"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"ruolo":{"type":"string"},"norme_riferimento":{"type":"array","items":{"type":"string"}},"descrizione":{"type":"string"},"sezioni":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/sezione"}}}}},"$defs":{"sezione":{"type":"object","additionalProperties":false,"required":["id","nome","obiettivo","output_attesi","prompt_base","aspetti_di_sicurezza","policy_template","sop_template","repo_branching_model","raci","parametri_generazione","prompting","checklist","campi_contesto_richiesti_per_la_contestualizzazione","avvertenze"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"obiettivo":{"type":"object","additionalProperties":false,"required":["codice","descrizione"],"properties":{"codice":{"type":"string"},"descrizione":{"type":"string"}}},"output_attesi":{"type":"array","items":{"type":"string"}},"prompt_base":{"type":"string"},"aspetti_di_sicurezza":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/aspetto"}},"policy_template":{"$ref":"#/$defs/policy_template"},"sop_template":{"$ref":"#/$defs/sop_template"},"repo_branching_model":{"type":"object","additionalProperties":false,"required":["modello","regole"],"properties":{"modello":{"type":"string"},"regole":{"type":"array","items":{"type":"string"}}}},"raci":{"type":"object","additionalProperties":false,"required":["roles","matrix"],"properties":{"roles":{"type":"array","minItems":1,"items":{"type":"string"}},"matrix":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["attivita"],"properties":{"attivita":{"type":"string"},"SP":{"type":"string"},"AO":{"type":"string"},"SI":{"type":"string"},"OTSec":{"type":"string"}}}}}},"parametri_generazione":{"type":"object","additionalProperties":false,"required":["tipi_documento_supportati","audience_possibili","stili","livello_tecnico","vincoli"],"properties":{"tipi_documento_supportati":{"type":"array","items":{"type":"string"}},"audience_possibili":{"type":"array","items":{"type":"string"}},"stili":{"type":"array","items":{"type":"string"}},"livello_tecnico":{"type":"array","items":{"type":"string"}},"vincoli":{"type":"array","items":{"type":"string"}}}},"prompting":{"type":"object","additionalProperties":false,"required":["prompt_template_generico","prompt_esempio_articolo","prompt_esempio_slide","prompt_esempio_sop"],"properties":{"prompt_template_generico":{"type":"string"},"prompt_esempio_articolo":{"type":"string"},"prompt_esempio_slide":{"type":"string"},"prompt_esempio_sop":{"type":"string"}}},"checklist":{"type":"array","items":{"type":"string"}},"campi_contesto_richiesti_per_la_contestualizzazione":{"type":"array","items":{"type":"string"}},"avvertenze":{"type":"array","items":{"type":"string"}}}},"aspetto":{"type":"object","additionalProperties":false,"required":["id","titolo","descrizione_astratta","rischi_mitigati","pratiche_raccomandate","metriche_kpi","artefatti","placeholders_contesto"],"properties":{"id":{"type":"string"},"titolo":{"type":"string"},"descrizione_astratta":{"type":"string"},"rischi_mitigati":{"type":"array","items":{"type":"string"}},"pratiche_raccomandate":{"type":"array","items":{"type":"string"}},"metriche_kpi":{"type":"array","items":{"type":"string"}},"artefatti":{"type":"object","additionalProperties":false,"required":["procedure","registri","evidenze"],"properties":{"procedure":{"type":"array","items":{"type":"string"}},"registri":{"type":"array","items":{"type":"string"}},"evidenze":{"type":"array","items":{"type":"string"}}}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"policy_template":{"type":"object","additionalProperties":false,"required":["titolo","sezioni","placeholders_contesto"],"properties":{"titolo":{"type":"string"},"sezioni":{"type":"array","items":{"type":"string"}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"sop_template":{"type":"object","additionalProperties":false,"required":["titolo","step","registrazioni"],"properties":{"titolo":{"type":"string"},"step":{"type":"array","items":{"type":"string"}},"registrazioni":{"type":"array","items":{"type":"string"}}}}}}
+                \n </output_schema>
+    call **Roadmap 30/90/180 gg**
+        llm_service grok
+        llm_model grok-3
+        max_tokens 8192
+        temperature 0.2
+        description normative_e_standard - **Roadmap 30/90/180 gg**
+        message 
+            role system
+            content 
+                \n Sei un assistente che genera SOLO JSON UTF-8 valido, senza testo fuori dal JSON.
+                \n Sei un esperto di cybersecurity in contesto OT/ICS
+                \n Conosci particolarmente bene lo standard di sicurezza IEC 62443.
+                \n Conosci anche IEC 27001/2, Nis2, CRA, Direttiva macchine 2006, Registro Macchine 2023 e GDPR 2016.
+        message 
+            role user
+            content 
+                \n Genera il “DB Argomenti” seguendo lo schema richiesto. Parametri:
+                \n meta:
+                \n db_name: "DB Argomenti OT/ICS Cybersecurity"
+                \n version: "0.1"
+                \n language: "it-IT"
+                \n notes: "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con placeholders di contesto."
+                \n ambito:
+                \n id: "cap/3"
+                \n nome: "Governance e Security Program (IEC 62443-2-1, -2-3, -2-4)"
+                \n sezione:
+                \n id: "cap/3/3.8"
+                \n nome: "**Roadmap 30/90/180 gg**"
+                \n descrizione:
+                \n prompt_base:
+                    \n Compila la roadmap 30/90/180 gg con owner, dipendenze e criteri di successo.
+                \n Popola questo schema
+                \n <output_schema>
+                \n {"$schema":"http://json-schema.org/draft-07/schema#","type":"object","additionalProperties":false,"required":["meta","ambito"],"properties":{"meta":{"type":"object","additionalProperties":false,"required":["db_name","version","last_updated","language","notes"],"properties":{"db_name":{"type":"string"},"version":{"type":"string"},"last_updated":{"type":"string"},"language":{"type":"string"},"notes":{"type":"string"}}},"ambito":{"type":"object","additionalProperties":false,"required":["id","nome","ruolo","descrizione","sezioni"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"ruolo":{"type":"string"},"norme_riferimento":{"type":"array","items":{"type":"string"}},"descrizione":{"type":"string"},"sezioni":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/sezione"}}}}},"$defs":{"sezione":{"type":"object","additionalProperties":false,"required":["id","nome","obiettivo","output_attesi","prompt_base","aspetti_di_sicurezza","policy_template","sop_template","repo_branching_model","raci","parametri_generazione","prompting","checklist","campi_contesto_richiesti_per_la_contestualizzazione","avvertenze"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"obiettivo":{"type":"object","additionalProperties":false,"required":["codice","descrizione"],"properties":{"codice":{"type":"string"},"descrizione":{"type":"string"}}},"output_attesi":{"type":"array","items":{"type":"string"}},"prompt_base":{"type":"string"},"aspetti_di_sicurezza":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/aspetto"}},"policy_template":{"$ref":"#/$defs/policy_template"},"sop_template":{"$ref":"#/$defs/sop_template"},"repo_branching_model":{"type":"object","additionalProperties":false,"required":["modello","regole"],"properties":{"modello":{"type":"string"},"regole":{"type":"array","items":{"type":"string"}}}},"raci":{"type":"object","additionalProperties":false,"required":["roles","matrix"],"properties":{"roles":{"type":"array","minItems":1,"items":{"type":"string"}},"matrix":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["attivita"],"properties":{"attivita":{"type":"string"},"SP":{"type":"string"},"AO":{"type":"string"},"SI":{"type":"string"},"OTSec":{"type":"string"}}}}}},"parametri_generazione":{"type":"object","additionalProperties":false,"required":["tipi_documento_supportati","audience_possibili","stili","livello_tecnico","vincoli"],"properties":{"tipi_documento_supportati":{"type":"array","items":{"type":"string"}},"audience_possibili":{"type":"array","items":{"type":"string"}},"stili":{"type":"array","items":{"type":"string"}},"livello_tecnico":{"type":"array","items":{"type":"string"}},"vincoli":{"type":"array","items":{"type":"string"}}}},"prompting":{"type":"object","additionalProperties":false,"required":["prompt_template_generico","prompt_esempio_articolo","prompt_esempio_slide","prompt_esempio_sop"],"properties":{"prompt_template_generico":{"type":"string"},"prompt_esempio_articolo":{"type":"string"},"prompt_esempio_slide":{"type":"string"},"prompt_esempio_sop":{"type":"string"}}},"checklist":{"type":"array","items":{"type":"string"}},"campi_contesto_richiesti_per_la_contestualizzazione":{"type":"array","items":{"type":"string"}},"avvertenze":{"type":"array","items":{"type":"string"}}}},"aspetto":{"type":"object","additionalProperties":false,"required":["id","titolo","descrizione_astratta","rischi_mitigati","pratiche_raccomandate","metriche_kpi","artefatti","placeholders_contesto"],"properties":{"id":{"type":"string"},"titolo":{"type":"string"},"descrizione_astratta":{"type":"string"},"rischi_mitigati":{"type":"array","items":{"type":"string"}},"pratiche_raccomandate":{"type":"array","items":{"type":"string"}},"metriche_kpi":{"type":"array","items":{"type":"string"}},"artefatti":{"type":"object","additionalProperties":false,"required":["procedure","registri","evidenze"],"properties":{"procedure":{"type":"array","items":{"type":"string"}},"registri":{"type":"array","items":{"type":"string"}},"evidenze":{"type":"array","items":{"type":"string"}}}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"policy_template":{"type":"object","additionalProperties":false,"required":["titolo","sezioni","placeholders_contesto"],"properties":{"titolo":{"type":"string"},"sezioni":{"type":"array","items":{"type":"string"}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"sop_template":{"type":"object","additionalProperties":false,"required":["titolo","step","registrazioni"],"properties":{"titolo":{"type":"string"},"step":{"type":"array","items":{"type":"string"}},"registrazioni":{"type":"array","items":{"type":"string"}}}}}}
+                \n </output_schema>
+    call **Artefatti & Evidenze** (checklist)
+        llm_service grok
+        llm_model grok-3
+        max_tokens 8192
+        temperature 0.2
+        description normative_e_standard - **Artefatti & Evidenze** (checklist)
+        message 
+            role system
+            content 
+                \n Sei un assistente che genera SOLO JSON UTF-8 valido, senza testo fuori dal JSON.
+                \n Sei un esperto di cybersecurity in contesto OT/ICS
+                \n Conosci particolarmente bene lo standard di sicurezza IEC 62443.
+                \n Conosci anche IEC 27001/2, Nis2, CRA, Direttiva macchine 2006, Registro Macchine 2023 e GDPR 2016.
+        message 
+            role user
+            content 
+                \n Genera il “DB Argomenti” seguendo lo schema richiesto. Parametri:
+                \n meta:
+                \n db_name: "DB Argomenti OT/ICS Cybersecurity"
+                \n version: "0.1"
+                \n language: "it-IT"
+                \n notes: "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con placeholders di contesto."
+                \n ambito:
+                \n id: "cap/3"
+                \n nome: "Governance e Security Program (IEC 62443-2-1, -2-3, -2-4)"
+                \n sezione:
+                \n id: "cap/3/3.9"
+                \n nome: "**Artefatti & Evidenze** (checklist)"
+                \n descrizione:
+                    \n * **Security Policy OT** e **Standard tecnici** (versionati).
+                    \n * **RACI** firmato e pubblicato.
+                    \n * **Registro asset** con classificazione e owner di zona.
+                    \n * **SL‑Target** per zona e mapping controlli **FR1–FR7**.
+                    \n * **Procedura accessi remoti** + **log/registrazioni** a supporto.
+                    \n * **Piano patch/vuln** con registro **eccezioni** e report esecuzione.
+                    \n * **Clausole procurement** (‑2‑4) e checklist qualifica fornitore.
+                    \n * **Charter PSIRT** e archivio **advisory**.
+                    \n * **Report KPI** mensile con trend e azioni correttive.
+                    \n ## Glossario minimo (per il capitolo)
+                    \n * **IACS/OT**: sistemi di automazione e controllo industriale; ambiente operativo di fabbrica/impianto.
+                    \n * **Zona (Zone)**: insieme di asset OT con profilo di rischio simile, separati logicamente da altre zone.
+                    \n * **Conduit**: canale di comunicazione **controllato** tra zone; filtra protocolli e direzioni dei flussi.
+                    \n * **SL — Security Level (SL0–SL4)**: obiettivo di robustezza **per requisito** e **per zona/conduit/asset**.
+                    \n * **FR — Foundational Requirements**: 7 aree di controllo: FR1 Identificazione & Autenticazione; FR2 Uso controllato; FR3 Integrità; FR4 Riservatezza; FR5 Restrizione dei flussi; FR6 Risposta agli eventi; FR7 Disponibilità & Ripristino.
+                    \n * **DMZ (zona demilitarizzata industriale)**: area cuscinetto tra IT e OT con controlli di scambio dati.
+                    \n * **PSIRT**: team per la gestione coordinata delle vulnerabilità di prodotto e la pubblicazione di advisory.
+                    \n * **SBOM**: distinta dei componenti software di un prodotto.
+                    \n * **SOC**: centro operativo di sicurezza che monitora e risponde agli eventi.
+                    \n * **MFA**: autenticazione a più fattori.
+                    \n * **Whitelisting**: consentire **solo** protocolli/indirizzi autorizzati (tutto il resto è bloccato).
+                    \n ### sys_source https://chatgpt.com/c/68b73c35-0298-8328-a7b9-76f473241645
+                \n Popola questo schema
+                \n <output_schema>
+                \n {"$schema":"http://json-schema.org/draft-07/schema#","type":"object","additionalProperties":false,"required":["meta","ambito"],"properties":{"meta":{"type":"object","additionalProperties":false,"required":["db_name","version","last_updated","language","notes"],"properties":{"db_name":{"type":"string"},"version":{"type":"string"},"last_updated":{"type":"string"},"language":{"type":"string"},"notes":{"type":"string"}}},"ambito":{"type":"object","additionalProperties":false,"required":["id","nome","ruolo","descrizione","sezioni"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"ruolo":{"type":"string"},"norme_riferimento":{"type":"array","items":{"type":"string"}},"descrizione":{"type":"string"},"sezioni":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/sezione"}}}}},"$defs":{"sezione":{"type":"object","additionalProperties":false,"required":["id","nome","obiettivo","output_attesi","prompt_base","aspetti_di_sicurezza","policy_template","sop_template","repo_branching_model","raci","parametri_generazione","prompting","checklist","campi_contesto_richiesti_per_la_contestualizzazione","avvertenze"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"obiettivo":{"type":"object","additionalProperties":false,"required":["codice","descrizione"],"properties":{"codice":{"type":"string"},"descrizione":{"type":"string"}}},"output_attesi":{"type":"array","items":{"type":"string"}},"prompt_base":{"type":"string"},"aspetti_di_sicurezza":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/aspetto"}},"policy_template":{"$ref":"#/$defs/policy_template"},"sop_template":{"$ref":"#/$defs/sop_template"},"repo_branching_model":{"type":"object","additionalProperties":false,"required":["modello","regole"],"properties":{"modello":{"type":"string"},"regole":{"type":"array","items":{"type":"string"}}}},"raci":{"type":"object","additionalProperties":false,"required":["roles","matrix"],"properties":{"roles":{"type":"array","minItems":1,"items":{"type":"string"}},"matrix":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["attivita"],"properties":{"attivita":{"type":"string"},"SP":{"type":"string"},"AO":{"type":"string"},"SI":{"type":"string"},"OTSec":{"type":"string"}}}}}},"parametri_generazione":{"type":"object","additionalProperties":false,"required":["tipi_documento_supportati","audience_possibili","stili","livello_tecnico","vincoli"],"properties":{"tipi_documento_supportati":{"type":"array","items":{"type":"string"}},"audience_possibili":{"type":"array","items":{"type":"string"}},"stili":{"type":"array","items":{"type":"string"}},"livello_tecnico":{"type":"array","items":{"type":"string"}},"vincoli":{"type":"array","items":{"type":"string"}}}},"prompting":{"type":"object","additionalProperties":false,"required":["prompt_template_generico","prompt_esempio_articolo","prompt_esempio_slide","prompt_esempio_sop"],"properties":{"prompt_template_generico":{"type":"string"},"prompt_esempio_articolo":{"type":"string"},"prompt_esempio_slide":{"type":"string"},"prompt_esempio_sop":{"type":"string"}}},"checklist":{"type":"array","items":{"type":"string"}},"campi_contesto_richiesti_per_la_contestualizzazione":{"type":"array","items":{"type":"string"}},"avvertenze":{"type":"array","items":{"type":"string"}}}},"aspetto":{"type":"object","additionalProperties":false,"required":["id","titolo","descrizione_astratta","rischi_mitigati","pratiche_raccomandate","metriche_kpi","artefatti","placeholders_contesto"],"properties":{"id":{"type":"string"},"titolo":{"type":"string"},"descrizione_astratta":{"type":"string"},"rischi_mitigati":{"type":"array","items":{"type":"string"}},"pratiche_raccomandate":{"type":"array","items":{"type":"string"}},"metriche_kpi":{"type":"array","items":{"type":"string"}},"artefatti":{"type":"object","additionalProperties":false,"required":["procedure","registri","evidenze"],"properties":{"procedure":{"type":"array","items":{"type":"string"}},"registri":{"type":"array","items":{"type":"string"}},"evidenze":{"type":"array","items":{"type":"string"}}}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"policy_template":{"type":"object","additionalProperties":false,"required":["titolo","sezioni","placeholders_contesto"],"properties":{"titolo":{"type":"string"},"sezioni":{"type":"array","items":{"type":"string"}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"sop_template":{"type":"object","additionalProperties":false,"required":["titolo","step","registrazioni"],"properties":{"titolo":{"type":"string"},"step":{"type":"array","items":{"type":"string"}},"registrazioni":{"type":"array","items":{"type":"string"}}}}}}
+                \n </output_schema>
+    call Risk assessment & definizione **SL‑Target** (IEC 62443‑3‑2)
+        llm_service grok
+        llm_model grok-3
+        max_tokens 8192
+        temperature 0.2
+        description normative_e_standard - Risk assessment & definizione **SL‑Target** (IEC 62443‑3‑2)
+        message 
+            role system
+            content 
+                \n Sei un assistente che genera SOLO JSON UTF-8 valido, senza testo fuori dal JSON.
+                \n Sei un esperto di cybersecurity in contesto OT/ICS
+                \n Conosci particolarmente bene lo standard di sicurezza IEC 62443.
+                \n Conosci anche IEC 27001/2, Nis2, CRA, Direttiva macchine 2006, Registro Macchine 2023 e GDPR 2016.
+        message 
+            role user
+            content 
+                \n Genera il “DB Argomenti” seguendo lo schema richiesto. Parametri:
+                \n meta:
+                \n db_name: "DB Argomenti OT/ICS Cybersecurity"
+                \n version: "0.1"
+                \n language: "it-IT"
+                \n notes: "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con placeholders di contesto."
+                \n ambito:
+                \n id: "cap/4"
+                \n nome: "Ciclo di vita della sicurezza IACS (IEC 62443‑3‑2, ‑3‑3)"
+                \n sezione:
+                \n id: "cap/4/4.1"
+                \n nome: "Risk assessment & definizione **SL‑Target** (IEC 62443‑3‑2)"
+                \n descrizione:
+                    \n **Passi minimi**
+                    \n 1. **Inventario** asset e mappa **Zone & Conduits** (schizzo iniziale).
+                    \n 4. **Valutazione impatti** (safety, disponibilità, qualità, ambiente, legale).
+                    \n 3. **Minacce/scenari** per zona (inclusi accessi remoti/terze parti).
+                    \n 4. **Valore di rischio** (scala semplice, es. Basso/Medio/Alto) con criteri documentati.
+                    \n 5. **Derivazione SL‑Target** per **FR1–FR7** (tabella per zona).
+                    \n 6. **Eccezioni/compensazioni** (compensating controls) quando SL desiderato non è **OT‑feasible** (attuabile in OT).
+                    \n **Figure/Template (segnaposto)**
+                    \n * **Figura [section]**: esempio di mappa Zone/Conduits.
+                    \n * **Tabella [section]**: matrice **Zona × FR (SL‑Target)**.
+                    \n * **Template**: registro rischi con criteri di scoring.
+                \n obiettivo:
+                    \n Determinare gli **SL‑Target** per zone, conduits e (se necessario) asset, a partire dall’analisi del rischio sugli **IACS**.
+                \n output:
+                    \n Matrice **Zona × FR (SL‑Target)**, profili di minaccia per zona, registro rischi.
+                \n prompt_base:
+                    \n Scrivi 10–12 righe che spieghino come condurre il risk assessment 62443‑3‑2 e determinare gli **SL‑Target** (per FR/zone/conduits), con esempi di compensating controls.
+                \n Popola questo schema
+                \n <output_schema>
+                \n {"$schema":"http://json-schema.org/draft-07/schema#","type":"object","additionalProperties":false,"required":["meta","ambito"],"properties":{"meta":{"type":"object","additionalProperties":false,"required":["db_name","version","last_updated","language","notes"],"properties":{"db_name":{"type":"string"},"version":{"type":"string"},"last_updated":{"type":"string"},"language":{"type":"string"},"notes":{"type":"string"}}},"ambito":{"type":"object","additionalProperties":false,"required":["id","nome","ruolo","descrizione","sezioni"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"ruolo":{"type":"string"},"norme_riferimento":{"type":"array","items":{"type":"string"}},"descrizione":{"type":"string"},"sezioni":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/sezione"}}}}},"$defs":{"sezione":{"type":"object","additionalProperties":false,"required":["id","nome","obiettivo","output_attesi","prompt_base","aspetti_di_sicurezza","policy_template","sop_template","repo_branching_model","raci","parametri_generazione","prompting","checklist","campi_contesto_richiesti_per_la_contestualizzazione","avvertenze"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"obiettivo":{"type":"object","additionalProperties":false,"required":["codice","descrizione"],"properties":{"codice":{"type":"string"},"descrizione":{"type":"string"}}},"output_attesi":{"type":"array","items":{"type":"string"}},"prompt_base":{"type":"string"},"aspetti_di_sicurezza":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/aspetto"}},"policy_template":{"$ref":"#/$defs/policy_template"},"sop_template":{"$ref":"#/$defs/sop_template"},"repo_branching_model":{"type":"object","additionalProperties":false,"required":["modello","regole"],"properties":{"modello":{"type":"string"},"regole":{"type":"array","items":{"type":"string"}}}},"raci":{"type":"object","additionalProperties":false,"required":["roles","matrix"],"properties":{"roles":{"type":"array","minItems":1,"items":{"type":"string"}},"matrix":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["attivita"],"properties":{"attivita":{"type":"string"},"SP":{"type":"string"},"AO":{"type":"string"},"SI":{"type":"string"},"OTSec":{"type":"string"}}}}}},"parametri_generazione":{"type":"object","additionalProperties":false,"required":["tipi_documento_supportati","audience_possibili","stili","livello_tecnico","vincoli"],"properties":{"tipi_documento_supportati":{"type":"array","items":{"type":"string"}},"audience_possibili":{"type":"array","items":{"type":"string"}},"stili":{"type":"array","items":{"type":"string"}},"livello_tecnico":{"type":"array","items":{"type":"string"}},"vincoli":{"type":"array","items":{"type":"string"}}}},"prompting":{"type":"object","additionalProperties":false,"required":["prompt_template_generico","prompt_esempio_articolo","prompt_esempio_slide","prompt_esempio_sop"],"properties":{"prompt_template_generico":{"type":"string"},"prompt_esempio_articolo":{"type":"string"},"prompt_esempio_slide":{"type":"string"},"prompt_esempio_sop":{"type":"string"}}},"checklist":{"type":"array","items":{"type":"string"}},"campi_contesto_richiesti_per_la_contestualizzazione":{"type":"array","items":{"type":"string"}},"avvertenze":{"type":"array","items":{"type":"string"}}}},"aspetto":{"type":"object","additionalProperties":false,"required":["id","titolo","descrizione_astratta","rischi_mitigati","pratiche_raccomandate","metriche_kpi","artefatti","placeholders_contesto"],"properties":{"id":{"type":"string"},"titolo":{"type":"string"},"descrizione_astratta":{"type":"string"},"rischi_mitigati":{"type":"array","items":{"type":"string"}},"pratiche_raccomandate":{"type":"array","items":{"type":"string"}},"metriche_kpi":{"type":"array","items":{"type":"string"}},"artefatti":{"type":"object","additionalProperties":false,"required":["procedure","registri","evidenze"],"properties":{"procedure":{"type":"array","items":{"type":"string"}},"registri":{"type":"array","items":{"type":"string"}},"evidenze":{"type":"array","items":{"type":"string"}}}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"policy_template":{"type":"object","additionalProperties":false,"required":["titolo","sezioni","placeholders_contesto"],"properties":{"titolo":{"type":"string"},"sezioni":{"type":"array","items":{"type":"string"}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"sop_template":{"type":"object","additionalProperties":false,"required":["titolo","step","registrazioni"],"properties":{"titolo":{"type":"string"},"step":{"type":"array","items":{"type":"string"}},"registrazioni":{"type":"array","items":{"type":"string"}}}}}}
+                \n </output_schema>
+    call Segmentazione & **design sicuro** dell’architettura OT (zone & conduits)
+        llm_service grok
+        llm_model grok-3
+        max_tokens 8192
+        temperature 0.2
+        description normative_e_standard - Segmentazione & **design sicuro** dell’architettura OT (zone & conduits)
+        message 
+            role system
+            content 
+                \n Sei un assistente che genera SOLO JSON UTF-8 valido, senza testo fuori dal JSON.
+                \n Sei un esperto di cybersecurity in contesto OT/ICS
+                \n Conosci particolarmente bene lo standard di sicurezza IEC 62443.
+                \n Conosci anche IEC 27001/2, Nis2, CRA, Direttiva macchine 2006, Registro Macchine 2023 e GDPR 2016.
+        message 
+            role user
+            content 
+                \n Genera il “DB Argomenti” seguendo lo schema richiesto. Parametri:
+                \n meta:
+                \n db_name: "DB Argomenti OT/ICS Cybersecurity"
+                \n version: "0.1"
+                \n language: "it-IT"
+                \n notes: "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con placeholders di contesto."
+                \n ambito:
+                \n id: "cap/4"
+                \n nome: "Ciclo di vita della sicurezza IACS (IEC 62443‑3‑2, ‑3‑3)"
+                \n sezione:
+                \n id: "cap/4/4.2"
+                \n nome: "Segmentazione & **design sicuro** dell’architettura OT (zone & conduits)"
+                \n descrizione:
+                    \n **Linee guida**
+                    \n * **Zone** per processi/criticità omogenee; **conduits** con **whitelisting** di protocolli/porte/direzioni.
+                    \n * **DMZ** industriale per scambio dati (storici, report, aggiornamenti); servizi intermedi (jump host, broker di accesso).
+                    \n * **Remote access**: MFA, time‑bound, least privilege, **session recording**.
+                    \n * **Identità/ruoli OT** separati da IT; **account temporanei** per terze parti.
+                    \n * **Politiche di rete**: deny‑by‑default, inspection protocolli OT, logging centralizzato.
+                    \n * **Requisiti di sistema** (IEC 62443‑3‑3): derivare **SR** (System Requirements) per raggiungere gli SL‑Target di zona.
+                    \n **Figure/Template (segnaposto)**
+                    \n * **Figura [section]**: architettura target con DMZ e conduits.
+                    \n * **Tabella [section]**: elenco **SR (‑3‑3)** per zona con mapping **FR/SL**.
+                \n obiettivo:
+                    \n Tradurre gli **SL‑Target** in un’architettura a **Zone & Conduits** con **DMZ** (zona cuscinetto IT/OT), politiche di rete e accessi remoti **brokered**.
+                \n output:
+                    \n Diagramma architetturale, policy conduits, elenco **SR** mappati a **FR/SL**.
+                \n prompt_base:
+                    \n Redigi 12–14 righe sul design a zone & conduits: DMZ, whitelisting, accessi remoti, identità OT, e come derivare i **System Requirements** (‑3‑3) dagli **SL‑Target**.
+                \n Popola questo schema
+                \n <output_schema>
+                \n {"$schema":"http://json-schema.org/draft-07/schema#","type":"object","additionalProperties":false,"required":["meta","ambito"],"properties":{"meta":{"type":"object","additionalProperties":false,"required":["db_name","version","last_updated","language","notes"],"properties":{"db_name":{"type":"string"},"version":{"type":"string"},"last_updated":{"type":"string"},"language":{"type":"string"},"notes":{"type":"string"}}},"ambito":{"type":"object","additionalProperties":false,"required":["id","nome","ruolo","descrizione","sezioni"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"ruolo":{"type":"string"},"norme_riferimento":{"type":"array","items":{"type":"string"}},"descrizione":{"type":"string"},"sezioni":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/sezione"}}}}},"$defs":{"sezione":{"type":"object","additionalProperties":false,"required":["id","nome","obiettivo","output_attesi","prompt_base","aspetti_di_sicurezza","policy_template","sop_template","repo_branching_model","raci","parametri_generazione","prompting","checklist","campi_contesto_richiesti_per_la_contestualizzazione","avvertenze"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"obiettivo":{"type":"object","additionalProperties":false,"required":["codice","descrizione"],"properties":{"codice":{"type":"string"},"descrizione":{"type":"string"}}},"output_attesi":{"type":"array","items":{"type":"string"}},"prompt_base":{"type":"string"},"aspetti_di_sicurezza":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/aspetto"}},"policy_template":{"$ref":"#/$defs/policy_template"},"sop_template":{"$ref":"#/$defs/sop_template"},"repo_branching_model":{"type":"object","additionalProperties":false,"required":["modello","regole"],"properties":{"modello":{"type":"string"},"regole":{"type":"array","items":{"type":"string"}}}},"raci":{"type":"object","additionalProperties":false,"required":["roles","matrix"],"properties":{"roles":{"type":"array","minItems":1,"items":{"type":"string"}},"matrix":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["attivita"],"properties":{"attivita":{"type":"string"},"SP":{"type":"string"},"AO":{"type":"string"},"SI":{"type":"string"},"OTSec":{"type":"string"}}}}}},"parametri_generazione":{"type":"object","additionalProperties":false,"required":["tipi_documento_supportati","audience_possibili","stili","livello_tecnico","vincoli"],"properties":{"tipi_documento_supportati":{"type":"array","items":{"type":"string"}},"audience_possibili":{"type":"array","items":{"type":"string"}},"stili":{"type":"array","items":{"type":"string"}},"livello_tecnico":{"type":"array","items":{"type":"string"}},"vincoli":{"type":"array","items":{"type":"string"}}}},"prompting":{"type":"object","additionalProperties":false,"required":["prompt_template_generico","prompt_esempio_articolo","prompt_esempio_slide","prompt_esempio_sop"],"properties":{"prompt_template_generico":{"type":"string"},"prompt_esempio_articolo":{"type":"string"},"prompt_esempio_slide":{"type":"string"},"prompt_esempio_sop":{"type":"string"}}},"checklist":{"type":"array","items":{"type":"string"}},"campi_contesto_richiesti_per_la_contestualizzazione":{"type":"array","items":{"type":"string"}},"avvertenze":{"type":"array","items":{"type":"string"}}}},"aspetto":{"type":"object","additionalProperties":false,"required":["id","titolo","descrizione_astratta","rischi_mitigati","pratiche_raccomandate","metriche_kpi","artefatti","placeholders_contesto"],"properties":{"id":{"type":"string"},"titolo":{"type":"string"},"descrizione_astratta":{"type":"string"},"rischi_mitigati":{"type":"array","items":{"type":"string"}},"pratiche_raccomandate":{"type":"array","items":{"type":"string"}},"metriche_kpi":{"type":"array","items":{"type":"string"}},"artefatti":{"type":"object","additionalProperties":false,"required":["procedure","registri","evidenze"],"properties":{"procedure":{"type":"array","items":{"type":"string"}},"registri":{"type":"array","items":{"type":"string"}},"evidenze":{"type":"array","items":{"type":"string"}}}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"policy_template":{"type":"object","additionalProperties":false,"required":["titolo","sezioni","placeholders_contesto"],"properties":{"titolo":{"type":"string"},"sezioni":{"type":"array","items":{"type":"string"}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"sop_template":{"type":"object","additionalProperties":false,"required":["titolo","step","registrazioni"],"properties":{"titolo":{"type":"string"},"step":{"type":"array","items":{"type":"string"}},"registrazioni":{"type":"array","items":{"type":"string"}}}}}}
+                \n </output_schema>
+    call Validazione, verifica & **miglioramento continuo** (‑3‑3)
+        llm_service grok
+        llm_model grok-3
+        max_tokens 8192
+        temperature 0.2
+        description normative_e_standard - Validazione, verifica & **miglioramento continuo** (‑3‑3)
+        message 
+            role system
+            content 
+                \n Sei un assistente che genera SOLO JSON UTF-8 valido, senza testo fuori dal JSON.
+                \n Sei un esperto di cybersecurity in contesto OT/ICS
+                \n Conosci particolarmente bene lo standard di sicurezza IEC 62443.
+                \n Conosci anche IEC 27001/2, Nis2, CRA, Direttiva macchine 2006, Registro Macchine 2023 e GDPR 2016.
+        message 
+            role user
+            content 
+                \n Genera il “DB Argomenti” seguendo lo schema richiesto. Parametri:
+                \n meta:
+                \n db_name: "DB Argomenti OT/ICS Cybersecurity"
+                \n version: "0.1"
+                \n language: "it-IT"
+                \n notes: "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con placeholders di contesto."
+                \n ambito:
+                \n id: "cap/4"
+                \n nome: "Ciclo di vita della sicurezza IACS (IEC 62443‑3‑2, ‑3‑3)"
+                \n sezione:
+                \n id: "cap/4/4.3"
+                \n nome: "Validazione, verifica & **miglioramento continuo** (‑3‑3)"
+                \n descrizione:
+                    \n **Attività chiave**
+                    \n * **Piani di test**: casi per requisiti **FR1–FR7**; ambienti **staging**/banco prova; **FAT/SAT** (Factory/Site Acceptance Test).
+                    \n * **Evidenze**: report di test, log, configurazioni versionate, baseline di hardening.
+                    \n * **Esercizio**: patch/vuln mgmt (‑2‑3), logging & **SOC**, esercitazioni di **incident response**.
+                    \n * **Change management**: richieste, approvazioni, finestre, rollback; **eccezioni** tracciate.
+                    \n * **Miglioramento**: KPI periodici; riesame SL‑Target; audit.
+                    \n **Figure/Template (segnaposto)**
+                    \n * **Figura [section]**: flusso test/validazione → esercizio → miglioramento.
+                    \n * **Template**: piano FAT/SAT; registro change.
+                \n obiettivo:
+                    \n Verificare che i **System Requirements (SR)** siano implementati/eﬃcaci e mantenuti nel tempo; integrare **change management** e **monitoring**.
+                \n output:
+                    \n Piano **FAT/SAT**, report, registro **change**, dashboard **KPI**.
+                \n prompt_base:
+                    \n Scrivi 10–12 righe su validazione e verifica (‑3‑3): come strutturare FAT/SAT e test per FR1–FR7, integrare change e monitoring, e mantenere efficacia nel tempo.
+                \n Popola questo schema
+                \n <output_schema>
+                \n {"$schema":"http://json-schema.org/draft-07/schema#","type":"object","additionalProperties":false,"required":["meta","ambito"],"properties":{"meta":{"type":"object","additionalProperties":false,"required":["db_name","version","last_updated","language","notes"],"properties":{"db_name":{"type":"string"},"version":{"type":"string"},"last_updated":{"type":"string"},"language":{"type":"string"},"notes":{"type":"string"}}},"ambito":{"type":"object","additionalProperties":false,"required":["id","nome","ruolo","descrizione","sezioni"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"ruolo":{"type":"string"},"norme_riferimento":{"type":"array","items":{"type":"string"}},"descrizione":{"type":"string"},"sezioni":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/sezione"}}}}},"$defs":{"sezione":{"type":"object","additionalProperties":false,"required":["id","nome","obiettivo","output_attesi","prompt_base","aspetti_di_sicurezza","policy_template","sop_template","repo_branching_model","raci","parametri_generazione","prompting","checklist","campi_contesto_richiesti_per_la_contestualizzazione","avvertenze"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"obiettivo":{"type":"object","additionalProperties":false,"required":["codice","descrizione"],"properties":{"codice":{"type":"string"},"descrizione":{"type":"string"}}},"output_attesi":{"type":"array","items":{"type":"string"}},"prompt_base":{"type":"string"},"aspetti_di_sicurezza":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/aspetto"}},"policy_template":{"$ref":"#/$defs/policy_template"},"sop_template":{"$ref":"#/$defs/sop_template"},"repo_branching_model":{"type":"object","additionalProperties":false,"required":["modello","regole"],"properties":{"modello":{"type":"string"},"regole":{"type":"array","items":{"type":"string"}}}},"raci":{"type":"object","additionalProperties":false,"required":["roles","matrix"],"properties":{"roles":{"type":"array","minItems":1,"items":{"type":"string"}},"matrix":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["attivita"],"properties":{"attivita":{"type":"string"},"SP":{"type":"string"},"AO":{"type":"string"},"SI":{"type":"string"},"OTSec":{"type":"string"}}}}}},"parametri_generazione":{"type":"object","additionalProperties":false,"required":["tipi_documento_supportati","audience_possibili","stili","livello_tecnico","vincoli"],"properties":{"tipi_documento_supportati":{"type":"array","items":{"type":"string"}},"audience_possibili":{"type":"array","items":{"type":"string"}},"stili":{"type":"array","items":{"type":"string"}},"livello_tecnico":{"type":"array","items":{"type":"string"}},"vincoli":{"type":"array","items":{"type":"string"}}}},"prompting":{"type":"object","additionalProperties":false,"required":["prompt_template_generico","prompt_esempio_articolo","prompt_esempio_slide","prompt_esempio_sop"],"properties":{"prompt_template_generico":{"type":"string"},"prompt_esempio_articolo":{"type":"string"},"prompt_esempio_slide":{"type":"string"},"prompt_esempio_sop":{"type":"string"}}},"checklist":{"type":"array","items":{"type":"string"}},"campi_contesto_richiesti_per_la_contestualizzazione":{"type":"array","items":{"type":"string"}},"avvertenze":{"type":"array","items":{"type":"string"}}}},"aspetto":{"type":"object","additionalProperties":false,"required":["id","titolo","descrizione_astratta","rischi_mitigati","pratiche_raccomandate","metriche_kpi","artefatti","placeholders_contesto"],"properties":{"id":{"type":"string"},"titolo":{"type":"string"},"descrizione_astratta":{"type":"string"},"rischi_mitigati":{"type":"array","items":{"type":"string"}},"pratiche_raccomandate":{"type":"array","items":{"type":"string"}},"metriche_kpi":{"type":"array","items":{"type":"string"}},"artefatti":{"type":"object","additionalProperties":false,"required":["procedure","registri","evidenze"],"properties":{"procedure":{"type":"array","items":{"type":"string"}},"registri":{"type":"array","items":{"type":"string"}},"evidenze":{"type":"array","items":{"type":"string"}}}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"policy_template":{"type":"object","additionalProperties":false,"required":["titolo","sezioni","placeholders_contesto"],"properties":{"titolo":{"type":"string"},"sezioni":{"type":"array","items":{"type":"string"}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"sop_template":{"type":"object","additionalProperties":false,"required":["titolo","step","registrazioni"],"properties":{"titolo":{"type":"string"},"step":{"type":"array","items":{"type":"string"}},"registrazioni":{"type":"array","items":{"type":"string"}}}}}}
+                \n </output_schema>

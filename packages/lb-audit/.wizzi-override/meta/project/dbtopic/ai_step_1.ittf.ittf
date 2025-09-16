@@ -1,0 +1,123 @@
+ittf 
+    $ 
+        var step_name = 'dbtopic.step_1';
+        var x_options = {
+            step_1_JSONSchema: _.stringify(wzCtx.schemas.dbtopic_1, null, null),
+        } 
+        _.log("x_options", x_options);
+        // var provider = 'chatGPT';
+        var provider = 'grok';
+        // var provider = 'deepSeek';
+        var maxNumInBatch = 5;
+        var batches = [];
+        var currentBatch = {
+            id: 1,
+            items: []
+        } 
+        var count = 0;
+
+    $foreach aiItemGroupKey in Object.keys(wzCtx.documents.dbtopics.sole_24_ore)
+        $ 
+            var aiItemGroup = wzCtx.documents.dbtopics.sole_24_ore[aiItemGroupKey];
+
+        $foreach aiItem in aiItemGroup.sections
+            $ 
+                _.log('----> ', step_name, 'aiItem.name', aiItem.name);
+                aiItem.chapterId = aiItemGroup.chapter;
+                aiItem.chapterName = aiItemGroup.name;
+
+            $if count > maxNumInBatch
+                $ 
+                    batches.push(currentBatch); 
+                    currentBatch = {
+                        id: currentBatch.id + 1,
+                        items: [aiItem]
+                    } 
+                    count = 1;
+            $else 
+                $ 
+                    currentBatch.items.push(aiItem); 
+                    count++; 
+
+    $if currentBatch.items.length > 0
+        $ batches.push(currentBatch);
+    $ _.log('----> batches.length', batches.length);
+
+    $foreach batch in batches
+        $file .wizzi-override/docs/project/dbtopic/ai_step_1_in/batch-${batch.id}.ai.ittf
+            ai ${step_name}
+                api-url http://localhost:3000
+                $foreach batchItem in batch.items
+                    $ var batchItemJSONString = _.stringify(batchItem, null, null)
+                    $ 
+                        var options = {
+                            provider: provider,
+                            id: batchItem.name,
+                            inputJSON: batchItem,
+                            inputJSONString: batchItemJSONString,
+                            JSONSchema: x_options.step_1_JSONSchema,
+                            product_supplier_JSON: null, // not used
+                        } 
+                    call ${options.id}
+                        $if options.provider == 'deepSeek'
+                            llm_service deepSeek
+                            llm_model deepseek-chat
+                            max_tokens 8192 $$ max for DeepSeek
+                        $elif options.provider == 'grok'
+                            llm_service grok
+                            llm_model grok-3
+                            max_tokens 8192 $$ to equal DeepSeek
+                        temperature 0.2
+                        description normative_e_standard - ${options.id}
+                        message 
+                            role system
+                            content 
+                                ${''}\n Sei un assistente che genera SOLO JSON UTF-8 valido, senza testo fuori dal JSON.
+                                ${''}\n Sei un esperto di cybersecurity in contesto OT/ICS 
+                                ${''}\n Conosci particolarmente bene lo standard di sicurezza IEC 62443. 
+                                ${''}\n Conosci anche IEC 27001/2, Nis2, CRA, Direttiva macchine 2006, Registro Macchine 2023 e GDPR 2016.
+                        message 
+                            role user
+                            content 
+                                ${''}\n Genera il “DB Argomenti” seguendo lo schema richiesto. Parametri:
+                                ${''}\n meta:
+                                ${''}\n db_name: "DB Argomenti OT/ICS Cybersecurity"
+                                ${''}\n version: "0.1"
+                                ${''}\n language: "it-IT"
+                                ${''}\n notes: "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con placeholders di contesto."
+                                ${''}\n ambito:
+                                ${''}\n     id: "cap/${batchItem.chapterId}"
+                                ${''}\n     nome: "${batchItem.chapterName}"
+                                ${''}\n sezione:
+                                ${''}\n id: "cap/${batchItem.chapterId}/${batchItem.section}"
+                                ${''}\n nome: "${batchItem.name}"
+                                ${''}\n descrizione: 
+                                    $foreach line in batchItem.lines
+                                        ${''}\n ${line}
+                                $if _.isArray(batchItem.goal) && batchItem.goal.length > 0
+                                    ${''}\n obiettivo: 
+                                        $foreach line in batchItem.goal
+                                            ${''}\n ${line}
+                                $if _.isArray(batchItem.output) && batchItem.output.length > 0
+                                    ${''}\n output: 
+                                        $foreach line in batchItem.output
+                                            ${''}\n ${line}
+                                $if _.isArray(batchItem.safety) && batchItem.safety.length > 0
+                                    ${''}\n safety: 
+                                        $foreach line in batchItem.safety
+                                            ${''}\n ${line}
+                                $if _.isArray(batchItem.prompt) && batchItem.prompt.length > 0
+                                    ${''}\n prompt_base: 
+                                        $foreach line in batchItem.prompt
+                                            ${''}\n ${line}
+                                ${''}\n Popola questo schema
+                                ${''}\n <output_schema>
+                                ${''}\n ${x_options.step_1_JSONSchema}
+                                ${''}\n </output_schema>
+
+    
+    ${'$'}file .wizzi-override/docs/project/dbtopic/ai_step_1_out/index.json.ittf
+        { 
+            [ items
+                $foreach batch in batches
+                    ${'$'}include batch-${batch.id}

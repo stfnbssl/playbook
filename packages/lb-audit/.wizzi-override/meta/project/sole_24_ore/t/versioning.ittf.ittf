@@ -1,0 +1,9 @@
+$group
+    $params cap
+
+    ---
+
+    **Versioning & QC**
+
+    * Versioni denominate *Cap${cap}\_vX*; changelog sintetico.
+    

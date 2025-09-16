@@ -1,0 +1,1306 @@
+$group
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/12"
+            nome "Security di Macchina per OEM (Audit, messa a punto, hardening & monitoraggio)"
+            ruolo "Supporto metodologico per OEM nella sicurezza delle macchine industriali"
+            [ norme_riferimento
+                "IEC 62443"
+                "IEC 27001/2"
+                "NIS2"
+                "CRA"
+                "Direttiva Macchine 2006/42/CE"
+                "Registro Macchine 2023"
+                "GDPR 2016/679"
+            descrizione "Framework per la sicurezza delle macchine industriali con focus su audit,
+                +b hardening e monitoraggio continuo, in conformità agli standard di cybersecurity
+                +b OT/ICS."
+            [ sezioni
+                {
+                    id "cap/12/12.3"
+                    nome "Metodologia (Fase 1) — Analisi preliminare & competenze"
+                    { obiettivo
+                        codice "OBJ-12.3"
+                        descrizione "Formazione e metodo su risk assessment, definizione SL-Target (SL-T), mappatura
+                            +b FR1–FR7 e controlli di sicurezza."
+                    [ output_attesi
+                        "Matrice rischi×zone"
+                        "Bozza SL-Target (SL-T)"
+                        "Gap list preliminare"
+                    prompt_base "Imposta metodologia e deliverable Fase 1 (risk, SL-T, gap) con esempi tipici
+                        +b per macchine CNC."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-12.3.1"
+                            titolo "Analisi dei Rischi per Zone e Condotte"
+                            descrizione_astratta "Identificazione dei rischi specifici per ogni zona della macchina CNC e delle
+                                +b condotte di comunicazione, in conformità a IEC 62443."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato a zone critiche"
+                                "Compromissione dei dati di controllo"
+                                "Interruzione operativa"
+                            [ pratiche_raccomandate
+                                "Segmentazione delle zone (IEC 62443-3-2)"
+                                "Mappatura dei flussi di dati"
+                                "Valutazione dei rischi basata su asset"
+                            [ metriche_kpi
+                                "Percentuale di zone mappate"
+                                "Numero di rischi identificati per zona"
+                                "Tempo medio per completare l'analisi preliminare"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di mappatura zone e condotte"
+                                    "Procedura di identificazione rischi"
+                                [ registri
+                                    "Registro delle zone identificate"
+                                    "Registro dei rischi per zona"
+                                [ evidenze
+                                    "Report di analisi preliminare"
+                                    "Matrice rischi×zone"
+                            [ placeholders_contesto
+                                "[TIPO_MACCHINA]"
+                                "[AMBIENTE_OPERATIVO]"
+                                "[LIVELLO_AUTOMAZIONE]"
+                        {
+                            id "ASP-12.3.2"
+                            titolo "Definizione SL-Target (SL-T)"
+                            descrizione_astratta "Determinazione dei livelli di sicurezza target per ogni zona e condotto,
+                                +b evitando sovrastime (es. SL4 ovunque)."
+                            [ rischi_mitigati
+                                "Sovradimensionamento dei controlli"
+                                "Costi non giustificati per misure di sicurezza"
+                                "Non conformità a IEC 62443"
+                            [ pratiche_raccomandate
+                                "Valutazione basata su impatto e probabilità"
+                                "Confronto con benchmark di settore"
+                                "Documentazione motivata delle scelte SL-T"
+                            [ metriche_kpi
+                                "Percentuale di zone con SL-T definito"
+                                "Distribuzione degli SL-T assegnati (SL1-SL4)"
+                                "Tempo medio per definizione SL-T"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di assegnazione SL-T"
+                                    "Procedura di revisione SL-T"
+                                [ registri
+                                    "Registro delle motivazioni SL-T"
+                                    "Registro delle revisioni SL-T"
+                                [ evidenze
+                                    "Bozza SL-T per zona"
+                                    "Report di validazione SL-T"
+                            [ placeholders_contesto
+                                "[SETTORE_APPLICAZIONE]"
+                                "[CRITICITA_OPERATIVA]"
+                                "[NORME_SPECIFICHE]"
+                    { policy_template
+                        titolo "Policy di Analisi Preliminare per Sicurezza Macchine"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Definizioni (zone, condotte, SL-T)"
+                            "Responsabilità"
+                            "Metodologia di analisi rischi"
+                            "Criteri per definizione SL-T"
+                            "Documentazione e reporting"
+                        [ placeholders_contesto
+                            "[NOME_OEM]"
+                            "[TIPO_MACCHINA]"
+                            "[AMBIENTE_OPERATIVO]"
+                    { sop_template
+                        titolo "SOP per Analisi Preliminare e Definizione SL-T"
+                        [ step
+                            "Identificazione delle zone e condotte"
+                            "Raccolta dati su asset e flussi"
+                            "Valutazione dei rischi per zona"
+                            "Assegnazione SL-T con motivazione"
+                            "Compilazione matrice rischi×zone"
+                            "Revisione e validazione con stakeholder"
+                            "Produzione deliverable (gap list, bozza SL-T)"
+                        [ registrazioni
+                            "Registro delle zone mappate"
+                            "Registro dei rischi identificati"
+                            "Registro delle decisioni SL-T"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per deliverable finali"
+                            "Branch 'develop' per bozze e iterazioni"
+                            "Feature branch per ogni aspetto di sicurezza (es. 'feature/analisi-rischi')"
+                            "Pull request obbligatorie con revisione"
+                    { raci
+                        [ roles
+                            "Security Project Manager (SP)"
+                            "Audit Officer (AO)"
+                            "System Integrator (SI)"
+                            "OT Security Specialist (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Mappatura zone e condotte"
+                                SP "A"
+                                AO "R"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Analisi dei rischi"
+                                SP "A"
+                                AO "C"
+                                SI "I"
+                                OTSec "R"
+                            {
+                                attivita "Definizione SL-T"
+                                SP "A"
+                                AO "I"
+                                SI "I"
+                                OTSec "R"
+                            {
+                                attivita "Produzione deliverable"
+                                SP "R"
+                                AO "A"
+                                SI "I"
+                                OTSec "C"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Report tecnico"
+                            "Presentazione slide"
+                            "SOP"
+                            "Policy"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Management OEM"
+                            "Auditor esterni"
+                            "System integrator"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico per slide"
+                        [ livello_tecnico
+                            "Base (per management)"
+                            "Intermedio (per tecnici)"
+                            "Avanzato (per specialisti OT)"
+                        [ vincoli
+                            "Conformità a IEC 62443"
+                            "Uso di terminologia standardizzata"
+                            "Documentazione motivata per SL-T"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [TIPO_DOCUMENTO] per [AUDIENCE] con stile [STILE] e
+                            +b livello tecnico [LIVELLO_TECNICO] sulla metodologia di analisi preliminare per
+                            +b macchine CNC, includendo matrice rischi×zone, bozza SL-T e gap list, con esempi
+                            +b pratici."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico per specialisti OT sul processo di analisi
+                            +b preliminare per macchine CNC, con focus su risk assessment e definizione SL-T,
+                            +b includendo un esempio di matrice rischi×zone."
+                        prompt_esempio_slide "Crea una presentazione slide per il management OEM con stile sintetico,
+                            +b illustrando la metodologia Fase 1 per la sicurezza di macchine CNC, con grafici
+                            +b su rischi per zona e distribuzione SL-T."
+                        prompt_esempio_sop "Redigi una SOP dettagliata per tecnici OT con step operativi per l'analisi
+                            +b preliminare di una macchina CNC, includendo la mappatura delle zone e la
+                            +b definizione di SL-T."
+                    [ checklist
+                        "Mappatura completa di tutte le zone e condotte"
+                        "Identificazione dei rischi per ogni zona"
+                        "Assegnazione motivata di SL-T per ogni zona"
+                        "Produzione della matrice rischi×zone"
+                        "Elaborazione della bozza SL-T"
+                        "Identificazione dei gap di sicurezza"
+                        "Validazione dei deliverable con stakeholder"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipo di macchina (es. CNC, robot industriale)"
+                        "Settore di applicazione (es. automotive, aerospace)"
+                        "Ambiente operativo (es. indoor, outdoor)"
+                        "Livello di automazione (es. manuale, semi-automatico, full-auto)"
+                        "Norme specifiche applicabili (es. IEC 62443, Direttiva Macchine)"
+                    [ avvertenze
+                        "Evitare sovrastime di SL-T (no SL4 ovunque) senza motivazione"
+                        "Garantire conformità a IEC 62443 per la segmentazione delle zone"
+                        "Documentare ogni decisione con evidenze tracciabili"
+                        "Coinvolgere stakeholder tecnici e di sicurezza in ogni fase"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/12"
+            nome "Security di Macchina per OEM (Audit, messa a punto, hardening & monitoraggio)"
+            ruolo "Supporto agli OEM per garantire conformità e sicurezza delle macchine in
+                +b ambiente OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-3-3"
+                "IEC 62443-4-2"
+                "ISO/IEC 27001"
+                "NIS2 Directive"
+                "Cyber Resilience Act (CRA)"
+                "Direttiva Macchine 2006/42/CE"
+                "Registro Macchine 2023"
+                "GDPR 2016/679"
+            descrizione "Questo ambito si concentra sulla sicurezza delle macchine industriali per OEM,
+                +b includendo audit, hardening, messa a punto e monitoraggio continuo per
+                +b garantire conformità normativa e protezione da minacce cyber in contesti
+                +b OT/ICS."
+            [ sezioni
+                {
+                    id "cap/12/12.4"
+                    nome "Assessment profondo (Fase 2) — Architettura & test mirato"
+                    { obiettivo
+                        codice "OBJ-12.4"
+                        descrizione "Valutare rete (3 VLAN: automazione/HMI/esterno), conduits, gateway/NGFW, SDN,
+                            +b protocolli (PN-IRT/PROFISAFE), pannello operatore (RDP/VNC), accessi remoti."
+                    [ output_attesi
+                        "Matrice flussi approvata"
+                        "Piano di test (inclusi 2 pen-test mirati: inizio/fine)"
+                        "Report assessment"
+                    prompt_base "Produci piano assessment per macchina pilota con analisi rete/protocolli, test
+                        +b mirati, evidenze richieste."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-12.4.1"
+                            titolo "Segmentazione di rete e controllo flussi"
+                            descrizione_astratta "Garantire la separazione logica e fisica delle reti tramite VLAN e conduits per
+                                +b limitare la propagazione di attacchi."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato a segmenti critici"
+                                "Propagazione di malware tra VLAN"
+                                "Interferenza con protocolli real-time (PN-IRT)"
+                            [ pratiche_raccomandate
+                                "Implementare VLAN per automazione, HMI ed esterno"
+                                "Configurare regole di filtro su gateway/NGFW"
+                                "Monitorare flussi con strumenti SDN"
+                            [ metriche_kpi
+                                "Percentuale di flussi non autorizzati bloccati"
+                                "Tempo medio di rilevazione anomalie di rete"
+                                "Conformità delle configurazioni VLAN (audit mensile)"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione VLAN"
+                                    "Procedura di test dei conduits"
+                                [ registri
+                                    "Log di configurazione firewall"
+                                    "Registro audit rete"
+                                [ evidenze
+                                    "Report di conformità VLAN"
+                                    "Matrice flussi approvata"
+                            [ placeholders_contesto
+                                "[NOME_MACCHINA]"
+                                "[TIPOLOGIA_RETE]"
+                                "[PROTOCOLLI_USATI]"
+                        {
+                            id "ASP-12.4.2"
+                            titolo "Sicurezza accessi remoti e pannelli operatore"
+                            descrizione_astratta "Proteggere gli accessi remoti e i pannelli operatore (HMI) da accessi non
+                                +b autorizzati tramite protocolli sicuri e monitoraggio."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato tramite RDP/VNC"
+                                "Intercettazione dati sensibili"
+                                "Abuso di privilegi remoti"
+                            [ pratiche_raccomandate
+                                "Utilizzare VPN con MFA per accessi remoti"
+                                "Crittografia end-to-end per sessioni RDP/VNC"
+                                "Registrazione sessioni di accesso (session recording)"
+                            [ metriche_kpi
+                                "Percentuale di accessi remoti con MFA"
+                                "Numero di sessioni non registrate"
+                                "Tempo medio di risposta a incidenti di accesso"
+                            { artefatti
+                                [ procedure
+                                    "Procedura configurazione VPN/MFA"
+                                    "Procedura monitoraggio accessi HMI"
+                                [ registri
+                                    "Log accessi remoti"
+                                    "Registro session recording"
+                                [ evidenze
+                                    "Report conformità MFA"
+                                    "Elenco sessioni registrate"
+                            [ placeholders_contesto
+                                "[METODO_ACCESSO_REMOTO]"
+                                "[TIPOLOGIA_HMI]"
+                                "[POLICY_MFA]"
+                    { policy_template
+                        titolo "Policy di Sicurezza per Assessment di Rete e Accessi"
+                        [ sezioni
+                            "Introduzione e scopo"
+                            "Ambito di applicazione"
+                            "Regole di segmentazione rete"
+                            "Gestione accessi remoti"
+                            "Monitoraggio e registrazione"
+                            "Responsabilità e conformità"
+                        [ placeholders_contesto
+                            "[NOME_OEM]"
+                            "[TIPOLOGIA_MACCHINA]"
+                            "[AMBIENTE_OPERATIVO]"
+                    { sop_template
+                        titolo "SOP per Assessment Profondo di Macchina Pilota"
+                        [ step
+                            "Preparazione ambiente di staging"
+                            "Configurazione strumenti di monitoraggio"
+                            "Esecuzione analisi rete e protocolli"
+                            "Test mirati (pen-test iniziale)"
+                            "Raccolta evidenze e redazione matrice flussi"
+                            "Pen-test finale e validazione"
+                            "Produzione report finale"
+                        [ registrazioni
+                            "Log di configurazione strumenti"
+                            "Risultati pen-test"
+                            "Matrice flussi approvata"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per attività specifiche (es. 'feature/assessment-rete')"
+                            "Hotfix branch per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "Security Project Manager (SP)"
+                            "Audit Officer (AO)"
+                            "System Integrator (SI)"
+                            "OT Security Specialist (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione piano di test"
+                                SP "Responsible"
+                                AO "Accountable"
+                                SI "Consulted"
+                                OTSec "Informed"
+                            {
+                                attivita "Esecuzione assessment rete"
+                                SP "Consulted"
+                                AO "Informed"
+                                SI "Responsible"
+                                OTSec "Accountable"
+                            {
+                                attivita "Produzione report finale"
+                                SP "Accountable"
+                                AO "Responsible"
+                                SI "Informed"
+                                OTSec "Consulted"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Report tecnico"
+                            "Presentazione slide"
+                            "SOP operative"
+                            "Policy di sicurezza"
+                        [ audience_possibili
+                            "Management OEM"
+                            "Team tecnico OT"
+                            "Auditor esterni"
+                            "Fornitori di componenti"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico per management"
+                        [ livello_tecnico
+                            "Base (per management)"
+                            "Intermedio (per auditor)"
+                            "Avanzato (per tecnici OT)"
+                        [ vincoli
+                            "Conformità a IEC 62443-3-3"
+                            "Rispetto tempistiche progetto"
+                            "Documentazione in lingua italiana"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [TIPO_DOCUMENTO] per [AUDIENCE] con stile [STILE] e
+                            +b livello tecnico [LIVELLO_TECNICO] sul tema dell'assessment profondo di macchina
+                            +b pilota, includendo analisi rete, test mirati e output attesi come matrice
+                            +b flussi e report."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico avanzato per team OT sul processo di assessment
+                            +b profondo, con focus su segmentazione VLAN e sicurezza accessi remoti,
+                            +b includendo riferimenti a IEC 62443."
+                        prompt_esempio_slide "Crea una presentazione sintetica per il management OEM con 10 slide
+                            +b sull'assessment profondo, evidenziando obiettivi, output attesi e rischi
+                            +b mitigati."
+                        prompt_esempio_sop "Produci una SOP operativa per l'esecuzione di un assessment profondo su
+                            +b macchina pilota, con step dettagliati per configurazione rete, test e raccolta
+                            +b evidenze."
+                    [ checklist
+                        "Verifica conformità VLAN (automazione/HMI/esterno)"
+                        "Configurazione gateway/NGFW completata"
+                        "Test protocolli PN-IRT/PROFISAFE eseguiti"
+                        "Accessi remoti (RDP/VNC) protetti con MFA"
+                        "Session recording attivo per accessi critici"
+                        "Matrice flussi redatta e approvata"
+                        "Pen-test iniziale e finale pianificati"
+                        "Report assessment pronto per revisione"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome della macchina pilota"
+                        "Tipologia di rete implementata"
+                        "Protocolli utilizzati"
+                        "Metodo di accesso remoto"
+                        "Tipologia di HMI"
+                        "Nome OEM cliente"
+                        "Ambiente operativo (staging/produzione)"
+                    [ avvertenze
+                        "Eseguire test in ambiente staging ove possibile per evitare impatti su produzione."
+                        "Garantire registrazione sessioni per accessi remoti a fini di audit."
+                        "Prioritizzare safety durante i test per evitare rischi operativi."
+                        "Validare matrice flussi con tutti gli stakeholder prima dell'approvazione."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/12"
+            nome "Security di Macchina per OEM (Audit, messa a punto, hardening & monitoraggio)"
+            ruolo "Supporto agli OEM per la sicurezza delle macchine in ambito OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-4-2"
+                "IEC 62443-3-3"
+                "ISO/IEC 27001"
+                "Direttiva Macchine 2006/42/CE"
+                "Regolamento Macchine (UE) 2023/1230"
+                "NIS2 Directive (EU) 2022/2555"
+                "Cyber Resilience Act (CRA)"
+                "GDPR (Regolamento UE 2016/679)"
+            descrizione "Questo ambito si concentra sulla sicurezza delle macchine per OEM, includendo
+                +b audit, messa a punto, hardening e monitoraggio continuo per garantire
+                +b conformità normativa e protezione contro minacce cyber in contesti OT/ICS."
+            [ sezioni
+                {
+                    id "cap/12/12.5"
+                    nome "Remediation (Fase 3) — Hardening & misure prioritarie"
+                    { obiettivo
+                        codice "OBJ-HARD-001"
+                        descrizione "Definire le attività di hardening (least functionality), policy per password,
+                            +b gestione certificati, sincronizzazione temporale (time sync), configurazione
+                            +b syslog, aggiornamenti sicuri (firmware/app) e procedure di backup/restore."
+                    [ output_attesi
+                        "Secure Configuration Guide (Machine)"
+                        "Piano di cambiamento con finestre operative e rollback"
+                        "Exception Register per deroghe temporanee"
+                    prompt_base "Scrivi guida hardening per la macchina (parametri minimi, protocolli, logging,
+                        +b update firmati, backup, rollback)."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-HARD-001"
+                            titolo "Hardening della Macchina"
+                            descrizione_astratta "Riduzione della superficie di attacco attraverso la disabilitazione di
+                                +b funzionalità non necessarie e la configurazione sicura dei componenti della
+                                +b macchina."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Exploit di vulnerabilità note"
+                                "Configurazioni non sicure"
+                            [ pratiche_raccomandate
+                                "Implementare il principio di least functionality"
+                                "Disabilitare protocolli non sicuri (es. Telnet, FTP)"
+                                "Configurare firewall integrati o perimetrali"
+                            [ metriche_kpi
+                                "Percentuale di sistemi con configurazioni conformi"
+                                "Tempo medio per applicare configurazioni di hardening"
+                                "Numero di vulnerabilità rilevate post-hardening"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di Hardening della Macchina"
+                                    "Checklist di Configurazione Sicura"
+                                [ registri
+                                    "Registro delle Configurazioni Applicate"
+                                    "Registro delle Eccezioni"
+                                [ evidenze
+                                    "Report di Scansione Vulnerabilità Pre/Post Hardening"
+                                    "Log di Configurazione"
+                            [ placeholders_contesto
+                                "[TIPO_MACCHINA]"
+                                "[VERSIONE_FIRMWARE]"
+                                "[AMBIENTE_OPERATIVO]"
+                        {
+                            id "ASP-PWD-002"
+                            titolo "Gestione delle Password"
+                            descrizione_astratta "Definizione di policy per la creazione, rotazione e protezione delle password
+                                +b per garantire l'accesso sicuro ai sistemi della macchina."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato tramite credenziali deboli"
+                                "Riutilizzo di password"
+                                "Compromissione di credenziali"
+                            [ pratiche_raccomandate
+                                "Utilizzo di password complesse (lunghezza minima, caratteri speciali)"
+                                "Rotazione periodica delle password"
+                                "Implementazione di autenticazione multifattore (MFA) ove possibile"
+                            [ metriche_kpi
+                                "Percentuale di utenti conformi alla policy password"
+                                "Frequenza di rotazione delle password"
+                                "Numero di incidenti legati a credenziali compromesse"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di Gestione Password"
+                                    "Istruzioni per Configurazione MFA"
+                                [ registri
+                                    "Registro Rotazione Password"
+                                    "Registro Accessi Non Autorizzati"
+                                [ evidenze
+                                    "Report di Audit Password"
+                                    "Log di Tentativi di Accesso Falliti"
+                            [ placeholders_contesto
+                                "[POLICY_PASSWORD_AZIENDALE]"
+                                "[SISTEMA_GESTIONE_CREDENZIALI]"
+                                "[FREQUENZA_ROTAZIONE]"
+                    { policy_template
+                        titolo "Policy di Hardening e Configurazione Sicura per Macchine OT/ICS"
+                        [ sezioni
+                            "Scopo e Applicabilità"
+                            "Requisiti Minimi di Configurazione"
+                            "Gestione delle Password e Certificati"
+                            "Sincronizzazione Temporale e Logging"
+                            "Processo di Aggiornamento Sicuro"
+                            "Procedure di Backup e Restore"
+                        [ placeholders_contesto
+                            "[NOME_MACCHINA]"
+                            "[AMBIENTE_OPERATIVO]"
+                            "[REQUISITI_NORMATIVI]"
+                    { sop_template
+                        titolo "SOP - Implementazione Hardening su Macchina OT/ICS"
+                        [ step
+                            "Identificazione dei Componenti da Configurare"
+                            "Applicazione Configurazioni di Hardening"
+                            "Test in Ambiente di Staging"
+                            "Validazione con Two-Person Rule"
+                            "Documentazione e Aggiornamento Registri"
+                        [ registrazioni
+                            "Log delle Configurazioni Applicate"
+                            "Report di Test in Staging"
+                            "Registro Approvazioni"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per versioni stabili e approvate"
+                            "Branch 'develop' per integrazione configurazioni in corso"
+                            "Feature branch per ogni attività di hardening specifica"
+                            "Pull request obbligatorie con revisione Two-Person Rule"
+                    { raci
+                        [ roles
+                            "System Engineer (SP)"
+                            "OT Security Specialist (OTSec)"
+                            "Approval Officer (AO)"
+                            "System Integrator (SI)"
+                        [ matrix
+                            {
+                                attivita "Definizione Requisiti Hardening"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "R"
+                            {
+                                attivita "Implementazione Configurazioni"
+                                SP "R"
+                                AO "I"
+                                SI "R"
+                                OTSec "C"
+                            {
+                                attivita "Validazione e Test"
+                                SP "C"
+                                AO "A"
+                                SI "R"
+                                OTSec "R"
+                            {
+                                attivita "Documentazione e Reporting"
+                                SP "R"
+                                AO "I"
+                                SI "C"
+                                OTSec "A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Guida Tecnica"
+                            "Policy"
+                            "SOP"
+                            "Report di Conformità"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Ingegneri di Sistema"
+                            "Responsabili della Sicurezza"
+                            "Auditor Esterni"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Operativo"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443-4-2"
+                            "Rispetto dei requisiti della Direttiva Macchine"
+                            "Documentazione in lingua italiana con glossario tecnico"
+                    { prompting
+                        prompt_template_generico "Genera un documento sul tema {TEMA} per {AUDIENCE} con livello tecnico
+                            +b {LIVELLO} e stile {STILE}. Includi riferimenti a {NORME} e considera il
+                            +b contesto {CONTESTO}."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico sull'hardening delle macchine OT/ICS per tecnici OT
+                            +b con livello intermedio e stile formale. Includi riferimenti a IEC 62443 e
+                            +b considera un contesto di produzione industriale."
+                        prompt_esempio_slide "Crea una presentazione sull'hardening delle macchine OT/ICS per responsabili
+                            +b della sicurezza con livello base e stile operativo. Includi riferimenti a NIS2
+                            +b e considera un contesto di audit normativo."
+                        prompt_esempio_sop "Elabora una SOP per l'implementazione di configurazioni di hardening su
+                            +b macchine OT/ICS per ingegneri di sistema con livello avanzato e stile tecnico.
+                            +b Includi riferimenti a IEC 62443-4-2 e considera un contesto di messa in
+                            +b produzione."
+                    [ checklist
+                        "Verifica conformità configurazioni a IEC 62443-4-2"
+                        "Test di least functionality completato"
+                        "Policy password applicata e documentata"
+                        "Sincronizzazione temporale configurata"
+                        "Syslog attivo e monitorato"
+                        "Processo di aggiornamento sicuro testato"
+                        "Backup e restore verificati con successo"
+                        "Exception register aggiornato"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipo di Macchina"
+                        "Versione Firmware/Software"
+                        "Ambiente Operativo (es. produzione, test)"
+                        "Requisiti Normativi Specifici"
+                        "Policy Aziendali di Riferimento"
+                    [ avvertenze
+                        "Le configurazioni di hardening devono essere testate in ambiente di staging prima della produzione."
+                        "Eventuali deroghe devono essere documentate nel registro delle eccezioni con giustificazione e scadenza."
+                        "La regola Two-Person deve essere rispettata per approvazioni critiche."
+                        "Monitoraggio continuo post-hardening è obbligatorio per rilevare anomalie."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/12"
+            nome "Security di Macchina per OEM (Audit, messa a punto, hardening & monitoraggio)"
+            ruolo "Supporto alla conformità e sicurezza delle macchine per OEM"
+            [ norme_riferimento
+                "IEC 62443"
+                "Regolamento Macchine (UE) 2023/1230"
+                "Cyber Resilience Act (CRA)"
+                "NIS2 Directive"
+                "ISO/IEC 27001/2"
+                "Direttiva Macchine 2006/42/CE"
+                "GDPR 2016/679"
+            descrizione "Gestione della sicurezza delle macchine per OEM con focus su audit, hardening,
+                +b monitoraggio e conformità normativa, includendo la predisposizione di
+                +b documentazione tecnica e fascicoli per regolamenti europei e standard di
+                +b cybersecurity."
+            [ sezioni
+                {
+                    id "cap/12/12.6"
+                    nome "Documentazione (Fase 4) — Fascicolo tecnico & compliance"
+                    { obiettivo
+                        codice "OBJ-12.6"
+                        descrizione "Predisporre fascicolo tecnico per Regolamento Macchine (UE) 2023/1230,
+                            +b riferimenti IEC 62443, e documentazione per richieste cliente (incluso CRA/NIS2
+                            +b se rilevanti)."
+                    [ output_attesi
+                        "Machine Security Evidence Package (MSEP): scheda, FR×SL, flussi, test, Secure Config, registro cambi, manuali utente"
+                    prompt_base "Componi indice MSEP e popola segnaposto con riferimenti a prove e versioni."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-12.6.1"
+                            titolo "Conformità al Regolamento Macchine (UE) 2023/1230"
+                            descrizione_astratta "Garantire che la documentazione tecnica della macchina soddisfi i requisiti del
+                                +b Regolamento Macchine per la sicurezza e la cybersecurity."
+                            [ rischi_mitigati
+                                "Non conformità normativa"
+                                "Sanzioni regolamentari"
+                                "Vulnerabilità non documentate"
+                            [ pratiche_raccomandate
+                                "Mappatura requisiti normativi"
+                                "Validazione documentazione con checklist"
+                                "Integrazione con IEC 62443 per cybersecurity"
+                            [ metriche_kpi
+                                "Percentuale di requisiti normativi coperti (target: 100%)"
+                                "Tempo di completamento fascicolo tecnico"
+                                "Numero di non conformità rilevate in audit"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di redazione fascicolo tecnico"
+                                    "Procedura di validazione conformità"
+                                [ registri
+                                    "Registro delle revisioni del fascicolo"
+                                    "Registro delle non conformità"
+                                [ evidenze
+                                    "Report di conformità"
+                                    "Checklist completate"
+                            [ placeholders_contesto
+                                "[VERSIONE_MACCHINA]"
+                                "[CODICE_PRODOTTO]"
+                                "[DATA_REVISIONE]"
+                        {
+                            id "ASP-12.6.2"
+                            titolo "Integrazione con IEC 62443"
+                            descrizione_astratta "Allineare la documentazione tecnica ai requisiti di sicurezza definiti dallo
+                                +b standard IEC 62443 per sistemi OT/ICS."
+                            [ rischi_mitigati
+                                "Mancata protezione contro attacchi cyber"
+                                "Incoerenza tra sicurezza fisica e digitale"
+                            [ pratiche_raccomandate
+                                "Definizione di Security Levels (SL) e Foundational Requirements (FR)"
+                                "Documentazione dei test di sicurezza"
+                                "Tracciabilità delle configurazioni sicure"
+                            [ metriche_kpi
+                                "Numero di FR coperti per SL (target: 100%)"
+                                "Tempo di implementazione configurazioni sicure"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di mappatura FR×SL"
+                                    "Procedura di test di sicurezza"
+                                [ registri
+                                    "Registro configurazioni sicure"
+                                    "Registro risultati test"
+                                [ evidenze
+                                    "Report FR×SL"
+                                    "Log di test di sicurezza"
+                            [ placeholders_contesto
+                                "[SL_TARGET]"
+                                "[FR_COVERED]"
+                                "[TEST_DATE]"
+                    { policy_template
+                        titolo "Policy per la Documentazione Tecnica di Sicurezza Macchine"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Riferimenti normativi e standard"
+                            "Responsabilità e ruoli"
+                            "Processo di redazione e revisione"
+                            "Gestione delle non conformità"
+                        [ placeholders_contesto
+                            "[NOME_AZIENDA]"
+                            "[VERSIONE_POLICY]"
+                            "[DATA_APPROVAZIONE]"
+                    { sop_template
+                        titolo "SOP per la Predisposizione del Fascicolo Tecnico"
+                        [ step
+                            "Raccolta dati tecnici e di sicurezza"
+                            "Mappatura requisiti normativi e standard"
+                            "Compilazione scheda MSEP"
+                            "Validazione con stakeholder"
+                            "Archiviazione e versioning"
+                        [ registrazioni
+                            "Registro delle revisioni"
+                            "Checklist di conformità"
+                            "Log di validazione"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per versioni stabili del fascicolo"
+                            "Branch 'develop' per bozze e revisioni"
+                            "Feature branch per sezioni specifiche del MSEP"
+                            "Pull request obbligatorie con revisione"
+                    { raci
+                        [ roles
+                            "SP (Security Product Manager)"
+                            "AO (Automation Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Specialist)"
+                        [ matrix
+                            {
+                                attivita "Raccolta dati tecnici"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Mappatura requisiti normativi"
+                                SP "A"
+                                AO "R"
+                                SI "I"
+                                OTSec "C"
+                            {
+                                attivita "Compilazione MSEP"
+                                SP "R"
+                                AO "C"
+                                SI "I"
+                                OTSec "A"
+                            {
+                                attivita "Validazione fascicolo"
+                                SP "A"
+                                AO "R"
+                                SI "C"
+                                OTSec "R"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Fascicolo tecnico"
+                            "Report di conformità"
+                            "Manuali utente"
+                            "Schede MSEP"
+                        [ audience_possibili
+                            "OEM interni"
+                            "Clienti finali"
+                            "Autorità di regolamentazione"
+                            "Auditor esterni"
+                        [ stili
+                            "Tecnico-normativo"
+                            "Sintetico per audit"
+                            "Dettagliato per cliente"
+                        [ livello_tecnico
+                            "Base (per autorità/clienti)"
+                            "Intermedio (per auditor)"
+                            "Avanzato (per team OT/ICS)"
+                        [ vincoli
+                            "Rispetto tempistiche regolamentari"
+                            "Conformità a IEC 62443 e Regolamento Macchine"
+                            "Tracciabilità delle revisioni"
+                    { prompting
+                        prompt_template_generico "Genera un documento per [TIPO_DOCUMENTO] relativo a [NOME_MACCHINA] con focus
+                            +b su [ASPETTO_SICUREZZA]. Includi riferimenti a [NORMA_RIFERIMENTO] e segnaposto
+                            +b per [PLACEHOLDER_CONTESTO]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico sul fascicolo tecnico per [NOME_MACCHINA],
+                            +b evidenziando conformità a Regolamento Macchine (UE) 2023/1230 e IEC 62443.
+                            +b Includi [VERSIONE_MACCHINA] e [DATA_REVISIONE]."
+                        prompt_esempio_slide "Crea una slide di presentazione per auditor sul MSEP di [NOME_MACCHINA], con
+                            +b focus su FR×SL e test di sicurezza. Inserisci [SL_TARGET] e [TEST_DATE]."
+                        prompt_esempio_sop "Redigi una SOP per la predisposizione del fascicolo tecnico di [NOME_MACCHINA],
+                            +b includendo step per raccolta dati e validazione. Specifica [CODICE_PRODOTTO]."
+                    [ checklist
+                        "Verifica copertura requisiti Regolamento Macchine (UE) 2023/1230"
+                        "Conferma allineamento con IEC 62443 (FR×SL)"
+                        "Validazione presenza di tutte le sezioni MSEP"
+                        "Controllo versioning e tracciabilità cambi"
+                        "Revisione da parte di OT Security Specialist"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome macchina"
+                        "Codice prodotto"
+                        "Versione macchina"
+                        "Data revisione"
+                        "Security Level target (SL)"
+                        "Foundational Requirements coperti (FR)"
+                    [ avvertenze
+                        "Assicurarsi che i dati inseriti siano aggiornati per evitare non conformità."
+                        "Verificare l'applicabilità di CRA/NIS2 in base al cliente o mercato."
+                        "Coinvolgere esperti legali per validazione normativa in contesti internazionali."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/12"
+            nome "Security di Macchina per OEM (Audit, messa a punto, hardening & monitoraggio)"
+            ruolo "Gestione della sicurezza delle macchine in fase di progettazione,
+                +b implementazione e post-vendita per OEM"
+            [ norme_riferimento
+                "IEC 62443-4-1"
+                "IEC 62443-4-2"
+                "ISO/IEC 27001"
+                "Direttiva Macchine 2006/42/CE"
+                "Regolamento Macchine 2023"
+                "NIS2 Directive"
+                "Cyber Resilience Act (CRA)"
+                "GDPR 2016/679"
+            descrizione "Questo ambito copre le attività di sicurezza per macchine industriali destinate
+                +b a OEM, includendo audit, hardening, monitoraggio e manutenzione post-vendita,
+                +b con focus su conformità normativa e gestione dei rischi OT/ICS."
+            [ sezioni
+                {
+                    id "cap/12/12.7"
+                    nome "Monitoraggio & manutenzione (Fase 5) — Operazioni & post-vendita"
+                    { obiettivo
+                        codice "OBJ-12.7"
+                        descrizione "Garantire il monitoraggio continuo delle vulnerabilità, fornire advisory ai
+                            +b clienti, gestire canali PSIRT, e offrire teleassistenza sicura con MFA e
+                            +b session recording."
+                    [ output_attesi
+                        "Runbook O&M (alert, triage, aggiornamenti)"
+                        "SLA per notifiche di incidenti"
+                        "Playbook per teleassistenza"
+                    prompt_base "Scrivi runbook post-vendita: monitoraggio vuln, advisory, teleassistenza,
+                        +b evidenze per chiusura interventi."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-12.7.1"
+                            titolo "Monitoraggio delle vulnerabilità"
+                            descrizione_astratta "Processo continuo di identificazione e valutazione delle vulnerabilità nei
+                                +b sistemi OT/ICS delle macchine in esercizio."
+                            [ rischi_mitigati
+                                "Exploit di vulnerabilità note"
+                                "Interruzioni operative non pianificate"
+                            [ pratiche_raccomandate
+                                "Utilizzo di strumenti di scansione vulnerabilità"
+                                "Integrazione con feed CVE/NVD"
+                                "Notifiche automatiche ai clienti"
+                            [ metriche_kpi
+                                "Tempo medio di rilevazione vulnerabilità (MTTD)"
+                                "Percentuale di vulnerabilità mitigate entro SLA"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di scansione vulnerabilità"
+                                [ registri
+                                    "Log delle scansioni"
+                                    "Registro delle vulnerabilità identificate"
+                                [ evidenze
+                                    "Report di mitigazione"
+                                    "Notifiche inviate ai clienti"
+                            [ placeholders_contesto
+                                "[CLIENTE_NOME]"
+                                "[MACCHINA_MODELLO]"
+                                "[VERSIONE_SOFTWARE]"
+                        {
+                            id "ASP-12.7.2"
+                            titolo "Teleassistenza sicura"
+                            descrizione_astratta "Fornitura di supporto remoto con controlli di sicurezza per garantire accesso
+                                +b autorizzato e tracciabilità delle sessioni."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Abuso di privilegi durante la teleassistenza"
+                            [ pratiche_raccomandate
+                                "Implementazione di MFA per accesso remoto"
+                                "Registrazione delle sessioni di teleassistenza"
+                                "Utilizzo di connessioni brokered"
+                            [ metriche_kpi
+                                "Percentuale di sessioni registrate"
+                                "Tempo medio di risposta per richiesta di assistenza"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di accesso remoto sicuro"
+                                [ registri
+                                    "Log delle sessioni di teleassistenza"
+                                [ evidenze
+                                    "Registrazioni delle sessioni"
+                                    "Report di conformità MFA"
+                            [ placeholders_contesto
+                                "[TECNICO_NOME]"
+                                "[CLIENTE_CONTATTO]"
+                                "[DATA_INTERVENTO]"
+                    { policy_template
+                        titolo "Policy di Monitoraggio e Manutenzione Post-Vendita"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Responsabilità"
+                            "Processo di monitoraggio vulnerabilità"
+                            "Gestione advisory e notifiche"
+                            "Protocolli di teleassistenza sicura"
+                        [ placeholders_contesto
+                            "[OEM_NOME]"
+                            "[CLIENTE_NOME]"
+                            "[SLA_NOTIFICHE]"
+                    { sop_template
+                        titolo "SOP per Monitoraggio Vulnerabilità e Teleassistenza"
+                        [ step
+                            "Identificazione vulnerabilità tramite scansione"
+                            "Valutazione impatto e priorità"
+                            "Notifica al cliente con advisory"
+                            "Pianificazione intervento di teleassistenza"
+                            "Esecuzione intervento con MFA e registrazione"
+                            "Chiusura intervento con report"
+                        [ registrazioni
+                            "Log scansioni vulnerabilità"
+                            "Registro sessioni teleassistenza"
+                            "Report di chiusura intervento"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuovi contenuti"
+                            "Hotfix branch per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "Supporto Clienti"
+                            "Analista OT Security"
+                            "Team PSIRT"
+                            "Tecnico Teleassistenza"
+                        [ matrix
+                            {
+                                attivita "Monitoraggio vulnerabilità"
+                                SP "Analista OT Security"
+                                AO "Team PSIRT"
+                                SI "Supporto Clienti"
+                                OTSec "Analista OT Security"
+                            {
+                                attivita "Emissione advisory"
+                                SP "Team PSIRT"
+                                AO "Supporto Clienti"
+                                SI "Analista OT Security"
+                                OTSec "Analista OT Security"
+                            {
+                                attivita "Teleassistenza"
+                                SP "Tecnico Teleassistenza"
+                                AO "Supporto Clienti"
+                                SI "Analista OT Security"
+                                OTSec "Analista OT Security"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Runbook"
+                            "Playbook"
+                            "Report"
+                            "SLA"
+                        [ audience_possibili
+                            "OEM"
+                            "Clienti finali"
+                            "Team interni"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Operativo"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443-4-1"
+                            "Rispetto GDPR per registrazione sessioni"
+                            "SLA per notifiche entro 24h"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [TIPO_DOCUMENTO] per [AUDIENCE] con stile [STILE] e
+                            +b livello tecnico [LIVELLO]. Includi [CONTENUTI_SPECIFICI] e rispetta i vincoli
+                            +b [VINCOLI]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico per clienti finali con stile formale e livello
+                            +b intermedio sul monitoraggio delle vulnerabilità nelle macchine OT, includendo
+                            +b best practice e riferimenti a IEC 62443."
+                        prompt_esempio_slide "Crea una presentazione per auditor con stile formale e livello avanzato sulla
+                            +b gestione della teleassistenza sicura, evidenziando MFA e session recording."
+                        prompt_esempio_sop "Redigi una SOP per team interni con stile operativo e livello base per il
+                            +b processo di monitoraggio vulnerabilità, includendo step dettagliati e
+                            +b registrazioni richieste."
+                    [ checklist
+                        "Verifica conformità a IEC 62443"
+                        "Inclusione di SLA per notifiche incidenti"
+                        "Definizione di protocolli MFA per teleassistenza"
+                        "Registrazione sessioni di supporto remoto"
+                        "Produzione di evidenze per chiusura interventi"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome Cliente"
+                        "Modello Macchina"
+                        "Versione Software/Firmware"
+                        "Data Intervento"
+                        "SLA Concordato"
+                    [ avvertenze
+                        "Assicurarsi che le sessioni di teleassistenza siano conformi al GDPR per la registrazione dati."
+                        "Verificare che i clienti ricevano advisory entro i termini SLA concordati."
+                        "Garantire che i tecnici siano formati su protocolli di sicurezza OT."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/12"
+            nome "Security di Macchina per OEM (Audit, messa a punto, hardening & monitoraggio)"
+            ruolo "Supporto alla progettazione e implementazione di misure di sicurezza per
+                +b macchine OEM in contesto OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-3-3 (FR5 - Restricted Data Flow)"
+                "IEC 62443-2-1 (Security Program Requirements)"
+                "ISO/IEC 27001 (Information Security Management)"
+                "NIS2 Directive (Cybersecurity for Critical Infrastructure)"
+                "Cyber Resilience Act (CRA)"
+                "Direttiva Macchine 2006/42/CE"
+                "Registro Macchine 2023"
+                "GDPR 2016/679 (Data Protection)"
+            descrizione "Questo ambito si concentra sulla sicurezza delle macchine OEM in ambienti
+                +b OT/ICS, con particolare attenzione a audit, hardening, messa a punto e
+                +b monitoraggio. Include la progettazione di architetture sicure e la conformità
+                +b agli standard di riferimento come IEC 62443."
+            [ sezioni
+                {
+                    id "cap/12/12.8"
+                    nome "Segmentazione, conduits & DMZ (applicazione FR5)"
+                    { obiettivo
+                        codice "OBJ-12.8"
+                        descrizione "Progettare zone e conduits a livello di macchina per garantire segmentazione di
+                            +b rete tramite VLAN/SDN, applicare policy di deny-by-default, whitelisting di
+                            +b protocolli, definire un single point esterno (OPC UA/REST) e implementare una
+                            +b DMZ."
+                    [ output_attesi
+                        "Diagramma di segmentazione zone e conduits"
+                        "Matrice dei flussi di comunicazione consentiti"
+                    prompt_base "Genera diagramma zone/conduits e matrice flussi per la macchina; evidenzia
+                        +b ‘single point’ e policy."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-12.8.1"
+                            titolo "Segmentazione di Rete"
+                            descrizione_astratta "La segmentazione di rete tramite zone e conduits limita la propagazione di
+                                +b minacce e garantisce che i flussi di dati siano controllati e autorizzati."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato a componenti critici della macchina"
+                                "Propagazione di malware tra zone"
+                                "Interferenza con flussi di dati operativi"
+                            [ pratiche_raccomandate
+                                "Definire zone logiche basate su ruoli funzionali (es. HMI, PLC, sensori)"
+                                "Implementare conduits per flussi di dati autorizzati"
+                                "Utilizzare VLAN o SDN per separazione fisica/logica"
+                                "Applicare policy di deny-by-default su firewall o switch"
+                            [ metriche_kpi
+                                "Percentuale di flussi di rete mappati e autorizzati"
+                                "Numero di violazioni di policy rilevate"
+                                "Tempo medio di risposta a incidenti di rete"
+                            { artefatti
+                                [ procedure
+                                    "Procedura per la definizione di zone e conduits"
+                                    "Procedura per la configurazione di VLAN/SDN"
+                                [ registri
+                                    "Registro delle configurazioni di rete"
+                                    "Registro delle policy di firewall"
+                                [ evidenze
+                                    "Report di test di segmentazione"
+                                    "Log di monitoraggio dei flussi di rete"
+                            [ placeholders_contesto
+                                "[TIPO_MACCHINA]"
+                                "[AMBIENTE_OPERATIVO]"
+                                "[PROTOCOLLI_UTILIZZATI]"
+                        {
+                            id "ASP-12.8.2"
+                            titolo "Single Point Esterno e DMZ"
+                            descrizione_astratta "Un single point di comunicazione esterno, supportato da una DMZ, riduce la
+                                +b superficie di attacco e facilita il monitoraggio e la protezione dei dati in
+                                +b transito."
+                            [ rischi_mitigati
+                                "Esposizione diretta di componenti interni a reti esterne"
+                                "Attacchi di tipo man-in-the-middle"
+                                "Accesso non autorizzato tramite protocolli non sicuri"
+                            [ pratiche_raccomandate
+                                "Definire un single point di comunicazione (es. OPC UA/REST)"
+                                "Implementare una DMZ per isolare i sistemi esposti"
+                                "Utilizzare protocolli sicuri per la comunicazione esterna"
+                            [ metriche_kpi
+                                "Numero di connessioni esterne non autorizzate rilevate"
+                                "Percentuale di traffico esterno instradato tramite DMZ"
+                                "Tempo di latenza introdotto dalla DMZ"
+                            { artefatti
+                                [ procedure
+                                    "Procedura per configurazione single point"
+                                    "Procedura per setup DMZ"
+                                [ registri
+                                    "Registro accessi al single point"
+                                    "Registro configurazioni DMZ"
+                                [ evidenze
+                                    "Report di test di accesso esterno"
+                                    "Log di monitoraggio DMZ"
+                            [ placeholders_contesto
+                                "[SINGLE_POINT_PROTOCOLLO]"
+                                "[DMZ_CONFIGURAZIONE]"
+                                "[RETE_ESTERNA]"
+                    { policy_template
+                        titolo "Policy di Segmentazione e Controllo Flussi"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Definizione di zone e conduits"
+                            "Regole di accesso e policy deny-by-default"
+                            "Configurazione single point e DMZ"
+                            "Monitoraggio e revisione"
+                        [ placeholders_contesto
+                            "[NOME_MACCHINA]"
+                            "[ZONE_DEFINITE]"
+                            "[CONDUITS_AUTORIZZATI]"
+                    { sop_template
+                        titolo "SOP per Configurazione Segmentazione Rete"
+                        [ step
+                            "Identificare componenti della macchina e ruoli funzionali"
+                            "Definire zone logiche e conduits"
+                            "Configurare VLAN/SDN per segmentazione"
+                            "Implementare policy di firewall (deny-by-default, whitelisting)"
+                            "Configurare single point esterno e DMZ"
+                            "Testare configurazione e documentare risultati"
+                        [ registrazioni
+                            "Registro configurazioni VLAN/SDN"
+                            "Registro policy firewall"
+                            "Report di test segmentazione"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuove funzionalità o configurazioni"
+                            "Hotfix branch per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "SP (System Provider)"
+                            "AO (Asset Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Team)"
+                        [ matrix
+                            {
+                                attivita "Definizione zone e conduits"
+                                SP "A"
+                                AO "C"
+                                SI "R"
+                                OTSec "I"
+                            {
+                                attivita "Configurazione VLAN/SDN"
+                                SP "C"
+                                AO "I"
+                                SI "R"
+                                OTSec "A"
+                            {
+                                attivita "Implementazione single point e DMZ"
+                                SP "I"
+                                AO "C"
+                                SI "R"
+                                OTSec "A"
+                            {
+                                attivita "Monitoraggio e revisione"
+                                SP "I"
+                                AO "R"
+                                SI "C"
+                                OTSec "A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Articolo tecnico"
+                            "Presentazione slide"
+                            "SOP (Standard Operating Procedure)"
+                            "Report di audit"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Ingegneri di sistema"
+                            "Responsabili sicurezza"
+                            "Management"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443-3-3 FR5"
+                            "Rispetto delle policy aziendali"
+                            "Documentazione in lingua italiana"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [TIPO_DOCUMENTO] per [AUDIENCE] con stile [STILE] e
+                            +b livello tecnico [LIVELLO_TECNICO] sul tema della segmentazione di rete e DMZ
+                            +b per macchine OEM, includendo diagrammi e matrici flussi, evidenziando single
+                            +b point e policy."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico per ingegneri di sistema con stile formale e livello
+                            +b tecnico avanzato sulla segmentazione di rete per macchine OEM, includendo un
+                            +b diagramma di zone/conduits e una matrice dei flussi."
+                        prompt_esempio_slide "Crea una presentazione slide per responsabili sicurezza con stile sintetico e
+                            +b livello tecnico intermedio sulla progettazione di DMZ e single point per
+                            +b macchine OEM, con diagrammi esplicativi."
+                        prompt_esempio_sop "Elabora una SOP per tecnici OT con stile tecnico e livello tecnico base per la
+                            +b configurazione di segmentazione rete e DMZ su una macchina OEM, includendo step
+                            +b dettagliati e registrazioni."
+                    [ checklist
+                        "Definizione delle zone logiche completata"
+                        "Conduits identificati e documentati"
+                        "VLAN/SDN configurate correttamente"
+                        "Policy deny-by-default implementata"
+                        "Single point esterno configurato (OPC UA/REST)"
+                        "DMZ operativa e testata"
+                        "Matrice flussi di comunicazione redatta"
+                        "Diagramma segmentazione prodotto"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipo di macchina OEM"
+                        "Ambiente operativo (es. industria, sito specifico)"
+                        "Protocolli di comunicazione utilizzati"
+                        "Requisiti normativi specifici"
+                        "Configurazione rete esistente"
+                    [ avvertenze
+                        "La segmentazione deve essere testata in ambiente non operativo prima del deployment"
+                        "Assicurarsi che il single point non introduca colli di bottiglia nelle comunicazioni critiche"
+                        "Monitorare costantemente i flussi di rete per rilevare anomalie post-configurazione"
+                        "Documentare ogni modifica alla configurazione per audit futuri"

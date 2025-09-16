@@ -1,0 +1,63 @@
+ittf
+
+   $
+      function pad4(num) {
+         if (num < 10) {
+            return "000" + num;
+         } else if (num < 100) {
+            return "00" + num;
+         } else if (num < 1000) {
+            return "0" + num;
+         } else {
+            return num;
+         }
+      }
+      var chapters = {};
+      var profiles = {};
+      var topics = {};
+
+   $foreach p in wzCtx.root_prompts.iec_62443_profiles.items
+      $ profiles[p.id] = p.name;
+
+   $file .wizzi-override/project/from_meta/thesaurus/topics.json.ittf
+
+
+      {
+         name "topics"
+         [ items
+            $ var count = 1
+
+            $foreach t in wzCtx.root_prompts.iec_62443_topics.items
+               $
+                  var topicId = 'TOPIC-' + pad4(count);
+                  count++;
+                  topics[topicId] = t.nome;
+               {
+                  id "${topicId}"
+                  name "${t.nome}"
+                  description "${t.descrizione}"
+                  domain "${t.dominio}"
+                  type "${t.tipo}"
+               $foreach c in t.capitoli
+                  $
+                     var cPad = pad4(c);
+                     if (_.isObject(chapters[cPad])) {
+                        chapters[cPad].topics.push(topicId)
+                     } else {
+                        chapters[cPad] = { topics: [topicId] }
+                     }
+
+   $file .wizzi-override/project/from_meta/thesaurus/profile_topics.json.ittf
+      {
+         name "chapter-topic"
+         [
+            $foreach c in Object.keys(chapters)
+               {
+                  id "PROFILE-${c}"
+                  name "${profiles['PROFILE-'+c]}"
+                  [ topics
+                     $foreach t in chapters[c].topics
+                        {
+                           id "${t}"
+                           name "${topics[t]}"
+

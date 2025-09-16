@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LLM Cache</title>
+  <link rel="stylesheet" href="/public/llm/cache.css" />
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    const e = React.createElement;
+
+    function useFetch(url){
+      const [state, set] = React.useState({ loading:true });
+      React.useEffect(()=>{
+        let abort = false;
+        fetch(url).then(r=>r.json()).then(d=>{ if(!abort) set({ loading:false, data:d }); })
+                  .catch(err=>set({ loading:false, error: String(err)}));
+        return ()=>{ abort = true };
+      },[url]);
+      return state;
+    }
+
+    function App(){
+      const [q,setQ] = React.useState('');
+      const [provider,setP] = React.useState('');
+      const [model,setM] = React.useState('');
+      const [page,setPg] = React.useState(0);
+      const limit = 20;
+      const qs = new URLSearchParams({ q, provider, model, limit, skip: String(page*limit) });
+      const {loading, data, error} = useFetch('/api/llm/cache?' + qs.toString());
+
+      function del(id){
+        if(!confirm('Eliminare cache '+id+'?')) return;
+        fetch('/api/llm/cache/'+id, { method:'DELETE' })
+          .then(()=> window.location.reload())
+          .catch(err=>alert('Errore: '+err));
+      }
+
+      return e('div', { className:'container' }, [
+        e('h1', { key:'h' }, 'LLM Cache'),
+        e('div', { key:'filters', className:'filters' }, [
+          e('input', { placeholder:'cerca testo…', value:q, onChange:ev=>setQ(ev.target.value) }),
+          e('select', { value:provider, onChange:ev=>setP(ev.target.value) }, [
+            e('option', { value:'' }, 'tutti i provider'),
+            e('option', { value:'openai' }, 'openai'),
+            e('option', { value:'grok' }, 'grok'),
+            e('option', { value:'deepseek' }, 'deepseek')
+          ]),
+          e('input', { placeholder:'model', value:model, onChange:ev=>setM(ev.target.value) }),
+          e('button', { onClick:()=>setPg(0) }, 'Filtra')
+        ]),
+        loading ? e('p', { key:'l' }, 'Caricamento…') : error ? e('pre', { key:'e', className:'error' }, error) : (
+          e('div', { key:'list' }, [
+            e('p', { key:'meta' }, `Totale: ${data.total}`),
+            e('ul', { key:'ul', className:'list' }, (data.items||[]).map(it => (
+              e('li', { key: it._id }, [
+                e('div', { className:'row' }, [
+                  e('div', null, [
+                    e('strong', null, `[${it.provider}] ${it.model}`),
+                    e('div', null, new Date(it.stats.createdAt).toLocaleString()),
+                    e('div', null, `hits: ${it.stats.hits}`)
+                  ]),
+                  e('div', { className:'grow'}, it.snippet || (it.result?.content||'').slice(0,180)),
+                  e('div', null, [
+                    e('a', { href: '/api/llm/cache/'+it._id, target:'_blank' }, 'dettagli'), ' ',
+                    e('button', { onClick:()=>del(it._id) }, 'delete')
+                  ])
+                ])
+              ])
+            ))),
+            e('div', { key:'pg', className:'pager' }, [
+              e('button', { onClick:()=>setPg(Math.max(0,page-1)), disabled: page===0 }, '←'),
+              e('span', null, ` pagina ${page+1} `),
+              e('button', { onClick:()=>setPg(page+1), disabled: (data.items||[]).length < limit }, '→')
+            ])
+          ])
+        )
+      ]);
+    }
+
+    ReactDOM.createRoot(document.getElementById('app')).render(e(App));
+  </script>
+</body>
+</html>

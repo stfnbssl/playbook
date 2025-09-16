@@ -1,0 +1,1088 @@
+$group
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/3"
+            nome "Governance e Security Program (IEC 62443-2-1, -2-3, -2-4)"
+            ruolo "Definizione e gestione del programma di sicurezza OT per garantire conformità e
+                +b protezione degli IACS."
+            [ norme_riferimento
+                "IEC 62443-2-1"
+                "IEC 62443-2-3"
+                "IEC 62443-2-4"
+            descrizione "**Sintesi**
+                +b Il **programma di sicurezza OT** (Operational Technology) secondo
+                +b **IEC 62443-2-1** è un ciclo **PDCA** (Plan-Do-Check-Act) che collega politiche
+                +b e ruoli, **valutazione del rischio** sugli **IACS** (Industrial Automation and
+                +b Control Systems), definizione degli **SL-Target** (obiettivi di sicurezza per
+                +b zona/conduit/asset), implementazione dei controlli (**FR1–FR7**),
+                +b **validazione** (-3-3) e **miglioramento continuo**. Il perimetro comprende
+                +b impianti, linee, PLC/DCS/SCADA, HMI, conduits verso IT tramite **DMZ** (zona
+                +b cuscinetto), con integrazione esplicita con **safety**, qualità e
+                +b manutenzione.
+                +b **Componenti chiave**
+                +b * **Governo**: comitato ICS con mandato,
+                +b calendario, registro decisioni ed **eccezioni**.
+                +b * **Politiche & standard**:
+                +b accessi remoti, change, backup/restore, logging, hardening; mapping a
+                +b **FR/SL**.
+                +b * **Processi**: risk-based per **zona**, pianificazione misure e
+                +b **verifica** (test/-3-3), audit periodico.
+                +b * **Evidenze**: RACI approvato,
+                +b registro asset, SL-Target per zona, piani e report **KPI**.
+                +b * Programma
+                +b **documentato e misurabile**, non solo tecnico.
+                +b * **SL-Target** guidano
+                +b priorità e investimenti (evitare "SL4 ovunque").
+                +b * Safety, manutenzione e
+                +b qualità sono **stakeholder** permanenti."
+            [ sezioni
+                {
+                    id "cap/3/3.1"
+                    nome "Programma di Sicurezza OT (-2-1)"
+                    { obiettivo
+                        codice "OBJ-3.1"
+                        descrizione "Definire e implementare un programma di sicurezza OT basato su IEC 62443-2-1,
+                            +b utilizzando il ciclo PDCA per garantire protezione degli IACS e miglioramento
+                            +b continuo."
+                    [ output_attesi
+                        "Documento del programma di sicurezza OT"
+                        "Registro delle decisioni del comitato ICS"
+                        "Mappatura SL-Target per zona/conduit/asset"
+                        "Report KPI e audit periodici"
+                        "Piani di miglioramento continuo"
+                    prompt_base "Redigi una panoramica di 10–12 righe del programma di sicurezza OT secondo
+                        +b 62443-2-1, collegandolo a SL-Target e cicli PDCA."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-3.1.1"
+                            titolo "Governo del Programma di Sicurezza OT"
+                            descrizione_astratta "Definizione di un comitato ICS con mandato chiaro per supervisionare il
+                                +b programma di sicurezza OT, garantendo decisioni documentate e gestione delle
+                                +b eccezioni."
+                            [ rischi_mitigati
+                                "Mancanza di coordinamento tra IT e OT"
+                                "Decisioni non tracciate o non allineate"
+                                "Assenza di responsabilità chiara"
+                            [ pratiche_raccomandate
+                                "Istituire un comitato ICS con rappresentanti OT, IT, safety e qualità"
+                                "Definire un calendario di incontri e un registro delle decisioni"
+                                "Gestire eccezioni con processo formale"
+                            [ metriche_kpi
+                                "Frequenza degli incontri del comitato ICS"
+                                "Percentuale di decisioni documentate"
+                                "Tempo medio di gestione delle eccezioni"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di istituzione del comitato ICS"
+                                    "Procedura di gestione eccezioni"
+                                [ registri
+                                    "Registro decisioni comitato"
+                                    "Registro eccezioni"
+                                [ evidenze
+                                    "Verbali incontri"
+                                    "Report di gestione eccezioni"
+                            [ placeholders_contesto
+                                "[Nome Organizzazione]"
+                                "[Struttura Comitato]"
+                                "[Calendario Incontri]"
+                        {
+                            id "ASP-3.1.2"
+                            titolo "Definizione SL-Target per Zone e Conduits"
+                            descrizione_astratta "Identificazione degli obiettivi di sicurezza (SL-Target) per ogni zona e
+                                +b conduit degli IACS, basati su valutazione del rischio, per guidare priorità e
+                                +b investimenti."
+                            [ rischi_mitigati
+                                "Sovradimensionamento o sottodimensionamento delle misure di sicurezza"
+                                "Mancata protezione di asset critici"
+                                "Allocazione inefficiente delle risorse"
+                            [ pratiche_raccomandate
+                                "Eseguire valutazione del rischio per ogni zona e conduit"
+                                "Definire SL-Target in base a criticità e impatto"
+                                "Documentare e revisionare periodicamente gli SL-Target"
+                            [ metriche_kpi
+                                "Percentuale di zone/conduits con SL-Target definiti"
+                                "Tempo medio per revisione degli SL-Target"
+                                "Conformità degli SL-Target con i requisiti FR"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di definizione SL-Target"
+                                    "Procedura di revisione SL-Target"
+                                [ registri
+                                    "Registro SL-Target per zona/conduit"
+                                [ evidenze
+                                    "Report valutazione rischio"
+                                    "Documentazione SL-Target"
+                            [ placeholders_contesto
+                                "[Elenco Zone]"
+                                "[Elenco Conduits]"
+                                "[Criteri Criticità]"
+                    { policy_template
+                        titolo "Politica Programma di Sicurezza OT"
+                        [ sezioni
+                            "Scopo e Obiettivi"
+                            "Ambito di Applicazione"
+                            "Ruoli e Responsabilità"
+                            "Ciclo PDCA e Miglioramento Continuo"
+                            "Gestione SL-Target"
+                            "Integrazione con Safety e Qualità"
+                        [ placeholders_contesto
+                            "[Nome Organizzazione]"
+                            "[Perimetro IACS]"
+                            "[Comitato ICS]"
+                    { sop_template
+                        titolo "SOP - Gestione Programma di Sicurezza OT"
+                        [ step
+                            "Convocazione Comitato ICS"
+                            "Valutazione Rischio e Definizione SL-Target"
+                            "Implementazione Controlli FR1-FR7"
+                            "Validazione e Test (-3-3)"
+                            "Revisione KPI e Miglioramento Continuo"
+                        [ registrazioni
+                            "Registro Decisioni Comitato"
+                            "Report Valutazione Rischio"
+                            "Report Test Validazione"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per versioni stabili e approvate"
+                            "Branch 'develop' per integrazione contenuti in lavorazione"
+                            "Feature branch per ogni aspetto di sicurezza o sezione"
+                            "Pull request obbligatorie con revisione da almeno 2 membri"
+                    { raci
+                        [ roles
+                            "SP (Security Program Manager)"
+                            "AO (Asset Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Team)"
+                        [ matrix
+                            {
+                                attivita "Definizione Programma Sicurezza OT"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Valutazione Rischio e SL-Target"
+                                SP "A"
+                                AO "R"
+                                SI "C"
+                                OTSec "R"
+                            {
+                                attivita "Implementazione Controlli"
+                                SP "I"
+                                AO "C"
+                                SI "R"
+                                OTSec "A"
+                            {
+                                attivita "Validazione e Audit"
+                                SP "R"
+                                AO "I"
+                                SI "C"
+                                OTSec "A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                            "Slide"
+                            "Articolo"
+                        [ audience_possibili
+                            "Management"
+                            "Tecnici OT"
+                            "Auditor"
+                            "Stakeholder Safety"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Alto (Esperti OT/ICS)"
+                            "Medio (Management)"
+                            "Basso (Generico)"
+                        [ vincoli
+                            "Rispetto IEC 62443-2-1"
+                            "Integrazione con safety e qualità"
+                            "Documentazione misurabile e tracciabile"
+                    { prompting
+                        prompt_template_generico "Redigi un documento sul programma di sicurezza OT secondo IEC 62443-2-1 per
+                            +b [audience] con stile [stile] e livello tecnico [livello]. Includi riferimenti a
+                            +b SL-Target, ciclo PDCA e integrazione con safety. Usa il contesto
+                            +b [placeholders]."
+                        prompt_esempio_articolo "Scrivi un articolo di 800 parole sul programma di sicurezza OT secondo IEC
+                            +b 62443-2-1 per un pubblico tecnico, con focus su SL-Target e ciclo PDCA,
+                            +b includendo esempi pratici per [Nome Organizzazione]."
+                        prompt_esempio_slide "Crea una presentazione di 10 slide sul programma di sicurezza OT secondo IEC
+                            +b 62443-2-1 per il management di [Nome Organizzazione], con stile sintetico e
+                            +b focus su governance e KPI."
+                        prompt_esempio_sop "Redigi una SOP dettagliata per la gestione del programma di sicurezza OT in
+                            +b [Nome Organizzazione], includendo step per definizione SL-Target, validazione e
+                            +b miglioramento continuo."
+                    [ checklist
+                        "Definizione del comitato ICS e calendario incontri"
+                        "Valutazione rischio completata per tutte le zone/conduits"
+                        "SL-Target definiti e documentati"
+                        "Controlli FR1-FR7 mappati e implementati"
+                        "Processo di validazione (-3-3) eseguito"
+                        "KPI definiti e monitorati"
+                        "Integrazione con safety e qualità documentata"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome Organizzazione"
+                        "Elenco Zone e Conduits"
+                        "Struttura Comitato ICS"
+                        "Perimetro IACS"
+                        "Criteri Criticità Asset"
+                    [ avvertenze
+                        "Ogni controllo va valutato contro interlock e vincoli del processo: nessuna modifica senza analisi d’impatto e test in ambiente sicuro."
+                        "Evitare definizione di SL4 ovunque per non sovraccaricare risorse e budget."
+                        "Garantire coinvolgimento permanente di safety, manutenzione e qualità come stakeholder."
+    {
+        ERROR_MESSAGE "Error parsing ai apicall: Expected ',' or ']' after array element in JSON at
+            +b position 2091 (line 37 column 29)"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/3"
+            nome "Governance e Security Program (IEC 62443-2-1, -2-3, -2-4)"
+            ruolo "Definizione delle strategie di sicurezza e gestione dei programmi di
+                +b cybersecurity in ambito OT/ICS con focus su governance e supply chain."
+            [ norme_riferimento
+                "IEC 62443-2-1"
+                "IEC 62443-2-3"
+                "IEC 62443-2-4"
+            descrizione "Questo ambito copre la governance della sicurezza e i programmi di
+                +b cybersecurity per ambienti OT/ICS, con particolare attenzione alla gestione
+                +b della supply chain e ai requisiti di procurement per garantire la conformità
+                +b agli standard IEC 62443."
+            [ sezioni
+                {
+                    id "cap/3/3.3"
+                    nome "Supply Chain Security & Procurement (-2-4)"
+                    { obiettivo
+                        codice "OBJ-3.3"
+                        descrizione "Garantire la sicurezza della supply chain attraverso clausole contrattuali
+                            +b vendor-neutral e criteri di qualifica dei fornitori conformi a IEC 62443-2-4,
+                            +b -4-1 e -4-2."
+                    [ output_attesi
+                        "Clausole contrattuali vendor-neutral per procurement"
+                        "Matrice di conformità per ordini"
+                        "Criteri di qualifica fornitori"
+                        "Policy per accessi remoti e gestione incidenti"
+                    prompt_base "Scrivi 8–10 clausole procurement vendor-neutral che impongano -4-1/-4-2, PSIRT,
+                        +b SBOM, patch e controlli su accessi remoti."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-3.3.1"
+                            titolo "Sicurezza del Ciclo di Vita del Software (SDL)"
+                            descrizione_astratta "Garantire che i fornitori adottino un processo di sviluppo sicuro conforme a
+                                +b IEC 62443-4-1."
+                            [ rischi_mitigati
+                                "Vulnerabilità software non mitigate"
+                                "Mancanza di trasparenza nello sviluppo"
+                            [ pratiche_raccomandate
+                                "Audit SDL su richiesta"
+                                "Documentazione dei processi di sviluppo sicuro"
+                            [ metriche_kpi
+                                "Percentuale di fornitori conformi a 62443-4-1"
+                                "Tempo medio per audit SDL"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di audit SDL"
+                                [ registri
+                                    "Registro audit fornitori"
+                                [ evidenze
+                                    "Report di conformità SDL"
+                            [ placeholders_contesto
+                                "[Vendor_Name]"
+                                "[Audit_Frequency]"
+                                "[NDA_Terms]"
+                        {
+                            id "ASP-3.3.2"
+                            titolo "Gestione delle Patch e PSIRT"
+                            descrizione_astratta "Assicurare che i fornitori abbiano un processo attivo di gestione delle
+                                +b vulnerabilità e rilascio patch con SLA definiti."
+                            [ rischi_mitigati
+                                "Ritardi nella correzione di vulnerabilità critiche"
+                                "Mancanza di comunicazione sulle vulnerabilità"
+                            [ pratiche_raccomandate
+                                "Canale PSIRT cifrato"
+                                "SLA per triage vulnerabilità (es. 5 giorni)"
+                            [ metriche_kpi
+                                "Tempo medio di risposta PSIRT"
+                                "Percentuale di patch rilasciate entro SLA"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di gestione vulnerabilità"
+                                [ registri
+                                    "Registro comunicazioni PSIRT"
+                                [ evidenze
+                                    "Advisory firmati"
+                            [ placeholders_contesto
+                                "[SLA_Triage]"
+                                "[Criticality_Threshold]"
+                                "[Patch_Release_Window]"
+                    { policy_template
+                        titolo "Policy di Sicurezza Supply Chain e Procurement"
+                        [ sezioni
+                            "Introduzione"
+                            "Clausole Contrattuali"
+                            "Qualifica Fornitori"
+                            "Gestione Accessi Remoti"
+                            "Responsabilità PSIRT"
+                        [ placeholders_contesto
+                            "[Company_Name]"
+                            "[Contract_Duration]"
+                            "[Compliance_Matrix_Version]"
+                    { sop_template
+                        titolo "SOP per Valutazione Fornitori e Gestione Contratti"
+                        [ step
+                            "Raccolta informazioni fornitore"
+                            "Valutazione conformità 62443"
+                            "Definizione clausole contrattuali"
+                            "Monitoraggio continuo"
+                        [ registrazioni
+                            "Registro valutazioni fornitori"
+                            "Matrice conformità contratti"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazioni"
+                            "Feature branch per clausole specifiche"
+                    { raci
+                        [ roles
+                            "Security Program (SP)"
+                            "Asset Owner (AO)"
+                            "System Integrator (SI)"
+                            "OT Security (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione clausole contrattuali"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Valutazione fornitori"
+                                SP "C"
+                                AO "R"
+                                SI "A"
+                                OTSec "I"
+                            {
+                                attivita "Monitoraggio conformità"
+                                SP "I"
+                                AO "C"
+                                SI "R"
+                                OTSec "A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                            "Slide"
+                        [ audience_possibili
+                            "Management"
+                            "Tecnici OT"
+                            "Fornitori"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Alto"
+                            "Medio"
+                            "Basso"
+                        [ vincoli
+                            "Conformità IEC 62443"
+                            "Vendor-neutrality"
+                            "Adattabilità a contesti OT"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [Tipo_Documento] per [Audience] con stile [Stile] e
+                            +b livello tecnico [Livello_Tecnico] sul tema della sicurezza supply chain in
+                            +b ambito OT/ICS, includendo clausole vendor-neutral per procurement e criteri di
+                            +b qualifica fornitori conformi a IEC 62443-2-4, -4-1, -4-2."
+                        prompt_esempio_articolo "Scrivi un articolo formale per il management sul tema 'Sicurezza della Supply
+                            +b Chain in OT/ICS' con focus su clausole contrattuali e conformità IEC 62443,
+                            +b stile formale e livello tecnico medio."
+                        prompt_esempio_slide "Crea una presentazione per tecnici OT con 10 slide sul tema 'Procurement Sicuro
+                            +b in OT/ICS', stile sintetico, livello tecnico alto, includendo esempi di
+                            +b clausole vendor-neutral."
+                        prompt_esempio_sop "Elabora una SOP per la valutazione dei fornitori in ambito OT/ICS, stile
+                            +b tecnico, livello tecnico medio, con step dettagliati per garantire conformità a
+                            +b IEC 62443-2-4."
+                    [ checklist
+                        "Verifica conformità clausole a IEC 62443-4-1 e -4-2"
+                        "Inclusione requisiti SBOM e PSIRT nei contratti"
+                        "Definizione SLA per patch e triage vulnerabilità"
+                        "Controlli su accessi remoti (MFA, session recording)"
+                        "Piano di rollback per interventi remoti"
+                        "Matrice di conformità allegata agli ordini"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome azienda"
+                        "Settore industriale"
+                        "Tipologia di asset OT/ICS"
+                        "Livello di criticità degli asset"
+                        "Frequenza audit fornitori"
+                        "Durata contratti"
+                    [ avvertenze
+                        "Accessi remoti e disclosure non devono essere improvvisati."
+                        "Interventi da remoto solo in finestre di fermo concordate."
+                        "Necessità di adattare clausole al contesto normativo locale (es. GDPR, NIS2)."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/3"
+            nome "Governance e Security Program (IEC 62443-2-1, -2-3, -2-4)"
+            ruolo "Definizione di policy, procedure e controlli per la gestione della sicurezza in
+                +b ambienti OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-2-1"
+                "IEC 62443-2-3"
+                "IEC 62443-2-4"
+                "ISO/IEC 27001"
+                "NIS2 Directive"
+                "Cyber Resilience Act (CRA)"
+            descrizione "Questo ambito si concentra sulla governance della sicurezza informatica in
+                +b contesti OT/ICS, includendo la definizione di programmi di sicurezza, policy e
+                +b controlli per garantire la protezione degli asset critici e la conformità
+                +b normativa."
+            [ sezioni
+                {
+                    id "cap/3/3.4"
+                    nome "**Accessi remoti di terze parti** (policy e controlli)"
+                    { obiettivo
+                        codice "OBJ-3.4"
+                        descrizione "Garantire che gli accessi remoti di terze parti siano sicuri, controllati e
+                            +b tracciabili per minimizzare i rischi di compromissione degli asset OT/ICS."
+                    [ output_attesi
+                        "Policy per accessi remoti di terze parti"
+                        "Procedura operativa standard (SOP) per la gestione degli accessi remoti"
+                        "Checklist di evidenze per la conformità"
+                        "Registro delle sessioni di accesso remoto"
+                    prompt_base "Redigi la procedura degli accessi remoti (max 12 passi) e una checklist di
+                        +b evidenze da allegare al ticket."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-3.4.1"
+                            titolo "Accesso Brokered tramite Jump Host"
+                            descrizione_astratta "Gli accessi remoti devono essere mediati tramite un jump host o gateway
+                                +b privilegiato per evitare connessioni dirette agli asset critici."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato agli asset OT"
+                                "Esposizione di credenziali su reti non sicure"
+                                "Mancata tracciabilità delle attività"
+                            [ pratiche_raccomandate
+                                "Utilizzo di un jump host per tutti gli accessi remoti"
+                                "Divieto di VPN dirette verso asset critici"
+                                "Autenticazione MFA obbligatoria"
+                            [ metriche_kpi
+                                "Percentuale di accessi remoti mediati tramite jump host (target: 100%)"
+                                "Tempo medio di risposta alle richieste di accesso remoto"
+                                "Numero di violazioni delle policy di accesso remoto per mese"
+                            { artefatti
+                                [ procedure
+                                    "Configurazione del jump host"
+                                    "Gestione delle sessioni di accesso remoto"
+                                [ registri
+                                    "Log delle sessioni di accesso remoto"
+                                    "Registro delle richieste di accesso"
+                                [ evidenze
+                                    "Ticket di richiesta accesso"
+                                    "Log di autenticazione MFA"
+                                    "Registrazioni delle sessioni"
+                            [ placeholders_contesto
+                                "[NOME_AZIENDA]"
+                                "[ZONA_OT]"
+                                "[ASSET_CRITICI]"
+                        {
+                            id "ASP-3.4.2"
+                            titolo "Principio del Least Privilege e Account Temporanei"
+                            descrizione_astratta "Gli accessi remoti devono essere concessi con privilegi minimi necessari e
+                                +b limitati nel tempo per ridurre il rischio di abuso o compromissione."
+                            [ rischi_mitigati
+                                "Abuso di privilegi da parte di terze parti"
+                                "Accesso prolungato non necessario"
+                                "Compromissione di account permanenti"
+                            [ pratiche_raccomandate
+                                "Assegnazione di profili con privilegi minimi"
+                                "Creazione di account temporanei per accessi remoti"
+                                "Revoca automatica degli account al termine della sessione"
+                            [ metriche_kpi
+                                "Percentuale di accessi remoti con account temporanei (target: 100%)"
+                                "Numero di account non revocati dopo la sessione per mese"
+                                "Tempo medio di utilizzo degli account temporanei"
+                            { artefatti
+                                [ procedure
+                                    "Creazione e revoca di account temporanei"
+                                    "Assegnazione profili di accesso"
+                                [ registri
+                                    "Registro degli account temporanei creati e revocati"
+                                    "Log delle autorizzazioni concesse"
+                                [ evidenze
+                                    "Elenco profili assegnati"
+                                    "Log di revoca account"
+                                    "Report di conformità least privilege"
+                            [ placeholders_contesto
+                                "[SISTEMA_GESTIONE_ACCOUNT]"
+                                "[POLICY_PRIVILEGI]"
+                                "[DURATA_ACCESSO]"
+                    { policy_template
+                        titolo "Policy per Accessi Remoti di Terze Parti"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Principi di sicurezza (MFA, least privilege, session recording)"
+                            "Ruoli e responsabilità"
+                            "Controlli tecnici e organizzativi"
+                            "Gestione delle eccezioni"
+                            "Monitoraggio e revisione"
+                        [ placeholders_contesto
+                            "[NOME_AZIENDA]"
+                            "[AMBIENTE_OT]"
+                            "[SISTEMA_BROKER]"
+                    { sop_template
+                        titolo "Procedura Operativa per Accessi Remoti di Terze Parti"
+                        [ step
+                            "Richiesta con scopo e asset"
+                            "Verifica prerequisiti (formazione, NDA)"
+                            "Approvazione owner di zona"
+                            "Pianificazione finestra (con safety)"
+                            "Pre-check: backup configurazioni/snapshot"
+                            "Assegnazione profilo minimo e account temporaneo"
+                            "Avvio sessione tramite broker con registrazione"
+                            "Esecuzione attività con two-person rule se critiche"
+                            "Chiusura sessione e revoca account"
+                            "Post-check funzionale/processo"
+                            "Allegare log/evidenze al ticket"
+                            "Post-review con miglioramenti"
+                        [ registrazioni
+                            "Ticket di richiesta"
+                            "Log della sessione"
+                            "Evidenze pre/post-check"
+                            "Report di review"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili e approvati"
+                            "Branch 'develop' per contenuti in lavorazione"
+                            "Feature branch per ogni nuovo aspetto di sicurezza o sezione"
+                            "Pull request obbligatorie con review prima del merge"
+                    { raci
+                        [ roles
+                            "Security Program (SP)"
+                            "Asset Owner (AO)"
+                            "Safety & Integrity (SI)"
+                            "OT Security (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione policy accessi remoti"
+                                SP "Responsible"
+                                AO "Consulted"
+                                SI "Informed"
+                                OTSec "Accountable"
+                            {
+                                attivita "Approvazione richieste accesso"
+                                SP "Consulted"
+                                AO "Responsible"
+                                SI "Consulted"
+                                OTSec "Informed"
+                            {
+                                attivita "Monitoraggio sessioni remote"
+                                SP "Informed"
+                                AO "Consulted"
+                                SI "Informed"
+                                OTSec "Responsible"
+                            {
+                                attivita "Gestione safety durante accessi"
+                                SP "Informed"
+                                AO "Consulted"
+                                SI "Responsible"
+                                OTSec "Informed"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Checklist"
+                            "Report di conformità"
+                        [ audience_possibili
+                            "Responsabili OT"
+                            "Team di sicurezza IT/OT"
+                            "Terze parti (fornitori, contractor)"
+                            "Auditor interni/esterni"
+                        [ stili
+                            "Formale normativo"
+                            "Tecnico operativo"
+                            "Sintetico per checklist"
+                        [ livello_tecnico
+                            "Alto (esperti OT/ICS)"
+                            "Medio (tecnici generici)"
+                            "Basso (management o terze parti non tecniche)"
+                        [ vincoli
+                            "Conformità a IEC 62443-2-1 e 2-4"
+                            "Integrazione con sistemi di ticketing esistenti"
+                            "Rispetto dei requisiti safety per attività critiche"
+                    { prompting
+                        prompt_template_generico "Redigi un documento di tipo [TIPO_DOCUMENTO] per la gestione degli accessi
+                            +b remoti di terze parti in ambiente [AMBIENTE_OT], destinato a [AUDIENCE], con
+                            +b stile [STILE] e livello tecnico [LIVELLO_TECNICO]. Includi [SEZIONI_SPECIFICHE]
+                            +b e considera i vincoli [VINCOLI]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico sulla sicurezza degli accessi remoti di terze parti
+                            +b in ambiente OT/ICS, destinato a esperti OT, con stile formale e livello tecnico
+                            +b alto. Includi sezioni su principi di sicurezza, rischi e mitigazioni, e
+                            +b conformità a IEC 62443."
+                        prompt_esempio_slide "Crea una presentazione di 10 slide sugli accessi remoti di terze parti in
+                            +b OT/ICS, destinata al management, con stile sintetico e livello tecnico basso.
+                            +b Includi introduzione, rischi, policy principali e checklist."
+                        prompt_esempio_sop "Redigi una SOP per la gestione degli accessi remoti di terze parti in ambiente
+                            +b OT, destinata a tecnici operativi, con stile tecnico operativo e livello
+                            +b tecnico medio. Includi i 12 passi della procedura e una checklist di evidenze."
+                    [ checklist
+                        "Ticket di richiesta accesso con scopo e asset identificati"
+                        "Approvazione dell'owner di zona documentata"
+                        "Elenco dei cambiamenti pianificati"
+                        "Backup pre-attività (configurazioni/snapshot)"
+                        "Log della sessione di accesso remoto"
+                        "Output dei comandi eseguiti durante la sessione"
+                        "Foto o screenshot delle attività (se applicabile)"
+                        "Esito dei test funzionali post-attività"
+                        "Piano di rollback disponibile e testato"
+                        "Report finale allegato al ticket"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome dell'azienda o organizzazione"
+                        "Tipologia di ambiente OT/ICS (es. manifatturiero, energetico)"
+                        "Elenco degli asset critici coinvolti"
+                        "Sistema di broker/jump host utilizzato"
+                        "Policy di sicurezza esistenti"
+                        "Requisiti safety specifici del sito"
+                    [ avvertenze
+                        "Gli accessi remoti non devono mai bypassare il jump host o gateway privilegiato."
+                        "Le attività critiche richiedono la presenza di Operations e HSE, anche da remoto."
+                        "Tutte le sessioni devono essere registrate e i log conservati per audit."
+                        "La mancata conformità alle policy può comportare la revoca immediata degli accessi."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/3"
+            nome "Governance e Security Program (IEC 62443-2-1, -2-3, -2-4)"
+            ruolo "Definizione di processi e politiche per la gestione della sicurezza in ambienti
+                +b OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-2-1"
+                "IEC 62443-2-3"
+                "IEC 62443-2-4"
+                "ISO/IEC 27001"
+                "NIS2"
+            descrizione "Questo ambito copre la governance e la definizione di un programma di sicurezza
+                +b per ambienti OT/ICS, con focus su politiche, processi e requisiti di conformità
+                +b normativa. Include la gestione di vulnerabilità, patch e rischi specifici per
+                +b sistemi industriali."
+            [ sezioni
+                {
+                    id "cap/3/3.5"
+                    nome "**Patch & Vulnerability Management** (-2-3)"
+                    { obiettivo
+                        codice "OBJ-3.5"
+                        descrizione "Implementare un processo strutturato per la gestione di vulnerabilità e patch
+                            +b in ambienti OT, minimizzando i rischi senza compromettere la disponibilità e la
+                            +b sicurezza dei sistemi industriali."
+                    [ output_attesi
+                        "Policy di Patch & Vulnerability Management"
+                        "SOP per l'esecuzione di patch in ambiente OT"
+                        "Registro delle vulnerabilità e delle eccezioni"
+                        "Report KPI su copertura patch e TTR"
+                    prompt_base "Scrivi il piano patch/vuln con SLA per criticità, criteri di feasibility e
+                        +b flusso di test/staging."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-3.5.1"
+                            titolo "Processo OT-aware per Patch Management"
+                            descrizione_astratta "Un processo di gestione delle patch deve tenere conto delle specificità OT,
+                                +b come finestre di manutenzione limitate e impatto su disponibilità e safety."
+                            [ rischi_mitigati
+                                "Interruzioni non pianificate di produzione"
+                                "Exploit di vulnerabilità note"
+                                "Non conformità normativa"
+                            [ pratiche_raccomandate
+                                "Inventario e classificazione criticità asset"
+                                "Valutazione rischio con scoring OT (CVSS × impatto disponibilità/safety)"
+                                "Test in ambiente di staging prima del deploy"
+                                "Pianificazione patch in finestre di manutenzione"
+                                "Documentazione compensating controls per eccezioni"
+                            [ metriche_kpi
+                                "Copertura patch per criticità (%)"
+                                "Time-To-Remediate (TTR) mediano"
+                                "Percentuale asset con baseline verificata"
+                                "Numero di eccezioni attive"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di Patch Management OT"
+                                    "Procedura di Test in Staging"
+                                [ registri
+                                    "Registro Vulnerabilità"
+                                    "Registro Eccezioni"
+                                [ evidenze
+                                    "Report di conformità SLA"
+                                    "Log di deploy patch"
+                            [ placeholders_contesto
+                                "[SETTORE_INDUSTRIALE]"
+                                "[TIPOLOGIA_ASSET]"
+                                "[FINESTRE_MANUTENZIONE]"
+                        {
+                            id "ASP-3.5.2"
+                            titolo "Safety-Critical Systems Protection"
+                            descrizione_astratta "I sistemi safety-critical richiedono attenzioni specifiche per evitare impatti
+                                +b su sicurezza fisica e operativa durante l'applicazione di patch."
+                            [ rischi_mitigati
+                                "Fermi imprevisti di sistemi safety-critical"
+                                "Compromissione della sicurezza fisica"
+                            [ pratiche_raccomandate
+                                "Divieto di patch senza test dedicati"
+                                "Piano di ripristino obbligatorio"
+                                "Validazione con team safety prima del deploy"
+                            [ metriche_kpi
+                                "Numero di incidenti safety legati a patch"
+                                "Percentuale di patch testate su sistemi safety-critical"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di Validazione Safety"
+                                [ registri
+                                    "Registro Test Safety-Critical"
+                                [ evidenze
+                                    "Report di validazione safety"
+                            [ placeholders_contesto
+                                "[SISTEMI_SAFETY_CRITICAL]"
+                                "[TEAM_SAFETY_RESPONSABILE]"
+                    { policy_template
+                        titolo "Policy di Patch & Vulnerability Management per OT/ICS"
+                        [ sezioni
+                            "Scopo e Applicabilità"
+                            "Definizioni e Ruoli"
+                            "Processo di Gestione Vulnerabilità"
+                            "SLA per Criticità"
+                            "Criteri di OT-Feasibility"
+                            "Gestione Eccezioni e Compensating Controls"
+                            "KPI e Monitoraggio"
+                        [ placeholders_contesto
+                            "[ORGANIZZAZIONE]"
+                            "[AMBITO_APPLICAZIONE]"
+                            "[SLA_SPECIFICI]"
+                    { sop_template
+                        titolo "SOP - Esecuzione Patch in Ambiente OT"
+                        [ step
+                            "Inventario e classificazione asset"
+                            "Raccolta informazioni vulnerabilità (CVE, advisory)"
+                            "Valutazione rischio OT-specifica"
+                            "Pianificazione in finestra di manutenzione"
+                            "Test in ambiente di staging"
+                            "Approvazione change management"
+                            "Deploy con rollback plan"
+                            "Verifica post-deploy e aggiornamento baseline"
+                        [ registrazioni
+                            "Registro attività di patch"
+                            "Log dei test in staging"
+                            "Report di verifica post-deploy"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per versioni stabili e approvate"
+                            "Branch 'develop' per integrazione contenuti in lavorazione"
+                            "Feature branch per ogni sezione o aspetto di sicurezza"
+                            "Pull request con revisione obbligatoria prima di merge"
+                    { raci
+                        [ roles
+                            "SP (Security Program Manager)"
+                            "AO (Asset Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Team)"
+                        [ matrix
+                            {
+                                attivita "Definizione Policy Patch Management"
+                                SP "R"
+                                AO "C"
+                                SI "I"
+                                OTSec "A"
+                            {
+                                attivita "Inventario e Criticità Asset"
+                                SP "I"
+                                AO "R"
+                                SI "C"
+                                OTSec "A"
+                            {
+                                attivita "Valutazione Rischio OT"
+                                SP "C"
+                                AO "I"
+                                SI "C"
+                                OTSec "R/A"
+                            {
+                                attivita "Test in Staging"
+                                SP "I"
+                                AO "C"
+                                SI "R"
+                                OTSec "A"
+                            {
+                                attivita "Deploy Patch"
+                                SP "I"
+                                AO "C"
+                                SI "R"
+                                OTSec "A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                            "Slide di formazione"
+                        [ audience_possibili
+                            "Management"
+                            "Tecnici OT"
+                            "Team Sicurezza"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Alto (Esperti OT/ICS)"
+                            "Medio (Tecnici generici)"
+                            "Basso (Management)"
+                        [ vincoli
+                            "Rispetto normative IEC 62443 e ISO 27001"
+                            "Adattamento a finestre di manutenzione"
+                            "Considerazione safety per sistemi critici"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [TIPO_DOCUMENTO] su Patch & Vulnerability
+                            +b Management per audience [AUDIENCE] con stile [STILE] e livello tecnico
+                            +b [LIVELLO]. Includi [CONTENUTI_SPECIFICI] e considera i vincoli [VINCOLI]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico su Patch Management in OT per tecnici OT con stile
+                            +b formale e livello tecnico alto. Includi processo OT-aware, SLA per criticità e
+                            +b criteri di feasibility."
+                        prompt_esempio_slide "Crea una presentazione di 10 slide su Vulnerability Management in ICS per
+                            +b management con stile sintetico e livello tecnico basso. Includi KPI, rischi
+                            +b mitigati e processo di staging."
+                        prompt_esempio_sop "Redigi una SOP dettagliata per l'esecuzione di patch in ambiente OT per tecnici
+                            +b OT con stile tecnico e livello tecnico alto. Includi step operativi,
+                            +b registrazioni e piano di rollback."
+                    [ checklist
+                        "Inventario asset completato e aggiornato"
+                        "Vulnerabilità raccolte da fonti affidabili (CVE, PSIRT)"
+                        "Scoring rischio OT calcolato per ogni vulnerabilità"
+                        "Finestre di manutenzione identificate"
+                        "Ambiente di staging configurato e test eseguiti"
+                        "Piano di rollback documentato"
+                        "Approvazione change management ottenuta"
+                        "Baseline aggiornata post-deploy"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Settore industriale (es. energia, manifatturiero)"
+                        "Tipologia di asset OT (es. PLC, SCADA)"
+                        "Finestre di manutenzione disponibili"
+                        "Sistemi safety-critical presenti"
+                        "SLA specifici per l'organizzazione"
+                        "Team responsabili (OT, IT, Safety)"
+                    [ avvertenze
+                        "Non applicare patch su sistemi safety-critical senza test dedicati"
+                        "Assicurarsi che le eccezioni abbiano compensating controls documentati"
+                        "Evitare deploy fuori finestra di manutenzione senza approvazione"
+                        "Monitorare KPI per identificare ritardi o lacune nel processo"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/3"
+            nome "Governance e Security Program (IEC 62443-2-1, -2-3, -2-4)"
+            ruolo "Definire e implementare un programma di sicurezza per ambienti OT/ICS con focus
+                +b su governance e gestione delle vulnerabilità."
+            [ norme_riferimento
+                "IEC 62443-2-1"
+                "IEC 62443-2-3"
+                "IEC 62443-2-4"
+                "ISO/IEC 27001"
+                "NIS2"
+            descrizione "Questo ambito copre la definizione di politiche, ruoli e processi per la
+                +b gestione della sicurezza in contesti OT/ICS, con particolare attenzione alla
+                +b gestione delle vulnerabilità tramite PSIRT e Coordinated Vulnerability
+                +b Disclosure."
+            [ sezioni
+                {
+                    id "cap/3/3.6"
+                    nome "**PSIRT** & Coordinated Vulnerability Disclosure"
+                    { obiettivo
+                        codice "OBJ-PSIRT-01"
+                        descrizione "Creare un processo strutturato per la gestione delle vulnerabilità attraverso
+                            +b un Product Security Incident Response Team (PSIRT) e garantire una disclosure
+                            +b coordinata."
+                    [ output_attesi
+                        "Charter PSIRT"
+                        "Template Advisory Pubblico"
+                        "Flusso operativo per la gestione delle vulnerabilità"
+                        "Policy di Coordinated Vulnerability Disclosure"
+                    prompt_base "Definisci un charter PSIRT di 12–15 righe e il template dell’advisory pubblico."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-SEC-01"
+                            titolo "Trasparenza nella Disclosure"
+                            descrizione_astratta "Garantire che la comunicazione delle vulnerabilità sia chiara, tempestiva e
+                                +b coordinata per mantenere la fiducia degli stakeholder e minimizzare i rischi
+                                +b operativi."
+                            [ rischi_mitigati
+                                "Esposizione a exploit prima della mitigazione"
+                                "Perdita di fiducia da parte di clienti e partner"
+                                "Non conformità a normative come NIS2 o IEC 62443"
+                            [ pratiche_raccomandate
+                                "Definire finestre di disclosure coordinate (es. 90 giorni, estendibili in OT)"
+                                "Utilizzare template standardizzati per advisory pubblici"
+                                "Proteggere i dettagli tecnici fino a mitigazioni disponibili"
+                            [ metriche_kpi
+                                "Tempo medio tra ricezione segnalazione e pubblicazione advisory"
+                                "Percentuale di vulnerabilità mitigate entro la finestra di disclosure"
+                                "Numero di advisory pubblicati annualmente"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di gestione vulnerabilità"
+                                    "Policy di disclosure coordinata"
+                                [ registri
+                                    "Log delle segnalazioni ricevute"
+                                    "Registro delle mitigazioni applicate"
+                                [ evidenze
+                                    "Advisory pubblici firmati"
+                                    "Comunicazioni con CERT/ISAC"
+                            [ placeholders_contesto
+                                "[Nome Organizzazione]"
+                                "[Contatti PSIRT]"
+                                "[Finestra Disclosure]"
+                    { policy_template
+                        titolo "Policy di Coordinated Vulnerability Disclosure"
+                        [ sezioni
+                            "Scopo e Ambito"
+                            "Ruoli e Responsabilità"
+                            "Processo di Gestione Vulnerabilità"
+                            "Finestre di Disclosure"
+                            "Comunicazione e Advisory"
+                        [ placeholders_contesto
+                            "[Nome Organizzazione]"
+                            "[Contatti PSIRT]"
+                            "[Finestra Disclosure Standard]"
+                    { sop_template
+                        titolo "SOP Gestione Vulnerabilità PSIRT"
+                        [ step
+                            "Ricezione segnalazione vulnerabilità"
+                            "Conferma e triage iniziale"
+                            "Riproduzione del problema"
+                            "Valutazione impatto e gravità (CVSS)"
+                            "Coordinamento remediation/mitigazioni"
+                            "Preparazione e pubblicazione advisory"
+                            "Chiusura caso e lezione appresa"
+                        [ registrazioni
+                            "Log segnalazioni"
+                            "Report triage"
+                            "Advisory pubblicati"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili e approvati"
+                            "Branch 'develop' per contenuti in lavorazione"
+                            "Feature branch per ogni nuovo advisory o policy"
+                            "Pull request obbligatorie con revisione da almeno un OT SME"
+                    { raci
+                        [ roles
+                            "PSIRT Lead"
+                            "Engineering Referent"
+                            "Legal/Comms"
+                            "OT Security SME"
+                        [ matrix
+                            {
+                                attivita "Ricezione Segnalazione"
+                                SP "PSIRT Lead"
+                                AO "PSIRT Lead"
+                                SI "Engineering Referent"
+                                OTSec "Informato"
+                            {
+                                attivita "Valutazione Impatto"
+                                SP "Engineering Referent"
+                                AO "PSIRT Lead"
+                                SI "OT Security SME"
+                                OTSec "Responsabile"
+                            {
+                                attivita "Pubblicazione Advisory"
+                                SP "Legal/Comms"
+                                AO "PSIRT Lead"
+                                SI "OT Security SME"
+                                OTSec "Consultato"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Advisory"
+                            "Report"
+                        [ audience_possibili
+                            "Clienti"
+                            "Partner"
+                            "CERT/ISAC"
+                            "Interno"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Rispetto finestre disclosure OT"
+                            "Conformità IEC 62443-2-1"
+                            "Uso CVSS per gravità vulnerabilità"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [Tipo] per [Audience] con stile [Stile] e livello
+                            +b tecnico [Livello] sul tema PSIRT e Coordinated Vulnerability Disclosure,
+                            +b includendo [Elementi Specifici]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico per clienti con stile formale e livello intermedio
+                            +b sulla gestione delle vulnerabilità in OT, includendo il ruolo del PSIRT e
+                            +b l'importanza della disclosure coordinata."
+                        prompt_esempio_slide "Crea una presentazione per partner con stile sintetico e livello base sul
+                            +b flusso operativo PSIRT, evidenziando i tempi di disclosure e i template
+                            +b advisory."
+                        prompt_esempio_sop "Definisci una SOP per uso interno con stile tecnico e livello avanzato per la
+                            +b gestione delle vulnerabilità, dettagliando ogni step del processo PSIRT."
+                    [ checklist
+                        "Definizione chiara dei ruoli PSIRT"
+                        "Template advisory standardizzato con CVSS"
+                        "Finestra di disclosure coordinata specificata"
+                        "Canali di comunicazione sicuri (es. PGP)"
+                        "Processo di triage e valutazione impatto documentato"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome Organizzazione"
+                        "Contatti PSIRT (email, portale)"
+                        "Finestra di Disclosure Standard"
+                        "Riferimenti Normativi Specifici"
+                        "Prodotti/Versioni Impattate (per advisory)"
+                    [ avvertenze
+                        "Non divulgare dettagli sfruttabili prima di mitigazioni praticabili"
+                        "Assicurare che le finestre di disclosure siano compatibili con i cicli operativi OT"
+                        "Verificare conformità legale con team Legal prima di pubblicazioni"

@@ -1,0 +1,1082 @@
+$group
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/10"
+            nome "Software Development Life Cycle per OEM & fornitori di componenti (IEC
+                +b 62443-4-1 / 62443-4-2) con supporto LLM"
+            ruolo "Supporto alla definizione di processi sicuri per lo sviluppo software in ambito
+                +b OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-4-1"
+                "IEC 62443-4-2"
+                "ISO/IEC 27001"
+                "NIS2"
+            descrizione "Questo ambito si concentra sullo sviluppo sicuro del software per componenti
+                +b OT/ICS, con particolare attenzione ai requisiti di sicurezza definiti dagli
+                +b standard IEC 62443-4-1 e 62443-4-2. Include template e deliverable per policy
+                +b SDLC, RACI, pipeline, SBOM/VEX, advisory, PSEP, manuale integrazione, secure
+                +b update e checklist di audit."
+            [ sezioni
+                {
+                    id "cap/10/10.19"
+                    nome "Template & Deliverable"
+                    { obiettivo
+                        codice "OBJ-10.19"
+                        descrizione "Raccogliere tutti i modelli necessari per supportare il ciclo di vita dello
+                            +b sviluppo software sicuro: policy SDLC, RACI, pipeline, SBOM/VEX, advisory,
+                            +b PSEP, manuale integrazione, secure update, audit checklist."
+                    [ output_attesi
+                        "Pacchetto di template editabili per SDLC"
+                        "Documentazione RACI per ruoli e responsabilità"
+                        "Modelli per SBOM e VEX"
+                        "Template per advisory di sicurezza"
+                        "Manuale di integrazione e secure update"
+                        "Checklist di audit per conformità IEC 62443"
+                    prompt_base "Genera i template elencati (struttura, sezioni, segnaposto) per supportare lo
+                        +b sviluppo sicuro del software in ambito OT/ICS, rispettando i requisiti IEC
+                        +b 62443-4-1 e 62443-4-2."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-10.19.1"
+                            titolo "Sicurezza nel ciclo di vita dello sviluppo software (SDLC)"
+                            descrizione_astratta "Garantire che ogni fase del ciclo di vita dello sviluppo software integri
+                                +b requisiti di sicurezza per mitigare rischi legati a vulnerabilità e attacchi
+                                +b informatici."
+                            [ rischi_mitigati
+                                "Introduzione di vulnerabilità nel codice"
+                                "Mancata conformità normativa"
+                                "Attacchi supply chain"
+                            [ pratiche_raccomandate
+                                "Definizione di policy SDLC sicure"
+                                "Implementazione di pipeline CI/CD con controlli di sicurezza"
+                                "Gestione delle vulnerabilità tramite SBOM e VEX"
+                            [ metriche_kpi
+                                "Percentuale di conformità alle policy SDLC"
+                                "Tempo medio di risoluzione delle vulnerabilità"
+                                "Numero di vulnerabilità rilevate per release"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di revisione del codice"
+                                    "Procedura di gestione delle vulnerabilità"
+                                [ registri
+                                    "Registro delle vulnerabilità"
+                                    "Registro delle revisioni del codice"
+                                [ evidenze
+                                    "Report di scansione statica del codice"
+                                    "Documentazione SBOM"
+                            [ placeholders_contesto
+                                "[Nome Azienda]"
+                                "[Tipo Prodotto]"
+                                "[Versione Software]"
+                    { policy_template
+                        titolo "Policy SDLC per Sviluppo Sicuro"
+                        [ sezioni
+                            "Scopo e Applicabilità"
+                            "Ruoli e Responsabilità"
+                            "Requisiti di Sicurezza per Fase SDLC"
+                            "Gestione delle Vulnerabilità"
+                            "Audit e Monitoraggio"
+                        [ placeholders_contesto
+                            "[Nome Azienda]"
+                            "[Ambito Applicazione]"
+                            "[Responsabile Sicurezza]"
+                    { sop_template
+                        titolo "SOP per Pipeline CI/CD Sicura"
+                        [ step
+                            "Configurazione dell'ambiente di sviluppo"
+                            "Integrazione di strumenti di scansione sicurezza"
+                            "Revisione del codice e test"
+                            "Generazione di SBOM"
+                            "Distribuzione e monitoraggio"
+                        [ registrazioni
+                            "Log delle scansioni di sicurezza"
+                            "Report di test"
+                            "SBOM generato"
+                    { repo_branching_model
+                        modello "Git Flow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione feature"
+                            "Branch 'feature/*' per nuove funzionalità"
+                            "Branch 'hotfix/*' per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "Software Developer"
+                            "Security Engineer"
+                            "Project Manager"
+                            "Quality Assurance"
+                        [ matrix
+                            {
+                                attivita "Definizione Requisiti Sicurezza"
+                                SP "Security Engineer"
+                                AO "Project Manager"
+                                SI "Software Developer"
+                                OTSec "Security Engineer"
+                            {
+                                attivita "Revisione Codice"
+                                SP "Software Developer"
+                                AO "Security Engineer"
+                                SI "Quality Assurance"
+                                OTSec "Security Engineer"
+                            {
+                                attivita "Generazione SBOM"
+                                SP "Software Developer"
+                                AO "Security Engineer"
+                                SI "Project Manager"
+                                OTSec "Security Engineer"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Checklist"
+                            "Manuale"
+                        [ audience_possibili
+                            "OEM:Engineering:Developers"
+                            "OEM:Management"
+                            "Fornitori:Technical"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Rispetto IEC 62443-4-1 e 62443-4-2"
+                            "Inclusione di placeholder per contesto aziendale"
+                            "Compatibilità con pipeline CI/CD"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [Tipo Documento] per [Audience] con stile [Stile] e
+                            +b livello tecnico [Livello Tecnico]. Includi sezioni relative a [Argomenti
+                            +b Chiave] e utilizza placeholder per [Contesto]."
+                        prompt_esempio_articolo "Genera un articolo tecnico per OEM:Engineering:Developers con stile Tecnico e
+                            +b livello Avanzato. Includi sezioni su pipeline CI/CD sicura e gestione SBOM, con
+                            +b placeholder per [Nome Azienda] e [Tipo Prodotto]."
+                        prompt_esempio_slide "Genera una presentazione per OEM:Management con stile Formale e livello Base.
+                            +b Includi slide su policy SDLC e ruoli RACI, con placeholder per [Nome Azienda] e
+                            +b [Responsabile Sicurezza]."
+                        prompt_esempio_sop "Genera una SOP per Fornitori:Technical con stile Tecnico e livello Intermedio.
+                            +b Includi step per configurazione pipeline CI/CD sicura, con placeholder per
+                            +b [Ambiente Sviluppo] e [Strumenti Utilizzati]."
+                    [ checklist
+                        "Verifica conformità policy SDLC a IEC 62443-4-1"
+                        "Presenza di pipeline CI/CD con controlli sicurezza"
+                        "Generazione e gestione SBOM per ogni release"
+                        "Definizione chiara ruoli e responsabilità (RACI)"
+                        "Documentazione di advisory per vulnerabilità note"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome Azienda"
+                        "Tipo Prodotto/Componente"
+                        "Versione Software"
+                        "Responsabile Sicurezza"
+                        "Ambiente di Sviluppo"
+                    [ avvertenze
+                        "I template devono essere adattati al contesto aziendale prima dell'uso."
+                        "La conformità a IEC 62443 richiede audit regolari."
+                        "La gestione delle vulnerabilità deve essere integrata con strumenti automatizzati."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/11"
+            nome "Conformità IEC 62443-4-2 per componenti (profilo di prodotto & evidenze)"
+            ruolo "Guida strategica e operativa per la conformità dei componenti OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-4-2"
+                "IEC 62443-4-1"
+                "ISO/IEC 27001"
+            descrizione "Questo ambito si concentra sulla conformità ai requisiti tecnici di sicurezza
+                +b per i componenti OT/ICS secondo IEC 62443-4-2, con enfasi su profili di
+                +b prodotto, evidenze di conformità e impatti su accesso ai mercati e gestione del
+                +b rischio."
+            [ sezioni
+                {
+                    id "cap/11/11.1"
+                    nome "Executive brief — Perché 4-2 conta per i componenti"
+                    { obiettivo
+                        codice "OBJ-11.1"
+                        descrizione "In 1 pagina, legare conformità 4-2 a accesso ai mercati, integrazione veloce,
+                            +b riduzione rischi e oneri post-vendita."
+                    [ output_attesi
+                        "Memo con 3 KPI, roadmap 90/180/365 giorni"
+                        "Decisioni richieste per il board"
+                    prompt_base "Scrivi 1 pagina board-ready su valore e rischi di 4-2 per componenti OT (FR/CR,
+                        +b SL, evidenze, impatti su RFI/RFP)."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-11.1.1"
+                            titolo "Conformità ai requisiti fondamentali (FR) e capacità di risposta (CR)"
+                            descrizione_astratta "Garanzia che i componenti OT soddisfino i requisiti fondamentali di sicurezza e
+                                +b siano in grado di rispondere a incidenti secondo IEC 62443-4-2."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato ai componenti"
+                                "Malfunzionamenti critici in ambienti OT"
+                                "Non conformità a bandi e RFP"
+                            [ pratiche_raccomandate
+                                "Implementazione dei 7 FR di IEC 62443-4-2"
+                                "Definizione di capability di risposta agli incidenti"
+                                "Documentazione delle evidenze di conformità"
+                            [ metriche_kpi
+                                "Percentuale di componenti conformi ai FR (target: 100% entro 180 giorni)"
+                                "Tempo medio di risposta a vulnerabilità (target: <48h)"
+                                "Numero di RFP/RFI vinti grazie a conformità (target: +20% annuo)"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di verifica FR/CR"
+                                    "Procedura di test di sicurezza"
+                                [ registri
+                                    "Registro dei test di conformità"
+                                    "Registro delle vulnerabilità risolte"
+                                [ evidenze
+                                    "Report di conformità FR/CR"
+                                    "Certificazioni di prodotto"
+                            [ placeholders_contesto
+                                "[Settore industriale]"
+                                "[Tipologia componente]"
+                                "[Mercato target]"
+                    { policy_template
+                        titolo "Policy di Conformità IEC 62443-4-2 per Componenti OT"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Requisiti fondamentali (FR)"
+                            "Livelli di sicurezza (SL)"
+                            "Responsabilità e monitoraggio"
+                        [ placeholders_contesto
+                            "[Nome azienda]"
+                            "[Tipologia componente]"
+                            "[Mercato di riferimento]"
+                    { sop_template
+                        titolo "SOP per Validazione Conformità IEC 62443-4-2"
+                        [ step
+                            "Identificazione dei requisiti FR/CR applicabili"
+                            "Esecuzione test di sicurezza"
+                            "Documentazione delle evidenze"
+                            "Revisione e approvazione"
+                        [ registrazioni
+                            "Log dei test"
+                            "Report di conformità"
+                            "Checklist FR/CR"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili e approvati"
+                            "Branch 'develop' per contenuti in lavorazione"
+                            "Feature branch per ogni aspetto di sicurezza"
+                    { raci
+                        [ roles
+                            "Security Manager"
+                            "Product Owner"
+                            "OT Engineer"
+                            "Compliance Officer"
+                        [ matrix
+                            {
+                                attivita "Definizione requisiti FR/CR"
+                                SP "Security Manager"
+                                AO "Product Owner"
+                                SI "OT Engineer"
+                                OTSec "Compliance Officer"
+                            {
+                                attivita "Esecuzione test di conformità"
+                                SP "OT Engineer"
+                                AO "Security Manager"
+                                SI "Product Owner"
+                                OTSec "Compliance Officer"
+                            {
+                                attivita "Produzione memo per board"
+                                SP "Compliance Officer"
+                                AO "Security Manager"
+                                SI "Product Owner"
+                                OTSec "OT Engineer"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Memo"
+                            "Slide deck"
+                            "Report tecnico"
+                        [ audience_possibili
+                            "Board"
+                            "Management tecnico"
+                            "Team operativo"
+                        [ stili
+                            "Formale"
+                            "Sintetico"
+                            "Dettagliato"
+                        [ livello_tecnico
+                            "Alto (esecutivo)"
+                            "Medio (gestionale)"
+                            "Basso (operativo)"
+                        [ vincoli
+                            "Max 1 pagina per memo"
+                            "KPI quantificabili"
+                            "Roadmap temporale chiara"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [tipo_documento] per [audience] su conformità IEC
+                            +b 62443-4-2, focalizzandosi su [focus] con stile [stile] e livello tecnico
+                            +b [livello]. Includi [elementi specifici]."
+                        prompt_esempio_articolo "Scrivi un articolo di 500 parole per il management tecnico su come la
+                            +b conformità IEC 62443-4-2 migliora l'accesso ai mercati, con esempi pratici e 3
+                            +b KPI misurabili."
+                        prompt_esempio_slide "Crea un deck di 5 slide per il board su rischi e benefici della conformità IEC
+                            +b 62443-4-2, includendo roadmap 90/180/365 e decisioni richieste."
+                        prompt_esempio_sop "Sviluppa una SOP dettagliata per la validazione dei requisiti FR/CR di un
+                            +b componente OT, con step operativi e checklist."
+                    [ checklist
+                        "Verifica presenza KPI quantificabili"
+                        "Conferma roadmap tri-fase (90/180/365)"
+                        "Assicurare decisioni richieste chiare per il board"
+                        "Validare riferimenti a FR/CR e SL"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Settore industriale (es. energia, manifatturiero)"
+                        "Tipologia componente OT (es. PLC, sensori)"
+                        "Mercato target (es. EU, USA)"
+                        "Livello di maturità attuale conformità (es. SL1, SL2)"
+                    [ avvertenze
+                        "I contenuti generati devono essere validati da un esperto di conformità prima della distribuzione."
+                        "Assicurare che i KPI siano realistici e misurabili nel contesto aziendale."
+                        "Considerare variazioni normative locali per mercati target specifici."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/11"
+            nome "Conformità IEC 62443-4-2 per componenti (profilo di prodotto & evidenze)"
+            ruolo "Guida alla conformità per componenti OT/ICS secondo IEC 62443-4-2"
+            [ norme_riferimento
+                "IEC 62443-4-2"
+                "IEC 62443-3-3"
+                "IEC 27001"
+            descrizione "Questo ambito si concentra sui requisiti di sicurezza per i componenti di
+                +b sistemi di controllo industriale secondo la norma IEC 62443-4-2, includendo i
+                +b Fondational Requirements (FR), Component Requirements (CR), Requirement
+                +b Enhancements (RE), mapping con Security Levels (SL) e classi di componenti
+                +b (EDR/HDR/NDR/SAR)."
+            [ sezioni
+                {
+                    id "cap/11/11.2"
+                    nome "Cosa chiede la 4-2 (FR/CR/RE, SL, EDR/HDR/NDR/SAR)"
+                    { obiettivo
+                        codice "OBJ-11.2"
+                        descrizione "Spiegare Fondational Requirements (FR1–FR7), Component Requirement (CR),
+                            +b Requirement Enhancement (RE), mapping con SL1–SL4 e classi EDR/HDR/NDR/SAR."
+                    [ output_attesi
+                        "Tabella riassuntiva terminologia"
+                        "Micro-glossario"
+                    prompt_base "Sintetizza FR/CR/RE, SL, e differenza EDR/HDR/NDR/SAR con esempi di controllo."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-11.2.1"
+                            titolo "Fondational Requirements (FR1-FR7)"
+                            descrizione_astratta "Requisiti fondamentali di sicurezza per componenti OT/ICS, suddivisi in 7
+                                +b categorie (FR1: Identificazione e autenticazione, FR2: Controllo accesso, FR3:
+                                +b Integrità dati, FR4: Riservatezza dati, FR5: Limitazione flusso dati, FR6:
+                                +b Risposta tempestiva a eventi, FR7: Disponibilità risorse)."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Compromissione dati"
+                                "Interruzione servizio"
+                            [ pratiche_raccomandate
+                                "Implementare autenticazione forte (FR1)"
+                                "Configurare controlli accesso basati su ruoli (FR2)"
+                                "Utilizzare meccanismi di integrità dati (FR3)"
+                            [ metriche_kpi
+                                "Percentuale di dispositivi con autenticazione configurata"
+                                "Tempo medio di rilevazione eventi (FR6)"
+                                "Tasso di conformità ai requisiti FR"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione autenticazione"
+                                    "Procedura di monitoraggio eventi"
+                                [ registri
+                                    "Log di accesso"
+                                    "Registro eventi sicurezza"
+                                [ evidenze
+                                    "Report di conformità FR"
+                                    "Test di integrità dati"
+                            [ placeholders_contesto
+                                "[Tipo di componente]"
+                                "[Ambiente operativo]"
+                                "[Livello SL richiesto]"
+                        {
+                            id "ASP-11.2.2"
+                            titolo "Component Requirements (CR) e Requirement Enhancements (RE)"
+                            descrizione_astratta "Requisiti specifici per componenti (CR) e miglioramenti opzionali (RE) per
+                                +b incrementare il livello di sicurezza in base al Security Level (SL)."
+                            [ rischi_mitigati
+                                "Vulnerabilità specifiche di componente"
+                                "Esposizione a minacce avanzate"
+                            [ pratiche_raccomandate
+                                "Implementare CR per ogni FR applicabile"
+                                "Valutare RE per SL superiori"
+                                "Documentare conformità CR/RE"
+                            [ metriche_kpi
+                                "Percentuale di CR implementati per componente"
+                                "Numero di RE adottati per SL target"
+                                "Tasso di aggiornamento requisiti"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di verifica CR"
+                                    "Procedura di implementazione RE"
+                                [ registri
+                                    "Registro conformità CR"
+                                    "Registro miglioramenti RE"
+                                [ evidenze
+                                    "Report di verifica CR"
+                                    "Documentazione RE implementati"
+                            [ placeholders_contesto
+                                "[Classe componente]"
+                                "[SL target]"
+                                "[Contesto operativo]"
+                    { policy_template
+                        titolo "Policy di Conformità IEC 62443-4-2"
+                        [ sezioni
+                            "Scopo e ambito applicazione"
+                            "Requisiti FR/CR/RE"
+                            "Classificazione componenti (EDR/HDR/NDR/SAR)"
+                            "Mapping Security Levels (SL1-SL4)"
+                            "Responsabilità e monitoraggio"
+                        [ placeholders_contesto
+                            "[Nome organizzazione]"
+                            "[Tipo di componente]"
+                            "[Ambiente OT]"
+                    { sop_template
+                        titolo "SOP per Verifica Conformità Componenti IEC 62443-4-2"
+                        [ step
+                            "Identificazione componente e classe (EDR/HDR/NDR/SAR)"
+                            "Valutazione requisiti FR/CR applicabili"
+                            "Verifica implementazione RE per SL target"
+                            "Documentazione evidenze conformità"
+                            "Revisione periodica e aggiornamento"
+                        [ registrazioni
+                            "Registro verifica conformità"
+                            "Report di non conformità"
+                            "Log di aggiornamento requisiti"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili"
+                            "Branch 'develop' per contenuti in lavorazione"
+                            "Feature branch per ogni aspetto di sicurezza"
+                            "Release branch per versioni finali"
+                    { raci
+                        [ roles
+                            "Security Manager"
+                            "OT Engineer"
+                            "Compliance Officer"
+                            "IT Support"
+                        [ matrix
+                            {
+                                attivita "Definizione requisiti FR/CR/RE"
+                                SP "Security Manager"
+                                AO "Compliance Officer"
+                                SI "OT Engineer"
+                                OTSec "Security Manager"
+                            {
+                                attivita "Implementazione controlli sicurezza"
+                                SP "OT Engineer"
+                                AO "Security Manager"
+                                SI "IT Support"
+                                OTSec "Security Manager"
+                            {
+                                attivita "Verifica conformità SL"
+                                SP "Compliance Officer"
+                                AO "Security Manager"
+                                SI "OT Engineer"
+                                OTSec "Security Manager"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                            "Slide"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Manager"
+                            "Auditor"
+                            "Fornitori"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443-4-2"
+                            "Mapping con SL1-SL4"
+                            "Riferimenti a classi EDR/HDR/NDR/SAR"
+                    { prompting
+                        prompt_template_generico "Genera un documento su [argomento] per [audience] con stile [stile] e livello
+                            +b tecnico [livello], includendo riferimenti a [norma] e contesto [contesto]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico su Fondational Requirements (FR1-FR7) per tecnici OT
+                            +b con stile formale e livello intermedio, includendo esempi pratici per
+                            +b componenti EDR e contesto di una rete industriale."
+                        prompt_esempio_slide "Crea una presentazione su IEC 62443-4-2 per manager con stile sintetico e
+                            +b livello base, focalizzandoti su differenze tra EDR/HDR/NDR/SAR e mapping
+                            +b SL1-SL4."
+                        prompt_esempio_sop "Elabora una SOP per la verifica conformità CR/RE per OT Engineer con stile
+                            +b tecnico e livello avanzato, includendo step operativi per un componente HDR in
+                            +b un impianto di produzione."
+                    [ checklist
+                        "Verifica copertura FR1-FR7 per componente"
+                        "Conferma implementazione CR per SL target"
+                        "Valutazione RE per miglioramento sicurezza"
+                        "Classificazione componente (EDR/HDR/NDR/SAR)"
+                        "Documentazione evidenze conformità"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipo di componente (EDR/HDR/NDR/SAR)"
+                        "Security Level target (SL1-SL4)"
+                        "Ambiente operativo (es. impianto, rete)"
+                        "Norme correlate (es. IEC 27001, NIS2)"
+                        "Ruolo audience (tecnico, manager)"
+                    [ avvertenze
+                        "I requisiti FR/CR/RE devono essere mappati al SL target prima dell'implementazione."
+                        "La classificazione dei componenti (EDR/HDR/NDR/SAR) influisce sui controlli applicabili."
+                        "La conformità deve essere documentata per audit esterni (es. NIS2, CRA)."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/11"
+            nome "Conformità IEC 62443-4-2 per componenti (profilo di prodotto & evidenze)"
+            ruolo "Definizione e gestione dei profili di sicurezza per componenti OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-4-2"
+                "IEC 62443-4-1"
+            descrizione "Questo ambito si concentra sulla conformità ai requisiti di sicurezza definiti
+                +b nello standard IEC 62443-4-2 per componenti di sistemi di controllo
+                +b industriale, con particolare attenzione alla strutturazione del Component
+                +b Security Profile (CSP) e alla raccolta di evidenze per la certificazione."
+            [ sezioni
+                {
+                    id "cap/11/11.3"
+                    nome "Component Security Profile (CSP) — struttura e campi"
+                    { obiettivo
+                        codice "OBJ-CSP-01"
+                        descrizione "Definire un profilo prodotto standard: identificativi, firmware range,
+                            +b interfacce, matrice CR×SL×Integrazione (C/S/N/N-A), configurazioni richieste,
+                            +b Not Applicable (N/A) motivati."
+                    [ output_attesi
+                        "Template CSP editabile"
+                        "Matrice CR×SL×Integrazione precompilata"
+                        "Linee guida per motivazioni N/A"
+                    prompt_base "Genera un template CSP: sezioni, tabella CR×SL×(C|S|N|N-A), precondizioni e
+                        +b configurazioni."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-CSP-01"
+                            titolo "Definizione dei Requisiti di Sicurezza (CR)"
+                            descrizione_astratta "Identificazione e mappatura dei requisiti di sicurezza per il componente in
+                                +b base ai livelli di sicurezza (SL) e al contesto di integrazione."
+                            [ rischi_mitigati
+                                "Mancata conformità ai requisiti di sicurezza"
+                                "Vulnerabilità non identificate"
+                            [ pratiche_raccomandate
+                                "Analisi dei requisiti basata su IEC 62443-4-2"
+                                "Mappatura SL target vs SL capability"
+                                "Documentazione delle motivazioni per N/A"
+                            [ metriche_kpi
+                                "Percentuale di CR coperti"
+                                "Numero di N/A motivati"
+                                "Tempo medio per completare il CSP"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di definizione CSP"
+                                    "Procedura di validazione CR"
+                                [ registri
+                                    "Registro delle motivazioni N/A"
+                                    "Registro delle configurazioni richieste"
+                                [ evidenze
+                                    "Template CSP compilato"
+                                    "Report di conformità CR×SL"
+                            [ placeholders_contesto
+                                "[Nome Componente]"
+                                "[Versione Firmware]"
+                                "[Contesto Integrazione]"
+                    { policy_template
+                        titolo "Policy per la Gestione del Component Security Profile"
+                        [ sezioni
+                            "Scopo"
+                            "Ambito di applicazione"
+                            "Responsabilità"
+                            "Definizione CSP"
+                            "Validazione e aggiornamento"
+                        [ placeholders_contesto
+                            "[Nome Organizzazione]"
+                            "[Tipo Componente]"
+                            "[Riferimento Normativo]"
+                    { sop_template
+                        titolo "SOP per la Compilazione del CSP"
+                        [ step
+                            "Identificazione del componente"
+                            "Definizione range firmware"
+                            "Mappatura interfacce"
+                            "Compilazione matrice CR×SL"
+                            "Documentazione configurazioni"
+                            "Motivazione N/A"
+                        [ registrazioni
+                            "Log delle modifiche CSP"
+                            "Registro delle approvazioni"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch principale per CSP validati"
+                            "Branch di sviluppo per draft"
+                            "Pull request con revisione obbligatoria"
+                    { raci
+                        [ roles
+                            "SP (Security Product Manager)"
+                            "AO (Asset Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Specialist)"
+                        [ matrix
+                            {
+                                attivita "Definizione CSP"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Compilazione Matrice CR×SL"
+                                SP "A"
+                                AO "C"
+                                SI "R"
+                                OTSec "I"
+                            {
+                                attivita "Motivazione N/A"
+                                SP "C"
+                                AO "I"
+                                SI "A"
+                                OTSec "R"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Template CSP"
+                            "Report di conformità"
+                            "SOP"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Responsabili sicurezza"
+                            "Auditor esterni"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443-4-2"
+                            "Utilizzo terminologia standard"
+                            "Tracciabilità delle motivazioni N/A"
+                    { prompting
+                        prompt_template_generico "Genera un documento relativo a [argomento] per [audience] con stile [stile] e
+                            +b livello tecnico [livello]. Includi [sezioni specifiche] e rispetta i vincoli
+                            +b [vincoli]."
+                        prompt_esempio_articolo "Scrivi un articolo sulla struttura del CSP per tecnici OT con stile formale e
+                            +b livello intermedio. Includi sezioni su matrice CR×SL e motivazioni N/A."
+                        prompt_esempio_slide "Crea una presentazione sul CSP per auditor esterni con stile sintetico e
+                            +b livello base. Includi slide su obiettivi, struttura e output attesi."
+                        prompt_esempio_sop "Genera una SOP per la compilazione del CSP per responsabili sicurezza con stile
+                            +b tecnico e livello avanzato. Includi step dettagliati e registrazioni."
+                    [ checklist
+                        "Verifica completezza identificativi componente"
+                        "Controllo range firmware dichiarato"
+                        "Validazione interfacce mappate"
+                        "Revisione matrice CR×SL per completezza"
+                        "Conferma motivazioni N/A documentate"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome del componente"
+                        "Versione firmware"
+                        "Tipo di integrazione (C/S/N)"
+                        "Livello di sicurezza target (SL)"
+                        "Organizzazione responsabile"
+                    [ avvertenze
+                        "Assicurarsi che le motivazioni N/A siano tracciabili e giustificate"
+                        "Verificare la compatibilità del CSP con il contesto di integrazione"
+                        "Aggiornare il CSP in caso di modifiche al firmware o alle configurazioni"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/11"
+            nome "Conformità IEC 62443-4-2 per componenti (profilo di prodotto & evidenze)"
+            ruolo "Definizione dei requisiti di sicurezza per componenti OT/ICS in conformità a
+                +b IEC 62443-4-2"
+            [ norme_riferimento
+                "IEC 62443-4-2"
+                "IEC 62443-3-3"
+                "ISO/IEC 27001"
+            descrizione "Questo ambito si concentra sulla conformità dei componenti OT/ICS ai requisiti
+                +b tecnici di sicurezza definiti dallo standard IEC 62443-4-2, con particolare
+                +b attenzione al profilo di prodotto e alle evidenze richieste per la
+                +b certificazione."
+            [ sezioni
+                {
+                    id "cap/11/11.4"
+                    nome "Condizioni operative & assunzioni di sicurezza"
+                    { obiettivo
+                        codice "OBJ-11.4"
+                        descrizione "Esplicitare precondizioni (es. defense-in-depth, segmentazione, protocolli
+                            +b sicuri, gestione certificati), limiti d’uso e dipendenze esterne per garantire
+                            +b la sicurezza del componente in un’architettura OT."
+                    [ output_attesi
+                        "Checklist Operational Environment & Security Assumptions"
+                        "Documento di assunzioni di sicurezza per il componente"
+                        "Matrice di dipendenze esterne"
+                    prompt_base "Stila la checklist di precondizioni operative e security assumptions per
+                        +b integrare il componente in architettura OT."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-11.4.1"
+                            titolo "Defense-in-Depth"
+                            descrizione_astratta "Implementazione di un approccio a strati per la sicurezza, garantendo che il
+                                +b componente sia protetto da molteplici livelli di difesa."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Compromissione del componente"
+                                "Propagazione di attacchi"
+                            [ pratiche_raccomandate
+                                "Segmentazione di rete"
+                                "Firewall perimetrali"
+                                "Controlli di accesso basati su ruolo"
+                            [ metriche_kpi
+                                "Numero di livelli di difesa implementati"
+                                "Tempo medio di rilevamento di un attacco"
+                                "Percentuale di conformità alle policy di segmentazione"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione della segmentazione"
+                                    "Procedura di monitoraggio dei log"
+                                [ registri
+                                    "Registro delle configurazioni di rete"
+                                    "Registro degli accessi al componente"
+                                [ evidenze
+                                    "Report di conformità alla segmentazione"
+                                    "Log di rilevamento delle intrusioni"
+                            [ placeholders_contesto
+                                "[TIPO_COMPONENTE]"
+                                "[AMBIENTE_OPERATIVO]"
+                                "[LIVELLO_SICUREZZA_RICHIESTO]"
+                        {
+                            id "ASP-11.4.2"
+                            titolo "Protocolli Sicuri"
+                            descrizione_astratta "Utilizzo di protocolli di comunicazione sicuri per proteggere i dati trasmessi
+                                +b dal componente."
+                            [ rischi_mitigati
+                                "Intercettazione dei dati"
+                                "Manomissione dei dati"
+                                "Attacchi Man-in-the-Middle"
+                            [ pratiche_raccomandate
+                                "Implementazione di TLS/SSL"
+                                "Utilizzo di protocolli autenticati"
+                                "Crittografia end-to-end"
+                            [ metriche_kpi
+                                "Percentuale di comunicazioni crittografate"
+                                "Numero di vulnerabilità rilevate nei protocolli"
+                                "Tempo di aggiornamento dei certificati"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione dei protocolli sicuri"
+                                    "Procedura di gestione dei certificati"
+                                [ registri
+                                    "Registro dei certificati emessi"
+                                    "Registro delle connessioni non sicure"
+                                [ evidenze
+                                    "Report di test sui protocolli"
+                                    "Certificati attivi"
+                            [ placeholders_contesto
+                                "[PROTOCOLLO_UTILIZZATO]"
+                                "[TIPO_DATI_TRASMESSI]"
+                                "[FREQUENZA_AGGIORNAMENTO_CERTIFICATI]"
+                    { policy_template
+                        titolo "Policy per Condizioni Operative e Assunzioni di Sicurezza"
+                        [ sezioni
+                            "Introduzione e scopo"
+                            "Precondizioni operative"
+                            "Assunzioni di sicurezza"
+                            "Dipendenze esterne"
+                            "Limiti d’uso"
+                        [ placeholders_contesto
+                            "[NOME_COMPONENTE]"
+                            "[AMBIENTE_OPERATIVO]"
+                            "[LIVELLO_SICUREZZA]"
+                    { sop_template
+                        titolo "SOP per Configurazione Operativa del Componente"
+                        [ step
+                            "Verifica delle precondizioni operative"
+                            "Configurazione dei protocolli sicuri"
+                            "Test di conformità alle assunzioni di sicurezza"
+                            "Documentazione delle dipendenze esterne"
+                        [ registrazioni
+                            "Registro delle configurazioni"
+                            "Registro dei test di sicurezza"
+                            "Registro delle dipendenze"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch principale 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuovi sviluppi"
+                            "Hotfix branch per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "Security Engineer"
+                            "OT Specialist"
+                            "Project Manager"
+                            "Compliance Officer"
+                        [ matrix
+                            {
+                                attivita "Definizione delle precondizioni operative"
+                                SP "Security Engineer"
+                                AO "OT Specialist"
+                                SI "Project Manager"
+                                OTSec "Compliance Officer"
+                            {
+                                attivita "Verifica delle assunzioni di sicurezza"
+                                SP "OT Specialist"
+                                AO "Security Engineer"
+                                SI "Compliance Officer"
+                                OTSec "Project Manager"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Checklist"
+                            "Report"
+                            "SOP"
+                            "Policy"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Responsabili della sicurezza"
+                            "Auditor"
+                            "Management"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443-4-2"
+                            "Integrazione con architetture esistenti"
+                            "Documentazione in lingua italiana"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [TIPO_DOCUMENTO] per [AUDIENCE] con stile [STILE] e
+                            +b livello tecnico [LIVELLO_TECNICO] riguardante le condizioni operative e le
+                            +b assunzioni di sicurezza per il componente [NOME_COMPONENTE] in ambiente
+                            +b [AMBIENTE_OPERATIVO]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico per tecnici OT con stile formale e livello tecnico
+                            +b intermedio sulle condizioni operative di un PLC in ambiente industriale."
+                        prompt_esempio_slide "Crea una presentazione per auditor con stile sintetico e livello tecnico base
+                            +b sulle assunzioni di sicurezza per un componente OT."
+                        prompt_esempio_sop "Elabora una SOP per responsabili della sicurezza con stile tecnico e livello
+                            +b avanzato per la configurazione operativa di un dispositivo ICS."
+                    [ checklist
+                        "Verifica della segmentazione di rete per il componente"
+                        "Implementazione di protocolli di comunicazione sicuri (es. TLS/SSL)"
+                        "Gestione dei certificati digitali (emissione, rinnovo, revoca)"
+                        "Definizione dei limiti d’uso del componente in base al contesto operativo"
+                        "Identificazione delle dipendenze esterne (es. servizi di autenticazione)"
+                        "Documentazione delle assunzioni di sicurezza (es. defense-in-depth)"
+                        "Test di conformità alle precondizioni operative"
+                        "Monitoraggio continuo delle condizioni operative"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipo di componente (es. PLC, HMI, RTU)"
+                        "Ambiente operativo (es. impianto industriale, infrastruttura critica)"
+                        "Livello di sicurezza richiesto (SL 1-4)"
+                        "Protocolli di comunicazione utilizzati"
+                        "Dipendenze esterne specifiche"
+                    [ avvertenze
+                        "Le assunzioni di sicurezza devono essere validate in ogni contesto operativo."
+                        "La mancata conformità alle precondizioni può compromettere la sicurezza dell’intero sistema."
+                        "Le dipendenze esterne devono essere monitorate per garantire continuità operativa."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/11"
+            nome "Conformità IEC 62443-4-2 per componenti (profilo di prodotto & evidenze)"
+            ruolo "Guida alla conformità per componenti OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-4-2"
+                "IEC 62443-3-3"
+                "ISO/IEC 27001"
+            descrizione "Questo ambito si concentra sulla conformità ai requisiti di sicurezza definiti
+                +b dalla norma IEC 62443-4-2 per componenti di sistemi di controllo industriale,
+                +b con particolare attenzione alla definizione di profili di prodotto e alla
+                +b raccolta di evidenze."
+            [ sezioni
+                {
+                    id "cap/11/11.5"
+                    nome "Matrice CR×SL×Integrazione — legenda e compilazione"
+                    { obiettivo
+                        codice "OBJ-11.5"
+                        descrizione "Spiegare la legenda C/S/N/N-A e come compilarla per FR1–FR7; evidenziare gap e
+                            +b misure compensative di sistema."
+                    [ output_attesi
+                        "Matrice compilata d’esempio"
+                        "Guida alla lettura della matrice"
+                    prompt_base "Compila una matrice CR×SL×Integrazione con esempi rappresentativi e note di
+                        +b configurazione."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-11.5.1"
+                            titolo "Conformità ai Requisiti di Componente (CR)"
+                            descrizione_astratta "Valutazione della conformità dei componenti ai requisiti di sicurezza definiti
+                                +b in IEC 62443-4-2 per ciascun livello di sicurezza (SL)."
+                            [ rischi_mitigati
+                                "Mancata conformità ai requisiti di sicurezza"
+                                "Vulnerabilità nei componenti critici"
+                            [ pratiche_raccomandate
+                                "Analisi dei requisiti CR per ogni FR"
+                                "Valutazione del livello di sicurezza raggiunto (SL)"
+                                "Identificazione dei gap e definizione di misure compensative"
+                            [ metriche_kpi
+                                "Percentuale di conformità CR per FR"
+                                "Numero di gap identificati per SL"
+                                "Tempo medio per implementare misure compensative"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di valutazione CR"
+                                    "Procedura di mappatura SL"
+                                [ registri
+                                    "Registro delle valutazioni CR×SL"
+                                    "Registro dei gap identificati"
+                                [ evidenze
+                                    "Report di conformità"
+                                    "Documentazione delle misure compensative"
+                            [ placeholders_contesto
+                                "{componente_specifico}"
+                                "{livello_sicurezza_target}"
+                                "{ambiente_operativo}"
+                    { policy_template
+                        titolo "Policy di Conformità IEC 62443-4-2"
+                        [ sezioni
+                            "Obiettivi di sicurezza"
+                            "Requisiti di conformità CR"
+                            "Gestione dei gap e misure compensative"
+                        [ placeholders_contesto
+                            "{organizzazione}"
+                            "{componente_target}"
+                            "{SL_target}"
+                    { sop_template
+                        titolo "SOP per Compilazione Matrice CR×SL"
+                        [ step
+                            "Identificare i requisiti CR per FR1–FR7"
+                            "Valutare il livello SL raggiunto"
+                            "Compilare la matrice con C/S/N/N-A"
+                            "Documentare i gap e proporre misure compensative"
+                        [ registrazioni
+                            "Matrice compilata"
+                            "Registro dei gap"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazioni"
+                            "Feature branch per ogni FR/CR"
+                    { raci
+                        [ roles
+                            "SP (Security Product Manager)"
+                            "AO (Asset Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Specialist)"
+                        [ matrix
+                            {
+                                attivita "Definizione requisiti CR"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Compilazione matrice CR×SL"
+                                SP "C"
+                                AO "I"
+                                SI "R"
+                                OTSec "A"
+                            {
+                                attivita "Identificazione gap"
+                                SP "I"
+                                AO "C"
+                                SI "A"
+                                OTSec "R"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Report tecnico"
+                            "Guida operativa"
+                            "Presentazione"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Manager di sicurezza"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443-4-2"
+                            "Riferimenti a FR1–FR7"
+                            "Chiarezza nella legenda C/S/N/N-A"
+                    { prompting
+                        prompt_template_generico "Genera un documento su {argomento} per {audience} con stile {stile} e livello
+                            +b tecnico {livello}. Includi {output_atteso}."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico sulla matrice CR×SL per tecnici OT, stile formale,
+                            +b livello intermedio. Includi una matrice d’esempio e una guida alla lettura."
+                        prompt_esempio_slide "Crea una presentazione sulla matrice CR×SL per manager di sicurezza, stile
+                            +b sintetico, livello base. Includi una matrice d’esempio e spiegazione della
+                            +b legenda."
+                        prompt_esempio_sop "Redigi una SOP per la compilazione della matrice CR×SL per tecnici OT, stile
+                            +b tecnico, livello avanzato. Includi step operativi e registrazioni."
+                    [ checklist
+                        "Verifica conformità CR per FR1–FR7"
+                        "Compilazione matrice con legenda C/S/N/N-A"
+                        "Identificazione gap per ogni SL"
+                        "Definizione misure compensative"
+                        "Documentazione delle evidenze"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipo di componente OT/ICS"
+                        "Livello di sicurezza target (SL)"
+                        "Ambiente operativo"
+                        "Requisiti specifici del cliente"
+                    [ avvertenze
+                        "Assicurarsi che la matrice sia validata da un esperto OTSec prima dell’uso."
+                        "Considerare le specificità del componente prima di applicare misure compensative generiche."
+                        "Documentare ogni deviazione dalla norma IEC 62443-4-2."

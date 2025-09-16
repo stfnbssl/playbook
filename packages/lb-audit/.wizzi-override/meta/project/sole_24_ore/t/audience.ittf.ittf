@@ -1,0 +1,80 @@
+$group
+
+    ## Pubblico & taglio editoriale
+
+    **Regola d’oro (priorità):** Ordine narrativo = AssetOwner. Profondità = OEM.
+
+    **Target (etichette audience):**
+    - Primari: OEM:Executive | OEM:Legal
+    - Co-primari: AssetOwner:Operational | OEM:Engineering:Developers
+    - Secondari: ServiceProvider:Operational | ServiceProvider:Legal
+
+    **Istruzione vincolante per le bozze:**
+    - Ogni sezione segue il flusso AssetOwner (main text).
+    - Ogni sezione include un box “Deep-Dive OEM”.
+    - Ogni sezione chiude con la tabella “Handshake AO ⇄ OEM”.
+
+    **Taglio generale:**
+    - Il documento è informativo ed Executive-oriented. 
+        \b Non fornisce istruzioni operative dettagliate; eventuali riferimenti tecnici sono introduttivi 
+        \b e rimandano a specialisti o ulteriori approfondimenti.         
+
+    **Taglio per audience:**
+    - Executive → board-ready (KPI/€/decisioni).
+    - Legal → compliance-oriented (clausole, crosswalk, SLA).
+    - Operational → pratico-operativo (SOP, checklist, evidenze).
+    - Engineering/Developers → tecnico (architetture, 4-1/4-2, SBOM/PSIRT, staging/test).
+    - Security/HSE → controlli FR6/safety, runbook, BC/DR.        
+
+    **Obiettivi per audience (1 riga ciascuno):**
+    - OEM:Executive → capire ROI delle capability 4-1/4-2, maturità PSIRT/SBOM, priorità di prodotto.
+    - AssetOwner:Operational → applicare procedure (change/patch/remote) con finestre e rollback.
+    - ServiceProvider:Operational:Security → implementare FR6 (logging/detection) e consegnare evidenze.
+    - OEM:Engineering:Developers → mappare SDL 4-1 e requisiti 4-2 nei deliverable.
+    - ServiceProvider:Legal → clausole -2-4, DPA, portabilità dati, SLA notifiche.
+        
+    **Livello tecnico (1–5):** 3/5 (Executive 2/5)
+    
+    **Tempo di lettura target:** 12–15 min
+    
+    **Evidenze richieste:** FR×SL, RACI, matrici flussi, KPI, segnaposto figure
+
+    $if false
+        $*
+        Quando il tema è “denso” (es. governance, NIS2, supply chain), articola per viste.
+        Copia/incolla e compila le sezioni rilevanti.    
+        *$
+        ## Pubblico & taglio editoriale (esteso)
+
+        ### Vista Executive
+        - **Domande tipiche:** ROI? rischio evitato? tappe 90/180/365?
+        - **Cosa mostrare:** 1 pagina “board-ready”, 3 KPI, decisioni richieste.
+        - **Evitare:** dettagli di protocollo, configurazioni.
+        - **Output:** decision memo, budget pilota, owner assegnati.
+
+        ### Vista Operativa (Asset Owner/Plant)
+        - **Domande tipiche:** come segmentare/testare/patchare senza fermo?
+        - **Cosa mostrare:** diagrammi zone/conduits, finestre cambio, rollback.
+        - **Output:** piano interventi, check di fattibilità OT.
+
+        ### Vista Security (CISO/OT Sec/SOC)
+        - **Domande tipiche:** FR da attivare, KPI, use case detection.
+        - **Cosa mostrare:** FR×SL, runbook IR, integrazione SIEM/IDS OT.
+        - **Output:** policy aggiornate, alert/use case minimi, KPI baseline.
+
+        ### Vista Fornitori (OEM/SI/SP)
+        - **Domande tipiche:** requisiti 4-1/4-2, SBOM/PSIRT, accessi remoti.
+        - **Cosa mostrare:** clausole capitolato, manuale integrazione sicura, evidenze richieste.
+        - **Output:** piano adeguamento, tempi PSIRT, formati SBOM.
+
+        ### Vista Compliance (Legal/Procurement)
+        - **Domande tipiche:** NIS2 mapping, notifiche, DPA/contratti.
+        - **Cosa mostrare:** crosswalk NIS2⇄62443, SLA notifica, retention log.
+        - **Output:** clausole, registro incidenti, policy di notifica.
+
+        #### Parametri editoriali trasversali
+        - **Taglio:** {board-ready | pratico-operativo | riferimento}
+        - **Livello tecnico (1–5):** …
+        - **Tempo di lettura target:** … min
+        - **Acronimi:** espansi alla prima, glossario in fondo
+        - **Assunzioni:** prerequisiti noti al lettore (es. cosa è una “zona”)

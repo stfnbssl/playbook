@@ -1,0 +1,1388 @@
+$group
+    { iec_62443_topics
+        [ items
+            { 
+                nome "Famiglia IEC 62443"
+                descrizione "Mappa delle parti 1-1, 2-1, 2-3, 2-4, 3-2, 3-3, 4-1, 4-2 e relativi destinatari."
+                tipo "tema"
+                [ capitoli
+                    1 
+                    2 
+                    3 
+                    4 
+                    5 
+                    6 
+                    10 
+                    11 
+                dominio "framework"
+            { 
+                nome "IEC 62443-1-1 Terminologia"
+                descrizione "Glossario, concetti e modelli comuni per l’OT/IACS."
+                tipo "tema"
+                [ capitoli
+                    1 
+                    2 
+                    10 
+                dominio "framework"
+            { 
+                nome "IEC 62443-2-1 Programma di sicurezza"
+                descrizione "Governance, policy, processi e miglioramento continuo in OT."
+                tipo "tema"
+                [ capitoli
+                    1 
+                    3 
+                    4 
+                    6 
+                    9 
+                    11 
+                dominio "governance & program"
+            { 
+                nome "IEC 62443-2-3 Patch & Vulnerability Management"
+                descrizione "Processo OT-aware per vulnerabilità e aggiornamenti."
+                tipo "tema"
+                [ capitoli
+                    3 
+                    5 
+                    6 
+                    7 
+                    9 
+                    11 
+                dominio "vulnerability & patch management"
+            { 
+                nome "IEC 62443-2-4 Service Providers"
+                descrizione "Requisiti per integratori e fornitori di servizi OT."
+                tipo "tema"
+                [ capitoli
+                    3 
+                    5 
+                    6 
+                    7 
+                    9 
+                dominio "supply chain & product security"
+            { 
+                nome "IEC 62443-3-2 Risk & SL-Target"
+                descrizione "Analisi del rischio e definizione degli obiettivi di sicurezza per zona/conduit."
+                tipo "tema"
+                [ capitoli
+                    1 
+                    2 
+                    3 
+                    4 
+                    5 
+                    7 
+                    9 
+                    11 
+                dominio "governance & risk"
+            { 
+                nome "IEC 62443-3-3 System Requirements"
+                descrizione "Requisiti di sistema mappati su FR1–FR7 per raggiungere gli SL-Target."
+                tipo "tema"
+                [ capitoli
+                    2 
+                    4 
+                    5 
+                    7 
+                dominio "requirements (FR1–FR7)"
+            { 
+                nome "IEC 62443-4-1 Secure Development Lifecycle"
+                descrizione "Ciclo di sviluppo sicuro per OEM e fornitori di prodotto."
+                tipo "tema"
+                [ capitoli
+                    3 
+                    5 
+                    6 
+                    7 
+                    8 
+                    11 
+                dominio "supply chain & product security"
+            { 
+                nome "IEC 62443-4-2 Requisiti di componente"
+                descrizione "Capacità di sicurezza richieste ai componenti OT."
+                tipo "tema"
+                [ capitoli
+                    2 
+                    3 
+                    5 
+                    6 
+                    7 
+                    8 
+                dominio "supply chain & product security"
+            { 
+                nome "Security Levels SL0–SL4"
+                descrizione "Scala di robustezza per requisito e per ambito (zona/conduit/asset)."
+                tipo "tema"
+                [ capitoli
+                    2 
+                    3 
+                    4 
+                    5 
+                    7 
+                    9 
+                dominio "framework"
+            { 
+                nome "SL-Target vs SL-Achieved"
+                descrizione "Obiettivo di sicurezza desiderato rispetto al livello verificato."
+                tipo "tema"
+                [ capitoli
+                    2 
+                    3 
+                    4 
+                    5 
+                    7 
+                    9 
+                    11 
+                dominio "governance & risk"
+            { 
+                nome "Foundational Requirements FR1–FR7"
+                descrizione "Set di controlli base: identità, uso, integrità, confidenzialità, flussi, eventi, disponibilità."
+                tipo "tema"
+                [ capitoli
+                    2 
+                    5 
+                    7 
+                    9 
+                dominio "requirements (FR1–FR7)"
+            { 
+                nome "Defense-in-Depth"
+                descrizione "Difesa a più livelli: fisico, rete, host, applicazione, processo e persone."
+                tipo "principio"
+                [ capitoli
+                    2 
+                    5 
+                    7 
+                dominio "architecture & principles"
+            { 
+                nome "Zone & Conduits"
+                descrizione "Segmentazione per zone omogenee e canali controllati tra zone."
+                tipo "tema"
+                [ capitoli
+                    2 
+                    4 
+                    5 
+                    7 
+                    9 
+                dominio "network segmentation & data flow (FR5)"
+            { 
+                nome "DMZ industriale"
+                descrizione "Zona cuscinetto per scambio dati sicuro tra IT e OT."
+                tipo "tema"
+                [ capitoli
+                    2 
+                    5 
+                    7 
+                    9 
+                dominio "network segmentation & data flow (FR5)"
+            { 
+                nome "Comitato ICS/OT"
+                descrizione "Organo di governo con mandato, calendario e gestione eccezioni."
+                tipo "pratica"
+                [ capitoli
+                    1 
+                    3 
+                    11 
+                dominio "governance & program"
+            { 
+                nome "Policy di sicurezza OT"
+                descrizione "Documento guida su accessi, change, backup, logging e hardening."
+                tipo "deliverable"
+                [ capitoli
+                    1 
+                    3 
+                    5 
+                    9 
+                    11 
+                dominio "governance & program"
+            { 
+                nome "Standard tecnici OT"
+                descrizione "Configurazioni di riferimento e criteri tecnici per asset e reti OT."
+                tipo "deliverable"
+                [ capitoli
+                    3 
+                    5 
+                    7 
+                    9 
+                dominio "system integrity & hardening (FR3)"
+            { 
+                nome "RACI"
+                descrizione "Matrice che mappa responsabilità e approvazioni per attività chiave."
+                tipo "template"
+                [ capitoli
+                    1 
+                    3 
+                    5 
+                    7 
+                    9 
+                    11 
+                dominio "governance & program"
+            { 
+                nome "Registro asset (inventario)"
+                descrizione "Elenco di asset OT con modello, versione, owner e criticità."
+                tipo "deliverable"
+                [ capitoli
+                    1 
+                    4 
+                    5 
+                    7 
+                    9 
+                    11 
+                dominio "asset & configuration management"
+            { 
+                nome "Matrice SL-Target per zona × FR"
+                descrizione "Tabella che fissa gli obiettivi di sicurezza per ogni zona e requisito."
+                tipo "deliverable"
+                [ capitoli
+                    2 
+                    3 
+                    4 
+                    5 
+                    7 
+                    9 
+                    11 
+                dominio "governance & risk"
+            { 
+                nome "Registro rischi OT"
+                descrizione "Lista dei rischi con impatti, scenari, contromisure e stato."
+                tipo "deliverable"
+                [ capitoli
+                    1 
+                    3 
+                    4 
+                    6 
+                    11 
+                dominio "governance & risk"
+            { 
+                nome "Eccezioni & compensating controls"
+                descrizione "Deroghe temporanee con misure alternative documentate."
+                tipo "pratica"
+                [ capitoli
+                    3 
+                    5 
+                    6 
+                    9 
+                dominio "governance & risk"
+            { 
+                nome "Ruolo: Asset Owner"
+                descrizione "Detiene il rischio, approva SL-Target, policy e finestre di fermo."
+                tipo "ruolo"
+                [ capitoli
+                    1 
+                    3 
+                    5 
+                    7 
+                    9 
+                    11 
+                dominio "ruoli & responsabilità"
+            { 
+                nome "Ruolo: System Integrator"
+                descrizione "Progetta zone/conduits, hardening e validazione dei controlli."
+                tipo "ruolo"
+                [ capitoli
+                    3 
+                    4 
+                    5 
+                    7 
+                    9 
+                dominio "ruoli & responsabilità"
+            { 
+                nome "Ruolo: OEM/Product Supplier"
+                descrizione "Fornisce SDL, capability 4-2, SBOM e advisory di sicurezza."
+                tipo "ruolo"
+                [ capitoli
+                    3 
+                    5 
+                    6 
+                    7 
+                    8 
+                    11 
+                dominio "ruoli & responsabilità"
+            { 
+                nome "Ruolo: Service Provider"
+                descrizione "Opera accessi remoti, manutenzione e consegna evidenze."
+                tipo "ruolo"
+                [ capitoli
+                    3 
+                    5 
+                    7 
+                    9 
+                dominio "ruoli & responsabilità"
+            { 
+                nome "Ruolo: OT Security/SOC"
+                descrizione "Monitora eventi, gestisce incidenti e produce KPI."
+                tipo "ruolo"
+                [ capitoli
+                    3 
+                    5 
+                    6 
+                    7 
+                    9 
+                    11 
+                dominio "ruoli & responsabilità"
+            { 
+                nome "Ruolo: HSE/Safety"
+                descrizione "Valuta impatti sul processo e sugli interlock di sicurezza."
+                tipo "ruolo"
+                [ capitoli
+                    1 
+                    3 
+                    5 
+                    7 
+                dominio "ruoli & responsabilità"
+            { 
+                nome "Owner di zona"
+                descrizione "Responsabile di una zona OT per decisioni e approvazioni locali."
+                tipo "ruolo"
+                [ capitoli
+                    3 
+                    5 
+                    7 
+                    9 
+                dominio "ruoli & responsabilità"
+            { 
+                nome "Clausole SDL 4-1"
+                descrizione "Richiesta di ciclo di sviluppo sicuro con audit e referenze."
+                tipo "pratica"
+                [ capitoli
+                    3 
+                    5 
+                    6 
+                    7 
+                    8 
+                    11 
+                dominio "procurement & legal"
+            { 
+                nome "Requisiti di componente 4-2"
+                descrizione "Dichiarazione di capability FR/SL supportate per i prodotti OT."
+                tipo "pratica"
+                [ capitoli
+                    2 
+                    3 
+                    5 
+                    6 
+                    7 
+                    8 
+                dominio "supply chain & product security"
+            { 
+                nome "SBOM obbligatoria"
+                descrizione "Distinta componenti software per release in formato aperto."
+                tipo "pratica"
+                [ capitoli
+                    3 
+                    5 
+                    6 
+                    7 
+                    8 
+                    11 
+                dominio "supply chain & product security"
+            { 
+                nome "PSIRT attivo"
+                descrizione "Team dedicato a triage, remediation e advisory firmati."
+                tipo "pratica"
+                [ capitoli
+                    3 
+                    5 
+                    6 
+                    7 
+                    8 
+                    11 
+                dominio "product security governance"
+            { 
+                nome "Patch policy con SLA"
+                descrizione "Tempi massimi di remediation per criticità CRIT/HIGH/MED/LOW."
+                tipo "pratica"
+                [ capitoli
+                    3 
+                    5 
+                    7 
+                    9 
+                dominio "vulnerability & patch management"
+            { 
+                nome "Accessi remoti contrattualizzati"
+                descrizione "Broker, MFA, approvazioni a tempo e registrazione sessioni."
+                tipo "pratica"
+                [ capitoli
+                    3 
+                    5 
+                    7 
+                    9 
+                dominio "identity & access (FR1/FR2)"
+            { 
+                nome "Logging interventi terze parti"
+                descrizione "Evidenze obbligatorie a chiusura attività di manutenzione."
+                tipo "pratica"
+                [ capitoli
+                    3 
+                    5 
+                    7 
+                    9 
+                dominio "monitoring & response (FR6)"
+            { 
+                nome "Data ownership & restituzione"
+                descrizione "Limiti su copie e obbligo di restituzione a fine progetto."
+                tipo "pratica"
+                [ capitoli
+                    3 
+                    6 
+                    7 
+                    8 
+                    11 
+                dominio "procurement & legal"
+            { 
+                nome "Manuale di integrazione sicura"
+                descrizione "Istruzioni OEM su hardening, porte/protocolli e account."
+                tipo "deliverable"
+                [ capitoli
+                    5 
+                    7 
+                    8 
+                dominio "supply chain & product security"
+            { 
+                nome "Qualifica fornitori"
+                descrizione "Criteri oggettivi per valutare SDL, PSIRT, TTR e referenze."
+                tipo "procedura"
+                [ capitoli
+                    3 
+                    6 
+                    7 
+                    8 
+                dominio "procurement & legal"
+            { 
+                nome "Broker di accesso privilegiato"
+                descrizione "Gateway/jump host centralizzato per sessioni amministrative."
+                tipo "tecnica"
+                [ capitoli
+                    5 
+                    7 
+                    9 
+                dominio "identity & access (FR1/FR2)"
+            { 
+                nome "Autenticazione MFA"
+                descrizione "Richiede più fattori per l’accesso a conduits e asset critici."
+                tipo "tecnica"
+                [ capitoli
+                    3 
+                    5 
+                    7 
+                    9 
+                dominio "identity & access (FR1)"
+            { 
+                nome "Autorizzazioni time-bound"
+                descrizione "Permessi con scadenza automatica per limitare l’esposizione."
+                tipo "pratica"
+                [ capitoli
+                    3 
+                    5 
+                    7 
+                    9 
+                dominio "identity & access (FR2)"
+            { 
+                nome "Least privilege"
+                descrizione "Assegnare il minimo indispensabile di permessi per il compito."
+                tipo "principio"
+                [ capitoli
+                    3 
+                    5 
+                    7 
+                    9 
+                dominio "identity & access (FR2)"
+            { 
+                nome "Session recording"
+                descrizione "Registrazione integrale delle operazioni delle terze parti."
+                tipo "tecnica"
+                [ capitoli
+                    3 
+                    5 
+                    7 
+                    9 
+                dominio "identity & access (FR2)"
+            { 
+                nome "Separation of duties"
+                descrizione "Separare ruoli critici per ridurre conflitti e abusi."
+                tipo "principio"
+                [ capitoli
+                    3 
+                    5 
+                    9 
+                dominio "governance & program"
+            { 
+                nome "Two-person rule"
+                descrizione "Doppia approvazione per attività che impattano safety/processo."
+                tipo "pratica"
+                [ capitoli
+                    3 
+                    5 
+                    9 
+                dominio "governance & program"
+            { 
+                nome "Account temporanei"
+                descrizione "Identità a vita breve per interventi di manutenzione."
+                tipo "pratica"
+                [ capitoli
+                    3 
+                    5 
+                    7 
+                    9 
+                dominio "identity & access (FR1/FR2)"
+            { 
+                nome "Break-glass"
+                descrizione "Accesso d’emergenza con post-review e revoca immediata."
+                tipo "pratica"
+                [ capitoli
+                    3 
+                    5 
+                    9 
+                dominio "identity & access (FR1/FR2)"
+            { 
+                nome "Risk scoring OT"
+                descrizione "Valutazione del rischio che include disponibilità e safety."
+                tipo "pratica"
+                [ capitoli
+                    2 
+                    3 
+                    4 
+                    6 
+                    7 
+                    11 
+                dominio "governance & risk"
+            { 
+                nome "CVSS adattato all’OT"
+                descrizione "Punteggio vulnerabilità pesato per impatto operativo."
+                tipo "tecnica"
+                [ capitoli
+                    3 
+                    5 
+                    6 
+                    7 
+                dominio "vulnerability & patch management"
+            { 
+                nome "OT-feasibility"
+                descrizione "Verifica della fattibilità tecnica/operativa della remediation."
+                tipo "tema"
+                [ capitoli
+                    3 
+                    4 
+                    5 
+                    7 
+                dominio "vulnerability & patch management"
+            { 
+                nome "Ambiente di staging"
+                descrizione "Banco prova pre-produzione per testare patch e cambi."
+                tipo "tecnica"
+                [ capitoli
+                    4 
+                    5 
+                    7 
+                    9 
+                dominio "change & configuration management"
+            { 
+                nome "Change approval"
+                descrizione "Approvazione formale con ticket, finestre e rollback."
+                tipo "procedura"
+                [ capitoli
+                    3 
+                    4 
+                    5 
+                    9 
+                dominio "change & configuration management"
+            { 
+                nome "Rollback plan"
+                descrizione "Piano per tornare rapidamente alla configurazione precedente."
+                tipo "pratica"
+                [ capitoli
+                    4 
+                    5 
+                    7 
+                    9 
+                dominio "change & configuration management"
+            { 
+                nome "Registro eccezioni"
+                descrizione "Elenco di deroghe attive con motivazioni e scadenze."
+                tipo "deliverable"
+                [ capitoli
+                    3 
+                    5 
+                    6 
+                    9 
+                dominio "governance & risk"
+            { 
+                nome "Secure update"
+                descrizione "Pacchetti firmati e canali sicuri per gli aggiornamenti."
+                tipo "tecnica"
+                [ capitoli
+                    5 
+                    7 
+                    9 
+                dominio "vulnerability & patch management"
+            { 
+                nome "Centralizzazione log"
+                descrizione "Raccolta log su piattaforma unica con retention definita."
+                tipo "tecnica"
+                [ capitoli
+                    5 
+                    6 
+                    7 
+                    9 
+                    11 
+                dominio "monitoring & response (FR6)"
+            { 
+                nome "Retention log"
+                descrizione "Conservazione dei log per periodi minimi concordati."
+                tipo "pratica"
+                [ capitoli
+                    5 
+                    6 
+                    9 
+                dominio "monitoring & response (FR6)"
+            { 
+                nome "Sincronizzazione oraria (NTP)"
+                descrizione "Allineamento dei clock per correlare eventi affidabilmente."
+                tipo "tecnica"
+                [ capitoli
+                    5 
+                    7 
+                    9 
+                dominio "monitoring & response (FR6)"
+            { 
+                nome "Use case minimi di detection"
+                descrizione "Casi d’uso per accessi remoti, cambi e protocolli anomali."
+                tipo "template"
+                [ capitoli
+                    5 
+                    7 
+                    9 
+                    11 
+                dominio "monitoring & response (FR6)"
+            { 
+                nome "Integrazione SOC"
+                descrizione "Consegna eventi OT al centro operativo per triage/risposta."
+                tipo "pratica"
+                [ capitoli
+                    3 
+                    5 
+                    7 
+                    11 
+                dominio "monitoring & response (FR6)"
+            { 
+                nome "IDS OT"
+                descrizione "Sensori specifici per protocolli industriali in rete OT."
+                tipo "tecnica"
+                [ capitoli
+                    5 
+                    7 
+                    9 
+                dominio "monitoring & response (FR6)"
+            { 
+                nome "Tuning falsi positivi"
+                descrizione "Ottimizzazione delle regole per ridurre allarmi inutili."
+                tipo "pratica"
+                [ capitoli
+                    5 
+                    7 
+                dominio "monitoring & response (FR6)"
+            { 
+                nome "Baseline di hardening"
+                descrizione "Impostazioni sicure di riferimento per sistemi e device OT."
+                tipo "deliverable"
+                [ capitoli
+                    5 
+                    7 
+                    9 
+                dominio "system integrity & hardening (FR3)"
+            { 
+                nome "Servizi non necessari disabilitati"
+                descrizione "Riduzione superficie d’attacco disattivando funzioni superflue."
+                tipo "pratica"
+                [ capitoli
+                    5 
+                    7 
+                    9 
+                dominio "system integrity & hardening (FR3)"
+            { 
+                nome "Secure-by-default"
+                descrizione "Preferire impostazioni conservatrici e sicure al primo avvio."
+                tipo "principio"
+                [ capitoli
+                    5 
+                    7 
+                dominio "system integrity & hardening (FR3)"
+            { 
+                nome "Repository configurazioni"
+                descrizione "Versionare configurazioni e tracciare le modifiche."
+                tipo "strumento"
+                [ capitoli
+                    4 
+                    5 
+                    7 
+                    9 
+                    11 
+                dominio "change & configuration management"
+            { 
+                nome "Golden image"
+                descrizione "Immagine standardizzata e validata per reinstalli rapidi."
+                tipo "tecnica"
+                [ capitoli
+                    5 
+                    7 
+                    9 
+                dominio "system integrity & hardening (FR3)"
+            { 
+                nome "Application allow-listing"
+                descrizione "Consentire solo software esplicitamente autorizzato."
+                tipo "tecnica"
+                [ capitoli
+                    5 
+                    7 
+                dominio "system integrity & hardening (FR3)"
+            { 
+                nome "Firma/Hash firmware"
+                descrizione "Verifica di integrità per immagini e pacchetti."
+                tipo "tecnica"
+                [ capitoli
+                    5 
+                    7 
+                dominio "system integrity & hardening (FR3)"
+            { 
+                nome "RPO/RTO"
+                descrizione "Obiettivi di punto e tempo di ripristino per asset critici."
+                tipo "tema"
+                [ capitoli
+                    5 
+                    7 
+                    9 
+                dominio "availability & recovery (FR7)"
+            { 
+                nome "Regola 3-2-1"
+                descrizione "Tre copie, due media, una offline/offsite per i backup."
+                tipo "pratica"
+                [ capitoli
+                    5 
+                    7 
+                    9 
+                dominio "availability & recovery (FR7)"
+            { 
+                nome "Test di ripristino periodici"
+                descrizione "Esecuzione e registrazione regolare dei restore."
+                tipo "pratica"
+                [ capitoli
+                    5 
+                    7 
+                    9 
+                dominio "availability & recovery (FR7)"
+            { 
+                nome "Bare-metal restore"
+                descrizione "Ripristino completo su hardware equivalente o nuovo."
+                tipo "tecnica"
+                [ capitoli
+                    5 
+                    7 
+                dominio "availability & recovery (FR7)"
+            { 
+                nome "Isolamento repository backup"
+                descrizione "Separazione logica/fisica dei backup dai domini IT."
+                tipo "tecnica"
+                [ capitoli
+                    5 
+                    7 
+                dominio "availability & recovery (FR7)"
+            { 
+                nome "Deny-by-default"
+                descrizione "Bloccare per impostazione predefinita i flussi non autorizzati."
+                tipo "principio"
+                [ capitoli
+                    5 
+                    7 
+                    9 
+                dominio "network segmentation & data flow (FR5)"
+            { 
+                nome "Whitelisting protocolli OT"
+                descrizione "Permettere solo protocolli e porte specificate per conduit."
+                tipo "tecnica"
+                [ capitoli
+                    5 
+                    7 
+                    9 
+                dominio "network segmentation & data flow (FR5)"
+            { 
+                nome "Conduits unidirezionali"
+                descrizione "Flussi one-way dove tecnicamente ed economicamente possibile."
+                tipo "tecnica"
+                [ capitoli
+                    5 
+                    7 
+                dominio "network segmentation & data flow (FR5)"
+            { 
+                nome "Matrice flussi approvata"
+                descrizione "Tabella dei flussi consentiti con owner e giustificazioni."
+                tipo "deliverable"
+                [ capitoli
+                    5 
+                    7 
+                    9 
+                dominio "network segmentation & data flow (FR5)"
+            { 
+                nome "Profilo minacce per zona"
+                descrizione "Scenari e avversari rilevanti per ciascuna zona OT."
+                tipo "deliverable"
+                [ capitoli
+                    2 
+                    3 
+                    4 
+                    5 
+                    7 
+                dominio "governance & risk"
+            { 
+                nome "Piano di test FR1–FR7"
+                descrizione "Casi di prova per verificare i requisiti di sistema 3-3."
+                tipo "procedura"
+                [ capitoli
+                    4 
+                    5 
+                    7 
+                dominio "requirements verification"
+            { 
+                nome "FAT/SAT"
+                descrizione "Accettazione in fabbrica e in sito con evidenze raccolte."
+                tipo "procedura"
+                [ capitoli
+                    4 
+                    5 
+                    7 
+                dominio "requirements verification & validation"
+            { 
+                nome "Evidenze di validazione"
+                descrizione "Report, log e baseline a supporto della conformità."
+                tipo "deliverable"
+                [ capitoli
+                    4 
+                    5 
+                    7 
+                    9 
+                dominio "requirements verification"
+            { 
+                nome "Change management"
+                descrizione "Richieste, approvazioni, finestre e rollback documentati."
+                tipo "procedura"
+                [ capitoli
+                    3 
+                    4 
+                    5 
+                    9 
+                    11 
+                dominio "change & configuration management"
+            { 
+                nome "Audit periodico"
+                descrizione "Verifica a intervalli del programma e dei controlli OT."
+                tipo "pratica"
+                [ capitoli
+                    3 
+                    5 
+                    6 
+                    7 
+                    9 
+                    11 
+                dominio "governance & program"
+            { 
+                nome "Charter PSIRT"
+                descrizione "Mandato, ruoli, canali e tempi per la gestione vulnerabilità."
+                tipo "deliverable"
+                [ capitoli
+                    3 
+                    5 
+                    6 
+                    8 
+                    11 
+                dominio "product security governance"
+            { 
+                nome "Triage SLA PSIRT"
+                descrizione "Tempi massimi per confermare e valutare segnalazioni."
+                tipo "pratica"
+                [ capitoli
+                    3 
+                    5 
+                    6 
+                    8 
+                    11 
+                dominio "product security governance"
+            { 
+                nome "Contatto PGP PSIRT"
+                descrizione "Chiave pubblica e casella dedicata per il reporting sicuro."
+                tipo "tecnica"
+                [ capitoli
+                    3 
+                    5 
+                    6 
+                    8 
+                dominio "product security governance"
+            { 
+                nome "Template advisory pubblico"
+                descrizione "Scheda standard con prodotti, gravità, mitigazioni e cronologia."
+                tipo "template"
+                [ capitoli
+                    3 
+                    5 
+                    6 
+                    8 
+                    11 
+                dominio "product security governance"
+            { 
+                nome "Coordinamento con CERT/ISAC"
+                descrizione "Allineamento informativo con comunità e autorità settoriali."
+                tipo "pratica"
+                [ capitoli
+                    5 
+                    6 
+                    7 
+                    8 
+                    11 
+                dominio "threat intelligence & coordination"
+            { 
+                nome "Mitigazioni e workaround"
+                descrizione "Misure temporanee quando la patch non è fattibile subito."
+                tipo "pratica"
+                [ capitoli
+                    5 
+                    7 
+                    9 
+                dominio "vulnerability & patch management"
+            { 
+                nome "KPI: % asset inventariati"
+                descrizione "Quota di asset OT censiti e classificati per zona."
+                tipo "KPI"
+                [ capitoli
+                    3 
+                    5 
+                    7 
+                    9 
+                    11 
+                dominio "metrics & KPI"
+            { 
+                nome "KPI: % zone con SL-Target"
+                descrizione "Percentuale di zone con obiettivi formalizzati e verificati."
+                tipo "KPI"
+                [ capitoli
+                    2 
+                    3 
+                    5 
+                    7 
+                    9 
+                    11 
+                dominio "metrics & KPI"
+            { 
+                nome "KPI: Patch coverage"
+                descrizione "Copertura degli aggiornamenti per criticità definite."
+                tipo "KPI"
+                [ capitoli
+                    3 
+                    5 
+                    7 
+                    9 
+                    11 
+                dominio "metrics & KPI"
+            { 
+                nome "KPI: TTR"
+                descrizione "Tempo di remediation medio o mediano per vulnerabilità."
+                tipo "KPI"
+                [ capitoli
+                    3 
+                    5 
+                    7 
+                    11 
+                dominio "metrics & KPI"
+            { 
+                nome "KPI: % sessioni MFA registrate"
+                descrizione "Quota di sessioni remote con MFA e registrazione attiva."
+                tipo "KPI"
+                [ capitoli
+                    3 
+                    5 
+                    7 
+                    9 
+                    11 
+                dominio "metrics & KPI"
+            { 
+                nome "KPI: MTTD"
+                descrizione "Tempo medio di rilevazione degli eventi OT significativi."
+                tipo "KPI"
+                [ capitoli
+                    5 
+                    7 
+                    11 
+                dominio "metrics & KPI"
+            { 
+                nome "KPI: MTTR"
+                descrizione "Tempo medio di ripristino delle funzionalità OT."
+                tipo "KPI"
+                [ capitoli
+                    5 
+                    7 
+                    11 
+                dominio "metrics & KPI"
+            { 
+                nome "KPI: % backup/restore testati"
+                descrizione "Quota di backup provati con successo in restore periodici."
+                tipo "KPI"
+                [ capitoli
+                    5 
+                    7 
+                    9 
+                    11 
+                dominio "metrics & KPI"
+            { 
+                nome "KPI: % fornitori qualificati"
+                descrizione "Percentuale di vendor conformi a SDL/PSIRT e clausole OT."
+                tipo "KPI"
+                [ capitoli
+                    3 
+                    6 
+                    7 
+                    8 
+                    11 
+                dominio "metrics & KPI"
+            { 
+                nome "KPI: Tempo approvazione accessi"
+                descrizione "Tempo medio tra richiesta e autorizzazione di accesso remoto."
+                tipo "KPI"
+                [ capitoli
+                    3 
+                    5 
+                    7 
+                    11 
+                dominio "metrics & KPI"
+            { 
+                nome "KPI: Incidenti notificati entro SLA"
+                descrizione "Quota di eventi notificati nei tempi previsti dalla policy."
+                tipo "KPI"
+                [ capitoli
+                    5 
+                    6 
+                    11 
+                dominio "metrics & KPI"
+            { 
+                nome "KPI: Tempo alla prima notifica"
+                descrizione "Intervallo tra rilevazione e prima notifica formale (NIS2)."
+                tipo "KPI"
+                [ capitoli
+                    6 
+                    11 
+                dominio "metrics & KPI"
+            { 
+                nome "Crosswalk NIS2 ⇄ IEC 62443"
+                descrizione "Tabella che mappa obblighi NIS2 con parti 62443 e evidenze."
+                tipo "template"
+                [ capitoli
+                    6 
+                    9 
+                    11 
+                dominio "compliance & NIS2"
+            { 
+                nome "Policy di notifica incidenti"
+                descrizione "Procedure e modelli verso autorità/CSIRT con SLA definiti."
+                tipo "deliverable"
+                [ capitoli
+                    6 
+                    9 
+                    11 
+                dominio "incident & compliance"
+            { 
+                nome "Registro incidenti"
+                descrizione "Tracciamento eventi, notifiche e stati di gestione."
+                tipo "deliverable"
+                [ capitoli
+                    5 
+                    6 
+                    7 
+                    9 
+                    11 
+                dominio "incident & continuity"
+            { 
+                nome "Due diligence fornitori"
+                descrizione "Valutazione documentale e tecnica della supply chain critica."
+                tipo "procedura"
+                [ capitoli
+                    3 
+                    6 
+                    7 
+                    8 
+                dominio "procurement & legal"
+            { 
+                nome "Business Continuity & Crisis Management"
+                descrizione "Piani e comitati per gestire interruzioni e decisioni critiche."
+                tipo "tema"
+                [ capitoli
+                    3 
+                    5 
+                    6 
+                    7 
+                    9 
+                dominio "incident & continuity"
+            { 
+                nome "Operare in modalità degradata"
+                descrizione "Procedure manuali e alternative per continuità del servizio."
+                tipo "pratica"
+                [ capitoli
+                    5 
+                    7 
+                    9 
+                dominio "incident & continuity"
+            { 
+                nome "Esercitazioni IR/BC"
+                descrizione "Test periodici dei runbook di risposta incidenti e continuità."
+                tipo "pratica"
+                [ capitoli
+                    5 
+                    6 
+                    7 
+                    9 
+                    11 
+                dominio "incident & continuity"
+            { 
+                nome "Audit accessi terze parti"
+                descrizione "Verifica regolare delle sessioni e delle evidenze consegnate."
+                tipo "pratica"
+                [ capitoli
+                    3 
+                    5 
+                    7 
+                    9 
+                dominio "monitoring & response (FR6)"
+            { 
+                nome "Marcatura N/A con motivazione"
+                descrizione "Segnare non applicabile con spiegazione e impatto."
+                tipo "metodo"
+                [ capitoli
+                    1 
+                    3 
+                    9 
+                dominio "quality & assurance"
+            { 
+                nome "Azioni correttive con scadenze"
+                descrizione "Pianificare remediation e date di verifica in checklist."
+                tipo "metodo"
+                [ capitoli
+                    3 
+                    5 
+                    9 
+                dominio "quality & assurance"
+            { 
+                nome "Glossario minimo"
+                descrizione "Voci chiave con definizione in una riga e rimandi ai capitoli."
+                tipo "deliverable"
+                [ capitoli
+                    1 
+                    2 
+                    10 
+                dominio "framework"
+            { 
+                nome "Riferimenti normativi"
+                descrizione "Tabella dei documenti base (62443, NIS2, NIST SP 800-82, ecc.)."
+                tipo "deliverable"
+                [ capitoli
+                    1 
+                    2 
+                    6 
+                    10 
+                dominio "compliance & NIS2"
+            { 
+                nome "Risorse utili"
+                descrizione "Elenco di enti e portali tecnici/istituzionali per approfondimenti."
+                tipo "risorsa"
+                [ capitoli
+                    10 
+                dominio "compliance & NIS2"
+            { 
+                nome "Note su link e licenze"
+                descrizione "Gestione dei collegamenti e delle citazioni nel rispetto delle licenze."
+                tipo "pratica"
+                [ capitoli
+                    10 
+                    11 
+                dominio "procurement & legal"
+            { 
+                nome "Identità OT separate da IT"
+                descrizione "Domini e ruoli distinti per ambienti operativi e ufficio."
+                tipo "pratica"
+                [ capitoli
+                    3 
+                    5 
+                    7 
+                    9 
+                dominio "identity & access (FR1/FR2)"
+            { 
+                nome "Service account minimizzati"
+                descrizione "Ridurre e controllare gli account macchina e di servizio."
+                tipo "pratica"
+                [ capitoli
+                    3 
+                    5 
+                    9 
+                dominio "identity & access (FR1/FR2)"
+            { 
+                nome "Vault segreti & rotazione"
+                descrizione "Custodia sicura di credenziali con rotazioni pianificate."
+                tipo "tecnica"
+                [ capitoli
+                    3 
+                    5 
+                    9 
+                dominio "identity & access (FR1)"
+            { 
+                nome "Approvals tracciati"
+                descrizione "Approvazioni registrate su ticket per accessi e change."
+                tipo "pratica"
+                [ capitoli
+                    3 
+                    4 
+                    5 
+                    9 
+                    11 
+                dominio "change & configuration management"
+            { 
+                nome "Evidenze standard di chiusura"
+                descrizione "Log, screenshot, output comandi e report a fine attività."
+                tipo "pratica"
+                [ capitoli
+                    3 
+                    5 
+                    7 
+                    9 
+                    11 
+                dominio "quality & assurance"
+            { 
+                nome "Template matrice FR × SL"
+                descrizione "Tabella che descrive progressione dei controlli per livelli SL."
+                tipo "template"
+                [ capitoli
+                    2 
+                    5 
+                    9 
+                dominio "templates & tooling"
+            { 
+                nome "Template matrice flussi"
+                descrizione "Griglia dei flussi consentiti per conduit con direzioni e porte."
+                tipo "template"
+                [ capitoli
+                    5 
+                    7 
+                    9 
+                dominio "templates & tooling"
+            { 
+                nome "Template piano patch/vuln"
+                descrizione "Calendario aggiornamenti con criteri di priorità e staging."
+                tipo "template"
+                [ capitoli
+                    3 
+                    5 
+                    9 
+                    11 
+                dominio "templates & tooling"
+            { 
+                nome "Template runbook incident"
+                descrizione "Passi, ruoli e contatti per la gestione degli incidenti OT."
+                tipo "template"
+                [ capitoli
+                    5 
+                    6 
+                    9 
+                    11 
+                dominio "templates & tooling"
+            { 
+                nome "Template advisory PSIRT"
+                descrizione "Formato standard per avvisi di sicurezza di prodotto."
+                tipo "template"
+                [ capitoli
+                    3 
+                    5 
+                    6 
+                    8 
+                    11 
+                dominio "templates & tooling"
+            { 
+                nome "Template registro change"
+                descrizione "Tracciato con richieste, approvazioni, finestre e rollback."
+                tipo "template"
+                [ capitoli
+                    4 
+                    5 
+                    9 
+                    11 
+                dominio "templates & tooling"
+            { 
+                nome "Template roadmap 30/90/180"
+                descrizione "Pianificazione a tappe con owner, dipendenze e criteri di successo."
+                tipo "template"
+                [ capitoli
+                    1 
+                    3 
+                    7 
+                    9 
+                    11 
+                dominio "templates & tooling"
+            { 
+                nome "Criticità: SL4 ovunque"
+                descrizione "Ambizione irrealistica che porta a costi e complessità inutili."
+                tipo "criticità"
+                [ capitoli
+                    2 
+                    3 
+                    5 
+                    7 
+                    9 
+                    11 
+                dominio "risk & pitfalls"
+            { 
+                nome "Criticità: accessi remoti diretti"
+                descrizione "Connessioni senza broker e logging che sfuggono al controllo."
+                tipo "criticità"
+                [ capitoli
+                    3 
+                    5 
+                    7 
+                    9 
+                dominio "risk & pitfalls"
+            { 
+                nome "Criticità: assenza di staging"
+                descrizione "Aggiornamenti testati direttamente in produzione con rischio alto."
+                tipo "criticità"
+                [ capitoli
+                    4 
+                    5 
+                    7 
+                    9 
+                dominio "risk & pitfalls"
+            { 
+                nome "Criticità: config-drift"
+                descrizione "Deriva non controllata delle configurazioni nel tempo."
+                tipo "criticità"
+                [ capitoli
+                    4 
+                    5 
+                    7 
+                    9 
+                dominio "risk & pitfalls"
+            { 
+                nome "Criticità: mancanza di evidenze"
+                descrizione "Attività non dimostrabili in audit o verso autorità."
+                tipo "criticità"
+                [ capitoli
+                    3 
+                    5 
+                    6 
+                    9 
+                dominio "risk & pitfalls"
+            { 
+                nome "Criticità: dipendenze IT non gestite"
+                descrizione "Servizi IT critici per OT senza segregazione o piani BC."
+                tipo "criticità"
+                [ capitoli
+                    2 
+                    3 
+                    5 
+                    7 
+                dominio "risk & pitfalls"
+            { 
+                nome "Criticità: raccolta log invasiva"
+                descrizione "Telemetria che impatta latenza/affidabilità dei controllori."
+                tipo "criticità"
+                [ capitoli
+                    5 
+                    7 
+                dominio "risk & pitfalls"

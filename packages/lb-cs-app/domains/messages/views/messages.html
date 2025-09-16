@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gestione Messaggi</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <style>
+    body{font-family:system-ui;margin:1.5rem}
+    table{border-collapse:collapse;width:100%}
+    td,th{border:1px solid #ddd;padding:.4rem}
+    form.inline{display:flex;gap:.4rem;align-items:center}
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const e = React.createElement;
+    const STATUSES = ['inserito','esame in corso','approvato','rifiutato','annullato'];
+    function idStr(m){ return m && m._id && m._id.$oid ? m._id.$oid : (m && m._id ? String(m._id) : ''); }
+    async function showError(r){
+      try{ const data = await r.json(); alert(`Errore ${r.status}: ${data.error||r.statusText}${data.message?`\n${data.message}`:''}`); }
+      catch(e){ alert(`Errore ${r.status}: ${r.statusText}`); }
+    }
+
+    function App(){
+      const [rows,setRows] = React.useState([]);
+      const [text,setText] = React.useState("");
+      const [status,setStatus] = React.useState('inserito');
+      const [notes,setNotes] = React.useState("");
+
+      async function load(){
+        const r = await fetch('/api/messages');
+        if (r.status===401) return location.href='/login?next='+encodeURIComponent(location.pathname);
+        setRows(await r.json());
+      }
+      React.useEffect(()=>{ load(); },[]);
+
+      async function add(ev){
+        ev.preventDefault();
+        const r = await fetch('/api/messages',{
+          method:'POST', headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({ text, status, notes })
+        });
+        if(!r.ok){ return showError(r); }
+        setText(""); setStatus('inserito'); setNotes("");
+        load();
+      }
+
+      async function save(id, patch){
+        const r = await fetch('/api/messages/'+id,{ method:'PUT', headers:{'Content-Type':'application/json'}, body: JSON.stringify(patch) });
+        if(!r.ok){ return showError(r); }
+        load();
+      }
+
+      async function del(id){
+        if(!confirm('Eliminare messaggio?')) return;
+        const r = await fetch('/api/messages/'+id,{ method:'DELETE' });
+        if(!r.ok){ return showError(r); }
+        load();
+      }
+
+      return e('div',null,
+        e('h1',null,'Gestione Messaggi'),
+        e('p',null, e('a',{href:'/logout'},'Logout')),
+        e('form',{className:'inline', onSubmit:add},
+          e('input',{placeholder:'Testo', value:text, onChange:ev=>setText(ev.target.value), required:true, style:{flex:1}}),
+          e('select',{value:status,onChange:ev=>setStatus(ev.target.value)}, STATUSES.map(s=>e('option',{key:s,value:s},s))),
+          e('input',{placeholder:'Note', value:notes, onChange:ev=>setNotes(ev.target.value)}),
+          e('button',{type:'submit'},'Aggiungi')
+        ),
+        e('table',null,
+          e('thead',null, e('tr',null,[ 'Data/Ora','User','Status','Testo','Note','Azioni' ].map(h=>e('th',{key:h},h)))) ,
+          e('tbody',null,
+            rows.map(m=> {
+              const id = idStr(m);
+              return e('tr',{key:id||Math.random()},[
+                e('td',null,new Date(m.datetime).toLocaleString()),
+                e('td',null,m.userid),
+                e('td',null,
+                  e('select',{defaultValue:m.status,onChange:ev=>save(id,{status:ev.target.value})}, STATUSES.map(s=>e('option',{key:s,value:s},s)))
+                ),
+                e('td',null,
+                  e('input',{defaultValue:m.text, style:{width:'100%'}, onBlur:ev=>{ if(ev.target.value!==m.text) save(id,{text:ev.target.value}); }})
+                ),
+                e('td',null,
+                  e('input',{defaultValue:m.notes||'', style:{width:'100%'}, onBlur:ev=>{ if(ev.target.value!==(m.notes||'')) save(id,{notes:ev.target.value}); }})
+                ),
+                e('td',null,
+                  e('button',{onClick:()=>del(id), type:'button'},'Elimina')
+                )
+              ])
+            })
+          )
+        )
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(e(App));
+  </script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+ittf
+
+   $
+        var cap = 11;
+
+   $file project/from_meta/sole_24_ore/cap_13_conformità_62443_4_2_componenti.md
+
+        # Cap. ${cap} — Canvas (Istruzioni tecniche) — v1.0
+        
+        ## Cap. ${cap} — Conformità IEC 62443‑4‑2 per componenti (profilo di prodotto & evidenze)
+
+        regole_editoriali()
+        mini_vademecum_canvas()
+        > **Idea chiave**: la conformità **IEC 62443‑4‑2** dei componenti OT (PLC, RTU, HMI, 
+            \b gateway, drive, ecc.) è un **abilitatore di mercato** e riduce 
+            \b i rischi d’integrazione nei sistemi **IEC 62443‑3‑3**. 
+            \b Il capitolo definisce *come* un produttore deve presentare capacità, 
+            \b precondizioni e configurazioni, e *come* Asset Owner/Integrator devono valutarle.
+        ## Obiettivo (capitolo)
+        * Spiegare cosa richiede **IEC 62443‑4‑2** (FR/CR/RE, SL) e come documentarlo.
+        * Standardizzare un **Component Security Profile (CSP)**: matrice **CR×SL**, 
+            \b precondizioni, configurazioni necessarie, dipendenze (C/S/N/N‑A).
+        * Mostrare come costruire un **pacchetto evidenze** per gare & audit e come **valutarlo** lato Asset Owner/Integrator.
+        * Introdurre un flusso **LLM‑assisted** per estrarre, normalizzare e mantenere le evidenze dal materiale del vendor.
+        audience()
+
+        ---
+
+        ## Struttura delle sezioni
+
+        ### ${cap}.1 Executive brief — Perché 4‑2 conta per i componenti
+
+        **Obiettivo sezione ${cap}.1**: in 1 pagina, legare conformità 4‑2 a *accesso ai mercati*, integrazione veloce, riduzione rischi e oneri post‑vendita.
+        **Output**: memo con 3 KPI, 90/180/365, decisioni richieste.
+        **Prompt**: "Scrivi 1 pagina *board‑ready* su valore e rischi di 4‑2 per componenti OT (FR/CR, SL, evidenze, impatti su RFI/RFP)."
+        **QC**: KPI presenti; rischi chiave; roadmap tri‑fase.
+
+        ### ${cap}.2 Cosa chiede la 4‑2 (FR/CR/RE, SL, EDR/HDR/NDR/SAR)
+
+        **Obiettivo sezione ${cap}.2**: spiegare Fondational Requirements (FR1–FR7), **Component Requirement (CR)**, **Requirement Enhancement (RE)**, mapping con **SL1–SL4** e classi **EDR/HDR/NDR/SAR**.
+        **Output**: tabella riassuntiva terminologia + micro‑glossario.
+        **Prompt**: "Sintetizza FR/CR/RE, SL, e differenza EDR/HDR/NDR/SAR con esempi di controllo."
+
+        ### ${cap}.3 Component Security Profile (CSP) — struttura e campi
+
+        **Obiettivo sezione ${cap}.3**: definire un profilo prodotto standard: identificativi, firmware range, interfacce, **matrice CR×SL×Integrazione (C/S/N/N‑A)**, configurazioni richieste, *Not Applicable (N/A)* motivati.
+        **Output**: **template CSP** editabile.
+        **Prompt**: "Genera un template CSP: sezioni, tabella CR×SL×(C|S|N|N‑A), precondizioni e configurazioni."
+
+        ### ${cap}.4 Condizioni operative & assunzioni di sicurezza
+
+        **Obiettivo sezione ${cap}.4**: esplicitare precondizioni (es. *defense‑in‑depth*, segmentazione, protocolli sicuri, gestione certificati), limiti d’uso e dipendenze esterne.
+        **Output**: checklist *Operational Environment & Security Assumptions*.
+        **Prompt**: "Stila la checklist di precondizioni operative e security assumptions per integrare il componente in architettura OT."
+
+        ### ${cap}.5 Matrice CR×SL×Integrazione — legenda e compilazione
+
+        **Obiettivo sezione ${cap}.5**: spiegare la legenda **C/S/N/N‑A** e come compilarla per FR1–FR7; evidenziare *gap* e misure compensative di sistema.
+        **Output**: matrice compilata d’esempio + guida alla lettura.
+        **Prompt**: "Compila una matrice CR×SL×Integrazione con esempi rappresentativi e note di configurazione."
+
+        ### ${cap}.6 Configurazioni necessarie per raggiungere i requisiti
+
+        **Obiettivo sezione ${cap}.6**: elencare parametri/protocolli (es. disattivare legacy, TLS per servizi, gestione certificati, password policy, time sync, syslog).
+        **Output**: **Secure Configuration Guide** breve per il componente.
+        **Prompt**: "Redigi una guida di configurazione minima per soddisfare i CR per SL2/SL3."
+
+        ### ${cap}.7 Secure Boot & Roots of Trust
+
+        **Obiettivo sezione ${cap}.7**: descrivere catena di avvio sicuro, **Root of Trust** del fornitore e dell’Asset Owner; firmware firmati, verifica integrità.
+        **Output**: schema chiavi & processo di firma/aggiornamento.
+        **Prompt**: "Disegna il flusso Secure Boot/aggiornamenti firmati e la gestione delle chiavi (supplier/AO)."
+
+        ### ${cap}.8 Identità & gestione utenti (locale vs centrale)
+
+        **Obiettivo sezione ${cap}.8**: chiarire **local user management** vs **central user management**, criteri password/MFA, **PKI** per OPC UA/web/servizi.
+        **Output**: policy di identità per il componente, tabella controlli FR1/FR2.
+        **Prompt**: "Definisci policy identity & access (locale/centrale), password, certificati, rotazione segreti."
+
+        ### ${cap}.9 Audit, tempo & logging
+
+        **Obiettivo sezione ${cap}.9**: abilitare audit events, storage, **syslog**, time sync & protezione origine tempo; evidenze per audit.
+        **Output**: elenco *auditable events* e *log routing*.
+        **Prompt**: "Elenca eventi di audit minimi e configurazione syslog/NTP per compliance 4‑2."
+
+        ### ${cap}.10 Integrità software/firmware & notifiche
+
+        **Obiettivo sezione ${cap}.10**: firma artefatti, verifica integrità, notifiche automatiche violazioni, test funzionalità sicurezza.
+        **Output**: *Secure Update Spec*; piano test integrità.
+        **Prompt**: "Scrivi specifica di aggiornata sicura (firmware/app): firma, verifica, canali, rollback, evidenze."
+
+        ### ${cap}.11 Confidenzialità & crittografia
+
+        **Obiettivo sezione ${cap}.11**: uso della crittografia in transito e a riposo; gestione chiavi e sanificazione memorie condivise.
+        **Output**: tabella servizi→cifratura→algoritmi→policy.
+        **Prompt**: "Mappa servizi/componenti alle opzioni di cifratura e gestione chiavi."
+
+        ### ${cap}.12 Restricted Data Flow & segmentazione
+
+        **Obiettivo sezione ${cap}.12**: politiche *deny‑by‑default*, whitelisting protocolli, conduits; note su autenticazione di rete dove applicabile.
+        **Output**: **matrice flussi** per conduit.
+        **Prompt**: "Genera una matrice flussi approvata per l’uso del componente in rete OT."
+
+        ### ${cap}.${cap} Timely Response to Events & monitoring
+
+        **Obiettivo sezione ${cap}.${cap}**: continuous monitoring lato componente e integrazione SOC; accesso programmato ai log.
+        **Output**: *Use case* minimi di detection.
+        **Prompt**: "Definisci 5 casi d’uso di detection su eventi del componente e relativo routing."
+
+        ### ${cap}.14 Resource Availability: DoS, backup, recovery, least functionality
+
+        **Obiettivo sezione ${cap}.14**: protezioni anti‑DoS, gestione risorse, backup/recovery del sistema di controllo, **least functionality**.
+        **Output**: checklist hardening & backup.
+        **Prompt**: "Scrivi checklist hardening (servizi, risorse) e piano backup/recovery del componente."
+
+        ### ${cap}.15 Versioni, modelli, firmware & perimetro
+
+        **Obiettivo sezione ${cap}.15**: dichiarare **range firmware** supportato, SKU coperti, funzioni abilitate per articolo/firmware; gestione variazioni.
+        **Output**: tabella SKU↔funzione/SL.
+        **Prompt**: "Compila tabella modelli/firmware/funzionalità/SL e note di perimetro."
+
+        ### ${cap}.16 Come leggere un documento di conformità 4‑2 del fornitore
+
+        **Obiettivo sezione ${cap}.16**: guida di lettura: indice, tabelle CR, precondizioni, configurazioni, *NA motivati*, integrazione (C/S/N/N‑A), evidenze.
+        **Output**: **checklist di verifica** per gare/audit.
+        **Prompt**: "Crea una checklist di 20 punti per validare un documento di conformità 4‑2."
+
+        ### ${cap}.17 Product Security Evidence Package (PSEP) per componenti
+
+        **Obiettivo sezione ${cap}.17**: indice standard: **CSP**, **Security Guide**, **Secure Config Guide**, **SBOM**, **VEX**, **Advisory**, certificati, report test.
+        **Output**: indice e template sezioni.
+        **Prompt**: "Componi un PSEP tipo per componenti OT con sezioni e segnaposto."
+
+        ### ${cap}.18 Flusso LLM‑assisted per parsing e normalizzazione
+
+        **Obiettivo sezione ${cap}.18**: pipeline (*RAG*) per estrarre da PDF/schede vendor le voci CR/SL, configurazioni, firmware, modelli; validazione umana.
+        **Output**: architettura RAG, *prompt templates*, *guardrail*.
+        **Prompt**: "Definisci workflow LLM per estrarre/normalizzare CR/SL/precondizioni e generare CSP."
+
+        ### ${cap}.19 KPI per componenti & portfolio
+
+        **Obiettivo sezione ${cap}.19**: % modelli con CSP completo; % release con **SBOM+VEX**; **Time‑to‑Advisory**; % build firmate; copertura CR per SL2/SL3.
+        **Output**: tabella KPI con formule, owner, target 12 mesi.
+        **Prompt**: "Definisci 8 KPI misurabili per la conformità 4‑2 del portfolio."
+
+        ### ${cap}.20 Rischi & anti‑pattern
+
+        **Obiettivo sezione ${cap}.20**: evitare errori: precondizioni non dichiarate, claim non verificabili, log non esportabili, mancanza di rollback, *NA* senza motivazione.
+        **Output**: tabella anti‑pattern→controllo/azione correttiva.
+        **Prompt**: "Elenca 10 anti‑pattern tipici e le correzioni consigliate."
+
+        ### ${cap}.21 Template & deliverable
+
+        **Obiettivo sezione ${cap}.21**: raccogliere i modelli: **CSP**, matrice **CR×SL×Integrazione**, **Secure Config Guide**, **matrice flussi**, **PSEP**, **checklist di verifica**.
+        **Output**: pacchetto template editabili.
+        **Prompt**: "Genera i template elencati (struttura, sezioni, segnaposto)."
+
+        ---
+
+        ## Checklist qualità (capitolo)
+
+        * [ ] Ogni sezione ha **Obiettivo/Output/Prompt/QC**.
+        * [ ] **CSP** completo con precondizioni e *NA* motivati.
+        * [ ] Matrice **CR×SL×(C|S|N|N‑A)** coerente con FR1–FR7.
+        * [ ] **Secure Config Guide** con parametri minimi (TLS, cert, password policy, NTP, syslog).
+        * [ ] Evidenze e **PSEP** indicizzati; versioni/firmware e SKU dichiarati.
+        * [ ] Flusso **LLM‑assisted** con guardrail e citazioni artefatti interni.
+        * [ ] Niente testi finiti: questo file resta **solo istruzioni**.

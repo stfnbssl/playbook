@@ -1,0 +1,325 @@
+ai dbtopic.step_1
+    api-url http://localhost:3000
+    call Programma di Sicurezza OT (‑2‑1)
+        llm_service grok
+        llm_model grok-3
+        max_tokens 8192
+        temperature 0.2
+        description normative_e_standard - Programma di Sicurezza OT (‑2‑1)
+        message 
+            role system
+            content 
+                \n Sei un assistente che genera SOLO JSON UTF-8 valido, senza testo fuori dal JSON.
+                \n Sei un esperto di cybersecurity in contesto OT/ICS
+                \n Conosci particolarmente bene lo standard di sicurezza IEC 62443.
+                \n Conosci anche IEC 27001/2, Nis2, CRA, Direttiva macchine 2006, Registro Macchine 2023 e GDPR 2016.
+        message 
+            role user
+            content 
+                \n Genera il “DB Argomenti” seguendo lo schema richiesto. Parametri:
+                \n meta:
+                \n db_name: "DB Argomenti OT/ICS Cybersecurity"
+                \n version: "0.1"
+                \n language: "it-IT"
+                \n notes: "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con placeholders di contesto."
+                \n ambito:
+                \n id: "cap/3"
+                \n nome: "Governance e Security Program (IEC 62443-2-1, -2-3, -2-4)"
+                \n sezione:
+                \n id: "cap/3/3.1"
+                \n nome: "Programma di Sicurezza OT (‑2‑1)"
+                \n descrizione:
+                \n **Sintesi** 
+                \n Il **programma di sicurezza OT** (Operational Technology) secondo **IEC 62443‑2‑1** è un ciclo **PDCA** (Plan‑Do‑Check‑Act) che collega politiche e ruoli, **valutazione del rischio** sugli **IACS** (Industrial Automation and Control Systems), definizione degli **SL‑Target** (obiettivi di sicurezza per zona/conduit/asset), implementazione dei controlli (**FR1–FR7**), **validazione** (‑3‑3) e **miglioramento continuo**. Il perimetro comprende impianti, linee, PLC/DCS/SCADA, HMI, conduits verso IT tramite **DMZ** (zona cuscinetto), con integrazione esplicita con **safety**, qualità e manutenzione.
+                \n **Componenti chiave**
+                \n * **Governo**: comitato ICS con mandato, calendario, registro decisioni ed **eccezioni**.
+                \n * **Politiche & standard**: accessi remoti, change, backup/restore, logging, hardening; mapping a **FR/SL**.
+                \n * **Processi**: risk‑based per **zona**, pianificazione misure e **verifica** (test/‑3‑3), audit periodico.
+                \n * **Evidenze**: RACI approvato, registro asset, SL‑Target per zona, piani e report **KPI**.
+                \n * Programma **documentato e misurabile**, non solo tecnico.
+                \n * **SL‑Target** guidano priorità e investimenti (evitare \"SL4 ovunque\").
+                \n * Safety, manutenzione e qualità sono **stakeholder** permanenti.
+                \n safety:
+                \n Ogni controllo va valutato contro interlock e vincoli del processo: nessuna modifica senza **analisi d’impatto** e test in ambiente sicuro.
+                \n prompt_base:
+                \n Redigi una panoramica di 10–12 righe del programma di sicurezza OT secondo 62443‑2‑1, collegandolo a SL‑Target e cicli PDCA.
+                \n Popola questo schema
+                \n <output_schema>
+                \n {"$schema":"http://json-schema.org/draft-07/schema#","type":"object","additionalProperties":false,"required":["meta","ambito"],"properties":{"meta":{"type":"object","additionalProperties":false,"required":["db_name","version","last_updated","language","notes"],"properties":{"db_name":{"type":"string"},"version":{"type":"string"},"last_updated":{"type":"string"},"language":{"type":"string"},"notes":{"type":"string"}}},"ambito":{"type":"object","additionalProperties":false,"required":["id","nome","ruolo","descrizione","sezioni"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"ruolo":{"type":"string"},"norme_riferimento":{"type":"array","items":{"type":"string"}},"descrizione":{"type":"string"},"sezioni":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/sezione"}}}}},"$defs":{"sezione":{"type":"object","additionalProperties":false,"required":["id","nome","obiettivo","output_attesi","prompt_base","aspetti_di_sicurezza","policy_template","sop_template","repo_branching_model","raci","parametri_generazione","prompting","checklist","campi_contesto_richiesti_per_la_contestualizzazione","avvertenze"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"obiettivo":{"type":"object","additionalProperties":false,"required":["codice","descrizione"],"properties":{"codice":{"type":"string"},"descrizione":{"type":"string"}}},"output_attesi":{"type":"array","items":{"type":"string"}},"prompt_base":{"type":"string"},"aspetti_di_sicurezza":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/aspetto"}},"policy_template":{"$ref":"#/$defs/policy_template"},"sop_template":{"$ref":"#/$defs/sop_template"},"repo_branching_model":{"type":"object","additionalProperties":false,"required":["modello","regole"],"properties":{"modello":{"type":"string"},"regole":{"type":"array","items":{"type":"string"}}}},"raci":{"type":"object","additionalProperties":false,"required":["roles","matrix"],"properties":{"roles":{"type":"array","minItems":1,"items":{"type":"string"}},"matrix":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["attivita"],"properties":{"attivita":{"type":"string"},"SP":{"type":"string"},"AO":{"type":"string"},"SI":{"type":"string"},"OTSec":{"type":"string"}}}}}},"parametri_generazione":{"type":"object","additionalProperties":false,"required":["tipi_documento_supportati","audience_possibili","stili","livello_tecnico","vincoli"],"properties":{"tipi_documento_supportati":{"type":"array","items":{"type":"string"}},"audience_possibili":{"type":"array","items":{"type":"string"}},"stili":{"type":"array","items":{"type":"string"}},"livello_tecnico":{"type":"array","items":{"type":"string"}},"vincoli":{"type":"array","items":{"type":"string"}}}},"prompting":{"type":"object","additionalProperties":false,"required":["prompt_template_generico","prompt_esempio_articolo","prompt_esempio_slide","prompt_esempio_sop"],"properties":{"prompt_template_generico":{"type":"string"},"prompt_esempio_articolo":{"type":"string"},"prompt_esempio_slide":{"type":"string"},"prompt_esempio_sop":{"type":"string"}}},"checklist":{"type":"array","items":{"type":"string"}},"campi_contesto_richiesti_per_la_contestualizzazione":{"type":"array","items":{"type":"string"}},"avvertenze":{"type":"array","items":{"type":"string"}}}},"aspetto":{"type":"object","additionalProperties":false,"required":["id","titolo","descrizione_astratta","rischi_mitigati","pratiche_raccomandate","metriche_kpi","artefatti","placeholders_contesto"],"properties":{"id":{"type":"string"},"titolo":{"type":"string"},"descrizione_astratta":{"type":"string"},"rischi_mitigati":{"type":"array","items":{"type":"string"}},"pratiche_raccomandate":{"type":"array","items":{"type":"string"}},"metriche_kpi":{"type":"array","items":{"type":"string"}},"artefatti":{"type":"object","additionalProperties":false,"required":["procedure","registri","evidenze"],"properties":{"procedure":{"type":"array","items":{"type":"string"}},"registri":{"type":"array","items":{"type":"string"}},"evidenze":{"type":"array","items":{"type":"string"}}}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"policy_template":{"type":"object","additionalProperties":false,"required":["titolo","sezioni","placeholders_contesto"],"properties":{"titolo":{"type":"string"},"sezioni":{"type":"array","items":{"type":"string"}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"sop_template":{"type":"object","additionalProperties":false,"required":["titolo","step","registrazioni"],"properties":{"titolo":{"type":"string"},"step":{"type":"array","items":{"type":"string"}},"registrazioni":{"type":"array","items":{"type":"string"}}}}}}
+                \n </output_schema>
+    call Ruoli & Responsabilità + **RACI**
+        llm_service grok
+        llm_model grok-3
+        max_tokens 8192
+        temperature 0.2
+        description normative_e_standard - Ruoli & Responsabilità + **RACI**
+        message 
+            role system
+            content 
+                \n Sei un assistente che genera SOLO JSON UTF-8 valido, senza testo fuori dal JSON.
+                \n Sei un esperto di cybersecurity in contesto OT/ICS
+                \n Conosci particolarmente bene lo standard di sicurezza IEC 62443.
+                \n Conosci anche IEC 27001/2, Nis2, CRA, Direttiva macchine 2006, Registro Macchine 2023 e GDPR 2016.
+        message 
+            role user
+            content 
+                \n Genera il “DB Argomenti” seguendo lo schema richiesto. Parametri:
+                \n meta:
+                \n db_name: "DB Argomenti OT/ICS Cybersecurity"
+                \n version: "0.1"
+                \n language: "it-IT"
+                \n notes: "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con placeholders di contesto."
+                \n ambito:
+                \n id: "cap/3"
+                \n nome: "Governance e Security Program (IEC 62443-2-1, -2-3, -2-4)"
+                \n sezione:
+                \n id: "cap/3/3.2"
+                \n nome: "Ruoli & Responsabilità + **RACI**"
+                \n descrizione:
+                    \n **Ruoli** 
+                    \n * **Asset Owner / Gestore impianto**: detiene il rischio, approva **SL‑Target**, policy e finestre di fermo.
+                    \n * **System Integrator**: design di **zone & conduits**, hardening, validazione (‑3‑3).
+                    \n * **Product Supplier / OEM**: **SDL** (Secure Development Lifecycle, ‑4‑1), requisiti di **componente** (‑4‑2), **SBOM**, advisory vulnerabilità.
+                    \n * **Service Provider (‑2‑4)**: accessi remoti, manutenzione, logging e consegna **evidenze**.
+                    \n * **OT Security / SOC** (Security Operations Center): monitoraggio, incident response, reporting **KPI**.
+                    \n * **HSE/Safety**: impatti di processo e interlocks.
+                    \n **Tabella RACI — modello**
+                    \n | Attività chiave                    | Asset Owner | System Integrator | OEM | Service Provider | OT Sec/SOC | HSE/Safety |
+                    \n | ---------------------------------- | ----------: | ----------------: | --: | ---------------: | ---------: | ---------: |
+                    \n | Definizione **SL‑Target** per zona |         R/A |                 C |   C |                C |          C |          C |
+                    \n | **Zoning & conduits** design       |           A |                 R |   C |                C |          C |          C |
+                    \n | **Remote access** policy & broker  |           A |                 R |   C |                R |          C |          C |
+                    \n | **Change management** OT           |           A |                 R |   C |                C |          C |          C |
+                    \n | **Patch/Vuln management (‑2‑3)**   |           A |                 C |   C |                R |          R |          C |
+                    \n | **Monitoring & logging**           |           A |                 C |   C |                C |          R |          C |
+                    \n | **Incident response** (IR/PSIRT)   |           A |                 C |   C |                C |          R |          C |
+                    \n | **Procurement** (‑2‑4, ‑4‑1/‑4‑2)  |         R/A |                 C |   R |                C |          C |          C |
+                    \n **Perché R/A così**
+                    \n * **SL‑Target**: l’Owner detiene il rischio → **A**; contributi tecnici in **C**.
+                    \n * **Zoning & conduits**: responsabilità **R** al SI per il design; **A** all’Owner.
+                    \n * **Remote access**: policy **A** all’Owner; implementazione **R** al SI; **R** operativo al Service Provider.
+                    \n * Ruoli chiari evitano **zone grigie** su accessi e cambi.
+                    \n * Il RACI va **pubblicato** e rivisto a ogni modifica organizzativa.
+                    \n * Collegare il RACI ai **ticket** (change, incident, accessi).
+                \n safety:
+                    \n Attività che incidono su logiche **SIS/ESD** (Safety) richiedono **two‑person rule** e approvazioni dedicate.
+                \n prompt_base:
+                    \n Compila il RACI per il tuo contesto, giustificando in 3–5 righe le scelte di R/A sulle prime tre attività.
+                \n Popola questo schema
+                \n <output_schema>
+                \n {"$schema":"http://json-schema.org/draft-07/schema#","type":"object","additionalProperties":false,"required":["meta","ambito"],"properties":{"meta":{"type":"object","additionalProperties":false,"required":["db_name","version","last_updated","language","notes"],"properties":{"db_name":{"type":"string"},"version":{"type":"string"},"last_updated":{"type":"string"},"language":{"type":"string"},"notes":{"type":"string"}}},"ambito":{"type":"object","additionalProperties":false,"required":["id","nome","ruolo","descrizione","sezioni"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"ruolo":{"type":"string"},"norme_riferimento":{"type":"array","items":{"type":"string"}},"descrizione":{"type":"string"},"sezioni":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/sezione"}}}}},"$defs":{"sezione":{"type":"object","additionalProperties":false,"required":["id","nome","obiettivo","output_attesi","prompt_base","aspetti_di_sicurezza","policy_template","sop_template","repo_branching_model","raci","parametri_generazione","prompting","checklist","campi_contesto_richiesti_per_la_contestualizzazione","avvertenze"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"obiettivo":{"type":"object","additionalProperties":false,"required":["codice","descrizione"],"properties":{"codice":{"type":"string"},"descrizione":{"type":"string"}}},"output_attesi":{"type":"array","items":{"type":"string"}},"prompt_base":{"type":"string"},"aspetti_di_sicurezza":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/aspetto"}},"policy_template":{"$ref":"#/$defs/policy_template"},"sop_template":{"$ref":"#/$defs/sop_template"},"repo_branching_model":{"type":"object","additionalProperties":false,"required":["modello","regole"],"properties":{"modello":{"type":"string"},"regole":{"type":"array","items":{"type":"string"}}}},"raci":{"type":"object","additionalProperties":false,"required":["roles","matrix"],"properties":{"roles":{"type":"array","minItems":1,"items":{"type":"string"}},"matrix":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["attivita"],"properties":{"attivita":{"type":"string"},"SP":{"type":"string"},"AO":{"type":"string"},"SI":{"type":"string"},"OTSec":{"type":"string"}}}}}},"parametri_generazione":{"type":"object","additionalProperties":false,"required":["tipi_documento_supportati","audience_possibili","stili","livello_tecnico","vincoli"],"properties":{"tipi_documento_supportati":{"type":"array","items":{"type":"string"}},"audience_possibili":{"type":"array","items":{"type":"string"}},"stili":{"type":"array","items":{"type":"string"}},"livello_tecnico":{"type":"array","items":{"type":"string"}},"vincoli":{"type":"array","items":{"type":"string"}}}},"prompting":{"type":"object","additionalProperties":false,"required":["prompt_template_generico","prompt_esempio_articolo","prompt_esempio_slide","prompt_esempio_sop"],"properties":{"prompt_template_generico":{"type":"string"},"prompt_esempio_articolo":{"type":"string"},"prompt_esempio_slide":{"type":"string"},"prompt_esempio_sop":{"type":"string"}}},"checklist":{"type":"array","items":{"type":"string"}},"campi_contesto_richiesti_per_la_contestualizzazione":{"type":"array","items":{"type":"string"}},"avvertenze":{"type":"array","items":{"type":"string"}}}},"aspetto":{"type":"object","additionalProperties":false,"required":["id","titolo","descrizione_astratta","rischi_mitigati","pratiche_raccomandate","metriche_kpi","artefatti","placeholders_contesto"],"properties":{"id":{"type":"string"},"titolo":{"type":"string"},"descrizione_astratta":{"type":"string"},"rischi_mitigati":{"type":"array","items":{"type":"string"}},"pratiche_raccomandate":{"type":"array","items":{"type":"string"}},"metriche_kpi":{"type":"array","items":{"type":"string"}},"artefatti":{"type":"object","additionalProperties":false,"required":["procedure","registri","evidenze"],"properties":{"procedure":{"type":"array","items":{"type":"string"}},"registri":{"type":"array","items":{"type":"string"}},"evidenze":{"type":"array","items":{"type":"string"}}}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"policy_template":{"type":"object","additionalProperties":false,"required":["titolo","sezioni","placeholders_contesto"],"properties":{"titolo":{"type":"string"},"sezioni":{"type":"array","items":{"type":"string"}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"sop_template":{"type":"object","additionalProperties":false,"required":["titolo","step","registrazioni"],"properties":{"titolo":{"type":"string"},"step":{"type":"array","items":{"type":"string"}},"registrazioni":{"type":"array","items":{"type":"string"}}}}}}
+                \n </output_schema>
+    call Supply Chain Security & **Procurement** (‑2‑4)
+        llm_service grok
+        llm_model grok-3
+        max_tokens 8192
+        temperature 0.2
+        description normative_e_standard - Supply Chain Security & **Procurement** (‑2‑4)
+        message 
+            role system
+            content 
+                \n Sei un assistente che genera SOLO JSON UTF-8 valido, senza testo fuori dal JSON.
+                \n Sei un esperto di cybersecurity in contesto OT/ICS
+                \n Conosci particolarmente bene lo standard di sicurezza IEC 62443.
+                \n Conosci anche IEC 27001/2, Nis2, CRA, Direttiva macchine 2006, Registro Macchine 2023 e GDPR 2016.
+        message 
+            role user
+            content 
+                \n Genera il “DB Argomenti” seguendo lo schema richiesto. Parametri:
+                \n meta:
+                \n db_name: "DB Argomenti OT/ICS Cybersecurity"
+                \n version: "0.1"
+                \n language: "it-IT"
+                \n notes: "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con placeholders di contesto."
+                \n ambito:
+                \n id: "cap/3"
+                \n nome: "Governance e Security Program (IEC 62443-2-1, -2-3, -2-4)"
+                \n sezione:
+                \n id: "cap/3/3.3"
+                \n nome: "Supply Chain Security & **Procurement** (‑2‑4)"
+                \n descrizione:
+                    \n **Clausole contrattuali (modello vendor‑neutral)**
+                    \n 1. **SDL 62443‑4‑1** con audit su richiesta (NDA).
+                    \n 2. **Requisiti 62443‑4‑2** dichiarati (FR/SL supportati) e guida all’hardening.
+                    \n 3. **SBOM** aggiornato per release; formato aperto (es. SPDX).
+                    \n 4. **PSIRT** attivo: canale cifrato, **SLA** triage (es. 5 gg), advisory firmati.
+                    \n 5. **Patch policy**: tempi indicativi per criticità (CRIT/HIGH entro 30–60 gg **OT‑feasible**).
+                    \n 6. **Accessi remoti**: solo **brokered**, **MFA**, approvazioni time‑bound, **session recording**.
+                    \n 7. **Logging** interventi e consegna **evidenze** a fine attività.
+                    \n 8. **Incident/Disclosure** coordinato con l’Owner entro X ore.
+                    \n 9. **Data ownership**: limiti su copie/configurazioni; restituzione a progetto chiuso.
+                    \n 10. **Sicurezza in produzione**: manuale di integrazione sicura, porte/protocolli, account, backup.
+                    \n **Qualifica fornitori**
+                    \n Criteri: maturità **SDL**, storico **CVE/TTR** (Time‑To‑Remediate), referenze di settore, disponibilità a test di integrazione, certificazioni pertinenti, continuità **PSIRT**.
+                    \n * Il contratto è lo strumento chiave per **‑2‑4/‑4‑1/‑4‑2**.
+                    \n * Prevedere una **matrice di conformità** allegata all’ordine.
+                    \n * Accessi remoti e disclosure **non si improvvisano**.
+                \n safety:
+                    \n Interventi da remoto solo in **finestre di fermo** con piano di **rollback** concordato.
+                \n prompt_base:
+                    \n Scrivi 8–10 clausole procurement vendor‑neutral che impongano ‑4‑1/‑4‑2, PSIRT, SBOM, patch e controlli su accessi remoti.
+                \n Popola questo schema
+                \n <output_schema>
+                \n {"$schema":"http://json-schema.org/draft-07/schema#","type":"object","additionalProperties":false,"required":["meta","ambito"],"properties":{"meta":{"type":"object","additionalProperties":false,"required":["db_name","version","last_updated","language","notes"],"properties":{"db_name":{"type":"string"},"version":{"type":"string"},"last_updated":{"type":"string"},"language":{"type":"string"},"notes":{"type":"string"}}},"ambito":{"type":"object","additionalProperties":false,"required":["id","nome","ruolo","descrizione","sezioni"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"ruolo":{"type":"string"},"norme_riferimento":{"type":"array","items":{"type":"string"}},"descrizione":{"type":"string"},"sezioni":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/sezione"}}}}},"$defs":{"sezione":{"type":"object","additionalProperties":false,"required":["id","nome","obiettivo","output_attesi","prompt_base","aspetti_di_sicurezza","policy_template","sop_template","repo_branching_model","raci","parametri_generazione","prompting","checklist","campi_contesto_richiesti_per_la_contestualizzazione","avvertenze"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"obiettivo":{"type":"object","additionalProperties":false,"required":["codice","descrizione"],"properties":{"codice":{"type":"string"},"descrizione":{"type":"string"}}},"output_attesi":{"type":"array","items":{"type":"string"}},"prompt_base":{"type":"string"},"aspetti_di_sicurezza":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/aspetto"}},"policy_template":{"$ref":"#/$defs/policy_template"},"sop_template":{"$ref":"#/$defs/sop_template"},"repo_branching_model":{"type":"object","additionalProperties":false,"required":["modello","regole"],"properties":{"modello":{"type":"string"},"regole":{"type":"array","items":{"type":"string"}}}},"raci":{"type":"object","additionalProperties":false,"required":["roles","matrix"],"properties":{"roles":{"type":"array","minItems":1,"items":{"type":"string"}},"matrix":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["attivita"],"properties":{"attivita":{"type":"string"},"SP":{"type":"string"},"AO":{"type":"string"},"SI":{"type":"string"},"OTSec":{"type":"string"}}}}}},"parametri_generazione":{"type":"object","additionalProperties":false,"required":["tipi_documento_supportati","audience_possibili","stili","livello_tecnico","vincoli"],"properties":{"tipi_documento_supportati":{"type":"array","items":{"type":"string"}},"audience_possibili":{"type":"array","items":{"type":"string"}},"stili":{"type":"array","items":{"type":"string"}},"livello_tecnico":{"type":"array","items":{"type":"string"}},"vincoli":{"type":"array","items":{"type":"string"}}}},"prompting":{"type":"object","additionalProperties":false,"required":["prompt_template_generico","prompt_esempio_articolo","prompt_esempio_slide","prompt_esempio_sop"],"properties":{"prompt_template_generico":{"type":"string"},"prompt_esempio_articolo":{"type":"string"},"prompt_esempio_slide":{"type":"string"},"prompt_esempio_sop":{"type":"string"}}},"checklist":{"type":"array","items":{"type":"string"}},"campi_contesto_richiesti_per_la_contestualizzazione":{"type":"array","items":{"type":"string"}},"avvertenze":{"type":"array","items":{"type":"string"}}}},"aspetto":{"type":"object","additionalProperties":false,"required":["id","titolo","descrizione_astratta","rischi_mitigati","pratiche_raccomandate","metriche_kpi","artefatti","placeholders_contesto"],"properties":{"id":{"type":"string"},"titolo":{"type":"string"},"descrizione_astratta":{"type":"string"},"rischi_mitigati":{"type":"array","items":{"type":"string"}},"pratiche_raccomandate":{"type":"array","items":{"type":"string"}},"metriche_kpi":{"type":"array","items":{"type":"string"}},"artefatti":{"type":"object","additionalProperties":false,"required":["procedure","registri","evidenze"],"properties":{"procedure":{"type":"array","items":{"type":"string"}},"registri":{"type":"array","items":{"type":"string"}},"evidenze":{"type":"array","items":{"type":"string"}}}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"policy_template":{"type":"object","additionalProperties":false,"required":["titolo","sezioni","placeholders_contesto"],"properties":{"titolo":{"type":"string"},"sezioni":{"type":"array","items":{"type":"string"}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"sop_template":{"type":"object","additionalProperties":false,"required":["titolo","step","registrazioni"],"properties":{"titolo":{"type":"string"},"step":{"type":"array","items":{"type":"string"}},"registrazioni":{"type":"array","items":{"type":"string"}}}}}}
+                \n </output_schema>
+    call **Accessi remoti di terze parti** (policy e controlli)
+        llm_service grok
+        llm_model grok-3
+        max_tokens 8192
+        temperature 0.2
+        description normative_e_standard - **Accessi remoti di terze parti** (policy e controlli)
+        message 
+            role system
+            content 
+                \n Sei un assistente che genera SOLO JSON UTF-8 valido, senza testo fuori dal JSON.
+                \n Sei un esperto di cybersecurity in contesto OT/ICS
+                \n Conosci particolarmente bene lo standard di sicurezza IEC 62443.
+                \n Conosci anche IEC 27001/2, Nis2, CRA, Direttiva macchine 2006, Registro Macchine 2023 e GDPR 2016.
+        message 
+            role user
+            content 
+                \n Genera il “DB Argomenti” seguendo lo schema richiesto. Parametri:
+                \n meta:
+                \n db_name: "DB Argomenti OT/ICS Cybersecurity"
+                \n version: "0.1"
+                \n language: "it-IT"
+                \n notes: "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con placeholders di contesto."
+                \n ambito:
+                \n id: "cap/3"
+                \n nome: "Governance e Security Program (IEC 62443-2-1, -2-3, -2-4)"
+                \n sezione:
+                \n id: "cap/3/3.4"
+                \n nome: "**Accessi remoti di terze parti** (policy e controlli)"
+                \n descrizione:
+                    \n **Principi** 
+                    \n Accesso **brokered** tramite jump host/gateway privilegiato; **no** VPN dirette verso asset. **MFA**, autorizzazioni **time‑bound**, **least privilege**, **session recording**, **separation of duties**.
+                    \n **Procedura in 12 passi**
+                    \n 1. Richiesta con scopo e asset.
+                    \n 2. Verifica prerequisiti (formazione, NDA).
+                    \n 3. Approvazione **owner di zona**.
+                    \n 4. Pianificazione finestra (con safety).
+                    \n 5. **Pre‑check**: backup configurazioni/snapshot.
+                    \n 6. Assegnazione profilo minimo e **account temporaneo**.
+                    \n 7. Avvio sessione tramite **broker** con registrazione.
+                    \n 8. Esecuzione attività con **two‑person rule** se critiche.
+                    \n 9. Chiusura sessione e revoca account.
+                    \n 10. **Post‑check** funzionale/processo.
+                    \n 11. Allegare **log/evidenze** al ticket.
+                    \n 12. **Post‑review** con miglioramenti.
+                    \n **Checklist evidenze**
+                    \n Ticket, approvazione, elenco cambi, backup pre/post, log sessione, output comandi, foto/screenshot, esito test e **rollback**.
+                    \n * Tutto l’accesso remoto passa da **un solo punto**.
+                    \n * **Log** e **registrazioni** sono parte dell’evidenza.
+                    \n * Account sempre **temporanei** e minimi.
+                \n safety:
+                    \n Attività che impattano i parametri di processo richiedono presenza (fisica o remota) di **Operations** e **HSE**.
+                \n prompt_base:
+                    \n Redigi la procedura degli accessi remoti (max 12 passi) e una checklist di evidenze da allegare al ticket.
+                \n Popola questo schema
+                \n <output_schema>
+                \n {"$schema":"http://json-schema.org/draft-07/schema#","type":"object","additionalProperties":false,"required":["meta","ambito"],"properties":{"meta":{"type":"object","additionalProperties":false,"required":["db_name","version","last_updated","language","notes"],"properties":{"db_name":{"type":"string"},"version":{"type":"string"},"last_updated":{"type":"string"},"language":{"type":"string"},"notes":{"type":"string"}}},"ambito":{"type":"object","additionalProperties":false,"required":["id","nome","ruolo","descrizione","sezioni"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"ruolo":{"type":"string"},"norme_riferimento":{"type":"array","items":{"type":"string"}},"descrizione":{"type":"string"},"sezioni":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/sezione"}}}}},"$defs":{"sezione":{"type":"object","additionalProperties":false,"required":["id","nome","obiettivo","output_attesi","prompt_base","aspetti_di_sicurezza","policy_template","sop_template","repo_branching_model","raci","parametri_generazione","prompting","checklist","campi_contesto_richiesti_per_la_contestualizzazione","avvertenze"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"obiettivo":{"type":"object","additionalProperties":false,"required":["codice","descrizione"],"properties":{"codice":{"type":"string"},"descrizione":{"type":"string"}}},"output_attesi":{"type":"array","items":{"type":"string"}},"prompt_base":{"type":"string"},"aspetti_di_sicurezza":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/aspetto"}},"policy_template":{"$ref":"#/$defs/policy_template"},"sop_template":{"$ref":"#/$defs/sop_template"},"repo_branching_model":{"type":"object","additionalProperties":false,"required":["modello","regole"],"properties":{"modello":{"type":"string"},"regole":{"type":"array","items":{"type":"string"}}}},"raci":{"type":"object","additionalProperties":false,"required":["roles","matrix"],"properties":{"roles":{"type":"array","minItems":1,"items":{"type":"string"}},"matrix":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["attivita"],"properties":{"attivita":{"type":"string"},"SP":{"type":"string"},"AO":{"type":"string"},"SI":{"type":"string"},"OTSec":{"type":"string"}}}}}},"parametri_generazione":{"type":"object","additionalProperties":false,"required":["tipi_documento_supportati","audience_possibili","stili","livello_tecnico","vincoli"],"properties":{"tipi_documento_supportati":{"type":"array","items":{"type":"string"}},"audience_possibili":{"type":"array","items":{"type":"string"}},"stili":{"type":"array","items":{"type":"string"}},"livello_tecnico":{"type":"array","items":{"type":"string"}},"vincoli":{"type":"array","items":{"type":"string"}}}},"prompting":{"type":"object","additionalProperties":false,"required":["prompt_template_generico","prompt_esempio_articolo","prompt_esempio_slide","prompt_esempio_sop"],"properties":{"prompt_template_generico":{"type":"string"},"prompt_esempio_articolo":{"type":"string"},"prompt_esempio_slide":{"type":"string"},"prompt_esempio_sop":{"type":"string"}}},"checklist":{"type":"array","items":{"type":"string"}},"campi_contesto_richiesti_per_la_contestualizzazione":{"type":"array","items":{"type":"string"}},"avvertenze":{"type":"array","items":{"type":"string"}}}},"aspetto":{"type":"object","additionalProperties":false,"required":["id","titolo","descrizione_astratta","rischi_mitigati","pratiche_raccomandate","metriche_kpi","artefatti","placeholders_contesto"],"properties":{"id":{"type":"string"},"titolo":{"type":"string"},"descrizione_astratta":{"type":"string"},"rischi_mitigati":{"type":"array","items":{"type":"string"}},"pratiche_raccomandate":{"type":"array","items":{"type":"string"}},"metriche_kpi":{"type":"array","items":{"type":"string"}},"artefatti":{"type":"object","additionalProperties":false,"required":["procedure","registri","evidenze"],"properties":{"procedure":{"type":"array","items":{"type":"string"}},"registri":{"type":"array","items":{"type":"string"}},"evidenze":{"type":"array","items":{"type":"string"}}}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"policy_template":{"type":"object","additionalProperties":false,"required":["titolo","sezioni","placeholders_contesto"],"properties":{"titolo":{"type":"string"},"sezioni":{"type":"array","items":{"type":"string"}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"sop_template":{"type":"object","additionalProperties":false,"required":["titolo","step","registrazioni"],"properties":{"titolo":{"type":"string"},"step":{"type":"array","items":{"type":"string"}},"registrazioni":{"type":"array","items":{"type":"string"}}}}}}
+                \n </output_schema>
+    call **Patch & Vulnerability Management** (‑2‑3)
+        llm_service grok
+        llm_model grok-3
+        max_tokens 8192
+        temperature 0.2
+        description normative_e_standard - **Patch & Vulnerability Management** (‑2‑3)
+        message 
+            role system
+            content 
+                \n Sei un assistente che genera SOLO JSON UTF-8 valido, senza testo fuori dal JSON.
+                \n Sei un esperto di cybersecurity in contesto OT/ICS
+                \n Conosci particolarmente bene lo standard di sicurezza IEC 62443.
+                \n Conosci anche IEC 27001/2, Nis2, CRA, Direttiva macchine 2006, Registro Macchine 2023 e GDPR 2016.
+        message 
+            role user
+            content 
+                \n Genera il “DB Argomenti” seguendo lo schema richiesto. Parametri:
+                \n meta:
+                \n db_name: "DB Argomenti OT/ICS Cybersecurity"
+                \n version: "0.1"
+                \n language: "it-IT"
+                \n notes: "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con placeholders di contesto."
+                \n ambito:
+                \n id: "cap/3"
+                \n nome: "Governance e Security Program (IEC 62443-2-1, -2-3, -2-4)"
+                \n sezione:
+                \n id: "cap/3/3.5"
+                \n nome: "**Patch & Vulnerability Management** (‑2‑3)"
+                \n descrizione:
+                    \n **Processo OT‑aware**
+                    \n 1. Inventario e **criticità** asset.
+                    \n 2. Raccolta vuln (CVE, advisory fornitore/**PSIRT**, SOC).
+                    \n 3. **Risk scoring OT**: CVSS × impatto su disponibilità/safety × esposizione.
+                    \n 4. Valutare **OT‑feasibility** e pianificare in **finestra**.
+                    \n 5. Test in **staging**/banco prova.
+                    \n 6. **Change approval** e comunicazione.
+                    \n 7. Deploy con **rollback plan**.
+                    \n 8. Verifica e aggiornamento baseline.
+                    \n **SLA di riferimento (adattare)**
+                    \n * **CRIT/HIGH**: ≤ 30–60 gg se **OT‑feasible**.
+                    \n * **MED**: ≤ 90 gg; **LOW**: a ciclo manutentivo.
+                    \n * **Eccezioni**: compensating controls documentati e revisione trimestrale.
+                    \n **KPI** 
+                    \n Copertura patch per criticità; **TTR** (Time‑To‑Remediate) mediano; % asset con baseline verificata; n. **eccezioni** attive.
+                    \n * Patch e vuln mgmt sono **processi**, non eventi.
+                    \n * Lo **staging** evita fermi imprevisti.
+                    \n * Le **eccezioni** devono **scadere**.
+                \n safety:
+                    \n Mai patch su sistemi **safety‑critical** senza test dedicati e piano di ripristino.
+                \n prompt_base:
+                    \n Scrivi il piano patch/vuln con SLA per criticità, criteri di feasibility e flusso di test/staging.
+                \n Popola questo schema
+                \n <output_schema>
+                \n {"$schema":"http://json-schema.org/draft-07/schema#","type":"object","additionalProperties":false,"required":["meta","ambito"],"properties":{"meta":{"type":"object","additionalProperties":false,"required":["db_name","version","last_updated","language","notes"],"properties":{"db_name":{"type":"string"},"version":{"type":"string"},"last_updated":{"type":"string"},"language":{"type":"string"},"notes":{"type":"string"}}},"ambito":{"type":"object","additionalProperties":false,"required":["id","nome","ruolo","descrizione","sezioni"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"ruolo":{"type":"string"},"norme_riferimento":{"type":"array","items":{"type":"string"}},"descrizione":{"type":"string"},"sezioni":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/sezione"}}}}},"$defs":{"sezione":{"type":"object","additionalProperties":false,"required":["id","nome","obiettivo","output_attesi","prompt_base","aspetti_di_sicurezza","policy_template","sop_template","repo_branching_model","raci","parametri_generazione","prompting","checklist","campi_contesto_richiesti_per_la_contestualizzazione","avvertenze"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"obiettivo":{"type":"object","additionalProperties":false,"required":["codice","descrizione"],"properties":{"codice":{"type":"string"},"descrizione":{"type":"string"}}},"output_attesi":{"type":"array","items":{"type":"string"}},"prompt_base":{"type":"string"},"aspetti_di_sicurezza":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/aspetto"}},"policy_template":{"$ref":"#/$defs/policy_template"},"sop_template":{"$ref":"#/$defs/sop_template"},"repo_branching_model":{"type":"object","additionalProperties":false,"required":["modello","regole"],"properties":{"modello":{"type":"string"},"regole":{"type":"array","items":{"type":"string"}}}},"raci":{"type":"object","additionalProperties":false,"required":["roles","matrix"],"properties":{"roles":{"type":"array","minItems":1,"items":{"type":"string"}},"matrix":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["attivita"],"properties":{"attivita":{"type":"string"},"SP":{"type":"string"},"AO":{"type":"string"},"SI":{"type":"string"},"OTSec":{"type":"string"}}}}}},"parametri_generazione":{"type":"object","additionalProperties":false,"required":["tipi_documento_supportati","audience_possibili","stili","livello_tecnico","vincoli"],"properties":{"tipi_documento_supportati":{"type":"array","items":{"type":"string"}},"audience_possibili":{"type":"array","items":{"type":"string"}},"stili":{"type":"array","items":{"type":"string"}},"livello_tecnico":{"type":"array","items":{"type":"string"}},"vincoli":{"type":"array","items":{"type":"string"}}}},"prompting":{"type":"object","additionalProperties":false,"required":["prompt_template_generico","prompt_esempio_articolo","prompt_esempio_slide","prompt_esempio_sop"],"properties":{"prompt_template_generico":{"type":"string"},"prompt_esempio_articolo":{"type":"string"},"prompt_esempio_slide":{"type":"string"},"prompt_esempio_sop":{"type":"string"}}},"checklist":{"type":"array","items":{"type":"string"}},"campi_contesto_richiesti_per_la_contestualizzazione":{"type":"array","items":{"type":"string"}},"avvertenze":{"type":"array","items":{"type":"string"}}}},"aspetto":{"type":"object","additionalProperties":false,"required":["id","titolo","descrizione_astratta","rischi_mitigati","pratiche_raccomandate","metriche_kpi","artefatti","placeholders_contesto"],"properties":{"id":{"type":"string"},"titolo":{"type":"string"},"descrizione_astratta":{"type":"string"},"rischi_mitigati":{"type":"array","items":{"type":"string"}},"pratiche_raccomandate":{"type":"array","items":{"type":"string"}},"metriche_kpi":{"type":"array","items":{"type":"string"}},"artefatti":{"type":"object","additionalProperties":false,"required":["procedure","registri","evidenze"],"properties":{"procedure":{"type":"array","items":{"type":"string"}},"registri":{"type":"array","items":{"type":"string"}},"evidenze":{"type":"array","items":{"type":"string"}}}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"policy_template":{"type":"object","additionalProperties":false,"required":["titolo","sezioni","placeholders_contesto"],"properties":{"titolo":{"type":"string"},"sezioni":{"type":"array","items":{"type":"string"}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"sop_template":{"type":"object","additionalProperties":false,"required":["titolo","step","registrazioni"],"properties":{"titolo":{"type":"string"},"step":{"type":"array","items":{"type":"string"}},"registrazioni":{"type":"array","items":{"type":"string"}}}}}}
+                \n </output_schema>
+    call **PSIRT** & Coordinated Vulnerability Disclosure
+        llm_service grok
+        llm_model grok-3
+        max_tokens 8192
+        temperature 0.2
+        description normative_e_standard - **PSIRT** & Coordinated Vulnerability Disclosure
+        message 
+            role system
+            content 
+                \n Sei un assistente che genera SOLO JSON UTF-8 valido, senza testo fuori dal JSON.
+                \n Sei un esperto di cybersecurity in contesto OT/ICS
+                \n Conosci particolarmente bene lo standard di sicurezza IEC 62443.
+                \n Conosci anche IEC 27001/2, Nis2, CRA, Direttiva macchine 2006, Registro Macchine 2023 e GDPR 2016.
+        message 
+            role user
+            content 
+                \n Genera il “DB Argomenti” seguendo lo schema richiesto. Parametri:
+                \n meta:
+                \n db_name: "DB Argomenti OT/ICS Cybersecurity"
+                \n version: "0.1"
+                \n language: "it-IT"
+                \n notes: "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con placeholders di contesto."
+                \n ambito:
+                \n id: "cap/3"
+                \n nome: "Governance e Security Program (IEC 62443-2-1, -2-3, -2-4)"
+                \n sezione:
+                \n id: "cap/3/3.6"
+                \n nome: "**PSIRT** & Coordinated Vulnerability Disclosure"
+                \n descrizione:
+                    \n **Charter essenziale**
+                    \n Mandato: ricevere segnalazioni, **triage**, riprodurre, coordinare **remediation/mitigazioni**, pubblicare **advisory** firmati, interfacciarsi con **CERT/ISAC** e clienti.
+                    \n Contatti: e‑mail dedicata, chiave **PGP**, portale.
+                    \n Tempi: finestra di disclosure **coordinata** (es. 90 gg, estendibile in OT).
+                    \n Ruoli: **PSIRT Lead**, referente Engineering, Legal/Comms, OT SME.
+                    \n **Flusso** 
+                    \n Ricezione → conferma → riproduzione → valutazione impatto → remediation/mitigazioni → advisory → chiusura → lezione appresa.
+                    \n **Template advisory (pubblico)**
+                    \n ID/Versione; prodotti/versioni impattate; descrizione; **gravità** (CVSS); prerequisiti; mitigazioni; patch e **workaround**; riferimenti; cronologia.
+                    \n * La **trasparenza** PSIRT aumenta fiducia e velocizza remediation.
+                    \n * Coordinare disclosure con finestre **OT**.
+                    \n * Standardizzare il **template** evita ambiguità.
+                \n safety:
+                    \n Non divulgare dettagli sfruttabili prima che esistano **mitigazioni** praticabili.
+                \n prompt_base:
+                    \n Definisci un charter PSIRT di 12–15 righe e il template dell’advisory pubblico.
+                \n Popola questo schema
+                \n <output_schema>
+                \n {"$schema":"http://json-schema.org/draft-07/schema#","type":"object","additionalProperties":false,"required":["meta","ambito"],"properties":{"meta":{"type":"object","additionalProperties":false,"required":["db_name","version","last_updated","language","notes"],"properties":{"db_name":{"type":"string"},"version":{"type":"string"},"last_updated":{"type":"string"},"language":{"type":"string"},"notes":{"type":"string"}}},"ambito":{"type":"object","additionalProperties":false,"required":["id","nome","ruolo","descrizione","sezioni"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"ruolo":{"type":"string"},"norme_riferimento":{"type":"array","items":{"type":"string"}},"descrizione":{"type":"string"},"sezioni":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/sezione"}}}}},"$defs":{"sezione":{"type":"object","additionalProperties":false,"required":["id","nome","obiettivo","output_attesi","prompt_base","aspetti_di_sicurezza","policy_template","sop_template","repo_branching_model","raci","parametri_generazione","prompting","checklist","campi_contesto_richiesti_per_la_contestualizzazione","avvertenze"],"properties":{"id":{"type":"string"},"nome":{"type":"string"},"obiettivo":{"type":"object","additionalProperties":false,"required":["codice","descrizione"],"properties":{"codice":{"type":"string"},"descrizione":{"type":"string"}}},"output_attesi":{"type":"array","items":{"type":"string"}},"prompt_base":{"type":"string"},"aspetti_di_sicurezza":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/aspetto"}},"policy_template":{"$ref":"#/$defs/policy_template"},"sop_template":{"$ref":"#/$defs/sop_template"},"repo_branching_model":{"type":"object","additionalProperties":false,"required":["modello","regole"],"properties":{"modello":{"type":"string"},"regole":{"type":"array","items":{"type":"string"}}}},"raci":{"type":"object","additionalProperties":false,"required":["roles","matrix"],"properties":{"roles":{"type":"array","minItems":1,"items":{"type":"string"}},"matrix":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["attivita"],"properties":{"attivita":{"type":"string"},"SP":{"type":"string"},"AO":{"type":"string"},"SI":{"type":"string"},"OTSec":{"type":"string"}}}}}},"parametri_generazione":{"type":"object","additionalProperties":false,"required":["tipi_documento_supportati","audience_possibili","stili","livello_tecnico","vincoli"],"properties":{"tipi_documento_supportati":{"type":"array","items":{"type":"string"}},"audience_possibili":{"type":"array","items":{"type":"string"}},"stili":{"type":"array","items":{"type":"string"}},"livello_tecnico":{"type":"array","items":{"type":"string"}},"vincoli":{"type":"array","items":{"type":"string"}}}},"prompting":{"type":"object","additionalProperties":false,"required":["prompt_template_generico","prompt_esempio_articolo","prompt_esempio_slide","prompt_esempio_sop"],"properties":{"prompt_template_generico":{"type":"string"},"prompt_esempio_articolo":{"type":"string"},"prompt_esempio_slide":{"type":"string"},"prompt_esempio_sop":{"type":"string"}}},"checklist":{"type":"array","items":{"type":"string"}},"campi_contesto_richiesti_per_la_contestualizzazione":{"type":"array","items":{"type":"string"}},"avvertenze":{"type":"array","items":{"type":"string"}}}},"aspetto":{"type":"object","additionalProperties":false,"required":["id","titolo","descrizione_astratta","rischi_mitigati","pratiche_raccomandate","metriche_kpi","artefatti","placeholders_contesto"],"properties":{"id":{"type":"string"},"titolo":{"type":"string"},"descrizione_astratta":{"type":"string"},"rischi_mitigati":{"type":"array","items":{"type":"string"}},"pratiche_raccomandate":{"type":"array","items":{"type":"string"}},"metriche_kpi":{"type":"array","items":{"type":"string"}},"artefatti":{"type":"object","additionalProperties":false,"required":["procedure","registri","evidenze"],"properties":{"procedure":{"type":"array","items":{"type":"string"}},"registri":{"type":"array","items":{"type":"string"}},"evidenze":{"type":"array","items":{"type":"string"}}}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"policy_template":{"type":"object","additionalProperties":false,"required":["titolo","sezioni","placeholders_contesto"],"properties":{"titolo":{"type":"string"},"sezioni":{"type":"array","items":{"type":"string"}},"placeholders_contesto":{"type":"array","items":{"type":"string"}}}},"sop_template":{"type":"object","additionalProperties":false,"required":["titolo","step","registrazioni"],"properties":{"titolo":{"type":"string"},"step":{"type":"array","items":{"type":"string"}},"registrazioni":{"type":"array","items":{"type":"string"}}}}}}
+                \n </output_schema>

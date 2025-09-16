@@ -1,0 +1,52 @@
+$group
+    { llm_tassonomie
+        { assi_classificazione_pubblico
+            { ruolo_62443
+                description "Asse A — Parte (ruoli 62443)"
+                [ items
+                    { 
+                        id "OEM"
+                        description "Product Supplier + System Integrator che sviluppa prodotti/soluzioni"
+                        explanation "OEM: Original Equipment Manufacturer. Fornisce e integra prodotti/sistemi per automazione industriale."
+                    { 
+                        id "AssetOwner"
+                        description "proprietario/gestore dell’impianto"
+                        explanation "Asset Owner: Possiede e gestisce l'infrastruttura industriale (es. impianti di produzione)."
+                    { 
+                        id "ServiceProvider"
+                        description "System Integration/gestione in service"
+                        explanation "Service Provider: Integra sistemi e offre servizi di gestione/manutenzione impianti."
+            { funzione
+                description "Asse B - Funzione aziendale (livello di fruizione)"
+                [ items
+                    { 
+                        id "Executive"
+                        description "decisione/budget/strategie"
+                        explanation "Executive: Dirigenti che decidono strategie, budget e politiche aziendali."
+                    { 
+                        id "Operational"
+                        description "esercizio e manutenzione impianti, O&M"
+                        explanation "O&M: Operations & Maintenance. Gestisce funzionamento e manutenzione impianti."
+                    { 
+                        id "Legal"
+                        description "legale/compliance/procurement"
+                        explanation "Legal: Si occupa di questioni legali, conformità e approvvigionamenti."
+            { tecnica
+                description "Asse C — Persona tecnica (OPZIONALE ma consigliata per temi complessi)"
+                [ items
+                    { 
+                        id "Engineering"
+                        description "progettisti/architetti OT/IT"
+                        explanation "OT/IT: Operational/Information Technology. Progetta sistemi di controllo e IT."
+                    { 
+                        id "Developers"
+                        description "sviluppatori/PSIRT/OEM R&D"
+                        explanation "PSIRT: Product Security Incident Response Team; OEM R&D: Ricerca e Sviluppo. Sviluppa software/soluzioni."
+                    { 
+                        id "Security"
+                        description "CISO/OTSec/SOC"
+                        explanation "CISO: Chief Information Security Officer; OTSec: OT Security; SOC: Security Operations Center. Gestisce sicurezza."
+                    { 
+                        id "HSE"
+                        description "safety/processo"
+                        explanation "HSE: Health, Safety, Environment. Garantisce sicurezza e conformità processi."

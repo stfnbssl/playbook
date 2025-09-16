@@ -1,0 +1,4 @@
+$group
+    { documents
+        $include profiles/index
+        $include dbtopics/index

@@ -1,0 +1,582 @@
+{
+    "capitoli": [
+        {
+            "capitolo": 1,
+            "titolo": "Panoramica IEC 62443: struttura e principi",
+            "sezioni": [
+                {
+                    "paragrafo": "1.1",
+                    "titolo": "Scopo e perimetro"
+                },
+                {
+                    "paragrafo": "1.2",
+                    "titolo": "A chi serve (pubblico)"
+                },
+                {
+                    "paragrafo": "1.3",
+                    "titolo": "Cosa **NON** è la IEC 62443"
+                },
+                {
+                    "paragrafo": "1.4",
+                    "titolo": "Come usare la mini guida"
+                },
+                {
+                    "paragrafo": "1.5",
+                    "titolo": "Output attesi dal lettore (deliverable)"
+                }
+            ]
+        },
+        {
+            "capitolo": 2,
+            "titolo": "Panoramica IEC 62443: struttura e principi",
+            "sezioni": [
+                {
+                    "paragrafo": "2.1",
+                    "titolo": "Famiglie di standard 62443 (1-1, 2-1, 2-3, 2-4, 3-2, 3-3, 4-1, 4-2)"
+                },
+                {
+                    "paragrafo": "2.2",
+                    "titolo": "Terminologia e concetti chiave (Asset, Zona, Conduit)"
+                },
+                {
+                    "paragrafo": "2.3",
+                    "titolo": "Livelli di sicurezza (SL0–SL4)"
+                },
+                {
+                    "paragrafo": "2.4",
+                    "titolo": "Foundational Requirements (FR1–FR7) e matrice FR×SL"
+                },
+                {
+                    "paragrafo": "2.5",
+                    "titolo": "Defense-in-Depth"
+                },
+                {
+                    "paragrafo": "2.6",
+                    "titolo": "Zone & Conduits (schema grafico)"
+                }
+            ]
+        },
+        {
+            "capitolo": 3,
+            "titolo": "Governance & Security Program (IEC 62443-2-1 / -2-4)",
+            "sezioni": [
+                {
+                    "paragrafo": "3.1",
+                    "titolo": "Politiche, ruoli e responsabilità (RACI)"
+                },
+                {
+                    "paragrafo": "3.2",
+                    "titolo": "Supply chain security & procurement (-2-4, 4-1/4-2)"
+                },
+                {
+                    "paragrafo": "3.3",
+                    "titolo": "Patch & Vulnerability Management (-2-3), PSIRT & disclosure"
+                },
+                {
+                    "paragrafo": "3.4",
+                    "titolo": "Accessi remoti & PAM (broker, MFA, session recording)"
+                },
+                {
+                    "paragrafo": "3.5",
+                    "titolo": "Logging, audit & monitoring (FR6)"
+                },
+                {
+                    "paragrafo": "3.6",
+                    "titolo": "Change & configuration management (staging, rollback)"
+                },
+                {
+                    "paragrafo": "3.7",
+                    "titolo": "Backup & recovery (FR7)"
+                },
+                {
+                    "paragrafo": "3.8",
+                    "titolo": "KPI & reporting del programma"
+                },
+                {
+                    "paragrafo": "3.9",
+                    "titolo": "Audit, eccezioni & miglioramento continuo (-2-1)"
+                }
+            ]
+        },
+        {
+            "capitolo": 5,
+            "titolo": "Misure tecniche e organizzative",
+            "sezioni": [
+                {
+                    "paragrafo": "5.1",
+                    "titolo": "Autenticazione, autorizzazione, audit (FR1, FR2)"
+                },
+                {
+                    "paragrafo": "5.2",
+                    "titolo": "Hardening & gestione configurazioni (FR3)"
+                },
+                {
+                    "paragrafo": "5.3",
+                    "titolo": "Logging & monitoring (FR6)"
+                },
+                {
+                    "paragrafo": "5.4",
+                    "titolo": "Backup & restore (FR7)"
+                },
+                {
+                    "paragrafo": "5.5",
+                    "titolo": "Politiche di rete e segregazione (RDF), DMZ, conduits, accesso remoto"
+                },
+                {
+                    "paragrafo": "5.6",
+                    "titolo": "Gestione vulnerabilità & aggiornamenti; inventario & SBOM"
+                },
+                {
+                    "paragrafo": "5.7",
+                    "titolo": "Metriche & KPI"
+                }
+            ]
+        },
+        {
+            "capitolo": 6,
+            "titolo": "Mappatura pratica con la Direttiva NIS2",
+            "sezioni": [
+                {
+                    "paragrafo": "6.1",
+                    "titolo": "Tabella NIS2 ⇄ IEC 62443 (organizzativo, tecnico, reporting)"
+                },
+                {
+                    "paragrafo": "6.2",
+                    "titolo": "Cosa serve in più per NIS2 (governance, notifiche, supply chain)"
+                }
+            ]
+        },
+        {
+            "capitolo": 7,
+            "titolo": "Casi applicativi e buone pratiche",
+            "sezioni": [
+                {
+                    "paragrafo": "7.1",
+                    "titolo": "Metodo casi (contesto → problema → soluzione 62443 → risultati → lezioni)"
+                },
+                {
+                    "paragrafo": "7.2",
+                    "titolo": "Energia — Segmentazione OT & conduits"
+                },
+                {
+                    "paragrafo": "7.3",
+                    "titolo": "Acque — Aggiornamenti & accessi remoti sicuri"
+                },
+                {
+                    "paragrafo": "7.4",
+                    "titolo": "PMI manifatturiera — Adozione graduale (quick wins 90/180/365)"
+                }
+            ]
+        },
+        {
+            "capitolo": 9,
+            "titolo": "Checklist essenziale “per non addetti”",
+            "sezioni": [
+                {
+                    "paragrafo": "9.1",
+                    "titolo": "Checklist in 15 passi collegata ai capitoli (inventario, zone, SL-T, policy, accessi remoti, patch, logging, test)"
+                }
+            ]
+        },
+        {
+            "capitolo": 10,
+            "titolo": "Glossario e risorse",
+            "sezioni": [
+                {
+                    "paragrafo": "10.1",
+                    "titolo": "Glossario minimo (termini chiave)"
+                },
+                {
+                    "paragrafo": "10.2",
+                    "titolo": "Riferimenti normativi"
+                },
+                {
+                    "paragrafo": "10.3",
+                    "titolo": "Risorse e link utili"
+                },
+                {
+                    "paragrafo": "10.4",
+                    "titolo": "Note su link e licenze"
+                }
+            ]
+        },
+        {
+            "capitolo": 11,
+            "titolo": "La IEC 62443 come leva di trasformazione (AI/LLM, organizzazione, valore per gli executive)",
+            "sezioni": [
+                {
+                    "paragrafo": "11.1",
+                    "titolo": "Executive summary (board-ready)"
+                },
+                {
+                    "paragrafo": "11.2",
+                    "titolo": "Business case & KPI (ROI, TCO, rischio evitato)"
+                },
+                {
+                    "paragrafo": "11.3",
+                    "titolo": "Dati 62443 → Data products per AI/LLM (RAG)"
+                },
+                {
+                    "paragrafo": "11.4",
+                    "titolo": "Casi d’uso AI/LLM per ruolo"
+                },
+                {
+                    "paragrafo": "11.5",
+                    "titolo": "Guardrail & Safety per AI in OT"
+                },
+                {
+                    "paragrafo": "11.6",
+                    "titolo": "Architettura di riferimento: OT LLM Companion"
+                },
+                {
+                    "paragrafo": "11.7",
+                    "titolo": "Procurement, legale & compliance (LLM-aware)"
+                },
+                {
+                    "paragrafo": "11.8",
+                    "titolo": "Roadmap di capacità (0–6–12–24 mesi)"
+                },
+                {
+                    "paragrafo": "11.9",
+                    "titolo": "Rischi & anti-pattern (con rimedi 62443)"
+                },
+                {
+                    "paragrafo": "11.10",
+                    "titolo": "Artefatti & deliverable"
+                },
+                {
+                    "paragrafo": "11.11",
+                    "titolo": "Governance & misurazione (Comitato AI+OT)"
+                },
+                {
+                    "paragrafo": "11.12",
+                    "titolo": "FAQ per Executive"
+                }
+            ]
+        },
+        {
+            "capitolo": 12,
+            "titolo": "Software Development Life Cycle per OEM & fornitori di componenti (IEC 62443-4-1/-4-2) con supporto LLM",
+            "sezioni": [
+                {
+                    "paragrafo": "12.1",
+                    "titolo": "Executive brief — Compliance = Accesso ai mercati"
+                },
+                {
+                    "paragrafo": "12.2",
+                    "titolo": "Landscape norme & barriere (focus 4-1/4-2)"
+                },
+                {
+                    "paragrafo": "12.3",
+                    "titolo": "SDLC 62443-4-1 — Governance, processi, RACI"
+                },
+                {
+                    "paragrafo": "12.4",
+                    "titolo": "Capabilities 62443-4-2 — Requisiti di componente"
+                },
+                {
+                    "paragrafo": "12.5",
+                    "titolo": "Toolchain sicura: versioning, build, firma, artefatti"
+                },
+                {
+                    "paragrafo": "12.6",
+                    "titolo": "SBOM automatizzata & analisi CVE (SCA, VEX)"
+                },
+                {
+                    "paragrafo": "12.7",
+                    "titolo": "Sicurezza del codice: SAST, DAST, IaC, secret scanning"
+                },
+                {
+                    "paragrafo": "12.8",
+                    "titolo": "Containerizzazione & migrazione a Docker"
+                },
+                {
+                    "paragrafo": "12.9",
+                    "titolo": "Secure update & OTA — aggiornare/patchare da remoto"
+                },
+                {
+                    "paragrafo": "12.10",
+                    "titolo": "Teleassistenza sicura & accessi remoti"
+                },
+                {
+                    "paragrafo": "12.11",
+                    "titolo": "Inventario asset & telemetria (lato macchina)"
+                },
+                {
+                    "paragrafo": "12.12",
+                    "titolo": "PSIRT per OEM & CVD (Coordinated Vulnerability Disclosure)"
+                },
+                {
+                    "paragrafo": "12.13",
+                    "titolo": "Product Security Evidence Package (PSEP)"
+                },
+                {
+                    "paragrafo": "12.14",
+                    "titolo": "Programma LLM-assisted: knowledge base & risposte rapide"
+                },
+                {
+                    "paragrafo": "12.15",
+                    "titolo": "Audit di conformità & maturity model"
+                },
+                {
+                    "paragrafo": "12.16",
+                    "titolo": "Roadmap strumenti & selezione (tooling catalog)"
+                },
+                {
+                    "paragrafo": "12.17",
+                    "titolo": "KPI & reporting per OEM"
+                },
+                {
+                    "paragrafo": "12.18",
+                    "titolo": "Rischi & anti-pattern"
+                },
+                {
+                    "paragrafo": "12.19",
+                    "titolo": "Template & deliverable"
+                }
+            ]
+        },
+        {
+            "capitolo": 13,
+            "titolo": "Conformità IEC 62443-4-2 per componenti (profilo di prodotto & evidenze)",
+            "sezioni": [
+                {
+                    "paragrafo": "13.1",
+                    "titolo": "Executive brief — Perché 4-2 conta per i componenti"
+                },
+                {
+                    "paragrafo": "13.2",
+                    "titolo": "Cosa chiede la 4-2 (FR/CR/RE, SL, EDR/HDR/NDR/SAR)"
+                },
+                {
+                    "paragrafo": "13.3",
+                    "titolo": "Component Security Profile (CSP) — struttura e campi"
+                },
+                {
+                    "paragrafo": "13.4",
+                    "titolo": "Condizioni operative & assunzioni di sicurezza"
+                },
+                {
+                    "paragrafo": "13.5",
+                    "titolo": "Matrice CR×SL×Integrazione — legenda e compilazione"
+                },
+                {
+                    "paragrafo": "13.6",
+                    "titolo": "Configurazioni necessarie per raggiungere i requisiti"
+                },
+                {
+                    "paragrafo": "13.7",
+                    "titolo": "Secure Boot & Roots of Trust"
+                },
+                {
+                    "paragrafo": "13.8",
+                    "titolo": "Identità & gestione utenti (locale vs centrale)"
+                },
+                {
+                    "paragrafo": "13.9",
+                    "titolo": "Audit, tempo & logging"
+                },
+                {
+                    "paragrafo": "13.10",
+                    "titolo": "Integrità software/firmware & notifiche"
+                },
+                {
+                    "paragrafo": "13.11",
+                    "titolo": "Confidenzialità & crittografia"
+                },
+                {
+                    "paragrafo": "13.12",
+                    "titolo": "Restricted Data Flow & segmentazione"
+                },
+                {
+                    "paragrafo": "13.13",
+                    "titolo": "Timely Response to Events & monitoring"
+                },
+                {
+                    "paragrafo": "13.14",
+                    "titolo": "Resource Availability: DoS, backup, recovery, least functionality"
+                },
+                {
+                    "paragrafo": "13.15",
+                    "titolo": "Versioni, modelli, firmware & perimetro"
+                },
+                {
+                    "paragrafo": "13.16",
+                    "titolo": "Come leggere un documento di conformità 4-2 del fornitore"
+                },
+                {
+                    "paragrafo": "13.17",
+                    "titolo": "Product Security Evidence Package (PSEP) per componenti"
+                },
+                {
+                    "paragrafo": "13.18",
+                    "titolo": "Flusso LLM-assisted per parsing e normalizzazione"
+                },
+                {
+                    "paragrafo": "13.19",
+                    "titolo": "KPI per componenti & portfolio"
+                },
+                {
+                    "paragrafo": "13.20",
+                    "titolo": "Rischi & anti-pattern"
+                },
+                {
+                    "paragrafo": "13.21",
+                    "titolo": "Template & deliverable"
+                }
+            ]
+        },
+        {
+            "capitolo": 14,
+            "titolo": "Security di Macchina per OEM (Audit, messa a punto, hardening & monitoraggio)",
+            "sezioni": [
+                {
+                    "paragrafo": "14.1",
+                    "titolo": "Executive brief — Perché la security di macchina conta per gli OEM"
+                },
+                {
+                    "paragrafo": "14.2",
+                    "titolo": "Profilo macchina & perimetro (scheda parametrica)"
+                },
+                {
+                    "paragrafo": "14.3",
+                    "titolo": "Metodologia (Fase 1) — Analisi preliminare & competenze"
+                },
+                {
+                    "paragrafo": "14.4",
+                    "titolo": "Assessment profondo (Fase 2) — Architettura & test mirato"
+                },
+                {
+                    "paragrafo": "14.5",
+                    "titolo": "Remediation (Fase 3) — Hardening & misure prioritarie"
+                },
+                {
+                    "paragrafo": "14.6",
+                    "titolo": "Documentazione (Fase 4) — Fascicolo tecnico & compliance"
+                },
+                {
+                    "paragrafo": "14.7",
+                    "titolo": "Monitoraggio & manutenzione (Fase 5) — Operazioni & post-vendita"
+                },
+                {
+                    "paragrafo": "14.8",
+                    "titolo": "Segmentazione, conduits & DMZ (applicazione FR5)"
+                },
+                {
+                    "paragrafo": "14.9",
+                    "titolo": "Accessi remoti & teleassistenza sicura"
+                },
+                {
+                    "paragrafo": "14.10",
+                    "titolo": "Secure update/OTA & gestione versioni"
+                },
+                {
+                    "paragrafo": "14.11",
+                    "titolo": "Logging, audit & sincronizzazione tempo"
+                },
+                {
+                    "paragrafo": "14.12",
+                    "titolo": "Safety & modalità degradata (integrazione con HSE)"
+                },
+                {
+                    "paragrafo": "14.13",
+                    "titolo": "Pen-test mirato su macchina (scopo, limiti, prove)"
+                },
+                {
+                    "paragrafo": "14.14",
+                    "titolo": "KPI & reporting"
+                },
+                {
+                    "paragrafo": "14.15",
+                    "titolo": "Programma LLM-assisted (audit & risposte rapide)"
+                },
+                {
+                    "paragrafo": "14.16",
+                    "titolo": "Template & deliverable"
+                }
+            ]
+        },
+        {
+            "capitolo": 15,
+            "titolo": "Service Providers OT (servizi gestiti, integrazione, compliance)",
+            "sezioni": [
+                {
+                    "paragrafo": "15.1",
+                    "titolo": "Executive brief — Il ruolo dei Service Provider nell’OT"
+                },
+                {
+                    "paragrafo": "15.2",
+                    "titolo": "Service catalog & RACI (design→gestione)"
+                },
+                {
+                    "paragrafo": "15.3",
+                    "titolo": "Onboarding & site readiness"
+                },
+                {
+                    "paragrafo": "15.4",
+                    "titolo": "Accessi remoti & PAM (broker, MFA, recording)"
+                },
+                {
+                    "paragrafo": "15.5",
+                    "titolo": "Patch & Vulnerability Management as a Service (-2-3)"
+                },
+                {
+                    "paragrafo": "15.6",
+                    "titolo": "Monitoring & SOC OT (FR6)"
+                },
+                {
+                    "paragrafo": "15.7",
+                    "titolo": "Backup, restore & DR as a Service (FR7)"
+                },
+                {
+                    "paragrafo": "15.8",
+                    "titolo": "Change & configuration management (staging, versioning, golden image)"
+                },
+                {
+                    "paragrafo": "15.9",
+                    "titolo": "Incident response & escalation (IR playbook)"
+                },
+                {
+                    "paragrafo": "15.10",
+                    "titolo": "Compliance & NIS2 per SP"
+                },
+                {
+                    "paragrafo": "15.11",
+                    "titolo": "PSIRT liaison & advisory management"
+                },
+                {
+                    "paragrafo": "15.12",
+                    "titolo": "SBOM/VEX ingestion & asset impact"
+                },
+                {
+                    "paragrafo": "15.13",
+                    "titolo": "Secure update orchestration (firmware/app)"
+                },
+                {
+                    "paragrafo": "15.14",
+                    "titolo": "KPI, SLO, SLA & reporting"
+                },
+                {
+                    "paragrafo": "15.15",
+                    "titolo": "LLM-assisted operations (RAG, runbook, tickets)"
+                },
+                {
+                    "paragrafo": "15.16",
+                    "titolo": "Contratti, DPA & data governance"
+                },
+                {
+                    "paragrafo": "15.17",
+                    "titolo": "Handover & offboarding"
+                },
+                {
+                    "paragrafo": "15.18",
+                    "titolo": "Rischi & anti-pattern"
+                },
+                {
+                    "paragrafo": "15.19",
+                    "titolo": "Template & deliverable"
+                }
+            ]
+        }
+    ]
+}

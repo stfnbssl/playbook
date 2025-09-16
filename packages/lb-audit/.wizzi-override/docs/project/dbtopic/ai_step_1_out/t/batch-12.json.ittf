@@ -1,0 +1,1187 @@
+$group
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/10"
+            nome "Software Development Life Cycle per OEM & fornitori di componenti (IEC
+                +b 62443-4-1 / 62443-4-2) con supporto LLM"
+            ruolo "Supporto alla definizione di processi sicuri per lo sviluppo software in ambito
+                +b OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-4-1"
+                "IEC 62443-4-2"
+                "ISO/IEC 27001"
+            descrizione "Questo ambito si concentra sull'implementazione di un ciclo di vita sicuro per
+                +b lo sviluppo software (SDLC) destinato a OEM e fornitori di componenti in
+                +b ambienti OT/ICS, con particolare attenzione alla sicurezza del codice e
+                +b all'integrazione di strumenti automatizzati supportati da LLM."
+            [ sezioni
+                {
+                    id "cap/10/10.7"
+                    nome "Sicurezza del codice: SAST, DAST, IaC, secret scanning"
+                    { obiettivo
+                        codice "OBJ-10.7"
+                        descrizione "Integrare analisi statiche/dinamiche, policy IaC (Infrastructure as Code) e
+                            +b scansione segreti nelle pipeline."
+                    [ output_attesi
+                        "Policy qualità"
+                        "Gate CI"
+                        "Report esempio"
+                    prompt_base "Definisci quality gate (SAST/DAST/IaC/secret) e criteri di blocco."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-10.7.1"
+                            titolo "Analisi Statica del Codice (SAST)"
+                            descrizione_astratta "Identificazione di vulnerabilità nel codice sorgente prima della compilazione o
+                                +b del deployment tramite strumenti automatizzati."
+                            [ rischi_mitigati
+                                "Injection flaws"
+                                "Buffer overflows"
+                                "Hardcoded secrets"
+                            [ pratiche_raccomandate
+                                "Integrazione SAST nella pipeline CI/CD"
+                                "Definizione di soglie per vulnerabilità critiche"
+                                "Revisione periodica delle regole di scansione"
+                            [ metriche_kpi
+                                "Percentuale di vulnerabilità critiche risolte prima del deployment"
+                                "Tempo medio di remediation per issue SAST"
+                                "Copertura del codice analizzato"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione strumento SAST"
+                                    "Procedura di revisione report SAST"
+                                [ registri
+                                    "Log delle scansioni SAST"
+                                    "Registro delle vulnerabilità identificate"
+                                [ evidenze
+                                    "Report SAST con timestamp"
+                                    "Evidenza di remediation"
+                            [ placeholders_contesto
+                                "[NOME_STRUMENTO_SAST]"
+                                "[SOGLIA_CRITICA]"
+                                "[FREQUENZA_SCANSIONE]"
+                        {
+                            id "ASP-10.7.2"
+                            titolo "Analisi Dinamica del Codice (DAST)"
+                            descrizione_astratta "Valutazione delle vulnerabilità in un ambiente runtime simulato o reale tramite
+                                +b test automatizzati."
+                            [ rischi_mitigati
+                                "Vulnerabilità runtime"
+                                "Errori di configurazione"
+                                "Problemi di autenticazione"
+                            [ pratiche_raccomandate
+                                "Esecuzione DAST in ambiente di staging"
+                                "Simulazione di attacchi reali"
+                                "Integrazione con pipeline CI/CD"
+                            [ metriche_kpi
+                                "Numero di vulnerabilità rilevate per ciclo di test"
+                                "Tempo medio di risoluzione vulnerabilità DAST"
+                                "Percentuale di falsi positivi"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione strumento DAST"
+                                    "Procedura di esecuzione test DAST"
+                                [ registri
+                                    "Log delle scansioni DAST"
+                                    "Registro delle vulnerabilità runtime"
+                                [ evidenze
+                                    "Report DAST con dettagli attacchi simulati"
+                                    "Evidenza di mitigazione"
+                            [ placeholders_contesto
+                                "[NOME_STRUMENTO_DAST]"
+                                "[AMBIENTE_TEST]"
+                                "[FREQUENZA_TEST]"
+                    { policy_template
+                        titolo "Policy di Sicurezza del Codice per Pipeline CI/CD"
+                        [ sezioni
+                            "Scopo e Applicabilità"
+                            "Definizione Quality Gate SAST/DAST"
+                            "Regole per IaC e Secret Scanning"
+                            "Criteri di Blocco e Deroghe"
+                            "Responsabilità e Monitoraggio"
+                        [ placeholders_contesto
+                            "[NOME_ORGANIZZAZIONE]"
+                            "[SOGLIE_QUALITA]"
+                            "[STRUMENTI_UTILIZZATI]"
+                    { sop_template
+                        titolo "SOP per Configurazione e Esecuzione Scansioni di Sicurezza"
+                        [ step
+                            "Configurazione strumento SAST/DAST"
+                            "Integrazione nella pipeline CI/CD"
+                            "Esecuzione scansione e analisi report"
+                            "Remediation delle vulnerabilità"
+                            "Documentazione e registrazione"
+                        [ registrazioni
+                            "Log delle configurazioni"
+                            "Report delle scansioni"
+                            "Registro delle remediation"
+                    { repo_branching_model
+                        modello "Git Flow"
+                        [ regole
+                            "Branch 'main' solo per release stabili"
+                            "Branch 'develop' per integrazione feature"
+                            "Pull request obbligatorie con review per merge"
+                            "Scansioni SAST/DAST obbligatorie prima del merge"
+                    { raci
+                        [ roles
+                            "SP (Security Practitioner)"
+                            "AO (Application Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Specialist)"
+                        [ matrix
+                            {
+                                attivita "Configurazione strumenti SAST/DAST"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Definizione quality gate"
+                                SP "R"
+                                AO "C"
+                                SI "I"
+                                OTSec "A"
+                            {
+                                attivita "Revisione report scansioni"
+                                SP "C"
+                                AO "R"
+                                SI "I"
+                                OTSec "A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                            "Slide"
+                        [ audience_possibili
+                            "Tecnici"
+                            "Manager"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Rispetto IEC 62443-4-1"
+                            "Integrazione con pipeline CI/CD esistente"
+                            "Compatibilità con strumenti aziendali"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [TIPO_DOCUMENTO] per [AUDIENCE] con stile [STILE] e
+                            +b livello tecnico [LIVELLO_TECNICO] sul tema della sicurezza del codice (SAST,
+                            +b DAST, IaC, secret scanning) in ambito OT/ICS, includendo [CONTENUTI_SPECIFICI]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico per esperti di cybersecurity OT/ICS sul tema
+                            +b 'Integrazione di SAST e DAST nelle pipeline CI/CD' con focus su IEC 62443-4-1,
+                            +b includendo esempi di quality gate e criteri di blocco."
+                        prompt_esempio_slide "Crea una presentazione per manager con 10 slide sul tema 'Sicurezza del codice
+                            +b in OT/ICS', evidenziando benefici di SAST, DAST e secret scanning, con grafici
+                            +b e KPI."
+                        prompt_esempio_sop "Redigi una SOP dettagliata per tecnici su 'Configurazione e utilizzo di
+                            +b strumenti SAST/DAST in pipeline CI/CD', includendo step operativi e
+                            +b registrazioni obbligatorie."
+                    [ checklist
+                        "Configurazione strumenti SAST completata"
+                        "Configurazione strumenti DAST completata"
+                        "Policy IaC definite e integrate"
+                        "Secret scanning attivo nella pipeline"
+                        "Quality gate definiti e testati"
+                        "Report di scansione generati e archiviati"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome organizzazione"
+                        "Strumenti SAST/DAST utilizzati"
+                        "Pipeline CI/CD in uso"
+                        "Soglie di qualità definite"
+                        "Frequenza delle scansioni"
+                    [ avvertenze
+                        "Assicurarsi che gli strumenti SAST/DAST siano compatibili con il codice OT/ICS"
+                        "Evitare falsi positivi configurando correttamente le regole di scansione"
+                        "Garantire che i segreti scansionati non siano esposti nei report"
+                        "Rispettare i requisiti normativi IEC 62443 durante l'implementazione"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/10"
+            nome "Software Development Life Cycle per OEM & fornitori di componenti (IEC
+                +b 62443-4-1 / 62443-4-2) con supporto LLM"
+            ruolo "Guida per sviluppatori e fornitori di componenti OT/ICS nella gestione sicura
+                +b del ciclo di vita del software"
+            [ norme_riferimento
+                "IEC 62443-4-1"
+                "IEC 62443-4-2"
+                "ISO/IEC 27001"
+                "NIS2"
+            descrizione "Questo ambito copre le pratiche di sviluppo sicuro del software per componenti
+                +b OT/ICS, con focus su containerizzazione e utilizzo di tecnologie moderne come
+                +b Docker, integrando requisiti di sicurezza specifici per ambienti industriali."
+            [ sezioni
+                {
+                    id "cap/10/10.8"
+                    nome "Containerizzazione & migrazione a Docker (quando e come)"
+                    { obiettivo
+                        codice "OBJ-10.8"
+                        descrizione "Guidare la migrazione verso Docker/containers in contesti OT dove applicabile;
+                            +b implementare immagini golden, principi di least privilege e scanning delle
+                            +b vulnerabilità."
+                    [ output_attesi
+                        "Checklist per la migrazione a Docker"
+                        "Linee guida per l'hardening di Dockerfile"
+                        "Policy per la gestione del registry di immagini"
+                    prompt_base "Scrivi guida ‘container hardening’ con controlli minimi e criteri d’uso in OT."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-10.8.1"
+                            titolo "Sicurezza delle immagini Docker"
+                            descrizione_astratta "Garantire che le immagini Docker utilizzate in ambienti OT siano sicure,
+                                +b verificate e prive di vulnerabilità note."
+                            [ rischi_mitigati
+                                "Esecuzione di codice malevolo da immagini non sicure"
+                                "Accesso non autorizzato tramite vulnerabilità nelle immagini"
+                            [ pratiche_raccomandate
+                                "Utilizzo di immagini golden validate dall'organizzazione"
+                                "Scanning regolare delle immagini per vulnerabilità"
+                                "Firma digitale delle immagini per garantire integrità"
+                            [ metriche_kpi
+                                "Percentuale di immagini scansionate prima del deployment"
+                                "Tempo medio di risoluzione delle vulnerabilità rilevate"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di creazione e validazione immagini golden"
+                                    "Procedura di scanning delle immagini"
+                                [ registri
+                                    "Log delle scansioni di vulnerabilità"
+                                    "Registro delle firme digitali delle immagini"
+                                [ evidenze
+                                    "Report di scansione delle immagini"
+                                    "Certificati di firma digitale"
+                            [ placeholders_contesto
+                                "Tipologia di ambiente OT (es. SCADA, DCS)"
+                                "Requisiti di latenza e disponibilità"
+                        {
+                            id "ASP-10.8.2"
+                            titolo "Principi di Least Privilege nei Container"
+                            descrizione_astratta "Limitare i privilegi dei container per ridurre la superficie di attacco in caso
+                                +b di compromissione."
+                            [ rischi_mitigati
+                                "Escalation dei privilegi in caso di breach"
+                                "Accesso non autorizzato a risorse di sistema"
+                            [ pratiche_raccomandate
+                                "Esecuzione dei container come utenti non-root"
+                                "Limitazione delle capabilities di sistema"
+                                "Isolamento tramite namespace e cgroups"
+                            [ metriche_kpi
+                                "Percentuale di container eseguiti come non-root"
+                                "Numero di capabilities attive per container"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione least privilege"
+                                    "Procedura di verifica delle configurazioni"
+                                [ registri
+                                    "Log delle configurazioni dei container"
+                                    "Registro delle violazioni di privilege"
+                                [ evidenze
+                                    "Report di audit delle configurazioni"
+                                    "Configurazioni dei namespace applicati"
+                            [ placeholders_contesto
+                                "Requisiti specifici di sistema OT"
+                                "Politiche di accesso aziendale"
+                    { policy_template
+                        titolo "Policy di Sicurezza per Container in Ambienti OT"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Requisiti per la creazione di immagini Docker"
+                            "Gestione del registry di immagini"
+                            "Configurazioni di sicurezza obbligatorie"
+                            "Monitoraggio e risposta agli incidenti"
+                        [ placeholders_contesto
+                            "Nome del sistema OT target"
+                            "Requisiti normativi specifici"
+                            "Responsabile della sicurezza OT"
+                    { sop_template
+                        titolo "SOP per Migrazione a Docker in Ambienti OT"
+                        [ step
+                            "Valutazione dell'applicabilità di Docker nel contesto OT"
+                            "Creazione e validazione di immagini golden"
+                            "Configurazione di least privilege e isolamento"
+                            "Scanning delle immagini e deployment"
+                            "Monitoraggio continuo e aggiornamento delle immagini"
+                        [ registrazioni
+                            "Registro delle immagini validate"
+                            "Log delle scansioni di vulnerabilità"
+                            "Report di configurazione dei container"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione delle feature"
+                            "Branch 'feature/*' per sviluppo di nuove funzionalità"
+                            "Branch 'hotfix/*' per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "Responsabile Sviluppo (SP)"
+                            "Responsabile Operazioni (AO)"
+                            "Team Sicurezza IT (SI)"
+                            "Team Sicurezza OT (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Valutazione applicabilità Docker"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Creazione immagini golden"
+                                SP "R"
+                                AO "C"
+                                SI "I"
+                                OTSec "A"
+                            {
+                                attivita "Configurazione least privilege"
+                                SP "R"
+                                AO "I"
+                                SI "C"
+                                OTSec "A"
+                            {
+                                attivita "Scanning e monitoraggio"
+                                SP "C"
+                                AO "I"
+                                SI "R"
+                                OTSec "A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Guida tecnica"
+                            "Checklist"
+                            "Policy"
+                            "SOP"
+                        [ audience_possibili
+                            "Sviluppatori software OT"
+                            "Responsabili sicurezza OT"
+                            "Operatori di sistema"
+                        [ stili
+                            "Tecnico"
+                            "Normativo"
+                            "Operativo"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443-4-1 e 62443-4-2"
+                            "Compatibilità con sistemi OT legacy"
+                            "Minimizzazione dell'impatto sulle operazioni"
+                    { prompting
+                        prompt_template_generico "Genera un documento su {argomento} per {audience} con stile {stile} e livello
+                            +b tecnico {livello}. Includi {elementi_specifici} e considera i vincoli
+                            +b {vincoli}."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico su 'Container Hardening in OT' per sviluppatori
+                            +b software OT con stile tecnico e livello intermedio. Includi best practices per
+                            +b least privilege e scanning delle immagini, considerando la conformità a IEC
+                            +b 62443."
+                        prompt_esempio_slide "Crea una presentazione su 'Migrazione a Docker in OT' per responsabili
+                            +b sicurezza OT con stile operativo e livello base. Includi checklist e rischi
+                            +b principali, considerando la minimizzazione dell'impatto sulle operazioni."
+                        prompt_esempio_sop "Redigi una SOP per 'Deployment sicuro di container Docker in OT' per operatori
+                            +b di sistema con stile operativo e livello intermedio. Includi step dettagliati
+                            +b per scanning e configurazione least privilege, considerando compatibilità con
+                            +b sistemi legacy."
+                    [ checklist
+                        "Valutare applicabilità di Docker nel contesto OT specifico"
+                        "Definire requisiti per immagini golden"
+                        "Configurare container con least privilege"
+                        "Implementare scanning delle vulnerabilità pre-deployment"
+                        "Definire policy per gestione registry"
+                        "Monitorare container in produzione per anomalie"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipologia di sistema OT (es. SCADA, DCS)"
+                        "Requisiti di disponibilità e latenza"
+                        "Normative applicabili nel contesto geografico"
+                        "Politiche di sicurezza aziendali esistenti"
+                    [ avvertenze
+                        "La containerizzazione potrebbe non essere applicabile a tutti i sistemi OT legacy"
+                        "Assicurarsi che il deployment di Docker non comprometta la disponibilità del sistema"
+                        "Consultare esperti di sicurezza OT prima di implementare cambiamenti significativi"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/10"
+            nome "Software Development Life Cycle per OEM & fornitori di componenti (IEC
+                +b 62443-4-1 / 62443-4-2) con supporto LLM"
+            ruolo "Supporto alla progettazione e implementazione di processi sicuri per lo
+                +b sviluppo software in ambito OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-4-1"
+                "IEC 62443-4-2"
+            descrizione "Questo ambito copre le pratiche di sviluppo software sicuro per OEM e fornitori
+                +b di componenti in ambienti OT/ICS, con particolare attenzione ai requisiti di
+                +b sicurezza definiti dagli standard IEC 62443-4-1 e 62443-4-2. Include l'uso di
+                +b strumenti LLM per supportare la documentazione e l'automazione dei processi."
+            [ sezioni
+                {
+                    id "cap/10/10.9"
+                    nome "Secure update & OTA — aggiornare/patchare da remoto"
+                    { obiettivo
+                        codice "OBJ-10.9"
+                        descrizione "Progettare canali di aggiornamento sicuri (firmware/app) con firma, rollback e
+                            +b prove in staging."
+                    [ output_attesi
+                        "Specifica secure update"
+                        "Runbook rollout/rollback"
+                        "Schema chiavi"
+                    prompt_base "Redigi specifica ‘secure update’ (firmware/app): firma, verifica, canali,
+                        +b staging, rollback."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-10.9.1"
+                            titolo "Integrità degli aggiornamenti"
+                            descrizione_astratta "Garantire che gli aggiornamenti firmware o software non siano corrotti o
+                                +b manomessi durante il trasferimento o l'installazione."
+                            [ rischi_mitigati
+                                "Manomissione del firmware"
+                                "Installazione di software malevolo"
+                                "Interruzione del servizio per aggiornamenti non validi"
+                            [ pratiche_raccomandate
+                                "Utilizzo di firme digitali per autenticare gli aggiornamenti"
+                                "Implementazione di canali di comunicazione cifrati (es. TLS)"
+                                "Verifica dell'integrità tramite hash (es. SHA-256)"
+                            [ metriche_kpi
+                                "Percentuale di aggiornamenti verificati con successo"
+                                "Tempo medio per rilevare un aggiornamento non valido"
+                                "Numero di incidenti legati a manomissioni di aggiornamenti"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di firma digitale"
+                                    "Procedura di verifica integrità"
+                                [ registri
+                                    "Log delle verifiche di firma"
+                                    "Log dei tentativi di aggiornamento falliti"
+                                [ evidenze
+                                    "Report di test di integrità"
+                                    "Certificati di firma utilizzati"
+                            [ placeholders_contesto
+                                "[Tipo di dispositivo]"
+                                "[Protocollo di comunicazione]"
+                                "[Frequenza aggiornamenti]"
+                        {
+                            id "ASP-10.9.2"
+                            titolo "Rollback sicuro"
+                            descrizione_astratta "Assicurare la possibilità di tornare a una versione precedente del firmware o
+                                +b software in caso di problemi durante l'aggiornamento."
+                            [ rischi_mitigati
+                                "Blocco del dispositivo per aggiornamento fallito"
+                                "Perdita di funzionalità critiche"
+                                "Downtime prolungato"
+                            [ pratiche_raccomandate
+                                "Mantenere una copia della versione precedente in memoria protetta"
+                                "Testare il processo di rollback in ambiente di staging"
+                                "Automatizzare il rollback in caso di rilevamento di errori"
+                            [ metriche_kpi
+                                "Tempo medio per eseguire un rollback"
+                                "Percentuale di rollback riusciti"
+                                "Numero di incidenti legati a rollback falliti"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di rollback"
+                                    "Procedura di test in staging"
+                                [ registri
+                                    "Log dei rollback eseguiti"
+                                    "Log degli errori di aggiornamento"
+                                [ evidenze
+                                    "Report di test di rollback"
+                                    "Documentazione delle versioni salvate"
+                            [ placeholders_contesto
+                                "[Capacità di memoria dispositivo]"
+                                "[Tempo massimo per rollback]"
+                                "[Ambiente di staging]"
+                    { policy_template
+                        titolo "Policy per Aggiornamenti Sicuri OTA"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Requisiti di firma digitale e verifica integrità"
+                            "Gestione dei canali di aggiornamento"
+                            "Processo di rollback e recovery"
+                            "Responsabilità e monitoraggio"
+                        [ placeholders_contesto
+                            "[Tipologia di dispositivi]"
+                            "[Frequenza aggiornamenti]"
+                            "[Responsabile sicurezza]"
+                    { sop_template
+                        titolo "SOP per Rollout e Rollback di Aggiornamenti OTA"
+                        [ step
+                            "Preparazione dell'aggiornamento (firma e verifica)"
+                            "Test in ambiente di staging"
+                            "Distribuzione tramite canale sicuro"
+                            "Monitoraggio dell'installazione"
+                            "Esecuzione rollback in caso di errore"
+                        [ registrazioni
+                            "Log di verifica firma"
+                            "Report di test in staging"
+                            "Log di distribuzione"
+                            "Log di rollback (se applicabile)"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per versioni stabili rilasciate"
+                            "Branch 'develop' per integrazione di nuove funzionalità"
+                            "Branch 'hotfix' per correzioni urgenti di sicurezza"
+                            "Branch 'release' per test finali prima del rilascio"
+                    { raci
+                        [ roles
+                            "Responsabile Sviluppo"
+                            "Team Sicurezza OT"
+                            "Responsabile Operazioni"
+                            "Team QA"
+                        [ matrix
+                            {
+                                attivita "Definizione requisiti secure update"
+                                SP "Responsabile Sviluppo"
+                                AO "Team Sicurezza OT"
+                                SI "Team QA"
+                                OTSec "Team Sicurezza OT"
+                            {
+                                attivita "Test in staging"
+                                SP "Team QA"
+                                AO "Responsabile Operazioni"
+                                SI "Team Sicurezza OT"
+                                OTSec "Team Sicurezza OT"
+                            {
+                                attivita "Rollout aggiornamento"
+                                SP "Responsabile Operazioni"
+                                AO "Responsabile Sviluppo"
+                                SI "Team QA"
+                                OTSec "Team Sicurezza OT"
+                            {
+                                attivita "Esecuzione rollback"
+                                SP "Responsabile Operazioni"
+                                AO "Team Sicurezza OT"
+                                SI "Team QA"
+                                OTSec "Team Sicurezza OT"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Specifica tecnica"
+                            "Runbook"
+                            "Policy"
+                            "SOP"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Responsabili sicurezza"
+                            "OEM"
+                            "Fornitori componenti"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Operativo"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443-4-1 e 62443-4-2"
+                            "Inclusione di riferimenti normativi"
+                            "Uso di terminologia OT/ICS"
+                    { prompting
+                        prompt_template_generico "Redigi un documento su [argomento] per [audience] con stile [stile] e livello
+                            +b tecnico [livello]. Includi [elementi specifici] e rispetta i vincoli [vincoli]."
+                        prompt_esempio_articolo "Scrivi un articolo su 'Secure Update OTA in OT/ICS' per tecnici OT con stile
+                            +b formale e livello tecnico intermedio. Includi spiegazioni su firma digitale,
+                            +b staging e rollback."
+                        prompt_esempio_slide "Crea una presentazione su 'Processo di aggiornamento sicuro OTA' per
+                            +b responsabili sicurezza con stile tecnico e livello base. Includi diagrammi di
+                            +b flusso e checklist."
+                        prompt_esempio_sop "Redigi una SOP per 'Rollout e Rollback di aggiornamenti OTA' per team operativi
+                            +b con stile operativo e livello tecnico avanzato. Includi step dettagliati e
+                            +b registrazioni."
+                    [ checklist
+                        "Verifica della firma digitale degli aggiornamenti"
+                        "Test in ambiente di staging completato"
+                        "Canale di comunicazione cifrato configurato"
+                        "Processo di rollback testato e documentato"
+                        "Log di aggiornamento e rollback disponibili"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipologia di dispositivo"
+                        "Protocollo di comunicazione"
+                        "Frequenza degli aggiornamenti"
+                        "Capacità di memoria per rollback"
+                        "Responsabile del processo di aggiornamento"
+                    [ avvertenze
+                        "Assicurarsi che i test in staging siano rappresentativi dell'ambiente reale"
+                        "Non distribuire aggiornamenti senza verifica della firma digitale"
+                        "Monitorare costantemente il processo di aggiornamento per rilevare anomalie"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/10"
+            nome "Software Development Life Cycle per OEM & fornitori di componenti (IEC
+                +b 62443-4-1 / 62443-4-2) con supporto LLM"
+            ruolo "Supporto alla definizione di processi sicuri per lo sviluppo software e
+                +b integrazione componenti in ambienti OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-4-1"
+                "IEC 62443-4-2"
+                "ISO/IEC 27001"
+                "NIS2"
+            descrizione "Questo ambito si concentra sui requisiti di sicurezza per il ciclo di vita
+                +b dello sviluppo software (SDLC) per OEM e fornitori di componenti in ambienti
+                +b OT/ICS, con particolare attenzione all'integrazione di strumenti basati su LLM
+                +b per migliorare la sicurezza e la conformità normativa."
+            [ sezioni
+                {
+                    id "cap/10/10.10"
+                    nome "Teleassistenza sicura & accessi remoti"
+                    { obiettivo
+                        codice "OBJ-10.10"
+                        descrizione "Definire broker di accesso, MFA, session recording, account time-bound per
+                            +b supporto campo."
+                    [ output_attesi
+                        "Manuale teleassistenza sicura"
+                        "Requisiti minimi per integrazione con AO"
+                    prompt_base "Crea manuale teleassistenza (broker, MFA, recording, approvi a tempo,
+                        +b evidenze)."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "SEC-10.10.1"
+                            titolo "Autenticazione Multi-Fattore (MFA)"
+                            descrizione_astratta "Implementazione di meccanismi di autenticazione a più fattori per garantire che
+                                +b solo utenti autorizzati possano accedere ai sistemi remoti."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Furto di credenziali"
+                            [ pratiche_raccomandate
+                                "Utilizzo di autenticazione biometrica o token hardware"
+                                "Integrazione con sistemi IAM conformi a IEC 62443"
+                            [ metriche_kpi
+                                "Percentuale di utenti con MFA attivo (target: 100%)"
+                                "Tempo medio di rilevazione accessi non autorizzati"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione MFA"
+                                    "Procedura di gestione eccezioni MFA"
+                                [ registri
+                                    "Log di accesso con MFA"
+                                    "Registro delle eccezioni MFA"
+                                [ evidenze
+                                    "Report di conformità MFA"
+                                    "Audit log di accesso"
+                            [ placeholders_contesto
+                                "[NomeSistemaRemoto]"
+                                "[TipoMFAImplementato]"
+                                "[ResponsabileSicurezza]"
+                        {
+                            id "SEC-10.10.2"
+                            titolo "Registrazione Sessioni (Session Recording)"
+                            descrizione_astratta "Registrazione di tutte le sessioni di teleassistenza per garantire
+                                +b tracciabilità e auditabilità delle attività svolte."
+                            [ rischi_mitigati
+                                "Abuso di accesso remoto"
+                                "Mancanza di evidenze per audit"
+                            [ pratiche_raccomandate
+                                "Conservazione delle registrazioni per un periodo minimo conforme a GDPR"
+                                "Accesso limitato alle registrazioni solo a personale autorizzato"
+                            [ metriche_kpi
+                                "Percentuale di sessioni registrate (target: 100%)"
+                                "Tempo di conservazione delle registrazioni (minimo: 6 mesi)"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di attivazione registrazione"
+                                    "Procedura di revisione registrazioni"
+                                [ registri
+                                    "Log delle sessioni registrate"
+                                    "Registro accessi alle registrazioni"
+                                [ evidenze
+                                    "Report di conformità registrazione"
+                                    "Audit delle sessioni"
+                            [ placeholders_contesto
+                                "[SistemaRegistrazione]"
+                                "[PeriodoConservazione]"
+                                "[ResponsabileAudit]"
+                    { policy_template
+                        titolo "Policy per Teleassistenza Sicura"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Requisiti di autenticazione (MFA)"
+                            "Gestione accessi time-bound"
+                            "Registrazione e monitoraggio sessioni"
+                            "Responsabilità e conformità normativa"
+                        [ placeholders_contesto
+                            "[NomeOrganizzazione]"
+                            "[SistemaTarget]"
+                            "[NormeRiferimento]"
+                    { sop_template
+                        titolo "SOP per Configurazione Accessi Remoti Sicuri"
+                        [ step
+                            "Verifica identità richiedente accesso"
+                            "Configurazione account time-bound"
+                            "Attivazione MFA per l'utente"
+                            "Avvio registrazione sessione"
+                            "Monitoraggio attività in tempo reale"
+                            "Chiusura sessione e report finale"
+                        [ registrazioni
+                            "Log di accesso"
+                            "Registrazione sessione"
+                            "Report di attività"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuove funzionalità"
+                            "Hotfix branch per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "SP (Service Provider)"
+                            "AO (Asset Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Team)"
+                        [ matrix
+                            {
+                                attivita "Definizione requisiti teleassistenza"
+                                SP "C"
+                                AO "R"
+                                SI "A"
+                                OTSec "I"
+                            {
+                                attivita "Configurazione broker accesso"
+                                SP "A"
+                                AO "I"
+                                SI "R"
+                                OTSec "C"
+                            {
+                                attivita "Monitoraggio sessioni"
+                                SP "I"
+                                AO "C"
+                                SI "A"
+                                OTSec "R"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Manuale"
+                            "Policy"
+                            "SOP"
+                            "Slide di formazione"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Responsabili sicurezza"
+                            "Management"
+                            "Fornitori esterni"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Divulgativo"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443"
+                            "Rispetto GDPR per registrazione dati"
+                            "Integrazione con sistemi esistenti"
+                    { prompting
+                        prompt_template_generico "Genera un documento su [Argomento] per [Audience] con stile [Stile] e livello
+                            +b tecnico [LivelloTecnico]. Includi [ElementiSpecifici] e rispetta i vincoli
+                            +b [Vincoli]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico sulla teleassistenza sicura per tecnici OT, stile
+                            +b formale, livello intermedio. Includi broker di accesso, MFA e session
+                            +b recording. Rispetta conformità IEC 62443."
+                        prompt_esempio_slide "Crea una presentazione su accessi remoti sicuri per il management, stile
+                            +b divulgativo, livello base. Includi concetti di MFA e account time-bound.
+                            +b Rispetta vincoli GDPR."
+                        prompt_esempio_sop "Elabora una SOP per configurazione teleassistenza sicura per system integrator,
+                            +b stile tecnico, livello avanzato. Includi step per broker e registrazione
+                            +b sessioni. Rispetta IEC 62443."
+                    [ checklist
+                        "Verifica implementazione MFA per tutti gli accessi remoti"
+                        "Conferma registrazione sessioni attiva"
+                        "Controllo account time-bound configurati correttamente"
+                        "Audit log accessi remoti disponibili"
+                        "Conformità normativa verificata (IEC 62443, GDPR)"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome organizzazione"
+                        "Tipo di sistema OT/ICS"
+                        "Norme applicabili"
+                        "Responsabile sicurezza"
+                        "Periodo conservazione dati"
+                    [ avvertenze
+                        "Assicurarsi che la registrazione sessioni rispetti il GDPR per la protezione dei dati personali."
+                        "Verificare che i fornitori esterni siano conformi ai requisiti di sicurezza definiti."
+                        "Monitorare regolarmente i log per individuare accessi anomali."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/10"
+            nome "Software Development Life Cycle per OEM & fornitori di componenti (IEC
+                +b 62443-4-1 / 62443-4-2) con supporto LLM"
+            ruolo "Supporto alla conformità e sicurezza nello sviluppo software per componenti
+                +b OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-4-1"
+                "IEC 62443-4-2"
+                "ISO/IEC 27001"
+                "NIS2"
+                "Cyber Resilience Act (CRA)"
+            descrizione "Questo ambito si concentra sullo sviluppo sicuro di software per OEM e
+                +b fornitori di componenti in ambienti OT/ICS, integrando requisiti di sicurezza
+                +b basati su IEC 62443 e supportando l'uso di modelli linguistici avanzati (LLM)
+                +b per la generazione di documentazione e policy."
+            [ sezioni
+                {
+                    id "cap/10/10.11"
+                    nome "Inventario asset & telemetria (integrazione lato macchina)"
+                    { obiettivo
+                        codice "OBJ-10.11"
+                        descrizione "Inventariare gli asset della macchina e fornire telemetria minima per supporto
+                            +b e gestione delle versioni."
+                    [ output_attesi
+                        "Schema campi inventario asset macchina"
+                        "API/format per export dati (CSV/JSON)"
+                        "Policy minime per privacy e sicurezza dati"
+                    prompt_base "Definisci schema inventario asset macchina + export API/CSV e policy minime."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "SEC-10.11.1"
+                            titolo "Protezione dati telemetria"
+                            descrizione_astratta "Garantire che i dati di telemetria raccolti dagli asset siano protetti da
+                                +b accessi non autorizzati e conformi alle normative sulla privacy."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato ai dati di telemetria"
+                                "Violazione normative GDPR"
+                                "Perdita di dati sensibili"
+                            [ pratiche_raccomandate
+                                "Crittografia dati in transito e a riposo"
+                                "Autenticazione forte per accesso API"
+                                "Minimizzazione dati raccolti (principio GDPR)"
+                            [ metriche_kpi
+                                "Percentuale di dati telemetrici crittografati"
+                                "Tempo medio di rilevazione accessi non autorizzati"
+                                "Conformità GDPR verificata (audit annuali)"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione crittografia"
+                                    "Procedura di gestione chiavi di sicurezza"
+                                [ registri
+                                    "Registro accessi API"
+                                    "Registro audit sicurezza"
+                                [ evidenze
+                                    "Report conformità GDPR"
+                                    "Test di penetrazione su API"
+                            [ placeholders_contesto
+                                "[TIPO_MACCHINA]"
+                                "[AMBIENTE_OPERATIVO]"
+                                "[NORMATIVE_LOCALI]"
+                    { policy_template
+                        titolo "Policy di gestione dati telemetria e inventario asset"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Definizione dati raccolti"
+                            "Modalità di protezione dati"
+                            "Responsabilità e ruoli"
+                            "Conformità normativa"
+                        [ placeholders_contesto
+                            "[NOME_AZIENDA]"
+                            "[TIPO_ASSET]"
+                            "[REGIONE_OPERATIVA]"
+                    { sop_template
+                        titolo "SOP per raccolta e gestione telemetria asset"
+                        [ step
+                            "Identificazione asset da monitorare"
+                            "Configurazione agente telemetria"
+                            "Verifica integrità dati raccolti"
+                            "Export dati tramite API/CSV"
+                            "Revisione log e segnalazione anomalie"
+                        [ registrazioni
+                            "Log configurazione agente"
+                            "Registro export dati"
+                            "Report anomalie"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione feature"
+                            "Branch 'feature/*' per sviluppo nuove funzionalità"
+                            "Pull request obbligatorie con review"
+                    { raci
+                        [ roles
+                            "Responsabile Progetto (SP)"
+                            "Amministratore Operativo (AO)"
+                            "Specialista IT (SI)"
+                            "Team OT Security (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione schema inventario"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Configurazione API export"
+                                SP "I"
+                                AO "R"
+                                SI "A"
+                                OTSec "C"
+                            {
+                                attivita "Revisione policy privacy"
+                                SP "A"
+                                AO "I"
+                                SI "C"
+                                OTSec "R"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report tecnico"
+                            "Slide di presentazione"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Manager"
+                            "Auditor"
+                            "Fornitori esterni"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità IEC 62443-4-2"
+                            "Rispetto GDPR per dati telemetrici"
+                            "Integrazione con sistemi legacy"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [TIPO_DOCUMENTO] per [AUDIENCE] con stile [STILE] e
+                            +b livello tecnico [LIVELLO_TECNICO] sul tema inventario asset e telemetria,
+                            +b includendo [CONTENUTI_SPECIFICI]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico per specialisti OT con stile formale e livello
+                            +b avanzato sull'importanza della telemetria per la sicurezza OT/ICS, includendo
+                            +b riferimenti a IEC 62443-4-2."
+                        prompt_esempio_slide "Crea una presentazione per manager con stile sintetico e livello base
+                            +b sull'inventario asset macchina, evidenziando benefici e conformità normativa."
+                        prompt_esempio_sop "Redigi una SOP per tecnici OT con stile tecnico e livello intermedio per la
+                            +b configurazione di agenti di telemetria su macchine industriali."
+                    [ checklist
+                        "Definizione schema inventario completata"
+                        "API export testata e documentata"
+                        "Policy privacy redatta e approvata"
+                        "Conformità GDPR verificata"
+                        "Integrazione telemetria con SIEM configurata"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipo di macchina o asset"
+                        "Ambiente operativo (es. fabbrica, utility)"
+                        "Normative locali applicabili"
+                        "Requisiti specifici cliente"
+                    [ avvertenze
+                        "Assicurarsi che i dati telemetrici non includano informazioni personali senza consenso."
+                        "Verificare compatibilità API con sistemi legacy prima dell'implementazione."
+                        "Rivedere periodicamente le policy per aggiornamenti normativi (es. GDPR, NIS2)."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/10"
+            nome "Software Development Life Cycle per OEM & fornitori di componenti (IEC
+                +b 62443-4-1 / 62443-4-2) con supporto LLM"
+            ruolo "Supporto alla definizione di processi sicuri per lo sviluppo software in ambito
+                +b OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-4-1"
+                "IEC 62443-4-2"
+                "ISO/IEC 27001"
+                "NIS2 Directive"
+            descrizione "Questo ambito si concentra sui requisiti e sulle pratiche per garantire uno
+                +b sviluppo software sicuro per componenti OT/ICS, con particolare attenzione ai
+                +b fornitori e agli OEM. Include l'implementazione di processi come PSIRT e CVD
+                +b per la gestione delle vulnerabilità."
+            [ sezioni
+                {
+                    id "cap/10/10.12"
+                    nome "PSIRT per OEM & CVD (Coordinated Vulnerability Disclosure)"
+                    { obiettivo
+                        codice "OBJ-PSIRT-CVD-001"
+                        descrizione "Istituire un Product Security Incident Response Team (PSIRT) e un processo di
+                            +b Coordinated Vulnerability Disclosure (CVD) che includa intake, triage,
+                            +b remediation e pubblicazione di advisory firmati."
+                    [ output_attesi
+                        "Charter PSIRT"
+                        "SLA per il triage delle vulnerabilità"
+                        "Template per advisory di sicurezza (prodotto/impatti/mitigazioni)"
+                        "Contatto PGP per comunicazioni sicure"
+                    prompt_base "Scrivi charter PSIRT, SLA e template advisory (prodotto/impatti/mitigazioni)."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-PSIRT-001"
+                            titolo "Gestione delle vulnerabilità tramite PSIRT"
+                            descrizione_astratta "Definizione di un team dedicato alla risposta agli incidenti di sicurezza del
+                                +b prodotto, con responsabilità chiare per la gestione delle vulnerabilità
+                                +b segnalate."
+                            [ rischi_mitigati
+                                "Divulgazione non coordinata di vulnerabilità"
+                                "Ritardi nella risposta agli incidenti di sicurezza"
+                                "Mancanza di comunicazione con gli stakeholder"
+                            [ pratiche_raccomandate
+                                "Definire un charter PSIRT con ruoli e responsabilità"
+                                "Implementare un processo di triage con SLA chiari"
+                                "Utilizzare firme digitali (es. PGP) per advisory"
+                                "Collaborare con enti esterni per CVD"
+                            [ metriche_kpi
+                                "Tempo medio di triage delle vulnerabilità (MTTT)"
+                                "Percentuale di vulnerabilità risolte entro SLA"
+                                "Numero di advisory pubblicati annualmente"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di intake delle vulnerabilità"
+                                    "Procedura di triage e prioritizzazione"
+                                    "Procedura di pubblicazione advisory"
+                                [ registri
+                                    "Registro delle vulnerabilità segnalate"
+                                    "Registro delle attività di triage"
+                                    "Registro degli advisory pubblicati"
+                                [ evidenze
+                                    "Charter PSIRT firmato"
+                                    "SLA documentati"
+                                    "Advisory firmati digitalmente"
+                            [ placeholders_contesto
+                                "[NOME_AZIENDA]"
+                                "[SETTORE_OPERATIVO]"
+                                "[TIPOLOGIA_PRODOTTI]"
+                    { policy_template
+                        titolo "Policy PSIRT e CVD"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Ruoli e responsabilità del PSIRT"
+                            "Processo di gestione delle vulnerabilità (intake, triage, remediation)"
+                            "Politica di divulgazione coordinata (CVD)"
+                            "Comunicazione e firma degli advisory"
+                        [ placeholders_contesto
+                            "[NOME_AZIENDA]"
+                            "[CONTATTO_PGPG]"
+                            "[SLA_TRIAGE]"
+                    { sop_template
+                        titolo "SOP per Gestione Vulnerabilità PSIRT"
+                        [ step
+                            "Ricezione della segnalazione di vulnerabilità"
+                            "Registrazione nel sistema di ticketing"
+                            "Triage iniziale entro [SLA_TRIAGE]"
+                            "Analisi tecnica e prioritizzazione"
+                            "Sviluppo della patch o mitigazione"
+                            "Preparazione e firma dell'advisory"
+                            "Divulgazione coordinata con stakeholder"
+                        [ registrazioni
+                            "Log delle segnalazioni ricevute"
+                            "Report di triage"
+                            "Documentazione delle mitigazioni"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Branch 'feature/PSIRT-[ID]' per nuove funzionalità PSIRT"
+                            "Branch 'hotfix/PSIRT-[ID]' per correzioni urgenti di vulnerabilità"
+                    { raci
+                        [ roles
+                            "Security Product Manager (SP)"
+                            "Application Owner (AO)"
+                            "Security Incident Team (SI)"
+                            "OT Security Team (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione Charter PSIRT"
+                                SP "Responsible"
+                                AO "Accountable"
+                                SI "Consulted"
+                                OTSec "Informed"
+                            {
+                                attivita "Triage Vulnerabilità"
+                                SP "Consulted"
+                                AO "Informed"
+                                SI "Responsible"
+                                OTSec "Accountable"
+                            {
+                                attivita "Pubblicazione Advisory"
+                                SP "Responsible"
+                                AO "Accountable"
+                                SI "Consulted"
+                                OTSec "Informed"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Charter"
+                            "SLA"
+                            "Advisory Template"
+                            "SOP"
+                        [ audience_possibili
+                            "OEM"
+                            "Fornitori di componenti"
+                            "Clienti finali"
+                            "Team interni"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Alto (esperti di sicurezza)"
+                            "Medio (tecnici OT/ICS)"
+                            "Basso (management)"
+                        [ vincoli
+                            "Conformità a IEC 62443-4-1"
+                            "Rispetto delle tempistiche SLA"
+                            "Uso di firme digitali per advisory"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [TIPO_DOCUMENTO] per [AUDIENCE] con stile [STILE] e
+                            +b livello tecnico [LIVELLO_TECNICO]. Includi sezioni su [SEZIONI]. Usa il
+                            +b contesto [CONTESTO]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico per esperti di sicurezza su come implementare un
+                            +b processo PSIRT in conformità a IEC 62443-4-1, includendo intake, triage e
+                            +b advisory."
+                        prompt_esempio_slide "Crea una presentazione per il management con 5 slide su PSIRT e CVD,
+                            +b evidenziando obiettivi, SLA e benefici per [NOME_AZIENDA]."
+                        prompt_esempio_sop "Scrivi una SOP dettagliata per il triage delle vulnerabilità, con step
+                            +b operativi, registrazioni e responsabilità per il team PSIRT di [NOME_AZIENDA]."
+                    [ checklist
+                        "Charter PSIRT definito e approvato"
+                        "SLA per triage documentati"
+                        "Template advisory disponibile e testato"
+                        "Chiavi PGP configurate per firme digitali"
+                        "Processo CVD comunicato agli stakeholder"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome azienda"
+                        "Settore operativo"
+                        "Tipologia prodotti"
+                        "Contatti PSIRT"
+                        "SLA specifici"
+                    [ avvertenze
+                        "Assicurarsi che il processo CVD rispetti le normative locali sulla privacy (es. GDPR)."
+                        "Verificare la compatibilità degli SLA con le risorse disponibili."
+                        "Testare regolarmente il processo di firma digitale per advisory."

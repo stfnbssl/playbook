@@ -1,0 +1,110 @@
+## ** Standard & Norme per OEM e Integratori**
+
+---
+
+### **Slide 1 – Perché gli standard contano**
+
+* La sicurezza è requisito di **accesso al mercato**.
+* Gli standard e le normative definiscono il **linguaggio comune** per dimostrare conformità.
+* Senza adozione → rischio di esclusione da supply chain e mercati regolamentati.
+
+---
+
+### **Slide 2 – IEC 62443 (ICS/OT Security)**
+
+* Standard internazionale per **sistemi di automazione e controllo industriale**.
+* Copre **produttori, integratori, end user**.
+* Concetti chiave:
+
+  * **Security by design** nei prodotti
+  * **Defense in depth** (livelli di protezione)
+  * **Zone & conduits** (segmentazione logica)
+* Per OEM → requisito diretto per macchine “secure by design”.
+
+---
+
+### **Slide 3 – IEC 62443: Domini di sicurezza**
+
+* **Gestione del rischio**: identificare minacce e vulnerabilità.
+* **Protezione tecnica**: autenticazione, segregazione, logging.
+* **Processi organizzativi**: gestione patch, change management, incident response.
+* **Ciclo di vita del prodotto**: dalla progettazione alla dismissione.
+
+---
+
+### **Slide 4 – ISO/IEC 27001 (Information Security Management System)**
+
+* Standard globale per la gestione della **sicurezza delle informazioni**.
+* Applicabile anche a fornitori e produttori di macchine → protezione dati di clienti e supply chain.
+* Approccio **risk-based**: la sicurezza come parte integrante del sistema di gestione.
+* Punti forti: governance, continuità operativa, sicurezza documentale e cloud.
+
+---
+
+### **Slide 5 – NIST Cybersecurity Framework 2.0**
+
+* Framework di riferimento pratico → 5 funzioni:
+
+  1. **Identify**
+  2. **Protect**
+  3. **Detect**
+  4. **Respond**
+  5. **Recover**
+* Utilizzato a livello globale come base per roadmap aziendali.
+* Per OEM/Integratori → utile come “checklist” per maturità e gap analysis.
+
+---
+
+### **Slide 6 – Normativa Europea: NIS2**
+
+* Direttiva UE sulla sicurezza delle reti e dei sistemi informativi.
+* Impatta anche il **manifatturiero critico e i fornitori della supply chain**.
+* Richiede:
+
+  * misure tecniche e organizzative proporzionate,
+  * notifica incidenti,
+  * responsabilità del management.
+* OEM coinvolti come fornitori di componenti “essenziali”.
+
+---
+
+### **Slide 7 – Cyber Resilience Act (CRA)**
+
+* Nuovo regolamento UE → sicurezza **by design e by default** per prodotti digitali.
+* Include macchine con software e connettività.
+* Obblighi per produttori:
+
+  * valutazione rischi di sicurezza,
+  * aggiornamenti e patch per l’intero ciclo di vita,
+  * dichiarazioni di conformità CE in materia di cyber security.
+
+---
+
+### **Slide 8 – Direttiva Macchine & Regolamento Macchine (2027)**
+
+* Evoluzione della Direttiva Macchine → diventa **Regolamento Macchine**.
+* Introduce requisiti **cybersecurity** per la sicurezza funzionale.
+* Integrazione con IEC 62443 e CRA → macchine sicure sia sul piano **safety** che **security**.
+* OEM devono integrare la sicurezza informatica nella progettazione meccanica/elettronica.
+
+---
+
+### **Slide 9 – Legame con i livelli di risposta**
+
+* **Tecnologico**: standard definiscono controlli minimi → difese concrete.
+* **Procedurale/organizzativo**: ISO 27001, NIST → processi di gestione e risposta.
+* **Governance**: NIS2 → responsabilità del top management.
+* **Compliance/mercato**: CRA & Reg. Macchine → prerequisiti legali per la vendita.
+
+---
+
+### **Slide 10 – Messaggio chiave per OEM & Integratori**
+
+* Gli standard e le norme non sono un vincolo burocratico → sono **abilitatori di mercato**.
+* Adeguarsi significa:
+
+  * essere accettati in supply chain internazionali,
+  * garantire fiducia ai clienti,
+  * proteggere business e reputazione.
+* La **Cyber Security** diventa parte integrante della **qualità del prodotto**.
+

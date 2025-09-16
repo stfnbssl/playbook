@@ -1,0 +1,67 @@
+## Prompts di generazione
+### A) Genera bozza intero capitolo (nuova versione)
+```shell 
+Leggi Canvas — Cap. <X>. Genera la bozza completa seguendo Regole editoriali, Struttura, Checklist QA.
+Non modificare il canvas.
+SALVA COME: Bozza — Cap. <X> — v<Y>.
+``` 
+### B) Genera bozza di una sezione
+```shell 
+Leggi Canvas — Cap. <X>. Produci la bozza della sezione <X.Y Titolo> seguendo il relativo Obiettivo, Prompt e QC.
+Non modificare il canvas.
+APPENDI A: Bozza — Cap. <X> — v<Y> sotto il titolo della sezione.
+``` 
+### C) Rigenera bozza (sovrascrivi la versione corrente)
+```shell 
+Rielabora solo la sezione <X.Y> in Bozza — Cap. <X> — v<Y> sovrascrivendo il testo esistente.
+Cambi minori: refusi, esempi, chiarimenti. Non alterare struttura/heading.
+``` 
+### D) Nuova versione della bozza
+```shell 
+Partendo da Bozza — Cap. <X> — v<Y>, crea nuova versione con le modifiche richieste (elenca: …).
+SALVA COME: Bozza — Cap. <X> — v<Y+1>.
+``` 
+### E) Genera figure/template segnaposto
+```shell 
+Crea i segnaposto elencati nel Canvas (nomi/descrizioni) e inseriscili in Bozza — Cap. <X> — v<Y> nelle sezioni indicate.
+Non usare immagini esterne; solo descrizioni e box.
+``` 
+### Dove indicare il nome del file
+Meglio nel comando ogni volta (fa fede il “SALVA COME/APPENDI A”).
+Mantieni anche qui nel canvas una convenzione di default: se il comando non specifica un nome, si usa il default del canvas.
+### Come usare: Pubblico & taglio editoriale - esteso
+- Metti sempre un richiamo al Pubblico & taglio nel comando di generazione:
+```shell 
+Leggi “Canvas — Cap. X”. Rispetta “Pubblico & taglio editoriale”.
+Genera “Bozza — Cap. X — vY” con:
+- vista Executive: 1 pagina board-ready con KPI e decisioni;
+- vista Operativa: guida passo-passo e checklist;
+- vista Security: FR×SL, runbook, KPI;
+Non modificare il canvas.
+``` 
+### Come usare: Pubblico & taglio editoriale - “intero capitolo” multi-vista
+```shell 
+Leggi “Canvas — Cap. X” e rispetta “Pubblico & taglio editoriale”.
+Genera “Bozza — Cap. X — vY” con sezioni distinte per audience:
+- OEM:Executive → 1 pagina board-ready (KPI, decisioni richieste).
+- AssetOwner:Operational → SOP/checklist, finestre, rollback.
+- ServiceProvider:Operational:Security → runbook FR6, evidenze, KPI.
+- OEM:Engineering:Developers → mapping 4-1/4-2, esempi SBOM/PSIRT.
+- ServiceProvider:Legal → clausole -2-4/DPA/SLA notifiche.
+Non modificare il canvas.
+``` 
+### Come usare: Pubblico & taglio editoriale - “singola sezione” per una sola audience
+```shell 
+Leggi “Canvas — Cap. X” → sezione X.Y.
+Scrivi la bozza SOLO per audience `OEM:Engineering:Developers` (tono pratico-operatorio, livello 4/5).
+Includi esempi minimi, checklist e riferimenti 62443 pertinenti.
+SALVA COME: “Bozza — Cap. X — vY” (append alla sezione X.Y).
+``` 
+### Cosa aspettarsi per ogni combinazione (che cosa “vuole” vedere)
+- Executive (qualsiasi Parte): 1 pagina, grafici/KPI, rischi/decisioni, roadmap 90/180/365, impatto €.
+- Operational (AssetOwner/ServiceProvider): SOP, tempi, responsabilità (RACI), moduli/evidenze, rischi operativi.
+- Legal (qualsiasi Parte): riferimenti normativi/crosswalk, clausole, SLA, retention, ownership/portabilità.
+- Engineering (OEM/ServiceProvider/AssetOwner Engineering): architetture, matrici flussi, FR×SL applicati, staging/test, esempi config.
+- Developers (OEM): SDL 4-1, 4-2 mapping, SBOM/SPDX, PSIRT workflow, secure update, esempi API/firmware.
+- Security (tutte): use case detection, runbook IR, integrazione SIEM/IDS OT, KPI MTTD/MTTR, policy.
+- HSE (AssetOwner/Executive): impatti safety, interlock, modalità degradata, piani BC/DR.

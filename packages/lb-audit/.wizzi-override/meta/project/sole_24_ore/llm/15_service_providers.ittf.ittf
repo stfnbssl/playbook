@@ -1,0 +1,185 @@
+ittf
+
+   $
+        var cap = 13;
+
+   $file project/from_meta/sole_24_ore/cap_15_service_providers.md
+
+        # Cap. ${cap} — Canvas (Istruzioni tecniche) — v1.0
+
+        # Cap. ${cap} — Service Providers OT (servizi gestiti, integrazione, compliance)
+
+        regole_editoriali()
+            **Regola d’oro**: ordine narrativo allineato al **ciclo di vita del servizio** (onboarding→erogazione→reporting→offboarding); profondità tecnica su **Operational/Engineering/Security**.
+        mini_vademecum_canvas()
+        > **Idea chiave**: i **Service Provider** (SP) sono l’estensione operativa 
+            \b dell’Asset Owner nell’OT: progettano, integrano, gestiscono 
+            \b e dimostrano la sicurezza **end‑to‑end**. 
+            \b Questo capitolo definisce *service catalog, RACI, SLA/SLO/KPI, procedure 
+            \b e pacchetti evidenze* in coerenza con IEC **62443‑2‑x/3‑x/4‑2**, 
+            \b con supporto **LLM** per runbook, RFI/RFP e reporting.        
+        > **Obiettivo**: capitolo operativo 
+            * Definire un **catalogo servizi** OT coerente con IEC 62443 (progettazione, 
+                \b messa in esercizio, servizi gestiti, SOC, IR, compliance).
+            * Stabilire **RACI**, **SLA/SLO/KPI**, **procedure** e **pacchetti evidenze** 
+                \b per dimostrare efficacia e conformità.
+            * Integrare **LLM** per knowledge base, runbook, risposte RFI/RFP 
+                \b e reporting, con **guardrail**.
+        audience()
+            **Target (etichette audience)**
+
+            * **Primari**: `ServiceProvider:Executive` | `ServiceProvider:Operational` | `ServiceProvider:Security`
+            * **Co‑primari**: `ServiceProvider:Engineering` | `AssetOwner:Operational`
+            * **Secondari**: `ServiceProvider:Legal` | `AssetOwner:Executive` | `OEM:Engineering`
+
+            **Obiettivi per audience (1 riga)**
+
+            * `SP:Executive` → definire **service catalog**, marginalità/TCO, SLA e rischi.
+            * `SP:Operational` → eseguire **SOP** (patch, backup, change, accessi remoti) con evidenze.
+            * `SP:Security` → detection/use case FR6, runbook IR, integrazione SIEM/IDS OT.
+            * `SP:Engineering` → design rete/DMZ/conduits, staging, automatismi CI/CD di configurazione.
+            * `SP:Legal` → contratti/NIS2/DPA, data ownership, retention, sub‑processor.
+
+            **Taglio**: *board‑ready* per Executive; *tecnico‑operativo* per Operational/Engineering/Security; *compliance‑oriented* per Legal.
+            **Livello tecnico (1–5)**: 3/5 (Executive 2/5; Security/Engineering 4/5).
+            **Tempo lettura target**: 20–25 min.
+
+
+        ---
+
+        ## Struttura delle sezioni
+
+        ### ${cap}.1 Executive brief — Il ruolo dei Service Provider nell’OT
+
+        **Obiettivo sezione ${cap}.1**: in 1 pagina per `SP:Executive`, illustrare come i servizi 62443 riducono tempi, 
+            \b rischi e costi per AO, con proposta di valore e roadmap 90/180/365.
+        **Output**: decision memo con 3 KPI e SLO iniziali.
+        **Prompt**: "Scrivi 1 pagina board‑ready sul valore dei servizi OT (design, 
+            \b managed services, SOC/IR, compliance)."
+        **QC**: KPI/SLO presenti; rischi chiave; roadmap tri‑fase.
+
+        ### ${cap}.2 Service catalog & RACI (design→gestione)
+
+        **Obiettivo sezione ${cap}.2**: definire catalogo servizi: **Assessment 62443**, **Design zone/conduits/DMZ**, **Integration**, **Accessi remoti/PAM**, **Patch/Vuln as a Service**, **Backup/DR**, **SOC OT**, **IR**, **Compliance/NIS2**, **Reporting**.
+        **Output**: lista servizi con **descrizione, input, output, RACI** (AO/OEM/SP), evidenze minime.
+        **Prompt**: "Compila service catalog con descrizione→input→output→RACI e evidenze per ogni voce."
+
+        ### ${cap}.3 Onboarding & site readiness
+
+        **Obiettivo sezione ${cap}.3**: questionario onboarding (inventario, versioni, flussi, finestre, safety), pre‑requisiti (DMZ, NTP, syslog, broker remoto), *data access* e DPA.
+        **Output**: **Onboarding pack** (questionario, check di readiness, piano di transizione).
+        **Prompt**: "Genera questionario onboarding + checklist readiness + piano transizione iniziale."
+
+        ### ${cap}.4 Accessi remoti & PAM (broker, MFA, recording)
+
+        **Obiettivo sezione ${cap}.4**: definire architettura **broker/jump**, **MFA**, **time‑bound**, **session recording**, approvazioni su ticket, evidenze di chiusura.
+        **Output**: *Remote Access Playbook* (SOP + schema logico).
+        **Prompt**: "Scrivi playbook accessi remoti (broker, MFA, approvi, recording, evidenze)."
+        **QC**: FR1/FR2/FR6 coperti; niente accessi diretti.
+
+        ### ${cap}.5 Patch & Vulnerability Management as a Service (‑2‑3)
+
+        **Obiettivo sezione ${cap}.5**: processo: discovery→prioritizzazione (**CVE/CVSS OT‑aware**)→staging→rollout→evidenze→KPI.
+        **Output**: calendario patch, *exception register*, report copertura, VEX quando possibile.
+        **Prompt**: "Definisci servizio Patch/Vuln: SLA, staging, finestre, rollback, report KPI."
+
+        ### ${cap}.6 Monitoring & SOC OT (FR6)
+
+        **Obiettivo sezione ${cap}.6**: *use case* minimi (accessi remoti, change, protocolli anomali), centralizzazione log, integrazione **IDS OT**, playbook triage, *hunting* periodico.
+        **Output**: elenco *use case*, schema routing log, runbook SOC.
+        **Prompt**: "Elenca use case FR6, integra IDS OT, scrivi runbook triage e reporting."
+
+        ### ${cap}.7 Backup, restore & DR as a Service (FR7)
+
+        **Obiettivo sezione ${cap}.7**: politica 3‑2‑1, backup offline, test di ripristino, RPO/RTO per asset industriali.
+        **Output**: piano backup/restore per zona, registro test, KPI % restore OK.
+        **Prompt**: "Stendi policy backup/restore/DR per impianti OT e schema prove periodiche."
+
+        ### ${cap}.8 Change & configuration management (staging, versioning, golden image)
+
+        **Obiettivo sezione ${cap}.8**: processi change con staging e rollback, **repository config** (versioning), **golden image** per reinstalli rapidi, controllo *config‑drift*.
+        **Output**: SOP change, repo/branching model, check *drift* mensile.
+        **Prompt**: "Definisci change mgmt con staging/rollback, repo config, golden image e controllo drift."
+
+        ### ${cap}.9 Incident response & escalation (IR playbook)
+
+        **Obiettivo sezione ${cap}.9**: IR end‑to‑end: ruoli,
+        **escalation matrix**, comunicazioni, criteri di isolamento, forensics limitata in OT, *post‑incident review*.
+        **Output**: **IR playbook** e *communication plan* (interno/cliente/autorità).
+        **Prompt**: "Scrivi IR playbook con escalation, comms, isolamento sicuro, evidenze e post‑mortem."
+
+        ### ${cap}.10 Compliance & NIS2 per SP
+
+        **Obiettivo sezione ${cap}.10**: mappare obblighi del fornitore di servizi (governance, misure tecniche, **notifiche**, supply chain, **DPA**), crosswalk NIS2⇄62443.
+        **Output**: **Compliance map** e modelli di notifica.
+        **Prompt**: "Crea crosswalk NIS2⇄62443 per SP e modelli di notifica incidenti."
+
+        ### ${cap}.11 PSIRT liaison & advisory management
+
+        **Obiettivo sezione ${cap}.11**: canali con **OEM PSIRT**, intake advisory, valutazione impatto sugli impianti serviti, **Time‑to‑Advisory** al cliente.
+        **Output**: SOP ricezione/valutazione advisory, registro stato.
+        **Prompt**: "Definisci processo PSIRT liaison (intake→analisi→comunicazione→chiusura) con KPI."
+
+        ### ${cap}.12 SBOM/VEX ingestion & asset impact
+
+        **Obiettivo sezione ${cap}.12**: ingestione **SBOM** dei vendor, correlazione **CVE** con inventario asset, generazione **VEX** lato servizio quando applicabile.
+        **Output**: flusso SBOM→inventario→priorità remediation.
+        **Prompt**: "Disegna flusso SBOM/VEX: come correlare componenti→impianti e priorità."
+
+        ### ${cap}.13 Secure update orchestration (firmware/app)
+
+        **Obiettivo sezione ${cap}.13**: orchestrare aggiornamenti **firmati** con finestra, staging e rollback coordinati tra AO/OEM/SP.
+        **Output**: *Update plan* e *evidence pack*.
+        **Prompt**: "Scrivi orchestrazione secure update multi‑stadio con evidenze richieste."
+
+        ### ${cap}.14 KPI, SLO, SLA & reporting
+
+        **Obiettivo sezione ${cap}.14**: definire **KPI** (patch coverage, MTTD/MTTR, % sessioni MFA+recording, % restore OK, Time‑to‑Advisory, change success rate), **SLO/SLA**, report mensile.
+        **Output**: tabella KPI con formule/soglie, schema report.
+        **Prompt**: "Definisci KPI/SLO/SLA e modello di report per cliente OT."
+
+        ### ${cap}.15 LLM‑assisted operations (RAG, runbook, tickets)
+
+        **Obiettivo sezione ${cap}.15**: knowledge base indicizzata (policy/procedure/KB), *prompt template*, risposta RFI/RFP, generazione evidenze e *QA* su runbook.
+        **Output**: architettura RAG, prompt catalog, guardrail (read‑only, logging).
+        **Prompt**: "Definisci RAG per SP e 6 prompt (RFI, runbook, report, advisory, SBOM, IR)."
+
+        ### ${cap}.16 Contratti, DPA & data governance
+
+        **Obiettivo sezione ${cap}.16**: clausole: ambito, livelli di servizio, **data ownership**, portabilità, retention, sub‑processor, **penali**, exit/offboarding.
+        **Output**: **Contract checklist** e **DPA template**.
+        **Prompt**: "Crea checklist contrattuale e DPA template per servizi OT."
+
+        ### ${cap}.17 Handover & offboarding
+
+        **Obiettivo sezione ${cap}.17**: riconsegna account/segreti, export configurazioni/evidenze, dismissione accessi e revoche, *knowledge transfer*.
+        **Output**: piano handover/offboarding e registro consegne.
+        **Prompt**: "Stendi piano di handover/offboarding con elenco consegne e verifiche."
+
+        ### ${cap}.18 Rischi & anti‑pattern
+
+        **Obiettivo sezione ${cap}.18**: evitare errori: accessi diretti, assenza staging, log non consegnati, patch senza rollback, mancanza di *exception register*, confusione ruoli.
+        **Output**: tabella anti‑pattern→controlli/procedure correttive.
+        **Prompt**: "Elenca 12 anti‑pattern tipici dei servizi OT e rimedi 62443."
+
+        ### ${cap}.19 Template & deliverable
+
+        **Obiettivo sezione ${cap}.19**: pacchetto modelli riusabili: **Service Catalog**, **RACI**, **Onboarding pack**, **Remote Access Playbook**, **Patch/Vuln SOP**, **Backup/DR SOP**, **Runbook SOC/IR**, **Compliance map**, **PSIRT liaison SOP**, **Update plan**, **Report KPI**, **Contract checklist/DPA**, **Handover plan**.
+        **Output**: template editabili.
+        **Prompt**: "Genera i template elencati (struttura, sezioni, segnaposto)."
+
+        ---
+
+        ## Checklist qualità (capitolo)
+
+        * [ ] Ogni sezione ha **Obiettivo/Output/Prompt/QC**.
+        * [ ] **Service catalog** completo con RACI e evidenze minime.
+        * [ ] **Onboarding pack** e **readiness** (DMZ, NTP, syslog, broker remoto) definiti.
+        * [ ] Accessi remoti con **broker/MFA/recording** e prove di evidenze.
+        * [ ] Patch/Vuln con **staging/rollback** e KPI; **exception register** gestito.
+        * [ ] SOC OT: *use case* FR6, integrazione IDS, routing log, runbook triage.
+        * [ ] Backup/DR con test di ripristino e RPO/RTO dichiarati.
+        * [ ] IR playbook con **escalation matrix** e *communication plan*.
+        * [ ] Compliance/NIS2 mappata; modelli di notifica; DPA/contratti.
+        * [ ] **LLM** con guardrail e citazioni artefatti interni.
+        * [ ] Niente testi finiti: questo file resta **solo istruzioni**.

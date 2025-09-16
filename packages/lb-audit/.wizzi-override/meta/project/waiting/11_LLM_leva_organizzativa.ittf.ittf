@@ -1,0 +1,267 @@
+ittf
+
+   $file project/from_meta/sole_24_ore/cap_11_LLM_leva_organizzativa.md
+
+        # Cap. 11 — La IEC 62443 come leva di trasformazione (AI/LLM, organizzazione, valore per gli executive)
+
+        > **Idea chiave**: la 62443 non è solo controllo/compliance. È un **sistema operativo** per l’OT che razionalizza processi, dati e ruoli. I suoi **artefatti** (inventari, SL‑Target, policy, log, PSIRT, SBOM, runbook) sono **asset informativi** che, se governati, abilitano casi d’uso con **AI/LLM** (modelli linguistici) a supporto di decisioni, operations e progettazione.
+        >
+        > **Pubblico**: Executive (CEO, COO, CFO, CIO/CTO, CISO), **PMI/Asset Owner**, **OEM/Product Supplier**, **Service Provider/SI**, Plant/Operations.
+        >
+        > **Obiettivo**: delineare **valore di business**, **governance** e **architettura** per usare la 62443 come volano di maturità organizzativa e tecnologica, con **guardrail** per l’uso sicuro di AI/LLM in OT.
+
+        ---
+
+        ## Metodo — **Canvas → Bozza → Merge**
+
+        * **Canvas**: struttura, prompt, segnaposto figure/template, regole editoriali “executive‑friendly”.
+        * **Bozza**: testo completo con esempi e metriche; box **Per i ruoli**; takeaway e **avvertenza safety** per sezione.
+        * **Merge & QC**: inserimento bozza + checklist valore/rischi/KPI; validazione legale/ethics.
+
+        ### Regole editoriali (executive‑friendly)
+
+        * Linguaggio semplice; **1 idea per paragrafo**; frasi brevi; numeri → **KPI/€**.
+        * Ogni sezione chiude con **Valore per il business**, **Rischi/limiti**, **Prossimi passi**.
+        * Mappa sintetica a **FR1–FR7**/**SL‑Target** solo quando utile alle decisioni.
+
+        ---
+
+        ## 11.1 Executive summary (1 pagina)
+
+        **Contenuti**
+
+        * Perché 62443 = **razionalizzazione dei processi OT** + **tracciabilità dei dati**.
+        * Dalla **conformità** al **vantaggio operativo**: meno fermi, meno errori, tempi di intervento più rapidi.
+        * Come gli **artefatti 62443** diventano un **knowledge base** per LLM con **guardrail**.
+        * Roadmap 90/180/365 e **KPI** di risultato.
+
+        #### Prompt operativo
+        “Scrivi 12–14 righe ‘board‑ready’ che riassumano valore, rischi e tappe 90/180/365 dell’approccio 62443+LLM.”
+
+        ---
+
+        ## 11.2 Business case & KPI (ROI, TCO, rischio evitato)
+
+        **Contenuti**
+
+        * **Driver economici**: riduzione fermi non pianificati, minor tempo per audit/notifiche, efficienza change/patch, riduzione consulenze ad‑hoc.
+        * **KPI esemplificativi**: % sessioni remote conformi, **MTTD/MTTR** OT, **patch coverage**, % **runbook** aggiornati, tempo di **gap‑analysis** NIS2, **tempo alla prima risposta** LLM per procedure.
+        * **Modello costi**: digitalizzazione artefatti, data platform (on‑prem/intranet), governance/ruoli, formazione.
+
+        #### Prompt operativo
+        “Compila un business case con 6 KPI, 4 voci di costo e 3 aree di beneficio quantitativo; specifica ipotesi.”
+
+        ---
+
+        ## 11.3 Dati 62443 → **Data products** per AI/LLM (RAG)
+
+        **Artefatti sorgente**
+        Inventario, matrice **SL‑Target**, **policy/standard**, **registro change**, **piano patch/vuln**, **PSIRT/SBOM**, **runbook IR**, **RACI**, **log** (metadati/aggregati), **figure/diagrammi**.
+
+        **Data governance**
+
+        * Classificazione (pubblico/riservato/segretato), **minimizzazione**, pseudonimizzazione dove serve.
+        * **Qualità** (completeness, freshness), **versioning** e **provenance**.
+        * **Access control**: RBAC, **MFA**, audit; dataset **read‑only** per LLM.
+
+        **Pattern architetturale**
+
+        * **RAG** (Retrieval Augmented Generation): indicizzazione artefatti 62443 in **knowledge base** con **policy enforcement** e **audit**.
+
+        #### Prompt operativo
+        “Disegna il catalogo data products 62443 (nome, owner, sorgente, sensibilità, uso LLM, refresh).”
+
+        **Figure/Template**: Catalogo data products; schema RAG con **policy** e audit.
+
+        ---
+
+        ## 11.4 Casi d’uso AI/LLM **per ruolo**
+
+        **Executive (CEO/COO/CFO/CIO/CTO/CISO)**
+
+        * Q\&A su **policy**, stato programma, **gap** e **rischi**; “what‑if” su roadmap e budget.
+        * **Sintesi per il CdA**: trend KPI, incidenti, audit trail, readiness NIS2.
+        * **Advisor** su procurement (clausole 4‑1/4‑2, SBOM/PSIRT) e priorità investimenti.
+
+        **Asset Owner / Plant Manager**
+
+        * **Co‑pilot change/patch**: piani per finestra, **rollback**, check impatti SL‑Target.
+        * **Remote‑access guardian**: verifica automatica requisiti broker/MFA/session recording.
+        * Ricerca **runbook**/SOP e checklist per asset/linea specifici.
+
+        **System Integrator / Service Provider**
+
+        * Generazione **deliverable** (matrici flussi, RACI, report evidenze) da template; **quality‑check** automatico.
+        * **Config‑drift detective**: confronto baseline vs stato attuale (testo+diff).
+        * Supporto **FAT/SAT**: estrazione casi di test da SR (‑3‑3).
+
+        **OEM / Product Supplier**
+
+        * **Guida integrazione** mirata: da capability **‑4‑2** a requisiti di sistema **‑3‑3**.
+        * **PSIRT co‑pilot**: triage segnalazioni, bozza advisory, correlazione con **SBOM**.
+
+        **OT Security / SOC**
+
+        * **Alert triage**: riassunti, contesto, playbook; traduzione protocolli OT.
+        * **Hunting** guidato da FR/KPI; suggerimenti evidenze per audit.
+
+        #### Prompt operativo
+        “Per ciascun ruolo scrivi 3 use case LLM collegati a un artefatto 62443, con valore e limite.”
+
+        ---
+
+        ## 11.5 **Guardrail & Safety** per AI in OT
+
+        **Principi**
+
+        * **Human‑in‑the‑loop** obbligatorio: nessuna azione diretta su controllo di processo.
+        * **Read‑only** in produzione; modifiche **solo** in staging con **change approval**.
+        * **Segregazione IT/OT** anche per i servizi AI; niente segreti nelle **prompt**; **red‑teaming** periodico.
+        * **Privacy/IP**: dati minimi; evitare estrazioni di IP sensibili da SBOM/advisory.
+
+        **Controlli**
+
+        * **Policy LLM** (uso consentito/vietato); **prompt templates**; **content filtering**; **logging** invocazioni; **eval set** per regressioni.
+        * Piano **incident AI** (misuse/drift/poisoning) con ruoli e tempi.
+
+        #### Prompt operativo
+        “Definisci 8 guardrail non negoziabili per usare LLM in OT e il loro test periodico.”
+
+        **Figure/Template**: Matrice guardrail × controllo; runbook **incident AI**.
+
+        ---
+
+        ## 11.6 Architettura di riferimento: **OT LLM Companion**
+
+        **Blocchi**
+
+        * **Ingestion** artefatti 62443 → **catalogo** (versioning, metadati).
+        * **Index/Vector store** con **policy enforcement** (ABAC/RBAC).
+        * **RAG service** con **audit** e **rate limit**; **gateway** per prompt logging.
+        * **Interfacce**: chat interna, estensioni in tool OT (ticketing, CMDB, SOC).
+        * **Hosting**: preferenza **intranet/on‑prem** per contesti sensibili.
+
+        #### Prompt operativo
+        “Disegna l’architettura a blocchi dell’‘OT LLM Companion’ indicando flussi dati e controlli.”
+
+        **Figure/Template**: Diagramma architetturale; matrice integrazioni (tool ↔ artefatti).
+
+        ---
+
+        ## 11.7 Procurement, legale & compliance (LLM‑aware)
+
+        **Clausole**
+
+        * Uso dati **solo** per erogazione servizio; **no training** su dati del cliente salvo consenso; **data residency**.
+        * Diritti su **SBOM/advisory** e log; **DPA** e **audit**; tempi **retention**; cancellazione garantita.
+        * Requisiti **security** del fornitore (SDL 4‑1, PSIRT, attestazioni).
+        * **Portabilità**: export knowledge base/metadata per evitare lock‑in.
+
+        #### Prompt operativo
+        “Stendi 8–10 clausole LLM‑aware da inserire nei capitolati OT (privacy, sicurezza, portabilità, audit).”
+
+        ---
+
+        ## 11.8 Roadmap di capacità (0–6–12–24 mesi)
+
+        **0–6 mesi (quick wins)**
+
+        * Digitalizza artefatti core (policy, SL‑T, runbook); **catalogo**; **RAG** pilota su policy/accessi remoti.
+        * **LLM policy** interna; formazione mirata; **guardrail** minimi.
+
+        **6–12 mesi**
+
+        * Estendi ingest a **PSIRT/SBOM/log**; KPI e **eval set**; integrazione con ticketing.
+        * Casi d’uso per **Plant Manager** e **SOC** (triage, change/patch co‑pilot).
+
+        **12–24 mesi**
+
+        * Estensione a più impianti; **governance** completa; audit e **reportistica** automatizzata.
+        * Valutazione **LLM on‑prem** per contenuti sensibili.
+
+        #### Prompt operativo
+        “Compila la roadmap (0–6/6–12/12–24) con owner, dipendenze e KPI attesi.”
+
+        ---
+
+        ## 11.9 Rischi & anti‑pattern
+
+        * **AI‑first** senza dati/processi: salto nel vuoto.
+        * **SL4 ovunque**: costi e complessità senza beneficio.
+        * **Generazione codice non controllata** su sistemi OT.
+        * **Segreti in prompt** o dataset; **prompt injection** non gestita.
+        * **Mix IT/OT** indiscriminato; mancanza di **eval**/monitoring.
+
+        #### Prompt operativo
+        “Elenca 6 anti‑pattern e la misura correttiva 62443 corrispondente (FR/controllo).”
+
+        ---
+
+        ## 11.10 Artefatti & deliverable
+
+        * **LLM Policy**; **catalogo data products**; **knowledge base** 62443 indicizzata.
+        * **Prompt catalog** e **prompt templates**; **eval set** e risultati.
+        * **Runbook incident AI**; **audit log** invocazioni; **DPIA/AI risk assessment**.
+        * **Architettura OT LLM Companion**; **matrice guardrail**; **report KPI**.
+
+        #### Prompt operativo
+        “Lista dettagliata degli artefatti con formato, owner, frequenza aggiornamento e fonte.”
+
+        ---
+
+        ## 11.11 Governance & misurazione (Comitato AI+OT)
+
+        **Struttura**
+
+        * Sponsorship **Executive**; membri: OT, IT, Security, Legal, Operations, Quality.
+        * **Riunioni** mensili; registro decisioni ed **eccezioni**.
+
+        **Metriche**
+
+        * **Tempo alla risposta** LLM su procedure; **adozione** per ruolo; **precisione** (eval); % **guardrail** violati bloccati; riduzione tempo **audit**.
+
+        #### Prompt operativo
+        “Definisci charter e KPI del Comitato AI+OT, con cadenza e responsabilità.”
+
+        ---
+
+        ## 11.12 FAQ per Executive
+
+        * **Quanto costa e cosa serve?** → elenco voci CAPEX/OPEX, dipendenze.
+        * **Dove iniziare?** → quick wins Cap. 11.8.
+        * **Rischi legali/compliance?** → policy LLM, DPA, audit.
+        * **Quando vedo benefici?** → KPI trimestrali, casi d’uso a valore.
+
+        #### Prompt operativo
+        “Scrivi una FAQ in 10 Q\&A sintetiche per il CdA.”
+
+        ---
+
+        ## 11.13 Checklist Executive (1 pagina)
+
+        * [ ] Sponsor nominato, **charter** e **LLM policy** approvati.
+        * [ ] Catalogo artefatti 62443 digitalizzato e **classificato**.
+        * [ ] **RAG pilota** su policy/accessi remoti; **guardrail** minimi.
+        * [ ] KPI definiti e **dashboard** attiva.
+        * [ ] Clausole **LLM‑aware** in procurement/contratti.
+        * [ ] Piano **0–6/6–12/12–24** mesi con owner e budget.
+
+        ---
+
+        ## Glossario minimo (Cap. 11)
+
+        * **RAG (Retrieval Augmented Generation)**: uso di basi documentali aziendali per migliorare risposte LLM.
+        * **LLM (Large Language Model)**: modello linguistico di grandi dimensioni per generazione/riassunto/testo.
+        * **Eval set**: insieme di domande/test per misurare qualità e regressioni del sistema LLM.
+        * **Guardrail**: regole/controlli che limitano input/output/azioni dell’LLM.
+        * **DPIA**: valutazione d’impatto sulla protezione dei dati.
+        * **Data residency**: vincolo geografico di conservazione dei dati.
+
+        ---
+
+        ## Checklist qualità (QA redazionale — Cap. 11)
+
+        * [ ] Ogni sezione chiude con Valore/Rischi/Prossimi passi.
+        * [ ] Box **Per i ruoli** dove richiesto; mapping a FR/SL solo quando utile.
+        * [ ] Figure/template segnaposto inseriti.
+        * [ ] Linguaggio “executive‑friendly”, numeri legati a KPI/€.

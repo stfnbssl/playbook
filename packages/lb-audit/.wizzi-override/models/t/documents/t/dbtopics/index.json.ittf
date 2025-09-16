@@ -1,0 +1,3 @@
+$group
+    { dbtopics
+        $include sole_24_ore

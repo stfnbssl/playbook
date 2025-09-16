@@ -1,0 +1,240 @@
+$group
+    { iec_62443_glossary
+        [ items
+            { 
+                acronimo "IEC"
+                descrizione "International Electrotechnical Commission (ente di standardizzazione)."
+            { 
+                acronimo "IEC 62443"
+                descrizione "Serie di standard per la sicurezza dei sistemi di automazione e controllo industriale."
+            { 
+                acronimo "IACS"
+                descrizione "Industrial Automation and Control Systems (sistemi di automazione e controllo industriale)."
+            { 
+                acronimo "OT"
+                descrizione "Operational Technology (tecnologia operativa di impianti e fabbriche)."
+            { 
+                acronimo "IT"
+                descrizione "Information Technology (sistemi informativi aziendali)."
+            { 
+                acronimo "DMZ"
+                descrizione "Zona demilitarizzata tra IT e OT per scambio dati controllato."
+            { 
+                acronimo "PLC"
+                descrizione "Programmable Logic Controller (controllore logico programmabile)."
+            { 
+                acronimo "DCS"
+                descrizione "Distributed Control System (sistema di controllo distribuito)."
+            { 
+                acronimo "SCADA"
+                descrizione "Supervisory Control And Data Acquisition (supervisione e acquisizione dati)."
+            { 
+                acronimo "HMI"
+                descrizione "Human-Machine Interface (interfaccia uomo-macchina)."
+            { 
+                acronimo "MES"
+                descrizione "Manufacturing Execution System (sistema di gestione della produzione)."
+            { 
+                acronimo "ERP"
+                descrizione "Enterprise Resource Planning (gestionale integrato aziendale)."
+            { 
+                acronimo "FR"
+                descrizione "Foundational Requirements (7 aree di controllo della 62443)."
+            { 
+                acronimo "IAC"
+                descrizione "Identification & Authentication Control (FR1: identità e autenticazione)."
+            { 
+                acronimo "UC"
+                descrizione "Use Control (FR2: autorizzazioni e controllo degli usi)."
+            { 
+                acronimo "SI (FR3)"
+                descrizione "System Integrity (FR3: integrità di sistemi, firmware e configurazioni)."
+            { 
+                acronimo "DC"
+                descrizione "Data Confidentiality (FR4: riservatezza dei dati)."
+            { 
+                acronimo "RDF"
+                descrizione "Restrict Data Flow (FR5: segregazione e controllo dei flussi di rete)."
+            { 
+                acronimo "TRE"
+                descrizione "Timely Response to Events (FR6: rilevazione e risposta agli eventi)."
+            { 
+                acronimo "RA"
+                descrizione "Resource Availability (FR7: disponibilità, backup e ripristino)."
+            { 
+                acronimo "SL"
+                descrizione "Security Level (SL0–SL4: livello di robustezza per requisito/ambito)."
+            { 
+                acronimo "SL-Target"
+                descrizione "Livello di sicurezza obiettivo per zona/conduit/asset."
+            { 
+                acronimo "SL-Achieved"
+                descrizione "Livello di sicurezza effettivamente raggiunto e verificato."
+            { 
+                acronimo "SR"
+                descrizione "System Requirements (requisiti di sistema della IEC 62443-3-3)."
+            { 
+                acronimo "SDL"
+                descrizione "Secure Development Lifecycle (ciclo di sviluppo sicuro per prodotti)."
+            { 
+                acronimo "SBOM"
+                descrizione "Software Bill of Materials (distinta dei componenti software)."
+            { 
+                acronimo "PSIRT"
+                descrizione "Product Security Incident Response Team (team vulnerabilità di prodotto)."
+            { 
+                acronimo "RACI"
+                descrizione "Responsible, Accountable, Consulted, Informed (matrice ruoli/responsabilità)."
+            { 
+                acronimo "RBAC"
+                descrizione "Role-Based Access Control (controllo accessi basato sui ruoli)."
+            { 
+                acronimo "MFA"
+                descrizione "Multi-Factor Authentication (autenticazione a più fattori)."
+            { 
+                acronimo "NTP"
+                descrizione "Network Time Protocol (sincronizzazione oraria dei sistemi)."
+            { 
+                acronimo "IDS"
+                descrizione "Intrusion Detection System (rilevamento intrusioni, inclusi sensori OT)."
+            { 
+                acronimo "EDR"
+                descrizione "Endpoint Detection and Response (telemetria e risposta su endpoint)."
+            { 
+                acronimo "AV"
+                descrizione "Antivirus (protezione antimalware su host)."
+            { 
+                acronimo "KPI"
+                descrizione "Key Performance Indicator (indicatore chiave di prestazione)."
+            { 
+                acronimo "MTTD"
+                descrizione "Mean Time To Detect (tempo medio di rilevazione)."
+            { 
+                acronimo "MTTR"
+                descrizione "Mean Time To Restore/Recover (tempo medio di ripristino)."
+            { 
+                acronimo "TTR"
+                descrizione "Time To Remediate (tempo per correggere vulnerabilità)."
+            { 
+                acronimo "RPO"
+                descrizione "Recovery Point Objective (punto massimo di perdita dati accettabile)."
+            { 
+                acronimo "RTO"
+                descrizione "Recovery Time Objective (tempo massimo di ripristino accettabile)."
+            { 
+                acronimo "BC"
+                descrizione "Business Continuity (continuità operativa)."
+            { 
+                acronimo "DR"
+                descrizione "Disaster Recovery (ripristino da disastro)."
+            { 
+                acronimo "CVE"
+                descrizione "Common Vulnerabilities and Exposures (catalogo vulnerabilità)."
+            { 
+                acronimo "CVSS"
+                descrizione "Common Vulnerability Scoring System (punteggio gravità vulnerabilità)."
+            { 
+                acronimo "CVD"
+                descrizione "Coordinated Vulnerability Disclosure (divulgazione coordinata delle vulnerabilità)."
+            { 
+                acronimo "CERT"
+                descrizione "Computer Emergency Response Team (team di risposta nazionale/settoriale)."
+            { 
+                acronimo "CSIRT"
+                descrizione "Computer Security Incident Response Team (team risposta incidenti)."
+            { 
+                acronimo "ISAC"
+                descrizione "Information Sharing and Analysis Center (centro settoriale di condivisione info)."
+            { 
+                acronimo "NIS2"
+                descrizione "Direttiva UE sulla sicurezza reti e sistemi informativi (seconda versione)."
+            { 
+                acronimo "UE"
+                descrizione "Unione Europea (EU)."
+            { 
+                acronimo "NIST"
+                descrizione "National Institute of Standards and Technology (ente USA di standard)."
+            { 
+                acronimo "FAT"
+                descrizione "Factory Acceptance Test (collaudo in fabbrica)."
+            { 
+                acronimo "SAT"
+                descrizione "Site Acceptance Test (collaudo in sito)."
+            { 
+                acronimo "E-ISAC"
+                descrizione "Electricity Information Sharing and Analysis Center (settore elettrico)."
+            { 
+                acronimo "SANS"
+                descrizione "SANS Institute (formazione/ricerca sicurezza)."
+            { 
+                acronimo "GAO"
+                descrizione "U.S. Government Accountability Office (organo di audit USA)."
+            { 
+                acronimo "ICS-CERT"
+                descrizione "Industrial Control Systems CERT (oggi in CISA, advisory ICS)."
+            { 
+                acronimo "MITRE"
+                descrizione "Organizzazione che mantiene CVE/CWE e knowledge base di minacce."
+            { 
+                acronimo "FIRST"
+                descrizione "Forum of Incident Response and Security Teams (community IR/PSIRT)."
+            { 
+                acronimo "SPDX"
+                descrizione "Software Package Data Exchange (formato aperto per SBOM)."
+            { 
+                acronimo "OWASP"
+                descrizione "Open Worldwide Application Security Project (community sicurezza software)."
+            { 
+                acronimo "CycloneDX"
+                descrizione "Formato SBOM promosso da OWASP per componentistica software."
+            { 
+                acronimo "CWE"
+                descrizione "Common Weakness Enumeration (catalogo debolezze software)."
+            { 
+                acronimo "PGP"
+                descrizione "Pretty Good Privacy (cifratura/firmadigitale per comunicazioni PSIRT)."
+            { 
+                acronimo "NDA"
+                descrizione "Non-Disclosure Agreement (accordo di riservatezza)."
+            { 
+                acronimo "SLA"
+                descrizione "Service Level Agreement (livelli di servizio/tempi garantiti)."
+            { 
+                acronimo "VPN"
+                descrizione "Virtual Private Network (tunnel di rete cifrato)."
+            { 
+                acronimo "OEM"
+                descrizione "Original Equipment Manufacturer (fornitore di prodotto/soluzione)."
+            { 
+                acronimo "SI (ruolo)"
+                descrizione "System Integrator (integratore di sistemi/servizi OT)."
+            { 
+                acronimo "SP"
+                descrizione "Service Provider (fornitore di servizi/gestore impianti)."
+            { 
+                acronimo "SOC"
+                descrizione "Security Operations Center (centro operativo di sicurezza)."
+            { 
+                acronimo "HSE"
+                descrizione "Health, Safety and Environment (sicurezza e ambiente)."
+            { 
+                acronimo "SIS"
+                descrizione "Safety Instrumented System (sistema strumentato di sicurezza)."
+            { 
+                acronimo "ESD"
+                descrizione "Emergency Shut Down (arresto di emergenza)."
+            { 
+                acronimo "ICS"
+                descrizione "Industrial Control Systems (sistemi di controllo industriale)."
+            { 
+                acronimo "ISA"
+                descrizione "International Society of Automation (associazione tecnica, co-sviluppo 62443)."
+            { 
+                acronimo "IR"
+                descrizione "Incident Response (gestione degli incidenti di sicurezza)."
+            { 
+                acronimo "IdM"
+                descrizione "Identity Management (gestione identità e credenziali)."
+            { 
+                acronimo "SME"
+                descrizione "Subject Matter Expert (esperto di dominio tecnico/OT)."

@@ -1,0 +1,708 @@
+$group
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/13"
+            nome "Service Providers OT (servizi gestiti, integrazione, compliance)"
+            ruolo "Gestione dei fornitori di servizi OT per garantire sicurezza e conformità
+                +b normativa"
+            [ norme_riferimento
+                "IEC 62443-2-4"
+                "IEC 62443-3-3"
+                "ISO/IEC 27001"
+                "NIS2 Directive"
+                "Cyber Resilience Act (CRA)"
+            descrizione "Questo ambito copre le attività relative alla gestione dei service provider OT,
+                +b inclusi i processi di integrazione, gestione dei servizi e conformità alle
+                +b normative di cybersecurity in ambienti industriali."
+            [ sezioni
+                {
+                    id "cap/13/13.17"
+                    nome "Handover & Offboarding"
+                    { obiettivo
+                        codice "OBJ-13.17"
+                        descrizione "Garantire un processo strutturato di handover e offboarding per i service
+                            +b provider OT, includendo riconsegna di account/segreti, export di configurazioni
+                            +b ed evidenze, dismissione accessi e revoche, nonché trasferimento di conoscenze."
+                    [ output_attesi
+                        "Piano di handover/offboarding"
+                        "Registro delle consegne"
+                    prompt_base "Stendi piano di handover/offboarding con elenco consegne e verifiche."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-13.17.1"
+                            titolo "Protezione dei segreti e delle credenziali"
+                            descrizione_astratta "Garantire che tutte le credenziali e i segreti utilizzati dal service provider
+                                +b siano riconsegnati o revocati in modo sicuro durante l'offboarding."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato post-offboarding"
+                                "Perdita di controllo su segreti aziendali"
+                            [ pratiche_raccomandate
+                                "Inventario completo di account e segreti"
+                                "Revoca immediata degli accessi"
+                                "Cambio delle password condivise"
+                            [ metriche_kpi
+                                "Percentuale di account revocati entro 24 ore dall'offboarding"
+                                "Tempo medio per completare la riconsegna dei segreti"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di revoca accessi"
+                                    "Procedura di riconsegna segreti"
+                                [ registri
+                                    "Registro delle revoche"
+                                    "Registro delle riconsegne"
+                                [ evidenze
+                                    "Report di audit sugli accessi revocati"
+                                    "Conferma scritta di riconsegna segreti"
+                            [ placeholders_contesto
+                                "[NOME_FORNITORE]"
+                                "[SISTEMI_GESTITI]"
+                                "[DATA_OFFBOARDING]"
+                        {
+                            id "ASP-13.17.2"
+                            titolo "Trasferimento delle conoscenze"
+                            descrizione_astratta "Assicurare che tutte le conoscenze operative e tecniche siano trasferite dal
+                                +b service provider al team interno o a un nuovo fornitore."
+                            [ rischi_mitigati
+                                "Perdita di know-how operativo"
+                                "Interruzioni di servizio per mancanza di documentazione"
+                            [ pratiche_raccomandate
+                                "Sessioni di knowledge transfer documentate"
+                                "Consegna di manuali e configurazioni aggiornate"
+                            [ metriche_kpi
+                                "Percentuale di documentazione trasferita"
+                                "Numero di sessioni di knowledge transfer completate"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di knowledge transfer"
+                                [ registri
+                                    "Registro delle sessioni di trasferimento"
+                                    "Registro delle documentazioni ricevute"
+                                [ evidenze
+                                    "Documentazione tecnica consegnata"
+                                    "Report delle sessioni di trasferimento"
+                            [ placeholders_contesto
+                                "[NOME_FORNITORE]"
+                                "[AMBITO_SERVIZI]"
+                                "[TEAM_RICEVENTE]"
+                    { policy_template
+                        titolo "Policy di Handover e Offboarding per Service Provider OT"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Responsabilità"
+                            "Processo di riconsegna account e segreti"
+                            "Processo di export configurazioni ed evidenze"
+                            "Dismissione accessi e revoche"
+                            "Knowledge transfer"
+                            "Verifiche e audit"
+                        [ placeholders_contesto
+                            "[NOME_ORGANIZZAZIONE]"
+                            "[NOME_FORNITORE]"
+                            "[DATA_INIZIO_OFFBOARDING]"
+                    { sop_template
+                        titolo "SOP per Handover e Offboarding di Service Provider OT"
+                        [ step
+                            "Identificazione degli account e segreti da riconsegnare"
+                            "Export delle configurazioni e delle evidenze"
+                            "Revoca degli accessi e dismissione delle autorizzazioni"
+                            "Organizzazione delle sessioni di knowledge transfer"
+                            "Verifica finale e chiusura del processo"
+                        [ registrazioni
+                            "Registro delle riconsegne"
+                            "Registro delle revoche"
+                            "Report delle sessioni di knowledge transfer"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch principale 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuovi contenuti"
+                            "Hotfix branch per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "Service Provider (SP)"
+                            "Asset Owner (AO)"
+                            "System Integrator (SI)"
+                            "OT Security Team (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Riconsegna account e segreti"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Export configurazioni ed evidenze"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Revoca accessi"
+                                SP "I"
+                                AO "A"
+                                SI "R"
+                                OTSec "C"
+                            {
+                                attivita "Knowledge transfer"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                            "Checklist"
+                        [ audience_possibili
+                            "Management"
+                            "Tecnici OT"
+                            "Fornitori di servizi"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443-2-4"
+                            "Rispetto dei requisiti NIS2"
+                            "Allineamento con ISO/IEC 27001"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [TIPO_DOCUMENTO] per il processo di
+                            +b handover/offboarding di un service provider OT, con focus su [FOCUS_SPECIFICO],
+                            +b destinato a [AUDIENCE], in stile [STILE] e livello tecnico [LIVELLO_TECNICO]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico sul processo di handover/offboarding per service
+                            +b provider OT, destinato a tecnici OT, in stile tecnico e livello intermedio."
+                        prompt_esempio_slide "Crea una presentazione di slide sul processo di handover/offboarding per
+                            +b service provider OT, destinata al management, in stile formale e livello base."
+                        prompt_esempio_sop "Elabora una SOP dettagliata per il processo di handover/offboarding di un
+                            +b service provider OT, destinata a tecnici OT, in stile tecnico e livello
+                            +b avanzato."
+                    [ checklist
+                        "Inventario completo di account e segreti riconsegnati"
+                        "Export di tutte le configurazioni rilevanti completato"
+                        "Revoca di tutti gli accessi del fornitore confermata"
+                        "Sessioni di knowledge transfer documentate"
+                        "Registro delle consegne aggiornato e firmato"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome del service provider"
+                        "Data di inizio e fine offboarding"
+                        "Sistemi e asset coinvolti"
+                        "Team interno ricevente"
+                        "Requisiti normativi specifici"
+                    [ avvertenze
+                        "Assicurarsi che nessun accesso del fornitore rimanga attivo post-offboarding"
+                        "Verificare la completezza della documentazione trasferita prima della chiusura del processo"
+                        "Coinvolgere il team di sicurezza OT per audit finali"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/13"
+            nome "Service Providers OT (servizi gestiti, integrazione, compliance)"
+            ruolo "Gestione dei rischi legati ai fornitori di servizi OT e conformità normativa"
+            [ norme_riferimento
+                "IEC 62443"
+                "IEC 27001/2"
+                "NIS2"
+                "CRA"
+                "Direttiva Macchine 2006"
+                "Registro Macchine 2023"
+                "GDPR 2016"
+            descrizione "Questo ambito si concentra sulla gestione dei rischi legati ai service provider
+                +b OT, includendo servizi gestiti, integrazione di sistemi e conformità normativa.
+                +b L'obiettivo è identificare anti-pattern comuni e definire controlli e procedure
+                +b correttive per mitigare i rischi."
+            [ sezioni
+                {
+                    id "cap/13/13.18"
+                    nome "Rischi & anti-pattern"
+                    { obiettivo
+                        codice "OBJ-13.18"
+                        descrizione "Identificare ed evitare errori comuni nei servizi OT come accessi diretti,
+                            +b assenza di staging, log non consegnati, patch senza rollback, mancanza di
+                            +b exception register e confusione nei ruoli."
+                    [ output_attesi
+                        "Tabella anti-pattern → controlli/procedure correttive"
+                    prompt_base "Elenca 12 anti-pattern tipici dei servizi OT e rimedi basati su IEC 62443."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-13.18.1"
+                            titolo "Gestione Accessi Diretti"
+                            descrizione_astratta "Evitare accessi diretti non controllati ai sistemi OT da parte di service
+                                +b provider."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Compromissione sistema"
+                            [ pratiche_raccomandate
+                                "Implementare VPN con MFA"
+                                "Monitoraggio accessi in tempo reale"
+                            [ metriche_kpi
+                                "Percentuale di accessi monitorati"
+                                "Tempo medio di rilevazione accessi non autorizzati"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di gestione accessi remoti"
+                                [ registri
+                                    "Log accessi remoti"
+                                [ evidenze
+                                    "Report audit accessi"
+                            [ placeholders_contesto
+                                "[Nome Service Provider]"
+                                "[Tipo Sistema OT]"
+                        {
+                            id "ASP-13.18.2"
+                            titolo "Assenza di Ambiente di Staging"
+                            descrizione_astratta "Garantire che le modifiche siano testate in un ambiente di staging prima
+                                +b dell'implementazione in produzione."
+                            [ rischi_mitigati
+                                "Errori in produzione"
+                                "Interruzioni operative"
+                            [ pratiche_raccomandate
+                                "Creare ambiente di staging replicato"
+                                "Test pre-deployment"
+                            [ metriche_kpi
+                                "Percentuale di modifiche testate in staging"
+                                "Numero di incidenti post-deploy"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di test in staging"
+                                [ registri
+                                    "Registro test staging"
+                                [ evidenze
+                                    "Report test completati"
+                            [ placeholders_contesto
+                                "[Ambiente Produzione]"
+                                "[Tipo Modifica]"
+                        {
+                            id "ASP-13.18.3"
+                            titolo "Log Non Consegnati"
+                            descrizione_astratta "Assicurare che i log di attività siano raccolti e consegnati per il
+                                +b monitoraggio e l'audit."
+                            [ rischi_mitigati
+                                "Mancanza di tracciabilità"
+                                "Impossibilità di indagine post-incidente"
+                            [ pratiche_raccomandate
+                                "Configurare SIEM per raccolta log"
+                                "Definire SLA per consegna log"
+                            [ metriche_kpi
+                                "Percentuale di log raccolti"
+                                "Tempo medio di consegna log"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di gestione log"
+                                [ registri
+                                    "Registro consegna log"
+                                [ evidenze
+                                    "Report SIEM"
+                            [ placeholders_contesto
+                                "[Sistema OT]"
+                                "[Service Provider]"
+                        {
+                            id "ASP-13.18.4"
+                            titolo "Patch Senza Rollback"
+                            descrizione_astratta "Garantire che ogni aggiornamento o patch abbia un piano di rollback per
+                                +b mitigare rischi di fallimento."
+                            [ rischi_mitigati
+                                "Interruzioni operative"
+                                "Errore irreversibile post-patch"
+                            [ pratiche_raccomandate
+                                "Creare backup pre-patch"
+                                "Test rollback in staging"
+                            [ metriche_kpi
+                                "Percentuale di patch con piano rollback"
+                                "Tempo medio di ripristino"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di gestione patch"
+                                [ registri
+                                    "Registro patch applicate"
+                                [ evidenze
+                                    "Report backup pre-patch"
+                            [ placeholders_contesto
+                                "[Sistema OT]"
+                                "[Tipo Patch]"
+                        {
+                            id "ASP-13.18.5"
+                            titolo "Mancanza di Exception Register"
+                            descrizione_astratta "Documentare tutte le eccezioni alle policy di sicurezza per garantire
+                                +b tracciabilità e revisione."
+                            [ rischi_mitigati
+                                "Non conformità"
+                                "Decisioni non tracciate"
+                            [ pratiche_raccomandate
+                                "Creare registro eccezioni"
+                                "Revisione periodica eccezioni"
+                            [ metriche_kpi
+                                "Numero di eccezioni documentate"
+                                "Percentuale di eccezioni riviste"
+                            { artefatti
+                                [ procedure
+                                    "Procedura gestione eccezioni"
+                                [ registri
+                                    "Registro eccezioni"
+                                [ evidenze
+                                    "Report revisione eccezioni"
+                            [ placeholders_contesto
+                                "[Policy Violata]"
+                                "[Motivazione Eccezione]"
+                        {
+                            id "ASP-13.18.6"
+                            titolo "Confusione nei Ruoli"
+                            descrizione_astratta "Definire chiaramente i ruoli e le responsabilità tra service provider e
+                                +b organizzazione OT."
+                            [ rischi_mitigati
+                                "Errori operativi"
+                                "Mancanza di accountability"
+                            [ pratiche_raccomandate
+                                "Creare matrice RACI"
+                                "Formazione sui ruoli"
+                            [ metriche_kpi
+                                "Percentuale di ruoli definiti"
+                                "Numero di conflitti di responsabilità"
+                            { artefatti
+                                [ procedure
+                                    "Procedura definizione ruoli"
+                                [ registri
+                                    "Matrice RACI"
+                                [ evidenze
+                                    "Report formazione ruoli"
+                            [ placeholders_contesto
+                                "[Ruolo Service Provider]"
+                                "[Ruolo Interno]"
+                    { policy_template
+                        titolo "Policy Gestione Rischi Service Provider OT"
+                        [ sezioni
+                            "Scopo"
+                            "Ambito di applicazione"
+                            "Responsabilità"
+                            "Controlli di sicurezza"
+                            "Monitoraggio e revisione"
+                        [ placeholders_contesto
+                            "[Nome Organizzazione]"
+                            "[Tipo Sistema OT]"
+                            "[Service Provider]"
+                    { sop_template
+                        titolo "SOP Mitigazione Anti-Pattern Servizi OT"
+                        [ step
+                            "Identificazione anti-pattern"
+                            "Valutazione rischio"
+                            "Implementazione controllo"
+                            "Monitoraggio esito"
+                            "Registrazione risultati"
+                        [ registrazioni
+                            "Registro anti-pattern identificati"
+                            "Registro controlli implementati"
+                            "Report monitoraggio"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per produzione"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuovi controlli"
+                            "Release branch per test finali"
+                    { raci
+                        [ roles
+                            "SP (Service Provider)"
+                            "AO (Asset Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Team)"
+                        [ matrix
+                            {
+                                attivita "Identificazione anti-pattern"
+                                SP "I"
+                                AO "A"
+                                SI "R"
+                                OTSec "C"
+                            {
+                                attivita "Implementazione controlli"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Monitoraggio e audit"
+                                SP "I"
+                                AO "C"
+                                SI "I"
+                                OTSec "R/A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                            "Slide"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Management"
+                            "Auditor"
+                            "Service Provider"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità IEC 62443"
+                            "Lingua italiana"
+                            "Focus su OT"
+                    { prompting
+                        prompt_template_generico "Genera un documento su [argomento] per [audience] con stile [stile] e livello
+                            +b tecnico [livello]. Includi riferimenti a [norma]."
+                        prompt_esempio_articolo "Scrivi un articolo su 'Anti-pattern nei servizi OT' per tecnici OT, stile
+                            +b tecnico, livello intermedio, con riferimenti a IEC 62443."
+                        prompt_esempio_slide "Crea una presentazione su 'Mitigazione rischi service provider OT' per
+                            +b management, stile formale, livello base, con focus su IEC 62443."
+                        prompt_esempio_sop "Elabora una SOP per 'Gestione patch senza rollback' per tecnici OT, stile
+                            +b tecnico, livello avanzato, con template IEC 62443."
+                    [ checklist
+                        "Verifica conformità IEC 62443"
+                        "Identificazione anti-pattern rilevanti"
+                        "Definizione controlli correttivi"
+                        "Documentazione rischi mitigati"
+                        "Validazione con stakeholder"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome Service Provider"
+                        "Tipo Sistema OT"
+                        "Ambiente Operativo"
+                        "Norme applicabili"
+                        "Ruoli coinvolti"
+                    [ avvertenze
+                        "I contenuti generati sono ad alto livello e richiedono contestualizzazione."
+                        "Verificare conformità con normative locali prima dell'implementazione."
+                        "Coinvolgere esperti OT per validazione dei controlli."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/13"
+            nome "Service Providers OT (servizi gestiti, integrazione, compliance)"
+            ruolo "Supporto ai fornitori di servizi OT per garantire sicurezza e conformità nei
+                +b contesti ICS/OT"
+            [ norme_riferimento
+                "IEC 62443"
+                "ISO/IEC 27001"
+                "ISO/IEC 27002"
+                "NIS2"
+                "CRA"
+                "Direttiva Macchine 2006"
+                "Registro Macchine 2023"
+                "GDPR 2016"
+            descrizione "Questo ambito si concentra sui fornitori di servizi OT, includendo la gestione
+                +b dei servizi, l'integrazione di sistemi e la conformità normativa. L'obiettivo è
+                +b fornire strumenti e modelli per garantire operazioni sicure e conformi agli
+                +b standard di cybersecurity in ambienti industriali."
+            [ sezioni
+                {
+                    id "cap/13/13.19"
+                    nome "Template & Deliverable"
+                    { obiettivo
+                        codice "OBJ-13.19"
+                        descrizione "Fornire un pacchetto di modelli riutilizzabili per supportare i fornitori di
+                            +b servizi OT nella gestione della sicurezza e della conformità."
+                    [ output_attesi
+                        "Service Catalog"
+                        "RACI"
+                        "Onboarding Pack"
+                        "Remote Access Playbook"
+                        "Patch/Vuln SOP"
+                        "Backup/DR SOP"
+                        "Runbook SOC/IR"
+                        "Compliance Map"
+                        "PSIRT Liaison SOP"
+                        "Update Plan"
+                        "Report KPI"
+                        "Contract Checklist/DPA"
+                        "Handover Plan"
+                    prompt_base "Genera i template elencati (struttura, sezioni, segnaposto)."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-13.19.1"
+                            titolo "Gestione Accessi Remoti"
+                            descrizione_astratta "Garantire che gli accessi remoti ai sistemi OT siano sicuri e tracciabili per
+                                +b prevenire accessi non autorizzati."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Compromissione dati"
+                                "Interruzione operativa"
+                            [ pratiche_raccomandate
+                                "Implementazione MFA"
+                                "Registrazione sessioni"
+                                "Politiche di accesso basate su ruoli"
+                            [ metriche_kpi
+                                "Percentuale di accessi con MFA"
+                                "Tempo medio di rilevazione accessi anomali"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione MFA"
+                                    "Procedura di monitoraggio accessi"
+                                [ registri
+                                    "Log accessi remoti"
+                                    "Registro violazioni"
+                                [ evidenze
+                                    "Report conformità MFA"
+                                    "Audit accessi"
+                            [ placeholders_contesto
+                                "[NOME_AZIENDA]"
+                                "[SISTEMA_OT]"
+                                "[POLICY_ACCESSO]"
+                        {
+                            id "ASP-13.19.2"
+                            titolo "Gestione Patch e Vulnerabilità"
+                            descrizione_astratta "Assicurare che i sistemi OT siano aggiornati per mitigare vulnerabilità note
+                                +b senza compromettere la stabilità operativa."
+                            [ rischi_mitigati
+                                "Exploit vulnerabilità"
+                                "Interruzione operativa"
+                                "Non conformità"
+                            [ pratiche_raccomandate
+                                "Valutazione impatto patch"
+                                "Test in ambiente sandbox"
+                                "Pianificazione finestre di manutenzione"
+                            [ metriche_kpi
+                                "Percentuale patch applicate"
+                                "Tempo medio risoluzione vulnerabilità"
+                            { artefatti
+                                [ procedure
+                                    "Procedura applicazione patch"
+                                    "Procedura test patch"
+                                [ registri
+                                    "Registro patch applicate"
+                                    "Registro vulnerabilità"
+                                [ evidenze
+                                    "Report test patch"
+                                    "Audit vulnerabilità"
+                            [ placeholders_contesto
+                                "[NOME_SISTEMA]"
+                                "[VERSIONE_SOFTWARE]"
+                                "[FINESTRA_MANUTENZIONE]"
+                    { policy_template
+                        titolo "Policy di Sicurezza per Service Providers OT"
+                        [ sezioni
+                            "Introduzione"
+                            "Ambito di Applicazione"
+                            "Ruoli e Responsabilità"
+                            "Requisiti di Sicurezza"
+                            "Gestione Incidenti"
+                            "Monitoraggio e Report"
+                            "Riferimenti Normativi"
+                        [ placeholders_contesto
+                            "[NOME_AZIENDA]"
+                            "[AMBITO_SERVIZIO]"
+                            "[NORME_APPLICABILI]"
+                    { sop_template
+                        titolo "Procedura Operativa Standard (SOP) per Service Providers OT"
+                        [ step
+                            "Identificazione del Servizio"
+                            "Valutazione Rischi"
+                            "Implementazione Controlli"
+                            "Monitoraggio Continuo"
+                            "Report e Revisione"
+                        [ registrazioni
+                            "Log attività"
+                            "Report incidenti"
+                            "Registro revisioni"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuovi template"
+                            "Hotfix branch per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "Service Provider (SP)"
+                            "Asset Owner (AO)"
+                            "System Integrator (SI)"
+                            "OT Security Team (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione Requisiti Sicurezza"
+                                SP "C"
+                                AO "R"
+                                SI "C"
+                                OTSec "A"
+                            {
+                                attivita "Implementazione Controlli"
+                                SP "R"
+                                AO "C"
+                                SI "A"
+                                OTSec "I"
+                            {
+                                attivita "Monitoraggio e Report"
+                                SP "R"
+                                AO "I"
+                                SI "C"
+                                OTSec "A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "PDF"
+                            "DOCX"
+                            "PPTX"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Manager"
+                            "Auditor"
+                            "Fornitori Esterni"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità IEC 62443"
+                            "Integrazione con ISO 27001"
+                            "Rispetto GDPR per dati personali"
+                    { prompting
+                        prompt_template_generico "Genera un template per [NOME_TEMPLATE] con struttura, sezioni e segnaposto per
+                            +b il contesto [AMBITO_SERVIZIO]."
+                        prompt_esempio_articolo "Scrivi un articolo su 'Gestione Sicurezza nei Servizi OT' per un pubblico
+                            +b tecnico, includendo riferimenti a IEC 62443."
+                        prompt_esempio_slide "Crea una presentazione su 'Onboarding Service Provider OT' con 10 slide, focus
+                            +b su RACI e Compliance Map."
+                        prompt_esempio_sop "Elabora una SOP per 'Patch Management in OT' con step dettagliati e
+                            +b registrazioni richieste."
+                    [ checklist
+                        "Verifica conformità template a IEC 62443"
+                        "Inclusione placeholders contesto"
+                        "Validazione RACI con stakeholder"
+                        "Revisione output con team OT Security"
+                        "Test leggibilità per audience target"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome Azienda"
+                        "Tipo Servizio OT"
+                        "Sistemi Target"
+                        "Norme Applicabili"
+                        "Ruoli Coinvolti"
+                        "Finestre Operative"
+                    [ avvertenze
+                        "I template devono essere adattati al contesto specifico prima dell'uso."
+                        "Verificare conformità normativa con esperti legali."
+                        "Non utilizzare template senza validazione da parte del team OT Security."

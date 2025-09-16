@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My App</title>
+  <style>
+    body{font-family:system-ui;margin:1.5rem}
+    table{border-collapse:collapse}
+    td,th{border:1px solid #ddd;padding:.4rem}
+    form.inline{display:flex;gap:.4rem;align-items:center;margin:.8rem 0}
+  </style>
+</head>
+<body>
+  <h1>My App</h1>
+  <p id="auth">
+    <a href="/login">Login</a>
+  </p>
+
+  <h2>Messaggi (pubblico - sola lettura se non sei loggato)</h2>
+
+  <form id="addForm" class="inline" style="display:none">
+    <input id="text" placeholder="Testo" required style="flex:1" />
+    <select id="status">
+      <option>inserito</option>
+      <option>esame in corso</option>
+      <option>approvato</option>
+      <option>rifiutato</option>
+      <option>annullato</option>
+    </select>
+    <input id="notes" placeholder="Note" />
+    <button type="submit">Aggiungi</button>
+  </form>
+
+  <table id="tbl"><thead><tr><th>Data/Ora</th><th>User</th><th>Status</th><th>Testo</th></tr></thead><tbody></tbody></table>
+
+  <script>
+    async function showError(r){
+      try{ const data = await r.json(); alert(`Errore ${r.status}: ${data.error||r.statusText}${data.message?`\n${data.message}`:''}`); }
+      catch(e){ alert(`Errore ${r.status}: ${r.statusText}`); }
+    }
+
+    async function loadMessages(){
+      const r = await fetch('/api/messages');
+      const rows = await r.json();
+      const tbody = document.querySelector('#tbl tbody');
+      tbody.innerHTML = rows.map(m => `<tr><td>${new Date(m.datetime).toLocaleString()}</td><td>${m.userid||''}</td><td>${m.status||''}</td><td>${(m.text||'').replace(/</g,'&lt;')}</td></tr>`).join('');
+    }
+
+    async function checkAuth(){
+      const authEl = document.getElementById('auth');
+      const addForm = document.getElementById('addForm');
+      try {
+        const r = await fetch('/api/me');
+        if (r.ok) {
+          const me = await r.json();
+          authEl.innerHTML = `Loggato come <strong>${me.userId}</strong> · <a href="/app/messages.html">Gestione messaggi</a> · <a href="/logout">Logout</a>`;
+          addForm.style.display = '';
+        } else {
+          authEl.innerHTML = `<a href="/login">Login</a>`;
+          addForm.style.display = 'none';
+        }
+      } catch(e) { /* ignore */ }
+    }
+
+    document.getElementById('addForm').addEventListener('submit', async (ev) => {
+      ev.preventDefault();
+      const payload = {
+        text: document.getElementById('text').value,
+        status: document.getElementById('status').value,
+        notes: document.getElementById('notes').value
+      };
+      const r = await fetch('/api/messages', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+      if (!r.ok) return showError(r);
+      ev.target.reset();
+      loadMessages();
+    });
+
+    checkAuth();
+    loadMessages();
+  </script>
+  <script src="/app.js"></script>
+</body>
+</html>

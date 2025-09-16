@@ -1,0 +1,1240 @@
+$group
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/12"
+            nome "Security di Macchina per OEM (Audit, messa a punto, hardening & monitoraggio)"
+            ruolo "Definizione di requisiti e linee guida per la sicurezza delle macchine OEM in
+                +b ambito OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-3-3"
+                "IEC 62443-4-2"
+                "ISO/IEC 27001"
+                "NIS2 Directive"
+                "Cyber Resilience Act (CRA)"
+                "Direttiva Macchine 2006/42/CE"
+                "Registro Macchine 2023"
+                "GDPR 2016/679"
+            descrizione "Questo ambito si concentra sulla sicurezza delle macchine per OEM, includendo
+                +b audit, hardening, monitoraggio e gestione degli accessi remoti per garantire
+                +b conformità normativa e protezione dei sistemi OT/ICS."
+            [ sezioni
+                {
+                    id "cap/12/12.9"
+                    nome "Accessi remoti & teleassistenza sicura"
+                    { obiettivo
+                        codice "OBJ-12.9"
+                        descrizione "Definire broker (jump/gateway), MFA, account time-bound, session recording,
+                            +b approvazioni su ticket per garantire teleassistenza sicura."
+                    [ output_attesi
+                        "Manuale teleassistenza sicura"
+                        "Requisiti di integrazione con AO (Asset Owner)"
+                    prompt_base "Crea manuale teleassistenza: prerequisiti, flussi, evidenze e revoca permessi."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-12.9.1"
+                            titolo "Broker di accesso remoto (Jump/Gateway)"
+                            descrizione_astratta "Implementazione di un punto centrale di controllo per gli accessi remoti,
+                                +b riducendo l'esposizione diretta dei sistemi OT."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Esposizione di credenziali"
+                                "Attacchi man-in-the-middle"
+                            [ pratiche_raccomandate
+                                "Configurare un jump host con autenticazione forte"
+                                "Limitare gli accessi al broker tramite whitelist IP"
+                                "Registrare tutte le connessioni in ingresso e in uscita"
+                            [ metriche_kpi
+                                "Percentuale di accessi remoti tramite broker (target: 100%)"
+                                "Tempo medio di rilevazione accessi non autorizzati"
+                                "Numero di sessioni non registrate (target: 0)"
+                            { artefatti
+                                [ procedure
+                                    "Configurazione del jump host"
+                                    "Gestione delle whitelist IP"
+                                [ registri
+                                    "Log delle connessioni al broker"
+                                    "Registro delle sessioni remote"
+                                [ evidenze
+                                    "Report di conformità del broker"
+                                    "Test di accesso non autorizzato"
+                            [ placeholders_contesto
+                                "[IP_BROKER]"
+                                "[POLICY_ACCESSO]"
+                                "[SISTEMA_OT_TARGET]"
+                        {
+                            id "ASP-12.9.2"
+                            titolo "Autenticazione Multi-Fattore (MFA)"
+                            descrizione_astratta "Implementazione di MFA per garantire che solo utenti autorizzati possano
+                                +b accedere ai sistemi remoti."
+                            [ rischi_mitigati
+                                "Furto di credenziali"
+                                "Accesso non autorizzato"
+                            [ pratiche_raccomandate
+                                "Utilizzo di token hardware o app di autenticazione"
+                                "Integrazione MFA con il broker di accesso"
+                                "Monitoraggio dei tentativi di accesso falliti"
+                            [ metriche_kpi
+                                "Percentuale di utenti con MFA attivo (target: 100%)"
+                                "Numero di accessi bloccati per MFA fallita"
+                            { artefatti
+                                [ procedure
+                                    "Configurazione MFA"
+                                    "Gestione dei token"
+                                [ registri
+                                    "Log dei tentativi di accesso MFA"
+                                    "Registro utenti con MFA attivo"
+                                [ evidenze
+                                    "Report di adozione MFA"
+                                    "Test di accesso senza MFA"
+                            [ placeholders_contesto
+                                "[MFA_PROVIDER]"
+                                "[UTENTI_TARGET]"
+                                "[SISTEMA_INTEGRATO]"
+                    { policy_template
+                        titolo "Policy per Accessi Remoti e Teleassistenza Sicura"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Requisiti di autenticazione (MFA)"
+                            "Configurazione del broker di accesso"
+                            "Gestione delle sessioni (recording e time-bound)"
+                            "Processo di approvazione tramite ticket"
+                            "Revoca dei permessi e monitoraggio"
+                        [ placeholders_contesto
+                            "[ORGANIZZAZIONE]"
+                            "[SISTEMI_TARGET]"
+                            "[RESPONSABILE_APPROVAZIONI]"
+                    { sop_template
+                        titolo "SOP per Configurazione e Gestione Teleassistenza Sicura"
+                        [ step
+                            "Verifica dei prerequisiti di rete e accesso"
+                            "Configurazione del broker di accesso remoto"
+                            "Abilitazione MFA per tutti gli utenti remoti"
+                            "Impostazione registrazione sessioni"
+                            "Definizione processo di approvazione ticket"
+                            "Monitoraggio e revoca permessi post-teleassistenza"
+                        [ registrazioni
+                            "Log configurazione broker"
+                            "Registro utenti MFA"
+                            "Evidenza registrazione sessioni"
+                            "Ticket di approvazione"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili e approvati"
+                            "Branch 'develop' per contenuti in lavorazione"
+                            "Feature branch per ogni aspetto di sicurezza"
+                            "Pull request obbligatorie con revisione"
+                    { raci
+                        [ roles
+                            "SP (Security Provider)"
+                            "AO (Asset Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Team)"
+                        [ matrix
+                            {
+                                attivita "Definizione requisiti teleassistenza"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Configurazione broker e MFA"
+                                SP "C"
+                                AO "I"
+                                SI "R"
+                                OTSec "A"
+                            {
+                                attivita "Monitoraggio e registrazione sessioni"
+                                SP "I"
+                                AO "R"
+                                SI "C"
+                                OTSec "A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Manuale"
+                            "Policy"
+                            "SOP"
+                            "Presentazione"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Responsabili sicurezza"
+                            "Asset Owner"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità IEC 62443-3-3"
+                            "Integrazione con sistemi legacy"
+                            "Rispetto GDPR per registrazione sessioni"
+                    { prompting
+                        prompt_template_generico "Genera un documento su [TEMA] per [AUDIENCE] con stile [STILE] e livello
+                            +b tecnico [LIVELLO]. Includi [SEZIONI] e considera [VINCOLI]."
+                        prompt_esempio_articolo "Scrivi un articolo su 'Teleassistenza Sicura in OT' per tecnici OT con stile
+                            +b tecnico e livello intermedio. Includi sezioni su broker, MFA e session
+                            +b recording, considerando conformità IEC 62443."
+                        prompt_esempio_slide "Crea una presentazione su 'Accessi Remoti Sicuri' per responsabili sicurezza
+                            +b con stile formale e livello base. Includi slide su obiettivi, rischi e
+                            +b soluzioni, considerando vincoli GDPR."
+                        prompt_esempio_sop "Elabora una SOP per 'Configurazione Teleassistenza Sicura' per system
+                            +b integrator con stile tecnico e livello avanzato. Includi step dettagliati e
+                            +b registrazioni, considerando integrazione con sistemi legacy."
+                    [ checklist
+                        "Verifica presenza broker di accesso remoto"
+                        "Conferma abilitazione MFA per tutti gli utenti"
+                        "Controllo registrazione sessioni attive"
+                        "Validazione processo approvazione ticket"
+                        "Test revoca permessi post-teleassistenza"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome organizzazione"
+                        "Tipologia sistemi OT/ICS"
+                        "Indirizzi IP broker"
+                        "Provider MFA"
+                        "Responsabile approvazioni ticket"
+                    [ avvertenze
+                        "Assicurarsi che la registrazione delle sessioni rispetti il GDPR."
+                        "Verificare compatibilità del broker con sistemi legacy."
+                        "Monitorare regolarmente i log per accessi non autorizzati."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/12"
+            nome "Security di Macchina per OEM (Audit, messa a punto, hardening & monitoraggio)"
+            ruolo "Gestione della sicurezza delle macchine per produttori OEM con focus su audit,
+                +b configurazione sicura e monitoraggio continuo."
+            [ norme_riferimento
+                "IEC 62443-4-1"
+                "IEC 62443-4-2"
+                "ISO/IEC 27001"
+                "Direttiva Macchine 2006/42/CE"
+                "Registro Macchine 2023"
+                "NIS2 Directive"
+                "Cyber Resilience Act (CRA)"
+            descrizione "Questo ambito copre le pratiche di sicurezza per macchine industriali prodotte
+                +b da OEM, includendo audit di conformità, hardening dei sistemi, messa a punto
+                +b sicura e monitoraggio continuo per mitigare rischi cyber in ambienti OT/ICS."
+            [ sezioni
+                {
+                    id "cap/12/12.10"
+                    nome "Secure update/OTA & gestione versioni"
+                    { obiettivo
+                        codice "OBJ-SEC-UPD-01"
+                        descrizione "Garantire aggiornamenti sicuri (firmware e applicazioni) tramite canali
+                            +b firmati, verifica dell'integrità, possibilità di rollback, prerequisiti di rete
+                            +b e staging su banchi prova."
+                    [ output_attesi
+                        "Specifica 'secure update di macchina'"
+                        "Registro versioni"
+                    prompt_base "Redigi specifica aggiornamenti firmati (firmware/app), staging, rollback e
+                        +b registro versioni."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-SEC-UPD-01"
+                            titolo "Integrità degli aggiornamenti"
+                            descrizione_astratta "Garantire che gli aggiornamenti software/firmware siano autentici e non
+                                +b manomessi durante il trasferimento o l'installazione."
+                            [ rischi_mitigati
+                                "Manomissione del firmware"
+                                "Installazione di software malevolo"
+                                "Interruzione del servizio per aggiornamenti corrotti"
+                            [ pratiche_raccomandate
+                                "Utilizzo di firme digitali per gli aggiornamenti"
+                                "Verifica dell'integrità tramite hash (es. SHA-256)"
+                                "Canali di comunicazione sicuri (es. TLS)"
+                            [ metriche_kpi
+                                "Percentuale di aggiornamenti verificati con successo"
+                                "Tempo medio di rilevazione di un aggiornamento non integro"
+                                "Numero di incidenti legati a aggiornamenti non sicuri"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di firma digitale degli aggiornamenti"
+                                    "Procedura di verifica integrità pre-installazione"
+                                [ registri
+                                    "Log delle verifiche di integrità"
+                                    "Registro delle firme digitali applicate"
+                                [ evidenze
+                                    "Report di verifica integrità"
+                                    "Certificati di firma digitale utilizzati"
+                            [ placeholders_contesto
+                                "[Tipo di macchina]"
+                                "[Ambiente di rete]"
+                                "[Frequenza aggiornamenti]"
+                        {
+                            id "ASP-SEC-UPD-02"
+                            titolo "Gestione del rollback"
+                            descrizione_astratta "Assicurare la possibilità di tornare a una versione precedente del
+                                +b software/firmware in caso di problemi durante o dopo l'aggiornamento."
+                            [ rischi_mitigati
+                                "Malfunzionamenti post-aggiornamento"
+                                "Perdita di funzionalità critiche"
+                                "Downtime prolungato"
+                            [ pratiche_raccomandate
+                                "Mantenere backup delle versioni precedenti"
+                                "Test di rollback in ambiente di staging"
+                                "Documentazione delle procedure di rollback"
+                            [ metriche_kpi
+                                "Tempo medio di esecuzione di un rollback"
+                                "Percentuale di rollback riusciti"
+                                "Numero di incidenti risolti tramite rollback"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di backup pre-aggiornamento"
+                                    "Procedura di rollback"
+                                [ registri
+                                    "Registro dei backup effettuati"
+                                    "Log delle operazioni di rollback"
+                                [ evidenze
+                                    "Report di test di rollback"
+                                    "Documentazione dei backup"
+                            [ placeholders_contesto
+                                "[Versione firmware corrente]"
+                                "[Ambiente di staging]"
+                                "[Criticità della macchina]"
+                    { policy_template
+                        titolo "Policy per Aggiornamenti Sicuri e Gestione Versioni"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Requisiti per aggiornamenti firmati"
+                            "Procedure di staging e test"
+                            "Gestione del rollback"
+                            "Registrazione delle versioni"
+                            "Responsabilità e ruoli"
+                        [ placeholders_contesto
+                            "[Nome OEM]"
+                            "[Tipologia di macchina]"
+                            "[Requisiti normativi specifici]"
+                    { sop_template
+                        titolo "SOP per Esecuzione Aggiornamenti Sicuri"
+                        [ step
+                            "Verifica dei prerequisiti di rete"
+                            "Download dell'aggiornamento firmato"
+                            "Verifica integrità e autenticità"
+                            "Test in ambiente di staging"
+                            "Esecuzione aggiornamento"
+                            "Verifica post-aggiornamento"
+                            "Aggiornamento registro versioni"
+                            "Preparazione rollback (se necessario)"
+                        [ registrazioni
+                            "Log verifica integrità"
+                            "Report test di staging"
+                            "Registro versioni aggiornato"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per versioni stabili"
+                            "Branch 'develop' per integrazione aggiornamenti"
+                            "Branch 'feature' per nuovi aggiornamenti"
+                            "Branch 'hotfix' per correzioni urgenti"
+                            "Tag per ogni versione rilasciata"
+                    { raci
+                        [ roles
+                            "Responsabile Produzione (SP)"
+                            "Amministratore OT (AO)"
+                            "Specialista IT (SI)"
+                            "Team OT Security (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione requisiti aggiornamento"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Verifica integrità aggiornamento"
+                                SP "I"
+                                AO "R"
+                                SI "A"
+                                OTSec "C"
+                            {
+                                attivita "Test in ambiente di staging"
+                                SP "I"
+                                AO "C"
+                                SI "R"
+                                OTSec "A"
+                            {
+                                attivita "Esecuzione aggiornamento"
+                                SP "C"
+                                AO "R"
+                                SI "A"
+                                OTSec "I"
+                            {
+                                attivita "Gestione rollback"
+                                SP "I"
+                                AO "R"
+                                SI "A"
+                                OTSec "C"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Specifica tecnica"
+                            "Procedura operativa (SOP)"
+                            "Policy di sicurezza"
+                            "Report di audit"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Responsabili OEM"
+                            "Auditor di sicurezza"
+                            "Team IT"
+                        [ stili
+                            "Tecnico"
+                            "Normativo"
+                            "Operativo"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443-4-1"
+                            "Rispetto dei requisiti della Direttiva Macchine"
+                            "Integrazione con sistemi legacy"
+                    { prompting
+                        prompt_template_generico "Redigi un documento su [argomento] per [audience] con stile [stile] e livello
+                            +b tecnico [livello], includendo [elementi specifici] e rispettando [vincoli]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico sugli aggiornamenti sicuri OTA per tecnici OT, con
+                            +b stile operativo e livello intermedio, includendo firme digitali, rollback e
+                            +b staging, rispettando IEC 62443."
+                        prompt_esempio_slide "Crea una presentazione su secure update per responsabili OEM, con stile
+                            +b normativo e livello base, includendo rischi mitigati e policy, rispettando la
+                            +b Direttiva Macchine."
+                        prompt_esempio_sop "Redigi una SOP per l'esecuzione di aggiornamenti sicuri per amministratori OT,
+                            +b con stile operativo e livello avanzato, includendo step di verifica integrità e
+                            +b rollback, rispettando IEC 62443-4-1."
+                    [ checklist
+                        "Verifica firma digitale dell'aggiornamento"
+                        "Test di integrità tramite hash"
+                        "Backup della versione corrente"
+                        "Test in ambiente di staging completato"
+                        "Canale di comunicazione sicuro configurato"
+                        "Procedura di rollback documentata"
+                        "Registro versioni aggiornato"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipologia di macchina"
+                        "Ambiente operativo (es. rete isolata o connessa)"
+                        "Frequenza degli aggiornamenti"
+                        "Criticità del sistema"
+                        "Normative applicabili"
+                        "Ruoli e responsabilità specifici"
+                    [ avvertenze
+                        "Gli aggiornamenti non verificati possono compromettere la sicurezza della macchina."
+                        "L'assenza di un piano di rollback può causare downtime prolungato."
+                        "La mancata registrazione delle versioni può violare requisiti normativi come Registro Macchine 2023."
+                        "Test in ambiente di staging sono obbligatori per sistemi critici."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/12"
+            nome "Security di Macchina per OEM (Audit, messa a punto, hardening & monitoraggio)"
+            ruolo "Gestione della sicurezza per macchine OEM in ambito OT/ICS"
+            [ norme_riferimento
+                "IEC 62443"
+                "IEC 27001/2"
+                "NIS2"
+                "CRA"
+                "Direttiva Macchine 2006"
+                "Registro Macchine 2023"
+                "GDPR 2016"
+            descrizione "Questo ambito si concentra sulla sicurezza delle macchine per OEM, includendo
+                +b audit, configurazione, hardening e monitoraggio continuo per garantire
+                +b conformità normativa e protezione da minacce cyber in contesti OT/ICS."
+            [ sezioni
+                {
+                    id "cap/12/12.11"
+                    nome "Logging, audit & sincronizzazione tempo"
+                    { obiettivo
+                        codice "OBJ-12.11"
+                        descrizione "Garantire la registrazione degli eventi audit minimi (login, change, update),
+                            +b configurare syslog verso un collezionatore AO/SP, implementare NTP affidabile e
+                            +b proteggere l'origine del tempo per la conformità a normative come IEC 62443
+                            +b (FR6)."
+                    [ output_attesi
+                        "Elenco degli eventi audit registrati"
+                        "Policy di retention dei log"
+                        "Configurazione del log routing verso collezionatore"
+                    prompt_base "Elenca eventi audit e configura syslog/NTP per compliance a 62443 (FR6)."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-12.11.01"
+                            titolo "Registrazione Eventi Audit"
+                            descrizione_astratta "Implementazione di un sistema di logging per tracciare eventi critici come
+                                +b login, modifiche e aggiornamenti su macchine OEM."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Modifiche non tracciate"
+                                "Mancata conformità normativa"
+                            [ pratiche_raccomandate
+                                "Definire eventi audit minimi (login, change, update)"
+                                "Configurare syslog per invio a collezionatore centralizzato"
+                                "Proteggere i log da manomissioni"
+                            [ metriche_kpi
+                                "Percentuale di eventi audit registrati correttamente"
+                                "Tempo medio di rilevamento di anomalie nei log"
+                                "Conformità al 100% con IEC 62443 FR6"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione syslog"
+                                    "Procedura di verifica integrità log"
+                                [ registri
+                                    "Registro eventi audit"
+                                    "Registro configurazioni syslog"
+                                [ evidenze
+                                    "Report di conformità audit"
+                                    "Log di test sincronizzazione NTP"
+                            [ placeholders_contesto
+                                "[AO/SP_collector_address]"
+                                "[OEM_machine_model]"
+                                "[audit_retention_period]"
+                        {
+                            id "ASP-12.11.02"
+                            titolo "Sincronizzazione Tempo (NTP)"
+                            descrizione_astratta "Implementazione di un sistema NTP affidabile per garantire la sincronizzazione
+                                +b temporale tra dispositivi e proteggere l'origine del tempo."
+                            [ rischi_mitigati
+                                "Desincronizzazione temporale"
+                                "Attacchi di tipo time spoofing"
+                                "Incoerenza nei log temporali"
+                            [ pratiche_raccomandate
+                                "Configurare NTP con server affidabili"
+                                "Proteggere il traffico NTP con autenticazione"
+                                "Monitorare la sincronizzazione temporale"
+                            [ metriche_kpi
+                                "Percentuale di dispositivi sincronizzati correttamente"
+                                "Tempo massimo di deriva temporale"
+                                "Frequenza di verifica sincronizzazione"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione NTP"
+                                    "Procedura di monitoraggio sincronizzazione"
+                                [ registri
+                                    "Registro configurazioni NTP"
+                                    "Registro errori sincronizzazione"
+                                [ evidenze
+                                    "Report di verifica sincronizzazione"
+                                    "Log di autenticazione NTP"
+                            [ placeholders_contesto
+                                "[NTP_server_address]"
+                                "[OEM_network_segment]"
+                                "[time_sync_frequency]"
+                    { policy_template
+                        titolo "Policy di Logging e Sincronizzazione Tempo"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Definizione eventi audit minimi"
+                            "Configurazione syslog e NTP"
+                            "Retention e protezione log"
+                            "Responsabilità e monitoraggio"
+                        [ placeholders_contesto
+                            "[OEM_organization_name]"
+                            "[audit_retention_period]"
+                            "[NTP_server_address]"
+                    { sop_template
+                        titolo "SOP Configurazione Logging e NTP"
+                        [ step
+                            "Identificare dispositivi target per logging"
+                            "Configurare syslog verso collezionatore AO/SP"
+                            "Configurare NTP con server affidabile"
+                            "Verificare integrità e sincronizzazione log"
+                            "Documentare e segnalare anomalie"
+                        [ registrazioni
+                            "Registro configurazioni syslog"
+                            "Registro configurazioni NTP"
+                            "Report di verifica sincronizzazione"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuovi contenuti"
+                            "Hotfix branch per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "SP (System Provider)"
+                            "AO (Asset Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Team)"
+                        [ matrix
+                            {
+                                attivita "Configurazione syslog"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Configurazione NTP"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Monitoraggio log"
+                                SP "I"
+                                AO "R"
+                                SI "I"
+                                OTSec "A"
+                            {
+                                attivita "Verifica conformità"
+                                SP "I"
+                                AO "C"
+                                SI "I"
+                                OTSec "R/A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                            "Slide"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Manager Sicurezza"
+                            "Auditor"
+                            "OEM Staff"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità IEC 62443 FR6"
+                            "Integrazione con sistemi AO/SP"
+                            "Rispetto normative GDPR per log personali"
+                    { prompting
+                        prompt_template_generico "Genera un documento su {argomento} per {audience} con stile {stile} e livello
+                            +b tecnico {livello}. Includi riferimenti a {norma} e considera il contesto
+                            +b {contesto}."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico su 'Logging e Sincronizzazione Tempo in OT/ICS' per
+                            +b tecnici OT, stile formale, livello intermedio. Riferisci a IEC 62443 FR6 e
+                            +b considera un contesto OEM con macchine [OEM_machine_model]."
+                        prompt_esempio_slide "Crea una presentazione su 'Configurazione syslog e NTP' per manager sicurezza,
+                            +b stile sintetico, livello base. Includi riferimenti a IEC 62443 e contesto
+                            +b [AO/SP_collector_address]."
+                        prompt_esempio_sop "Redigi una SOP per 'Configurazione Logging e NTP' per tecnici OT, stile
+                            +b tecnico, livello avanzato. Dettaglia step operativi per [OEM_machine_model] e
+                            +b conformità a IEC 62443."
+                    [ checklist
+                        "Definizione eventi audit minimi completata"
+                        "Configurazione syslog verso collezionatore verificata"
+                        "Configurazione NTP con server affidabile testata"
+                        "Policy di retention log definita"
+                        "Protezione origine tempo implementata"
+                        "Conformità a IEC 62443 FR6 verificata"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Modello macchina OEM"
+                        "Indirizzo collezionatore AO/SP"
+                        "Indirizzo server NTP"
+                        "Periodo di retention log"
+                        "Segmento di rete OT"
+                    [ avvertenze
+                        "Assicurarsi che i log non contengano dati personali non necessari per conformità GDPR"
+                        "Verificare regolarmente la sincronizzazione NTP per evitare derive temporali"
+                        "Proteggere il traffico syslog da intercettazioni con protocolli sicuri"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/12"
+            nome "Security di Macchina per OEM (Audit, messa a punto, hardening & monitoraggio)"
+            ruolo "Gestione della sicurezza delle macchine in contesto OT per OEM, con focus su
+                +b audit, hardening e monitoraggio continuo."
+            [ norme_riferimento
+                "IEC 62443-2-1"
+                "IEC 62443-3-3"
+                "ISO/IEC 27001"
+                "Direttiva Macchine 2006/42/CE"
+                "Registro Macchine 2023"
+                "NIS2 Directive"
+                "Cyber Resilience Act (CRA)"
+            descrizione "Questo ambito si concentra sulla sicurezza delle macchine industriali per OEM,
+                +b includendo audit di conformità, messa a punto dei sistemi, hardening delle
+                +b configurazioni e monitoraggio continuo per garantire protezione contro minacce
+                +b cyber in ambiente OT/ICS."
+            [ sezioni
+                {
+                    id "cap/12/12.12"
+                    nome "Safety & modalità degradata (integrazione con HSE)"
+                    { obiettivo
+                        codice "OBJ-SAFETY-001"
+                        descrizione "Preservare la safety durante cambi/test; pianificare modalità degradata e
+                            +b criteri di stop sicuro."
+                    [ output_attesi
+                        "Checklist safety-by-design con HSE"
+                        "Piano di prova per modalità degradata"
+                    prompt_base "Definisci interlock safety e modalità degradata durante hardening/patch."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-SAF-001"
+                            titolo "Integrazione Safety con Cybersecurity"
+                            descrizione_astratta "Garantire che le misure di cybersecurity non compromettano i requisiti di
+                                +b safety della macchina, integrando i principi di HSE (Health, Safety,
+                                +b Environment)."
+                            [ rischi_mitigati
+                                "Compromissione della safety durante aggiornamenti o patch"
+                                "Malfunzionamenti in modalità degradata"
+                                "Mancata conformità a normative safety (es. Direttiva Macchine)"
+                            [ pratiche_raccomandate
+                                "Definire interlock safety prima di interventi cyber"
+                                "Testare modalità degradata in ambiente simulato"
+                                "Coinvolgere team HSE in fase di pianificazione"
+                            [ metriche_kpi
+                                "Percentuale di test safety superati post-hardening"
+                                "Tempo medio di ripristino in modalità degradata"
+                                "Numero di incidenti safety legati a interventi cyber"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di test safety post-patch"
+                                    "Procedura di attivazione modalità degradata"
+                                [ registri
+                                    "Registro dei test safety"
+                                    "Registro delle attivazioni modalità degradata"
+                                [ evidenze
+                                    "Report di conformità safety"
+                                    "Documentazione di integrazione HSE"
+                            [ placeholders_contesto
+                                "[TIPO_MACCHINA]"
+                                "[AMBIENTE_OPERATIVO]"
+                                "[NORMATIVE_APPLICABILI]"
+                    { policy_template
+                        titolo "Policy di Integrazione Safety-Cybersecurity"
+                        [ sezioni
+                            "Obiettivi di safety e cybersecurity"
+                            "Ruoli e responsabilità HSE e OT Security"
+                            "Criteri per modalità degradata"
+                            "Monitoraggio e reporting"
+                        [ placeholders_contesto
+                            "[OEM_NOME]"
+                            "[MACCHINA_MODELLO]"
+                            "[SITO_OPERATIVO]"
+                    { sop_template
+                        titolo "SOP per Test Safety e Modalità Degradata"
+                        [ step
+                            "Verifica interlock safety pre-intervento"
+                            "Simulazione modalità degradata"
+                            "Registrazione risultati e anomalie"
+                            "Validazione con team HSE"
+                        [ registrazioni
+                            "Log dei test safety"
+                            "Report di simulazione degradata"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuovi contenuti safety"
+                            "Hotfix branch per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "Safety Manager"
+                            "OT Security Engineer"
+                            "HSE Coordinator"
+                            "Plant Manager"
+                        [ matrix
+                            {
+                                attivita "Definizione interlock safety"
+                                SP "Safety Manager"
+                                AO "HSE Coordinator"
+                                SI "OT Security Engineer"
+                                OTSec "OT Security Engineer"
+                            {
+                                attivita "Test modalità degradata"
+                                SP "OT Security Engineer"
+                                AO "Safety Manager"
+                                SI "Plant Manager"
+                                OTSec "OT Security Engineer"
+                            {
+                                attivita "Validazione con HSE"
+                                SP "HSE Coordinator"
+                                AO "Safety Manager"
+                                SI "Plant Manager"
+                                OTSec "OT Security Engineer"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Checklist"
+                            "Piano di prova"
+                            "Report di conformità"
+                            "SOP"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Responsabili HSE"
+                            "Management OEM"
+                            "Auditor esterni"
+                        [ stili
+                            "Tecnico"
+                            "Normativo"
+                            "Operativo"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443 e Direttiva Macchine"
+                            "Integrazione con processi HSE esistenti"
+                            "Documentazione in lingua italiana"
+                    { prompting
+                        prompt_template_generico "Genera un documento su [TEMA] per [AUDIENCE] con focus su [OBIETTIVO]. Includi
+                            +b riferimenti a [NORMATIVE] e considera il contesto [PLACEHOLDERS]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico su 'Integrazione Safety-Cybersecurity in OT' per
+                            +b tecnici OT, con focus su modalità degradata e interlock safety. Riferimenti:
+                            +b IEC 62443 e Direttiva Macchine. Contesto: [TIPO_MACCHINA],
+                            +b [AMBIENTE_OPERATIVO]."
+                        prompt_esempio_slide "Crea una presentazione su 'Safety e Modalità Degradata' per il management OEM,
+                            +b evidenziando obiettivi safety e output attesi. Riferimenti: IEC 62443.
+                            +b Contesto: [OEM_NOME], [SITO_OPERATIVO]."
+                        prompt_esempio_sop "Elabora una SOP per 'Test Safety Post-Patch' per tecnici OT, con step operativi
+                            +b e registrazioni. Riferimenti: Direttiva Macchine. Contesto: [MACCHINA_MODELLO],
+                            +b [AMBIENTE_OPERATIVO]."
+                    [ checklist
+                        "Verifica conformità safety pre-intervento"
+                        "Definizione criteri modalità degradata"
+                        "Test simulati di stop sicuro"
+                        "Validazione interlock con HSE"
+                        "Documentazione risultati test"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipo di macchina"
+                        "Ambiente operativo"
+                        "Normative applicabili"
+                        "Ruoli HSE coinvolti"
+                        "Specifiche OEM"
+                    [ avvertenze
+                        "Non eseguire interventi cyber senza validazione safety"
+                        "Assicurare coinvolgimento HSE in tutte le fasi"
+                        "Documentare ogni test per audit normativi"
+                        "Considerare impatti su produzione durante modalità degradata"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/12"
+            nome "Security di Macchina per OEM (Audit, messa a punto, hardening & monitoraggio)"
+            ruolo "Supporto agli OEM per garantire la sicurezza delle macchine in conformità agli
+                +b standard di cybersecurity OT/ICS."
+            [ norme_riferimento
+                "IEC 62443-2-1"
+                "IEC 62443-3-3"
+                "IEC 27001"
+                "NIS2"
+                "Cyber Resilience Act (CRA)"
+                "Direttiva Macchine 2006/42/CE"
+                "Registro Macchine 2023"
+                "GDPR 2016/679"
+            descrizione "Questo ambito si concentra sulla sicurezza delle macchine industriali per gli
+                +b OEM, includendo audit, hardening, messa a punto e monitoraggio continuo per
+                +b garantire conformità normativa e protezione contro minacce cyber in contesti
+                +b OT/ICS."
+            [ sezioni
+                {
+                    id "cap/12/12.13"
+                    nome "Pen-test mirato su macchina (scopo, limiti, prove)"
+                    { obiettivo
+                        codice "PT-MAC-01"
+                        descrizione "Impostare un pen-test controllato in sicurezza, definendo perimetro,
+                            +b limitazioni e prove su RDP/VNC, OPC UA, gateway/NGFW e protocolli real-time."
+                    [ output_attesi
+                        "Piano di test con approvazioni"
+                        "Evidenze dei test eseguiti"
+                        "Criteri di successo e report finale"
+                    prompt_base "Stendi piano pen-test macchina (in/out of scope, metodi, prove, safety)."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-SEC-01"
+                            titolo "Definizione del perimetro di test"
+                            descrizione_astratta "Identificazione delle componenti della macchina da includere/escludere dal
+                                +b pen-test per evitare impatti su operazioni critiche."
+                            [ rischi_mitigati
+                                "Interruzione delle operazioni"
+                                "Danno fisico alla macchina"
+                                "Accesso non autorizzato a sistemi critici"
+                            [ pratiche_raccomandate
+                                "Definire chiaramente in/out of scope"
+                                "Coinvolgere stakeholder per validazione perimetro"
+                                "Documentare limitazioni operative"
+                            [ metriche_kpi
+                                "Percentuale di componenti testate rispetto al perimetro definito"
+                                "Tempo di approvazione del piano di test"
+                                "Numero di incidenti durante il test"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di definizione del perimetro"
+                                    "Procedura di validazione con stakeholder"
+                                [ registri
+                                    "Registro delle componenti in/out of scope"
+                                    "Registro delle approvazioni"
+                                [ evidenze
+                                    "Documentazione del perimetro"
+                                    "Report di validazione"
+                            [ placeholders_contesto
+                                "[MACCHINA_SPECIFICA]"
+                                "[AMBIENTE_OPERATIVO]"
+                                "[LIMITAZIONI_OPERATIVE]"
+                        {
+                            id "ASP-SEC-02"
+                            titolo "Sicurezza durante il pen-test"
+                            descrizione_astratta "Garantire che il pen-test non comprometta la sicurezza fisica o operativa della
+                                +b macchina o del personale."
+                            [ rischi_mitigati
+                                "Danno fisico a operatori o attrezzature"
+                                "Interruzione non pianificata della produzione"
+                                "Violazione di protocolli di sicurezza"
+                            [ pratiche_raccomandate
+                                "Eseguire test in ambiente isolato quando possibile"
+                                "Definire procedure di rollback"
+                                "Monitoraggio continuo durante il test"
+                            [ metriche_kpi
+                                "Numero di interruzioni operative durante il test"
+                                "Tempo di ripristino post-test"
+                                "Percentuale di test completati senza incidenti"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di isolamento ambiente"
+                                    "Procedura di rollback"
+                                [ registri
+                                    "Registro degli incidenti durante il test"
+                                    "Registro delle attività di monitoraggio"
+                                [ evidenze
+                                    "Report di sicurezza post-test"
+                                    "Documentazione di rollback"
+                            [ placeholders_contesto
+                                "[PROCEDURE_SICUREZZA]"
+                                "[AMBIENTE_TEST]"
+                                "[PERSONALE_COINVOLTO]"
+                    { policy_template
+                        titolo "Policy per Pen-test su Macchine Industriali"
+                        [ sezioni
+                            "Scopo e Applicabilità"
+                            "Definizione del Perimetro"
+                            "Limitazioni e Vincoli di Sicurezza"
+                            "Metodologie di Test"
+                            "Gestione degli Incidenti"
+                            "Documentazione e Report"
+                        [ placeholders_contesto
+                            "[NOME_MACCHINA]"
+                            "[AMBIENTE_OPERATIVO]"
+                            "[NORME_APPLICABILI]"
+                    { sop_template
+                        titolo "SOP per Esecuzione Pen-test su Macchina"
+                        [ step
+                            "Preparazione del piano di test"
+                            "Validazione del perimetro con stakeholder"
+                            "Configurazione ambiente di test sicuro"
+                            "Esecuzione test su RDP/VNC"
+                            "Esecuzione test su OPC UA"
+                            "Esecuzione test su gateway/NGFW"
+                            "Esecuzione test su protocolli real-time"
+                            "Raccolta evidenze e redazione report"
+                            "Revisione e approvazione finale"
+                        [ registrazioni
+                            "Registro delle attività di test"
+                            "Registro degli incidenti"
+                            "Registro delle approvazioni"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per ogni attività di test"
+                            "Hotfix branch per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "Security Specialist (SP)"
+                            "Audit Officer (AO)"
+                            "System Integrator (SI)"
+                            "OT Security Team (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione perimetro di test"
+                                SP "Responsible"
+                                AO "Accountable"
+                                SI "Consulted"
+                                OTSec "Informed"
+                            {
+                                attivita "Esecuzione pen-test"
+                                SP "Responsible"
+                                AO "Informed"
+                                SI "Consulted"
+                                OTSec "Accountable"
+                            {
+                                attivita "Revisione report"
+                                SP "Consulted"
+                                AO "Responsible"
+                                SI "Informed"
+                                OTSec "Accountable"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Piano di Test"
+                            "Report di Pen-test"
+                            "SOP"
+                            "Policy"
+                        [ audience_possibili
+                            "OEM"
+                            "Team OT Security"
+                            "Auditor"
+                            "System Integrator"
+                        [ stili
+                            "Tecnico"
+                            "Normativo"
+                            "Operativo"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443"
+                            "Rispetto dei requisiti NIS2"
+                            "Limitazioni operative della macchina"
+                    { prompting
+                        prompt_template_generico "Genera un documento sul pen-test per [AUDIENCE] con focus su [TEMA_SPECIFICO]
+                            +b in stile [STILE] e livello tecnico [LIVELLO]. Includi [ELEMENTI_SPECIFICI]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico sul pen-test di macchine industriali per OEM, con
+                            +b focus su sicurezza OPC UA, in stile tecnico e livello avanzato. Includi
+                            +b metodologie e rischi mitigati."
+                        prompt_esempio_slide "Crea una presentazione sul pen-test di macchine per auditor, con focus su
+                            +b conformità IEC 62443, in stile normativo e livello intermedio. Includi
+                            +b diagrammi di perimetro e criteri di successo."
+                        prompt_esempio_sop "Redigi una SOP per l'esecuzione di un pen-test su macchina per team OT
+                            +b Security, con focus su protocolli real-time, in stile operativo e livello base.
+                            +b Includi step dettagliati e registrazioni."
+                    [ checklist
+                        "Definizione del perimetro di test completata"
+                        "Approvazione stakeholder ottenuta"
+                        "Ambiente di test sicuro configurato"
+                        "Test su RDP/VNC eseguiti"
+                        "Test su OPC UA eseguiti"
+                        "Test su gateway/NGFW eseguiti"
+                        "Test su protocolli real-time eseguiti"
+                        "Report finale redatto e approvato"
+                        "Evidenze archiviate"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipologia di macchina"
+                        "Ambiente operativo"
+                        "Protocolli utilizzati"
+                        "Norme applicabili"
+                        "Limitazioni operative"
+                        "Personale coinvolto"
+                    [ avvertenze
+                        "Eseguire test solo in ambienti controllati per evitare impatti operativi."
+                        "Assicurarsi che il personale coinvolto sia adeguatamente formato."
+                        "Documentare ogni attività per garantire tracciabilità e conformità normativa."
+                        "Rispettare i requisiti di sicurezza fisica durante i test."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/12"
+            nome "Security di Macchina per OEM (Audit, messa a punto, hardening & monitoraggio)"
+            ruolo "Gestione della sicurezza delle macchine per OEM e Service Provider"
+            [ norme_riferimento
+                "IEC 62443"
+                "ISO/IEC 27001"
+                "ISO/IEC 27002"
+                "NIS2"
+                "Cyber Resilience Act (CRA)"
+                "Direttiva Macchine 2006/42/CE"
+                "Registro Macchine 2023"
+                "GDPR 2016/679"
+            descrizione "Questo ambito si concentra sulla sicurezza delle macchine industriali per OEM e
+                +b Service Provider, includendo audit, hardening, monitoraggio e definizione di
+                +b KPI per garantire conformità e protezione contro minacce cyber in contesti
+                +b OT/ICS."
+            [ sezioni
+                {
+                    id "cap/12/12.14"
+                    nome "KPI & Reporting"
+                    { obiettivo
+                        codice "OBJ-12.14"
+                        descrizione "Definire KPI misurabili per il programma di sicurezza delle macchine, come %
+                            +b macchine con MSEP completo, patch adoption, tempo di risposta agli advisory, %
+                            +b sessioni remote con MFA+recording, MTTD/MTTR su eventi macchina."
+                    [ output_attesi
+                        "Tabella KPI con formule, owner e target a 12 mesi"
+                        "Report template per monitoraggio periodico"
+                        "Dashboard mockup per visualizzazione KPI"
+                    prompt_base "Definisci KPI e target per programma di security di macchina (OEM/SP)."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-12.14.1"
+                            titolo "Misurazione dell'efficacia del programma di sicurezza"
+                            descrizione_astratta "Definizione di metriche quantitative e qualitative per valutare la maturità e
+                                +b l'efficacia delle misure di sicurezza implementate sulle macchine."
+                            [ rischi_mitigati
+                                "Mancata identificazione di vulnerabilità critiche"
+                                "Ritardi nella risposta a incidenti"
+                                "Non conformità normativa"
+                            [ pratiche_raccomandate
+                                "Definire KPI basati su standard (es. IEC 62443)"
+                                "Implementare monitoraggio continuo dei KPI"
+                                "Revisionare periodicamente i target in base a threat landscape"
+                            [ metriche_kpi
+                                "% macchine con MSEP completo = (Macchine con MSEP / Totale macchine) * 100"
+                                "Patch Adoption Rate = (Patch applicate / Patch disponibili) * 100"
+                                "Tempo medio di risposta agli advisory (giorni)"
+                                "% sessioni remote con MFA+recording = (Sessioni conformi / Totale sessioni) * 100"
+                                "MTTD (Mean Time to Detect) in ore"
+                                "MTTR (Mean Time to Respond) in ore"
+                            { artefatti
+                                [ procedure
+                                    "Procedura per raccolta dati KPI"
+                                    "Procedura per revisione target"
+                                [ registri
+                                    "Registro KPI mensile"
+                                    "Registro incidenti e tempi di risposta"
+                                [ evidenze
+                                    "Report di conformità MSEP"
+                                    "Log sessioni remote"
+                            [ placeholders_contesto
+                                "[NUM_MACCHINE_TOTALI]"
+                                "[SETTORE_APPLICAZIONE]"
+                                "[TIPOLOGIA_MACCHINE]"
+                    { policy_template
+                        titolo "Policy per la Definizione e Monitoraggio dei KPI di Sicurezza Macchine"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Definizione dei KPI"
+                            "Responsabilità e owner"
+                            "Frequenza di monitoraggio e reporting"
+                            "Revisione e aggiornamento dei target"
+                        [ placeholders_contesto
+                            "[NOME_AZIENDA]"
+                            "[AMBITO_APPLICAZIONE]"
+                            "[NORME_RIFERIMENTO]"
+                    { sop_template
+                        titolo "SOP per Raccolta e Analisi KPI di Sicurezza Macchine"
+                        [ step
+                            "Identificare le fonti dati per ogni KPI"
+                            "Raccogliere i dati su base [FREQUENZA]"
+                            "Calcolare i valori KPI secondo formule definite"
+                            "Confrontare con target stabiliti"
+                            "Generare report e comunicare ai responsabili"
+                            "Archiviare dati per audit"
+                        [ registrazioni
+                            "Log dati raccolti"
+                            "Report KPI generati"
+                            "Comunicazioni ai responsabili"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili e validati"
+                            "Branch 'develop' per contenuti in lavorazione"
+                            "Feature branch per ogni KPI o metrica specifica"
+                            "Pull request obbligatorie con review per merge"
+                    { raci
+                        [ roles
+                            "SP (Service Provider)"
+                            "AO (Asset Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Team)"
+                        [ matrix
+                            {
+                                attivita "Definizione KPI"
+                                SP "A"
+                                AO "R"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Raccolta dati"
+                                SP "C"
+                                AO "R"
+                                SI "A"
+                                OTSec "I"
+                            {
+                                attivita "Analisi e reporting"
+                                SP "I"
+                                AO "C"
+                                SI "R"
+                                OTSec "A"
+                            {
+                                attivita "Revisione target"
+                                SP "C"
+                                AO "R"
+                                SI "I"
+                                OTSec "A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Report"
+                            "Dashboard"
+                            "SOP"
+                            "Policy"
+                        [ audience_possibili
+                            "Management"
+                            "Tecnici OT"
+                            "Auditor"
+                            "Team di sicurezza"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443 per metriche di sicurezza"
+                            "Dati sensibili da anonimizzare per GDPR"
+                            "Target realistici basati su baseline aziendale"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [TIPO_DOCUMENTO] per [AUDIENCE] con stile [STILE] e
+                            +b livello tecnico [LIVELLO_TECNICO] sul tema dei KPI di sicurezza per macchine
+                            +b OEM/SP, includendo [CONTENUTI_SPECIFICI]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico per il management con stile formale e livello
+                            +b tecnico base sui KPI di sicurezza per macchine OEM, includendo definizioni,
+                            +b esempi e target a 12 mesi."
+                        prompt_esempio_slide "Crea una presentazione per auditor con stile sintetico e livello tecnico
+                            +b intermedio sui KPI di sicurezza macchine, includendo grafici, formule e owner."
+                        prompt_esempio_sop "Redigi una SOP per tecnici OT con stile tecnico e livello avanzato sulla
+                            +b raccolta e analisi dei KPI di sicurezza macchine, includendo step dettagliati e
+                            +b registrazioni."
+                    [ checklist
+                        "Definire KPI misurabili e rilevanti"
+                        "Assegnare owner per ogni KPI"
+                        "Stabilire target realistici a 12 mesi"
+                        "Predisporre strumenti per raccolta dati"
+                        "Verificare conformità normativa (IEC 62443, GDPR)"
+                        "Creare template per reporting periodico"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Numero totale di macchine gestite"
+                        "Tipologia di macchine (es. CNC, robot)"
+                        "Settore industriale (es. automotive, pharma)"
+                        "Baseline attuale dei KPI"
+                        "Strumenti di monitoraggio in uso"
+                    [ avvertenze
+                        "I KPI devono essere rivisti almeno annualmente per adattarsi a nuove minacce"
+                        "La raccolta dati deve rispettare il GDPR per informazioni sensibili"
+                        "I target devono essere realistici e basati su baseline aziendale"
+                        "Necessaria formazione del personale per interpretazione KPI"

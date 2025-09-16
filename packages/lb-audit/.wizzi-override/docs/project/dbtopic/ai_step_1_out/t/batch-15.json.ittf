@@ -1,0 +1,1204 @@
+$group
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/11"
+            nome "Conformità IEC 62443-4-2 per componenti (profilo di prodotto & evidenze)"
+            ruolo "Guida alla conformità per componenti OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-4-2"
+                "IEC 62443-3-3"
+                "ISO/IEC 27001"
+            descrizione "Questo ambito si concentra sui requisiti di sicurezza per i componenti OT/ICS
+                +b secondo lo standard IEC 62443-4-2, con particolare attenzione alla definizione
+                +b di profili di prodotto e alla raccolta di evidenze per dimostrare la conformità
+                +b ai Security Levels (SL) target."
+            [ sezioni
+                {
+                    id "cap/11/11.6"
+                    nome "Configurazioni necessarie per raggiungere i requisiti"
+                    { obiettivo
+                        codice "OBJ-11.6"
+                        descrizione "Elencare parametri e protocolli di configurazione per soddisfare i requisiti di
+                            +b sicurezza (es. disattivare protocolli legacy, implementare TLS per servizi,
+                            +b gestione certificati, password policy, sincronizzazione temporale, syslog)."
+                    [ output_attesi
+                        "Secure Configuration Guide breve per il componente"
+                        "Checklist di verifica conformità per SL2/SL3"
+                    prompt_base "Redigi una guida di configurazione minima per soddisfare i CR per SL2/SL3."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-11.6.1"
+                            titolo "Disattivazione protocolli legacy"
+                            descrizione_astratta "Eliminazione di protocolli obsoleti o non sicuri per ridurre la superficie di
+                                +b attacco."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Intercettazione dati"
+                            [ pratiche_raccomandate
+                                "Disattivare protocolli come Telnet e FTP"
+                                "Utilizzare alternative sicure come SSH e SFTP"
+                            [ metriche_kpi
+                                "Percentuale di dispositivi con protocolli legacy disattivati"
+                                "Tempo medio di rilevazione vulnerabilità legate a protocolli legacy"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di identificazione protocolli legacy"
+                                    "Procedura di disattivazione"
+                                [ registri
+                                    "Log di configurazione dispositivi"
+                                [ evidenze
+                                    "Report di scansione vulnerabilità"
+                                    "Configurazioni aggiornate"
+                            [ placeholders_contesto
+                                "[TIPO_COMPONENTE]"
+                                "[VERSIONE_SOFTWARE]"
+                                "[AMBIENTE_OPERATIVO]"
+                        {
+                            id "ASP-11.6.2"
+                            titolo "Implementazione TLS per servizi"
+                            descrizione_astratta "Protezione delle comunicazioni tramite l'uso di TLS per garantire riservatezza
+                                +b e integrità."
+                            [ rischi_mitigati
+                                "Man-in-the-Middle"
+                                "Intercettazione dati"
+                            [ pratiche_raccomandate
+                                "Configurare TLS 1.2 o superiore"
+                                "Disabilitare versioni obsolete di SSL/TLS"
+                            [ metriche_kpi
+                                "Percentuale di servizi con TLS attivo"
+                                "Numero di vulnerabilità TLS rilevate"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione TLS"
+                                    "Procedura di test TLS"
+                                [ registri
+                                    "Log di configurazione servizi"
+                                [ evidenze
+                                    "Report di test TLS"
+                                    "Certificati installati"
+                            [ placeholders_contesto
+                                "[SERVIZIO_SPECIFICO]"
+                                "[VERSIONE_TLS]"
+                                "[TIPO_CERTIFICATO]"
+                    { policy_template
+                        titolo "Policy di Configurazione Sicura per Componenti OT/ICS"
+                        [ sezioni
+                            "Scopo"
+                            "Ambito di applicazione"
+                            "Requisiti di configurazione"
+                            "Responsabilità"
+                            "Monitoraggio e verifica"
+                        [ placeholders_contesto
+                            "[NOME_COMPONENTE]"
+                            "[SL_TARGET]"
+                            "[AMBIENTE_OPERATIVO]"
+                    { sop_template
+                        titolo "SOP per Configurazione Sicura di Componenti OT/ICS"
+                        [ step
+                            "Identificazione del componente"
+                            "Verifica requisiti SL"
+                            "Applicazione configurazioni"
+                            "Test di conformità"
+                            "Documentazione"
+                        [ registrazioni
+                            "Registro configurazioni applicate"
+                            "Report di test conformità"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuove configurazioni"
+                    { raci
+                        [ roles
+                            "Security Engineer"
+                            "OT Specialist"
+                            "IT Manager"
+                            "Compliance Officer"
+                        [ matrix
+                            {
+                                attivita "Definizione requisiti configurazione"
+                                SP "Security Engineer"
+                                AO "Compliance Officer"
+                                SI "OT Specialist"
+                                OTSec "R"
+                            {
+                                attivita "Implementazione configurazioni"
+                                SP "OT Specialist"
+                                AO "Security Engineer"
+                                SI "IT Manager"
+                                OTSec "I"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Guida tecnica"
+                            "Checklist"
+                            "Report di conformità"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Responsabili sicurezza"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443-4-2"
+                            "Limitazioni hardware del componente"
+                            "Compatibilità con ambiente OT"
+                    { prompting
+                        prompt_template_generico "Redigi un documento di tipo [TIPO_DOCUMENTO] per [AUDIENCE] con stile [STILE] e
+                            +b livello tecnico [LIVELLO_TECNICO] su [ARGOMENTO]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico per tecnici OT con stile formale e livello
+                            +b intermedio sulla configurazione TLS per componenti OT/ICS."
+                        prompt_esempio_slide "Crea una presentazione per auditor con stile sintetico e livello base sui
+                            +b requisiti di configurazione per SL2/SL3."
+                        prompt_esempio_sop "Elabora una SOP per responsabili sicurezza con stile tecnico e livello avanzato
+                            +b sulla disattivazione di protocolli legacy."
+                    [ checklist
+                        "Verifica disattivazione protocolli legacy"
+                        "Conferma utilizzo TLS per servizi"
+                        "Controllo gestione certificati"
+                        "Validazione password policy"
+                        "Sincronizzazione temporale attiva"
+                        "Configurazione syslog per logging"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipo di componente OT/ICS"
+                        "Security Level target (SL2/SL3)"
+                        "Ambiente operativo"
+                        "Versione software/firmware"
+                        "Requisiti specifici cliente"
+                    [ avvertenze
+                        "Le configurazioni devono essere testate in ambiente non produttivo prima dell'implementazione."
+                        "Alcune configurazioni possono non essere compatibili con hardware legacy."
+                        "Consultare il produttore del componente per limitazioni specifiche."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/11"
+            nome "Conformità IEC 62443-4-2 per componenti (profilo di prodotto & evidenze)"
+            ruolo "Definizione dei requisiti di sicurezza per componenti OT/ICS in conformità a
+                +b IEC 62443-4-2"
+            [ norme_riferimento
+                "IEC 62443-4-2"
+                "IEC 62443-4-1"
+                "ISO/IEC 27001"
+            descrizione "Questo ambito si concentra sulla conformità ai requisiti tecnici di sicurezza
+                +b per componenti di sistemi di controllo industriale (ICS) come definiti nello
+                +b standard IEC 62443-4-2, con particolare attenzione ai profili di prodotto e
+                +b alle evidenze richieste per la certificazione."
+            [ sezioni
+                {
+                    id "cap/11/11.7"
+                    nome "Secure Boot & Roots of Trust"
+                    { obiettivo
+                        codice "OBJ-11.7"
+                        descrizione "Descrivere la catena di avvio sicuro, il concetto di Root of Trust del
+                            +b fornitore e dell’Asset Owner, l’uso di firmware firmati e la verifica
+                            +b dell’integrità."
+                    [ output_attesi
+                        "Schema delle chiavi di sicurezza e processo di firma/aggiornamento firmware."
+                        "Flusso dettagliato del Secure Boot e gestione delle chiavi tra fornitore e Asset Owner."
+                    prompt_base "Disegna il flusso Secure Boot/aggiornamenti firmati e la gestione delle chiavi
+                        +b (supplier/AO)."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-11.7.1"
+                            titolo "Integrità del Firmware tramite Secure Boot"
+                            descrizione_astratta "Garantire che il firmware caricato su un dispositivo ICS sia autentico e non
+                                +b manomesso attraverso un processo di avvio sicuro basato su Root of Trust."
+                            [ rischi_mitigati
+                                "Caricamento di firmware malevolo"
+                                "Manomissione del processo di avvio"
+                                "Accesso non autorizzato a dispositivi critici"
+                            [ pratiche_raccomandate
+                                "Implementazione di un Root of Trust hardware-based (es. TPM)."
+                                "Utilizzo di firme digitali per il firmware con chiavi gestite dal fornitore."
+                                "Verifica dell’integrità del firmware ad ogni avvio."
+                            [ metriche_kpi
+                                "Percentuale di dispositivi con Secure Boot attivo (100% target)."
+                                "Tempo medio di rilevazione di un firmware non valido."
+                                "Numero di incidenti legati a firmware non autorizzati (target 0)."
+                            { artefatti
+                                [ procedure
+                                    "Procedura di firma del firmware."
+                                    "Procedura di verifica Secure Boot."
+                                [ registri
+                                    "Log degli aggiornamenti firmware."
+                                    "Log delle verifiche di integrità."
+                                [ evidenze
+                                    "Certificati delle chiavi Root of Trust."
+                                    "Report di conformità Secure Boot."
+                            [ placeholders_contesto
+                                "[NOME_FORNITORE]"
+                                "[TIPO_DISPOSITIVO]"
+                                "[AMBIENTE_OPERATIVO]"
+                    { policy_template
+                        titolo "Policy per Secure Boot e Gestione Root of Trust"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Definizione delle responsabilità (Fornitore e Asset Owner)"
+                            "Requisiti per Secure Boot"
+                            "Gestione delle chiavi e Root of Trust"
+                            "Processo di aggiornamento firmware"
+                            "Monitoraggio e audit"
+                        [ placeholders_contesto
+                            "[NOME_ORGANIZZAZIONE]"
+                            "[TIPO_COMPONENTE]"
+                            "[LIVELLO_SICUREZZA_RICHIESTO]"
+                    { sop_template
+                        titolo "SOP per Implementazione e Verifica Secure Boot"
+                        [ step
+                            "Identificazione del Root of Trust hardware."
+                            "Configurazione del processo di Secure Boot."
+                            "Firma del firmware con chiavi sicure."
+                            "Verifica dell’integrità del firmware ad ogni avvio."
+                            "Registrazione dei log di avvio e aggiornamento."
+                            "Gestione delle chiavi tra fornitore e Asset Owner."
+                        [ registrazioni
+                            "Log di verifica Secure Boot."
+                            "Registro aggiornamenti firmware."
+                            "Report di audit sulle chiavi."
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili e validati."
+                            "Branch 'develop' per contenuti in lavorazione."
+                            "Feature branch per ogni aspetto di sicurezza (es. 'feature/secure-boot')."
+                            "Pull request obbligatorie con revisione da almeno 2 esperti."
+                    { raci
+                        [ roles
+                            "SP (Supplier)"
+                            "AO (Asset Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Team)"
+                        [ matrix
+                            {
+                                attivita "Definizione Root of Trust"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Firma del Firmware"
+                                SP "R"
+                                AO "I"
+                                SI "C"
+                                OTSec "A"
+                            {
+                                attivita "Verifica Secure Boot"
+                                SP "C"
+                                AO "R"
+                                SI "A"
+                                OTSec "I"
+                            {
+                                attivita "Gestione Chiavi"
+                                SP "R"
+                                AO "A"
+                                SI "I"
+                                OTSec "C"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report Tecnico"
+                            "Slide di Presentazione"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Management"
+                            "Auditor"
+                            "Fornitori"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443-4-2 obbligatoria."
+                            "Riferimenti a contesti specifici da contestualizzare."
+                            "Documentazione deve essere auditabile."
+                    { prompting
+                        prompt_template_generico "Descrivi il processo di Secure Boot per un dispositivo ICS in conformità a IEC
+                            +b 62443-4-2, includendo la gestione delle chiavi tra fornitore ([NOME_FORNITORE])
+                            +b e Asset Owner ([NOME_AO]), il ruolo del Root of Trust e il flusso di
+                            +b aggiornamento firmware firmato per [TIPO_DISPOSITIVO]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico sul Secure Boot per dispositivi ICS, spiegando il
+                            +b concetto di Root of Trust, la firma del firmware e i ruoli di fornitore e Asset
+                            +b Owner in un contesto [AMBIENTE_OPERATIVO]."
+                        prompt_esempio_slide "Crea una presentazione di 5 slide sul Secure Boot per un pubblico [AUDIENCE],
+                            +b includendo schema del flusso di avvio sicuro, gestione chiavi e conformità a
+                            +b IEC 62443-4-2 per [TIPO_COMPONENTE]."
+                        prompt_esempio_sop "Redigi una SOP per l’implementazione del Secure Boot su [TIPO_DISPOSITIVO], con
+                            +b step dettagliati per configurazione, verifica integrità e aggiornamento
+                            +b firmware firmato, includendo registrazioni per audit."
+                    [ checklist
+                        "Root of Trust hardware identificato e configurato."
+                        "Chiavi di firma firmware generate e protette."
+                        "Processo di Secure Boot testato su dispositivo campione."
+                        "Log di avvio e aggiornamento firmware registrati."
+                        "Conformità a IEC 62443-4-2 verificata con evidenze."
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome del Fornitore"
+                        "Tipo di Dispositivo"
+                        "Ambiente Operativo"
+                        "Livello di Sicurezza Richiesto (SL)"
+                        "Nome Asset Owner"
+                    [ avvertenze
+                        "La mancata implementazione del Secure Boot può esporre i dispositivi a rischi critici di manomissione."
+                        "La gestione delle chiavi deve essere conforme a standard di sicurezza (es. ISO/IEC 27001)."
+                        "Necessaria formazione del personale OT sulla verifica degli aggiornamenti firmware."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/11"
+            nome "Conformità IEC 62443-4-2 per componenti (profilo di prodotto & evidenze)"
+            ruolo "Definizione dei requisiti di sicurezza per componenti OT/ICS in conformità a
+                +b IEC 62443-4-2"
+            [ norme_riferimento
+                "IEC 62443-4-2"
+                "IEC 62443-3-3"
+                "ISO/IEC 27001"
+            descrizione "Questo ambito si concentra sui requisiti tecnici di sicurezza per componenti
+                +b OT/ICS, con particolare attenzione alla gestione delle identità, autenticazione
+                +b e accesso, in linea con lo standard IEC 62443-4-2."
+            [ sezioni
+                {
+                    id "cap/11/11.8"
+                    nome "Identità & gestione utenti (locale vs centrale)"
+                    { obiettivo
+                        codice "OBJ-11.8"
+                        descrizione "Chiarire le differenze tra **local user management** e **central user
+                            +b management**, definire criteri per password e MFA, e utilizzo di **PKI** per
+                            +b OPC UA, web e servizi."
+                    [ output_attesi
+                        "Policy di identità per il componente"
+                        "Tabella dei controlli FR1/FR2 (IEC 62443-4-2)"
+                    prompt_base "Definisci policy identity & access (locale/centrale), password, certificati,
+                        +b rotazione segreti."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-11.8.1"
+                            titolo "Gestione utenti locale vs centrale"
+                            descrizione_astratta "Analisi delle modalità di gestione degli utenti a livello locale (sul
+                                +b dispositivo) rispetto a una gestione centralizzata (es. tramite Active
+                                +b Directory o LDAP)."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Compromissione credenziali locali"
+                                "Incoerenza nella gestione utenti"
+                            [ pratiche_raccomandate
+                                "Implementare gestione centralizzata ove possibile"
+                                "Limitare account locali a scenari di emergenza"
+                                "Sincronizzazione periodica con repository centrale"
+                            [ metriche_kpi
+                                "Percentuale di dispositivi con gestione utenti centralizzata"
+                                "Tempo medio di aggiornamento delle credenziali"
+                                "Numero di account locali attivi"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione gestione utenti"
+                                    "Procedura di sincronizzazione con repository centrale"
+                                [ registri
+                                    "Log di accesso utenti"
+                                    "Registro modifiche credenziali"
+                                [ evidenze
+                                    "Report di conformità gestione utenti"
+                                    "Configurazioni di sistema"
+                            [ placeholders_contesto
+                                "[TIPO_DISPOSITIVO]"
+                                "[AMBIENTE_OPERATIVO]"
+                                "[REPOSITORY_CENTRALE]"
+                        {
+                            id "ASP-11.8.2"
+                            titolo "Criteri password e MFA"
+                            descrizione_astratta "Definizione dei requisiti per password robuste e utilizzo di autenticazione a
+                                +b più fattori (MFA) per proteggere l'accesso ai componenti."
+                            [ rischi_mitigati
+                                "Attacchi brute force"
+                                "Furto di credenziali"
+                                "Accesso non autorizzato"
+                            [ pratiche_raccomandate
+                                "Password con lunghezza minima di 12 caratteri"
+                                "Utilizzo di MFA per accessi remoti"
+                                "Rotazione periodica delle password"
+                            [ metriche_kpi
+                                "Percentuale di utenti con MFA abilitato"
+                                "Frequenza di rotazione password"
+                                "Numero di violazioni policy password"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione MFA"
+                                    "Procedura di gestione password"
+                                [ registri
+                                    "Log di autenticazione MFA"
+                                    "Registro rotazione password"
+                                [ evidenze
+                                    "Report conformità policy password"
+                                    "Configurazioni MFA"
+                            [ placeholders_contesto
+                                "[REQUISITI_PASSWORD]"
+                                "[METODO_MFA]"
+                                "[FREQUENZA_ROTAZIONE]"
+                        {
+                            id "ASP-11.8.3"
+                            titolo "PKI per OPC UA, web e servizi"
+                            descrizione_astratta "Utilizzo di infrastrutture a chiave pubblica (PKI) per garantire autenticazione
+                                +b e crittografia nei protocolli OPC UA, web e altri servizi."
+                            [ rischi_mitigati
+                                "Man-in-the-middle attacks"
+                                "Accesso non autorizzato ai servizi"
+                                "Compromissione integrità dati"
+                            [ pratiche_raccomandate
+                                "Implementare certificati X.509 per OPC UA"
+                                "Utilizzare TLS per servizi web"
+                                "Gestire rotazione e revoca certificati"
+                            [ metriche_kpi
+                                "Percentuale di servizi con certificati validi"
+                                "Tempo medio di rinnovo certificati"
+                                "Numero di certificati scaduti"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di emissione certificati"
+                                    "Procedura di revoca certificati"
+                                [ registri
+                                    "Log utilizzo certificati"
+                                    "Registro revoca certificati"
+                                [ evidenze
+                                    "Elenco certificati attivi"
+                                    "Report scadenza certificati"
+                            [ placeholders_contesto
+                                "[AUTORITA_CERTIFICAZIONE]"
+                                "[PROTOCOLLI_SUPPORTATI]"
+                                "[FREQUENZA_RINNOVO]"
+                    { policy_template
+                        titolo "Policy di Identità e Accesso per Componenti OT/ICS"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Definizioni (locale vs centrale, MFA, PKI)"
+                            "Requisiti gestione utenti"
+                            "Criteri password e autenticazione"
+                            "Gestione certificati e segreti"
+                            "Monitoraggio e audit"
+                            "Responsabilità"
+                        [ placeholders_contesto
+                            "[NOME_COMPONENTE]"
+                            "[AMBIENTE_OPERATIVO]"
+                            "[REQUISITI_SPECIFICI]"
+                    { sop_template
+                        titolo "SOP - Configurazione Identità e Accesso Componenti OT/ICS"
+                        [ step
+                            "Verifica requisiti di gestione utenti (locale/centrale)"
+                            "Configurazione repository utenti"
+                            "Impostazione policy password e MFA"
+                            "Emissione e installazione certificati PKI"
+                            "Configurazione rotazione segreti"
+                            "Test di accesso e autenticazione"
+                            "Registrazione configurazione e risultati test"
+                        [ registrazioni
+                            "Registro configurazioni utenti"
+                            "Registro certificati emessi"
+                            "Log test di autenticazione"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili e approvati"
+                            "Branch 'develop' per contenuti in lavorazione"
+                            "Feature branch per ogni aspetto di sicurezza"
+                            "Pull request obbligatorie con revisione"
+                    { raci
+                        [ roles
+                            "Security Policy (SP)"
+                            "Asset Owner (AO)"
+                            "System Integrator (SI)"
+                            "OT Security Team (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione policy identità"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Configurazione gestione utenti"
+                                SP "C"
+                                AO "A"
+                                SI "R"
+                                OTSec "I"
+                            {
+                                attivita "Gestione certificati PKI"
+                                SP "C"
+                                AO "A"
+                                SI "I"
+                                OTSec "R"
+                            {
+                                attivita "Monitoraggio e audit"
+                                SP "I"
+                                AO "A"
+                                SI "C"
+                                OTSec "R"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report di conformità"
+                            "Slide di presentazione"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Manager IT/OT"
+                            "Auditor"
+                            "Fornitori componenti"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443-4-2"
+                            "Integrazione con sistemi esistenti"
+                            "Rispetto normative locali (es. GDPR)"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [TIPO_DOCUMENTO] per [AUDIENCE] con stile [STILE] e
+                            +b livello tecnico [LIVELLO_TECNICO] sul tema della gestione identità e accesso
+                            +b per componenti OT/ICS, includendo policy per utenti locali/centrali, criteri
+                            +b password/MFA e utilizzo PKI per OPC UA e servizi. Includi riferimenti a IEC
+                            +b 62443-4-2 FR1/FR2."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico per tecnici OT con stile formale e livello
+                            +b intermedio sulla gestione identità locale vs centrale in componenti OT/ICS,
+                            +b evidenziando vantaggi e svantaggi, criteri password/MFA e utilizzo PKI per OPC
+                            +b UA. Riferisci a IEC 62443-4-2 FR1/FR2."
+                        prompt_esempio_slide "Crea una presentazione per manager IT/OT con stile sintetico e livello base
+                            +b sulla gestione identità in componenti OT/ICS, includendo differenze locale vs
+                            +b centrale, policy password/MFA e PKI per OPC UA. Usa riferimenti a IEC
+                            +b 62443-4-2."
+                        prompt_esempio_sop "Elabora una SOP per system integrator con stile tecnico e livello avanzato per
+                            +b configurare gestione identità e accesso su componenti OT/ICS, includendo step
+                            +b per utenti locali/centrali, configurazione MFA e gestione certificati PKI.
+                            +b Riferisci a IEC 62443-4-2 FR1/FR2."
+                    [ checklist
+                        "Definizione modalità gestione utenti (locale/centrale)"
+                        "Configurazione criteri password conformi"
+                        "Abilitazione MFA per accessi critici"
+                        "Implementazione PKI per OPC UA e servizi"
+                        "Rotazione periodica segreti e certificati"
+                        "Documentazione configurazioni e test"
+                        "Verifica conformità a IEC 62443-4-2 FR1/FR2"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipo di componente OT/ICS"
+                        "Ambiente operativo (es. rete segregata)"
+                        "Requisiti normativi specifici"
+                        "Repository centrale utenti (es. Active Directory)"
+                        "Autorità di certificazione per PKI"
+                    [ avvertenze
+                        "La gestione locale utenti può introdurre rischi di incoerenza e difficoltà di monitoraggio."
+                        "L'assenza di MFA aumenta il rischio di accesso non autorizzato."
+                        "Certificati PKI non gestiti correttamente possono compromettere la sicurezza delle comunicazioni."
+                        "Verificare compatibilità del componente con gestione centralizzata e protocolli PKI."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/11"
+            nome "Conformità IEC 62443-4-2 per componenti (profilo di prodotto & evidenze)"
+            ruolo "Gestione della conformità per componenti OT/ICS in ambito cybersecurity"
+            [ norme_riferimento
+                "IEC 62443-4-2"
+                "IEC 62443-4-1"
+                "ISO/IEC 27001"
+            descrizione "Questo ambito si concentra sui requisiti di sicurezza per i componenti di
+                +b sistemi di controllo industriale (ICS) secondo IEC 62443-4-2, con particolare
+                +b attenzione alla definizione di profili di prodotto e alla raccolta di evidenze
+                +b per la conformità."
+            [ sezioni
+                {
+                    id "cap/11/11.9"
+                    nome "Audit, tempo & logging"
+                    { obiettivo
+                        codice "OBJ-11.9"
+                        descrizione "Abilitare eventi di audit, storage, syslog, sincronizzazione del tempo e
+                            +b protezione dell'origine del tempo; fornire evidenze per audit."
+                    [ output_attesi
+                        "Elenco di eventi di audit minimi (auditable events)"
+                        "Configurazione di log routing e syslog"
+                        "Configurazione NTP per sincronizzazione del tempo"
+                        "Evidenza di protezione dell'origine del tempo"
+                    prompt_base "Elenca eventi di audit minimi e configurazione syslog/NTP per compliance IEC
+                        +b 62443-4-2."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-11.9.1"
+                            titolo "Gestione degli eventi di audit"
+                            descrizione_astratta "Definizione e registrazione degli eventi di audit per monitorare attività
+                                +b critiche e rilevare anomalie nei componenti ICS."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Mancata rilevazione di incidenti"
+                                "Non conformità normativa"
+                            [ pratiche_raccomandate
+                                "Definire eventi di audit secondo IEC 62443-4-2 CR 7.1"
+                                "Implementare meccanismi di registrazione sicuri"
+                                "Proteggere i log da alterazioni"
+                            [ metriche_kpi
+                                "Percentuale di eventi di audit registrati correttamente"
+                                "Tempo medio di rilevazione di un evento critico"
+                                "Conformità al 100% con i requisiti di logging"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione degli eventi di audit"
+                                [ registri
+                                    "Log degli eventi di audit"
+                                [ evidenze
+                                    "Report di conformità audit"
+                                    "Configurazione syslog/NTP"
+                            [ placeholders_contesto
+                                "[TIPO_COMPONENTE]"
+                                "[AMBIENTE_OPERATIVO]"
+                                "[LIVELLO_SICUREZZA_RICHIESTO]"
+                    { policy_template
+                        titolo "Policy per Audit e Logging nei Componenti ICS"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Definizione degli eventi di audit"
+                            "Configurazione syslog e NTP"
+                            "Protezione dei log"
+                            "Responsabilità e monitoraggio"
+                        [ placeholders_contesto
+                            "[NOME_ORGANIZZAZIONE]"
+                            "[TIPO_COMPONENTE]"
+                            "[LIVELLO_SICUREZZA]"
+                    { sop_template
+                        titolo "SOP per Configurazione Audit e Logging"
+                        [ step
+                            "Identificare eventi di audit rilevanti"
+                            "Configurare syslog per il routing dei log"
+                            "Impostare NTP per sincronizzazione del tempo"
+                            "Verificare protezione origine del tempo"
+                            "Testare e documentare configurazione"
+                        [ registrazioni
+                            "Registro configurazione syslog"
+                            "Registro configurazione NTP"
+                            "Report di test audit"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuovi contenuti"
+                            "Hotfix branch per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "Responsabile Sicurezza (SP)"
+                            "Amministratore Operativo (AO)"
+                            "Specialista IT (SI)"
+                            "Team OT Security (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione eventi di audit"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Configurazione syslog/NTP"
+                                SP "I"
+                                AO "R"
+                                SI "A"
+                                OTSec "C"
+                            {
+                                attivita "Verifica conformità"
+                                SP "A"
+                                AO "I"
+                                SI "C"
+                                OTSec "R"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                            "Slide"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Manager IT"
+                            "Auditor"
+                            "Responsabili conformità"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Rispetto requisiti IEC 62443-4-2"
+                            "Inclusione placeholders di contesto"
+                            "Documentazione in lingua italiana"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [TIPO_DOCUMENTO] su [ARGOMENTO] per un'audience
+                            +b [AUDIENCE] con stile [STILE] e livello tecnico [LIVELLO_TECNICO]. Includi
+                            +b riferimenti a [NORMA_RIFERIMENTO] e placeholders di contesto come
+                            +b [PLACEHOLDERS]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico su 'Audit e Logging per IEC 62443-4-2' per tecnici
+                            +b OT, stile formale, livello intermedio. Includi eventi di audit minimi e
+                            +b configurazione syslog/NTP, con placeholders come [TIPO_COMPONENTE]."
+                        prompt_esempio_slide "Crea una presentazione su 'Configurazione Audit e Logging' per auditor, stile
+                            +b sintetico, livello base. Includi riferimenti a IEC 62443-4-2 e placeholders
+                            +b come [AMBIENTE_OPERATIVO]."
+                        prompt_esempio_sop "Redigi una SOP per 'Configurazione syslog e NTP in componenti ICS' per
+                            +b amministratori operativi, stile tecnico, livello avanzato. Includi step
+                            +b dettagliati e placeholders come [LIVELLO_SICUREZZA]."
+                    [ checklist
+                        "Definizione eventi di audit completata"
+                        "Configurazione syslog verificata"
+                        "Sincronizzazione NTP attiva"
+                        "Protezione origine tempo implementata"
+                        "Evidenza conformità raccolta"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipo di componente ICS"
+                        "Ambiente operativo"
+                        "Livello di sicurezza richiesto (SL)"
+                        "Norme applicabili"
+                        "Organizzazione responsabile"
+                    [ avvertenze
+                        "Assicurarsi che i log siano protetti da accessi non autorizzati"
+                        "Verificare compatibilità syslog con sistemi esistenti"
+                        "Documentare ogni deviazione dai requisiti IEC 62443-4-2"
+                        "Coinvolgere team OT e IT per sincronizzazione NTP"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/11"
+            nome "Conformità IEC 62443-4-2 per componenti (profilo di prodotto & evidenze)"
+            ruolo "Gestione della sicurezza dei componenti OT/ICS attraverso requisiti tecnici e
+                +b processi di verifica."
+            [ norme_riferimento
+                "IEC 62443-4-2"
+                "IEC 62443-4-1"
+                "ISO/IEC 27001"
+            descrizione "Questo ambito si concentra sui requisiti tecnici di sicurezza per i componenti
+                +b OT/ICS, con particolare attenzione alla conformità allo standard IEC 62443-4-2.
+                +b Include la definizione di profili di prodotto, la raccolta di evidenze e la
+                +b verifica dei requisiti di sicurezza implementati nei componenti."
+            [ sezioni
+                {
+                    id "cap/11/11.10"
+                    nome "Integrità software/firmware & notifiche"
+                    { obiettivo
+                        codice "CR 3.4"
+                        descrizione "Garantire l'integrità del software e del firmware attraverso firma digitale
+                            +b degli artefatti, verifica dell'integrità, notifiche automatiche in caso di
+                            +b violazioni e test delle funzionalità di sicurezza."
+                    [ output_attesi
+                        "Secure Update Spec"
+                        "Piano test integrità"
+                    prompt_base "Scrivi specifica di aggiornamento sicuro (firmware/app): firma, verifica,
+                        +b canali, rollback, evidenze."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "asp/11.10.1"
+                            titolo "Firma digitale degli aggiornamenti"
+                            descrizione_astratta "Implementazione di meccanismi di firma digitale per garantire che gli
+                                +b aggiornamenti software/firmware provengano da fonti affidabili e non siano
+                                +b stati alterati."
+                            [ rischi_mitigati
+                                "Manomissione del firmware"
+                                "Installazione di software non autorizzato"
+                            [ pratiche_raccomandate
+                                "Utilizzo di algoritmi crittografici robusti (es. SHA-256, RSA)"
+                                "Gestione sicura delle chiavi di firma"
+                            [ metriche_kpi
+                                "Percentuale di aggiornamenti firmati correttamente"
+                                "Tempo medio di rilevazione di firme non valide"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di generazione chiavi"
+                                    "Procedura di firma aggiornamenti"
+                                [ registri
+                                    "Log delle firme applicate"
+                                    "Log delle verifiche fallite"
+                                [ evidenze
+                                    "Certificati utilizzati"
+                                    "Report di verifica firma"
+                            [ placeholders_contesto
+                                "[VendorName]"
+                                "[ProductModel]"
+                                "[FirmwareVersion]"
+                        {
+                            id "asp/11.10.2"
+                            titolo "Notifiche automatiche di violazioni"
+                            descrizione_astratta "Configurazione di sistemi per inviare notifiche automatiche in caso di
+                                +b rilevamento di violazioni dell'integrità del software o del firmware."
+                            [ rischi_mitigati
+                                "Ritardo nella risposta a incidenti"
+                                "Mancata rilevazione di compromissioni"
+                            [ pratiche_raccomandate
+                                "Configurazione di alert in tempo reale"
+                                "Integrazione con sistemi SIEM"
+                            [ metriche_kpi
+                                "Tempo medio di invio notifica"
+                                "Percentuale di falsi positivi"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione notifiche"
+                                    "Procedura di gestione alert"
+                                [ registri
+                                    "Log delle notifiche inviate"
+                                    "Log delle risposte agli alert"
+                                [ evidenze
+                                    "Report di test notifiche"
+                                    "Configurazione SIEM"
+                            [ placeholders_contesto
+                                "[SystemName]"
+                                "[AlertRecipient]"
+                                "[NotificationChannel]"
+                    { policy_template
+                        titolo "Politica di Integrità Software e Firmware"
+                        [ sezioni
+                            "Scopo"
+                            "Ambito di applicazione"
+                            "Requisiti di firma digitale"
+                            "Gestione delle notifiche"
+                            "Responsabilità"
+                        [ placeholders_contesto
+                            "[OrganizationName]"
+                            "[ProductLine]"
+                            "[ComplianceRequirement]"
+                    { sop_template
+                        titolo "Procedura Operativa per Aggiornamenti Sicuri"
+                        [ step
+                            "Verifica della firma digitale"
+                            "Esecuzione aggiornamento"
+                            "Test post-aggiornamento"
+                            "Registrazione esito"
+                            "Notifica in caso di fallimento"
+                        [ registrazioni
+                            "Log di aggiornamento"
+                            "Report di verifica firma"
+                            "Esito test integrità"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuovi requisiti"
+                            "Hotfix branch per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "Security Manager"
+                            "Product Owner"
+                            "OT Engineer"
+                            "IT Security"
+                        [ matrix
+                            {
+                                attivita "Definizione requisiti firma digitale"
+                                SP "Security Manager"
+                                AO "Product Owner"
+                                SI "OT Engineer"
+                                OTSec "IT Security"
+                            {
+                                attivita "Configurazione notifiche"
+                                SP "OT Engineer"
+                                AO "Security Manager"
+                                SI "IT Security"
+                                OTSec "Product Owner"
+                            {
+                                attivita "Test integrità post-aggiornamento"
+                                SP "OT Engineer"
+                                AO "Product Owner"
+                                SI "Security Manager"
+                                OTSec "IT Security"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Specifica tecnica"
+                            "Procedura operativa"
+                            "Report di conformità"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Manager sicurezza"
+                            "Auditor esterni"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità IEC 62443-4-2"
+                            "Integrazione con sistemi esistenti"
+                            "Documentazione in lingua italiana"
+                    { prompting
+                        prompt_template_generico "Scrivi un documento su [Topic] per [Audience] con stile [Style] e livello
+                            +b tecnico [Level]. Includi [SpecificContent]."
+                        prompt_esempio_articolo "Scrivi un articolo sull'integrità del firmware per tecnici OT con stile tecnico
+                            +b e livello intermedio. Includi dettagli su firma digitale e notifiche."
+                        prompt_esempio_slide "Crea una presentazione sull'aggiornamento sicuro del firmware per manager
+                            +b sicurezza con stile formale e livello base. Includi diagrammi di flusso."
+                        prompt_esempio_sop "Scrivi una procedura operativa per la verifica dell'integrità del firmware per
+                            +b tecnici OT con stile tecnico e livello avanzato. Includi step dettagliati."
+                    [ checklist
+                        "Verifica firma digitale implementata"
+                        "Canali di aggiornamento sicuri configurati"
+                        "Notifiche automatiche testate"
+                        "Piano di rollback documentato"
+                        "Evidenze di test raccolte"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome produttore componente"
+                        "Modello dispositivo"
+                        "Versione firmware"
+                        "Requisiti normativi specifici"
+                        "Ambiente operativo"
+                    [ avvertenze
+                        "Assicurarsi che le chiavi di firma siano protette da accessi non autorizzati."
+                        "Testare gli aggiornamenti in ambiente di staging prima del deployment."
+                        "Verificare la compatibilità delle notifiche con i sistemi di monitoraggio esistenti."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/11"
+            nome "Conformità IEC 62443-4-2 per componenti (profilo di prodotto & evidenze)"
+            ruolo "Definizione dei requisiti di sicurezza per componenti OT/ICS in conformità allo
+                +b standard IEC 62443-4-2"
+            [ norme_riferimento
+                "IEC 62443-4-2"
+                "IEC 62443-4-1"
+                "ISO/IEC 27001"
+                "NIS2 Directive"
+                "Cyber Resilience Act (CRA)"
+            descrizione "Questo ambito si concentra sui requisiti tecnici di sicurezza per i componenti
+                +b di sistemi di controllo industriale (ICS) e tecnologie operative (OT), con
+                +b particolare attenzione alla conformità allo standard IEC 62443-4-2. Include la
+                +b definizione di profili di prodotto e la raccolta di evidenze per dimostrare la
+                +b conformità."
+            [ sezioni
+                {
+                    id "cap/11/11.11"
+                    nome "Confidenzialità & crittografia"
+                    { obiettivo
+                        codice "OBJ-11.11"
+                        descrizione "Garantire la confidenzialità dei dati attraverso l'uso della crittografia in
+                            +b transito e a riposo, la gestione sicura delle chiavi crittografiche e la
+                            +b sanificazione delle memorie condivise."
+                    [ output_attesi
+                        "Tabella servizi → cifratura → algoritmi → policy"
+                        "Mappatura dei componenti ai requisiti di crittografia"
+                        "Documentazione delle policy di gestione delle chiavi"
+                        "Evidenze di conformità per audit"
+                    prompt_base "Mappa servizi/componenti alle opzioni di cifratura e gestione chiavi."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-11.11.01"
+                            titolo "Crittografia dei dati in transito"
+                            descrizione_astratta "Protezione dei dati trasmessi tra componenti OT/ICS tramite protocolli sicuri e
+                                +b algoritmi crittografici robusti."
+                            [ rischi_mitigati
+                                "Intercettazione dei dati (Man-in-the-Middle)"
+                                "Accesso non autorizzato ai dati sensibili"
+                            [ pratiche_raccomandate
+                                "Utilizzo di TLS 1.3 o protocolli equivalenti"
+                                "Implementazione di algoritmi come AES-256"
+                                "Validazione dei certificati digitali"
+                            [ metriche_kpi
+                                "Percentuale di connessioni protette da crittografia"
+                                "Tempo medio di rilevazione di connessioni non sicure"
+                            { artefatti
+                                [ procedure
+                                    "Procedura per configurazione TLS"
+                                    "Procedura per aggiornamento certificati"
+                                [ registri
+                                    "Log delle connessioni crittografate"
+                                    "Registro delle violazioni di sicurezza"
+                                [ evidenze
+                                    "Report di conformità TLS"
+                                    "Certificati digitali attivi"
+                            [ placeholders_contesto
+                                "[PROTOCOLLO_TRASPORTO]"
+                                "[ALGORITMO_CRITTOGRAFICO]"
+                                "[INFRASTRUTTURA_RETE]"
+                        {
+                            id "ASP-11.11.02"
+                            titolo "Crittografia dei dati a riposo"
+                            descrizione_astratta "Protezione dei dati memorizzati su dispositivi OT/ICS tramite crittografia per
+                                +b prevenire accessi non autorizzati."
+                            [ rischi_mitigati
+                                "Furto di dati da dispositivi fisici"
+                                "Accesso non autorizzato a configurazioni sensibili"
+                            [ pratiche_raccomandate
+                                "Utilizzo di AES-256 per dati a riposo"
+                                "Implementazione di meccanismi di protezione hardware (es. TPM)"
+                                "Sanificazione delle memorie prima del riutilizzo"
+                            [ metriche_kpi
+                                "Percentuale di dispositivi con crittografia a riposo attiva"
+                                "Numero di incidenti legati a dati non crittografati"
+                            { artefatti
+                                [ procedure
+                                    "Procedura per configurazione crittografia a riposo"
+                                    "Procedura per sanificazione memorie"
+                                [ registri
+                                    "Registro delle configurazioni crittografiche"
+                                    "Registro delle operazioni di sanificazione"
+                                [ evidenze
+                                    "Report di verifica crittografia"
+                                    "Documentazione di sanificazione"
+                            [ placeholders_contesto
+                                "[TIPO_DISPOSITIVO]"
+                                "[METODO_CRITTOGRAFIA]"
+                                "[POLICY_SANIFICAZIONE]"
+                    { policy_template
+                        titolo "Policy di Crittografia e Gestione Chiavi"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Requisiti di crittografia in transito"
+                            "Requisiti di crittografia a riposo"
+                            "Gestione delle chiavi crittografiche"
+                            "Responsabilità e conformità"
+                            "Monitoraggio e audit"
+                        [ placeholders_contesto
+                            "[AMBIENTE_OT_ICS]"
+                            "[TIPOLOGIA_COMPONENTI]"
+                            "[REQUISITI_NORMATIVI]"
+                    { sop_template
+                        titolo "SOP per Implementazione Crittografia"
+                        [ step
+                            "Identificazione dei componenti da proteggere"
+                            "Selezione degli algoritmi e protocolli"
+                            "Configurazione della crittografia"
+                            "Generazione e distribuzione delle chiavi"
+                            "Test di conformità"
+                            "Documentazione e registrazione"
+                        [ registrazioni
+                            "Registro delle configurazioni applicate"
+                            "Registro delle chiavi generate"
+                            "Report dei test di conformità"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuovi requisiti di crittografia"
+                            "Hotfix branch per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "Security Policy (SP)"
+                            "Asset Owner (AO)"
+                            "System Integrator (SI)"
+                            "OT Security Team (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione requisiti crittografia"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Implementazione crittografia"
+                                SP "I"
+                                AO "C"
+                                SI "R"
+                                OTSec "A"
+                            {
+                                attivita "Gestione chiavi crittografiche"
+                                SP "C"
+                                AO "I"
+                                SI "A"
+                                OTSec "R"
+                            {
+                                attivita "Audit e verifica conformità"
+                                SP "A"
+                                AO "I"
+                                SI "C"
+                                OTSec "R"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report di conformità"
+                            "Slide di presentazione"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Manager di sicurezza"
+                            "Auditor esterni"
+                            "Fornitori di componenti"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico per presentazioni"
+                        [ livello_tecnico
+                            "Base (per manager)"
+                            "Intermedio (per tecnici)"
+                            "Avanzato (per esperti di sicurezza)"
+                        [ vincoli
+                            "Conformità a IEC 62443-4-2"
+                            "Rispetto dei requisiti NIS2"
+                            "Compatibilità con Cyber Resilience Act"
+                    { prompting
+                        prompt_template_generico "Genera un documento sulla crittografia per [AUDIENCE] con focus su
+                            +b [ASPETTO_SICUREZZA] in contesto OT/ICS, rispettando [VINCOLI_NORMATIVI]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico per tecnici OT sulla crittografia in transito,
+                            +b includendo protocolli TLS e gestione certificati, in conformità a IEC
+                            +b 62443-4-2."
+                        prompt_esempio_slide "Crea una presentazione per manager di sicurezza su crittografia a riposo in
+                            +b OT/ICS, evidenziando rischi e pratiche raccomandate."
+                        prompt_esempio_sop "Elabora una SOP per l'implementazione della crittografia su dispositivi OT, con
+                            +b step dettagliati e registrazioni richieste."
+                    [ checklist
+                        "Verifica conformità algoritmi crittografici a IEC 62443-4-2"
+                        "Controllo della gestione chiavi con meccanismi sicuri"
+                        "Validazione della crittografia in transito su tutte le connessioni"
+                        "Verifica della crittografia a riposo su dispositivi critici"
+                        "Documentazione delle evidenze per audit"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipologia di componente OT/ICS"
+                        "Ambiente operativo (es. rete segregata o connessa)"
+                        "Requisiti normativi specifici"
+                        "Livello di criticità dei dati gestiti"
+                    [ avvertenze
+                        "Assicurarsi che gli algoritmi crittografici siano aggiornati e conformi agli standard"
+                        "Evitare l'uso di chiavi hardcoded nei componenti"
+                        "Considerare l'impatto delle operazioni di crittografia sulle prestazioni dei sistemi OT"
+                        "Documentare ogni deroga ai requisiti di sicurezza per audit futuri"

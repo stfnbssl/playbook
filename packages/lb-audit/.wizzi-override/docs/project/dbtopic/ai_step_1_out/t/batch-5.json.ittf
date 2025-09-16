@@ -1,0 +1,1169 @@
+$group
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/4"
+            nome "Ciclo di vita della sicurezza IACS (IEC 62443-3-2, -3-3)"
+            ruolo "Gestione della sicurezza nel ciclo di vita dei sistemi IACS"
+            [ norme_riferimento
+                "IEC 62443-3-2"
+                "IEC 62443-3-3"
+                "IEC 62443-4-2"
+            descrizione "Questo ambito copre il ciclo di vita della sicurezza per i sistemi IACS, con
+                +b focus sull'integrazione di componenti conformi ai requisiti di sicurezza e
+                +b sulla verifica dei requisiti di sistema."
+            [ sezioni
+                {
+                    id "cap/4/4.4"
+                    nome "Dalla componentistica al sistema: integrare -4-2 con -3-3"
+                    { obiettivo
+                        codice "OBJ-4.4"
+                        descrizione "Usare componenti/OEM con capacità 62443-4-2 e integrarli in un sistema conforme
+                            +b ai SR -3-3."
+                    [ output_attesi
+                        "Matrice di correlazione SR (-3-3) ↔ capability (-4-2)"
+                        "Documentazione di integrazione e hardening"
+                        "Report di verifica e test di integrazione"
+                    prompt_base "Scrivi 8–10 righe che spieghino come usare componenti con requisiti -4-2 per
+                        +b comporre un sistema che soddisfi i SR -3-3. Descrivi i passi chiave come la
+                        +b raccolta delle dichiarazioni OEM (capacità FR/SL, SBOM, policy update/PSIRT),
+                        +b la selezione dei componenti in base ai requisiti di zona, l'integrazione con
+                        +b hardening e configurazioni sicure, e la verifica tramite test specifici per
+                        +b ambienti OT."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-4.4.1"
+                            titolo "Conformità dei componenti"
+                            descrizione_astratta "Garantire che i componenti utilizzati soddisfino i requisiti di sicurezza
+                                +b definiti in IEC 62443-4-2."
+                            [ rischi_mitigati
+                                "Utilizzo di componenti non sicuri"
+                                "Mancata conformità ai requisiti di zona"
+                            [ pratiche_raccomandate
+                                "Raccolta dichiarazioni OEM"
+                                "Analisi SBOM"
+                                "Verifica policy update/PSIRT"
+                            [ metriche_kpi
+                                "Percentuale di componenti conformi"
+                                "Tempo medio per verifica conformità"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di verifica conformità componenti"
+                                [ registri
+                                    "Registro dichiarazioni OEM"
+                                    "Registro SBOM"
+                                [ evidenze
+                                    "Report di conformità componenti"
+                            [ placeholders_contesto
+                                "[OEM_NAME]"
+                                "[COMPONENT_ID]"
+                                "[ZONE_ID]"
+                        {
+                            id "ASP-4.4.2"
+                            titolo "Integrazione sicura"
+                            descrizione_astratta "Implementare pratiche di hardening e configurazione sicura durante
+                                +b l'integrazione dei componenti nel sistema."
+                            [ rischi_mitigati
+                                "Vulnerabilità da configurazioni errate"
+                                "Accessi non autorizzati"
+                            [ pratiche_raccomandate
+                                "Hardening dei componenti"
+                                "Minimizzazione account/servizi"
+                                "Configurazione update sicuri"
+                            [ metriche_kpi
+                                "Numero di configurazioni hardening applicate"
+                                "Incidenti legati a configurazioni errate"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di hardening"
+                                    "Procedura configurazione update"
+                                [ registri
+                                    "Registro configurazioni applicate"
+                                [ evidenze
+                                    "Report di hardening completato"
+                            [ placeholders_contesto
+                                "[SYSTEM_ID]"
+                                "[CONFIGURATION_SET]"
+                    { policy_template
+                        titolo "Policy di Integrazione Componenti Sicuri"
+                        [ sezioni
+                            "Scopo"
+                            "Ambito di applicazione"
+                            "Requisiti componenti"
+                            "Processo di integrazione"
+                            "Verifica e monitoraggio"
+                        [ placeholders_contesto
+                            "[ORGANIZATION_NAME]"
+                            "[IACS_SYSTEM]"
+                            "[SECURITY_ZONE]"
+                    { sop_template
+                        titolo "SOP per Integrazione Componenti in Sistemi IACS"
+                        [ step
+                            "Raccolta dichiarazioni OEM e documentazione"
+                            "Selezione componenti conformi ai requisiti di zona"
+                            "Integrazione con hardening e configurazioni sicure"
+                            "Test di integrazione e performance"
+                            "Documentazione dei risultati"
+                        [ registrazioni
+                            "Registro dichiarazioni OEM"
+                            "Report test integrazione"
+                            "Log configurazioni hardening"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuovi contenuti o modifiche"
+                    { raci
+                        [ roles
+                            "SP (Security Planner)"
+                            "AO (Asset Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Team)"
+                        [ matrix
+                            {
+                                attivita "Raccolta dichiarazioni OEM"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Selezione componenti"
+                                SP "C"
+                                AO "A"
+                                SI "R"
+                                OTSec "I"
+                            {
+                                attivita "Integrazione e hardening"
+                                SP "I"
+                                AO "C"
+                                SI "R"
+                                OTSec "A"
+                            {
+                                attivita "Verifica e test"
+                                SP "I"
+                                AO "C"
+                                SI "A"
+                                OTSec "R"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Articolo"
+                            "Slide"
+                            "SOP"
+                            "Policy"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Manager"
+                            "Auditor"
+                            "Integratori di sistema"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Rispetto norme IEC 62443"
+                            "Focus su OT/ICS"
+                            "Inclusione placeholders contesto"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [TIPO_DOCUMENTO] per [AUDIENCE] con stile [STILE] e
+                            +b livello tecnico [LIVELLO]. Spiega come integrare componenti conformi a IEC
+                            +b 62443-4-2 in un sistema IACS che soddisfi i requisiti SR di IEC 62443-3-3,
+                            +b includendo i passi chiave come raccolta dichiarazioni OEM, selezione
+                            +b componenti, integrazione con hardening e verifica tramite test. Usa i seguenti
+                            +b placeholders di contesto: [PLACEHOLDERS]."
+                        prompt_esempio_articolo "Scrivi un articolo per tecnici OT con stile tecnico e livello intermedio.
+                            +b Spiega come integrare componenti conformi a IEC 62443-4-2 in un sistema IACS
+                            +b che soddisfi i requisiti SR di IEC 62443-3-3, includendo raccolta dichiarazioni
+                            +b OEM, selezione componenti per zona, integrazione con hardening e test specifici
+                            +b OT. Usa i placeholders [SYSTEM_ID] e [ZONE_ID]."
+                        prompt_esempio_slide "Crea una presentazione per manager con stile formale e livello base. Riassumi
+                            +b in 5 slide il processo di integrazione di componenti IEC 62443-4-2 in un
+                            +b sistema IACS conforme a SR -3-3, coprendo raccolta dati OEM, selezione,
+                            +b integrazione e verifica. Usa i placeholders [ORGANIZATION_NAME] e
+                            +b [IACS_SYSTEM]."
+                        prompt_esempio_sop "Scrivi una SOP per integratori di sistema con stile tecnico e livello avanzato.
+                            +b Descrivi passo-passo come integrare componenti conformi a IEC 62443-4-2 in un
+                            +b sistema IACS per soddisfare SR -3-3, includendo raccolta dichiarazioni,
+                            +b selezione, hardening, test e documentazione. Usa i placeholders [COMPONENT_ID]
+                            +b e [CONFIGURATION_SET]."
+                    [ checklist
+                        "Raccolta dichiarazioni OEM completata"
+                        "SBOM dei componenti analizzato"
+                        "Componenti selezionati conformi ai requisiti di zona"
+                        "Hardening applicato ai componenti integrati"
+                        "Test di integrazione e performance eseguiti"
+                        "Documentazione e report finali prodotti"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome organizzazione"
+                        "Identificativo sistema IACS"
+                        "Zona di sicurezza"
+                        "Identificativo componente"
+                        "Set di configurazioni"
+                    [ avvertenze
+                        "Verificare sempre la conformità dei componenti con le dichiarazioni OEM prima dell'integrazione."
+                        "Assicurarsi che i test di integrazione siano eseguiti in un ambiente rappresentativo dell'OT reale."
+                        "Documentare ogni passo per garantire tracciabilità e conformità normativa."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/4"
+            nome "Ciclo di vita della sicurezza IACS (IEC 62443-3-2, -3-3)"
+            ruolo "Gestione del ciclo di vita della sicurezza per sistemi IACS in ambito OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-3-2"
+                "IEC 62443-3-3"
+                "IEC 27001"
+                "NIS2"
+            descrizione "Questo ambito copre le fasi del ciclo di vita della sicurezza per i sistemi
+                +b IACS, includendo la definizione di zone e conduits, la valutazione dei rischi,
+                +b l'implementazione di contromisure e la gestione delle evidenze e degli
+                +b artefatti di sicurezza."
+            [ sezioni
+                {
+                    id "cap/4/4.5"
+                    nome "Artefatti & Evidenze (deliverable)"
+                    { obiettivo
+                        codice "OBJ-4.5"
+                        descrizione "Definire e produrre artefatti ed evidenze documentali per dimostrare la
+                            +b conformità ai requisiti di sicurezza IACS durante il ciclo di vita."
+                    [ output_attesi
+                        "Mappa Zone/Conduits e confini IT/OT (con DMZ)."
+                        "Matrice SL-Target per zona × FR1–FR7."
+                        "Elenco SR (-3-3) per zona + policy conduits."
+                        "Piano di test (FAT/SAT), report di verifica e baseline di hardening."
+                        "Registro change e registro eccezioni con compensazioni."
+                        "Dashboard KPI e verbali di riesame."
+                    prompt_base "Genera un documento relativo agli artefatti ed evidenze di sicurezza per il
+                        +b ciclo di vita IACS, includendo mappe di zone e conduits, matrici SL-Target,
+                        +b policy e report di verifica, contestualizzato per [SETTORE] e
+                        +b [DIMENSIONE_AZIENDA]."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-4.5.1"
+                            titolo "Mappatura Zone e Conduits"
+                            descrizione_astratta "Definizione dei confini logici e fisici tra zone IT/OT con identificazione
+                                +b delle DMZ per garantire la segregazione delle reti."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Propagazione di minacce tra zone"
+                                "Mancata segregazione IT/OT"
+                            [ pratiche_raccomandate
+                                "Definire zone in base a SL-Target"
+                                "Implementare DMZ"
+                                "Documentare i conduits"
+                            [ metriche_kpi
+                                "Percentuale di zone mappate"
+                                "Numero di conduits non documentati"
+                                "Tempo medio di aggiornamento mappe"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di mappatura zone"
+                                    "Procedura di revisione conduits"
+                                [ registri
+                                    "Registro delle zone"
+                                    "Registro dei conduits"
+                                [ evidenze
+                                    "Diagramma di rete IT/OT"
+                                    "Report di verifica DMZ"
+                            [ placeholders_contesto
+                                "[SETTORE]"
+                                "[ARCHITETTURA_RETE]"
+                                "[NUMERO_ZONE]"
+                        {
+                            id "ASP-4.5.2"
+                            titolo "Gestione SL-Target e SR"
+                            descrizione_astratta "Assegnazione dei livelli di sicurezza target (SL-Target) per ogni zona e
+                                +b definizione dei requisiti di sicurezza (SR) per garantire protezione adeguata."
+                            [ rischi_mitigati
+                                "Livelli di sicurezza insufficienti"
+                                "Mancata conformità IEC 62443"
+                                "Esposizione a vulnerabilità"
+                            [ pratiche_raccomandate
+                                "Valutazione rischi per zona"
+                                "Assegnazione SL-Target per FR1-FR7"
+                                "Mapping SR per zona"
+                            [ metriche_kpi
+                                "Percentuale di zone con SL-Target definito"
+                                "Numero di SR non implementati"
+                                "Frequenza di revisione SL-Target"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di assegnazione SL-Target"
+                                    "Procedura di mapping SR"
+                                [ registri
+                                    "Registro SL-Target"
+                                    "Registro SR per zona"
+                                [ evidenze
+                                    "Matrice SL-Target"
+                                    "Report di conformità SR"
+                            [ placeholders_contesto
+                                "[NUMERO_ZONE]"
+                                "[FR_RILEVANTI]"
+                                "[SL_TARGET]"
+                    { policy_template
+                        titolo "Policy per la Gestione degli Artefatti di Sicurezza IACS"
+                        [ sezioni
+                            "Scopo"
+                            "Ambito di applicazione"
+                            "Responsabilità"
+                            "Requisiti per Zone/Conduits"
+                            "Gestione SL-Target e SR"
+                            "Verifiche e riesami"
+                        [ placeholders_contesto
+                            "[AZIENDA]"
+                            "[SETTORE]"
+                            "[NORME_RIFERIMENTO]"
+                    { sop_template
+                        titolo "SOP per la Produzione di Evidenze di Sicurezza IACS"
+                        [ step
+                            "Identificazione delle zone e conduits"
+                            "Assegnazione SL-Target"
+                            "Documentazione SR"
+                            "Esecuzione test FAT/SAT"
+                            "Registrazione change ed eccezioni"
+                            "Aggiornamento dashboard KPI"
+                        [ registrazioni
+                            "Registro Zone/Conduits"
+                            "Registro Test FAT/SAT"
+                            "Registro Change"
+                            "Registro Eccezioni"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuovi artefatti"
+                            "Hotfix branch per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "SP (Security Practitioner)"
+                            "AO (Asset Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Team)"
+                        [ matrix
+                            {
+                                attivita "Definizione Zone/Conduits"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Assegnazione SL-Target"
+                                SP "R"
+                                AO "C"
+                                SI "I"
+                                OTSec "A"
+                            {
+                                attivita "Produzione Report Test"
+                                SP "C"
+                                AO "I"
+                                SI "R"
+                                OTSec "A"
+                            {
+                                attivita "Gestione Change/Eccezioni"
+                                SP "I"
+                                AO "A"
+                                SI "C"
+                                OTSec "R"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                            "Matrice"
+                            "Dashboard"
+                        [ audience_possibili
+                            "Management"
+                            "Tecnici OT"
+                            "Auditor"
+                            "System Integrator"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità IEC 62443"
+                            "Inclusione placeholders contesto"
+                            "Riferimenti a norme correlate"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [TIPO_DOCUMENTO] per [AUDIENCE] con stile [STILE] e
+                            +b livello tecnico [LIVELLO_TECNICO] relativo agli artefatti di sicurezza IACS,
+                            +b includendo [OUTPUT_ATTESI] e contestualizzato per [SETTORE]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico per tecnici OT con stile formale e livello
+                            +b intermedio sulla mappatura di zone e conduits in ambito IACS, includendo
+                            +b diagrammi e riferimenti a IEC 62443, contestualizzato per il settore
+                            +b manifatturiero."
+                        prompt_esempio_slide "Crea una presentazione per il management con stile sintetico e livello base
+                            +b sugli artefatti di sicurezza IACS, includendo dashboard KPI e matrici
+                            +b SL-Target, contestualizzata per un'azienda di medie dimensioni."
+                        prompt_esempio_sop "Elabora una SOP per system integrator con stile tecnico e livello avanzato
+                            +b sulla produzione di evidenze di sicurezza IACS, includendo step per test
+                            +b FAT/SAT e registrazione change, contestualizzata per il settore energetico."
+                    [ checklist
+                        "Verifica presenza di tutti gli output attesi."
+                        "Conferma conformità a IEC 62443-3-2 e -3-3."
+                        "Assicurati che i placeholders di contesto siano compilati."
+                        "Valida la completezza delle matrici SL-Target."
+                        "Controlla l'aggiornamento dei registri change ed eccezioni."
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Settore di applicazione"
+                        "Dimensione azienda"
+                        "Architettura di rete IT/OT"
+                        "Numero di zone definite"
+                        "Norme di riferimento applicabili"
+                    [ avvertenze
+                        "Assicurarsi che i dati sensibili siano anonimizzati nei report."
+                        "Verificare la conformità con GDPR per i registri contenenti dati personali."
+                        "Riesaminare periodicamente le mappe Zone/Conduits per riflettere cambiamenti infrastrutturali."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/4"
+            nome "Ciclo di vita della sicurezza IACS (IEC 62443-3-2, -3-3)"
+            ruolo "Gestione della sicurezza nei sistemi di automazione e controllo industriale
+                +b (IACS/OT)"
+            [ norme_riferimento
+                "IEC 62443-3-2"
+                "IEC 62443-3-3"
+                "IEC 62443-4-2"
+                "ISO/IEC 27001"
+                "NIS2"
+                "CRA"
+                "Direttiva Macchine 2006/42/CE"
+                "Registro Macchine 2023"
+                "GDPR 2016/679"
+            descrizione "Questo ambito copre il ciclo di vita della sicurezza nei sistemi IACS, con
+                +b focus su zonizzazione, requisiti fondamentali (FR), livelli di sicurezza (SL) e
+                +b mapping dei requisiti di sistema (SR). Include figure e template per supportare
+                +b la progettazione, implementazione e monitoraggio della sicurezza OT."
+            [ sezioni
+                {
+                    id "cap/4/4.6"
+                    nome "Figure & Template (riepilogo segnaposto)"
+                    { obiettivo
+                        codice "OBJ-4.6"
+                        descrizione "Fornire strumenti visivi e template per la progettazione e gestione della
+                            +b sicurezza IACS, inclusi mapping di zone, requisiti e cicli di miglioramento."
+                    [ output_attesi
+                        "Figura 4.1 — Mappa Zone/Conduits (iniziale)"
+                        "Tabella 4.1 — Zona × FR (SL-Target)"
+                        "Figura 4.2 — Architettura target con DMZ e conduits"
+                        "Tabella 4.2 — SR (-3-3) per zona (mapping FR/SL)"
+                        "Figura 4.3 — Ciclo test → esercizio → miglioramento"
+                        "Tabella 4.4 — SR (-3-3) ↔ capability (-4-2)"
+                        "Template — Registro rischi"
+                        "Template — Piano FAT/SAT"
+                        "Template — Registro change"
+                        "Template — Dashboard KPI"
+                    prompt_base "Genera contenuti relativi a figure e template per la sicurezza IACS secondo IEC
+                        +b 62443, con focus su zonizzazione, mapping FR/SL e cicli di miglioramento.
+                        +b Mantieni un tono pratico-operativo e vendor-neutral."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-4.6.1"
+                            titolo "Zonizzazione e Conduits"
+                            descrizione_astratta "Definizione di zone con profili di rischio simili e canali di comunicazione
+                                +b controllati (conduits) per limitare i flussi non autorizzati."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato tra zone"
+                                "Propagazione di attacchi tra asset OT"
+                                "Mancata segregazione IT/OT"
+                            [ pratiche_raccomandate
+                                "Identificare asset e raggrupparli in zone"
+                                "Definire conduits con filtraggio protocolli"
+                                "Implementare DMZ come cuscinetto IT/OT"
+                            [ metriche_kpi
+                                "Percentuale di asset mappati in zone"
+                                "Numero di conduits non conformi rilevati"
+                                "Tempo medio di risposta a violazioni di zona"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di definizione zone e conduits"
+                                    "Procedura di configurazione DMZ"
+                                [ registri
+                                    "Registro delle zone e relativi SL-Target"
+                                    "Registro dei conduits e regole di filtraggio"
+                                [ evidenze
+                                    "Report di conformità zonizzazione"
+                                    "Log di test DMZ"
+                            [ placeholders_contesto
+                                "[Settore industriale]"
+                                "[Tipologia impianto]"
+                                "[Numero di zone previste]"
+                    { policy_template
+                        titolo "Policy di Sicurezza Zonizzazione IACS"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Definizione di zone e conduits"
+                            "Requisiti di sicurezza per zona (SL-Target)"
+                            "Responsabilità e monitoraggio"
+                            "Revisione e aggiornamento"
+                        [ placeholders_contesto
+                            "[Nome organizzazione]"
+                            "[Settore industriale]"
+                            "[Tipologia asset OT]"
+                    { sop_template
+                        titolo "SOP per Configurazione Zone e Conduits"
+                        [ step
+                            "Identificazione degli asset OT"
+                            "Raggruppamento in zone per profilo di rischio"
+                            "Definizione dei conduits e regole di filtraggio"
+                            "Test di segregazione e validazione"
+                            "Documentazione e aggiornamento registri"
+                        [ registrazioni
+                            "Registro delle zone configurate"
+                            "Log dei test di segregazione"
+                            "Report di non conformità"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili e validati"
+                            "Branch 'develop' per contenuti in lavorazione"
+                            "Feature branch per ogni figura/template"
+                            "Pull request obbligatorie con review"
+                    { raci
+                        [ roles
+                            "Security Manager (SP)"
+                            "OT Engineer (AO)"
+                            "IT Manager (SI)"
+                            "OT Security Specialist (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione Zone e Conduits"
+                                SP "Responsible"
+                                AO "Accountable"
+                                SI "Consulted"
+                                OTSec "Informed"
+                            {
+                                attivita "Configurazione DMZ"
+                                SP "Consulted"
+                                AO "Responsible"
+                                SI "Accountable"
+                                OTSec "Informed"
+                            {
+                                attivita "Mapping FR/SL"
+                                SP "Responsible"
+                                AO "Consulted"
+                                SI "Informed"
+                                OTSec "Accountable"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Articolo tecnico"
+                            "Presentazione slide"
+                            "SOP"
+                            "Report di conformità"
+                        [ audience_possibili
+                            "Management"
+                            "Tecnici OT"
+                            "Auditor"
+                            "Fornitori"
+                        [ stili
+                            "Formale"
+                            "Pratico-operativo"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443"
+                            "Vendor-neutral"
+                            "Inclusione di avvertenze safety"
+                    { prompting
+                        prompt_template_generico "Genera un contenuto su [argomento] per [audience] con stile [stile] e livello
+                            +b tecnico [livello]. Includi riferimenti a [norma] e mantieni un approccio
+                            +b pratico e vendor-neutral."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico sulla zonizzazione IACS per tecnici OT, stile
+                            +b pratico-operativo, livello intermedio. Spiega il concetto di zone e conduits
+                            +b secondo IEC 62443-3-2 con esempi pratici."
+                        prompt_esempio_slide "Crea una presentazione slide sul ciclo di miglioramento sicurezza IACS per
+                            +b management, stile formale, livello base. Includi Figura 4.3 e concetti chiave
+                            +b di test/esercizio/miglioramento."
+                        prompt_esempio_sop "Redigi una SOP per la configurazione di conduits tra zone IACS per tecnici OT,
+                            +b stile pratico, livello avanzato. Dettaglia step operativi e registrazioni
+                            +b secondo IEC 62443-3-3."
+                    [ checklist
+                        "Acronomi spiegati e tecnicismi parafrasati"
+                        "Box 'Per i ruoli' in ogni sezione"
+                        "SL-Target per zona con mapping FR1–FR7"
+                        "SR (-3-3) derivati dagli SL-Target e tracciati"
+                        "Figure/template elencati e coerenti"
+                        "Takeaway + avvertenza safety per sezione"
+                        "Tono pratico-operativo, vendor-neutral"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Settore industriale"
+                        "Tipologia di impianto"
+                        "Numero di zone e conduits"
+                        "Livello di sicurezza target (SL)"
+                        "Requisiti normativi specifici"
+                    [ avvertenze
+                        "La sicurezza OT deve sempre considerare impatti su safety (IEC 61508/61511)."
+                        "Configurazioni errate di conduits possono esporre asset critici."
+                        "Consultare esperti OT prima di modifiche architetturali."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/5"
+            nome "Misure tecniche e organizzative (IEC 62443)"
+            ruolo "Gestione della sicurezza in ambienti OT/ICS"
+            [ norme_riferimento
+                "IEC 62443"
+                "IEC 27001"
+                "NIS2"
+            descrizione "Questo ambito copre le misure tecniche e organizzative per la sicurezza in
+                +b ambienti OT/ICS, con focus su identità, accessi e audit come previsto da IEC
+                +b 62443."
+            [ sezioni
+                {
+                    id "cap/5/5.1"
+                    nome "Identità, accessi e audit (**FR1 — IAC; FR2 — UC**)"
+                    { obiettivo
+                        codice "OBJ-5.1"
+                        descrizione "Gestire **identità** (chi sei), **autorizzazioni** (cosa puoi fare) e **audit**
+                            +b (traccia) nell’OT."
+                    [ output_attesi
+                        "Policy **Identity & Access OT**"
+                        "Matrice **ruolo→permessi**"
+                        "Flusso approvazione"
+                        "Registro audit"
+                    prompt_base "Scrivi 12–14 righe su identità, autorizzazioni e audit in OT (FR1-FR2): account
+                        +b nominali, RBAC, MFA, privilegi tramite broker, session recording e break-glass
+                        +b con post-review."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-5.1.1"
+                            titolo "Gestione Account Nominali"
+                            descrizione_astratta "Garantire che ogni utente abbia un account nominale univoco per evitare l'uso
+                                +b di account condivisi, riducendo i rischi di accesso non autorizzato."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Mancata tracciabilità delle azioni"
+                            [ pratiche_raccomandate
+                                "No account condivisi"
+                                "Implementazione least privilege"
+                                "Autenticazione MFA"
+                            [ metriche_kpi
+                                "Percentuale di account nominali attivi"
+                                "Numero di violazioni MFA"
+                            { artefatti
+                                [ procedure
+                                    "Creazione account nominali"
+                                    "Configurazione MFA"
+                                [ registri
+                                    "Log creazione account"
+                                    "Log autenticazioni MFA"
+                                [ evidenze
+                                    "Report conformità account nominali"
+                            [ placeholders_contesto
+                                "[Nome organizzazione]"
+                                "[Sistema OT target]"
+                        {
+                            id "ASP-5.1.2"
+                            titolo "Controllo Accessi Basato su Ruoli (RBAC)"
+                            descrizione_astratta "Separare i ruoli OT da quelli IT per garantire che gli accessi siano limitati
+                                +b alle funzioni necessarie, riducendo i rischi di abuso di privilegi."
+                            [ rischi_mitigati
+                                "Abuso di privilegi"
+                                "Conflitto di ruoli"
+                            [ pratiche_raccomandate
+                                "Definizione matrice RBAC"
+                                "Revisione periodica ruoli"
+                            [ metriche_kpi
+                                "Tempo medio revisione ruoli"
+                                "Numero di violazioni RBAC"
+                            { artefatti
+                                [ procedure
+                                    "Definizione ruoli OT/IT"
+                                    "Assegnazione permessi"
+                                [ registri
+                                    "Log revisione ruoli"
+                                [ evidenze
+                                    "Matrice RBAC aggiornata"
+                            [ placeholders_contesto
+                                "[Ruoli OT specifici]"
+                                "[Ruoli IT specifici]"
+                    { policy_template
+                        titolo "Policy Identity & Access OT"
+                        [ sezioni
+                            "Scopo"
+                            "Ambito"
+                            "Definizioni"
+                            "Responsabilità"
+                            "Requisiti MFA"
+                            "Gestione RBAC"
+                            "Audit Trail"
+                        [ placeholders_contesto
+                            "[Nome organizzazione]"
+                            "[Ambito OT]"
+                    { sop_template
+                        titolo "SOP Gestione Accessi Privilegiati"
+                        [ step
+                            "Richiesta accesso"
+                            "Approvazione tramite broker"
+                            "Registrazione sessione"
+                            "Review post-accesso"
+                        [ registrazioni
+                            "Log richiesta"
+                            "Log approvazione"
+                            "Registrazione sessione"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Main per release stabili"
+                            "Develop per integrazione"
+                            "Feature branch per nuovi contenuti"
+                    { raci
+                        [ roles
+                            "Security Officer"
+                            "OT Manager"
+                            "IT Manager"
+                            "Audit Team"
+                        [ matrix
+                            {
+                                attivita "Definizione Policy"
+                                SP "Security Officer"
+                                AO "OT Manager"
+                                SI "IT Manager"
+                                OTSec "Audit Team"
+                            {
+                                attivita "Implementazione RBAC"
+                                SP "OT Manager"
+                                AO "Security Officer"
+                                SI "IT Manager"
+                                OTSec "Audit Team"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Manager"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità IEC 62443"
+                            "Lingua italiana"
+                    { prompting
+                        prompt_template_generico "Descrivi in dettaglio [argomento] per un ambiente OT, includendo riferimenti a
+                            +b [norma] e pratiche come [pratica]."
+                        prompt_esempio_articolo "Scrivi un articolo su gestione identità in OT, con focus su account nominali e
+                            +b MFA, per un pubblico tecnico."
+                        prompt_esempio_slide "Crea una slide su RBAC in OT, evidenziando separazione ruoli IT/OT, per
+                            +b manager."
+                        prompt_esempio_sop "Redigi una SOP per accesso privilegiato in OT, includendo broker e session
+                            +b recording."
+                    [ checklist
+                        "Definizione account nominali completata"
+                        "MFA configurata per accessi remoti"
+                        "Matrice RBAC aggiornata"
+                        "Audit trail centralizzato attivo"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome organizzazione"
+                        "Tipologia sistema OT"
+                        "Ruoli specifici OT/IT"
+                    [ avvertenze
+                        "Assicurarsi che MFA non interferisca con operazioni critiche in tempo reale."
+                        "Revisione periodica dei ruoli per evitare accumulo di privilegi."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/5"
+            nome "Misure tecniche e organizzative (IEC 62443)"
+            ruolo "Definizione di misure per la protezione di sistemi OT/ICS"
+            [ norme_riferimento
+                "IEC 62443"
+                "IEC 27001"
+                "NIS2"
+            descrizione "Questo ambito copre le misure tecniche e organizzative per garantire la
+                +b sicurezza dei sistemi OT/ICS, con focus su configurazioni sicure e gestione del
+                +b cambiamento."
+            [ sezioni
+                {
+                    id "cap/5/5.2"
+                    nome "Hardening & Configuration Management (**FR3 — SI**)"
+                    { obiettivo
+                        codice "OBJ-5.2"
+                        descrizione "Definire baseline di hardening e controlli di configurazione per ridurre la
+                            +b superficie d’attacco OT."
+                    [ output_attesi
+                        "Standard di hardening"
+                        "Checklist per tipo di asset"
+                        "Repository versionato delle configurazioni"
+                    prompt_base "Redigi 10–12 righe su hardening e gestione configurazioni (FR3): baseline per
+                        +b asset OT, servizi minimi, versioning, golden image, allow-listing e piani di
+                        +b rollback."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-5.2.1"
+                            titolo "Baseline di Hardening per Asset OT"
+                            descrizione_astratta "Definizione di configurazioni sicure di base per sistemi operativi OT, HMI,
+                                +b PLC-gateway e server."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Exploit di vulnerabilità note"
+                            [ pratiche_raccomandate
+                                "Disabilitare servizi e porte non necessari"
+                                "Impostare criteri secure-by-default"
+                            [ metriche_kpi
+                                "Percentuale di asset conformi alla baseline"
+                                "Tempo medio per applicare configurazioni sicure"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di hardening per asset OT"
+                                [ registri
+                                    "Log di configurazione applicata"
+                                [ evidenze
+                                    "Report di conformità alla baseline"
+                            [ placeholders_contesto
+                                "Tipologia di asset"
+                                "Ambiente operativo"
+                        {
+                            id "ASP-5.2.2"
+                            titolo "Gestione del Cambiamento e Versioning"
+                            descrizione_astratta "Implementazione di repository versionati e golden image per garantire
+                                +b tracciabilità e ripristino."
+                            [ rischi_mitigati
+                                "Errori di configurazione"
+                                "Perdita di dati critici"
+                            [ pratiche_raccomandate
+                                "Utilizzo di repository per configurazioni versionate"
+                                "Definizione di golden image per asset critici"
+                                "Controllo del cambiamento con approvazione"
+                            [ metriche_kpi
+                                "Numero di cambiamenti non approvati"
+                                "Tempo di ripristino da rollback"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di change management"
+                                [ registri
+                                    "Registro dei cambiamenti approvati"
+                                [ evidenze
+                                    "Backup delle configurazioni"
+                            [ placeholders_contesto
+                                "Politiche di approvazione"
+                                "Strumenti di versioning"
+                    { policy_template
+                        titolo "Policy di Hardening e Configurazione OT"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Baseline di sicurezza per asset"
+                            "Gestione del cambiamento"
+                            "Responsabilità e controlli"
+                        [ placeholders_contesto
+                            "Tipi di asset"
+                            "Requisiti normativi"
+                    { sop_template
+                        titolo "SOP per Hardening e Configurazione OT"
+                        [ step
+                            "Identificazione dell’asset e della baseline applicabile"
+                            "Disabilitazione di servizi non necessari"
+                            "Creazione e verifica di backup"
+                            "Applicazione della configurazione e test"
+                            "Registrazione del cambiamento nel repository"
+                        [ registrazioni
+                            "Log di configurazione"
+                            "Report di test post-cambio"
+                    { repo_branching_model
+                        modello "Git Flow"
+                        [ regole
+                            "Branch principale per configurazioni stabili"
+                            "Branch di sviluppo per test"
+                            "Approvazione obbligatoria per merge"
+                    { raci
+                        [ roles
+                            "Responsabile Sicurezza (SP)"
+                            "Amministratore Operativo (AO)"
+                            "Specialista IT (SI)"
+                            "Team OT Security (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione baseline hardening"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Applicazione configurazioni"
+                                SP "I"
+                                AO "R"
+                                SI "A"
+                                OTSec "C"
+                            {
+                                attivita "Gestione repository configurazioni"
+                                SP "I"
+                                AO "C"
+                                SI "R"
+                                OTSec "A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Checklist"
+                            "Report"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Responsabili IT"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità IEC 62443"
+                            "Limitazioni operative OT"
+                    { prompting
+                        prompt_template_generico "Descrivi in dettaglio le pratiche di hardening per asset OT, includendo
+                            +b baseline, versioning e rollback, con focus su [contesto]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico di 500 parole su come implementare hardening in
+                            +b ambiente OT secondo IEC 62443."
+                        prompt_esempio_slide "Prepara 5 slide su hardening OT: introduzione, baseline, change management,
+                            +b rollback e conclusioni."
+                        prompt_esempio_sop "Redigi una SOP dettagliata per l’applicazione di configurazioni sicure su un
+                            +b HMI in ambiente OT."
+                    [ checklist
+                        "Definizione baseline per ogni tipo di asset"
+                        "Disabilitazione servizi/porte non necessari"
+                        "Creazione golden image"
+                        "Backup configurazioni pre/post cambio"
+                        "Verifica integrità firmware/immagini"
+                        "Implementazione allow-listing software"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipologia di asset (HMI, PLC, server)"
+                        "Ambiente operativo (produzione, test)"
+                        "Requisiti normativi applicabili"
+                        "Strumenti di gestione configurazioni"
+                    [ avvertenze
+                        "Evitare modifiche non testate in produzione"
+                        "Garantire piani di rollback prima di ogni cambio"
+                        "Considerare limitazioni operative degli asset OT"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/5"
+            nome "Misure tecniche e organizzative (IEC 62443)"
+            ruolo "Definizione di misure tecniche e organizzative per la sicurezza OT/ICS"
+            [ norme_riferimento
+                "IEC 62443"
+                "IEC 27001"
+                "NIS2"
+                "CRA"
+            descrizione "Questo ambito copre le misure tecniche e organizzative necessarie per garantire
+                +b la sicurezza degli ambienti OT/ICS, con particolare riferimento agli standard
+                +b IEC 62443."
+            [ sezioni
+                {
+                    id "cap/5/5.3"
+                    nome "Logging & Monitoring (**FR6 — TRE**)"
+                    { obiettivo
+                        codice "OBJ-5.3"
+                        descrizione "Raccogliere log/telemetria e attivare use case di rilevazione/risposta agli
+                            +b eventi OT."
+                    [ output_attesi
+                        "Piano logging & monitoring"
+                        "Elenco use case e runbook"
+                        "Cruscotto KPI (MTTD)"
+                    prompt_base "Scrivi 10–12 righe su logging/monitoring (FR6): sorgenti log OT,
+                        +b centralizzazione, use case minimi e runbook con integrazione SOC."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-5.3.1"
+                            titolo "Sorgenti Log OT"
+                            descrizione_astratta "Identificazione e configurazione delle sorgenti di log specifiche per ambienti
+                                +b OT, come firewall, switch, IDS OT, HMI e server OT."
+                            [ rischi_mitigati
+                                "Accessi non autorizzati"
+                                "Modifiche non tracciate"
+                                "Perdita di comunicazioni"
+                            [ pratiche_raccomandate
+                                "Configurare sorgenti log su OT firewall, switch, IDS OT, HMI/engineering, server OT."
+                                "Utilizzare sistemi AV/EDR compatibili con OT."
+                            [ metriche_kpi
+                                "Percentuale di dispositivi OT coperti da logging"
+                                "Tempo medio di rilevazione (MTTD)"
+                            { artefatti
+                                [ procedure
+                                    "Procedura configurazione sorgenti log"
+                                [ registri
+                                    "Registro dispositivi monitorati"
+                                [ evidenze
+                                    "Report di copertura logging"
+                            [ placeholders_contesto
+                                "[Elenco dispositivi OT specifici]"
+                                "[Vendor AV/EDR utilizzato]"
+                        {
+                            id "ASP-5.3.2"
+                            titolo "Centralizzazione e Retention Log"
+                            descrizione_astratta "Centralizzazione dei log in un sistema dedicato con politiche di retention
+                                +b adeguate e sincronizzazione temporale."
+                            [ rischi_mitigati
+                                "Perdita di dati log"
+                                "Incoerenza temporale negli eventi"
+                            [ pratiche_raccomandate
+                                "Centralizzare i log in un sistema SIEM o equivalente."
+                                "Definire retention minima (es. > 90 gg)."
+                                "Sincronizzare orari con NTP."
+                            [ metriche_kpi
+                                "Tempo di retention effettivo"
+                                "Percentuale di dispositivi sincronizzati NTP"
+                            { artefatti
+                                [ procedure
+                                    "Procedura configurazione SIEM"
+                                [ registri
+                                    "Registro retention log"
+                                [ evidenze
+                                    "Report sincronizzazione NTP"
+                            [ placeholders_contesto
+                                "[Sistema SIEM utilizzato]"
+                                "[Politica retention specifica]"
+                    { policy_template
+                        titolo "Policy Logging & Monitoring OT"
+                        [ sezioni
+                            "Scopo"
+                            "Ambito applicazione"
+                            "Sorgenti log"
+                            "Centralizzazione"
+                            "Retention"
+                            "Use case"
+                            "Responsabilità"
+                        [ placeholders_contesto
+                            "[Organizzazione]"
+                            "[Sistema SIEM]"
+                            "[Periodo retention]"
+                    { sop_template
+                        titolo "SOP Triage e Risposta Eventi OT"
+                        [ step
+                            "Identificazione evento da log"
+                            "Classificazione evento (use case)"
+                            "Triage secondo runbook"
+                            "Escalation a SOC se necessario"
+                            "Documentazione e chiusura incidente"
+                        [ registrazioni
+                            "Registro eventi rilevati"
+                            "Report di triage"
+                            "Log escalation SOC"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch principale: main"
+                            "Branch di sviluppo: develop"
+                            "Feature branch per use case specifici"
+                    { raci
+                        [ roles
+                            "Responsabile Sicurezza OT"
+                            "Team Operativo"
+                            "SOC"
+                            "Management"
+                        [ matrix
+                            {
+                                attivita "Configurazione sorgenti log"
+                                SP "Responsabile Sicurezza OT"
+                                AO "Team Operativo"
+                                SI "SOC"
+                                OTSec "Responsabile Sicurezza OT"
+                            {
+                                attivita "Triage e risposta eventi"
+                                SP "SOC"
+                                AO "Team Operativo"
+                                SI "Responsabile Sicurezza OT"
+                                OTSec "Responsabile Sicurezza OT"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                            "Slide"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Management"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Rispetto IEC 62443 FR6"
+                            "Integrazione con SOC esistente"
+                    { prompting
+                        prompt_template_generico "Descrivi in dettaglio [argomento] per un ambiente OT/ICS, includendo
+                            +b riferimenti a IEC 62443, sorgenti log, use case e integrazione SOC per
+                            +b [audience]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico su logging & monitoring in OT/ICS, con focus su
+                            +b sorgenti log (firewall, IDS OT) e centralizzazione per tecnici OT."
+                        prompt_esempio_slide "Prepara una slide di sintesi su logging OT per il management, evidenziando KPI
+                            +b come MTTD e use case minimi."
+                        prompt_esempio_sop "Redigi una SOP per il triage di eventi OT, includendo step per classificazione,
+                            +b escalation a SOC e documentazione."
+                    [ checklist
+                        "Identificate sorgenti log OT rilevanti"
+                        "Configurato sistema centralizzato (SIEM)"
+                        "Definiti use case minimi (accessi remoti, cambi configurazione)"
+                        "Predisposti runbook di risposta"
+                        "Test periodici e tuning falsi positivi"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Elenco dispositivi OT"
+                        "Sistema SIEM utilizzato"
+                        "Politiche retention aziendali"
+                        "Struttura SOC esistente"
+                    [ avvertenze
+                        "Assicurarsi compatibilità AV/EDR con protocolli OT."
+                        "Evitare overload di rete dovuto a logging eccessivo."
+                        "Verificare conformità GDPR per log contenenti dati personali."

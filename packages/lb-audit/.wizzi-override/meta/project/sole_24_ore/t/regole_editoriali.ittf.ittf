@@ -1,0 +1,27 @@
+$group
+
+    ## Regole editoriali trasversali (valide per tutto il capitolo)
+
+    * **Glossario inline**: spiegare **sempre**, tassativamente gli acronimi al primo 
+        \b utilizzo (OT, IACS, PLC, DMZ, ecc.).
+    * **Parafrasare i tecnicismi** tra parentesi con linguaggio professionale ma 
+        \b semplice (es. *conduit* = canale di rete **controllato**; 
+        \b *whitelisting* = consentire **solo** ciò che è autorizzato).
+    * **Coerenza 62443**: mappa sempre i controlli a **FR1–FR7** e agli **SL‑Target** 
+        \b realistici (evita “SL4 ovunque”).
+    * **Stile di apertura paragrafi**: evitare formule meta-discorsive 
+        \b come “Lo scopo di questo capitolo è…”; 
+        \b aprire invece con enunciati assertivi, diretti e d’impatto
+        \b che descrivano subito il contesto o il punto chiave.
+    * Preferire frasi assertive e dirette, che descrivono il contesto e le priorità come fatti, 
+        \b non come spiegazioni per il lettore.
+    * Integrare il lessico operativo (responsabilità, impatti, misure), 
+        \b evitando giri introduttivi.
+    * **Tono**: pratico‑operativo, vendor‑neutral, frasi brevi, voce attiva.
+    * **Box Per i ruoli** in ogni sezione: 2–3 bullet ciascuno per **PMI/Asset Owner**, 
+        \b **OEM/Product Supplier**, 
+        \b **Service Provider/System Integrator**.
+    * **Evidenze tracciabili**: link a manuali/procedure, matrici FR×SL, guide di sicurezza, record di test.
+    * **Chiusura sezione**: **2–3 takeaway** + **1 avvertenza safety**.
+    * **Box strutturati**: mantenere format *Per i ruoli* / *Takeaway* / *Avvertenza safety*.
+    * Inserire box o takeaway come “ancore di lettura”, non come giustificazioni del testo.

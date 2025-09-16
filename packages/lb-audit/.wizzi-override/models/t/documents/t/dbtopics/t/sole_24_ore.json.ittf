@@ -1,0 +1,2315 @@
+$group
+    { sole_24_ore
+        { Cap_1
+            chapter "1"
+            name "Contesto, perimetro e come usare la mini guida (IEC 62443)"
+            [ goal
+                "> **Obiettivo**: capitolo introduttivo (2 facciate) per definire contesto, perimetro, 
+                    +b destinatari, cosa **non** è la 62443, output attesi e modalità d’uso della mini guida."
+            [ sections
+                { 
+                    section "1.1"
+                    name "Scopo e perimetro"
+                    [ prompt
+                        "Scrivi 8–12 righe su scopo e perimetro del Cap. 1, chiarendo confine IT/OT, DMZ e conduits, con esempi di asset OT e interfacce." 
+                    [ lines
+                        "**Cosa includere (OT/IACS)**" 
+                        "PLC, DCS/SCADA, HMI, workstation di ingegneria, historian, server OT (dominio, applicativi), apparati rete industriale, VPN/remote access, sistemi di backup/restore, virtualizzazione on‑prem OT, interfacce con MES/ERP." 
+                        "**Cosa resta fuori (ma con interfacce)**" 
+                        "IT office (posta, collaboration), endpoint non usati in OT, applicazioni corporate irrilevanti per l’operatività." 
+                        "**Confine IT/OT e conduits**" 
+                        "Descrivere la **DMZ** (zona cuscinetto), i **conduits** (canali controllati) e le **trust boundaries**." 
+                { 
+                    section "1.2"
+                    name "A chi serve (pubblico)"
+                    [ prompt
+                        "Descrivi 10–12 righe di ‘a chi serve’, con value proposition distinta per PMI/Owner, OEM e Service Provider, includendo esempi di risultati attesi." 
+                    [ lines
+                        "**Segmenti destinatari**" 
+                        "* **PMI/Asset Owner**: impostare un **programma di sicurezza OT** essenziale ma efficace." 
+                        "* **OEM/Product Supplier**: allineare **SDL 62443‑4‑1** e capacità **‑4‑2**; definire condizioni d’uso sicure." 
+                        "* **Service Provider/System Integrator**: operare secondo **‑2‑4**, con accessi remoti tracciati e procedure concordate." 
+                { 
+                    section "1.3"
+                    name "Cosa **NON** è la IEC 62443"
+                    [ prompt
+                        "Scrivi un box ‘cosa NON è la 62443’ in 6–8 righe con esempi pratici e correzione dei miti ricorrenti." 
+                    [ lines
+                        "* Non è **solo IT**: tratta esigenze OT (disponibilità, tempi reali, safety)." 
+                        "* Non è **un prodotto**: nessun componente singolo “rende conforme” l’impianto." 
+                        "* Non è **solo una checklist**: richiede **processi** e **ruoli** (‑2‑1)." 
+                        "* Non è **zero incidenti**: riduce il rischio in modo misurabile." 
+                        "* Non è **compliance legale automatica**: aiuta a mappare (es. NIS2), ma servono governance e reporting." 
+                { 
+                    section "1.4"
+                    name "Come usare la mini guida"
+                    [ role
+                        "* **PMI/Asset Owner**: visione chiara su rischi e priorità." 
+                        "* **OEM/Product Supplier**: riferimenti al percorso di sviluppo sicuro." 
+                        "* **Service Provider/System Integrator**: chiarimenti sul perimetro di responsabilità." 
+                    [ safety
+                        "Interpretare il documento come guida operativa potrebbe portare a implementazioni parziali o scorrette, con impatti sulla sicurezza degli impianti." 
+                    [ lines
+                        "La mini guida è concepita come strumento Executive: descrive con chiarezza i rischi, i benefici e le decisioni chiave da prendere per impostare un programma di sicurezza OT. Il documento non fornisce istruzioni operative passo-passo, ma illustra i concetti fondamentali e indica i percorsi decisionali. Gli approfondimenti tecnici sono limitati e hanno valore introduttivo; per la loro applicazione concreta occorre coinvolgere figure specialistiche interne o partner qualificati. La guida supporta tre livelli di lettura: **Executive track** (principale), orientata a chi decide; **OEM/Product Supplier track**, con cenni su sviluppo sicuro e conformità; **Service Provider/System Integrator track**, con riferimenti a modalità di erogazione e responsabilità. In ogni caso, il documento non sostituisce manuali operativi, ma serve da quadro di riferimento per allineare linguaggio, priorità e obiettivi." 
+                        "* La guida è descrittiva e orientata al decision making." 
+                        "* Non è un manuale operativo." 
+                        "* Gli approfondimenti tecnici richiedono supporto specialistico." 
+                        "**Approccio step‑by‑step**" 
+                        "1. Inventario & perimetro. 2) Rischio & **SL‑Target**. 3) Architettura (zone, conduits, DMZ, identità). 4) Piano misure (tecniche+organizzative). 5) Validazione/verifica (**‑3‑3**). 6) Operazioni & miglioramento." 
+                { 
+                    section "1.5"
+                    name "Output attesi dal lettore (deliverable)"
+                    [ prompt
+                        "Scrivi 8–10 righe sugli output attesi e 4–5 metriche chiave per misurare il progresso senza dati sensibili." 
+                    [ lines
+                        "* **Mappa dei rischi OT** per zona (asset critici, minacce, impatti, rischio residuo)." 
+                        "* **SL‑Target per zona** (FR1–FR7) coerenti con vincoli operativi." 
+                        "* **Piano misure** prioritizzato (costo/beneficio, owner, prerequisiti, finestre di downtime)." 
+                        "* **Roadmap 30/90/180+** con quick wins (remoto, backup, logging), interventi strutturali (segmentazione, identity OT) e iniziative di programma." 
+                        "**Metriche di successo**" 
+                        "Esempi: % asset inventariati; % sessioni remote con **MFA**; copertura patch; **MTTD/MTTR**; % zone con SL‑Target formalizzati." 
+                { 
+                    section "1.6"
+                    name "Figure e template (segnaposto)"
+                    [ prompt
+                        "Indica figure e template che inserirai in Cap. 1 e dove verranno richiamati nei capitoli successivi." 
+                    [ lines
+                        "* **Schema Zone & Conduits** (con **DMZ**) — figura 1." 
+                        "* **Tabella FR × SL** — figura 2." 
+                        "* **RACI essenziale** (ruoli/responsabilità) — tabella 1." 
+                        "* **Template**: inventario asset, matrice **SL‑Target**, piano patch/vuln, policy accessi remoti." 
+                        "## Glossario minimo (Cap. 1)" 
+                        "* **IACS/OT**: sistemi di automazione e controllo industriale; ambiente operativo di fabbrica/impianto." 
+                        "* **Zona (Zone)**: insieme di asset OT con profilo di rischio simile, separati logicamente da altre zone." 
+                        "* **Conduit**: canale di comunicazione **controllato** tra zone; filtra protocolli e direzioni dei flussi." 
+                        "* **SL — Security Level (SL0–SL4)**: obiettivo di robustezza **per requisito** e **per zona/conduit/asset**." 
+                        "* **FR — Foundational Requirements**: 7 aree di controllo (FR1–FR7) dalla gestione delle identità al ripristino." 
+                        "* **DMZ**: zona demilitarizzata industriale, cuscinetto tra IT e OT." 
+                        "* **MFA**: autenticazione a più fattori." 
+                        "* **Whitelisting**: consentire **solo** protocolli/indirizzi autorizzati." 
+                        "## Checklist finale (QA redazionale — Cap. 1)" 
+                        "* [ ] Acronomi spiegati alla prima occorrenza; tecnicismi parafrasati." 
+                        "* [ ] Box #### Per i ruoli presente in ogni sezione." 
+                        "* [ ] Takeaway + **avvertenza safety** per sezione." 
+                        "* [ ] Mapping a **FR/SL** dove pertinente." 
+                        "* [ ] Figure/template elencati e coerenti." 
+                        "* [ ] Tono pratico‑operativo, vendor‑neutral." 
+                        "### sys_source https://chatgpt.com/c/68b73c35-0298-8328-a7b9-76f473241645" 
+        { Cap_2
+            chapter "2"
+            name "Panoramica IEC 62443: struttura e principi"
+            [ goal
+                "Fornire una panoramica generale dello standard"
+            [ sections
+                { 
+                    section "2.1"
+                    name "Famiglie di standard IEC 62443 (mappa della serie)"
+                    [ goal
+                        "Fornire una mappa orientativa della serie, con cosa copre ogni parte e per chi è scritta." 
+                    [ output
+                        "Tabella “**Parte → Scopo → Utente tipico**” (Owner, OEM, SI/Service Provider)." 
+                    [ prompt
+                        "Redigi 12–14 righe che spieghino le famiglie IEC 62443 (‑1‑1, ‑2‑1, ‑2‑3, ‑2‑4, ‑3‑2, ‑3‑3, ‑4‑1, ‑4‑2), indicando per ciascuna scopo e destinatario e come si incastrano lungo il ciclo di vita." 
+                    [ lines
+                        "**Contenuti da coprire**" 
+                        "* **IEC 62443‑1‑1** — Terminologia, concetti e modelli (glossario comune)." 
+                        "* **IEC 62443‑2‑1** — Programmi di sicurezza per asset owner (governance, policy, processi)." 
+                        "* **IEC 62443‑2‑3** — Patch & vulnerability management (processi OT)." 
+                        "* **IEC 62443‑2‑4** — Requisiti per service providers (manutenzione/integrazione sicura)." 
+                        "* **IEC 62443‑3‑2** — Risk assessment, **SL‑Target** per zone/conduits." 
+                        "* **IEC 62443‑3‑3** — **System Requirements (SR)** per raggiungere gli SL‑Target." 
+                        "* **IEC 62443‑4‑1** — **Secure Development Lifecycle (SDL)** per OEM/fornitori." 
+                        "* **IEC 62443‑4‑2** — Requisiti di **componente** per prodotti/soluzioni OT." 
+                        "**Figure/Template (segnaposto)**" 
+                        "* **Figura [section]**: mappa della famiglia 62443 (timeline del ciclo di vita con le parti)." 
+                        "* **Tabella [section]**: “Parte → Scopo → Utente tipico”." 
+                { 
+                    section "2.2"
+                    name "Livelli di sicurezza **SL0–SL4** e loro significato"
+                    [ goal
+                        "Chiarire cosa rappresentano gli **SL** (Security Level) e come si applicano a zone, conduits e asset." 
+                    [ output
+                        "Box esempi “**SL per zona**” (HMI, conduits remoti, SIS/safety systems)." 
+                    [ prompt
+                        "Scrivi 10–12 righe sui livelli SL0–SL4: cosa misurano, come si impostano per FR/zone/conduits/asset, esempi reali di SL‑Target e differenza con SL‑Achieved." 
+                    [ lines
+                        "**Contenuti da coprire**" 
+                        "* **SL** come obiettivo **per FR** e **per ambito** (zona/conduit/asset)." 
+                        "* Esempi pratici: quando SL1 è adeguato, quando serve SL2/SL3; SL4 casi rari." 
+                        "* Relazione tra **SL‑Target** (desiderato) e **SL‑Achieved** (verificato)." 
+                        "* Evitare “SL4 ovunque”: compromessi OT‑feasible (attuabili in OT)." 
+                        "**Figure/Template (segnaposto)**" 
+                        "* **Figura [section]**: scala SL con esempi per FR; box SL‑Target vs SL‑Achieved." 
+                { 
+                    section "2.3"
+                    name "**Defense‑in‑Depth** e **Zone & Conduits**"
+                    [ goal
+                        "Introdurre i concetti chiave di **difesa in profondità**, **segmentazione** e **conduits** controllati tra zone." 
+                    [ output
+                        "Schema architettura a **Zone & Conduits** con DMZ." 
+                    [ prompt
+                        "Redigi 12–14 righe su Defense‑in‑Depth e segmentazione OT: definisci Zone & Conduits, illustra la DMZ e i principi di accesso remoto sicuro (brokered, MFA, least privilege)." 
+                    [ lines
+                        "**Contenuti da coprire**" 
+                        "* **Defense‑in‑Depth**: livelli (fisico, rete, host, applicazione, processo, persone)." 
+                        "* **Zone**: raggruppare asset per criticità/processo; **Conduits**: canali con **policy** su protocolli/porte/direzioni." 
+                        "* **DMZ** industriale: scambio dati IT/OT, servizi intermedi (jump host, broker)." 
+                        "* Accessi remoti **brokered** con **MFA**, **least privilege**, **session recording**." 
+                        "**Figure/Template (segnaposto)**" 
+                        "* **Figura [section]**: schema Zone & Conduits con DMZ e flussi consentiti." 
+                { 
+                    section "2.4"
+                    name "**Foundational Requirements (FR1–FR7)** — tabella **FR × SL**"
+                    [ goal
+                        "Spiegare le **7 aree di controllo** e come il loro livello varia da **SL0 a SL4**." 
+                    [ prompt
+                        "Compila la tabella **FR × SL (SL0–SL4)** con descrittori sintetici e un esempio OT per riga (massimo 1 riga di testo per cella)." 
+                    [ lines
+                        "**Definizioni brevi (IT/EN)**" 
+                        "* **FR1 — IAC (Identification & Authentication Control)**: gestione di identità e autenticazione." 
+                        "* **FR2 — UC (Use Control)**: autorizzazione e controllo degli usi/operazioni." 
+                        "* **FR3 — SI (System Integrity)**: integrità di sistemi/configurazioni/firmware." 
+                        "* **FR4 — DC (Data Confidentiality)**: protezione della riservatezza dei dati." 
+                        "* **FR5 — RDF (Restrict Data Flow)**: segregazione di rete e controllo dei flussi." 
+                        "* **FR6 — TRE (Timely Response to Events)**: monitoraggio, allarmi e risposta." 
+                        "* **FR7 — RA (Resource Availability)**: disponibilità, backup/restore, resilienza." 
+                        "**Cosa mostrare in tabella**" 
+                        "* Riga per ciascun **FR**, colonne **SL0–SL4** con descrittori sintetici (es. *FR1 @ SL2*: MFA per conduits remoti, account nominali, scadenza password; *FR5 @ SL3*: whitelisting protocolli, conduits unidirezionali dove possibile)." 
+                        "* Colonna finale “**Esempio in OT**”." 
+                        "**Figure/Template (segnaposto)**" 
+                        "* **Tabella [section]**: **FR × SL** (descrittori sintetici + esempi)." 
+                        "* **Figura [section]**: legenda simboli usati nella tabella." 
+                { 
+                    section "2.5"
+                    name "Collegamenti tra parti: **dal programma al sistema al componente**"
+                    [ goal
+                        "Mostrare come le parti si **incastrano** (‑2‑1 programma, ‑3‑2 rischio/SL‑T, ‑3‑3 requisiti di **sistema**, ‑4‑1/‑4‑2 **prodotto**) lungo il ciclo di vita." 
+                    [ output
+                        "Diagramma di **tracciabilità** tra parti e deliverable (policy, SL‑Target, SR, SBOM, advisory, evidenze di test)." 
+                    [ prompt
+                        "Scrivi 8–10 righe che spieghino il collegamento tra ‑2‑1, ‑3‑2, ‑3‑3, ‑4‑1 e ‑4‑2, indicando i deliverable e la tracciabilità tra documenti." 
+                    [ lines
+                        "**Contenuti da coprire**" 
+                        "* **Flusso**: programma (‑2‑1) → rischio & SL‑T (‑3‑2) → requisiti di sistema (‑3‑3) → scelta e integrazione componenti (‑4‑2) **sviluppati** secondo (‑4‑1)." 
+                        "* Dove entrano **‑2‑3** (patch/vuln) e **‑2‑4** (service providers)." 
+                        "**Figure/Template (segnaposto)**" 
+                        "* **Figura [section]**: flusso di tracciabilità tra parti e deliverable." 
+                { 
+                    section "2.6"
+                    name "Errori comuni & quick wins (riquadro di servizio)"
+                    [ prompt
+                        "Scrivi 6–8 righe con 3 errori comuni e 3 quick wins, collegandoli ai FR e agli SL dove rilevante." 
+                    [ lines
+                        "* **Errori**: cercare SL4 ovunque; saltare la **zoning**; accessi remoti diretti; niente **baseline** di hardening; assenza di **staging** per patch; mancanza di **evidenze**." 
+                        "* **Quick wins**: inventario minimo; policy **accessi remoti** brokered con **MFA**; backup baseline; log centralizzati; whitelisting essenziale sui conduits critici." 
+                        "## Glossario minimo (Cap. 2 — Panoramica)" 
+                        "* **IACS/OT**: sistemi di automazione e controllo industriale; ambiente operativo di fabbrica/impianto." 
+                        "* **Zona (Zone)**: insieme di asset OT con profilo di rischio simile, separati logicamente da altre zone." 
+                        "* **Conduit**: canale di comunicazione **controllato** tra zone; filtra protocolli e direzioni dei flussi." 
+                        "* **SL — Security Level (SL0–SL4)**: obiettivo di robustezza **per requisito** e **per zona/conduit/asset**." 
+                        "* **FR — Foundational Requirements**: 7 aree di controllo (FR1–FR7) dalla gestione delle identità al ripristino." 
+                        "* **DMZ**: zona demilitarizzata industriale, cuscinetto tra IT e OT." 
+                        "* **SDL (‑4‑1)**: ciclo di sviluppo sicuro per prodotti." 
+                        "* **SR (‑3‑3)**: requisiti di sistema; **SL‑Target** vs **SL‑Achieved**." 
+                        "## Checklist finale (QA redazionale — Cap. 2 Panoramica)" 
+                        "* [ ] Acronomi spiegati e tecnicismi parafrasati." 
+                        "* [ ] Box **Per i ruoli** in ogni sezione." 
+                        "* [ ] **SL** spiegati con esempi realistici OT." 
+                        "* [ ] Tabella **FR × SL** coerente e bilanciata." 
+                        "* [ ] Figure/template elencati e coerenti." 
+                        "* [ ] Takeaway + **avvertenza safety** per sezione." 
+                        "* [ ] Tono pratico‑operativo, vendor‑neutral." 
+        { Cap_3
+            chapter "3"
+            name "Governance e Security Program (IEC 62443-2-1, -2-3, -2-4)"
+            [ goal
+                "> **Obiettivo**: capitolo pratico-operativo (2–4 facciate) che spieghi 
+                    +b governance, ruoli/RACI, supply chain & procurement, 
+                    +b accessi terze parti, patch & vulnerability management, 
+                    +b PSIRT/disclosure."
+            [ output
+                "> **Output attesi**: 
+                    +b 1) **Policy set** OT, 
+                    +b 2) **RACI** ruoli-responsabilità, 
+                    +b 3) **Procedure** (remote access, change, patch/vuln), 
+                    +b 4) **Requisiti contrattuali fornitore** (-2-4), 
+                    +b 5) **Piano KPI** e roadmap 30/90/180 gg, 
+                    +b 6) **Charter PSIRT**."
+            [ sections
+                { 
+                    section "3.1"
+                    name "Programma di Sicurezza OT (‑2‑1)"
+                    [ prompt
+                        "Redigi una panoramica di 10–12 righe del programma di sicurezza OT secondo 62443‑2‑1, collegandolo a SL‑Target e cicli PDCA." 
+                    [ role
+                        "* **PMI / Asset Owner**: delimitare confine IT/OT; nominare owner di zona; approvare SL‑Target realistici." 
+                        "* **OEM / Product Supplier**: manuale di **integrazione sicura**, **SBOM** (Software Bill of Materials), tempi patch; supporto alla validazione." 
+                        "* **Service Provider / System Integrator**: progettare **zone & conduits**, impostare broker di accesso, logging ed evidenze di test." 
+                    [ safety
+                        "Ogni controllo va valutato contro interlock e vincoli del processo: nessuna modifica senza **analisi d’impatto** e test in ambiente sicuro." 
+                    [ lines
+                        "**Sintesi** " 
+                        "Il **programma di sicurezza OT** (Operational Technology) secondo **IEC 62443‑2‑1** è un ciclo **PDCA** (Plan‑Do‑Check‑Act) che collega politiche e ruoli, **valutazione del rischio** sugli **IACS** (Industrial Automation and Control Systems), definizione degli **SL‑Target** (obiettivi di sicurezza per zona/conduit/asset), implementazione dei controlli (**FR1–FR7**), **validazione** (‑3‑3) e **miglioramento continuo**. Il perimetro comprende impianti, linee, PLC/DCS/SCADA, HMI, conduits verso IT tramite **DMZ** (zona cuscinetto), con integrazione esplicita con **safety**, qualità e manutenzione." 
+                        "**Componenti chiave**" 
+                        "* **Governo**: comitato ICS con mandato, calendario, registro decisioni ed **eccezioni**." 
+                        "* **Politiche & standard**: accessi remoti, change, backup/restore, logging, hardening; mapping a **FR/SL**." 
+                        "* **Processi**: risk‑based per **zona**, pianificazione misure e **verifica** (test/‑3‑3), audit periodico." 
+                        "* **Evidenze**: RACI approvato, registro asset, SL‑Target per zona, piani e report **KPI**." 
+                        "* Programma **documentato e misurabile**, non solo tecnico." 
+                        "* **SL‑Target** guidano priorità e investimenti (evitare \"SL4 ovunque\")." 
+                        "* Safety, manutenzione e qualità sono **stakeholder** permanenti." 
+                { 
+                    section "3.2"
+                    name "Ruoli & Responsabilità + **RACI**"
+                    [ prompt
+                        "Compila il RACI per il tuo contesto, giustificando in 3–5 righe le scelte di R/A sulle prime tre attività." 
+                    [ role
+                        "* **PMI / Asset Owner**: formalizzare **RACI** e criteri di eccezione; definire owner per ogni zona." 
+                        "* **OEM**: dichiarare capacità ‑4‑2 e pratiche ‑4‑1; nominare un **referente tecnico** per integrazione." 
+                        "* **Service Provider**: adottare procedure del cliente, fornire **log** e **report** a chiusura attività." 
+                    [ safety
+                        "Attività che incidono su logiche **SIS/ESD** (Safety) richiedono **two‑person rule** e approvazioni dedicate." 
+                    [ lines
+                        "**Ruoli** " 
+                        "* **Asset Owner / Gestore impianto**: detiene il rischio, approva **SL‑Target**, policy e finestre di fermo." 
+                        "* **System Integrator**: design di **zone & conduits**, hardening, validazione (‑3‑3)." 
+                        "* **Product Supplier / OEM**: **SDL** (Secure Development Lifecycle, ‑4‑1), requisiti di **componente** (‑4‑2), **SBOM**, advisory vulnerabilità." 
+                        "* **Service Provider (‑2‑4)**: accessi remoti, manutenzione, logging e consegna **evidenze**." 
+                        "* **OT Security / SOC** (Security Operations Center): monitoraggio, incident response, reporting **KPI**." 
+                        "* **HSE/Safety**: impatti di processo e interlocks." 
+                        "**Tabella RACI — modello**" 
+                        "| Attività chiave                    | Asset Owner | System Integrator | OEM | Service Provider | OT Sec/SOC | HSE/Safety |" 
+                        "| ---------------------------------- | ----------: | ----------------: | --: | ---------------: | ---------: | ---------: |" 
+                        "| Definizione **SL‑Target** per zona |         R/A |                 C |   C |                C |          C |          C |" 
+                        "| **Zoning & conduits** design       |           A |                 R |   C |                C |          C |          C |" 
+                        "| **Remote access** policy & broker  |           A |                 R |   C |                R |          C |          C |" 
+                        "| **Change management** OT           |           A |                 R |   C |                C |          C |          C |" 
+                        "| **Patch/Vuln management (‑2‑3)**   |           A |                 C |   C |                R |          R |          C |" 
+                        "| **Monitoring & logging**           |           A |                 C |   C |                C |          R |          C |" 
+                        "| **Incident response** (IR/PSIRT)   |           A |                 C |   C |                C |          R |          C |" 
+                        "| **Procurement** (‑2‑4, ‑4‑1/‑4‑2)  |         R/A |                 C |   R |                C |          C |          C |" 
+                        "**Perché R/A così**" 
+                        "* **SL‑Target**: l’Owner detiene il rischio → **A**; contributi tecnici in **C**." 
+                        "* **Zoning & conduits**: responsabilità **R** al SI per il design; **A** all’Owner." 
+                        "* **Remote access**: policy **A** all’Owner; implementazione **R** al SI; **R** operativo al Service Provider." 
+                        "* Ruoli chiari evitano **zone grigie** su accessi e cambi." 
+                        "* Il RACI va **pubblicato** e rivisto a ogni modifica organizzativa." 
+                        "* Collegare il RACI ai **ticket** (change, incident, accessi)." 
+                { 
+                    section "3.3"
+                    name "Supply Chain Security & **Procurement** (‑2‑4)"
+                    [ prompt
+                        "Scrivi 8–10 clausole procurement vendor‑neutral che impongano ‑4‑1/‑4‑2, PSIRT, SBOM, patch e controlli su accessi remoti." 
+                    [ role
+                        "* **PMI / Asset Owner**: inserire clausole nei **capitolati**; penali solo su impegni ragionevoli." 
+                        "* **OEM**: pubblicare **advisory** e SBOM; dichiarare tempi medi di remediation." 
+                        "* **Service Provider**: accettare **registrazione sessioni** e checklist di chiusura." 
+                    [ safety
+                        "Interventi da remoto solo in **finestre di fermo** con piano di **rollback** concordato." 
+                    [ lines
+                        "**Clausole contrattuali (modello vendor‑neutral)**" 
+                        "1. **SDL 62443‑4‑1** con audit su richiesta (NDA)." 
+                        "2. **Requisiti 62443‑4‑2** dichiarati (FR/SL supportati) e guida all’hardening." 
+                        "3. **SBOM** aggiornato per release; formato aperto (es. SPDX)." 
+                        "4. **PSIRT** attivo: canale cifrato, **SLA** triage (es. 5 gg), advisory firmati." 
+                        "5. **Patch policy**: tempi indicativi per criticità (CRIT/HIGH entro 30–60 gg **OT‑feasible**)." 
+                        "6. **Accessi remoti**: solo **brokered**, **MFA**, approvazioni time‑bound, **session recording**." 
+                        "7. **Logging** interventi e consegna **evidenze** a fine attività." 
+                        "8. **Incident/Disclosure** coordinato con l’Owner entro X ore." 
+                        "9. **Data ownership**: limiti su copie/configurazioni; restituzione a progetto chiuso." 
+                        "10. **Sicurezza in produzione**: manuale di integrazione sicura, porte/protocolli, account, backup." 
+                        "**Qualifica fornitori**" 
+                        "Criteri: maturità **SDL**, storico **CVE/TTR** (Time‑To‑Remediate), referenze di settore, disponibilità a test di integrazione, certificazioni pertinenti, continuità **PSIRT**." 
+                        "* Il contratto è lo strumento chiave per **‑2‑4/‑4‑1/‑4‑2**." 
+                        "* Prevedere una **matrice di conformità** allegata all’ordine." 
+                        "* Accessi remoti e disclosure **non si improvvisano**." 
+                { 
+                    section "3.4"
+                    name "**Accessi remoti di terze parti** (policy e controlli)"
+                    [ prompt
+                        "Redigi la procedura degli accessi remoti (max 12 passi) e una checklist di evidenze da allegare al ticket." 
+                    [ role
+                        "* **PMI / Asset Owner**: pubblicare la procedura; includerla nei contratti." 
+                        "* **OEM**: predisporre tool di supporto **non‑invasivi** e guide passo‑passo." 
+                        "* **Service Provider**: usare il broker del cliente e consegnare **evidenze** standard." 
+                    [ safety
+                        "Attività che impattano i parametri di processo richiedono presenza (fisica o remota) di **Operations** e **HSE**." 
+                    [ lines
+                        "**Principi** " 
+                        "Accesso **brokered** tramite jump host/gateway privilegiato; **no** VPN dirette verso asset. **MFA**, autorizzazioni **time‑bound**, **least privilege**, **session recording**, **separation of duties**." 
+                        "**Procedura in 12 passi**" 
+                        "1. Richiesta con scopo e asset." 
+                        "2. Verifica prerequisiti (formazione, NDA)." 
+                        "3. Approvazione **owner di zona**." 
+                        "4. Pianificazione finestra (con safety)." 
+                        "5. **Pre‑check**: backup configurazioni/snapshot." 
+                        "6. Assegnazione profilo minimo e **account temporaneo**." 
+                        "7. Avvio sessione tramite **broker** con registrazione." 
+                        "8. Esecuzione attività con **two‑person rule** se critiche." 
+                        "9. Chiusura sessione e revoca account." 
+                        "10. **Post‑check** funzionale/processo." 
+                        "11. Allegare **log/evidenze** al ticket." 
+                        "12. **Post‑review** con miglioramenti." 
+                        "**Checklist evidenze**" 
+                        "Ticket, approvazione, elenco cambi, backup pre/post, log sessione, output comandi, foto/screenshot, esito test e **rollback**." 
+                        "* Tutto l’accesso remoto passa da **un solo punto**." 
+                        "* **Log** e **registrazioni** sono parte dell’evidenza." 
+                        "* Account sempre **temporanei** e minimi." 
+                { 
+                    section "3.5"
+                    name "**Patch & Vulnerability Management** (‑2‑3)"
+                    [ prompt
+                        "Scrivi il piano patch/vuln con SLA per criticità, criteri di feasibility e flusso di test/staging." 
+                    [ role
+                        "* **PMI / Asset Owner**: definire finestre e priorità per **asset critici**." 
+                        "* **OEM**: fornire **SBOM**, pacchetti firmati, guide di test." 
+                        "* **Service Provider/SI**: mantenere **staging**, eseguire test e consegnare report." 
+                    [ safety
+                        "Mai patch su sistemi **safety‑critical** senza test dedicati e piano di ripristino." 
+                    [ lines
+                        "**Processo OT‑aware**" 
+                        "1. Inventario e **criticità** asset." 
+                        "2. Raccolta vuln (CVE, advisory fornitore/**PSIRT**, SOC)." 
+                        "3. **Risk scoring OT**: CVSS × impatto su disponibilità/safety × esposizione." 
+                        "4. Valutare **OT‑feasibility** e pianificare in **finestra**." 
+                        "5. Test in **staging**/banco prova." 
+                        "6. **Change approval** e comunicazione." 
+                        "7. Deploy con **rollback plan**." 
+                        "8. Verifica e aggiornamento baseline." 
+                        "**SLA di riferimento (adattare)**" 
+                        "* **CRIT/HIGH**: ≤ 30–60 gg se **OT‑feasible**." 
+                        "* **MED**: ≤ 90 gg; **LOW**: a ciclo manutentivo." 
+                        "* **Eccezioni**: compensating controls documentati e revisione trimestrale." 
+                        "**KPI** " 
+                        "Copertura patch per criticità; **TTR** (Time‑To‑Remediate) mediano; % asset con baseline verificata; n. **eccezioni** attive." 
+                        "* Patch e vuln mgmt sono **processi**, non eventi." 
+                        "* Lo **staging** evita fermi imprevisti." 
+                        "* Le **eccezioni** devono **scadere**." 
+                { 
+                    section "3.6"
+                    name "**PSIRT** & Coordinated Vulnerability Disclosure"
+                    [ prompt
+                        "Definisci un charter PSIRT di 12–15 righe e il template dell’advisory pubblico." 
+                    [ role
+                        "* **PMI / Asset Owner**: canale per inviare segnalazioni ai fornitori; politica di **coordinamento**." 
+                        "* **OEM**: pubblicare pagina **PSIRT** e archivio advisory." 
+                        "* **Service Provider**: supportare triage e verifica in campo." 
+                    [ safety
+                        "Non divulgare dettagli sfruttabili prima che esistano **mitigazioni** praticabili." 
+                    [ lines
+                        "**Charter essenziale**" 
+                        "Mandato: ricevere segnalazioni, **triage**, riprodurre, coordinare **remediation/mitigazioni**, pubblicare **advisory** firmati, interfacciarsi con **CERT/ISAC** e clienti." 
+                        "Contatti: e‑mail dedicata, chiave **PGP**, portale." 
+                        "Tempi: finestra di disclosure **coordinata** (es. 90 gg, estendibile in OT)." 
+                        "Ruoli: **PSIRT Lead**, referente Engineering, Legal/Comms, OT SME." 
+                        "**Flusso** " 
+                        "Ricezione → conferma → riproduzione → valutazione impatto → remediation/mitigazioni → advisory → chiusura → lezione appresa." 
+                        "**Template advisory (pubblico)**" 
+                        "ID/Versione; prodotti/versioni impattate; descrizione; **gravità** (CVSS); prerequisiti; mitigazioni; patch e **workaround**; riferimenti; cronologia." 
+                        "* La **trasparenza** PSIRT aumenta fiducia e velocizza remediation." 
+                        "* Coordinare disclosure con finestre **OT**." 
+                        "* Standardizzare il **template** evita ambiguità." 
+                { 
+                    section "3.7"
+                    name "**KPI & Metriche**"
+                    [ prompt
+                        "Elenca 6 KPI misurabili e spiega come raccoglierli senza esporre dati sensibili." 
+                    [ role
+                        "* **PMI / Asset Owner**: definire target trimestrali e **soglie** minime." 
+                        "* **OEM**: esportare dati necessari (advisory, tempi patch)." 
+                        "* **Service Provider**: allegare KPI a **rapportini** di chiusura." 
+                    [ safety
+                        "La raccolta log non deve impattare **latenza** o **affidabilità** dei sistemi di controllo." 
+                    [ lines
+                        "**Cosa misurare**" 
+                        "* % **asset inventariati/classificati** per zona." 
+                        "* % zone con **SL‑Target** approvati e verificati." 
+                        "* **Patch coverage** per criticità; **TTR** mediano." 
+                        "* % **sessioni remote** registrate con **MFA**; tempo medio di approvazione." 
+                        "* **MTTD/MTTR** (tempo di rilevazione/ripristino) eventi OT; % **backup/restore** testati." 
+                        "* % **fornitori qualificati** (SDL/PSIRT) in procurement." 
+                        "**Come raccoglierli (senza dati sensibili)**" 
+                        "Contatori **aggregati** per zona; no IP/host; conservare **evidenze** (log, ticket, report). Campionare mensilmente e visualizzare **trend**." 
+                        "* Pochi KPI, **stabili** e ripetibili." 
+                        "* Misura → priorità → azione → **verifica**." 
+                        "* I KPI guidano la roadmap, non viceversa." 
+                { 
+                    section "3.8"
+                    name "**Roadmap 30/90/180 gg**"
+                    [ prompt
+                        "Compila la roadmap 30/90/180 gg con owner, dipendenze e criteri di successo." 
+                    [ time1
+                        "- Inventario minimo + classificazione criticità (**Owner/SI**)." 
+                        "- Policy **accessi remoti** pubblicata; broker installato (**SI**)." 
+                        "- **Backup** baseline e test di ripristino (**Operations**)." 
+                        "- Avvio **registro KPI** e RACI firmato (**Owner**)." 
+                    [ time2
+                        "- Zoning logico + conduits prioritari; **DMZ** attiva (**SI**)." 
+                        "- **Patch/Vuln mgmt** operativo con calendario (**Owner/SI**)." 
+                        "- Clausole **procurement** in gara; qualifica fornitori (**Owner**)." 
+                        "- Prime verifiche **‑3‑3** e runbook incident (**SI/SOC**)." 
+                    [ time3
+                        "- SL‑Target **per zona** approvati e verificati." 
+                        "- **PSIRT** (OEM/fornitori) integrato; reporting KPI mensile." 
+                        "- Audit di **conformità** e piano di miglioramento annuale." 
+                    [ success
+                        "% target raggiunti (KPI), assenza di interventi remoti **non registrati**, riduzione dei **cambi urgenti** senza approvazione." 
+                    [ lines
+                    [ timeValues
+                        30 
+                        90 
+                        180 
+                { 
+                    section "3.9"
+                    name "**Artefatti & Evidenze** (checklist)"
+                    [ lines
+                        "* **Security Policy OT** e **Standard tecnici** (versionati)." 
+                        "* **RACI** firmato e pubblicato." 
+                        "* **Registro asset** con classificazione e owner di zona." 
+                        "* **SL‑Target** per zona e mapping controlli **FR1–FR7**." 
+                        "* **Procedura accessi remoti** + **log/registrazioni** a supporto." 
+                        "* **Piano patch/vuln** con registro **eccezioni** e report esecuzione." 
+                        "* **Clausole procurement** (‑2‑4) e checklist qualifica fornitore." 
+                        "* **Charter PSIRT** e archivio **advisory**." 
+                        "* **Report KPI** mensile con trend e azioni correttive." 
+                        "## Glossario minimo (per il capitolo)" 
+                        "* **IACS/OT**: sistemi di automazione e controllo industriale; ambiente operativo di fabbrica/impianto." 
+                        "* **Zona (Zone)**: insieme di asset OT con profilo di rischio simile, separati logicamente da altre zone." 
+                        "* **Conduit**: canale di comunicazione **controllato** tra zone; filtra protocolli e direzioni dei flussi." 
+                        "* **SL — Security Level (SL0–SL4)**: obiettivo di robustezza **per requisito** e **per zona/conduit/asset**." 
+                        "* **FR — Foundational Requirements**: 7 aree di controllo: FR1 Identificazione & Autenticazione; FR2 Uso controllato; FR3 Integrità; FR4 Riservatezza; FR5 Restrizione dei flussi; FR6 Risposta agli eventi; FR7 Disponibilità & Ripristino." 
+                        "* **DMZ (zona demilitarizzata industriale)**: area cuscinetto tra IT e OT con controlli di scambio dati." 
+                        "* **PSIRT**: team per la gestione coordinata delle vulnerabilità di prodotto e la pubblicazione di advisory." 
+                        "* **SBOM**: distinta dei componenti software di un prodotto." 
+                        "* **SOC**: centro operativo di sicurezza che monitora e risponde agli eventi." 
+                        "* **MFA**: autenticazione a più fattori." 
+                        "* **Whitelisting**: consentire **solo** protocolli/indirizzi autorizzati (tutto il resto è bloccato)." 
+                        "### sys_source https://chatgpt.com/c/68b73c35-0298-8328-a7b9-76f473241645" 
+        { Cap_4
+            chapter "4"
+            name "Ciclo di vita della sicurezza IACS (IEC 62443‑3‑2, ‑3‑3)"
+            [ goal
+                "> **Obiettivo**: capitolo pratico‑operativo (3–5 facciate) che guidi 
+                    +b il ciclo di vita: **risk assessment → SL‑Target → design (zone & conduits) 
+                    +b → requisiti di sistema → validazione/verifica → esercizio & miglioramento**."
+            [ sections
+                { 
+                    section "4.1"
+                    name "Risk assessment & definizione **SL‑Target** (IEC 62443‑3‑2)"
+                    [ goal
+                        "Determinare gli **SL‑Target** per zone, conduits e (se necessario) asset, a partire dall’analisi del rischio sugli **IACS**." 
+                    [ output
+                        "Matrice **Zona × FR (SL‑Target)**, profili di minaccia per zona, registro rischi." 
+                    [ prompt
+                        "Scrivi 10–12 righe che spieghino come condurre il risk assessment 62443‑3‑2 e determinare gli **SL‑Target** (per FR/zone/conduits), con esempi di compensating controls." 
+                    [ lines
+                        "**Passi minimi**" 
+                        "1. **Inventario** asset e mappa **Zone & Conduits** (schizzo iniziale)." 
+                        "4. **Valutazione impatti** (safety, disponibilità, qualità, ambiente, legale)." 
+                        "3. **Minacce/scenari** per zona (inclusi accessi remoti/terze parti)." 
+                        "4. **Valore di rischio** (scala semplice, es. Basso/Medio/Alto) con criteri documentati." 
+                        "5. **Derivazione SL‑Target** per **FR1–FR7** (tabella per zona)." 
+                        "6. **Eccezioni/compensazioni** (compensating controls) quando SL desiderato non è **OT‑feasible** (attuabile in OT)." 
+                        "**Figure/Template (segnaposto)**" 
+                        "* **Figura [section]**: esempio di mappa Zone/Conduits." 
+                        "* **Tabella [section]**: matrice **Zona × FR (SL‑Target)**." 
+                        "* **Template**: registro rischi con criteri di scoring." 
+                { 
+                    section "4.2"
+                    name "Segmentazione & **design sicuro** dell’architettura OT (zone & conduits)"
+                    [ goal
+                        "Tradurre gli **SL‑Target** in un’architettura a **Zone & Conduits** con **DMZ** (zona cuscinetto IT/OT), politiche di rete e accessi remoti **brokered**." 
+                    [ output
+                        "Diagramma architetturale, policy conduits, elenco **SR** mappati a **FR/SL**." 
+                    [ prompt
+                        "Redigi 12–14 righe sul design a zone & conduits: DMZ, whitelisting, accessi remoti, identità OT, e come derivare i **System Requirements** (‑3‑3) dagli **SL‑Target**." 
+                    [ lines
+                        "**Linee guida**" 
+                        "* **Zone** per processi/criticità omogenee; **conduits** con **whitelisting** di protocolli/porte/direzioni." 
+                        "* **DMZ** industriale per scambio dati (storici, report, aggiornamenti); servizi intermedi (jump host, broker di accesso)." 
+                        "* **Remote access**: MFA, time‑bound, least privilege, **session recording**." 
+                        "* **Identità/ruoli OT** separati da IT; **account temporanei** per terze parti." 
+                        "* **Politiche di rete**: deny‑by‑default, inspection protocolli OT, logging centralizzato." 
+                        "* **Requisiti di sistema** (IEC 62443‑3‑3): derivare **SR** (System Requirements) per raggiungere gli SL‑Target di zona." 
+                        "**Figure/Template (segnaposto)**" 
+                        "* **Figura [section]**: architettura target con DMZ e conduits." 
+                        "* **Tabella [section]**: elenco **SR (‑3‑3)** per zona con mapping **FR/SL**." 
+                { 
+                    section "4.3"
+                    name "Validazione, verifica & **miglioramento continuo** (‑3‑3)"
+                    [ goal
+                        "Verificare che i **System Requirements (SR)** siano implementati/eﬃcaci e mantenuti nel tempo; integrare **change management** e **monitoring**." 
+                    [ output
+                        "Piano **FAT/SAT**, report, registro **change**, dashboard **KPI**." 
+                    [ prompt
+                        "Scrivi 10–12 righe su validazione e verifica (‑3‑3): come strutturare FAT/SAT e test per FR1–FR7, integrare change e monitoring, e mantenere efficacia nel tempo." 
+                    [ lines
+                        "**Attività chiave**" 
+                        "* **Piani di test**: casi per requisiti **FR1–FR7**; ambienti **staging**/banco prova; **FAT/SAT** (Factory/Site Acceptance Test)." 
+                        "* **Evidenze**: report di test, log, configurazioni versionate, baseline di hardening." 
+                        "* **Esercizio**: patch/vuln mgmt (‑2‑3), logging & **SOC**, esercitazioni di **incident response**." 
+                        "* **Change management**: richieste, approvazioni, finestre, rollback; **eccezioni** tracciate." 
+                        "* **Miglioramento**: KPI periodici; riesame SL‑Target; audit." 
+                        "**Figure/Template (segnaposto)**" 
+                        "* **Figura [section]**: flusso test/validazione → esercizio → miglioramento." 
+                        "* **Template**: piano FAT/SAT; registro change." 
+                { 
+                    section "4.4"
+                    name "Dalla componentistica al sistema: **integrare ‑4‑2 con ‑3‑3**"
+                    [ goal
+                        "Usare componenti/OEM con capacità **62443‑4‑2** e integrarli in un sistema conforme ai **SR ‑3‑3**." 
+                    [ prompt
+                        "Scrivi 8–10 righe che spieghino come usare componenti con requisiti **‑4‑2** per comporre un sistema che soddisfi i **SR** **‑3‑3**." 
+                    [ lines
+                        "**Passi** " 
+                        "* **Raccolta dichiarazioni OEM**: capacità FR/SL, **SBOM**, policy update/PSIRT." 
+                        "* **Selezione**: confronto requisiti di componente vs **SR** di zona." 
+                        "* **Integrazione**: hardening, account/service minimi, update sicuri, logging." 
+                        "* **Verifica**: test specifici di integrazione e performance in OT." 
+                        "**Figure/Template (segnaposto)**" 
+                        "* **Tabella [section]**: matrice **SR (‑3‑3) ↔ capability (‑4‑2)**." 
+                { 
+                    section "4.5"
+                    name "Artefatti & Evidenze (deliverable)"
+                    [ lines
+                        "* **Mappa Zone/Conduits** e confini IT/OT (con **DMZ**)." 
+                        "* **Matrice SL‑Target** per zona × **FR1–FR7**." 
+                        "* Elenco **SR (‑3‑3)** per zona + policy conduits." 
+                        "* **Piano di test** (FAT/SAT), report di verifica e **baseline** di hardening." 
+                        "* **Registro change** e **registro eccezioni** con compensazioni." 
+                        "* **Dashboard KPI** e verbali di riesame." 
+                { 
+                    section "4.6"
+                    name "Figure & Template (riepilogo segnaposto)"
+                    [ lines
+                        "* Figura 4.1 — Mappa Zone/Conduits (iniziale)." 
+                        "* Tabella 4.1 — **Zona × FR (SL‑Target)**." 
+                        "* Figura 4.2 — Architettura target con **DMZ** e conduits." 
+                        "* Tabella 4.2 — **SR (‑3‑3)** per zona (mapping **FR/SL**)." 
+                        "* Figura 4.3 — Ciclo **test → esercizio → miglioramento**." 
+                        "* Tabella 4.4 — **SR (‑3‑3) ↔ capability (‑4‑2)**." 
+                        "* Template — Registro rischi; Piano FAT/SAT; Registro change; Dashboard KPI." 
+                        "## Glossario minimo (Cap. 4)" 
+                        "* **IACS/OT**: sistemi di automazione e controllo industriale; ambiente operativo di fabbrica/impianto." 
+                        "* **Zona (Zone)**: insieme di asset OT con profilo di rischio simile, separati logicamente da altre zone." 
+                        "* **Conduit**: canale di comunicazione **controllato** tra zone; filtra protocolli e direzioni dei flussi." 
+                        "* **SL — Security Level (SL0–SL4)**: obiettivo di robustezza **per requisito** e **per zona/conduit/asset**." 
+                        "* **FR — Foundational Requirements**: 7 aree di controllo (FR1–FR7) dalla gestione delle identità al ripristino." 
+                        "* **DMZ**: zona demilitarizzata industriale, cuscinetto tra IT e OT." 
+                        "* **FAT/SAT**: collaudo in fabbrica/sito (Factory/Site Acceptance Test)." 
+                        "* **SR (System Requirements)**: requisiti di sistema secondo **IEC 62443‑3‑3**." 
+                        "* **PSIRT/SBOM**: team risposta vulnerabilità di prodotto / distinta componenti software." 
+                        "## Checklist finale (QA redazionale — Cap. 4)" 
+                        "* [ ] Acronomi spiegati e tecnicismi parafrasati." 
+                        "* [ ] Box **Per i ruoli** in ogni sezione." 
+                        "* [ ] **SL‑Target** per zona con mapping **FR1–FR7**." 
+                        "* [ ] **SR (‑3‑3)** derivati dagli SL‑Target e tracciati." 
+                        "* [ ] Figure/template elencati e coerenti." 
+                        "* [ ] Takeaway + **avvertenza safety** per sezione." 
+                        "* [ ] Tono pratico‑operativo, vendor‑neutral." 
+                        "### sys_source https://chatgpt.com/c/68b73c35-0298-8328-a7b9-76f473241645" 
+        { Cap_5
+            chapter "5"
+            name "Misure tecniche e organizzative (IEC 62443)"
+            [ goal 
+                "> **Obiettivo**: capitolo pratico‑operativo (4–6 facciate) 
+                    +b sulle misure **tecniche e organizzative** coerenti con IEC 62443: 
+                    +b identità/accessi/audit (**FR1–FR2**), 
+                    +b hardening & configuration mgmt (**FR3**), 
+                    +b logging & monitoring (**FR6**), 
+                    +b backup/restore (**FR7**), 
+                    +b rete/segregazione/DMZ & accesso remoto (**FR5**), 
+                    +b vulnerability & patch mgmt con **inventory** e 
+                    +b **SBOM** (richiami a **‑2‑3**, **‑4‑1**, **‑4‑2**), e **metriche/KPI**."
+            [ sections
+                { 
+                    section "5.1"
+                    name "Identità, accessi e audit (**FR1 — IAC; FR2 — UC**)"
+                    [ goal
+                        "Gestire **identità** (chi sei), **autorizzazioni** (cosa puoi fare) e **audit** (traccia) nell’OT." 
+                    [ output
+                        "Policy **Identity & Access OT**; matrice **ruolo→permessi**; flusso approvazione; registro audit." 
+                    [ prompt
+                        "Scrivi 12–14 righe su identità, autorizzazioni e audit in OT (FR1‑FR2): account nominali, RBAC, MFA, privilegi tramite broker, session recording e break‑glass con post‑review." 
+                    [ lines
+                        "**Contenuti da coprire**" 
+                        "* **Account nominali** (no *shared*), **least privilege**, **MFA** (autenticazione a più fattori) per conduits remoti e operazioni critiche." 
+                        "* **RBAC** (controllo accessi basato su ruoli) separando **ruoli OT** da **ruoli IT**." 
+                        "* **Privileged Access** via **jump host/broker**; **time‑bound approval**, **two‑person rule** per attività critiche." 
+                        "* **Service account**: uso minimo, rotazione segreta, vault." 
+                        "* **Audit trail** centralizzato (chi, cosa, quando) e **session recording** per accessi remoti." 
+                        "* Gestione **break‑glass** (emergenza) con post‑review." 
+                        "**Figure/Template (segnaposto)**" 
+                        "* **Figura [section]**: Architettura **privileged access** con broker." 
+                        "* **Tabella [section]**: Matrice **ruolo→permessi** (RBAC) per ruoli OT." 
+                { 
+                    section "5.2"
+                    name "Hardening & Configuration Management (**FR3 — SI**)"
+                    [ goal
+                        "Definire **baseline di hardening** e controlli di **configurazione** per ridurre la superficie d’attacco OT." 
+                    [ output
+                        "Standard di hardening; **checklist** per tipo di asset; repository versionato delle configurazioni." 
+                    [ prompt
+                        "Redigi 10–12 righe su hardening e gestione configurazioni (FR3): baseline per asset OT, servizi minimi, versioning, golden image, allow‑listing e piani di rollback." 
+                    [ lines
+                        "**Contenuti da coprire**" 
+                        "* **Baseline** per sistemi operativi OT, HMI/engineering, PLC‑gateway, server dell’impianto." 
+                        "* Disabilitare servizi/porte **non necessari**; impostare criteri **secure‑by‑default**." 
+                        "* **Configurazioni versionate** (repository), **golden image**, controllo **change** con approvazione (‑2‑1)." 
+                        "* **Application allow‑listing** (solo software autorizzato) ove fattibile in OT." 
+                        "* **Backup** delle configurazioni prima/after change; **rollback plan**." 
+                        "* Check di **integrità** (hash/firma) di firmware/immagini." 
+                        "**Figure/Template (segnaposto)**" 
+                        "* **Tabella [section]**: Checklist **hardening per asset** (HMI, server, gateway, ecc.)." 
+                        "* **Figura [section]**: Flusso **change→backup→deploy→rollback**." 
+                { 
+                    section "5.3"
+                    name "Logging & Monitoring (**FR6 — TRE**)"
+                    [ goal
+                        "Raccogliere **log/telemetria** e attivare **use case** di rilevazione/risposta agli eventi OT." 
+                    [ output
+                        "Piano **logging & monitoring**; elenco use case e runbook; cruscotto **KPI** (MTTD)." 
+                    [ prompt
+                        "Scrivi 10–12 righe su logging/monitoring (FR6): sorgenti log OT, centralizzazione, use case minimi e runbook con integrazione SOC." 
+                    [ lines
+                        "**Contenuti da coprire**" 
+                        "* Sorgenti: **OT firewall**, switch, **IDS OT**, HMI/engineering, server OT, sistemi AV/EDR compatibili OT." 
+                        "* **Centralizzazione** log, **retention** (es. > 90 gg), orari sincronizzati (**NTP**)." 
+                        "* Use case minimi: accessi remoti, cambi configurazione, protocolli OT **non whitelisted**, perdita comunicazioni, allarmi safety." 
+                        "* **Runbook** di triage/risposta; integrazione con **SOC** (Security Operations Center)." 
+                        "* **Test** periodici e tuning dei falsi positivi." 
+                        "**Figure/Template (segnaposto)**" 
+                        "* **Figura [section]**: Flusso raccolta log → analisi → risposta." 
+                        "* **Tabella [section]**: Use case minimi e log richiesti." 
+                { 
+                    section "5.4"
+                    name "Backup & Restore (**FR7 — RA**)"
+                    [ goal
+                        "Garantire **disponibilità** e **recupero** rapido: backup affidabili e **test di ripristino**." 
+                    [ output
+                        "Policy backup/restore, **runbook di ripristino**, registro test e risultati." 
+                    [ prompt
+                        "Redigi 8–10 righe su backup/restore (FR7): RPO/RTO, regola 3‑2‑1, test periodici, isolamento e runbook di ripristino." 
+                    [ lines
+                        "**Contenuti da coprire**" 
+                        "* Politiche **RPO/RTO** per asset OT critici; priorità per sistemi di controllo e ricette/processi." 
+                        "* **3‑2‑1** (3 copie, 2 media, 1 **offline/offsite**); cifratura e gestione chiavi." 
+                        "* **Test** di restore pianificati (es. mensile/trim.) con evidenze; **bare‑metal** dove necessario." 
+                        "* **Isolamento** dei repository di backup dall’IT; segregazione credenziali." 
+                        "**Figure/Template (segnaposto)**" 
+                        "* **Figura [section]**: Architettura backup OT isolata." 
+                        "* **Template**: Registro test di ripristino." 
+                { 
+                    section "5.5"
+                    name "Rete, segregazione & accesso remoto (**FR5 — RDF**)"
+                    [ goal
+                        "Implementare **politiche di rete** e **segmentazione**: **Zone & Conduits**, **DMZ**, accessi remoti **brokered**." 
+                    [ output
+                        "Diagramma rete OT/DMZ; policy conduits; **matrice flussi** approvata." 
+                    [ prompt
+                        "Scrivi 12–14 righe su rete/segregazione (FR5): zone, conduits, DMZ, flussi consentiti, remote access brokered e test periodici delle regole." 
+                    [ lines
+                        "**Contenuti da coprire**" 
+                        "* **Zone** e livelli (cell/area/impianto); conduits con **whitelisting** di protocolli/porte/direzioni." 
+                        "* **DMZ** industriale come cuscinetto **IT/OT**; servizi intermedi (jump host, proxy, broker)." 
+                        "* **Flussi** consentiti documentati, **deny‑by‑default**, **one‑way** dove possibile." 
+                        "* **Remote access**: MFA, approvazioni **time‑bound**, **session recording**, account temporanei." 
+                        "* **Test** periodici delle regole e **riconciliazione** con i need‑to‑operate." 
+                        "**Figure/Template (segnaposto)**" 
+                        "* **Figura [section]**: Schema Zone & Conduits con DMZ." 
+                        "* **Tabella [section]**: Matrice flussi consentiti per conduit." 
+                { 
+                    section "5.6"
+                    name "Vulnerability & Patch Management + **Inventory & SBOM** (richiami **‑2‑3**, **‑4‑1**, **‑4‑2**)"
+                    [ goal
+                        "Gestire **vulnerabilità** e **aggiornamenti** in OT, basandosi su **inventario** e **SBOM**." 
+                    [ output
+                        "Inventario asset e **SBOM** per impianto; piano patch/vuln; registro eccezioni/compensazioni." 
+                    [ prompt
+                        "Redigi 12–14 righe su vuln & patch mgmt in OT (‑2‑3): inventario e SBOM, priorità risk‑based, SLA, staging/test, secure update ed evidenze." 
+                    [ lines
+                        "**Contenuti da coprire**" 
+                        "* **Inventario** asset (modello/versione/firmware/owner/criticità); auto‑discovery **non intrusivo** ove possibile." 
+                        "* Fonti vuln: **CVE**, advisories vendor/**PSIRT**, feed ICS‑CERT; correlazione con **SBOM**." 
+                        "* **Prioritizzazione** risk‑based (CVSS × impatto OT × esposizione); **OT‑feasibility**." 
+                        "* **SLA** patch (CRIT/HIGH/Med/Low); **staging** e test; **compensating controls** per eccezioni." 
+                        "* **Secure update**: pacchetti firmati, canali sicuri, finestre di fermo." 
+                        "* **Registro** vuln/patch ed **evidenze** di esecuzione." 
+                        "**Figure/Template (segnaposto)**" 
+                        "* **Tabella [section]**: Schema inventario minimo + campi SBOM." 
+                        "* **Figura [section]**: Flusso vuln → priorità → test → deploy → evidenze." 
+                { 
+                    section "5.7"
+                    name "Metriche & KPI"
+                    [ goal
+                        "Misurare **adozione** ed **efficacia** delle misure." 
+                    [ output
+                        "- **Cruscotto KPI** con trend mensili e soglie obiettivo." 
+                    [ prompt
+                        "Scrivi 8–10 righe sulle metriche chiave per Cap. 5, indicando come raccoglierle senza esporre dati sensibili." 
+                    [ lines
+                        "**Esempi di KPI**" 
+                        "* % **asset inventariati/classificati**; % zone con **SL‑Target** formalizzati." 
+                        "* **Patch coverage** per criticità; **TTR** (Time‑To‑Remediate) mediano; n. **eccezioni** attive." 
+                        "* % **sessioni remote** con **MFA** e **session recording**; tempo medio di approvazione." 
+                        "* **MTTD/MTTR** eventi OT; % **backup/restore** testati; **success rate** dei restore." 
+                        "* % conduits con **policy** aggiornate e testate." 
+                { 
+                    section "5.8"
+                    name "Artefatti & Evidenze (deliverable)"
+                    [ lines
+                        "* Policy **Identity & Access OT**; matrice **ruolo→permessi**; registro audit." 
+                        "* Standard di **hardening**; **checklist** per asset; repository configurazioni versionato." 
+                        "* Piano **logging & monitoring**; use case e runbook; report **KPI** (MTTD/MTTR)." 
+                        "* Policy **backup/restore**, **runbook** e registro test." 
+                        "* Diagramma rete **Zone & Conduits** con **DMZ**; matrice flussi approvata." 
+                        "* Inventario asset + **SBOM**; piano **patch/vuln** con registro eccezioni/compensazioni." 
+                { 
+                    section "5.9"
+                    name "Figure & Template (riepilogo segnaposto)"
+                    [ lines
+                        "* Figura 5.1 — Architettura **privileged access** con broker." 
+                        "* Tabella 5.1 — Matrice **ruolo→permessi** (RBAC)." 
+                        "* Tabella 5.2 — Checklist **hardening per asset**." 
+                        "* Figura 5.2 — Flusso **change→backup→deploy→rollback**." 
+                        "* Figura 5.3 — Flusso log → analisi → risposta." 
+                        "* Tabella 5.3 — Use case minimi e log richiesti." 
+                        "* Figura 5.4 — Architettura backup OT isolata." 
+                        "* Template — Registro test di ripristino." 
+                        "* Figura 5.5 — Schema **Zone & Conduits** con DMZ." 
+                        "* Tabella 5.5 — Matrice flussi per conduit." 
+                        "* Tabella 5.6 — Inventario minimo + **SBOM**." 
+                        "* Figura 5.6 — Flusso vuln → priorità → test → deploy → evidenze." 
+                        "* Template — Cruscotto KPI." 
+                        "## Glossario minimo (Cap. 5)" 
+                        "* **IAC/UC**: controllo di **Identificazione & Autenticazione** / **Uso** (FR1/FR2)." 
+                        "* **SI**: **System Integrity** (FR3)." 
+                        "* **TRE**: **Timely Response to Events** (FR6)." 
+                        "* **RA**: **Resource Availability** (FR7)." 
+                        "* **SBOM**: distinta componenti software; **PSIRT**: team gestione vulnerabilità di prodotto." 
+                        "* **RPO/RTO**: obiettivi di punto/tempo di ripristino." 
+                        "* **RBAC**: controllo accessi basato sui ruoli." 
+                        "* **NTP**: sincronizzazione oraria per sistemi/CSI." 
+                        "* **Allow‑listing**: esecuzione consentita **solo** per software/servizi approvati." 
+                        "## Checklist finale (QA redazionale — Cap. 5)" 
+                        "* [ ] Acronomi spiegati e tecnicismi parafrasati." 
+                        "* [ ] Box **Per i ruoli** in ogni sezione." 
+                        "* [ ] Mapping chiaro a **FR1–FR7** e **SL‑Target** realistici." 
+                        "* [ ] Figure/template elencati e coerenti." 
+                        "* [ ] Deliverable/Artefatti specificati." 
+                        "* [ ] Takeaway + **avvertenza safety** per sezione." 
+                        "* [ ] Tono pratico‑operativo, vendor‑neutral." 
+                        "### sys_source https://chatgpt.com/c/68b73c35-0298-8328-a7b9-76f473241645" 
+        { Cap_6
+            chapter "6"
+            name "Mappatura pratica **NIS2 ⇄ IEC 62443**"
+            [ goal
+                "> **Obiettivo**: capitolo operativo (≈2 facciate) che offra una **tabella di mappatura** 
+                    +b tra requisiti NIS2 e controlli/parti IEC 62443, e 
+                    +b chiarisca **cosa copre la 62443** e **cosa serve in più** 
+                    +b per NIS2 (governance, notifiche, supply chain, reporting)."
+            [ sections
+                { 
+                    section "6.1"
+                    name "NIS2 in breve (contesto e perimetro)"
+                    [ prompt
+                        "Scrivi 8–10 righe che riassumano NIS2 per il lettore OT: chi è coinvolto, quali macro‑obblighi, e perché una base IEC 62443 accelera l’adeguamento." 
+                    [ lines
+                        "**Cosa copre**" 
+                        "Sintesi dei **settori** e dei **soggetti** (es. *entità essenziali* e *importanti*), aree di obbligo: **governance/gestione del rischio**, **misure tecniche/organizzative**, **gestione supply chain**, **business continuity**, **reporting/notification** verso autorità/CSIRT (Computer Security Incident Response Team)." 
+                        "**Nota**: tempi/forme di notifica e dettagli procedurali derivano dal **recepimento nazionale**; prevedere segnaposto “X ore/giorni” da confermare." 
+                { 
+                    section "6.2"
+                    name "**Tabella di mappatura NIS2 ⇄ IEC 62443**"
+                    [ goal
+                        "Fornire una **crosswalk** pratica tra obblighi NIS2 e controlli/parti IEC 62443, con evidenze richieste." 
+                    [ prompt
+                        "Compila la tabella NIS2 ⇄ IEC 62443 usando il modello: per ogni obbligo NIS2 indica la parte 62443 che aiuta a soddisfarlo, le **evidenze** richieste e il **ruolo** responsabile; annota eventuali **gap** (da colmare con processi/documenti NIS2)." 
+                    [ lines
+                        "**Struttura tabella (modello)**" 
+                        "| Requisito NIS2 (riassunto)                      | Riferimento 62443                          | Evidenze/Deliverable                                        | Ruolo principale  | Gap/Note                                           |" 
+                        "| ----------------------------------------------- | ------------------------------------------ | ----------------------------------------------------------- | ----------------- | -------------------------------------------------- |" 
+                        "| Governance & **risk management**                | 2‑1 (programma), 3‑2 (risk & **SL‑T**)     | Security Policy OT; registro rischi; **SL‑Target** per zona | Asset Owner       | Allineare criteri rischio al recepimento nazionale |" 
+                        "| **Incident handling** & **business continuity** | 2‑1; 3‑3 (FR6/FR7)                         | Runbook IR; piani **BC/DR**; test esercitazioni             | Asset Owner / SOC | Integrare requisiti di **notifica** NIS2           |" 
+                        "| **Supply chain security**                       | 2‑4 (service), 4‑1 (SDL), 4‑2 (componente) | Clausole contrattuali; **SBOM**; PSIRT; qualifica fornitori | Owner / OEM / SP  | Due diligence fornitori critici                    |" 
+                        "| **Logging/monitoring**                          | 3‑3 (FR6), 2‑1                             | Piano logging; use case; evidenze **SOC**                   | Owner / SI        | Retention conforme                                 |" 
+                        "| **Accessi remoti** sicuri                       | 2‑4; 3‑3 (FR1/FR2/FR5)                     | Broker, **MFA**, session recording; policy approvazioni     | Owner / SP        | Tracciabilità completa                             |" 
+                        "| **Patch/vuln mgmt**                             | 2‑3; 4‑1/4‑2                               | Inventario, calendario patch, registro eccezioni            | Owner / SI / OEM  | Finestra OT‑feasible                               |" 
+                        "| **Reporting/notifiche** a autorità/CSIRT        | 2‑1 (processo), 3‑3 (FR6)                  | Procedure e **template** di notifica; registro eventi       | Owner             | Tempistiche e canali nazionali                     |" 
+                { 
+                    section "6.3"
+                    name "**Cosa copre la 62443** e **cosa serve in più** per NIS2"
+                    [ prompt
+                        "Scrivi 10–12 righe che distinguano tra coperture 62443 e requisiti aggiuntivi NIS2: elenca cosa aggiungere (notifiche, governance, supply chain, BC/crisis, audit) e dove attingere alle parti 62443 per i controlli tecnici." 
+                    [ lines
+                        "**Coperto (principalmente) dalla 62443**" 
+                        "* **Programma OT** (2‑1), **risk & SL‑T** (3‑2), **requisiti di sistema** (3‑3, FR1–FR7)." 
+                        "* **Service providers** (2‑4) e **processi** di **patch/vuln** (2‑3)." 
+                        "* **Sicurezza prodotto**: **SDL** (4‑1), **requisiti di componente** (4‑2), **SBOM/PSIRT**." 
+                        "**Richiesto in più per NIS2** (integrare alla 62443)" 
+                        "* **Notifiche di incidente** a **autorità/CSIRT** con **tempistiche** definite dal recepimento nazionale; **template** e runbook comunicazione." 
+                        "* **Governance** formale su ruoli e responsabilità NIS2, **risk appetite** e reporting al vertice." 
+                        "* **Supply chain due diligence** e **reporting**: criteri di qualificazione, monitoraggio continuo e clausole contrattuali specifiche NIS2." 
+                        "* **Business continuity** a livello enterprise e **crisis management** (integrazione con OT)." 
+                        "* **Documentazione e audit trail** specifici per conformità e verifiche." 
+                { 
+                    section "6.4"
+                    name "Processo operativo di adeguamento (combina NIS2 + 62443)"
+                    [ prompt
+                        "Redigi 8–10 righe sul processo operativo di adeguamento: come usare la tabella 6.2 per il gap analysis, definire governance/notifiche e attivare supply chain & KPI." 
+                    [ lines
+                        "**Passi consigliati**" 
+                        "1. **Applicabilità**: verificare se l’organizzazione rientra tra *entità essenziali/importanti*; perimetro impianti/servizi." 
+                        "2. **Crosswalk**: compilare la **tabella 6.2** e segnare i **gap**." 
+                        "3. **Governance**: nominare responsabili, definire policy di notifica, tenere un **registro incidenti**." 
+                        "4. **Supply chain**: aggiornare capitolati e **qualifica fornitori** (‑2‑4, 4‑1/4‑2) e definire flussi **SBOM/PSIRT**." 
+                        "5. **Runbook di notifica**: procedure e **template** verso autorità/CSIRT, con **SLA**." 
+                        "6. **Evidenze & KPI**: allestire raccolta documentale e cruscotto." 
+                { 
+                    section "6.5"
+                    name "Metriche & KPI (focus NIS2)"
+                    [ prompt
+                        "Indica 5–7 KPI specifici per NIS2 e come raccoglierli senza dati sensibili (fonti: ticket, log, registro incidenti, audit)." 
+                    [ lines
+                        "**Esempi** " 
+                        "* % incidenti **notificati entro SLA**; **tempo alla prima notifica**; % runbook aggiornati." 
+                        "* % fornitori **qualificati** rispetto ai criteri NIS2; % prodotti con **SBOM** ricevuto; **tempo di triage PSIRT**." 
+                        "* % controlli 62443 implementati vs piano; **copertura patch** per criticità; **MTTD/MTTR** OT." 
+                { 
+                    section "6.6"
+                    name "Artefatti & Evidenze (deliverable)"
+                    [ lines
+                        "* **Tabella di mappatura** NIS2 ⇄ IEC 62443 aggiornata." 
+                        "* **Policy di notifica** con **template** e canali verso autorità/CSIRT." 
+                        "* **Registro incidenti** e **registro rischi**." 
+                        "* Clausole **procurement** (‑2‑4) e **qualifica fornitori**; SBOM/PSIRT integrati." 
+                        "* Prove di **esercitazioni** (IR/BC) e verbali; **audit trail**." 
+                { 
+                    section "6.7"
+                    name "Figure & Template (segnaposto)"
+                    [ lines
+                        "* **Tabella 6.2** — Crosswalk **NIS2 ⇄ IEC 62443**." 
+                        "* **Figura 6.1** — Flusso di **notifica incidenti** verso autorità/CSIRT con SLA." 
+                        "* **Template** — Registro incidenti; Policy di notifica; Scheda qualifica fornitore (NIS2‑aware)." 
+                        "## Glossario minimo (Cap. 6)" 
+                        "* **NIS2**: Direttiva UE sulla **sicurezza delle reti e dei sistemi informativi** (nuova versione)." 
+                        "* **CSIRT**: **Computer Security Incident Response Team** nazionale/settoriale." 
+                        "* **Entità essenziali/importanti**: categorie di soggetti obbligati (definizioni nel recepimento nazionale)." 
+                        "* **BC/DR**: **Business Continuity / Disaster Recovery**." 
+                        "* **CVD/PSIRT**: **Coordinated Vulnerability Disclosure** / team per vulnerabilità di prodotto." 
+                        "## Checklist finale (QA redazionale — Cap. 6)" 
+                        "* [ ] Acronomi spiegati e tecnicismi parafrasati." 
+                        "* [ ] **Tabella di mappatura** completa e coerente." 
+                        "* [ ] Distinzione chiara tra **coperto da 62443** e **extra NIS2**." 
+                        "* [ ] Runbook/Template **notifica incidenti** presenti." 
+                        "* [ ] Box **Per i ruoli** in ogni sezione; Takeaway + **avvertenza safety**." 
+                        "* [ ] Tono pratico‑operativo, vendor‑neutral." 
+                        "### sys_source https://chatgpt.com/c/68b73c35-0298-8328-a7b9-76f473241645" 
+        { Cap_7
+            chapter "7"
+            name "Casi applicativi e buone pratiche (IEC 62443)"
+            [ goal
+                "> **Obiettivo**: 4 facciate totali (≈ 1 pagina per caso + 1 pagina di buone pratiche) 
+                    +b con struttura uniforme **Contesto → Problema → Soluzione 62443 → Risultati/KPI → Lezioni apprese**."
+            [ coherence
+                "> **Nota di coerenza**: le **Schede Energia** e **Acque** sono allineate 
+                    +b al canvas “8 Schede Casi”. 
+                    +b Qui sono adattate al formato capitolo."
+            [ sections
+                { 
+                    section "7.1"
+                    name "Caso — **Energia**: segmentazione OT & conduits"
+                    [ prompt
+                        "Scrivi 1 pagina sul caso **Energia**: da rete piatta a **Zone & Conduits** con DMZ e accessi **brokered**, KPI in range e mapping **FR/SL**." 
+                    [ role
+                        "* **PMI/Owner**: approvare mappa Zone/Conduits e SL‑Target." 
+                        "* **OEM**: manuale integrazione sicura e SBOM." 
+                        "* **Service Provider/SI**: progettare DMZ e broker, consegnare **evidenze**." 
+                        "**Figure**: Schema Zone & Conduits con DMZ e flussi consentiti." 
+                        "**Fonti**: standard IEC 62443; linee guida settore energia (titolo/ente/anno)." 
+                    [ lines
+                        "**Contesto** " 
+                        "Impianto di generazione/distribuzione con rete OT piatta; scambi dati con IT (reportistica, manutenzione remota)." 
+                        "**Problema** " 
+                        "Superficie d’attacco elevata; accessi remoti eterogenei; assenza di **DMZ** e di **whitelisting** sui flussi." 
+                        "**Soluzione IEC 62443 (mappata FR/SL)**" 
+                        "* Architettura a **Zone & Conduits** con **DMZ** industriale; **deny‑by‑default** e whitelisting protocolli/porte (**FR5**, **SL2–SL3**)." 
+                        "* **Broker** per accessi privilegiati con **MFA**, approvazioni **time‑bound**, **session recording** (**FR1/FR2**)." 
+                        "* Telemetria di rete/host OT (firewall/IDS/syslog), **use case** su accessi e modifiche di configurazione (**FR6**)." 
+                        "* **RACI** e **runbook** per finestre di fermo; test e **rollback** (‑2‑1, **FR7**)." 
+                        "**Risultati/KPI (esempi)**" 
+                        "* ↓ 40–70% flussi inter‑zona non necessari." 
+                        "* 100% sessioni remote con **MFA** + registrazione." 
+                        "* **MTTD** allarmi critici 15–30 min; **MTTR** < X ore." 
+                        "**Lezioni apprese**" 
+                        "* Definire **SL‑Target** diversi per safety, controllo, HMI." 
+                        "* Le regole di rete sono **change‑controlled** e testate in **staging**." 
+                        "* Audit periodici su accessi terze parti." 
+                { 
+                    section "7.2"
+                    name "Caso — **Acque**: aggiornamenti & accessi remoti sicuri"
+                    [ prompt
+                        "Scrivi 1 pagina sul caso **Acque**: **vuln & patch mgmt** (‑2‑3) e **accessi terze parti** (‑2‑4) con KPI e mapping **FR/SL**." 
+                    [ role
+                        "* **PMI/Owner**: imporre evidenze di intervento." 
+                        "* **OEM**: advisory e **SBOM** aggiornati." 
+                        "* **Service Provider**: usare broker del cliente e chiudere con **evidenze**." 
+                        "**Figure**: Flusso patch mgmt + broker accessi remoti." 
+                        "**Fonti**: linee guida settore idrico; advisory ICS‑CERT (titolo/anno)." 
+                    [ lines
+                        "**Contesto** " 
+                        "Impianto di trattamento acque; patch applicate **ad hoc**; interventi di terze parti non sempre tracciati." 
+                        "**Problema** " 
+                        "Rischio di config‑drift (deriva configurazioni), mancata evidenza degli interventi, finestre non pianificate." 
+                        "**Soluzione IEC 62443 (mappata FR/SL)**" 
+                        "* **Inventario** asset e criticità; calendario patch trimestrale con **staging** (‑2‑3; **FR3/FR7**)." 
+                        "* Accessi remoti **mediati/approvati**; **account temporanei**, **least privilege** e **session recording** (‑2‑4; **FR1/FR2**)." 
+                        "* **Backup/restore** testati; logging centralizzato e **runbook** incident (**FR6/FR7**)." 
+                        "**Risultati/KPI (esempi)**" 
+                        "* Copertura patch su asset “critical” > 80–90% entro 90 gg." 
+                        "* 0 interventi non registrati; approvazioni in < 2 h." 
+                        "* ↓ 30–40% incidenti legati ad accessi remoti." 
+                        "**Lezioni apprese**" 
+                        "* **PSIRT** dei fornitori e finestra di manutenzione **pianificata**." 
+                        "* Policy per **account temporanei** e **registrazione** sessioni." 
+                        "* **Test di ripristino** mensile documentato." 
+                { 
+                    section "7.3"
+                    name "Caso — **PMI manifatturiera**: adozione graduale (90‑180‑365 giorni)"
+                    [ prompt
+                        "Scrivi 1 pagina per una **PMI manifatturiera**: roadmap 90‑180‑365 con deliverable, KPI e mapping **FR/SL**." 
+                    [ role
+                        "* **PMI/Owner**: nominare owner di zona e fissare KPI." 
+                        "* **OEM**: fornire manuali **hardening** e **SBOM**." 
+                        "* **Service Provider/SI**: supporto a inventario, DMZ, staging patch." 
+                        "**Figure**: Roadmap 90/180/365; matrice **SL‑Target** per zona." 
+                        "**Template**: registro inventario; piano patch/vuln; RACI." 
+                    [ lines
+                        "**Contesto** " 
+                        "Azienda manifatturiera multi‑linea, eterogeneità fornitori/macchine, risorse IT/OT limitate." 
+                        "**Problema** " 
+                        "Assenza di inventario completo, accessi remoti non uniformi, patch e backup non standardizzati." 
+                        "**Soluzione IEC 62443 — roadmap**" 
+                        "* **90 giorni (quick wins)**" 
+                        "* **180 giorni**" 
+                        "* **365 giorni**" 
+                        "**Risultati/KPI (esempi)**" 
+                        "* % **asset inventariati**: 60%→95% (12 mesi)." 
+                        "* **Patch coverage** (critical): 0→85–95% entro 90 gg dalla release." 
+                        "* **MTTD/MTTR** eventi OT in calo di X%." 
+                        "**Lezioni apprese**" 
+                        "* Partire da **perimetro/visibilità** prima dei progetti complessi." 
+                        "* Standardizzare **accessi remoti** e **backup** riduce incidenti e tempi di ripresa." 
+                        "* Pianificare **finestre** con Operations è cruciale per l’adozione." 
+                { 
+                    section "7.4"
+                    name "Buone pratiche trasversali (riquadro di servizio)"
+                    [ prompt
+                        "Scrivi 1 pagina con 3 errori comuni + 3 quick wins, collegati a **FR** e **SL**, con indicazioni pratiche per PMI/OEM/Service Provider." 
+                        "Redigi 1 pagina, tono pratico e vendor‑neutral, che riassuma TRITON/TRISIS, mappi le contromisure a FR/SL della IEC 62443 e chiuda con 3 takeaway per impianti con SIS." 
+                        "Scrivi 1 pagina su Ucraina 2015/2016 (SCADA), evidenziando misure 62443 per accessi remoti/DMZ e lezioni per PMI." 
+                        "Redigi 1 pagina su INDUSTROYER2 con focus su FR5/‑3‑3 e checklist minima per whitelisting OT." 
+                        "Scrivi 1 pagina su Colonial Pipeline: mappa dipendenze IT/OT e come la 62443 struttura BC/DR in OT." 
+                        "Redigi 1 pagina su Oldsmar evidenziando policy per accessi remoti e controllo dei parametri di processo secondo 62443." 
+                        "Scrivi 1 pagina su Norsk Hydro focalizzata su FR7 e gestione del ripristino in contesto industriale." 
+                        "Genera 1 pagina, tono pratico, su un caso energia sintetico: da rete piatta a architettura a zone/conduits, con KPI in range." 
+                        "Scrivi 1 pagina per un caso acque sintetico: patch/vulnerability mgmt e accessi terze parti, con KPI in range e mapping 62443." 
+                    [ role
+                        "* **PMI/Owner**: adottare **RACI** e roadmap con tappe chiare." 
+                        "* **OEM**: pubblicare **advisory/PSIRT** e **SBOM**." 
+                        "* **Service Provider/SI**: consegnare **log/evidenze** standard a chiusura attività." 
+                        "**Figure**: Tabella **FR × SL** (mini), schema accesso remoto brokered, flusso patch/staging." 
+                    [ lines
+                        "**Errori comuni**" 
+                        "* Cercare **SL4 ovunque** senza analisi di rischio." 
+                        "* Accessi remoti diretti; assenza di **session recording**." 
+                        "* Nessun **staging** per patch; nessuna **evidenza** di change." 
+                        "**Quick wins**" 
+                        "* **Inventario** + classificazione criticità; **policy accessi remoti**; **backup baseline** con test." 
+                        "* **DMZ** e conduits con whitelisting per i flussi critici." 
+                        "* **KPI** minimi (patch coverage, MTTD/MTTR, % sessioni con MFA)." 
+                        "## Glossario minimo (Cap. 7.)" 
+                        "* **IACS/OT**: sistemi di automazione e controllo industriale; ambiente operativo di fabbrica/impianto." 
+                        "* **Zona (Zone)**: insieme di asset OT con profilo di rischio simile, separati logicamente da altre zone." 
+                        "* **Conduit**: canale di comunicazione **controllato** tra zone; filtra protocolli e direzioni dei flussi." 
+                        "* **SL — Security Level (SL0–SL4)**: obiettivo di robustezza **per requisito** e **per zona/conduit/asset**." 
+                        "* **FR — Foundational Requirements**: 7 aree di controllo (FR1–FR7) dalla gestione delle identità al ripristino." 
+                        "* **DMZ**: zona demilitarizzata industriale, cuscinetto tra IT e OT." 
+                        "* **MFA**: autenticazione a più fattori." 
+                        "* **Whitelisting**: consentire **solo** protocolli/indirizzi autorizzati." 
+                        "## Checklist finale (QA redazionale — Cap. 7.)" 
+                        "* [ ] Struttura **Contesto → Problema → Soluzione 62443 → KPI → Lezioni** rispettata." 
+                        "* [ ] Box **Per i ruoli** presente in ogni caso." 
+                        "* [ ] Mapping a **FR1–FR7.** e **SL‑Target** realistici." 
+                        "* [ ] Figure/template/segnaposto indicati." 
+                        "* [ ] Tono pratico‑operativo, vendor‑neutral." 
+                        "* [ ] Acronomi spiegati, tecnicismi parafrasati." 
+                        "* [ ] Disclaimer per casi sintetici dove richiesto." 
+                        "### sys_source https://chatgpt.com/c/68b73c35-0298-8328-a7b9-76f473241645" 
+                        "# Mini Guida IEC 62443 — Schede Casi (6 pubblici + 2 sintetici)" 
+                        "> **Obiettivo**: fornire 8 schede a una pagina ciascuna (testo max \\~500–700 parole), con struttura uniforme e pronta per l’impaginazione della Mini Guida." 
+                        "> " 
+                        "> **Uso**: compila i campi, mantieni toni vendor‑neutral e numeri espressi come valori relativi o range; inserisci figure/diagrammi originali." 
+                        "## Legenda rapida" 
+                        "* **FR (Foundational Requirements)**: FR1 Identificazione & Autenticazione; FR2 Uso controllato; FR3 Integrità; FR4 Riservatezza; FR5 Restrizione dei flussi (segregazione/rete); FR6 Risposta tempestiva agli eventi; FR7 Disponibilità & Ripristino." 
+                        "* **SL (Security Level)**: SL0–SL4 per zona/conduit/asset. Usare SL‑Target realistici." 
+                        "## Istruzioni di compilazione (per tutte le schede)" 
+                        "1. **Contesto & problema**: 4–5 righe, solo fatti rilevanti per sicurezza/operatività." 
+                        "2. **Soluzione IEC 62443**: bullet operativi, ciascuno mappato a FR/SL e, se utile, allo standard di riferimento (‑2‑1, ‑3‑2, ‑3‑3, ‑4‑1, ‑4‑2, ‑2‑3, ‑2‑4)." 
+                        "3. **Metriche/Risultati**: max 3 KPI, evitare valori sensibili; preferire percentuali/range e “prima→dopo”." 
+                        "4. **Lezioni pratiche**: 3 takeaway applicabili da PMI/OEM/gestori." 
+                        "5. **Figure/diagrammi**: indicare schema previsto (es. Zone\\&Conduits, DMZ, flusso patch)." 
+                        "6. **Fonti**: 1–2 riferimenti autorevoli (titolo/ente/anno). Nessun link live in bozza; i link si inseriscono in impaginazione finale." 
+                        "7. **Disclaimer**: per i casi sintetici indicare esplicitamente che i dati sono ricostruiti a fini didattici." 
+                        "## Scheda 1 — TRITON/TRISIS (pubblico)" 
+                        "**Contesto & problema**" 
+                        "\\[Scrivi qui: impianto, ruolo dei SIS, vettore d’attacco ad alto livello]" 
+                        "**Soluzione IEC 62443 (FR/SL)**" 
+                        "* Segregazione rigorosa SIS vs. controllo di processo; conduits con whitelisting protocolli OT (**FR5**, SL2–SL3)." 
+                        "* Hardening e gestione change su SIS/HMI engineering (**FR2/FR3**, ‑3‑3)." 
+                        "* Monitoraggio eventi safety‑critical e runbook incident (**FR6/FR7**, ‑2‑1)." 
+                        "**Metriche/Risultati (esempi)**" 
+                        "* ↓ 50–70% superfici di rete tra zona SIS e DCS." 
+                        "* 100% modifiche SIS con approvazione a due persone (two‑person rule)." 
+                        "* MTTD eventi critici < 15–30 min." 
+                        "**Lezioni pratiche**" 
+                        "* Non condividere ambienti/strumenti di engineering tra SIS e controllo." 
+                        "* Test di validazione separati e registrati per SIS." 
+                        "* Change management stringente su logiche safety." 
+                        "**Figure/diagrammi**: Zona SIS isolata + conduit filtrato." 
+                        "**Fonti**: Analisi tecnica TRITON/TRISIS (ente/anno); advisory istituzionale." 
+                        "## Scheda 2 — Ucraina 2015/2016 (blackout su SCADA) (pubblico)" 
+                        "**Contesto & problema**" 
+                        "\\[Scrivi qui: utility elettrica, uso di credenziali legittime, operazioni remote]" 
+                        "**Soluzione IEC 62443 (FR/SL)**" 
+                        "* Controllo accessi e identità con MFA per conduits remoti (**FR1/FR2**)." 
+                        "* Segmentazione e DMZ tra IT/OT con broker di accesso (**FR5**)." 
+                        "* Telemetria e piani di risposta/riavvio manuale (**FR6/FR7**)." 
+                        "**Metriche/Risultati (esempi)**" 
+                        "* 100% sessioni remote registrate e approvate." 
+                        "* Ripristino operativo tramite runbook in < X ore." 
+                        "* ↓ 60% tentativi di accesso anomali post‑segmentazione." 
+                        "**Lezioni pratiche**" 
+                        "* Gli attaccanti usano strumenti legittimi: serve least privilege e tracciabilità." 
+                        "* Preparare esercizi di “operazione in modalità degradata”." 
+                        "* Conduits VPN separati per manutenzione vs. monitoraggio." 
+                        "**Figure/diagrammi**: Architettura IT/OT con DMZ e jump host." 
+                        "**Fonti**: Report E‑ISAC/SANS; nota tecnica istituzionale (anno)." 
+                        "## Scheda 3 — INDUSTROYER2 (2022) (pubblico)" 
+                        "**Contesto & problema**" 
+                        "\\[Scrivi qui: targeting grid operations, protocolli OT specifici]" 
+                        "**Soluzione IEC 62443 (FR/SL)**" 
+                        "* Whitelisting protocolli/porte OT per conduits critici (**FR5**)." 
+                        "* Validazione e test dei sistemi di controllo (**‑3‑3**) con ambienti di staging." 
+                        "* Telemetria di rete/host specifica OT e indicatori procedurali (**FR6**)." 
+                        "**Metriche/Risultati (esempi)**" 
+                        "* ↓ 40–60% traffico non whitelisted tra zone." 
+                        "* Copertura logging > 80% per asset critici." 
+                        "* Tempo di propagazione patch regolate per finestre OT (X giorni)." 
+                        "**Lezioni pratiche**" 
+                        "* SL‑Target differenziati per sottosistemi." 
+                        "* Testare scenari di “protocol misuse”." 
+                        "* Evitare dipendenze IT non controllate su conduits OT." 
+                        "**Figure/diagrammi**: Flusso whitelisting su conduits." 
+                        "**Fonti**: Analisi tecnica (ente/anno) + nota complementare." 
+                        "## Scheda 4 — Colonial Pipeline (2021) (pubblico)" 
+                        "**Contesto & problema**" 
+                        "\\[Scrivi qui: attacco ransomware IT con impatto sulla continuità OT]" 
+                        "**Soluzione IEC 62443 (FR/SL)**" 
+                        "* Segregazione netta IT/OT e criteri di interscambio dati (**FR5**)." 
+                        "* Business continuity & piani di esercizio alternativo (**FR7**)." 
+                        "* Gestione identità/terze parti e hardening accessi remoti (**FR1/FR2**)." 
+                        "**Metriche/Risultati (esempi)**" 
+                        "* RTO/RPO definiti per sistemi OT critici." 
+                        "* 100% conduits con policy di scambio unidirezionale dove possibile." 
+                        "* ↓ X% esposizioni condivise IT→OT dopo revisione architettura." 
+                        "**Lezioni pratiche**" 
+                        "* Un incidente IT può richiedere stop OT: preparare criteri decisionali." 
+                        "* Isolare e testare periodicamente le dipendenze IT dei processi OT." 
+                        "* Logistica/fornitura come fattore di rischio sistemico." 
+                        "**Figure/diagrammi**: Mappa dipendenze IT/OT e punti di controllo." 
+                        "**Fonti**: Sintesi istituzionale; rapporto di audit/GAO (anno)." 
+                        "## Scheda 5 — Oldsmar (2021) impianto idrico (pubblico)" 
+                        "**Contesto & problema**" 
+                        "\\[Scrivi qui: tentativo di alterazione parametri chimici via accesso remoto]" 
+                        "**Soluzione IEC 62443 (FR/SL)**" 
+                        "* MFA, least privilege e gestione account condivisi (**FR1/FR2**)." 
+                        "* HMI e workstation di engineering con hardening e logging (**FR3/FR6**)." 
+                        "* Allarmi di processo e interlocks come ultima difesa (**FR6/FR7**)." 
+                        "**Metriche/Risultati (esempi)**" 
+                        "* 100% accessi remoti mediati e approvati." 
+                        "* ↓ 90% account condivisi entro 60 gg." 
+                        "* Tempo di rilevazione manuale/automatica degli out‑of‑range < X min." 
+                        "**Lezioni pratiche**" 
+                        "* L’operatore resta un sensore: formazione + allarmi ben tarati." 
+                        "* Gli accessi remoti devono essere **brokered** e registrati." 
+                        "* Ridurre il numero di HMI con capacità di modifica diretta." 
+                        "**Figure/diagrammi**: Catena di difesa per parametri chimici." 
+                        "**Fonti**: Advisory ufficiale (titolo/ente/anno)." 
+                        "## Scheda 6 — Norsk Hydro (2019) (pubblico)" 
+                        "**Contesto & problema**" 
+                        "\\[Scrivi qui: ransomware diffuso, passaggio a procedure manuali]" 
+                        "**Soluzione IEC 62443 (FR/SL)**" 
+                        "* Backup/restore e piani di continuità operativa (**FR7**)." 
+                        "* Separazione ambienti e criteri di ripristino a fasi (**FR5/FR7**)." 
+                        "* Governance del programma sicurezza (**‑2‑1**) e comunicazione trasparente." 
+                        "**Metriche/Risultati (esempi)**" 
+                        "* % sistemi ripristinati per ondate (es. 30/60/90 gg)." 
+                        "* Riduzione tempi di fermo su reparti critici." 
+                        "* Copertura backup verificata > 95%." 
+                        "**Lezioni pratiche**" 
+                        "* La resilienza operativa conta quanto la prevenzione." 
+                        "* Manuali di esercizio “in degrado” vanno provati sul campo." 
+                        "* Recovery a fasi con priorità di business." 
+                        "**Figure/diagrammi**: Timeline di ripristino a fasi." 
+                        "**Fonti**: Comunicazioni ufficiali aziendali; report indipendente." 
+                        "## Scheda 7 — Energia (sintetico) — Segmentazione OT & conduits" 
+                        "**Disclaimer**: caso ricostruito a fini didattici; numeri esemplificativi come range." 
+                        "**Contesto & problema**" 
+                        "\\[Impianto di generazione/distribuzione; rete piatta; manutenzione remota da IT]" 
+                        "**Soluzione IEC 62443 (FR/SL)**" 
+                        "* DMZ industriale, jump host brokered, conduits con whitelisting protocolli (**FR5**, SL2–SL3)." 
+                        "* Gestione identità/ruoli OT, MFA e registrazione sessioni (**FR1/FR2**)." 
+                        "* Telemetria OT (firewall/IDS/syslog) e runbook incident (**FR6**)." 
+                        "**Metriche/Risultati (range)**" 
+                        "* ↓ 40–70% flussi inter‑zona non necessari." 
+                        "* 100% sessioni remote con MFA + registrazione." 
+                        "* MTTD allarmi critici 15–30 min; MTTR < X ore." 
+                        "**Lezioni pratiche**" 
+                        "* SL‑Target differenziati per zone (es. SL2 conduits, SL1 HMI, SL3 safety)." 
+                        "* Change management sulle regole di rete con finestre di fermo concordate." 
+                        "* Audit periodici su accessi di terze parti." 
+                        "**Figure/diagrammi**: Zone\\&Conduits con DMZ e flussi consentiti." 
+                        "## Scheda 8 — Acque (sintetico) — Patch & accessi terze parti" 
+                        "**Disclaimer**: caso ricostruito a fini didattici; numeri esemplificativi come range." 
+                        "**Contesto & problema**" 
+                        "\\[Impianto trattamento acque; patch ad hoc; interventi non tracciati]" 
+                        "**Soluzione IEC 62443 (FR/SL)**" 
+                        "* Inventario asset con criticità; calendario patch trimestrale (**‑2‑3**)." 
+                        "* Accesso remoto mediato/approvato con ruoli separati (**FR1/FR2**, ‑2‑4)." 
+                        "* Backup/restore testati e logging centralizzato (**FR6/FR7**)." 
+                        "**Metriche/Risultati (range)**" 
+                        "* Copertura patch su asset “critical” > 80–90% entro 90 gg." 
+                        "* 0 interventi non registrati; approvazioni in < 2 h." 
+                        "* Riduzione incidenti legati ad accessi del 30–40%." 
+                        "**Lezioni pratiche**" 
+                        "* PSIRT fornitore e finestra di manutenzione pianificata." 
+                        "* Policy per account temporanei e sessioni registrate." 
+                        "* Test di ripristino mensile documentato." 
+                        "**Figure/diagrammi**: Flusso patch mgmt + broker accessi remoti." 
+                        "## Appendice — Pack fonti (per i 6 casi pubblici)" 
+                        "> Inserire riferimenti bibliografici essenziali (titolo, ente/autore, anno). Link da aggiungere in impaginazione." 
+                        "* TRITON/TRISIS — analisi tecnica (Dragos o equivalente); advisory istituzionale." 
+                        "* Ucraina 2015/2016 — report E‑ISAC/SANS; nota tecnica di agenzia governativa." 
+                        "* INDUSTROYER2 (2022) — rapporto tecnico ESET; analisi di secondo livello (es. Mandiant/TAG)." 
+                        "* Colonial Pipeline (2021) — sintesi CISA/DHS; rapporto GAO sulla risposta e resilienza." 
+                        "* Oldsmar (2021) — advisory AA21‑042A (CISA) e fonti comunali/statali." 
+                        "* Norsk Hydro (2019) — comunicazioni ufficiali aziendali; analisi indipendente." 
+                        "## Checklist finale (QA redazionale)" 
+                        "* [ ] Tono vendor‑neutral, nessun marchio/prodotto." 
+                        "* [ ] Numeri espressi come range/percentuali, niente IP/host reali." 
+                        "* [ ] Mapping FR/SL coerente e non “SL4 ovunque”." 
+                        "* [ ] Figura prevista indicata e coerente col testo." 
+                        "* [ ] Fonti autorevoli presenti (titolo/ente/anno)." 
+                        "* [ ] Disclaimer esplicito per i casi sintetici." 
+                        "### sys_source https://chatgpt.com/c/68b73c35-0298-8328-a7b9-76f473241645"
+        { Cap_9
+            chapter "9"
+            name "La IEC 62443 come leva di trasformazione (AI/LLM, organizzazione, valore per gli executive)"
+            [ idea
+                "> **Idea chiave**: la 62443 non è solo controllo/compliance. 
+                    +b È un **sistema operativo** per l’OT che razionalizza processi, dati e ruoli. 
+                    +b I suoi **artefatti** (inventari, SL‑Target, policy, log, PSIRT, SBOM, runbook) 
+                    +b sono **asset informativi** che, se governati, abilitano casi d’uso 
+                    +b con **AI/LLM** (modelli linguistici) a supporto di decisioni, operations e progettazione."
+            [ goal
+                "> **Obiettivo**: delineare **valore di business**, **governance** e **architettura** 
+                    +b per usare la 62443 come volano di maturità organizzativa e tecnologica, 
+                    +b con **guardrail** per l’uso sicuro di AI/LLM in OT."
+            [ sections
+                { 
+                    section "9.1"
+                    name "Executive summary (1 pagina)"
+                    [ prompt
+                        "Scrivi 12–14 righe ‘board‑ready’ che riassumano valore, rischi e tappe 90/180/365 dell’approccio 62443+LLM." 
+                    [ lines
+                        "**Contenuti** " 
+                        "* Perché 62443 = **razionalizzazione dei processi OT** + **tracciabilità dei dati**." 
+                        "* Dalla **conformità** al **vantaggio operativo**: meno fermi, meno errori, tempi di intervento più rapidi." 
+                        "* Come gli **artefatti 62443** diventano un **knowledge base** per LLM con **guardrail**." 
+                        "* Roadmap 90/180/365 e **KPI** di risultato." 
+                { 
+                    section "9.2"
+                    name "Business case & KPI (ROI, TCO, rischio evitato)"
+                    [ prompt
+                        "Compila un business case con 6 KPI, 4 voci di costo e 3 aree di beneficio quantitativo; specifica ipotesi." 
+                    [ lines
+                        "**Contenuti** " 
+                        "* **Driver economici**: riduzione fermi non pianificati, minor tempo per audit/notifiche, efficienza change/patch, riduzione consulenze ad‑hoc." 
+                        "* **KPI esemplificativi**: % sessioni remote conformi, **MTTD/MTTR** OT, **patch coverage**, % **runbook** aggiornati, tempo di **gap‑analysis** NIS2, **tempo alla prima risposta** LLM per procedure." 
+                        "* **Modello costi**: digitalizzazione artefatti, data platform (on‑prem/intranet), governance/ruoli, formazione." 
+                { 
+                    section "9.3"
+                    name "Dati 62443 → **Data products** per AI/LLM (RAG)"
+                    [ prompt
+                        "Disegna il catalogo data products 62443 (nome, owner, sorgente, sensibilità, uso LLM, refresh)." 
+                    [ lines
+                        "**Artefatti sorgente**" 
+                        "Inventario, matrice **SL‑Target**, **policy/standard**, **registro change**, **piano patch/vuln**, **PSIRT/SBOM**, **runbook IR**, **RACI**, **log** (metadati/aggregati), **figure/diagrammi**." 
+                        "**Data governance**" 
+                        "* Classificazione (pubblico/riservato/segretato), **minimizzazione**, pseudonimizzazione dove serve." 
+                        "* **Qualità** (completeness, freshness), **versioning** e **provenance**." 
+                        "* **Access control**: RBAC, **MFA**, audit; dataset **read‑only** per LLM." 
+                        "**Pattern architetturale**" 
+                        "* **RAG** (Retrieval Augmented Generation): indicizzazione artefatti 62443 in **knowledge base** con **policy enforcement** e **audit**." 
+                        "**Figure/Template**: Catalogo data products; schema RAG con **policy** e audit." 
+                { 
+                    section "9.4"
+                    name "Casi d’uso AI/LLM **per ruolo**"
+                    [ prompt
+                        "Per ciascun ruolo scrivi 3 use case LLM collegati a un artefatto 62443, con valore e limite." 
+                    [ lines
+                        "**Executive (CEO/COO/CFO/CIO/CTO/CISO)**" 
+                        "* Q\\&A su **policy**, stato programma, **gap** e **rischi**; “what‑if” su roadmap e budget." 
+                        "* **Sintesi per il CdA**: trend KPI, incidenti, audit trail, readiness NIS2." 
+                        "* **Advisor** su procurement (clausole 4‑1/4‑2, SBOM/PSIRT) e priorità investimenti." 
+                        "**Asset Owner / Plant Manager**" 
+                        "* **Co‑pilot change/patch**: piani per finestra, **rollback**, check impatti SL‑Target." 
+                        "* **Remote‑access guardian**: verifica automatica requisiti broker/MFA/session recording." 
+                        "* Ricerca **runbook**/SOP e checklist per asset/linea specifici." 
+                        "**System Integrator / Service Provider**" 
+                        "* Generazione **deliverable** (matrici flussi, RACI, report evidenze) da template; **quality‑check** automatico." 
+                        "* **Config‑drift detective**: confronto baseline vs stato attuale (testo+diff)." 
+                        "* Supporto **FAT/SAT**: estrazione casi di test da SR (‑3‑3)." 
+                        "**OEM / Product Supplier**" 
+                        "* **Guida integrazione** mirata: da capability **‑4‑2** a requisiti di sistema **‑3‑3**." 
+                        "* **PSIRT co‑pilot**: triage segnalazioni, bozza advisory, correlazione con **SBOM**." 
+                        "**OT Security / SOC**" 
+                        "* **Alert triage**: riassunti, contesto, playbook; traduzione protocolli OT." 
+                        "* **Hunting** guidato da FR/KPI; suggerimenti evidenze per audit." 
+                { 
+                    section "9.5"
+                    name "**Guardrail & Safety** per AI in OT"
+                    [ prompt
+                        "Definisci 8 guardrail non negoziabili per usare LLM in OT e il loro test periodico." 
+                    [ lines
+                        "**Principi** " 
+                        "* **Human‑in‑the‑loop** obbligatorio: nessuna azione diretta su controllo di processo." 
+                        "* **Read‑only** in produzione; modifiche **solo** in staging con **change approval**." 
+                        "* **Segregazione IT/OT** anche per i servizi AI; niente segreti nelle **prompt**; **red‑teaming** periodico." 
+                        "* **Privacy/IP**: dati minimi; evitare estrazioni di IP sensibili da SBOM/advisory." 
+                        "**Controlli** " 
+                        "* **Policy LLM** (uso consentito/vietato); **prompt templates**; **content filtering**; **logging** invocazioni; **eval set** per regressioni." 
+                        "* Piano **incident AI** (misuse/drift/poisoning) con ruoli e tempi." 
+                        "**Figure/Template**: Matrice guardrail × controllo; runbook **incident AI**." 
+                { 
+                    section "9.6"
+                    name "Architettura di riferimento: **OT LLM Companion**"
+                    [ prompt
+                        "Disegna l’architettura a blocchi dell’‘OT LLM Companion’ indicando flussi dati e controlli." 
+                    [ lines
+                        "**Blocchi** " 
+                        "* **Ingestion** artefatti 62443 → **catalogo** (versioning, metadati)." 
+                        "* **Index/Vector store** con **policy enforcement** (ABAC/RBAC)." 
+                        "* **RAG service** con **audit** e **rate limit**; **gateway** per prompt logging." 
+                        "* **Interfacce**: chat interna, estensioni in tool OT (ticketing, CMDB, SOC)." 
+                        "* **Hosting**: preferenza **intranet/on‑prem** per contesti sensibili." 
+                        "**Figure/Template**: Diagramma architetturale; matrice integrazioni (tool ↔ artefatti)." 
+                { 
+                    section "9.7"
+                    name "Procurement, legale & compliance (LLM‑aware)"
+                    [ prompt
+                        "Stendi 8–10 clausole LLM‑aware da inserire nei capitolati OT (privacy, sicurezza, portabilità, audit)." 
+                    [ lines
+                        "**Clausole** " 
+                        "* Uso dati **solo** per erogazione servizio; **no training** su dati del cliente salvo consenso; **data residency**." 
+                        "* Diritti su **SBOM/advisory** e log; **DPA** e **audit**; tempi **retention**; cancellazione garantita." 
+                        "* Requisiti **security** del fornitore (SDL 4‑1, PSIRT, attestazioni)." 
+                        "* **Portabilità**: export knowledge base/metadata per evitare lock‑in." 
+                { 
+                    section "9.8"
+                    name "Roadmap di capacità (0–6–12–24 mesi)"
+                    [ prompt
+                        "Compila la roadmap (0–6/6–12/12–24) con owner, dipendenze e KPI attesi." 
+                    [ lines
+                        "**0–6 mesi (quick wins)**" 
+                        "* Digitalizza artefatti core (policy, SL‑T, runbook); **catalogo**; **RAG** pilota su policy/accessi remoti." 
+                        "* **LLM policy** interna; formazione mirata; **guardrail** minimi." 
+                        "**6–12 mesi**" 
+                        "* Estendi ingest a **PSIRT/SBOM/log**; KPI e **eval set**; integrazione con ticketing." 
+                        "* Casi d’uso per **Plant Manager** e **SOC** (triage, change/patch co‑pilot)." 
+                        "**12–24 mesi**" 
+                        "* Estensione a più impianti; **governance** completa; audit e **reportistica** automatizzata." 
+                        "* Valutazione **LLM on‑prem** per contenuti sensibili." 
+                { 
+                    section "9.9"
+                    name "Rischi & anti‑pattern"
+                    [ prompt
+                        "Elenca 6 anti‑pattern e la misura correttiva 62443 corrispondente (FR/controllo)." 
+                    [ lines
+                        "* **AI‑first** senza dati/processi: salto nel vuoto." 
+                        "* **SL4 ovunque**: costi e complessità senza beneficio." 
+                        "* **Generazione codice non controllata** su sistemi OT." 
+                        "* **Segreti in prompt** o dataset; **prompt injection** non gestita." 
+                        "* **Mix IT/OT** indiscriminato; mancanza di **eval**/monitoring." 
+                { 
+                    section "9.10"
+                    name "Artefatti & deliverable"
+                    [ prompt
+                        "Lista dettagliata degli artefatti con formato, owner, frequenza aggiornamento e fonte." 
+                    [ lines
+                        "* **LLM Policy**; **catalogo data products**; **knowledge base** 62443 indicizzata." 
+                        "* **Prompt catalog** e **prompt templates**; **eval set** e risultati." 
+                        "* **Runbook incident AI**; **audit log** invocazioni; **DPIA/AI risk assessment**." 
+                        "* **Architettura OT LLM Companion**; **matrice guardrail**; **report KPI**." 
+                { 
+                    section "9.11"
+                    name "Governance & misurazione (Comitato AI+OT)"
+                    [ prompt
+                        "Definisci charter e KPI del Comitato AI+OT, con cadenza e responsabilità." 
+                    [ lines
+                        "**Struttura** " 
+                        "* Sponsorship **Executive**; membri: OT, IT, Security, Legal, Operations, Quality." 
+                        "* **Riunioni** mensili; registro decisioni ed **eccezioni**." 
+                        "**Metriche** " 
+                        "* **Tempo alla risposta** LLM su procedure; **adozione** per ruolo; **precisione** (eval); % **guardrail** violati bloccati; riduzione tempo **audit**." 
+                { 
+                    section "9.12"
+                    name "FAQ per Executive"
+                    [ prompt
+                        "Scrivi una FAQ in 10 Q\\&A sintetiche per il CdA." 
+                    [ lines
+                        "* **Quanto costa e cosa serve?** → elenco voci CAPEX/OPEX, dipendenze." 
+                        "* **Dove iniziare?** → quick wins Cap. 9.8." 
+                        "* **Rischi legali/compliance?** → policy LLM, DPA, audit." 
+                        "* **Quando vedo benefici?** → KPI trimestrali, casi d’uso a valore." 
+                { 
+                    section "9.13"
+                    name "Checklist Executive (1 pagina)"
+                    [ lines
+                        "* [ ] Sponsor nominato, **charter** e **LLM policy** approvati." 
+                        "* [ ] Catalogo artefatti 62443 digitalizzato e **classificato**." 
+                        "* [ ] **RAG pilota** su policy/accessi remoti; **guardrail** minimi." 
+                        "* [ ] KPI definiti e **dashboard** attiva." 
+                        "* [ ] Clausole **LLM‑aware** in procurement/contratti." 
+                        "* [ ] Piano **0–6/6–12/12–24** mesi con owner e budget." 
+                        "## Glossario minimo (Cap. 9)" 
+                        "* **RAG (Retrieval Augmented Generation)**: uso di basi documentali aziendali per migliorare risposte LLM." 
+                        "* **LLM (Large Language Model)**: modello linguistico di grandi dimensioni per generazione/riassunto/testo." 
+                        "* **Eval set**: insieme di domande/test per misurare qualità e regressioni del sistema LLM." 
+                        "* **Guardrail**: regole/controlli che limitano input/output/azioni dell’LLM." 
+                        "* **DPIA**: valutazione d’impatto sulla protezione dei dati." 
+                        "* **Data residency**: vincolo geografico di conservazione dei dati." 
+                        "## Checklist qualità (QA redazionale — Cap. 9)" 
+                        "* [ ] Ogni sezione chiude con Valore/Rischi/Prossimi passi." 
+                        "* [ ] Box **Per i ruoli** dove richiesto; mapping a FR/SL solo quando utile." 
+                        "* [ ] Figure/template segnaposto inseriti." 
+                        "* [ ] Linguaggio “executive‑friendly”, numeri legati a KPI/€." 
+        { Cap_10
+            chapter "10"
+            name "Software Development Life Cycle per OEM & fornitori di componenti (IEC 62443‑4‑1 / 62443‑4‑2) con supporto LLM"
+            [ idea
+                "> **Idea chiave**: per un produttore di componenti/soluzioni OT, 
+                    +b la **conformità** non è solo qualità: è **accesso ai mercati**. 
+                    +b Un **SDLC conforme** (‑4‑1) e capacità di **prodotto** (‑4‑2) riducono barriere d’ingresso, 
+                    +b parlano il linguaggio degli **Asset Owner** e abilitano risposte rapide a RFI/RFP. 
+                    +b Gli **LLM** accelerano conoscenza, evidence‑building e 
+                    +b automazione documentale, con *guardrail*."
+            [ goal
+                "* Definire un **SDLC conforme 62443‑4‑1** e le **capabilities 62443‑4‑2** 
+                    +b richieste dai clienti Asset Owner."
+                "* Usare **LLM** per catalogare standard e **automatizzare** deliverable/evidenze (RFI/RFP, advisory, 
+                    +b SBOM, manuali integrazione)."
+                "* Mappare **strumenti** necessari (versioning, SBOM auto, CVE analysis, CI/CD, 
+                    +b container, **secure update** remoto, inventario asset, teleassistenza sicura)."
+                "* Proporre un **programma**: audit di compliance + toolkit + risposte rapide ai clienti per 
+                    +b rimuovere **barriere d’accesso ai mercati**."
+            [ sections
+                { 
+                    section "10.1"
+                    name "Executive brief — Compliance = Accesso ai mercati"
+                    [ goal
+                        "Spiegare in 1 pagina a `OEM:Executive` come SDLC (‑4‑1) + capability (‑4‑2) riducono rifiuti in RFI/RFP, tempi di vendita e costi di supporto." 
+                    [ output
+                        "Decision memo con 3 KPI, 90/180/365 e decisioni richieste." 
+                    [ prompt
+                        "Scrivi 1 pagina board‑ready su valore e rischi: SDLC 4‑1, capability 4‑2, SBOM/PSIRT, secure update, risposte RFI/RFP." 
+                    [ qc
+                        "KPI presenti; rischi chiave; roadmap tri‑fase; niente dettagli di protocollo." 
+                    [ lines
+                { 
+                    section "10.2"
+                    name "Landscape norme & barriere (focalizzato su 62443‑4‑1/‑4‑2)"
+                    [ goal
+                        "Contestualizzare 62443 rispetto a richieste tipiche degli Asset Owner e alle principali barriere (evidence mancanti, PSIRT assente, SBOM)." 
+                    [ output
+                        "Tabella \"Richiesta AO → Evidenza OEM (norma/artefatto)\"." 
+                    [ prompt
+                        "Costruisci una tabella AO→OEM con colonna norma (‑4‑1/‑4‑2) ed evidenza." 
+                    [ qc
+                        "Mappature chiare; esempi concreti; zero promesse vaghe." 
+                    [ lines
+                { 
+                    section "10.3"
+                    name "SDLC 62443‑4‑1 — Governance, processi, RACI"
+                    [ goal
+                        "Disegnare i processi 4‑1 (policy, requisiti, secure design, coding, test, gestione vulnerabilità, release, manutenzione) e ruoli." 
+                    [ output
+                        "Mappa processi; RACI; policy SDLC; checklist audit." 
+                    [ prompt
+                        "Elenca e descrivi i processi 4‑1 con input/output, ruoli, evidenze e KPI." 
+                    [ qc
+                        "Ogni processo ha evidenze e KPI; RACI completo." 
+                    [ lines
+                { 
+                    section "10.4"
+                    name "Capabilities 62443‑4‑2 — Requisiti di componente"
+                    [ goal
+                        "Indicare capacità minime di prodotto (FR1–FR7) e come dichiararle (datasheet/security profile)." 
+                    [ output
+                        "Matrice capability FR×SL; scheda \"Security Profile\" del prodotto." 
+                    [ prompt
+                        "Compila capability FR×SL e bozza di security profile per un componente OT tipo." 
+                    [ qc
+                        "Capacità verificabili; niente claim generici." 
+                    [ lines
+                { 
+                    section "10.5"
+                    name "Toolchain sicura: versioning, build, firma, artefatti"
+                    [ goal
+                        "Definire pipeline CI/CD con **versionamento**, **build automatizzata**, **firma artefatti**, repository, **segreti** in vault." 
+                    [ output
+                        "Diagramma pipeline; policy versioning; guida firma." 
+                    [ prompt
+                        "Disegna una pipeline CI/CD sicura (SCM→build→test→sign→release) con controlli." 
+                    [ qc
+                        "Segreti mai in chiaro; artefatti firmati; tracciabilità commit→release." 
+                    [ lines
+                { 
+                    section "10.6"
+                    name "SBOM automatizzata & analisi CVE (SCA, VEX)"
+                    [ goal
+                        "Automatizzare generazione **SBOM** (SPDX/CycloneDX), **SCA** (Software Composition Analysis), correlazione **CVE** e produzione **VEX** (Vulnerability Exploitability eXchange)." 
+                    [ output
+                        "SBOM di esempio; report SCA; bozza VEX." 
+                    [ prompt
+                        "Genera SBOM+report CVE e un VEX di esempio per una release fittizia." 
+                    [ qc
+                        "Formati standard; CVE spiegate; stato sfruttabilità dichiarato." 
+                    [ lines
+                { 
+                    section "10.7"
+                    name "Sicurezza del codice: SAST, DAST, IaC, secret scanning"
+                    [ goal
+                        "Integrare analisi statiche/dinamiche, policy IaC (Infrastructure as Code) e scansione segreti nelle pipeline." 
+                    [ output
+                        "Policy qualità; gate CI; report esempio." 
+                    [ prompt
+                        "Definisci quality gate (SAST/DAST/IaC/secret) e criteri di blocco." 
+                    [ qc
+                        "Soglie chiare; falsi positivi gestiti; eccezioni motivate." 
+                    [ lines
+                { 
+                    section "10.8"
+                    name "Containerizzazione & migrazione a Docker (quando e come)"
+                    [ goal
+                        "Guidare migrazione **Docker/containers** in contesti OT dove applicabile; immagini **golden**, **least privilege**, scanning." 
+                    [ output
+                        "Checklist migrazione; Dockerfile hardening; policy registry." 
+                    [ prompt
+                        "Scrivi guida ‘container hardening’ con controlli minimi e criteri d’uso in OT." 
+                    [ qc
+                        "No privilegi eccessivi; immagini firmate; registry privato." 
+                    [ lines
+                { 
+                    section "10.9"
+                    name "Secure update & OTA — aggiornare/patchare da remoto"
+                    [ goal
+                        "Progettare **canali di aggiornamento sicuri** (firmware/app) con firma, **rollback** e prove in **staging**." 
+                    [ output
+                        "Specifica secure update; runbook rollout/rollback; schema chiavi." 
+                    [ prompt
+                        "Redigi specifica ‘secure update’ (firmware/app): firma, verifica, canali, staging, rollback." 
+                    [ qc
+                        "Catena di fiducia; test in staging; audit trail completo." 
+                    [ lines
+                { 
+                    section "10.10"
+                    name "Teleassistenza sicura & accessi remoti"
+                    [ goal
+                        "Definire **broker** di accesso, **MFA**, **session recording**, account **time‑bound** per supporto campo." 
+                    [ output
+                        "Manuale teleassistenza sicura; requisiti minimi per integrazione con AO." 
+                    [ prompt
+                        "Crea manuale teleassistenza (broker, MFA, recording, approvi a tempo, evidenze)." 
+                    [ qc
+                        "FR1/FR2/FR6 coperti; evidenze post‑sessione; niente accessi diretti." 
+                    [ lines
+                { 
+                    section "10.11"
+                    name "Inventario asset & telemetria (integrazione lato macchina)"
+                    [ goal
+                        "Inventariare asset della macchina e fornire telemetria minima per supporto/versioni." 
+                    [ output
+                        "Schema campi inventario; API/format per export; policy privacy." 
+                    [ prompt
+                        "Definisci schema inventario asset macchina + export API/CSV e policy minime." 
+                    [ qc
+                        "Dati minimi; nessuna PII; versione/seriale sempre tracciati." 
+                    [ lines
+                { 
+                    section "10.12"
+                    name "PSIRT per OEM & CVD (Coordinated Vulnerability Disclosure)"
+                    [ goal
+                        "Istituire **PSIRT** (Product Security Incident Response Team) e processo **CVD**: intake, triage, remediation, advisory firmati." 
+                    [ output
+                        "Charter PSIRT; SLA triage; template advisory; contatto PGP." 
+                    [ prompt
+                        "Scrivi charter PSIRT, SLA e template advisory (prodotto/impatti/mitigazioni)." 
+                    [ qc
+                        "Tempi chiari; canali sicuri; versione advisories." 
+                    [ lines
+                { 
+                    section "10.13"
+                    name "Pacchetto evidenze per clienti (PSEP)"
+                    [ goal
+                        "Standardizzare ciò che il cliente richiede: **Security Profile**, **SBOM**, **VEX**, **manuale integrazione sicura**, **test report**." 
+                    [ output
+                        "Indice **PSEP** (Product Security Evidence Package) e modelli." 
+                    [ prompt
+                        "Crea indice PSEP e compila esempi di sezioni chiave (SBOM, VEX, manuale integrazione)." 
+                    [ qc
+                        "Tracciabilità release; formati standard; riferimenti a ‑4‑1/‑4‑2." 
+                    [ lines
+                { 
+                    section "10.14"
+                    name "Programma LLM‑assisted: knowledge base & risposte rapide"
+                    [ goal
+                        "Usare **LLM** per catalogare standard, policy, procedure e **automatizzare** RFI/RFP, FAQ tecniche, advisories, manuali." 
+                    [ output
+                        "Knowledge base indicizzata; prompt templates; guardrail LLM." 
+                    [ prompt
+                        "Definisci RAG per SDLC: fonti, indici, permessi; crea 6 prompt template (RFI, advisory, SBOM note, manuale, PSEP, FAQ)." 
+                    [ qc
+                        "Read‑only su repo; citazioni artefatti; *prompt logging*." 
+                    [ lines
+                { 
+                    section "10.15"
+                    name "Audit di conformità & maturity model"
+                    [ goal
+                        "Impostare **audit interno** su 4‑1/4‑2 e modello di maturità (L1→L4) con gap/remediation." 
+                    [ output
+                        "Checklist audit; scorecard maturità; piano remediation 90/180/365." 
+                    [ prompt
+                        "Compila checklist audit 4‑1/4‑2 e scorecard maturità con priorità remediation." 
+                    [ qc
+                        "Evidenze richieste; NA motivati; date e owner." 
+                    [ lines
+                { 
+                    section "10.16"
+                    name "Roadmap strumenti & selezione (tooling catalog)"
+                    [ goal
+                        "Selezionare strumenti: **SCM**, **CI/CD**, **SAST/DAST/SCA**, **container registry/scanner**, **signing**, **secrets**, **SBOM**, **ticketing**." 
+                    [ output
+                        "Matrice requisiti→tool; criteri *build vs buy*; TCO stimato." 
+                    [ prompt
+                        "Crea catalogo strumenti con criteri di scelta e matrice requisiti→tool; includi TCO indicativo." 
+                    [ qc
+                        "No lock‑in obbligato; alternative open/commercial; integrazione API." 
+                    [ lines
+                { 
+                    section "10.17"
+                    name "KPI & reporting per OEM"
+                    [ goal
+                        "Definire KPI: **SBOM coverage**, **CVE backlog aging**, **Time‑to‑Advisory**, **Patch adoption**, % build firmate, % release con VEX." 
+                    [ output
+                        "Tabella KPI + definizioni + formule + target 12 mesi." 
+                    [ prompt
+                        "Definisci 8 KPI con formule, soglie e owner." 
+                    [ qc
+                        "Misurabili; fonte dati indicata; reporting mensile." 
+                    [ lines
+                { 
+                    section "10.18"
+                    name "Rischi & anti‑pattern"
+                    [ goal
+                        "Evitare errori comuni: segreti nel codice/prompt, firma assente, SBOM non aggiornate, accessi remoti diretti, container privilegiati." 
+                    [ output
+                        "Tabella anti‑pattern → controllo 62443 corrispondente." 
+                    [ prompt
+                        "Elenca 10 anti‑pattern e mappa a controlli/processi 4‑1/FR pertinenti." 
+                    [ qc
+                        "Azioni correttive pratiche; owner; tempi." 
+                    [ lines
+                { 
+                    section "10.19"
+                    name "Template & deliverable"
+                    [ goal
+                        "Raccogliere tutti i **modelli**: policy SDLC, RACI, pipeline, SBOM/VEX, advisory, PSEP, manuale integrazione, secure update, audit checklist." 
+                    [ output
+                        "Pacchetto template editabili." 
+                    [ prompt
+                        "Genera i template elencati (struttura, sezioni, segnaposto)." 
+                    [ qc
+                        "Coerenza naming; versioning; campi obbligatori marcati." 
+                        "* [ ] Ogni sezione ha **Obiettivo/Output/Prompt/QC**." 
+                        "* [ ] Evidenze tracciabili (repo, ticket, build ID) citate." 
+                        "* [ ] Mappature esplicite a **62443‑4‑1/‑4‑2** e **FR1–FR7** dove rilevante." 
+                        "* [ ] KPI presenti e misurabili." 
+                        "* [ ] LLM con **guardrail** e citazioni delle fonti interne." 
+                        "* [ ] Niente testi finiti: questo file resta **solo istruzioni**." 
+                    [ lines
+                        "## Comandi standard per le bozze (fuori dal canvas)" 
+                        "* **Intero capitolo**: \"Leggi questo canvas. Genera `Bozza — Cap. ${cap} — vX.Y` con tutte le sezioni 10.1–[section], rispettando Pubblico & taglio. Non modificare il canvas.\"" 
+                        "* **Sezione singola**: \"Leggi questo canvas → sezione 10.Z. Scrivi la bozza per audience `OEM:Engineering:Developers` (o altra) e **APPENDI A** `Bozza — Cap. ${cap} — vX.Y` sotto il titolo della sezione.\"" 
+        { Cap_11
+            chapter "11"
+            name "Conformità IEC 62443‑4‑2 per componenti (profilo di prodotto & evidenze)"
+            [ idea
+                "> **Idea chiave**: la conformità **IEC 62443‑4‑2** dei componenti OT (PLC, RTU, HMI
+                    +b gateway, drive, ecc.) è un **abilitatore di mercato** e riduce 
+                    +b i rischi d’integrazione nei sistemi **IEC 62443‑3‑3**. 
+                    +b Il capitolo definisce *come* un produttore deve presentare capacità, 
+                    +b precondizioni e configurazioni, e *come* Asset Owner/Integrator devono valutarle."
+            [ goal
+                "* Spiegare cosa richiede **IEC 62443‑4‑2** (FR/CR/RE, SL) e come documentarlo."
+                "* Standardizzare un **Component Security Profile (CSP)**: matrice **CR×SL** 
+                    +b precondizioni, configurazioni necessarie, dipendenze (C/S/N/N‑A)."
+                "* Mostrare come costruire un **pacchetto evidenze** per gare & audit e 
+                    +b come **valutarlo** lato Asset Owner/Integrator."
+                "* Introdurre un flusso **LLM‑assisted** per estrarre, normalizzare e mantenere 
+                    +b le evidenze dal materiale del vendor."
+            [ sections
+                { 
+                    section "11.1"
+                    name "Executive brief — Perché 4‑2 conta per i componenti"
+                    [ goal
+                        "in 1 pagina, legare conformità 4‑2 a *accesso ai mercati*, integrazione veloce, riduzione rischi e oneri post‑vendita." 
+                    [ output
+                        "memo con 3 KPI, 90/180/365, decisioni richieste." 
+                    [ prompt
+                        "Scrivi 1 pagina *board‑ready* su valore e rischi di 4‑2 per componenti OT (FR/CR, SL, evidenze, impatti su RFI/RFP)." 
+                    [ lines
+                        "**QC**: KPI presenti; rischi chiave; roadmap tri‑fase." 
+                { 
+                    section "11.2"
+                    name "Cosa chiede la 4‑2 (FR/CR/RE, SL, EDR/HDR/NDR/SAR)"
+                    [ goal
+                        "spiegare Fondational Requirements (FR1–FR7), **Component Requirement (CR)**, **Requirement Enhancement (RE)**, mapping con **SL1–SL4** e classi **EDR/HDR/NDR/SAR**." 
+                    [ output
+                        "tabella riassuntiva terminologia + micro‑glossario." 
+                    [ prompt
+                        "Sintetizza FR/CR/RE, SL, e differenza EDR/HDR/NDR/SAR con esempi di controllo." 
+                    [ lines
+                { 
+                    section "11.3"
+                    name "Component Security Profile (CSP) — struttura e campi"
+                    [ goal
+                        "definire un profilo prodotto standard: identificativi, firmware range, interfacce, **matrice CR×SL×Integrazione (C/S/N/N‑A)**, configurazioni richieste, *Not Applicable (N/A)* motivati." 
+                    [ output
+                        "**template CSP** editabile." 
+                    [ prompt
+                        "Genera un template CSP: sezioni, tabella CR×SL×(C|S|N|N‑A), precondizioni e configurazioni." 
+                    [ lines
+                { 
+                    section "11.4"
+                    name "Condizioni operative & assunzioni di sicurezza"
+                    [ goal
+                        "esplicitare precondizioni (es. *defense‑in‑depth*, segmentazione, protocolli sicuri, gestione certificati), limiti d’uso e dipendenze esterne." 
+                    [ output
+                        "checklist *Operational Environment & Security Assumptions*." 
+                    [ prompt
+                        "Stila la checklist di precondizioni operative e security assumptions per integrare il componente in architettura OT." 
+                    [ lines
+                { 
+                    section "11.5"
+                    name "Matrice CR×SL×Integrazione — legenda e compilazione"
+                    [ goal
+                        "spiegare la legenda **C/S/N/N‑A** e come compilarla per FR1–FR7; evidenziare *gap* e misure compensative di sistema." 
+                    [ output
+                        "matrice compilata d’esempio + guida alla lettura." 
+                    [ prompt
+                        "Compila una matrice CR×SL×Integrazione con esempi rappresentativi e note di configurazione." 
+                    [ lines
+                { 
+                    section "11.6"
+                    name "Configurazioni necessarie per raggiungere i requisiti"
+                    [ goal
+                        "elencare parametri/protocolli (es. disattivare legacy, TLS per servizi, gestione certificati, password policy, time sync, syslog)." 
+                    [ output
+                        "**Secure Configuration Guide** breve per il componente." 
+                    [ prompt
+                        "Redigi una guida di configurazione minima per soddisfare i CR per SL2/SL3." 
+                    [ lines
+                { 
+                    section "11.7"
+                    name "Secure Boot & Roots of Trust"
+                    [ goal
+                        "descrivere catena di avvio sicuro, **Root of Trust** del fornitore e dell’Asset Owner; firmware firmati, verifica integrità." 
+                    [ output
+                        "schema chiavi & processo di firma/aggiornamento." 
+                    [ prompt
+                        "Disegna il flusso Secure Boot/aggiornamenti firmati e la gestione delle chiavi (supplier/AO)." 
+                    [ lines
+                { 
+                    section "11.8"
+                    name "Identità & gestione utenti (locale vs centrale)"
+                    [ goal
+                        "chiarire **local user management** vs **central user management**, criteri password/MFA, **PKI** per OPC UA/web/servizi." 
+                    [ output
+                        "policy di identità per il componente, tabella controlli FR1/FR2." 
+                    [ prompt
+                        "Definisci policy identity & access (locale/centrale), password, certificati, rotazione segreti." 
+                    [ lines
+                { 
+                    section "11.9"
+                    name "Audit, tempo & logging"
+                    [ goal
+                        "abilitare audit events, storage, **syslog**, time sync & protezione origine tempo; evidenze per audit." 
+                    [ output
+                        "elenco *auditable events* e *log routing*." 
+                    [ prompt
+                        "Elenca eventi di audit minimi e configurazione syslog/NTP per compliance 4‑2." 
+                    [ lines
+                { 
+                    section "11.10"
+                    name "Integrità software/firmware & notifiche"
+                    [ goal
+                        "firma artefatti, verifica integrità, notifiche automatiche violazioni, test funzionalità sicurezza." 
+                    [ output
+                        "*Secure Update Spec*; piano test integrità." 
+                    [ prompt
+                        "Scrivi specifica di aggiornata sicura (firmware/app): firma, verifica, canali, rollback, evidenze." 
+                    [ lines
+                { 
+                    section "11.11"
+                    name "Confidenzialità & crittografia"
+                    [ goal
+                        "uso della crittografia in transito e a riposo; gestione chiavi e sanificazione memorie condivise." 
+                    [ output
+                        "tabella servizi→cifratura→algoritmi→policy." 
+                    [ prompt
+                        "Mappa servizi/componenti alle opzioni di cifratura e gestione chiavi." 
+                    [ lines
+                { 
+                    section "11.12"
+                    name "Restricted Data Flow & segmentazione"
+                    [ goal
+                        "politiche *deny‑by‑default*, whitelisting protocolli, conduits; note su autenticazione di rete dove applicabile." 
+                    [ output
+                        "**matrice flussi** per conduit." 
+                    [ prompt
+                        "Genera una matrice flussi approvata per l’uso del componente in rete OT." 
+                    [ lines
+                { 
+                    section "11.11"
+                    name "Timely Response to Events & monitoring"
+                    [ goal
+                        "continuous monitoring lato componente e integrazione SOC; accesso programmato ai log." 
+                    [ output
+                        "*Use case* minimi di detection." 
+                    [ prompt
+                        "Definisci 5 casi d’uso di detection su eventi del componente e relativo routing." 
+                    [ lines
+                { 
+                    section "11.14"
+                    name "Resource Availability: DoS, backup, recovery, least functionality"
+                    [ goal
+                        "protezioni anti‑DoS, gestione risorse, backup/recovery del sistema di controllo, **least functionality**." 
+                    [ output
+                        "checklist hardening & backup." 
+                    [ prompt
+                        "Scrivi checklist hardening (servizi, risorse) e piano backup/recovery del componente." 
+                    [ lines
+                { 
+                    section "11.15"
+                    name "Versioni, modelli, firmware & perimetro"
+                    [ goal
+                        "dichiarare **range firmware** supportato, SKU coperti, funzioni abilitate per articolo/firmware; gestione variazioni." 
+                    [ output
+                        "tabella SKU↔funzione/SL." 
+                    [ prompt
+                        "Compila tabella modelli/firmware/funzionalità/SL e note di perimetro." 
+                    [ lines
+                { 
+                    section "11.16"
+                    name "Come leggere un documento di conformità 4‑2 del fornitore"
+                    [ goal
+                        "guida di lettura: indice, tabelle CR, precondizioni, configurazioni, *NA motivati*, integrazione (C/S/N/N‑A), evidenze." 
+                    [ output
+                        "**checklist di verifica** per gare/audit." 
+                    [ prompt
+                        "Crea una checklist di 20 punti per validare un documento di conformità 4‑2." 
+                    [ lines
+                { 
+                    section "11.17"
+                    name "Product Security Evidence Package (PSEP) per componenti"
+                    [ goal
+                        "indice standard: **CSP**, **Security Guide**, **Secure Config Guide**, **SBOM**, **VEX**, **Advisory**, certificati, report test." 
+                    [ output
+                        "indice e template sezioni." 
+                    [ prompt
+                        "Componi un PSEP tipo per componenti OT con sezioni e segnaposto." 
+                    [ lines
+                { 
+                    section "11.18"
+                    name "Flusso LLM‑assisted per parsing e normalizzazione"
+                    [ goal
+                        "pipeline (*RAG*) per estrarre da PDF/schede vendor le voci CR/SL, configurazioni, firmware, modelli; validazione umana." 
+                    [ output
+                        "architettura RAG, *prompt templates*, *guardrail*." 
+                    [ prompt
+                        "Definisci workflow LLM per estrarre/normalizzare CR/SL/precondizioni e generare CSP." 
+                    [ lines
+                { 
+                    section "11.19"
+                    name "KPI per componenti & portfolio"
+                    [ goal
+                        "% modelli con CSP completo; % release con **SBOM+VEX**; **Time‑to‑Advisory**; % build firmate; copertura CR per SL2/SL3." 
+                    [ output
+                        "tabella KPI con formule, owner, target 12 mesi." 
+                    [ prompt
+                        "Definisci 8 KPI misurabili per la conformità 4‑2 del portfolio." 
+                    [ lines
+                { 
+                    section "11.20"
+                    name "Rischi & anti‑pattern"
+                    [ goal
+                        "evitare errori: precondizioni non dichiarate, claim non verificabili, log non esportabili, mancanza di rollback, *NA* senza motivazione." 
+                    [ output
+                        "tabella anti‑pattern→controllo/azione correttiva." 
+                    [ prompt
+                        "Elenca 10 anti‑pattern tipici e le correzioni consigliate." 
+                    [ lines
+                { 
+                    section "11.21"
+                    name "Template & deliverable"
+                    [ goal
+                        "raccogliere i modelli: **CSP**, matrice **CR×SL×Integrazione**, **Secure Config Guide**, **matrice flussi**, **PSEP**, **checklist di verifica**." 
+                    [ output
+                        "pacchetto template editabili." 
+                    [ prompt
+                        "Genera i template elencati (struttura, sezioni, segnaposto)." 
+                    [ qc
+                        "* [ ] Ogni sezione ha **Obiettivo/Output/Prompt/QC**." 
+                        "* [ ] **CSP** completo con precondizioni e *NA* motivati." 
+                        "* [ ] Matrice **CR×SL×(C|S|N|N‑A)** coerente con FR1–FR7." 
+                        "* [ ] **Secure Config Guide** con parametri minimi (TLS, cert, password policy, NTP, syslog)." 
+                        "* [ ] Evidenze e **PSEP** indicizzati; versioni/firmware e SKU dichiarati." 
+                        "* [ ] Flusso **LLM‑assisted** con guardrail e citazioni artefatti interni." 
+                        "* [ ] Niente testi finiti: questo file resta **solo istruzioni**." 
+                    [ lines
+        { Cap_12
+            chapter "12"
+            name "Security di Macchina per OEM (Audit, messa a punto, hardening & monitoraggio)"
+            [ idea
+                "> **Idea chiave**: per i **produttori di macchine** (OEM), 
+                    +b la sicurezza “di prodotto” **non basta**: serve una **security di macchina** 
+                    +b dimostrabile lungo il ciclo di vita (messa a punto, esercizio, supporto). 
+                    +b Questo capitolo fornisce metodo, deliverable e template 
+                    +b per **audit→remediation→documentazione→monitoraggio**, 
+                    +b usando IEC **62443‑2‑x/3‑x/4‑1/4‑2** 
+                    +b e supporti **LLM** per velocizzare analisi e risposte ai clienti."
+            [ goal
+                "* Definire **metodo e deliverable** per audit/messa a punto security 
+                    +b di una **macchina** (CNC, packaging, robotica, ecc.)."
+                "* Tradurre lo schema *Preliminare → Assessment profondo → Remediation → 
+                    +b Documentazione → Monitoraggio* in **artefatti ripetibili**."
+                "* Mostrare come i **LLM** aiutano a standardizzare raccolta dati, analisi, 
+                    +b generazione di report e pacchetti evidenze."
+            [ sections
+                { 
+                    section "12.1"
+                    name "Executive brief — Perché la security “di macchina” conta per gli OEM"
+                    [ goal
+                        "1 pagina per `OEM:Executive` su impatti (vendite, post‑vendita, incidenti), **barriere di mercato**, richieste tipiche AO." 
+                    [ output
+                        "decision memo con 3 KPI, 90/180/365, decisioni richieste." 
+                    [ prompt
+                        "Scrivi una pagina *board‑ready* su valore/ROI e rischi della security di macchina (audit→remediation→doc→monitoraggio)." 
+                    [ lines
+                { 
+                    section "12.2"
+                    name "Profilo macchina & perimetro (scheda parametrica)"
+                    [ goal
+                        "creare la **scheda macchina** (parametrica) per il caso pilota e per riuso su portfolio." 
+                    [ output
+                        "*Machine Fact Sheet* + *Bill of Interfaces* + mappa versioni firmware/software." 
+                    [ prompt
+                        "Crea scheda macchina parametrica (campi+esempi), includi interfacce, protocolli, VLAN, punti unici di scambio, firmware." 
+                    [ lines
+                        "**Campi minimi**: tipo (es. CNC), controllori (CN/PLC), HMI, PC/gateway, protocolli (es. **PROFINET IRT**/**PROFISAFE**, **OPC UA**/**REST**), segmentazione (VLAN/SDN), accessi remoti, firewall/NGFW, dipendenze IT." 
+                { 
+                    section "12.3"
+                    name "Metodologia (Fase 1) — Analisi preliminare & competenze"
+                    [ goal
+                        "formazione/metodo su **risk**, **SL‑Target (SL‑T)**, **FR1–FR7**, mappatura controlli." 
+                    [ output
+                        "matrice **rischi×zone**, bozza **SL‑T**, *gap list*." 
+                    [ prompt
+                        "Imposta metodologia e deliverable Fase 1 (risk, SL‑T, gap) con esempi tipici per macchine CNC." 
+                    [ lines
+                        "**QC**: NA motivati; SL‑T realistici (no *SL4 ovunque*)." 
+                { 
+                    section "12.4"
+                    name "Assessment profondo (Fase 2) — Architettura & test mirato"
+                    [ goal
+                        "valutare rete (3 VLAN: automazione/HMI/esterno), conduits, gateway/NGFW, **SDN**, protocolli (PN‑IRT/PROFISAFE), pannello operatore (RDP/VNC), accessi remoti." 
+                    [ output
+                        "**matrice flussi** approvata; **piano di test** (inclusi 2 **pen‑test** mirati: inizio/fine); **report** assessment." 
+                    [ prompt
+                        "Produci piano assessment per macchina pilota con analisi rete/protocolli, test mirati, evidenze richieste." 
+                    [ lines
+                        "**QC**: safety prima di tutto; test in **staging** dove possibile; *session recording* su accessi." 
+                { 
+                    section "12.5"
+                    name "Remediation (Fase 3) — Hardening & misure prioritarie"
+                    [ goal
+                        "definire **hardening** (least functionality), password policy, gestione certificati, **time sync**, **syslog**, **secure update** (firmware/app), backup/restore." 
+                    [ output
+                        "**Secure Configuration Guide (Machine)**; piano cambi con finestre/rollback; *exception register*." 
+                    [ prompt
+                        "Scrivi guida hardening per la macchina (parametri minimi, protocolli, logging, update firmati, backup, rollback)." 
+                    [ lines
+                        "**QC**: FR3/FR6/FR7 coperti; prove in **staging**; approvazioni (*two‑person rule*)." 
+                { 
+                    section "12.6"
+                    name "Documentazione (Fase 4) — Fascicolo tecnico & compliance"
+                    [ goal
+                        "predisporre fascicolo per **Regolamento Macchine (UE) 2023/1230**, riferimenti **62443**, e documentazione per richieste cliente (incluso **CRA/NIS2** se rilevanti)." 
+                    [ output
+                        "**Machine Security Evidence Package (MSEP)**: scheda, FR×SL, flussi, test, Secure Config, registro cambi, manuali utente." 
+                    [ prompt
+                        "Componi indice MSEP e popola segnaposto con riferimenti a prove e versioni." 
+                    [ lines
+                { 
+                    section "12.7"
+                    name "Monitoraggio & manutenzione (Fase 5) — Operazioni & post‑vendita"
+                    [ goal
+                        "monitoraggio vulnerabilità, **advisory** ai clienti, canali **PSIRT**, teleassistenza **brokered** con **MFA** e **session recording**." 
+                    [ output
+                        "runbook O\\&M (alert, triage, aggiornamenti), **SLA** notifiche incidenti, playbook teleassistenza." 
+                    [ prompt
+                        "Scrivi runbook post‑vendita: monitoraggio vuln, advisory, teleassistenza, evidenze per chiusura interventi." 
+                    [ lines
+                { 
+                    section "12.8"
+                    name "Segmentazione, conduits & DMZ (applicazione FR5)"
+                    [ goal
+                        "progettare **zone & conduits** a livello di macchina: VLAN/SDN, *deny‑by‑default*, whitelisting protocolli, *single point* esterno (OPC UA/REST), **DMZ**." 
+                    [ output
+                        "diagramma segmentazione + **matrice flussi**." 
+                    [ prompt
+                        "Genera diagramma zone/conduits e matrice flussi per la macchina; evidenzia ‘single point’ e policy." 
+                    [ lines
+                { 
+                    section "12.9"
+                    name "Accessi remoti & teleassistenza sicura"
+                    [ goal
+                        "definire **broker** (jump/gateway), **MFA**, **account time‑bound**, **session recording**, **approvazioni su ticket**." 
+                    [ output
+                        "manuale teleassistenza sicura e requisiti di integrazione con AO." 
+                    [ prompt
+                        "Crea manuale teleassistenza: prerequisiti, flussi, evidenze e revoca permessi." 
+                    [ lines
+                { 
+                    section "12.10"
+                    name "Secure update/OTA & gestione versioni"
+                    [ goal
+                        "canali di aggiornamento **firmati**, verifica integrità, *rollback*, prerequisiti di rete, staging su banchi prova." 
+                    [ output
+                        "**specifica ‘secure update di macchina’** e **registro versioni**." 
+                    [ prompt
+                        "Redigi specifica aggiornamenti firmati (firmware/app), staging, rollback e registro versioni." 
+                    [ lines
+                { 
+                    section "12.11"
+                    name "Logging, audit & sincronizzazione tempo"
+                    [ goal
+                        "eventi audit minimi (login, change, update), **syslog** verso collezionatore AO/SP, **NTP** affidabile, protezione origine tempo." 
+                    [ output
+                        "elenco eventi, policy retention, *log routing*." 
+                    [ prompt
+                        "Elenca eventi audit e configura syslog/NTP per compliance a 62443 (FR6)." 
+                    [ lines
+                { 
+                    section "12.12"
+                    name "Safety & modalità degradata (integrazione con HSE)"
+                    [ goal
+                        "preservare **safety** durante cambi/test; pianificare **modalità degradata** e criteri di stop sicuro." 
+                    [ output
+                        "checklist safety‑by‑design con HSE; piano di prova degrade." 
+                    [ prompt
+                        "Definisci interlock safety e modalità degradata durante hardening/patch." 
+                    [ lines
+                { 
+                    section "12.13"
+                    name "Pen‑test mirato su macchina (scopo, limiti, prove)"
+                    [ goal
+                        "impostare **pen‑test** controllato *in sicurezza*: perimetro, limitazioni, prove su RDP/VNC, OPC UA, gateway/NGFW, protocolli real‑time." 
+                    [ output
+                        "**piano di test** con approvazioni, evidenze e criteri di successo." 
+                    [ prompt
+                        "Stendi piano pen‑test macchina (in/out of scope, metodi, prove, safety)." 
+                    [ lines
+                { 
+                    section "12.14"
+                    name "KPI & reporting"
+                    [ output
+                        "tabella KPI con formule, owner, target 12 mesi." 
+                    [ prompt
+                        "Definisci KPI e target per programma di security di macchina (OEM/SP)." 
+                    [ lines
+                        "**Obiettivo sezione 12.12**: definire KPI misurabili: % macchine con **MSEP** completo, **patch adoption**, **tempo advisory**, % sessioni remote con MFA+recording, **MTTD/MTTR** su eventi macchina." 
+                { 
+                    section "12.15"
+                    name "Programma LLM‑assisted (audit & risposte rapide)"
+                    [ goal
+                        "usare **LLM** per: estrarre dati da schede/protocolli, generare **MSEP**, risposte a **RFI/RFP**, checklist e piani di prova; **guardrail**." 
+                    [ output
+                        "architettura RAG, *prompt templates*, policy d’uso." 
+                    [ prompt
+                        "Definisci RAG per security di macchina e 6 prompt per MSEP, RFI/RFP, test, advisory, manuale teleassistenza." 
+                    [ lines
+                { 
+                    section "12.16"
+                    name "Template & deliverable"
+                    [ goal
+                        "raccogliere modelli riusabili: **Machine Fact Sheet**, **Bill of Interfaces**, **Matrice flussi**, **Secure Config Guide (Machine)**, **Piano pen‑test**, **MSEP**, **Runbook teleassistenza**, **Registro versioni**, **Exception register**, **Checklist safety**." 
+                    [ output
+                        "pacchetto template editabili." 
+                    [ prompt
+                        "Genera i template elencati (struttura, sezioni, segnaposto)." 
+                    [ qc
+                        "* [ ] Ogni sezione ha **Obiettivo/Output/Prompt/QC**." 
+                        "* [ ] **Machine Fact Sheet** completo (controllori, HMI, gateway, protocolli, VLAN/SDN, accessi)." 
+                        "* [ ] **Matrice flussi** e policy *deny‑by‑default*; “single point” esterno definito." 
+                        "* [ ] **Secure Config Guide** con parametri minimi (password/cert, NTP, syslog, update firmati, backup)." 
+                        "* [ ] **MSEP** indicizzato; versioni/firmware e prove dichiarati." 
+                        "* [ ] **Pen‑test** con perimetro/limiti e approvazioni; safety preservata." 
+                        "* [ ] LLM con **guardrail** e citazioni artefatti interni." 
+                        "* [ ] Niente testi finiti: questo file resta **solo istruzioni**." 
+                    [ lines
+        { Cap_13
+            chapter "13"
+            name "Service Providers OT (servizi gestiti, integrazione, compliance)"
+            [ idea 
+                "> **Idea chiave**: i **Service Provider** (SP) sono l’estensione operativa 
+                    +b dell’Asset Owner nell’OT: progettano, integrano, gestiscono
+                    +b e dimostrano la sicurezza **end‑to‑end**. 
+                    +b Questo capitolo definisce *service catalog, RACI, SLA/SLO/KPI, procedure 
+                    +b e pacchetti evidenze* in coerenza con IEC **62443‑2‑x/3‑x/4‑2**, 
+                    +b con supporto **LLM** per runbook, RFI/RFP e reporting."
+            [ goal
+                "* Definire un **catalogo servizi** OT coerente con IEC 62443 (progettazione, 
+                    +b messa in esercizio, servizi gestiti, SOC, IR, compliance)."
+                "* Stabilire **RACI**, **SLA/SLO/KPI**, **procedure** e **pacchetti evidenze** 
+                    +b per dimostrare efficacia e conformità."
+                "* Integrare **LLM** per knowledge base, runbook, risposte RFI/RFP 
+                    +b e reporting, con **guardrail**."
+            [ sections
+                { 
+                    section "13.1"
+                    name "Executive brief — Il ruolo dei Service Provider nell’OT"
+                    [ goal
+                        "in 1 pagina per `SP:Executive`, illustrare come i servizi 62443 riducono tempi, rischi e costi per AO, con proposta di valore e roadmap 90/180/365." 
+                    [ output
+                        "decision memo con 3 KPI e SLO iniziali." 
+                    [ prompt
+                        "Scrivi 1 pagina board‑ready sul valore dei servizi OT (design, managed services, SOC/IR, compliance)." 
+                    [ lines
+                        "**QC**: KPI/SLO presenti; rischi chiave; roadmap tri‑fase." 
+                { 
+                    section "13.2"
+                    name "Service catalog & RACI (design→gestione)"
+                    [ goal
+                        "definire catalogo servizi: **Assessment 62443**, **Design zone/conduits/DMZ**, **Integration**, **Accessi remoti/PAM**, **Patch/Vuln as a Service**, **Backup/DR**, **SOC OT**, **IR**, **Compliance/NIS2**, **Reporting**." 
+                    [ output
+                        "lista servizi con **descrizione, input, output, RACI** (AO/OEM/SP), evidenze minime." 
+                    [ prompt
+                        "Compila service catalog con descrizione→input→output→RACI e evidenze per ogni voce." 
+                    [ lines
+                { 
+                    section "13.3"
+                    name "Onboarding & site readiness"
+                    [ goal
+                        "questionario onboarding (inventario, versioni, flussi, finestre, safety), pre‑requisiti (DMZ, NTP, syslog, broker remoto), *data access* e DPA." 
+                    [ output
+                        "**Onboarding pack** (questionario, check di readiness, piano di transizione)." 
+                    [ prompt
+                        "Genera questionario onboarding + checklist readiness + piano transizione iniziale." 
+                    [ lines
+                { 
+                    section "13.4"
+                    name "Accessi remoti & PAM (broker, MFA, recording)"
+                    [ goal
+                        "definire architettura **broker/jump**, **MFA**, **time‑bound**, **session recording**, approvazioni su ticket, evidenze di chiusura." 
+                    [ output
+                        "*Remote Access Playbook* (SOP + schema logico)." 
+                    [ prompt
+                        "Scrivi playbook accessi remoti (broker, MFA, approvi, recording, evidenze)." 
+                    [ lines
+                        "**QC**: FR1/FR2/FR6 coperti; niente accessi diretti." 
+                { 
+                    section "13.5"
+                    name "Patch & Vulnerability Management as a Service (‑2‑3)"
+                    [ goal
+                        "processo: discovery→prioritizzazione (**CVE/CVSS OT‑aware**)→staging→rollout→evidenze→KPI." 
+                    [ output
+                        "calendario patch, *exception register*, report copertura, VEX quando possibile." 
+                    [ prompt
+                        "Definisci servizio Patch/Vuln: SLA, staging, finestre, rollback, report KPI." 
+                    [ lines
+                { 
+                    section "13.6"
+                    name "Monitoring & SOC OT (FR6)"
+                    [ goal
+                        "*use case* minimi (accessi remoti, change, protocolli anomali), centralizzazione log, integrazione **IDS OT**, playbook triage, *hunting* periodico." 
+                    [ output
+                        "elenco *use case*, schema routing log, runbook SOC." 
+                    [ prompt
+                        "Elenca use case FR6, integra IDS OT, scrivi runbook triage e reporting." 
+                    [ lines
+                { 
+                    section "13.7"
+                    name "Backup, restore & DR as a Service (FR7)"
+                    [ goal
+                        "politica 3‑2‑1, backup offline, test di ripristino, RPO/RTO per asset industriali." 
+                    [ output
+                        "piano backup/restore per zona, registro test, KPI % restore OK." 
+                    [ prompt
+                        "Stendi policy backup/restore/DR per impianti OT e schema prove periodiche." 
+                    [ lines
+                { 
+                    section "13.8"
+                    name "Change & configuration management (staging, versioning, golden image)"
+                    [ goal
+                        "processi change con staging e rollback, **repository config** (versioning), **golden image** per reinstalli rapidi, controllo *config‑drift*." 
+                    [ output
+                        "SOP change, repo/branching model, check *drift* mensile." 
+                    [ prompt
+                        "Definisci change mgmt con staging/rollback, repo config, golden image e controllo drift." 
+                    [ lines
+                { 
+                    section "13.9"
+                    name "Incident response & escalation (IR playbook)"
+                    [ goal
+                        "IR end‑to‑end: ruoli," 
+                    [ output
+                        "**IR playbook** e *communication plan* (interno/cliente/autorità)." 
+                    [ prompt
+                        "Scrivi IR playbook con escalation, comms, isolamento sicuro, evidenze e post‑mortem." 
+                    [ lines
+                        "**escalation matrix**, comunicazioni, criteri di isolamento, forensics limitata in OT, *post‑incident review*." 
+                { 
+                    section "13.10"
+                    name "Compliance & NIS2 per SP"
+                    [ goal
+                        "mappare obblighi del fornitore di servizi (governance, misure tecniche, **notifiche**, supply chain, **DPA**), crosswalk NIS2⇄62443." 
+                    [ output
+                        "**Compliance map** e modelli di notifica." 
+                    [ prompt
+                        "Crea crosswalk NIS2⇄62443 per SP e modelli di notifica incidenti." 
+                    [ lines
+                { 
+                    section "13.11"
+                    name "PSIRT liaison & advisory management"
+                    [ goal
+                        "canali con **OEM PSIRT**, intake advisory, valutazione impatto sugli impianti serviti, **Time‑to‑Advisory** al cliente." 
+                    [ output
+                        "SOP ricezione/valutazione advisory, registro stato." 
+                    [ prompt
+                        "Definisci processo PSIRT liaison (intake→analisi→comunicazione→chiusura) con KPI." 
+                    [ lines
+                { 
+                    section "13.12"
+                    name "SBOM/VEX ingestion & asset impact"
+                    [ goal
+                        "ingestione **SBOM** dei vendor, correlazione **CVE** con inventario asset, generazione **VEX** lato servizio quando applicabile." 
+                    [ output
+                        "flusso SBOM→inventario→priorità remediation." 
+                    [ prompt
+                        "Disegna flusso SBOM/VEX: come correlare componenti→impianti e priorità." 
+                    [ lines
+                { 
+                    section "13.13"
+                    name "Secure update orchestration (firmware/app)"
+                    [ goal
+                        "orchestrare aggiornamenti **firmati** con finestra, staging e rollback coordinati tra AO/OEM/SP." 
+                    [ output
+                        "*Update plan* e *evidence pack*." 
+                    [ prompt
+                        "Scrivi orchestrazione secure update multi‑stadio con evidenze richieste." 
+                    [ lines
+                { 
+                    section "13.14"
+                    name "KPI, SLO, SLA & reporting"
+                    [ goal
+                        "definire **KPI** (patch coverage, MTTD/MTTR, % sessioni MFA+recording, % restore OK, Time‑to‑Advisory, change success rate), **SLO/SLA**, report mensile." 
+                    [ output
+                        "tabella KPI con formule/soglie, schema report." 
+                    [ prompt
+                        "Definisci KPI/SLO/SLA e modello di report per cliente OT." 
+                    [ lines
+                { 
+                    section "13.15"
+                    name "LLM‑assisted operations (RAG, runbook, tickets)"
+                    [ goal
+                        "knowledge base indicizzata (policy/procedure/KB), *prompt template*, risposta RFI/RFP, generazione evidenze e *QA* su runbook." 
+                    [ output
+                        "architettura RAG, prompt catalog, guardrail (read‑only, logging)." 
+                    [ prompt
+                        "Definisci RAG per SP e 6 prompt (RFI, runbook, report, advisory, SBOM, IR)." 
+                    [ lines
+                { 
+                    section "13.16"
+                    name "Contratti, DPA & data governance"
+                    [ goal
+                        "clausole: ambito, livelli di servizio, **data ownership**, portabilità, retention, sub‑processor, **penali**, exit/offboarding." 
+                    [ output
+                        "**Contract checklist** e **DPA template**." 
+                    [ prompt
+                        "Crea checklist contrattuale e DPA template per servizi OT." 
+                    [ lines
+                { 
+                    section "13.17"
+                    name "Handover & offboarding"
+                    [ goal
+                        "riconsegna account/segreti, export configurazioni/evidenze, dismissione accessi e revoche, *knowledge transfer*." 
+                    [ output
+                        "piano handover/offboarding e registro consegne." 
+                    [ prompt
+                        "Stendi piano di handover/offboarding con elenco consegne e verifiche." 
+                    [ lines
+                { 
+                    section "13.18"
+                    name "Rischi & anti‑pattern"
+                    [ goal
+                        "evitare errori: accessi diretti, assenza staging, log non consegnati, patch senza rollback, mancanza di *exception register*, confusione ruoli." 
+                    [ output
+                        "tabella anti‑pattern→controlli/procedure correttive." 
+                    [ prompt
+                        "Elenca 12 anti‑pattern tipici dei servizi OT e rimedi 62443." 
+                    [ lines
+                { 
+                    section "13.19"
+                    name "Template & deliverable"
+                    [ goal
+                        "pacchetto modelli riusabili: **Service Catalog**, **RACI**, **Onboarding pack**, **Remote Access Playbook**, **Patch/Vuln SOP**, **Backup/DR SOP**, **Runbook SOC/IR**, **Compliance map**, **PSIRT liaison SOP**, **Update plan**, **Report KPI**, **Contract checklist/DPA**, **Handover plan**." 
+                    [ output
+                        "template editabili." 
+                    [ prompt
+                        "Genera i template elencati (struttura, sezioni, segnaposto)." 
+                    [ qc
+                        "* [ ] Ogni sezione ha **Obiettivo/Output/Prompt/QC**." 
+                        "* [ ] **Service catalog** completo con RACI e evidenze minime." 
+                        "* [ ] **Onboarding pack** e **readiness** (DMZ, NTP, syslog, broker remoto) definiti." 
+                        "* [ ] Accessi remoti con **broker/MFA/recording** e prove di evidenze." 
+                        "* [ ] Patch/Vuln con **staging/rollback** e KPI; **exception register** gestito." 
+                        "* [ ] SOC OT: *use case* FR6, integrazione IDS, routing log, runbook triage." 
+                        "* [ ] Backup/DR con test di ripristino e RPO/RTO dichiarati." 
+                        "* [ ] IR playbook con **escalation matrix** e *communication plan*." 
+                        "* [ ] Compliance/NIS2 mappata; modelli di notifica; DPA/contratti." 
+                        "* [ ] **LLM** con guardrail e citazioni artefatti interni." 
+                        "* [ ] Niente testi finiti: questo file resta **solo istruzioni**." 
+                    [ lines

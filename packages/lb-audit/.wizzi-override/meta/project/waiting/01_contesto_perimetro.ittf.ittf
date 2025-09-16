@@ -1,0 +1,173 @@
+ittf
+
+   $file project/from_meta/sole_24_ore/cap_01_contesto_perimetro.md
+
+      # Cap. 1 — Contesto, perimetro e come usare la mini guida (IEC 62443)
+
+      regole_editoriali()
+      mini_vademecum_canvas()
+      > **Obiettivo**: capitolo introduttivo (2 facciate) per definire contesto, perimetro, 
+         \b destinatari, cosa **non** è la 62443, output attesi e modalità d’uso della mini guida.
+      audience()
+
+      ---
+
+      ## Struttura delle sezioni
+
+      ### 1.1 Scopo e perimetro
+
+      **Cosa includere (OT/IACS)**
+      PLC, DCS/SCADA, HMI, workstation di ingegneria, historian, 
+         \b server OT (dominio, applicativi), apparati rete industriale, 
+         \b VPN/remote access, sistemi di backup/restore, 
+         \b virtualizzazione on‑prem OT, interfacce con MES/ERP.
+
+      **Cosa resta fuori (ma con interfacce)**
+      IT office (posta, collaboration), endpoint non usati in OT, 
+         \b applicazioni corporate irrilevanti per l’operatività.
+
+      **Confine IT/OT e conduits**
+      Descrivere la **DMZ** (zona cuscinetto), i **conduits** (canali controllati) e le **trust boundaries**.
+
+      #### Prompt operativo
+      “Scrivi 8–12 righe su scopo e perimetro del Cap. 1, chiarendo confine IT/OT, 
+         \b DMZ e conduits, con esempi di asset OT e interfacce.”
+
+      *Regole fisse per questo prompt*: definisci acronimi alla prima occorrenza; 
+         \b aggiungi parafrasi semplice ai tecnicismi; inserisci box **Per i ruoli**; 
+         \b chiudi con **takeaway** e **avvertenza safety**; mappa a **FR/SL** dove pertinente.
+
+      ---
+
+      ### 1.2 A chi serve (pubblico)
+
+      **Segmenti destinatari**
+
+      * **PMI/Asset Owner**: impostare un **programma di sicurezza OT** essenziale ma efficace.
+      * **OEM/Product Supplier**: allineare **SDL 62443‑4‑1** e capacità **‑4‑2**; definire condizioni d’uso sicure.
+      * **Service Provider/System Integrator**: operare secondo **‑2‑4**, con accessi remoti tracciati e procedure concordate.
+
+      #### Prompt operativo
+      “Descrivi 10–12 righe di ‘a chi serve’, con value proposition distinta per PMI/Owner, 
+         \b OEM e Service Provider, includendo esempi di risultati attesi.”
+
+      *Regole fisse per questo prompt*: come sopra.
+
+      ---
+
+      ### 1.3 Cosa **NON** è la IEC 62443
+
+      * Non è **solo IT**: tratta esigenze OT (disponibilità, tempi reali, safety).
+      * Non è **un prodotto**: nessun componente singolo “rende conforme” l’impianto.
+      * Non è **solo una checklist**: richiede **processi** e **ruoli** (‑2‑1).
+      * Non è **zero incidenti**: riduce il rischio in modo misurabile.
+      * Non è **compliance legale automatica**: aiuta a mappare (es. NIS2), ma servono governance e reporting.
+
+      #### Prompt operativo
+      “Scrivi un box ‘cosa NON è la 62443’ in 6–8 righe con esempi pratici e correzione dei miti ricorrenti.”
+
+      *Regole fisse per questo prompt*: come sopra.
+
+      ---
+
+      ### 1.4 Come usare la mini guida
+
+      La mini guida è concepita come strumento Executive: descrive con chiarezza i rischi, 
+         \b i benefici e le decisioni chiave da prendere per impostare un programma di sicurezza OT. 
+         \b Il documento non fornisce istruzioni operative passo-passo, 
+         \b ma illustra i concetti fondamentali e indica i percorsi decisionali. 
+         \b Gli approfondimenti tecnici sono limitati e hanno valore introduttivo; 
+         \b per la loro applicazione concreta occorre coinvolgere 
+         \b figure specialistiche interne o partner qualificati. 
+         \b La guida supporta tre livelli di lettura: **Executive track** (principale), orientata a chi decide; 
+         \b **OEM/Product Supplier track**, con cenni su sviluppo sicuro e conformità; 
+         \b **Service Provider/System Integrator track**, 
+         \b con riferimenti a modalità di erogazione e responsabilità. 
+         \b In ogni caso, il documento non sostituisce manuali operativi, 
+         \b ma serve da quadro di riferimento per allineare linguaggio, priorità e obiettivi.
+
+      **Per i ruoli**
+
+      * **PMI/Asset Owner**: visione chiara su rischi e priorità.
+      * **OEM/Product Supplier**: riferimenti al percorso di sviluppo sicuro.
+      * **Service Provider/System Integrator**: chiarimenti sul perimetro di responsabilità.
+
+      **Takeaway**
+
+      * La guida è descrittiva e orientata al decision making.
+      * Non è un manuale operativo.
+      * Gli approfondimenti tecnici richiedono supporto specialistico.
+
+      **Avvertenza safety**
+      Interpretare il documento come guida operativa potrebbe portare a implementazioni parziali o scorrette, 
+         \b con impatti sulla sicurezza degli impianti.
+      
+      
+      **Approccio step‑by‑step**
+
+      1. Inventario & perimetro.  
+         \b 2) Rischio & **SL‑Target**.  
+         \b 3) Architettura (zone, conduits, DMZ, identità).  
+         \b 4) Piano misure (tecniche+organizzative).  
+         \b 5) Validazione/verifica (**‑3‑3**).  
+         \b 6) Operazioni & miglioramento.
+
+      #### Prompt operativo
+      *Regole fisse per questo prompt*: come sopra.
+
+      ---
+
+      ### 1.5 Output attesi dal lettore (deliverable)
+
+      * **Mappa dei rischi OT** per zona (asset critici, minacce, impatti, rischio residuo).
+      * **SL‑Target per zona** (FR1–FR7) coerenti con vincoli operativi.
+      * **Piano misure** prioritizzato (costo/beneficio, owner, prerequisiti, finestre di downtime).
+      * **Roadmap 30/90/180+** con quick wins (remoto, backup, logging), interventi strutturali (segmentazione, identity OT) e iniziative di programma.
+
+      **Metriche di successo**
+      Esempi: % asset inventariati; % sessioni remote con **MFA**; copertura patch; **MTTD/MTTR**; % zone con SL‑Target formalizzati.
+
+      #### Prompt operativo
+      “Scrivi 8–10 righe sugli output attesi e 4–5 metriche chiave per misurare il progresso senza dati sensibili.”
+
+      *Regole fisse per questo prompt*: come sopra.
+
+      ---
+
+      ### 1.6 Figure e template (segnaposto)
+
+      * **Schema Zone & Conduits** (con **DMZ**) — figura 1.
+      * **Tabella FR × SL** — figura 2.
+      * **RACI essenziale** (ruoli/responsabilità) — tabella 1.
+      * **Template**: inventario asset, matrice **SL‑Target**, piano patch/vuln, policy accessi remoti.
+
+      #### Prompt operativo
+      “Indica figure e template che inserirai in Cap. 1 e dove verranno richiamati nei capitoli successivi.”
+
+      *Regole fisse per questo prompt*: come sopra.
+
+      ---
+
+      ## Glossario minimo (Cap. 1)
+
+      * **IACS/OT**: sistemi di automazione e controllo industriale; ambiente operativo di fabbrica/impianto.
+      * **Zona (Zone)**: insieme di asset OT con profilo di rischio simile, separati logicamente da altre zone.
+      * **Conduit**: canale di comunicazione **controllato** tra zone; filtra protocolli e direzioni dei flussi.
+      * **SL — Security Level (SL0–SL4)**: obiettivo di robustezza **per requisito** e **per zona/conduit/asset**.
+      * **FR — Foundational Requirements**: 7 aree di controllo (FR1–FR7) dalla gestione delle identità al ripristino.
+      * **DMZ**: zona demilitarizzata industriale, cuscinetto tra IT e OT.
+      * **MFA**: autenticazione a più fattori.
+      * **Whitelisting**: consentire **solo** protocolli/indirizzi autorizzati.
+
+      ---
+
+      ## Checklist finale (QA redazionale — Cap. 1)
+
+      * [ ] Acronomi spiegati alla prima occorrenza; tecnicismi parafrasati.
+      * [ ] Box **Per i ruoli** presente in ogni sezione.
+      * [ ] Takeaway + **avvertenza safety** per sezione.
+      * [ ] Mapping a **FR/SL** dove pertinente.
+      * [ ] Figure/template elencati e coerenti.
+      * [ ] Tono pratico‑operativo, vendor‑neutral.
+
+      ### sys_source https://chatgpt.com/c/68b73c35-0298-8328-a7b9-76f473241645

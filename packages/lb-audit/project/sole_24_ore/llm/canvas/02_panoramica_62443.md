@@ -1,0 +1,201 @@
+# Cap. 2 — Panoramica IEC 62443: struttura e principi
+
+> **Pubblico**: PMI **Asset Owner**, **OEM/Product Supplier**, **Service Provider/System Integrator**.
+> **Obiettivo**: capitolo introduttivo‑tecnico (circa 6 facciate) che spiega la famiglia degli standard IEC 62443, i **Livelli di Sicurezza (SL0–SL4)**, i principi di **Defense‑in‑Depth** e di **Zone & Conduits**, e i **Foundational Requirements (FR1–FR7)** con tabella riassuntiva **FR × SL**.
+
+---
+
+## Metodo di lavoro — **Canvas → Bozza → Merge**
+
+* **Canvas** (questa pagina): struttura, prompt, segnaposto figure/tabelle e regole editoriali.
+* **Bozza**: testo completo con acronimi spiegati, box **Per i ruoli**, **takeaway** e **avvertenza safety** per ogni sezione.
+* **Merge**: inserimento della bozza sotto ciascun **prompt operativo**; **QC** con checklist.
+
+---
+
+### Regole editoriali trasversali (valide per tutto il capitolo)
+
+* **Spiega gli acronimi** alla prima occorrenza (IT/EN) e poi usa la sigla.
+* **Parafrasa i tecnicismi** tra parentesi con termini semplici (es. *conduit* = canale di rete **controllato**; *whitelisting* = consentire **solo** ciò che è autorizzato).
+* **Box Per i ruoli** in ogni sezione: 2–3 bullet ciascuno per **PMI/Asset Owner**, **OEM/Product Supplier**, **Service Provider/System Integrator**.
+* **Chiusura**: **2–3 takeaway** + **1 avvertenza safety**.
+* **Coerenza 62443**: mappa a **FR1–FR7** e **SL‑Target** realistici (evita “SL4 ovunque”).
+* **Tono**: pratico‑operativo, vendor‑neutral, frasi brevi.
+
+---
+
+## 2.1 Famiglie di standard IEC 62443 (mappa della serie)
+
+**Obiettivo**
+Fornire una mappa orientativa della serie, con cosa copre ogni parte e per chi è scritta.
+
+**Contenuti da coprire**
+
+* **IEC 62443‑1‑1** — Terminologia, concetti e modelli (glossario comune).
+* **IEC 62443‑2‑1** — Programmi di sicurezza per asset owner (governance, policy, processi).
+* **IEC 62443‑2‑3** — Patch & vulnerability management (processi OT).
+* **IEC 62443‑2‑4** — Requisiti per service providers (manutenzione/integrazione sicura).
+* **IEC 62443‑3‑2** — Risk assessment, **SL‑Target** per zone/conduits.
+* **IEC 62443‑3‑3** — **System Requirements (SR)** per raggiungere gli SL‑Target.
+* **IEC 62443‑4‑1** — **Secure Development Lifecycle (SDL)** per OEM/fornitori.
+* **IEC 62443‑4‑2** — Requisiti di **componente** per prodotti/soluzioni OT.
+
+**Output**
+
+* Tabella “**Parte → Scopo → Utente tipico**” (Owner, OEM, SI/Service Provider).
+
+**Prompt operativo**
+“Redigi 12–14 righe che spieghino le famiglie IEC 62443 (‑1‑1, ‑2‑1, ‑2‑3, ‑2‑4, ‑3‑2, ‑3‑3, ‑4‑1, ‑4‑2), indicando per ciascuna scopo e destinatario e come si incastrano lungo il ciclo di vita.”
+
+*Regole fisse per questo prompt*: definisci acronimi alla prima occorrenza; parafrasa i tecnicismi; inserisci box **Per i ruoli**; chiudi con **takeaway** e **avvertenza safety**.
+
+**Figure/Template (segnaposto)**
+
+* **Figura 2.1**: mappa della famiglia 62443 (timeline del ciclo di vita con le parti).
+* **Tabella 2.1**: “Parte → Scopo → Utente tipico”.
+
+---
+
+## 2.2 Livelli di sicurezza **SL0–SL4** e loro significato
+
+**Obiettivo**
+Chiarire cosa rappresentano gli **SL** (Security Level) e come si applicano a zone, conduits e asset.
+
+**Contenuti da coprire**
+
+* **SL** come obiettivo **per FR** e **per ambito** (zona/conduit/asset).
+* Esempi pratici: quando SL1 è adeguato, quando serve SL2/SL3; SL4 casi rari.
+* Relazione tra **SL‑Target** (desiderato) e **SL‑Achieved** (verificato).
+* Evitare “SL4 ovunque”: compromessi OT‑feasible (attuabili in OT).
+
+**Output**
+
+* Box esempi “**SL per zona**” (HMI, conduits remoti, SIS/safety systems).
+
+**Prompt operativo**
+“Scrivi 10–12 righe sui livelli SL0–SL4: cosa misurano, come si impostano per FR/zone/conduits/asset, esempi reali di SL‑Target e differenza con SL‑Achieved.”
+
+*Regole fisse per questo prompt*: come sopra.
+
+**Figure/Template (segnaposto)**
+
+* **Figura 2.2**: scala SL con esempi per FR; box SL‑Target vs SL‑Achieved.
+
+---
+
+## 2.3 **Defense‑in‑Depth** e **Zone & Conduits**
+
+**Obiettivo**
+Introdurre i concetti chiave di **difesa in profondità**, **segmentazione** e **conduits** controllati tra zone.
+
+**Contenuti da coprire**
+
+* **Defense‑in‑Depth**: livelli (fisico, rete, host, applicazione, processo, persone).
+* **Zone**: raggruppare asset per criticità/processo; **Conduits**: canali con **policy** su protocolli/porte/direzioni.
+* **DMZ** industriale: scambio dati IT/OT, servizi intermedi (jump host, broker).
+* Accessi remoti **brokered** con **MFA**, **least privilege**, **session recording**.
+
+**Output**
+
+* Schema architettura a **Zone & Conduits** con DMZ.
+
+**Prompt operativo**
+“Redigi 12–14 righe su Defense‑in‑Depth e segmentazione OT: definisci Zone & Conduits, illustra la DMZ e i principi di accesso remoto sicuro (brokered, MFA, least privilege).”
+
+*Regole fisse per questo prompt*: come sopra.
+
+**Figure/Template (segnaposto)**
+
+* **Figura 2.3**: schema Zone & Conduits con DMZ e flussi consentiti.
+
+---
+
+## 2.4 **Foundational Requirements (FR1–FR7)** — tabella **FR × SL**
+
+**Obiettivo**
+Spiegare le **7 aree di controllo** e come il loro livello varia da **SL0 a SL4**.
+
+**Definizioni brevi (IT/EN)**
+
+* **FR1 — IAC (Identification & Authentication Control)**: gestione di identità e autenticazione.
+* **FR2 — UC (Use Control)**: autorizzazione e controllo degli usi/operazioni.
+* **FR3 — SI (System Integrity)**: integrità di sistemi/configurazioni/firmware.
+* **FR4 — DC (Data Confidentiality)**: protezione della riservatezza dei dati.
+* **FR5 — RDF (Restrict Data Flow)**: segregazione di rete e controllo dei flussi.
+* **FR6 — TRE (Timely Response to Events)**: monitoraggio, allarmi e risposta.
+* **FR7 — RA (Resource Availability)**: disponibilità, backup/restore, resilienza.
+
+**Cosa mostrare in tabella**
+
+* Riga per ciascun **FR**, colonne **SL0–SL4** con descrittori sintetici (es. *FR1 @ SL2*: MFA per conduits remoti, account nominali, scadenza password; *FR5 @ SL3*: whitelisting protocolli, conduits unidirezionali dove possibile).
+* Colonna finale “**Esempio in OT**”.
+
+**Prompt operativo**
+“Compila la tabella **FR × SL (SL0–SL4)** con descrittori sintetici e un esempio OT per riga (massimo 1 riga di testo per cella).”
+
+*Regole fisse per questo prompt*: come sopra.
+
+**Figure/Template (segnaposto)**
+
+* **Tabella 2.4**: **FR × SL** (descrittori sintetici + esempi).
+* **Figura 2.4**: legenda simboli usati nella tabella.
+
+---
+
+## 2.5 Collegamenti tra parti: **dal programma al sistema al componente**
+
+**Obiettivo**
+Mostrare come le parti si **incastrano** (‑2‑1 programma, ‑3‑2 rischio/SL‑T, ‑3‑3 requisiti di **sistema**, ‑4‑1/‑4‑2 **prodotto**) lungo il ciclo di vita.
+
+**Contenuti da coprire**
+
+* **Flusso**: programma (‑2‑1) → rischio & SL‑T (‑3‑2) → requisiti di sistema (‑3‑3) → scelta e integrazione componenti (‑4‑2) **sviluppati** secondo (‑4‑1).
+* Dove entrano **‑2‑3** (patch/vuln) e **‑2‑4** (service providers).
+
+**Output**
+
+* Diagramma di **tracciabilità** tra parti e deliverable (policy, SL‑Target, SR, SBOM, advisory, evidenze di test).
+
+**Prompt operativo**
+“Scrivi 8–10 righe che spieghino il collegamento tra ‑2‑1, ‑3‑2, ‑3‑3, ‑4‑1 e ‑4‑2, indicando i deliverable e la tracciabilità tra documenti.”
+
+*Regole fisse per questo prompt*: come sopra.
+
+**Figure/Template (segnaposto)**
+
+* **Figura 2.5**: flusso di tracciabilità tra parti e deliverable.
+
+---
+
+## 2.6 Errori comuni & quick wins (riquadro di servizio)
+
+* **Errori**: cercare SL4 ovunque; saltare la **zoning**; accessi remoti diretti; niente **baseline** di hardening; assenza di **staging** per patch; mancanza di **evidenze**.
+* **Quick wins**: inventario minimo; policy **accessi remoti** brokered con **MFA**; backup baseline; log centralizzati; whitelisting essenziale sui conduits critici.
+
+**Prompt operativo**
+“Scrivi 6–8 righe con 3 errori comuni e 3 quick wins, collegandoli ai FR e agli SL dove rilevante.”
+
+---
+
+## Glossario minimo (Cap. 2 — Panoramica)
+
+* **IACS/OT**: sistemi di automazione e controllo industriale; ambiente operativo di fabbrica/impianto.
+* **Zona (Zone)**: insieme di asset OT con profilo di rischio simile, separati logicamente da altre zone.
+* **Conduit**: canale di comunicazione **controllato** tra zone; filtra protocolli e direzioni dei flussi.
+* **SL — Security Level (SL0–SL4)**: obiettivo di robustezza **per requisito** e **per zona/conduit/asset**.
+* **FR — Foundational Requirements**: 7 aree di controllo (FR1–FR7) dalla gestione delle identità al ripristino.
+* **DMZ**: zona demilitarizzata industriale, cuscinetto tra IT e OT.
+* **SDL (‑4‑1)**: ciclo di sviluppo sicuro per prodotti.
+* **SR (‑3‑3)**: requisiti di sistema; **SL‑Target** vs **SL‑Achieved**.
+
+---
+
+## Checklist finale (QA redazionale — Cap. 2 Panoramica)
+
+* [ ] Acronomi spiegati e tecnicismi parafrasati.
+* [ ] Box **Per i ruoli** in ogni sezione.
+* [ ] **SL** spiegati con esempi realistici OT.
+* [ ] Tabella **FR × SL** coerente e bilanciata.
+* [ ] Figure/template elencati e coerenti.
+* [ ] Takeaway + **avvertenza safety** per sezione.
+* [ ] Tono pratico‑operativo, vendor‑neutral.

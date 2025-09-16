@@ -1,0 +1,1044 @@
+$group
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/10"
+            nome "Software Development Life Cycle per OEM & fornitori di componenti (IEC
+                +b 62443-4-1 / 62443-4-2) con supporto LLM"
+            ruolo "OEM:Executive"
+            [ norme_riferimento
+                "IEC 62443-4-1"
+                "IEC 62443-4-2"
+            descrizione "Framework per lo sviluppo sicuro del software e la definizione delle capability
+                +b di sicurezza per componenti OT/ICS, con focus su riduzione dei rischi e accesso
+                +b ai mercati."
+            [ sezioni
+                {
+                    id "cap/10/10.1"
+                    nome "Executive brief — Compliance = Accesso ai mercati"
+                    { obiettivo
+                        codice "OBJ-10.1"
+                        descrizione "Spiegare in 1 pagina a OEM:Executive come SDLC (-4-1) + capability (-4-2)
+                            +b riducono rifiuti in RFI/RFP, tempi di vendita e costi di supporto."
+                    [ output_attesi
+                        "Decision memo con 3 KPI, 90/180/365 e decisioni richieste"
+                    prompt_base "Scrivi 1 pagina board-ready su valore e rischi: SDLC 4-1, capability 4-2,
+                        +b SBOM/PSIRT, secure update, risposte RFI/RFP."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-10.1.1"
+                            titolo "Implementazione SDLC sicuro (IEC 62443-4-1)"
+                            descrizione_astratta "Definizione di un processo di sviluppo software sicuro per garantire la
+                                +b conformità normativa e ridurre vulnerabilità nei prodotti."
+                            [ rischi_mitigati
+                                "Rifiuti in RFI/RFP per non conformità"
+                                "Costi di rilavorazione post-vendita"
+                                "Esposizione a vulnerabilità critiche"
+                            [ pratiche_raccomandate
+                                "Integrazione di security by design"
+                                "Gestione delle vulnerabilità con PSIRT"
+                                "Produzione di SBOM per trasparenza"
+                            [ metriche_kpi
+                                "Percentuale di RFI/RFP accettati al primo tentativo"
+                                "Tempo medio di risposta a vulnerabilità critiche"
+                                "Riduzione costi di supporto post-vendita (%)"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di sviluppo sicuro"
+                                    "Gestione vulnerabilità"
+                                [ registri
+                                    "Registro delle vulnerabilità"
+                                    "Log delle revisioni SBOM"
+                                [ evidenze
+                                    "Report di conformità SDLC"
+                                    "Documentazione PSIRT"
+                            [ placeholders_contesto
+                                "[Settore OEM]"
+                                "[Tipologia prodotto]"
+                                "[Mercato target]"
+                    { policy_template
+                        titolo "Policy per Sviluppo Software Sicuro"
+                        [ sezioni
+                            "Obiettivi di sicurezza"
+                            "Ruoli e responsabilità"
+                            "Processi SDLC conformi IEC 62443-4-1"
+                            "Gestione SBOM e PSIRT"
+                        [ placeholders_contesto
+                            "[Nome azienda]"
+                            "[Settore]"
+                            "[Normative locali]"
+                    { sop_template
+                        titolo "SOP per Gestione Ciclo di Vita Software Sicuro"
+                        [ step
+                            "Definizione requisiti di sicurezza"
+                            "Analisi rischi e mitigazioni"
+                            "Validazione e test di sicurezza"
+                            "Rilascio e manutenzione con aggiornamenti sicuri"
+                        [ registrazioni
+                            "Registro test di sicurezza"
+                            "Log aggiornamenti software"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per rilasci stabili"
+                            "Branch 'develop' per integrazione feature"
+                            "Branch 'hotfix' per correzioni urgenti di sicurezza"
+                    { raci
+                        [ roles
+                            "Product Manager"
+                            "Security Officer"
+                            "Development Team"
+                            "Executive Board"
+                        [ matrix
+                            {
+                                attivita "Definizione requisiti sicurezza"
+                                SP "Product Manager"
+                                AO "Security Officer"
+                                SI "Development Team"
+                                OTSec "Security Officer"
+                            {
+                                attivita "Approvazione policy SDLC"
+                                SP "Executive Board"
+                                AO "Security Officer"
+                                SI "Product Manager"
+                                OTSec "Security Officer"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Memo"
+                            "Presentazione"
+                            "Report"
+                        [ audience_possibili
+                            "Executive"
+                            "Technical Team"
+                            "Compliance Officer"
+                        [ stili
+                            "Formale"
+                            "Sintetico"
+                            "Board-Ready"
+                        [ livello_tecnico
+                            "Alto livello"
+                            "Intermedio"
+                        [ vincoli
+                            "Max 1 pagina per memo"
+                            "KPI misurabili inclusi"
+                    { prompting
+                        prompt_template_generico "Genera un documento [tipo] per [audience] su [argomento] con focus su
+                            +b [obiettivo], includendo [elementi chiave]."
+                        prompt_esempio_articolo "Scrivi un articolo di 500 parole per executive su come IEC 62443-4-1 e 4-2
+                            +b migliorano l'accesso ai mercati, includendo esempi di riduzione costi e KPI."
+                        prompt_esempio_slide "Crea una slide board-ready con 3 punti chiave su SDLC sicuro, rischi mitigati e
+                            +b decisioni richieste per OEM executive."
+                        prompt_esempio_sop "Elabora una SOP per l'implementazione di un processo SDLC sicuro conforme a IEC
+                            +b 62443-4-1, con step operativi e registrazioni."
+                    [ checklist
+                        "Inclusione KPI misurabili"
+                        "Riferimenti a IEC 62443-4-1 e 4-2"
+                        "Chiarezza su decisioni richieste"
+                        "Sintesi rischi e benefici"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Settore aziendale"
+                        "Tipologia di prodotti OT/ICS"
+                        "Mercati target"
+                        "Normative locali applicabili"
+                    [ avvertenze
+                        "Assicurarsi che i KPI siano realistici e misurabili"
+                        "Verificare conformità con normative locali oltre a IEC 62443"
+                        "Adattare il linguaggio al livello di conoscenza dell'audience"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/10"
+            nome "Software Development Life Cycle per OEM & fornitori di componenti (IEC
+                +b 62443-4-1 / 62443-4-2) con supporto LLM"
+            ruolo "Supporto alla conformità normativa e gestione delle barriere tra Asset Owner e
+                +b OEM"
+            [ norme_riferimento
+                "IEC 62443-4-1"
+                "IEC 62443-4-2"
+            descrizione "Questo ambito si concentra sul Software Development Life Cycle (SDLC) per OEM e
+                +b fornitori di componenti, con particolare attenzione ai requisiti di sicurezza
+                +b definiti da IEC 62443-4-1 (pratiche di sviluppo sicuro) e IEC 62443-4-2
+                +b (requisiti tecnici di sicurezza per componenti IACS). L'obiettivo è fornire un
+                +b framework per allineare le richieste degli Asset Owner (AO) con le capacità e
+                +b le evidenze fornite dagli OEM, utilizzando strumenti basati su LLM per
+                +b supportare la documentazione e la conformità."
+            [ sezioni
+                {
+                    id "cap/10/10.2"
+                    nome "Landscape norme & barriere (focalizzato su 62443-4-1/-4-2)"
+                    { obiettivo
+                        codice "OBJ-10.2"
+                        descrizione "Contestualizzare IEC 62443 rispetto a richieste tipiche degli Asset Owner e
+                            +b alle principali barriere (evidence mancanti, PSIRT assente, SBOM)."
+                    [ output_attesi
+                        "Tabella 'Richiesta AO → Evidenza OEM (norma/artefatto)'"
+                    prompt_base "Costruisci una tabella AO→OEM con colonna norma (-4-1/-4-2) ed evidenza."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-10.2.1"
+                            titolo "Allineamento richieste AO e capacità OEM"
+                            descrizione_astratta "Garantire che le richieste di sicurezza degli Asset Owner siano mappate con le
+                                +b evidenze fornite dagli OEM, in conformità con IEC 62443-4-1 e 62443-4-2."
+                            [ rischi_mitigati
+                                "Mancanza di trasparenza tra AO e OEM"
+                                "Non conformità normativa"
+                                "Vulnerabilità non gestite nei componenti"
+                            [ pratiche_raccomandate
+                                "Definizione di un processo di raccolta evidenze"
+                                "Implementazione di un PSIRT (Product Security Incident Response Team)"
+                                "Generazione e condivisione di SBOM (Software Bill of Materials)"
+                            [ metriche_kpi
+                                "Percentuale di richieste AO coperte da evidenze OEM"
+                                "Tempo medio di risposta del PSIRT"
+                                "Completezza degli SBOM forniti"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di mappatura richieste-evidenza"
+                                    "Procedura di gestione incidenti di sicurezza"
+                                [ registri
+                                    "Registro delle richieste AO"
+                                    "Registro delle evidenze OEM"
+                                [ evidenze
+                                    "Report di conformità IEC 62443-4-1"
+                                    "SBOM generati per i componenti"
+                            [ placeholders_contesto
+                                "[AssetOwnerName]"
+                                "[OEMName]"
+                                "[ComponentType]"
+                    { policy_template
+                        titolo "Policy di Conformità IEC 62443 per OEM"
+                        [ sezioni
+                            "Introduzione e scopo"
+                            "Requisiti di sviluppo sicuro (IEC 62443-4-1)"
+                            "Requisiti tecnici di sicurezza (IEC 62443-4-2)"
+                            "Responsabilità e ruoli"
+                            "Monitoraggio e miglioramento continuo"
+                        [ placeholders_contesto
+                            "[CompanyName]"
+                            "[ProductCategory]"
+                            "[RegulatoryScope]"
+                    { sop_template
+                        titolo "SOP per la Generazione di Evidenze di Conformità"
+                        [ step
+                            "Identificazione delle richieste AO"
+                            "Raccolta delle evidenze OEM"
+                            "Mappatura delle evidenze rispetto a IEC 62443-4-1/-4-2"
+                            "Validazione con AO"
+                            "Archiviazione e revisione periodica"
+                        [ registrazioni
+                            "Registro delle richieste AO"
+                            "Registro delle evidenze OEM"
+                            "Report di mappatura"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuove funzionalità"
+                            "Hotfix branch per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "SP (Security Provider)"
+                            "AO (Asset Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Team)"
+                        [ matrix
+                            {
+                                attivita "Identificazione richieste AO"
+                                SP "I"
+                                AO "R"
+                                SI "C"
+                                OTSec "A"
+                            {
+                                attivita "Fornitura evidenze OEM"
+                                SP "R"
+                                AO "I"
+                                SI "C"
+                                OTSec "A"
+                            {
+                                attivita "Validazione conformità"
+                                SP "C"
+                                AO "I"
+                                SI "R"
+                                OTSec "A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                            "Slide"
+                        [ audience_possibili
+                            "Asset Owner"
+                            "OEM"
+                            "System Integrator"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443-4-1/-4-2"
+                            "Utilizzo di terminologia standardizzata"
+                            "Inclusione di riferimenti normativi"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [TipoDocumento] per [Audience] con stile [Stile] e
+                            +b livello tecnico [LivelloTecnico] sul tema [TemaSpecifico] rispettando i vincoli
+                            +b [Vincoli]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico per Asset Owner con stile formale e livello
+                            +b intermedio sul tema 'Conformità IEC 62443-4-1 per OEM', includendo riferimenti
+                            +b normativi."
+                        prompt_esempio_slide "Crea una presentazione per Auditor con stile sintetico e livello avanzato sul
+                            +b tema 'Barriere tra AO e OEM in IEC 62443', rispettando i vincoli di conformità."
+                        prompt_esempio_sop "Elabora una SOP per System Integrator con stile tecnico e livello base sul tema
+                            +b 'Generazione di evidenze di conformità', includendo step operativi."
+                    [ checklist
+                        "Verifica conformità a IEC 62443-4-1"
+                        "Verifica conformità a IEC 62443-4-2"
+                        "Inclusione di evidenze OEM"
+                        "Mappatura delle richieste AO"
+                        "Validazione con stakeholder"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome Asset Owner"
+                        "Nome OEM"
+                        "Tipo di componente"
+                        "Settore industriale"
+                        "Livello di maturità sicurezza"
+                    [ avvertenze
+                        "Assicurarsi che le evidenze OEM siano verificabili"
+                        "Considerare le differenze di maturità tra AO e OEM"
+                        "Aggiornare regolarmente gli SBOM per riflettere le modifiche ai componenti"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/10"
+            nome "Software Development Life Cycle per OEM & fornitori di componenti (IEC
+                +b 62443-4-1 / 62443-4-2) con supporto LLM"
+            ruolo "Responsabile sviluppo software sicuro in ambito OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-4-1"
+                "IEC 62443-4-2"
+                "ISO/IEC 27001"
+            descrizione "Questo ambito si concentra sulla definizione e implementazione di un ciclo di
+                +b vita dello sviluppo software (SDLC) sicuro per OEM e fornitori di componenti in
+                +b conformità con IEC 62443-4-1 e 62443-4-2, integrando strumenti di supporto
+                +b basati su LLM per migliorare la governance e la gestione dei processi."
+            [ sezioni
+                {
+                    id "cap/10/10.3"
+                    nome "SDLC 62443-4-1 — Governance, processi, RACI"
+                    { obiettivo
+                        codice "OBJ-10.3"
+                        descrizione "Disegnare i processi 4-1 (policy, requisiti, secure design, coding, test,
+                            +b gestione vulnerabilità, release, manutenzione) e ruoli."
+                    [ output_attesi
+                        "Mappa processi"
+                        "RACI"
+                        "Policy SDLC"
+                        "Checklist audit"
+                    prompt_base "Elenca e descrivi i processi 4-1 con input/output, ruoli, evidenze e KPI."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-10.3.1"
+                            titolo "Governance SDLC"
+                            descrizione_astratta "Definizione di policy e framework di governance per garantire che il ciclo di
+                                +b vita dello sviluppo software sia sicuro e conforme agli standard IEC 62443-4-1."
+                            [ rischi_mitigati
+                                "Mancanza di accountability nei processi di sviluppo"
+                                "Non conformità normativa"
+                            [ pratiche_raccomandate
+                                "Definire una policy SDLC chiara"
+                                "Assegnare ruoli e responsabilità con matrice RACI"
+                                "Monitorare la conformità attraverso audit periodici"
+                            [ metriche_kpi
+                                "Percentuale di conformità ai requisiti 62443-4-1"
+                                "Numero di audit completati con successo"
+                                "Tempo medio di risoluzione delle non conformità"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di definizione policy SDLC"
+                                    "Procedura di audit interno"
+                                [ registri
+                                    "Registro delle policy approvate"
+                                    "Registro degli audit"
+                                [ evidenze
+                                    "Report di audit"
+                                    "Documentazione RACI"
+                            [ placeholders_contesto
+                                "[ORGANIZZAZIONE]"
+                                "[PRODOTTO]"
+                                "[AMBIENTE_OPERATIVO]"
+                    { policy_template
+                        titolo "Policy SDLC Sicuro - IEC 62443-4-1"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Ruoli e responsabilità"
+                            "Processi di sviluppo sicuro"
+                            "Gestione delle vulnerabilità"
+                            "Monitoraggio e miglioramento continuo"
+                        [ placeholders_contesto
+                            "[ORGANIZZAZIONE]"
+                            "[PRODOTTO]"
+                            "[AMBIENTE_OPERATIVO]"
+                    { sop_template
+                        titolo "SOP - Implementazione Processi SDLC Sicuro"
+                        [ step
+                            "Definizione dei requisiti di sicurezza"
+                            "Progettazione sicura del software"
+                            "Implementazione e codifica sicura"
+                            "Test di sicurezza"
+                            "Gestione delle vulnerabilità"
+                            "Rilascio e manutenzione"
+                        [ registrazioni
+                            "Registro dei requisiti di sicurezza"
+                            "Registro dei test di sicurezza"
+                            "Registro delle vulnerabilità identificate e risolte"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Branch 'feature/*' per nuove funzionalità"
+                            "Branch 'hotfix/*' per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "Software Developer"
+                            "Security Officer"
+                            "Project Manager"
+                            "Quality Assurance"
+                        [ matrix
+                            {
+                                attivita "Definizione requisiti di sicurezza"
+                                SP "Project Manager"
+                                AO "Security Officer"
+                                SI "Software Developer"
+                                OTSec "Security Officer"
+                            {
+                                attivita "Progettazione sicura"
+                                SP "Software Developer"
+                                AO "Security Officer"
+                                SI "Project Manager"
+                                OTSec "Security Officer"
+                            {
+                                attivita "Test di sicurezza"
+                                SP "Quality Assurance"
+                                AO "Security Officer"
+                                SI "Software Developer"
+                                OTSec "Security Officer"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                            "Checklist"
+                        [ audience_possibili
+                            "Tecnici"
+                            "Manager"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443-4-1"
+                            "Integrazione con framework ISO/IEC 27001"
+                            "Adattabilità a contesti OT/ICS"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo {TIPO_DOCUMENTO} per {AUDIENCE} con stile {STILE} e
+                            +b livello tecnico {LIVELLO_TECNICO} sul tema {TEMA}, includendo
+                            +b {ELEMENTI_SPECIFICI}."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico per esperti OT/ICS sul processo di gestione delle
+                            +b vulnerabilità secondo IEC 62443-4-1, includendo esempi pratici e KPI."
+                        prompt_esempio_slide "Crea una presentazione per manager con 10 slide sulla governance SDLC sicuro,
+                            +b evidenziando ruoli e responsabilità con matrice RACI."
+                        prompt_esempio_sop "Redigi una SOP dettagliata per sviluppatori sul processo di codifica sicura,
+                            +b con step operativi e registrazioni richieste."
+                    [ checklist
+                        "Definizione policy SDLC completata"
+                        "Matrice RACI approvata"
+                        "Processi di sviluppo sicuro documentati"
+                        "Piano di gestione vulnerabilità attivo"
+                        "Audit di conformità pianificato"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome organizzazione"
+                        "Tipo di prodotto/componente"
+                        "Ambiente operativo (OT/ICS)"
+                        "Framework normativi applicabili"
+                    [ avvertenze
+                        "Assicurarsi che i processi siano adattati al contesto specifico dell'organizzazione."
+                        "Verificare periodicamente l'allineamento con aggiornamenti normativi IEC 62443."
+                        "Coinvolgere esperti di sicurezza OT per validare i requisiti."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/10"
+            nome "Software Development Life Cycle per OEM & fornitori di componenti (IEC
+                +b 62443-4-1 / 62443-4-2) con supporto LLM"
+            ruolo "Supporto alla definizione dei requisiti di sicurezza per componenti OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-4-1"
+                "IEC 62443-4-2"
+            descrizione "Questo ambito si concentra sullo sviluppo sicuro di componenti OT/ICS, con
+                +b particolare attenzione ai requisiti di sicurezza dei prodotti (FR1-FR7) e alla
+                +b loro dichiarazione tramite datasheet e security profile, in conformità con IEC
+                +b 62443-4-2."
+            [ sezioni
+                {
+                    id "cap/10/10.4"
+                    nome "Capabilities 62443-4-2 — Requisiti di componente"
+                    { obiettivo
+                        codice "OBJ-10.4"
+                        descrizione "Indicare capacità minime di prodotto (FR1–FR7) e come dichiararle
+                            +b (datasheet/security profile)."
+                    [ output_attesi
+                        "Matrice capability FR×SL"
+                        "Scheda 'Security Profile' del prodotto"
+                    prompt_base "Compila capability FR×SL e bozza di security profile per un componente OT tipo."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-10.4.1"
+                            titolo "Identificazione e Autenticazione (FR1)"
+                            descrizione_astratta "Garantire che il componente supporti meccanismi di identificazione e
+                                +b autenticazione per utenti e dispositivi."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Spoofing di identità"
+                            [ pratiche_raccomandate
+                                "Implementazione di autenticazione a più fattori"
+                                "Supporto per protocolli standard (es. LDAP, RADIUS)"
+                            [ metriche_kpi
+                                "Percentuale di accessi autenticati correttamente"
+                                "Tempo medio di rilevamento accessi non autorizzati"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione autenticazione"
+                                [ registri
+                                    "Log degli accessi"
+                                [ evidenze
+                                    "Report di test autenticazione"
+                            [ placeholders_contesto
+                                "[Tipo di componente]"
+                                "[Ambiente operativo]"
+                        {
+                            id "ASP-10.4.2"
+                            titolo "Controllo degli Accessi (FR2)"
+                            descrizione_astratta "Assicurare che il componente limiti l'accesso alle risorse in base a ruoli e
+                                +b privilegi."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato a funzionalità critiche"
+                                "Escalation dei privilegi"
+                            [ pratiche_raccomandate
+                                "Implementazione di RBAC (Role-Based Access Control)"
+                                "Revisione periodica dei privilegi"
+                            [ metriche_kpi
+                                "Numero di violazioni delle policy di accesso"
+                                "Tempo medio di aggiornamento dei privilegi"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di gestione ruoli"
+                                [ registri
+                                    "Log delle modifiche ai privilegi"
+                                [ evidenze
+                                    "Report di audit accesso"
+                            [ placeholders_contesto
+                                "[Ruoli utente]"
+                                "[Politiche aziendali]"
+                    { policy_template
+                        titolo "Policy di Sicurezza per Componenti OT/ICS"
+                        [ sezioni
+                            "Introduzione"
+                            "Requisiti FR1-FR7"
+                            "Dichiarazione Security Profile"
+                            "Responsabilità"
+                        [ placeholders_contesto
+                            "[Nome componente]"
+                            "[Livello SL target]"
+                    { sop_template
+                        titolo "SOP per Configurazione Sicurezza Componente OT"
+                        [ step
+                            "Identificazione del componente"
+                            "Configurazione FR1-FR7"
+                            "Compilazione Security Profile"
+                            "Validazione"
+                        [ registrazioni
+                            "Registro configurazioni"
+                            "Security Profile firmato"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per FR specifici"
+                    { raci
+                        [ roles
+                            "SP (Security Product Manager)"
+                            "AO (Asset Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Team)"
+                        [ matrix
+                            {
+                                attivita "Definizione requisiti FR"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Compilazione Security Profile"
+                                SP "A"
+                                AO "R"
+                                SI "I"
+                                OTSec "C"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Matrice"
+                            "Scheda tecnica"
+                            "Security Profile"
+                        [ audience_possibili
+                            "OEM"
+                            "Fornitori"
+                            "Integratori di sistema"
+                        [ stili
+                            "Tecnico"
+                            "Normativo"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità IEC 62443-4-2"
+                            "SL target definito"
+                    { prompting
+                        prompt_template_generico "Genera un documento per [tipo documento] relativo a [FR specifico] per un
+                            +b componente OT di tipo [tipo componente] con SL target [SL]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico su come implementare FR1 (Identificazione e
+                            +b Autenticazione) per un PLC con SL2."
+                        prompt_esempio_slide "Crea una slide di presentazione sui requisiti FR1-FR7 per un pubblico di
+                            +b integratori di sistema."
+                        prompt_esempio_sop "Elabora una SOP per la configurazione di un HMI con requisiti FR2 (Controllo
+                            +b Accessi) per SL3."
+                    [ checklist
+                        "Verifica conformità FR1 (Identificazione e Autenticazione)"
+                        "Verifica conformità FR2 (Controllo Accessi)"
+                        "Compilazione matrice FR×SL"
+                        "Validazione Security Profile con stakeholder"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipo di componente OT"
+                        "Livello di sicurezza target (SL)"
+                        "Ambiente operativo"
+                        "Requisiti specifici cliente"
+                    [ avvertenze
+                        "Assicurarsi che il Security Profile sia validato da un esperto OTSec prima della pubblicazione."
+                        "Verificare che i requisiti FR siano compatibili con l'hardware del componente."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/10"
+            nome "Software Development Life Cycle per OEM & fornitori di componenti (IEC
+                +b 62443-4-1 / 62443-4-2) con supporto LLM"
+            ruolo "Supporto alla definizione di processi sicuri per lo sviluppo software in ambito
+                +b OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-4-1"
+                "IEC 62443-4-2"
+                "ISO/IEC 27001"
+                "NIS2"
+            descrizione "Questo ambito si concentra sulla definizione di un ciclo di vita sicuro per lo
+                +b sviluppo software (SDLC) destinato a OEM e fornitori di componenti in ambienti
+                +b OT/ICS, con particolare attenzione alla conformità agli standard IEC 62443-4-1
+                +b e 62443-4-2. Include l'uso di strumenti LLM per ottimizzare i processi."
+            [ sezioni
+                {
+                    id "cap/10/10.5"
+                    nome "Toolchain sicura: versioning, build, firma, artefatti"
+                    { obiettivo
+                        codice "OBJ-10.5"
+                        descrizione "Definire pipeline CI/CD con versionamento, build automatizzata, firma
+                            +b artefatti, repository e gestione dei segreti in vault."
+                    [ output_attesi
+                        "Diagramma pipeline CI/CD"
+                        "Policy di versionamento"
+                        "Guida alla firma degli artefatti"
+                    prompt_base "Disegna una pipeline CI/CD sicura (SCM→build→test→sign→release) con controlli."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-10.5.1"
+                            titolo "Versionamento sicuro del codice"
+                            descrizione_astratta "Garantire tracciabilità e integrità del codice attraverso un sistema di
+                                +b versionamento robusto."
+                            [ rischi_mitigati
+                                "Modifiche non autorizzate al codice"
+                                "Perdita di tracciabilità delle versioni"
+                            [ pratiche_raccomandate
+                                "Utilizzo di Git con policy di branching definite"
+                                "Protezione dei repository con autenticazione a due fattori"
+                            [ metriche_kpi
+                                "Percentuale di commit firmati"
+                                "Tempo medio di risoluzione dei conflitti di merge"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di creazione branch"
+                                    "Procedura di merge con code review"
+                                [ registri
+                                    "Log dei commit"
+                                    "Registro delle code review"
+                                [ evidenze
+                                    "Report di conformità alle policy di branching"
+                                    "Screenshot configurazione repository"
+                            [ placeholders_contesto
+                                "[NOME_AZIENDA]"
+                                "[REPOSITORY_SPECIFICO]"
+                                "[TOOL_VERSIONAMENTO]"
+                        {
+                            id "ASP-10.5.2"
+                            titolo "Firma digitale degli artefatti"
+                            descrizione_astratta "Assicurare l'autenticità e l'integrità degli artefatti software attraverso la
+                                +b firma digitale."
+                            [ rischi_mitigati
+                                "Manomissione degli artefatti"
+                                "Distribuzione di software non autenticato"
+                            [ pratiche_raccomandate
+                                "Utilizzo di certificati digitali per la firma"
+                                "Integrazione della firma nella pipeline CI/CD"
+                            [ metriche_kpi
+                                "Percentuale di artefatti firmati"
+                                "Tempo medio per la firma di un artefatto"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di generazione certificati"
+                                    "Procedura di firma artefatti"
+                                [ registri
+                                    "Log delle firme applicate"
+                                    "Registro delle chiavi utilizzate"
+                                [ evidenze
+                                    "Report di verifica firma"
+                                    "Certificati emessi"
+                            [ placeholders_contesto
+                                "[NOME_AZIENDA]"
+                                "[TOOL_FIRMA]"
+                                "[AUTORITA_CERTIFICAZIONE]"
+                    { policy_template
+                        titolo "Policy di Toolchain Sicura per CI/CD"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Regole di versionamento"
+                            "Processo di build e test"
+                            "Firma degli artefatti"
+                            "Gestione dei segreti"
+                            "Responsabilità e controlli"
+                        [ placeholders_contesto
+                            "[NOME_AZIENDA]"
+                            "[TOOL_CI/CD]"
+                            "[REPOSITORY_CENTRALE]"
+                    { sop_template
+                        titolo "SOP per Configurazione Pipeline CI/CD Sicura"
+                        [ step
+                            "Configurazione del repository SCM"
+                            "Setup ambiente di build"
+                            "Integrazione tool di test"
+                            "Configurazione firma digitale"
+                            "Rilascio artefatti nel repository centrale"
+                        [ registrazioni
+                            "Log di configurazione pipeline"
+                            "Report di test automatizzati"
+                            "Registro firme digitali"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione feature"
+                            "Pull request obbligatorie con almeno 2 approvazioni"
+                            "Protezione branch principali da commit diretti"
+                    { raci
+                        [ roles
+                            "SP (Software Developer)"
+                            "AO (Architecture Owner)"
+                            "SI (Security Engineer)"
+                            "OTSec (OT Security Specialist)"
+                        [ matrix
+                            {
+                                attivita "Definizione policy versionamento"
+                                SP "C"
+                                AO "R"
+                                SI "A"
+                                OTSec "I"
+                            {
+                                attivita "Configurazione pipeline CI/CD"
+                                SP "R"
+                                AO "C"
+                                SI "A"
+                                OTSec "I"
+                            {
+                                attivita "Firma artefatti"
+                                SP "R"
+                                AO "I"
+                                SI "A"
+                                OTSec "C"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Articolo tecnico"
+                            "Presentazione slide"
+                            "SOP (Standard Operating Procedure)"
+                            "Policy aziendale"
+                        [ audience_possibili
+                            "Tecnici OT/ICS"
+                            "Sviluppatori software"
+                            "Responsabili sicurezza"
+                            "Management"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Didattico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità IEC 62443-4-1"
+                            "Integrazione con toolchain esistente"
+                            "Rispetto policy aziendali"
+                    { prompting
+                        prompt_template_generico "Crea un documento su [ARGOMENTO] per [AUDIENCE] con stile [STILE] e livello
+                            +b tecnico [LIVELLO]. Includi [OUTPUT_ATTESI] e considera [VINCOLI]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico su 'Configurazione di una pipeline CI/CD sicura in
+                            +b ambito OT/ICS' per tecnici OT/ICS, stile formale, livello intermedio. Includi
+                            +b un diagramma della pipeline e una policy di versionamento. Considera la
+                            +b conformità a IEC 62443-4-1."
+                        prompt_esempio_slide "Crea una presentazione su 'Toolchain sicura per CI/CD' per responsabili
+                            +b sicurezza, stile didattico, livello base. Includi diagrammi e spiegazioni delle
+                            +b fasi SCM→build→test→sign→release. Considera la conformità a IEC 62443-4-1."
+                        prompt_esempio_sop "Redigi una SOP per 'Configurazione pipeline CI/CD sicura' per sviluppatori
+                            +b software, stile tecnico, livello avanzato. Includi step dettagliati e
+                            +b registrazioni obbligatorie. Considera l'integrazione con toolchain esistente."
+                    [ checklist
+                        "Definizione del modello di branching"
+                        "Configurazione autenticazione repository"
+                        "Setup ambiente di build isolato"
+                        "Integrazione tool di test automatizzati"
+                        "Configurazione firma digitale artefatti"
+                        "Verifica gestione segreti in vault"
+                        "Documentazione delle policy di sicurezza"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome azienda"
+                        "Toolchain utilizzata (es. Jenkins, GitLab CI)"
+                        "Repository centrale"
+                        "Standard di riferimento specifici"
+                        "Ruoli interni coinvolti"
+                    [ avvertenze
+                        "Assicurarsi che tutti i segreti siano gestiti in un vault sicuro e non hardcoded."
+                        "Verificare la compatibilità dei tool di firma con gli standard OT/ICS."
+                        "Coinvolgere il team di sicurezza OT in tutte le fasi di configurazione della pipeline."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/10"
+            nome "Software Development Life Cycle per OEM & fornitori di componenti (IEC
+                +b 62443-4-1 / 62443-4-2) con supporto LLM"
+            ruolo "Supporto alla conformità e automazione dei processi di sicurezza nello sviluppo
+                +b software per ambienti OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-4-1"
+                "IEC 62443-4-2"
+                "ISO/IEC 27001"
+                "NIS2 Directive"
+                "Cyber Resilience Act (CRA)"
+            descrizione "Questo ambito si concentra sull'implementazione di un ciclo di vita dello
+                +b sviluppo software sicuro (SDLC) per OEM e fornitori di componenti in ambienti
+                +b OT/ICS, con particolare attenzione all'automazione tramite strumenti basati su
+                +b LLM (Large Language Models). Include pratiche per la gestione delle
+                +b vulnerabilità, la generazione di documentazione e la conformità normativa."
+            [ sezioni
+                {
+                    id "cap/10/10.6"
+                    nome "SBOM automatizzata & analisi CVE (SCA, VEX)"
+                    { obiettivo
+                        codice "OBJ-10.6"
+                        descrizione "Automatizzare la generazione di SBOM (Software Bill of Materials) in formati
+                            +b standard come SPDX e CycloneDX, eseguire analisi di composizione software
+                            +b (SCA), correlare vulnerabilità CVE e produrre documenti VEX (Vulnerability
+                            +b Exploitability eXchange) per migliorare la trasparenza e la gestione del
+                            +b rischio."
+                    [ output_attesi
+                        "SBOM di esempio in formato SPDX/CycloneDX"
+                        "Report SCA con analisi delle dipendenze"
+                        "Bozza di documento VEX per vulnerabilità identificate"
+                    prompt_base "Genera SBOM+report CVE e un VEX di esempio per una release fittizia."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-10.6.1"
+                            titolo "Trasparenza della composizione software"
+                            descrizione_astratta "Garantire la visibilità completa dei componenti software utilizzati nei
+                                +b prodotti OT/ICS per identificare potenziali vulnerabilità e conformarsi ai
+                                +b requisiti normativi."
+                            [ rischi_mitigati
+                                "Utilizzo di componenti vulnerabili non identificati"
+                                "Non conformità a normative come CRA e NIS2"
+                                "Mancata tracciabilità delle dipendenze software"
+                            [ pratiche_raccomandate
+                                "Generazione automatizzata di SBOM per ogni release"
+                                "Integrazione di strumenti SCA nei pipeline CI/CD"
+                                "Correlazione con database CVE per identificare vulnerabilità note"
+                            [ metriche_kpi
+                                "Percentuale di release con SBOM completo"
+                                "Tempo medio per identificare e mitigare vulnerabilità note"
+                                "Numero di vulnerabilità non mitigate per release"
+                            { artefatti
+                                [ procedure
+                                    "Procedura per la generazione di SBOM"
+                                    "Procedura per l'analisi SCA"
+                                [ registri
+                                    "Registro delle SBOM generate"
+                                    "Registro delle vulnerabilità identificate e mitigate"
+                                [ evidenze
+                                    "Report SCA per ogni release"
+                                    "Documenti VEX prodotti"
+                            [ placeholders_contesto
+                                "Nome del prodotto"
+                                "Versione del software"
+                                "Ambiente di deployment (OT/ICS)"
+                    { policy_template
+                        titolo "Policy per la gestione di SBOM e vulnerabilità"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Responsabilità per la generazione di SBOM"
+                            "Processo di analisi e mitigazione delle vulnerabilità"
+                            "Conformità normativa (CRA, NIS2)"
+                            "Revisione e aggiornamento della policy"
+                        [ placeholders_contesto
+                            "Nome organizzazione"
+                            "Riferimenti normativi specifici"
+                            "Strumenti utilizzati per SBOM/SCA"
+                    { sop_template
+                        titolo "SOP per generazione SBOM e analisi CVE"
+                        [ step
+                            "Configurazione dello strumento di generazione SBOM"
+                            "Esecuzione dell'analisi SCA"
+                            "Correlazione con database CVE"
+                            "Produzione del documento VEX"
+                            "Revisione e approvazione dei risultati"
+                        [ registrazioni
+                            "Log delle attività di generazione SBOM"
+                            "Report delle vulnerabilità identificate"
+                            "Documentazione VEX finale"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione delle feature"
+                            "Branch 'feature/sbom' per sviluppo di funzionalità relative a SBOM"
+                            "Pull request obbligatorie con revisione per merge"
+                    { raci
+                        [ roles
+                            "Security Officer (SP)"
+                            "Automation Owner (AO)"
+                            "Software Integrator (SI)"
+                            "OT Security Specialist (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Configurazione strumenti SBOM"
+                                SP "A"
+                                AO "R"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Analisi SCA e correlazione CVE"
+                                SP "A"
+                                AO "C"
+                                SI "R"
+                                OTSec "I"
+                            {
+                                attivita "Produzione documento VEX"
+                                SP "A"
+                                AO "I"
+                                SI "C"
+                                OTSec "R"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "SBOM (SPDX, CycloneDX)"
+                            "Report SCA"
+                            "Documento VEX"
+                        [ audience_possibili
+                            "Team di sviluppo software"
+                            "Responsabili della sicurezza OT/ICS"
+                            "Auditor normativi"
+                        [ stili
+                            "Tecnico"
+                            "Normativo"
+                            "Sintetico per report"
+                        [ livello_tecnico
+                            "Base (per auditor)"
+                            "Intermedio (per team di sviluppo)"
+                            "Avanzato (per specialisti OTSec)"
+                        [ vincoli
+                            "Conformità a IEC 62443-4-1 e 4-2"
+                            "Utilizzo di formati standard (SPDX, CycloneDX)"
+                            "Integrazione con pipeline CI/CD esistente"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo {tipo_documento} per {contesto_prodotto} versione
+                            +b {versione}, includendo {dettagli_specifici} e rispettando {norma_riferimento}."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico sulla generazione automatizzata di SBOM per un
+                            +b prodotto OT/ICS, evidenziando i benefici in termini di conformità a IEC
+                            +b 62443-4-1."
+                        prompt_esempio_slide "Crea una presentazione di 5 slide sull'importanza dell'analisi CVE e della
+                            +b produzione VEX per un pubblico di responsabili della sicurezza OT."
+                        prompt_esempio_sop "Elabora una SOP dettagliata per la generazione di SBOM e analisi SCA per un
+                            +b team di sviluppo software in ambiente ICS."
+                    [ checklist
+                        "Verifica della completezza dell'SBOM generato"
+                        "Controllo della copertura SCA per tutte le dipendenze"
+                        "Validazione della correlazione CVE con database aggiornati"
+                        "Revisione del documento VEX per accuratezza"
+                        "Archiviazione degli artefatti per audit futuri"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome del prodotto"
+                        "Versione del software"
+                        "Ambiente operativo (OT/ICS)"
+                        "Normative applicabili"
+                        "Strumenti utilizzati per SBOM/SCA"
+                    [ avvertenze
+                        "Assicurarsi che i database CVE siano aggiornati prima dell'analisi"
+                        "Validare manualmente i risultati automatizzati per evitare falsi positivi"
+                        "Considerare i requisiti specifici di conformità normativa per il settore"
+                        "Proteggere i dati sensibili contenuti negli SBOM durante la condivisione"

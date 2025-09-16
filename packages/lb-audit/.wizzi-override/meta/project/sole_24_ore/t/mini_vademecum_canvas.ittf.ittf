@@ -1,0 +1,29 @@
+$group
+    
+    ## Mini-vademecum d’uso del Canvas
+
+    ### Cos’è il Canvas
+    * Il Canvas è il libro di istruzioni del capitolo: regole editoriali, obiettivi, struttura,
+        \b prompt, checklist QA, segnaposto figure.
+    * Cosa NON è: non contiene testi finiti. Le bozze si producono e si salvano in file separati.
+    
+    ### Output e file
+    * Canvas — Cap. X → solo istruzioni.
+    * Bozza — Cap. X — vY → contenuti finiti (testo per impaginazione).
+    * (Opzionale) Merge Log — Cap. X → 5 righe su cosa è stato unito e quando.
+
+    ### Convenzioni di naming (default)
+    * Bozza completa: Bozza — Cap. <X> — v<MAJOR.MINOR> (es. Bozza — Cap. 5 — v1.2).
+    * Bozza datata (alternativa): Bozza — Cap. <X> — YYYYMMDD-HHmm.
+    * Il default può essere indicato qui nel canvas; 
+        \b ogni comando di generazione può sovrascriverlo dichiarando “SALVA COME: …”.
+
+    ### Versioning: quando sovrascrivere vs nuova versione
+    * Sovrascrivi la stessa versione (es. v1.2) solo per fix minori: refusi, link, 
+        \b formattazione, micro-chiarimenti.
+    * Nuova versione (es. v1.3 / v2.0) per modifiche di contenuto, nuova sezione, 
+        \b cambi di tono/struttura o impatti su KPI/decisioni.
+    * Regola pratica: se un reviewer impiegherebbe >5 minuti per riesaminare, nuova versione.
+
+    ### Approvazione
+    * **Checklist redazionale** (in fondo a questo canvas) da spuntare prima della consegna.

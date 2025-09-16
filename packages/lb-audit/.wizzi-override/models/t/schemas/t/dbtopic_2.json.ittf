@@ -1,0 +1,323 @@
+$group
+    { dbtopic_2
+        $schema "https://json-schema.org/draft/2020-12/schema"
+        $id "https://example.org/schema/db-ot-ics-62443.json"
+        title "DB Argomenti OT/ICS Cybersecurity"
+        type "object"
+        additionalProperties false
+        { properties
+            { items
+                type "array"
+                description "Elenco di voci del database (capitoli/ambiti)."
+                { items
+                    type "object"
+                    additionalProperties false
+                    { properties
+                        { meta
+                            type "object"
+                            description "Metadati del database/collezione."
+                            additionalProperties false
+                            { properties
+                                { db_name
+                                    type "string"
+                                    description "Nome del database o collezione."
+                                { version
+                                    type "string"
+                                    description "Versione del dataset/scheletro di contenuti."
+                                { last_updated
+                                    type "string"
+                                    format "date"
+                                    description "Data ultima modifica (YYYY-MM-DD)."
+                                { language
+                                    type "string"
+                                    description "Lingua dei contenuti in formato IETF BCP47 (es. it-IT)."
+                                { notes
+                                    type "string"
+                                    description "Note generali sul modello dei contenuti."
+                            [ required
+                                "db_name" 
+                                "version" 
+                                "last_updated" 
+                                "language" 
+                        { ambito
+                            type "object"
+                            description "Ambito/Capitolo con contenuti e strutture di supporto."
+                            additionalProperties false
+                            { properties
+                                { id
+                                    type "string"
+                                    description "Identificatore dell'ambito (es. cap/1)."
+                                { nome
+                                    type "string"
+                                    description "Titolo dell'ambito/capitolo."
+                                { ruolo
+                                    type "string"
+                                    description "Ruolo/funzione dell'ambito nel percorso complessivo."
+                                { norme_riferimento
+                                    type "array"
+                                    description "Normative/standard di riferimento pertinenti."
+                                    { items
+                                        type "string"
+                                    minItems 1
+                                { descrizione
+                                    type "string"
+                                    description "Descrizione narrativa dell'ambito."
+                                { sezioni
+                                    type "array"
+                                    description "Sezioni dell'ambito con obiettivi e materiali."
+                                    { items
+                                        type "object"
+                                        additionalProperties false
+                                        { properties
+                                            { id
+                                                type "string"
+                                                description "Identificatore sezione (es. cap/1/1.1)."
+                                            { nome
+                                                type "string"
+                                                description "Titolo della sezione."
+                                            { obiettivo
+                                                type "object"
+                                                description "Obiettivo della sezione."
+                                                additionalProperties false
+                                                { properties
+                                                    { codice
+                                                        type "string"
+                                                        description "Codice obiettivo (es. OBJ-1.1)."
+                                                    { descrizione
+                                                        type "string"
+                                                        description "Descrizione dell'obiettivo."
+                                                [ required
+                                                    "codice" 
+                                                    "descrizione" 
+                                            { output_attesi
+                                                type "array"
+                                                description "Elenco degli output/artefatti attesi dalla sezione."
+                                                { items
+                                                    type "string"
+                                            { prompt_base
+                                                type "string"
+                                                description "Prompt base per generare il testo della sezione."
+                                            { aspetti_di_sicurezza
+                                                type "array"
+                                                description "Aspetti/controlli di sicurezza associati."
+                                                { items
+                                                    type "object"
+                                                    additionalProperties false
+                                                    { properties
+                                                        { id
+                                                            type "string"
+                                                            description "ID dell'aspetto di sicurezza (es. ASP-1.1.1)."
+                                                        { titolo
+                                                            type "string"
+                                                            description "Titolo dell'aspetto di sicurezza."
+                                                        { descrizione_astratta
+                                                            type "string"
+                                                            description "Descrizione sintetica/astratta del controllo."
+                                                        { rischi_mitigati
+                                                            type "array"
+                                                            description "Rischi che l'aspetto contribuisce a mitigare."
+                                                            { items
+                                                                type "string"
+                                                        { pratiche_raccomandate
+                                                            type "array"
+                                                            description "Buone pratiche suggerite."
+                                                            { items
+                                                                type "string"
+                                                        { metriche_kpi
+                                                            type "array"
+                                                            description "Metriche/KPI per misurare l'efficacia."
+                                                            { items
+                                                                type "string"
+                                                        { artefatti
+                                                            type "object"
+                                                            description "Artefatti documentali correlati."
+                                                            additionalProperties false
+                                                            { properties
+                                                                { procedure
+                                                                    type "array"
+                                                                    { items
+                                                                        type "string"
+                                                                { registri
+                                                                    type "array"
+                                                                    { items
+                                                                        type "string"
+                                                                { evidenze
+                                                                    type "array"
+                                                                    { items
+                                                                        type "string"
+                                                        { placeholders_contesto
+                                                            type "array"
+                                                            description "Segnaposto per la contestualizzazione."
+                                                            { items
+                                                                type "string"
+                                                    [ required
+                                                        "id" 
+                                                        "titolo" 
+                                                        "descrizione_astratta" 
+                                            { policy_template
+                                                type "object"
+                                                description "Struttura di policy riusabile."
+                                                additionalProperties false
+                                                { properties
+                                                    { titolo
+                                                        type "string"
+                                                    { sezioni
+                                                        type "array"
+                                                        { items
+                                                            type "string"
+                                                    { placeholders_contesto
+                                                        type "array"
+                                                        { items
+                                                            type "string"
+                                                [ required
+                                                    "titolo" 
+                                            { sop_template
+                                                type "object"
+                                                description "Template di SOP (procedura operativa)."
+                                                additionalProperties false
+                                                { properties
+                                                    { titolo
+                                                        type "string"
+                                                    { step
+                                                        type "array"
+                                                        { items
+                                                            type "string"
+                                                    { registrazioni
+                                                        type "array"
+                                                        { items
+                                                            type "string"
+                                                [ required
+                                                    "titolo" 
+                                            { repo_branching_model
+                                                type "object"
+                                                description "Modello di branching per la gestione versioni dei contenuti."
+                                                additionalProperties false
+                                                { properties
+                                                    { modello
+                                                        type "string"
+                                                        description "Es. GitFlow."
+                                                    { regole
+                                                        type "array"
+                                                        { items
+                                                            type "string"
+                                                [ required
+                                                    "modello" 
+                                            { raci
+                                                type "object"
+                                                description "Matrice RACI per responsabilità e coinvolgimenti."
+                                                additionalProperties false
+                                                { properties
+                                                    { roles
+                                                        type "array"
+                                                        description "Ruoli coinvolti."
+                                                        { items
+                                                            type "string"
+                                                    { matrix
+                                                        type "array"
+                                                        description "Righe della matrice RACI con attività e assegnazioni."
+                                                        { items
+                                                            type "object"
+                                                            additionalProperties false
+                                                            { properties
+                                                                { attivita
+                                                                    type "string"
+                                                                    description "Nome attività."
+                                                                { SP
+                                                                    type "string"
+                                                                    description "Sponsor/Single Point (o ruolo principale responsabile)."
+                                                                { AO
+                                                                    type "string"
+                                                                    description "Accountable/Owner."
+                                                                { SI
+                                                                    type "string"
+                                                                    description "Support/Informato (o Specialista)."
+                                                                { OTSec
+                                                                    type "string"
+                                                                    description "Team Sicurezza OT/IT."
+                                                            [ required
+                                                                "attivita" 
+                                            { parametri_generazione
+                                                type "object"
+                                                description "Parametri per la generazione di contenuti."
+                                                additionalProperties false
+                                                { properties
+                                                    { tipi_documento_supportati
+                                                        type "array"
+                                                        { items
+                                                            type "string"
+                                                            [ enum
+                                                                "Policy" 
+                                                                "SOP" 
+                                                                "Report" 
+                                                    { audience_possibili
+                                                        type "array"
+                                                        { items
+                                                            type "string"
+                                                            [ enum
+                                                                "Tecnici OT" 
+                                                                "Manager" 
+                                                                "Auditor" 
+                                                    { stili
+                                                        type "array"
+                                                        { items
+                                                            type "string"
+                                                            [ enum
+                                                                "Formale" 
+                                                                "Tecnico" 
+                                                                "Sintetico" 
+                                                    { livello_tecnico
+                                                        type "array"
+                                                        { items
+                                                            type "string"
+                                                            [ enum
+                                                                "Base" 
+                                                                "Intermedio" 
+                                                                "Avanzato" 
+                                                    { vincoli
+                                                        type "array"
+                                                        { items
+                                                            type "string"
+                                            { prompting
+                                                type "object"
+                                                description "Prompt/tassonomie di esempio per diversi output."
+                                                additionalProperties false
+                                                { properties
+                                                    { prompt_template_generico
+                                                        type "string"
+                                                    { prompt_esempio_articolo
+                                                        type "string"
+                                                    { prompt_esempio_slide
+                                                        type "string"
+                                                    { prompt_esempio_sop
+                                                        type "string"
+                                            { checklist
+                                                type "array"
+                                                description "Checklist di controllo per completare la sezione."
+                                                { items
+                                                    type "string"
+                                            { campi_contesto_richiesti_per_la_contestualizzazione
+                                                type "array"
+                                                description "Campi di contesto richiesti per personalizzare i contenuti."
+                                                { items
+                                                    type "string"
+                                            { avvertenze
+                                                type "array"
+                                                description "Avvertenze/attenzioni operative."
+                                                { items
+                                                    type "string"
+                                        [ required
+                                            "id" 
+                                            "nome" 
+                                            "obiettivo" 
+                            [ required
+                                "id" 
+                                "nome" 
+                                "ruolo" 
+                                "norme_riferimento" 
+                                "descrizione" 
+                                "sezioni" 
+                    [ required
+                        "meta" 
+                        "ambito" 
+        [ required
+            "items" 

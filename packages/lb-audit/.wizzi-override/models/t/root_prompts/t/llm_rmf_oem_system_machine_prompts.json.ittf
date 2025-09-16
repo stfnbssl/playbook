@@ -1,0 +1,197 @@
+$group
+    { llm_rmf_oem_system_machine_prompts
+        [ prompts
+            {
+                id "P-8"
+                title  "Mission or Business Focus"
+                [ propertiesCore
+                    "system/id"
+                    "system/name"
+                [ properties
+                    "system/mission"
+                    "system/functions"
+                    "system/safety_critical"
+                [ old
+                    "Sistema/Macchina: [descrizione]"
+                    "Funzioni/Missione: [processi e obiettivi che supporta]"
+                [ promptLines
+                    "Genera minacce e requisiti collegati a rischi di:"
+                    "- interruzione della missione di business,"
+                    "- perdita di continuità operativa,"
+                    "- impatti sulla qualità/sicurezza."
+            {
+                id "P-9"
+                title  "System Stakeholders"
+                [ propertiesCore
+                    "system/id"
+                    "system/name"
+                [ properties
+                    "stakeholders"
+                [ old
+                    "Stakeholder identificati: [OEM, Cliente, Terzi, Integratori, ecc.]"
+                    "Ruoli/responsabilità: [descrizione]"
+                [ promptLines
+                    "Genera minacce e requisiti collegati a:"
+                    "- conflitti o mancanza di responsabilità chiara,"
+                    "- rischio insider,"
+                    "- errori umani dovuti a ruolo mal definito."
+            {
+                id "P-10"
+                title "Asset Identification"
+                [ propertiesCore
+                    "system/id"
+                    "system/mission"
+                [ properties
+                    "assets"
+                    "security_basics/constraints"
+                [ old
+                    "Asset identificati: [PLC, HMI, sensori, firmware, software, dati]"
+                    "Criticità: [alta/media/bassa]"
+                [ promptLines
+                    "Genera minacce e requisiti collegati a:"
+                    "- compromissione degli asset più critici,"
+                    "- perdita di disponibilità o integrità,"
+                    "- protezione IP e dati sensibili."
+            {
+                id "P-11"
+                title "Authorization Boundary"
+                [ propertiesCore
+                    "system/id"
+                    "system/name"
+                [ properties
+                    "authorization_boundary"
+                    "interfaces"
+                [ old
+                    "In-scope OEM: [componenti sotto responsabilità OEM]"
+                    "Out-of-scope: [infrastruttura cliente, rete fabbrica, cloud terzi]"
+                [ promptLines
+                    "Genera minacce e requisiti collegati a:"
+                    "- confini mal definiti,"
+                    "- responsabilità condivise non coperte,"
+                    "- flussi non controllati tra dentro/fuori boundary."
+            {
+                id "P-12"
+                title "Information Types"
+                [ propertiesCore
+                    "system/id"
+                    "system/mission"
+                [ properties
+                    "information/types"
+                [ old
+                    "Informazioni trattate: [es. ricette, log, dati badge]"
+                    "Classificazione: [confidential, personal, operational, ecc.]"
+                [ promptLines
+                    "Genera minacce e requisiti collegati a:"
+                    "- perdita di confidenzialità,"
+                    "- manomissione dati,"
+                    "- requisiti di privacy (GDPR o simili)."
+            {
+                id "P-13"
+                title "Information Life Cycle"
+                [ propertiesCore
+                    "system/id"
+                    "system/name"
+                    "system/mission"
+                [ properties
+                    "information/types/lifecycle"
+                    "information/types/retention_days"
+                    "interfaces"
+                [ old
+                    "Ciclo di vita delle informazioni: [raccolta, elaborazione, archiviazione, trasmissione, cancellazione]"
+                [ promptLines
+                    "Genera minacce e requisiti collegati a:"
+                    "- retention eccessiva o non sicura,"
+                    "- cancellazione incompleta,"
+                    "- esposizione durante trasmissione."
+            {
+                id "P-14"
+                title "Risk Assessment (System)"
+                [ propertiesCore
+                    "system/id"
+                    "system/name"
+                    "system/mission"
+                [ properties
+                    "assets"
+                    "interfaces"
+                    "information/types"
+                    "authorization_boundary"
+                    "security_basics"
+                [ old
+                    "Minacce note/rischi preliminari: [es. ransomware su HMI, manipolazione ricette]"
+                [ promptLines
+                    "Genera minacce e requisiti collegati a:"
+                    "- attacchi malware,"
+                    "- errori di configurazione,"
+                    "- supply chain vulnerabilities."
+            {
+                id "P-15"
+                title "Requirements Definition"
+                [ propertiesCore
+                    "system/id"
+                    "system/name"
+                    "system/mission"
+                [ properties
+                    "security_basics/constraints"
+                [ old
+                    "Requisiti noti: [es. strong auth, cifratura, segregazione rete]"
+                [ promptLines
+                    "Genera minacce e requisiti collegati a:"
+                    "- mancata applicazione dei requisiti,"
+                    "- ambiguità o requisiti non verificabili,"
+                    "- gap rispetto a standard 62443 / NIST."
+            {
+                id "P-16"
+                title "Enterprise Architecture"
+                [ propertiesCore
+                    "system/id"
+                    "system/name"
+                    "system/mission"
+                [ properties
+                    "interfaces"
+                    "stakeholders"
+                [ old
+                    "Integrazione sistema: [MES, ERP, SCADA, cloud]"
+                    "Interfacce note: [OT/IT, API, protocolli]"
+                [ promptLines
+                    "Genera minacce e requisiti collegati a:"
+                    "- interfacce non protette,"
+                    "- punti di integrazione con altri sistemi vulnerabili,"
+                    "- esposizione a rete IT o Internet."
+            {
+                id "P-17"
+                title "Requirements Allocation"
+                [ propertiesCore
+                    "system/id"
+                    "system/name"
+                    "system/mission"
+                [ properties
+                    "authorization_boundary/responsibilities"
+                    "stakeholders"
+                [ old
+                    "Allocazione responsabilità:"
+                    "- OEM: [patch firmware, secure boot, ecc.]"
+                    "- Cliente: [account management, rete OT/IT]"
+                    "- Terzi: [cloud monitoring, aggiornamenti SW]"
+                [ promptLines
+                    "Genera minacce e requisiti collegati a:"
+                    "- gap tra le parti,"
+                    "- requisiti non coperti,"
+                    "- duplicazioni/confusione di responsabilità."
+            {
+                id "P-18"
+                title "System Registration"
+                [ propertiesCore
+                    "system/id"
+                    "system/name"
+                    "system/mission"
+                [ properties
+                    "registration"
+                [ old
+                    "Sistema registrato: [ID macchina, modello, cliente]"
+                    "Documentazione: [schede, risk register, controlli]"
+                [ promptLines
+                    "Genera minacce e requisiti collegati a:"
+                    "- assenza di accountability,"
+                    "- mancanza di tracciabilità,"
+                    "- mancanza di oversight su controlli applicati."
+

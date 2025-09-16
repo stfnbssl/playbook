@@ -1,0 +1,1290 @@
+$group
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/6"
+            nome "Mappatura pratica NIS2 ⇄ IEC 62443"
+            ruolo "Supporto alla conformità normativa e tecnica per operatori OT/ICS"
+            [ norme_riferimento
+                "NIS2"
+                "IEC 62443"
+                "IEC 27001/2"
+                "GDPR 2016"
+            descrizione "Questo ambito si concentra sulla mappatura pratica tra i requisiti della
+                +b direttiva NIS2 e lo standard IEC 62443, fornendo strumenti operativi come
+                +b tabelle di crosswalk, flussi di notifica incidenti e template per la gestione
+                +b della conformità. Include glossario minimo e checklist per garantire
+                +b completezza e chiarezza."
+            [ sezioni
+                {
+                    id "cap/6/6.7"
+                    nome "Figure & Template (segnaposto)"
+                    { obiettivo
+                        codice "OBJ-6.7"
+                        descrizione "Fornire strumenti visivi e documentali per supportare la conformità NIS2 e
+                            +b l'allineamento con IEC 62443."
+                    [ output_attesi
+                        "Tabella 6.2 — Crosswalk NIS2 ⇄ IEC 62443"
+                        "Figura 6.1 — Flusso di notifica incidenti verso autorità/CSIRT con SLA"
+                        "Template — Registro incidenti"
+                        "Template — Policy di notifica"
+                        "Template — Scheda qualifica fornitore (NIS2-aware)"
+                    prompt_base "Genera contenuti pratici e operativi per la mappatura NIS2-IEC 62443,
+                        +b includendo tabelle di corrispondenza, flussi procedurali e template
+                        +b personalizzabili per la gestione degli incidenti e la qualifica dei fornitori."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-6.7.1"
+                            titolo "Notifica Incidenti (NIS2)"
+                            descrizione_astratta "Gestione tempestiva e conforme della notifica di incidenti verso autorità
+                                +b competenti e CSIRT, come richiesto da NIS2."
+                            [ rischi_mitigati
+                                "Non conformità normativa"
+                                "Ritardi nella comunicazione di incidenti critici"
+                                "Sanzioni per mancata notifica"
+                            [ pratiche_raccomandate
+                                "Definire un flusso di notifica con SLA chiari"
+                                "Mantenere un registro degli incidenti aggiornato"
+                                "Coinvolgere il CSIRT nazionale/settoriale"
+                            [ metriche_kpi
+                                "Tempo medio di notifica (ore)"
+                                "Percentuale di incidenti notificati entro SLA"
+                                "Completezza del registro incidenti (%)"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di notifica incidenti"
+                                [ registri
+                                    "Registro incidenti NIS2"
+                                [ evidenze
+                                    "Report di notifica inviati"
+                                    "Conferme di ricezione da CSIRT"
+                            [ placeholders_contesto
+                                "[Settore aziendale]"
+                                "[Autorità competente nazionale]"
+                                "[SLA specifici per notifica]"
+                        {
+                            id "ASP-6.7.2"
+                            titolo "Mappatura Normativa (NIS2-IEC 62443)"
+                            descrizione_astratta "Allineamento tra i requisiti NIS2 e i controlli di sicurezza definiti in IEC
+                                +b 62443 per garantire una copertura completa."
+                            [ rischi_mitigati
+                                "Lacune nella conformità"
+                                "Ridondanze nei controlli di sicurezza"
+                                "Mancata integrazione tra normative"
+                            [ pratiche_raccomandate
+                                "Utilizzare tabelle di crosswalk per mappare requisiti"
+                                "Identificare controlli IEC 62443 applicabili a NIS2"
+                                "Documentare gap e azioni correttive"
+                            [ metriche_kpi
+                                "Percentuale di requisiti NIS2 coperti da IEC 62443"
+                                "Numero di gap identificati e risolti"
+                                "Tempo medio per aggiornamento della mappatura (giorni)"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di mappatura normativa"
+                                [ registri
+                                    "Tabella di crosswalk NIS2-IEC 62443"
+                                [ evidenze
+                                    "Report di gap analysis"
+                                    "Piano di remediation"
+                            [ placeholders_contesto
+                                "[Specifiche settoriali]"
+                                "[Requisiti nazionali NIS2]"
+                                "[Livello di maturità IEC 62443]"
+                    { policy_template
+                        titolo "Policy di Notifica Incidenti NIS2"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Definizioni e acronimi"
+                            "Responsabilità e ruoli"
+                            "Flusso di notifica con SLA"
+                            "Registrazione e reportistica"
+                            "Riesame e aggiornamento della policy"
+                        [ placeholders_contesto
+                            "[Nome organizzazione]"
+                            "[Autorità di riferimento]"
+                            "[Contatti CSIRT]"
+                    { sop_template
+                        titolo "SOP Notifica Incidenti NIS2"
+                        [ step
+                            "Identificazione dell'incidente"
+                            "Valutazione della gravità"
+                            "Notifica interna ai responsabili"
+                            "Comunicazione alle autorità/CSIRT entro SLA"
+                            "Registrazione nel registro incidenti"
+                            "Follow-up e chiusura"
+                        [ registrazioni
+                            "Registro incidenti"
+                            "Log delle comunicazioni"
+                            "Report di notifica"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili e validati"
+                            "Branch 'develop' per contenuti in lavorazione"
+                            "Feature branch per ogni sezione o template"
+                            "Pull request obbligatorie con review"
+                    { raci
+                        [ roles
+                            "Security Manager"
+                            "Operation Manager"
+                            "Compliance Officer"
+                            "OT Security Specialist"
+                        [ matrix
+                            {
+                                attivita "Definizione flusso notifica incidenti"
+                                SP "Security Manager"
+                                AO "Compliance Officer"
+                                SI "Operation Manager"
+                                OTSec "OT Security Specialist"
+                            {
+                                attivita "Aggiornamento tabella crosswalk"
+                                SP "Compliance Officer"
+                                AO "Security Manager"
+                                SI "OT Security Specialist"
+                                OTSec "Operation Manager"
+                            {
+                                attivita "Gestione registro incidenti"
+                                SP "Operation Manager"
+                                AO "Security Manager"
+                                SI "Compliance Officer"
+                                OTSec "OT Security Specialist"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Articolo"
+                            "Slide"
+                            "SOP"
+                            "Policy"
+                            "Template"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Manager"
+                            "Compliance Officer"
+                            "Auditor"
+                        [ stili
+                            "Pratico-operativo"
+                            "Formale-normativo"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Vendor-neutral"
+                            "Conformità a NIS2 e IEC 62443"
+                            "Chiarezza per audience non tecnica"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [TIPO] per [AUDIENCE] con stile [STILE] e livello
+                            +b tecnico [LIVELLO] sul tema della mappatura NIS2-IEC 62443, includendo
+                            +b [OUTPUT_ATTESO]. Mantieni un tono pratico e vendor-neutral."
+                        prompt_esempio_articolo "Scrivi un articolo per tecnici OT con stile pratico-operativo e livello tecnico
+                            +b intermedio sulla mappatura NIS2-IEC 62443, includendo la Tabella 6.2 di
+                            +b crosswalk. Mantieni un tono pratico e vendor-neutral."
+                        prompt_esempio_slide "Crea una presentazione per manager con stile sintetico e livello tecnico base
+                            +b sul flusso di notifica incidenti NIS2, includendo la Figura 6.1. Mantieni un
+                            +b tono pratico e vendor-neutral."
+                        prompt_esempio_sop "Elabora una SOP per compliance officer con stile formale-normativo e livello
+                            +b tecnico intermedio sulla gestione della notifica incidenti NIS2, includendo
+                            +b step operativi e registrazioni. Mantieni un tono pratico e vendor-neutral."
+                    [ checklist
+                        "Acronomi spiegati e tecnicismi parafrasati"
+                        "Tabella di mappatura completa e coerente"
+                        "Distinzione chiara tra coperto da 62443 e extra NIS2"
+                        "Runbook/Template notifica incidenti presenti"
+                        "Box 'Per i ruoli' in ogni sezione; Takeaway + avvertenza safety"
+                        "Tono pratico-operativo, vendor-neutral"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Settore aziendale"
+                        "Autorità competente nazionale"
+                        "SLA specifici per notifica"
+                        "Requisiti nazionali NIS2"
+                        "Livello di maturità IEC 62443"
+                    [ avvertenze
+                        "Verificare sempre i requisiti specifici del recepimento nazionale di NIS2."
+                        "Assicurarsi che i flussi di notifica rispettino i vincoli di safety in ambiente OT."
+                        "Coinvolgere esperti legali per validare policy e SOP."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/7"
+            nome "Casi applicativi e buone pratiche (IEC 62443)"
+            ruolo "Guida pratica per l'implementazione di soluzioni di sicurezza in contesti
+                +b OT/ICS basate su IEC 62443"
+            [ norme_riferimento
+                "IEC 62443"
+                "ISO/IEC 27001"
+                "NIS2"
+            descrizione "Questo ambito raccoglie casi applicativi concreti e buone pratiche per
+                +b l'implementazione di misure di sicurezza in ambienti OT/ICS, con focus su
+                +b architetture, segmentazione di rete e gestione degli accessi in conformità con
+                +b IEC 62443."
+            [ sezioni
+                {
+                    id "cap/7/7.1"
+                    nome "Caso — Energia: segmentazione OT & conduits"
+                    { obiettivo
+                        codice "OBJ-7.1"
+                        descrizione "Illustrare un caso pratico di transizione da una rete OT piatta a
+                            +b un'architettura basata su Zone & Conduits con DMZ industriale e accessi
+                            +b brokered, mappando i requisiti fondamentali (FR) e i livelli di sicurezza (SL)
+                            +b di IEC 62443."
+                    [ output_attesi
+                        "Documento tecnico sul caso Energia (1 pagina)"
+                        "Slide di sintesi per presentazioni"
+                        "SOP per configurazione di segmentazione rete"
+                        "Policy template per gestione accessi remoti"
+                    prompt_base "Scrivi 1 pagina sul caso **Energia**: da rete piatta a **Zone & Conduits** con
+                        +b DMZ e accessi **brokered**, KPI in range e mapping **FR/SL**."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-7.1.1"
+                            titolo "Segmentazione di rete con Zone & Conduits"
+                            descrizione_astratta "Implementazione di un'architettura di rete basata su Zone & Conduits per
+                                +b ridurre la superficie di attacco e controllare i flussi di dati tra sistemi OT
+                                +b e IT."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato a sistemi critici"
+                                "Propagazione di malware tra zone"
+                                "Esposizione di sistemi OT a rete IT"
+                            [ pratiche_raccomandate
+                                "Definire Zone basate su funzioni operative (es. controllo, HMI, safety)"
+                                "Implementare Conduits con regole deny-by-default e whitelisting"
+                                "Posizionare una DMZ industriale per interfacce IT-OT"
+                            [ metriche_kpi
+                                "Percentuale di flussi inter-zona non necessari ridotti (target: 40-70%)"
+                                "Tempo medio di rilevamento di anomalie di rete (MTTD: 15-30 min)"
+                                "Conformità alle regole di rete testate in staging (100%)"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di definizione Zone & Conduits"
+                                    "Procedura di configurazione firewall OT"
+                                [ registri
+                                    "Log delle regole di rete"
+                                    "Registro dei test di staging"
+                                [ evidenze
+                                    "Report di conformità SL2-SL3"
+                                    "Audit delle configurazioni firewall"
+                            [ placeholders_contesto
+                                "[Tipo di impianto]"
+                                "[Protocolli utilizzati]"
+                                "[Vendor specifici]"
+                        {
+                            id "ASP-7.1.2"
+                            titolo "Gestione accessi privilegiati con broker"
+                            descrizione_astratta "Utilizzo di un broker per gestire accessi remoti privilegiati con
+                                +b autenticazione multifattore (MFA), registrazione sessioni e approvazioni
+                                +b temporanee."
+                            [ rischi_mitigati
+                                "Accessi non autorizzati da terze parti"
+                                "Abuso di privilegi da parte di utenti interni"
+                                "Mancanza di tracciabilità delle attività remote"
+                            [ pratiche_raccomandate
+                                "Implementare MFA per tutti gli accessi remoti"
+                                "Registrare sessioni remote per audit"
+                                "Definire finestre temporali per accessi approvati"
+                            [ metriche_kpi
+                                "Percentuale di sessioni remote con MFA (target: 100%)"
+                                "Tempo medio di risposta a incidenti di accesso (MTTR: < X ore)"
+                                "Numero di audit completati su accessi terze parti (target: trimestrale)"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione broker accessi"
+                                    "Procedura di audit sessioni"
+                                [ registri
+                                    "Log accessi remoti"
+                                    "Registro approvazioni temporanee"
+                                [ evidenze
+                                    "Report di conformità FR1/FR2"
+                                    "Video registrazioni sessioni"
+                            [ placeholders_contesto
+                                "[Fornitore broker]"
+                                "[Tipologia utenti remoti]"
+                                "[Frequenza audit]"
+                    { policy_template
+                        titolo "Policy per la gestione degli accessi remoti in ambiente OT"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Definizione dei ruoli e responsabilità"
+                            "Requisiti di autenticazione (MFA)"
+                            "Registrazione e monitoraggio sessioni"
+                            "Processo di approvazione accessi temporanei"
+                            "Audit e revisione periodica"
+                        [ placeholders_contesto
+                            "[Nome organizzazione]"
+                            "[Tipologia impianto]"
+                            "[Frequenza audit]"
+                    { sop_template
+                        titolo "SOP per configurazione segmentazione rete OT"
+                        [ step
+                            "Identificazione delle Zone operative"
+                            "Definizione dei Conduits e flussi consentiti"
+                            "Configurazione firewall con regole deny-by-default"
+                            "Test delle regole in ambiente di staging"
+                            "Distribuzione in produzione con monitoraggio"
+                            "Documentazione e aggiornamento runbook"
+                        [ registrazioni
+                            "Registro configurazioni firewall"
+                            "Log dei test di staging"
+                            "Report di monitoraggio post-distribuzione"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili e validati"
+                            "Branch 'develop' per contenuti in lavorazione"
+                            "Feature branch per ogni nuovo caso o aspetto di sicurezza"
+                            "Pull request con revisione obbligatoria prima del merge"
+                    { raci
+                        [ roles
+                            "SP (Sponsor)"
+                            "AO (Accountable Owner)"
+                            "SI (Security Implementer)"
+                            "OTSec (OT Security Specialist)"
+                        [ matrix
+                            {
+                                attivita "Definizione Zone & Conduits"
+                                SP "I"
+                                AO "R"
+                                SI "A"
+                                OTSec "C"
+                            {
+                                attivita "Configurazione firewall/DMZ"
+                                SP "I"
+                                AO "C"
+                                SI "A"
+                                OTSec "R"
+                            {
+                                attivita "Implementazione broker accessi"
+                                SP "I"
+                                AO "R"
+                                SI "A"
+                                OTSec "C"
+                            {
+                                attivita "Monitoraggio e audit"
+                                SP "C"
+                                AO "R"
+                                SI "C"
+                                OTSec "A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Articolo tecnico"
+                            "Slide di presentazione"
+                            "SOP"
+                            "Policy"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Manager IT/OT"
+                            "Auditor di sicurezza"
+                            "Terze parti"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Rispetto delle linee guida IEC 62443 per FR e SL"
+                            "Inclusione di KPI misurabili"
+                            "Adattabilità a contesti specifici con placeholders"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [tipo_documento] sul caso Energia, focalizzandosi
+                            +b su [aspetto_specifico]. Includi mapping a IEC 62443 (FR/SL), KPI misurabili e
+                            +b pratiche raccomandate per un'audience di [audience]. Usa uno stile [stile] e un
+                            +b livello tecnico [livello_tecnico]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico di 1 pagina sul caso Energia: transizione da rete
+                            +b piatta a Zone & Conduits con DMZ e accessi brokered. Mappa i requisiti FR/SL di
+                            +b IEC 62443, includi KPI (es. riduzione flussi inter-zona 40-70%, MTTD 15-30 min)
+                            +b e lezioni apprese. Audience: tecnici OT, stile formale, livello intermedio."
+                        prompt_esempio_slide "Crea una presentazione di 5 slide sul caso Energia: sintesi di problema,
+                            +b soluzione con Zone & Conduits, mapping FR/SL, KPI e lezioni apprese. Audience:
+                            +b manager IT/OT, stile sintetico, livello base."
+                        prompt_esempio_sop "Scrivi una SOP per la configurazione di segmentazione rete OT nel caso Energia.
+                            +b Includi step per definizione Zone & Conduits, configurazione firewall e test in
+                            +b staging. Audience: tecnici OT, stile tecnico, livello avanzato."
+                    [ checklist
+                        "Mapping dei requisiti FR/SL di IEC 62443 completato"
+                        "KPI definiti e misurabili inclusi"
+                        "Pratiche raccomandate per segmentazione e accessi descritte"
+                        "Lezioni apprese e avvertenze per implementazione specificate"
+                        "Documentazione adattabile a contesti specifici con placeholders"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipologia di impianto (es. generazione, distribuzione)"
+                        "Protocolli di comunicazione utilizzati"
+                        "Vendor di sistemi OT/IT coinvolti"
+                        "Dimensioni della rete OT (nodi, dispositivi)"
+                        "Requisiti normativi locali o settoriali"
+                    [ avvertenze
+                        "La segmentazione deve rispettare i requisiti di latenza e disponibilità dei sistemi OT"
+                        "Test in staging obbligatori prima della distribuzione in produzione"
+                        "Audit periodici necessari per garantire conformità continua"
+                        "Accessi remoti di terze parti richiedono contratti con clausole di sicurezza"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/7"
+            nome "Casi applicativi e buone pratiche (IEC 62443)"
+            ruolo "Guida pratica per l'implementazione di misure di sicurezza in contesti OT/ICS"
+            [ norme_riferimento
+                "IEC 62443"
+                "ISO/IEC 27001"
+                "NIS2"
+            descrizione "Raccolta di casi applicativi e buone pratiche per la sicurezza in ambienti
+                +b OT/ICS, con focus su conformità a IEC 62443 e integrazione con altre normative
+                +b rilevanti."
+            [ sezioni
+                {
+                    id "cap/7/7.2"
+                    nome "Caso — Acque: aggiornamenti & accessi remoti sicuri"
+                    { obiettivo
+                        codice "OBJ-7.2"
+                        descrizione "Illustrare l'applicazione di IEC 62443 per la gestione delle vulnerabilità,
+                            +b patch management e accessi remoti sicuri in un impianto di trattamento acque."
+                    [ output_attesi
+                        "Documento tecnico sul caso Acque"
+                        "Slide di presentazione per stakeholder"
+                        "SOP per gestione patch e accessi remoti"
+                        "Checklist di conformità IEC 62443"
+                    prompt_base "Scrivi 1 pagina sul caso **Acque**: **vuln & patch mgmt** (‑2‑3) e **accessi
+                        +b terze parti** (‑2‑4) con KPI e mapping **FR/SL**."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-7.2.1"
+                            titolo "Vulnerabilità e Patch Management (IEC 62443-2-3)"
+                            descrizione_astratta "Gestione sistematica delle vulnerabilità e applicazione di patch per ridurre il
+                                +b rischio di exploit in sistemi OT critici."
+                            [ rischi_mitigati
+                                "Deriva delle configurazioni (config-drift)"
+                                "Esposizione a vulnerabilità note"
+                                "Interruzioni non pianificate"
+                            [ pratiche_raccomandate
+                                "Inventario asset e criticità"
+                                "Calendario patch trimestrale con staging"
+                                "Collaborazione con PSIRT fornitori"
+                            [ metriche_kpi
+                                "Copertura patch su asset critici > 80-90% entro 90 gg"
+                                "Tempo medio per applicazione patch < 30 gg"
+                                "Numero di vulnerabilità critiche non mitigate < 5%"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di patch management"
+                                    "Workflow di staging e test"
+                                [ registri
+                                    "Registro patch applicate"
+                                    "Log di test pre-deploy"
+                                [ evidenze
+                                    "Report di conformità patch"
+                                    "Documentazione test di ripristino"
+                            [ placeholders_contesto
+                                "[Tipo impianto]"
+                                "[Vendor sistemi OT]"
+                                "[Finestra manutenzione]"
+                        {
+                            id "ASP-7.2.2"
+                            titolo "Accessi Remoti Sicuri di Terze Parti (IEC 62443-2-4)"
+                            descrizione_astratta "Controllo degli accessi remoti per terze parti al fine di garantire
+                                +b tracciabilità e minimizzare i rischi di accesso non autorizzato."
+                            [ rischi_mitigati
+                                "Accessi non autorizzati"
+                                "Mancata tracciabilità interventi"
+                                "Incidenti legati a privilegi eccessivi"
+                            [ pratiche_raccomandate
+                                "Accessi mediati e approvati"
+                                "Utilizzo di account temporanei con least privilege"
+                                "Registrazione sessioni remote"
+                            [ metriche_kpi
+                                "0 interventi non registrati"
+                                "Tempo medio approvazione accessi < 2 h"
+                                "Riduzione incidenti legati ad accessi remoti del 30-40%"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di approvazione accessi"
+                                    "Configurazione account temporanei"
+                                [ registri
+                                    "Log accessi remoti"
+                                    "Registro sessioni"
+                                [ evidenze
+                                    "Report audit accessi"
+                                    "Documentazione policy least privilege"
+                            [ placeholders_contesto
+                                "[Terza parte coinvolta]"
+                                "[Sistema di accesso remoto]"
+                                "[Policy aziendale]"
+                    { policy_template
+                        titolo "Policy per Patch Management e Accessi Remoti Sicuri"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Responsabilità e ruoli"
+                            "Processo di gestione patch"
+                            "Regole per accessi remoti"
+                            "Monitoraggio e audit"
+                        [ placeholders_contesto
+                            "[Nome impianto]"
+                            "[Criticità asset]"
+                            "[Finestra manutenzione]"
+                    { sop_template
+                        titolo "SOP per Applicazione Patch e Gestione Accessi Remoti"
+                        [ step
+                            "Identificazione asset critici e vulnerabilità"
+                            "Pianificazione finestra di manutenzione"
+                            "Test patch in ambiente di staging"
+                            "Approvazione e registrazione accessi remoti"
+                            "Monitoraggio post-intervento"
+                        [ registrazioni
+                            "Registro patch"
+                            "Log accessi"
+                            "Report incidenti"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili"
+                            "Branch 'develop' per draft e revisioni"
+                            "Feature branch per ogni caso/sezione"
+                    { raci
+                        [ roles
+                            "SP (System Provider)"
+                            "AO (Asset Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Team)"
+                        [ matrix
+                            {
+                                attivita "Inventario asset e criticità"
+                                SP "C"
+                                AO "R"
+                                SI "A"
+                                OTSec "I"
+                            {
+                                attivita "Pianificazione patch"
+                                SP "I"
+                                AO "C"
+                                SI "R"
+                                OTSec "A"
+                            {
+                                attivita "Gestione accessi remoti"
+                                SP "I"
+                                AO "R"
+                                SI "C"
+                                OTSec "A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Articolo tecnico"
+                            "Presentazione"
+                            "SOP"
+                            "Checklist"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Management"
+                            "Auditor"
+                            "Fornitori"
+                        [ stili
+                            "Formale"
+                            "Didattico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Riferimenti normativi chiari (IEC 62443 FR/SL)"
+                            "KPI misurabili e realistici"
+                            "Placeholder per contesto specifico"
+                    { prompting
+                        prompt_template_generico "Genera un documento sul caso [Nome Caso] focalizzato su [Aspetto Sicurezza] con
+                            +b mapping a [Norma] e KPI specifici per [Contesto]."
+                        prompt_esempio_articolo "Scrivi un articolo di 1 pagina sul caso Acque, focalizzato su vulnerabilità,
+                            +b patch management (IEC 62443-2-3) e accessi remoti sicuri (IEC 62443-2-4),
+                            +b includendo KPI come copertura patch > 80% e riduzione incidenti del 30%, con
+                            +b mapping FR/SL."
+                        prompt_esempio_slide "Crea una presentazione di 5 slide sul caso Acque, evidenziando problema,
+                            +b soluzione IEC 62443 (FR1/FR2/FR3/FR6/FR7), KPI e lezioni apprese per un
+                            +b audience di management."
+                        prompt_esempio_sop "Sviluppa una SOP per il caso Acque, con step per applicazione patch e gestione
+                            +b accessi remoti, includendo registrazioni e responsabilità (RACI)."
+                    [ checklist
+                        "Inventario asset completato"
+                        "Calendario patch definito"
+                        "Policy accessi remoti approvata"
+                        "KPI monitorati trimestralmente"
+                        "Test di ripristino documentati"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipo di impianto"
+                        "Vendor sistemi OT"
+                        "Criticità asset"
+                        "Finestra manutenzione"
+                        "Terze parti coinvolte"
+                    [ avvertenze
+                        "Adattare le soluzioni al contesto specifico dell'impianto"
+                        "Verificare compatibilità patch con sistemi legacy"
+                        "Garantire conformità GDPR per registrazione sessioni"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/7"
+            nome "Casi applicativi e buone pratiche (IEC 62443)"
+            ruolo "Guida pratica per l'implementazione di misure di sicurezza in contesti OT/ICS"
+            [ norme_riferimento
+                "IEC 62443"
+                "IEC 27001"
+                "NIS2"
+                "CRA"
+            descrizione "Questo ambito si concentra su casi applicativi concreti e buone pratiche per
+                +b l'adozione graduale della sicurezza OT/ICS in contesti manifatturieri, con
+                +b riferimento allo standard IEC 62443. Include roadmap temporali, KPI e mapping
+                +b su requisiti fondamentali (FR) e livelli di sicurezza (SL)."
+            [ sezioni
+                {
+                    id "cap/7/7.3"
+                    nome "Caso — PMI manifatturiera: adozione graduale (90-180-365 giorni)"
+                    { obiettivo
+                        codice "OBJ-7.3"
+                        descrizione "Fornire una roadmap pratica per una PMI manifatturiera con risorse limitate,
+                            +b per implementare misure di sicurezza OT/ICS in conformità con IEC 62443,
+                            +b suddivisa in fasi temporali (90, 180, 365 giorni)."
+                    [ output_attesi
+                        "Roadmap dettagliata con deliverable per ogni fase (90, 180, 365 giorni)"
+                        "KPI misurabili per valutare i progressi"
+                        "Mapping dei deliverable su FR (Foundational Requirements) e SL (Security Levels) di IEC 62443"
+                        "Lezioni apprese e raccomandazioni per l'implementazione"
+                    prompt_base "Scrivi 1 pagina per una **PMI manifatturiera**: roadmap 90-180-365 con
+                        +b deliverable, KPI e mapping **FR/SL**."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-7.3.1"
+                            titolo "Inventario e visibilità degli asset OT"
+                            descrizione_astratta "Creazione di un inventario completo degli asset OT per garantire visibilità e
+                                +b controllo sul perimetro di sicurezza."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Attacchi mirati a dispositivi non monitorati"
+                            [ pratiche_raccomandate
+                                "Utilizzo di strumenti di scoperta automatica"
+                                "Classificazione degli asset per criticità"
+                            [ metriche_kpi
+                                "Percentuale di asset inventariati (target: 60% a 90 giorni, 95% a 12 mesi)"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di scoperta e inventario asset"
+                                [ registri
+                                    "Registro degli asset OT"
+                                [ evidenze
+                                    "Report di scansione rete"
+                            [ placeholders_contesto
+                                "[Numero linee produzione]"
+                                "[Tipologia macchine]"
+                                "[Fornitori principali]"
+                        {
+                            id "ASP-7.3.2"
+                            titolo "Gestione accessi remoti"
+                            descrizione_astratta "Standardizzazione degli accessi remoti per ridurre vulnerabilità legate a
+                                +b configurazioni non uniformi."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Manomissione da remoto"
+                            [ pratiche_raccomandate
+                                "Implementazione VPN con MFA"
+                                "Registrazione sessioni remote"
+                            [ metriche_kpi
+                                "Percentuale di accessi remoti conformi (target: 100% a 180 giorni)"
+                            { artefatti
+                                [ procedure
+                                    "Procedura configurazione accessi remoti"
+                                [ registri
+                                    "Log accessi remoti"
+                                [ evidenze
+                                    "Report audit accessi"
+                            [ placeholders_contesto
+                                "[Numero utenti remoti]"
+                                "[Tipologia accesso remoto corrente]"
+                        {
+                            id "ASP-7.3.3"
+                            titolo "Gestione patch e backup"
+                            descrizione_astratta "Definizione di processi per l'applicazione di patch e la gestione dei backup
+                                +b per minimizzare downtime e vulnerabilità."
+                            [ rischi_mitigati
+                                "Exploit di vulnerabilità note"
+                                "Perdita dati"
+                            [ pratiche_raccomandate
+                                "Pianificazione finestre di manutenzione"
+                                "Test backup periodici"
+                            [ metriche_kpi
+                                "Patch coverage per vulnerabilità critiche (target: 85-95% entro 90 giorni dalla release)"
+                            { artefatti
+                                [ procedure
+                                    "Procedura applicazione patch"
+                                    "Procedura backup"
+                                [ registri
+                                    "Registro patch applicate"
+                                    "Registro test backup"
+                                [ evidenze
+                                    "Report patch management"
+                                    "Report ripristino backup"
+                            [ placeholders_contesto
+                                "[Frequenza manutenzione]"
+                                "[Sistemi critici]"
+                    { policy_template
+                        titolo "Policy di Sicurezza OT per PMI Manifatturiere"
+                        [ sezioni
+                            "Scopo"
+                            "Ambito di applicazione"
+                            "Responsabilità"
+                            "Requisiti di sicurezza"
+                            "Monitoraggio e revisione"
+                        [ placeholders_contesto
+                            "[Nome azienda]"
+                            "[Settore specifico]"
+                            "[Dimensioni rete OT]"
+                    { sop_template
+                        titolo "SOP per Implementazione Roadmap Sicurezza OT"
+                        [ step
+                            "Identificazione asset"
+                            "Configurazione accessi remoti"
+                            "Pianificazione patch"
+                            "Test backup"
+                            "Revisione KPI"
+                        [ registrazioni
+                            "Log attività"
+                            "Report conformità"
+                            "Registro incidenti"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili"
+                            "Branch 'develop' per contenuti in lavorazione"
+                            "Feature branch per ogni aspetto di sicurezza"
+                    { raci
+                        [ roles
+                            "SP (Sponsor Progetto)"
+                            "AO (Architetto OT)"
+                            "SI (Specialista IT)"
+                            "OTSec (Responsabile Sicurezza OT)"
+                        [ matrix
+                            {
+                                attivita "Inventario Asset"
+                                SP "A"
+                                AO "R"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Configurazione Accessi Remoti"
+                                SP "A"
+                                AO "C"
+                                SI "R"
+                                OTSec "I"
+                            {
+                                attivita "Gestione Patch e Backup"
+                                SP "A"
+                                AO "I"
+                                SI "C"
+                                OTSec "R"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Roadmap"
+                            "Report KPI"
+                            "SOP"
+                            "Policy"
+                        [ audience_possibili
+                            "Management"
+                            "Tecnici OT"
+                            "Tecnici IT"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Risorse limitate"
+                            "Tempi ristretti"
+                            "Eterogeneità fornitori"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [tipo_documento] per [audience] su [argomento] con
+                            +b stile [stile] e livello tecnico [livello]. Includi [elementi_specifici]."
+                        prompt_esempio_articolo "Scrivi un articolo per il management di una PMI manifatturiera sulla roadmap di
+                            +b sicurezza OT (90-180-365 giorni), stile formale, livello base, includendo KPI e
+                            +b lezioni apprese."
+                        prompt_esempio_slide "Crea una presentazione per tecnici OT su implementazione accessi remoti, stile
+                            +b tecnico, livello intermedio, includendo diagrammi e checklist."
+                        prompt_esempio_sop "Redigi una SOP per la gestione patch in una PMI manifatturiera, stile tecnico,
+                            +b livello avanzato, includendo step operativi e registrazioni."
+                    [ checklist
+                        "Verifica completezza inventario asset"
+                        "Conferma configurazione accessi remoti con MFA"
+                        "Validazione copertura patch critiche"
+                        "Test ripristino backup completato"
+                        "Revisione KPI con stakeholder"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Numero linee produzione"
+                        "Tipologia macchine e fornitori"
+                        "Risorse IT/OT disponibili"
+                        "Criticità sistemi"
+                        "Finestre manutenzione disponibili"
+                    [ avvertenze
+                        "Assicurarsi che le attività siano pianificate con Operations per evitare downtime non previsti."
+                        "Prioritizzare quick wins per ottenere visibilità immediata prima di progetti complessi."
+                        "Verificare compatibilità patch con sistemi legacy prima dell'applicazione."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/7"
+            nome "Casi applicativi e buone pratiche (IEC 62443)"
+            ruolo "Fornire linee guida pratiche e casi studio per l'implementazione della
+                +b sicurezza OT/ICS basati su IEC 62443"
+            [ norme_riferimento
+                "IEC 62443"
+                "IEC 27001/2"
+                "NIS2"
+                "CRA"
+                "Direttiva Macchine 2006"
+                "Registro Macchine 2023"
+                "GDPR 2016"
+            descrizione "Questo ambito copre casi applicativi reali e sintetici per illustrare
+                +b l'applicazione dello standard IEC 62443 in contesti OT/ICS. Include errori
+                +b comuni, quick wins, e lezioni apprese per migliorare la sicurezza in ambienti
+                +b industriali. I contenuti sono strutturati per fornire una guida pratica a PMI,
+                +b OEM e gestori di infrastrutture critiche, con mapping ai Foundational
+                +b Requirements (FR) e Security Levels (SL)."
+            [ sezioni
+                {
+                    id "cap/7/7.4"
+                    nome "Buone pratiche trasversali (riquadro di servizio)"
+                    { obiettivo
+                        codice "OBJ-7.4"
+                        descrizione "Fornire una sintesi di errori comuni, quick wins e checklist operative per
+                            +b l'implementazione della sicurezza OT/ICS secondo IEC 62443."
+                    [ output_attesi
+                        "Schede sintetiche per casi studio (pubblici e sintetici)"
+                        "Checklist operative per QA redazionale"
+                        "Linee guida pratiche per PMI/OEM/Service Provider"
+                        "Mapping a FR e SL per ogni caso o pratica"
+                    prompt_base "Scrivi contenuti pratici e vendor-neutral su errori comuni, quick wins e casi
+                        +b studio OT/ICS, mappando le contromisure a FR e SL della IEC 62443. Includi KPI,
+                        +b lezioni pratiche e diagrammi indicativi. Mantieni un tono operativo e adatta i
+                        +b contenuti a PMI, OEM e gestori di infrastrutture critiche."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-7.4.1"
+                            titolo "Errori comuni in sicurezza OT/ICS"
+                            descrizione_astratta "Identificazione di pratiche errate frequenti in ambienti OT/ICS che aumentano
+                                +b il rischio di incidenti di sicurezza."
+                            [ rischi_mitigati
+                                "Esposizione a vulnerabilità evitabili"
+                                "Accessi non autorizzati"
+                                "Mancata tracciabilità delle modifiche"
+                            [ pratiche_raccomandate
+                                "Evitare SL4 ovunque senza analisi di rischio (FR5, SL2-SL3)"
+                                "Implementare session recording per accessi remoti (FR1, FR2)"
+                                "Utilizzare staging per patch e documentare evidenze di change (FR3, FR6)"
+                            [ metriche_kpi
+                                "Percentuale di zone con SL-Target non giustificato (>80% SL4 non motivato)"
+                                "Percentuale di sessioni remote registrate (<100%)"
+                                "Tempo medio per applicazione patch senza staging (>30 giorni)"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di analisi di rischio per SL-Target"
+                                    "Procedura di registrazione sessioni remote"
+                                [ registri
+                                    "Registro delle analisi di rischio"
+                                    "Log delle sessioni remote"
+                                [ evidenze
+                                    "Report di conformità SL"
+                                    "Evidenza di test patch in staging"
+                            [ placeholders_contesto
+                                "[Settore industriale]"
+                                "[Tipologia di impianto]"
+                                "[Criticità degli asset]"
+                        {
+                            id "ASP-7.4.2"
+                            titolo "Quick Wins per sicurezza OT/ICS"
+                            descrizione_astratta "Azioni rapide ed efficaci per migliorare la postura di sicurezza in ambienti
+                                +b OT/ICS con risorse limitate."
+                            [ rischi_mitigati
+                                "Mancanza di visibilità sugli asset"
+                                "Accessi remoti non controllati"
+                                "Assenza di baseline di ripristino"
+                            [ pratiche_raccomandate
+                                "Inventario asset e classificazione criticità (FR1, FR2)"
+                                "Policy per accessi remoti e backup baseline con test (FR6, FR7)"
+                                "Implementazione DMZ e conduits con whitelisting per flussi critici (FR5, SL2)"
+                            [ metriche_kpi
+                                "Percentuale di asset inventariati (>90%)"
+                                "Percentuale di sessioni remote con MFA (>95%)"
+                                "Tempo medio di ripristino da backup (<4 ore)"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di inventario asset"
+                                    "Procedura di test backup"
+                                [ registri
+                                    "Registro inventario asset"
+                                    "Log test di ripristino"
+                                [ evidenze
+                                    "Report classificazione criticità"
+                                    "Evidenza di flussi whitelisted"
+                            [ placeholders_contesto
+                                "[Dimensione organizzazione]"
+                                "[Budget sicurezza]"
+                                "[Livello maturità OT]"
+                    { policy_template
+                        titolo "Policy di Sicurezza OT/ICS Trasversale"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Definizioni (Zone, Conduits, SL, FR)"
+                            "Errori comuni da evitare"
+                            "Quick wins e pratiche raccomandate"
+                            "Responsabilità e monitoraggio KPI"
+                        [ placeholders_contesto
+                            "[Nome organizzazione]"
+                            "[Settore]"
+                            "[Asset critici]"
+                    { sop_template
+                        titolo "SOP Implementazione Buone Pratiche OT/ICS"
+                        [ step
+                            "Identificazione errori comuni nel contesto operativo"
+                            "Definizione quick wins prioritari"
+                            "Mapping a FR e SL per ogni azione"
+                            "Esecuzione e monitoraggio KPI"
+                            "Revisione e aggiornamento pratiche"
+                        [ registrazioni
+                            "Log delle azioni correttive"
+                            "Report KPI"
+                            "Evidenza di conformità FR/SL"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili e approvati"
+                            "Branch 'develop' per contenuti in lavorazione"
+                            "Feature branch per ogni caso studio o pratica"
+                            "Pull request con revisione obbligatoria prima del merge"
+                    { raci
+                        [ roles
+                            "Security Manager (SP)"
+                            "OT Engineer (AO)"
+                            "IT Manager (SI)"
+                            "OT Security Specialist (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Identificazione errori comuni"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Definizione quick wins"
+                                SP "A"
+                                AO "R"
+                                SI "C"
+                                OTSec "R"
+                            {
+                                attivita "Mapping FR/SL"
+                                SP "C"
+                                AO "I"
+                                SI "I"
+                                OTSec "A"
+                            {
+                                attivita "Monitoraggio KPI"
+                                SP "A"
+                                AO "R"
+                                SI "I"
+                                OTSec "C"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Schede caso studio"
+                            "Checklist"
+                            "Linee guida"
+                            "Report tecnici"
+                        [ audience_possibili
+                            "PMI"
+                            "OEM"
+                            "Service Provider"
+                            "Gestori infrastrutture critiche"
+                        [ stili
+                            "Pratico-operativo"
+                            "Vendor-neutral"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Mapping obbligatorio a FR e SL"
+                            "Numeri in range o percentuali, no dati sensibili"
+                            "Tono vendor-neutral, no marchi o prodotti specifici"
+                    { prompting
+                        prompt_template_generico "Genera un contenuto pratico e vendor-neutral su [argomento] in ambito OT/ICS,
+                            +b mappando le contromisure a FR e SL della IEC 62443. Includi KPI in range o
+                            +b percentuali, lezioni pratiche per [audience] e indicazioni per diagrammi.
+                            +b Mantieni un tono operativo e una lunghezza di circa [parole] parole."
+                        prompt_esempio_articolo "Scrivi un articolo di 500 parole su errori comuni e quick wins in OT/ICS per
+                            +b PMI, mappando a FR e SL della IEC 62443. Includi 3 errori, 3 quick wins, KPI in
+                            +b percentuali e lezioni pratiche."
+                        prompt_esempio_slide "Crea una slide sintetica su TRITON/TRISIS per gestori di infrastrutture
+                            +b critiche, evidenziando contesto, contromisure IEC 62443 (FR/SL), 3 KPI e 3
+                            +b takeaway. Indica un diagramma Zone & Conduits."
+                        prompt_esempio_sop "Redigi una SOP di 1 pagina per l'implementazione di quick wins in OT/ICS per
+                            +b OEM, con step operativi, mapping a FR/SL, registrazioni richieste e KPI di
+                            +b monitoraggio."
+                    [ checklist
+                        "Struttura Contesto → Problema → Soluzione 62443 → KPI → Lezioni rispettata"
+                        "Box 'Per i ruoli' presente in ogni caso"
+                        "Mapping a FR1–FR7 e SL-Target realistici"
+                        "Figure/template/segnaposto indicati"
+                        "Tono pratico-operativo, vendor-neutral"
+                        "Acronimi spiegati, tecnicismi parafrasati"
+                        "Disclaimer per casi sintetici dove richiesto"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Settore industriale (es. energia, acque, manifatturiero)"
+                        "Tipologia di impianto o infrastruttura"
+                        "Criticità degli asset (bassa, media, alta)"
+                        "Livello di maturità sicurezza OT (base, intermedio, avanzato)"
+                        "Budget disponibile per sicurezza"
+                    [ avvertenze
+                        "I casi sintetici devono includere disclaimer esplicito sui dati ricostruiti"
+                        "Evitare numeri assoluti o dati sensibili, usare range o percentuali"
+                        "Mapping a SL deve essere realistico, evitare SL4 ovunque senza giustificazione"
+                        "Garantire che le fonti siano autorevoli e citate correttamente"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/9"
+            nome "La IEC 62443 come leva di trasformazione (AI/LLM, organizzazione, valore per
+                +b gli executive)"
+            ruolo "Guida strategica per executive e decisori su come trasformare la conformità IEC
+                +b 62443 in valore operativo e organizzativo."
+            [ norme_riferimento
+                "IEC 62443"
+                "ISO/IEC 27001"
+                "NIS2"
+                "CRA"
+            descrizione "Questo ambito esplora come la IEC 62443 possa essere utilizzata non solo per
+                +b garantire la conformità, ma come leva per razionalizzare i processi OT,
+                +b migliorare la tracciabilità dei dati e creare valore operativo. Si focalizza
+                +b sull'integrazione con tecnologie AI/LLM per trasformare gli artefatti normativi
+                +b in una knowledge base strutturata, con roadmap e KPI chiari per misurare il
+                +b progresso."
+            [ sezioni
+                {
+                    id "cap/9/9.1"
+                    nome "Executive summary (1 pagina)"
+                    { obiettivo
+                        codice "OBJ-9.1"
+                        descrizione "Fornire una sintesi di alto livello per executive sul valore della IEC 62443
+                            +b come strumento di trasformazione, evidenziando rischi, benefici e tappe chiave."
+                    [ output_attesi
+                        "Documento di 1 pagina 'board-ready' con sintesi di valore, rischi e roadmap."
+                        "Slide di supporto per presentazioni C-level."
+                        "KPI preliminari per misurare il progresso a 90/180/365 giorni."
+                    prompt_base "Scrivi 12–14 righe ‘board-ready’ che riassumano valore, rischi e tappe
+                        +b 90/180/365 dell’approccio 62443+LLM. Evidenzia come la IEC 62443 razionalizzi i
+                        +b processi OT e migliori la tracciabilità dei dati, trasformando la conformità in
+                        +b vantaggio operativo (meno fermi, meno errori, interventi rapidi). Spiega come
+                        +b gli artefatti normativi possano diventare una knowledge base per LLM con
+                        +b guardrail di sicurezza. Concludi con una roadmap chiara e KPI di risultato
+                        +b misurabili."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-9.1.1"
+                            titolo "Razionalizzazione processi OT tramite IEC 62443"
+                            descrizione_astratta "Utilizzo della IEC 62443 per standardizzare e ottimizzare i processi OT,
+                                +b riducendo errori e tempi di fermo."
+                            [ rischi_mitigati
+                                "Errori operativi"
+                                "Fermi macchina non pianificati"
+                                "Mancanza di tracciabilità"
+                            [ pratiche_raccomandate
+                                "Mappatura processi OT secondo IEC 62443-3-3"
+                                "Implementazione di controlli di sicurezza per asset critici"
+                                "Formazione del personale su standard"
+                            [ metriche_kpi
+                                "Riduzione tempi di fermo (%)"
+                                "Numero di errori operativi rilevati"
+                                "Tempi medi di intervento"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di mappatura asset OT"
+                                    "Procedura di implementazione controlli"
+                                [ registri
+                                    "Registro asset OT"
+                                    "Registro incidenti operativi"
+                                [ evidenze
+                                    "Report di conformità IEC 62443"
+                                    "Log di interventi"
+                            [ placeholders_contesto
+                                "[Settore industriale]"
+                                "[Tipologia asset OT]"
+                                "[Dimensione organizzazione]"
+                        {
+                            id "ASP-9.1.2"
+                            titolo "Integrazione AI/LLM con artefatti IEC 62443"
+                            descrizione_astratta "Trasformazione degli artefatti normativi in una knowledge base per LLM, con
+                                +b guardrail per garantire sicurezza e conformità."
+                            [ rischi_mitigati
+                                "Uso improprio di dati sensibili"
+                                "Mancanza di controllo su output AI"
+                                "Non conformità normativa"
+                            [ pratiche_raccomandate
+                                "Definizione guardrail per LLM"
+                                "Validazione output AI rispetto a IEC 62443"
+                                "Monitoraggio continuo utilizzo dati"
+                            [ metriche_kpi
+                                "Percentuale di output AI conformi"
+                                "Tempo di validazione output"
+                                "Numero di violazioni guardrail"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione guardrail LLM"
+                                    "Procedura di validazione output"
+                                [ registri
+                                    "Registro utilizzo LLM"
+                                    "Registro violazioni guardrail"
+                                [ evidenze
+                                    "Report conformità output AI"
+                                    "Log di monitoraggio"
+                            [ placeholders_contesto
+                                "[Tipo di LLM utilizzato]"
+                                "[Ambito applicazione AI]"
+                                "[Normative locali]"
+                    { policy_template
+                        titolo "Policy per l’adozione di IEC 62443 e AI/LLM"
+                        [ sezioni
+                            "Scopo"
+                            "Ambito di applicazione"
+                            "Responsabilità"
+                            "Linee guida per conformità"
+                            "Monitoraggio e reporting"
+                        [ placeholders_contesto
+                            "[Nome organizzazione]"
+                            "[Settore]"
+                            "[Normative applicabili]"
+                    { sop_template
+                        titolo "SOP per implementazione controlli IEC 62443 con supporto AI"
+                        [ step
+                            "Identificazione asset critici"
+                            "Mappatura controlli IEC 62443"
+                            "Configurazione guardrail AI"
+                            "Validazione output"
+                            "Registrazione risultati"
+                        [ registrazioni
+                            "Registro asset"
+                            "Registro controlli implementati"
+                            "Log utilizzo AI"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti approvati"
+                            "Branch 'develop' per draft"
+                            "Feature branch per sezioni specifiche"
+                            "Pull request obbligatorie con review"
+                    { raci
+                        [ roles
+                            "Sponsor Progetto (SP)"
+                            "Architetto OT (AO)"
+                            "Specialista IT (SI)"
+                            "OT Security Lead (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione roadmap 62443+LLM"
+                                SP "A"
+                                AO "R"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Implementazione guardrail AI"
+                                SP "I"
+                                AO "C"
+                                SI "R"
+                                OTSec "A"
+                            {
+                                attivita "Monitoraggio KPI"
+                                SP "A"
+                                AO "I"
+                                SI "C"
+                                OTSec "R"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Executive Summary"
+                            "Slide Deck"
+                            "Report KPI"
+                        [ audience_possibili
+                            "C-Level"
+                            "Board"
+                            "Responsabili OT"
+                            "Team IT/Security"
+                        [ stili
+                            "Formale"
+                            "Sintetico"
+                            "Strategico"
+                        [ livello_tecnico
+                            "Alto livello"
+                            "Strategico non tecnico"
+                        [ vincoli
+                            "Massimo 1 pagina per summary"
+                            "Linguaggio accessibile a non tecnici"
+                            "Focus su valore e rischi"
+                    { prompting
+                        prompt_template_generico "Scrivi un documento di tipo [tipo_documento] per [audience] in stile [stile]
+                            +b sul tema della IEC 62443 come leva di trasformazione. Includi [elementi_chiave]
+                            +b e rispetta i vincoli [vincoli]."
+                        prompt_esempio_articolo "Scrivi un executive summary di 1 pagina per C-Level in stile formale sul valore
+                            +b della IEC 62443 come leva di trasformazione. Includi benefici operativi,
+                            +b integrazione AI/LLM e roadmap 90/180/365 giorni. Rispetta il vincolo di sintesi
+                            +b e linguaggio non tecnico."
+                        prompt_esempio_slide "Crea un set di 3 slide per il Board in stile sintetico sul tema IEC 62443+AI.
+                            +b Includi valore operativo, rischi mitigati e KPI. Usa bullet point e grafici
+                            +b placeholder."
+                        prompt_esempio_sop "Scrivi una SOP per implementare controlli IEC 62443 con supporto AI per team
+                            +b OT. Includi step operativi, guardrail AI e registrazioni. Usa un linguaggio
+                            +b chiaro e strutturato."
+                    [ checklist
+                        "Verifica conformità contenuti a IEC 62443."
+                        "Assicurati che il linguaggio sia adatto all’audience C-Level."
+                        "Includi roadmap con tappe 90/180/365 giorni."
+                        "Evidenzia valore operativo e rischi mitigati."
+                        "Valida KPI proposti per misurabilità."
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Settore industriale"
+                        "Dimensione organizzazione"
+                        "Livello di maturità OT attuale"
+                        "Obiettivi strategici aziendali"
+                        "Normative locali applicabili"
+                    [ avvertenze
+                        "I contenuti generati devono essere validati da esperti OT/Security prima dell’uso."
+                        "Le roadmap proposte sono indicative e richiedono adattamento al contesto aziendale."
+                        "L’integrazione AI/LLM deve rispettare GDPR e altre normative sulla privacy."

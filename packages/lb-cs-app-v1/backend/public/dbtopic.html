@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DB Argomenti OT/ICS Cybersecurity</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .content {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            min-height: 70vh;
+        }
+
+        .navigation {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+            padding: 15px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-button {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .nav-button:hover {
+            background: #5a6268;
+            transform: translateY(-1px);
+        }
+
+        .nav-button.active {
+            background: #007bff;
+        }
+
+        .main-content {
+            padding: 30px;
+        }
+
+        .ambiti-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .ambito-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .ambito-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: #007bff;
+        }
+
+        .ambito-card h3 {
+            color: #007bff;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .ambito-card .role {
+            color: #6c757d;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .ambito-card .sezioni-count {
+            background: #e9ecef;
+            color: #495057;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+
+        .ambito-detail {
+            animation: fadeIn 0.5s ease;
+        }
+
+        .ambito-header {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .ambito-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .ambito-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .meta-item {
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .meta-item label {
+            display: block;
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .norme-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .norma-tag {
+            background: #28a745;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .sezioni-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .sezione-card {
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .sezione-card:hover {
+            border-color: #007bff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .sezione-card h4 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .obiettivo-badge {
+            background: #17a2b8;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .sezione-detail {
+            animation: fadeIn 0.5s ease;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding-right: 15px;
+        }
+
+        .section-block {
+            background: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .section-block h3 {
+            color: #007bff;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .array-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .array-list li {
+            background: white;
+            margin: 8px 0;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 3px solid #28a745;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .aspetto-sicurezza {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .aspetto-sicurezza h4 {
+            color: #dc3545;
+            margin-bottom: 10px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.2rem;
+            color: #6c757d;
+        }
+
+        .error {
+            text-align: center;
+            padding: 50px;
+            color: #dc3545;
+            font-size: 1.1rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .raci-matrix {
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .raci-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        .raci-table th, .raci-table td {
+            border: 1px solid #dee2e6;
+            padding: 8px 12px;
+            text-align: center;
+        }
+
+        .raci-table th {
+            background: #007bff;
+            color: white;
+        }
+
+        .raci-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        /* Scrollbar personalizzata */
+        .sezione-detail::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .sezione-detail::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .sezione-detail::-webkit-scrollbar-thumb {
+            background: #007bff;
+            border-radius: 4px;
+        }
+
+        .sezione-detail::-webkit-scrollbar-thumb:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const CybersecurityViewer = () => {
+            const [data, setData] = useState(null);
+            const [loading, setLoading] = useState(true);
+            const [error, setError] = useState(null);
+            const [currentView, setCurrentView] = useState('ambiti');
+            const [selectedAmbito, setSelectedAmbito] = useState(null);
+            const [selectedSezione, setSelectedSezione] = useState(null);
+
+            useEffect(() => {
+                fetchData();
+            }, []);
+
+            const fetchData = async () => {
+                try {
+                    setLoading(true);
+                    const response = await fetch('http://localhost:3005/dbtopic.json');
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const jsonData = await response.json();
+                    setData(jsonData);
+                } catch (err) {
+                    setError(`Errore nel caricamento dei dati: ${err.message}`);
+                } finally {
+                    setLoading(false);
+                }
+            };
+
+            const handleAmbitoSelect = (ambito) => {
+                setSelectedAmbito(ambito);
+                setSelectedSezione(null);
+                setCurrentView('sezioni');
+            };
+
+            const handleSezioneSelect = (sezione) => {
+                setSelectedSezione(sezione);
+                setCurrentView('sezione-detail');
+            };
+
+            const handleBackToAmbiti = () => {
+                setCurrentView('ambiti');
+                setSelectedAmbito(null);
+                setSelectedSezione(null);
+            };
+
+            const handleBackToSezioni = () => {
+                setCurrentView('sezioni');
+                setSelectedSezione(null);
+            };
+
+            const renderArrayItems = (items, title) => {
+                if (!items || !Array.isArray(items) || items.length === 0) return null;
+                
+                return (
+                    <div className="section-block">
+                        <h3>{title}</h3>
+                        <ul className="array-list">
+                            {items.map((item, index) => (
+                                <li key={index}>{typeof item === 'string' ? item : JSON.stringify(item)}</li>
+                            ))}
+                        </ul>
+                    </div>
+                );
+            };
+
+            const renderObjectDetails = (obj, title) => {
+                if (!obj || typeof obj !== 'object') return null;
+
+                return (
+                    <div className="section-block">
+                        <h3>{title}</h3>
+                        {Object.entries(obj).map(([key, value]) => (
+                            <div key={key} style={{ marginBottom: '10px' }}>
+                                <strong>{key}:</strong> {' '}
+                                {Array.isArray(value) ? (
+                                    <ul className="array-list" style={{ marginTop: '5px' }}>
+                                        {value.map((item, idx) => (
+                                            <li key={idx}>{typeof item === 'string' ? item : JSON.stringify(item)}</li>
+                                        ))}
+                                    </ul>
+                                ) : typeof value === 'object' ? (
+                                    <pre style={{ background: '#f8f9fa', padding: '10px', borderRadius: '4px', fontSize: '0.9rem' }}>
+                                        {JSON.stringify(value, null, 2)}
+                                    </pre>
+                                ) : (
+                                    <span>{String(value)}</span>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                );
+            };
+
+            const renderRaciMatrix = (raci) => {
+                if (!raci || !raci.matrix || !Array.isArray(raci.matrix)) return null;
+
+                return (
+                    <div className="section-block">
+                        <h3>Matrice RACI</h3>
+                        {raci.roles && (
+                            <div style={{ marginBottom: '15px' }}>
+                                <strong>Ruoli: </strong>
+                                {raci.roles.join(', ')}
+                            </div>
+                        )}
+                        <div className="raci-matrix">
+                            <table className="raci-table">
+                                <thead>
+                                    <tr>
+                                        <th>Attività</th>
+                                        <th>SP</th>
+                                        <th>AO</th>
+                                        <th>SI</th>
+                                        <th>OTSec</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {raci.matrix.map((row, index) => (
+                                        <tr key={index}>
+                                            <td style={{ textAlign: 'left', fontWeight: 'bold' }}>{row.attivita}</td>
+                                            <td>{row.SP || '-'}</td>
+                                            <td>{row.AO || '-'}</td>
+                                            <td>{row.SI || '-'}</td>
+                                            <td>{row.OTSec || '-'}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                );
+            };
+
+            const renderAspettiSicurezza = (aspetti) => {
+                if (!aspetti || !Array.isArray(aspetti) || aspetti.length === 0) return null;
+
+                return (
+                    <div className="section-block">
+                        <h3>Aspetti di Sicurezza</h3>
+                        {aspetti.map((aspetto, index) => (
+                            <div key={index} className="aspetto-sicurezza">
+                                <h4>{aspetto.titolo} ({aspetto.id})</h4>
+                                <p><strong>Descrizione:</strong> {aspetto.descrizione_astratta}</p>
+                                
+                                {aspetto.rischi_mitigati && aspetto.rischi_mitigati.length > 0 && (
+                                    <div style={{ marginTop: '10px' }}>
+                                        <strong>Rischi Mitigati:</strong>
+                                        <ul className="array-list">
+                                            {aspetto.rischi_mitigati.map((rischio, idx) => (
+                                                <li key={idx}>{rischio}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
+
+                                {aspetto.pratiche_raccomandate && aspetto.pratiche_raccomandate.length > 0 && (
+                                    <div style={{ marginTop: '10px' }}>
+                                        <strong>Pratiche Raccomandate:</strong>
+                                        <ul className="array-list">
+                                            {aspetto.pratiche_raccomandate.map((pratica, idx) => (
+                                                <li key={idx}>{pratica}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
+
+                                {aspetto.metriche_kpi && aspetto.metriche_kpi.length > 0 && (
+                                    <div style={{ marginTop: '10px' }}>
+                                        <strong>Metriche/KPI:</strong>
+                                        <ul className="array-list">
+                                            {aspetto.metriche_kpi.map((metrica, idx) => (
+                                                <li key={idx}>{metrica}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
+
+                                {aspetto.artefatti && (
+                                    <div style={{ marginTop: '10px' }}>
+                                        <strong>Artefatti:</strong>
+                                        {Object.entries(aspetto.artefatti).map(([tipo, items]) => (
+                                            items && items.length > 0 && (
+                                                <div key={tipo} style={{ marginLeft: '15px' }}>
+                                                    <strong>{tipo}:</strong>
+                                                    <ul className="array-list">
+                                                        {items.map((item, idx) => (
+                                                            <li key={idx}>{item}</li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            )
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                );
+            };
+
+            if (loading) {
+                return (
+                    <div className="container">
+                        <div className="content">
+                            <div className="loading">Caricamento dati in corso...</div>
+                        </div>
+                    </div>
+                );
+            }
+
+            if (error) {
+                return (
+                    <div className="container">
+                        <div className="content">
+                            <div className="error">{error}</div>
+                        </div>
+                    </div>
+                );
+            }
+
+            return (
+                <div className="container">
+                    <div className="header">
+                        <h1>DB Argomenti OT/ICS Cybersecurity</h1>
+                        <p>Sistema di gestione della cybersecurity per ambienti OT/ICS</p>
+                    </div>
+
+                    <div className="content">
+                        <div className="navigation">
+                            <button 
+                                className={`nav-button ${currentView === 'ambiti' ? 'active' : ''}`}
+                                onClick={handleBackToAmbiti}
+                            >
+                                🏠 Ambiti
+                            </button>
+                            {selectedAmbito && (
+                                <button 
+                                    className={`nav-button ${currentView === 'sezioni' ? 'active' : ''}`}
+                                    onClick={handleBackToSezioni}
+                                >
+                                    📋 {selectedAmbito.nome}
+                                </button>
+                            )}
+                            {selectedSezione && (
+                                <button className="nav-button active">
+                                    📄 {selectedSezione.nome}
+                                </button>
+                            )}
+                        </div>
+
+                        <div className="main-content">
+                            {currentView === 'ambiti' && (
+                                <div className="ambiti-list">
+                                    {data.items.map((item, index) => 
+                                        item.ambito && (<div 
+                                            key={index} 
+                                            className="ambito-card"
+                                            onClick={() => handleAmbitoSelect(item.ambito)}
+                                        >
+                                            <h3>{item.ambito.nome}</h3>
+                                            <div className="role">{item.ambito.ruolo}</div>
+                                            <p>{item.ambito.descrizione}</p>
+                                            <div style={{ marginTop: '15px' }}>
+                                                <span className="sezioni-count">
+                                                    {item.ambito.sezioni.length} sezioni
+                                                </span>
+                                            </div>
+                                        </div>) 
+                                    )}
+                                </div>
+                            )}
+
+                            {currentView === 'sezioni' && selectedAmbito && (
+                                <div className="ambito-detail">
+                                    <div className="ambito-header">
+                                        <h2>{selectedAmbito.nome}</h2>
+                                        <p>{selectedAmbito.descrizione}</p>
+                                        <div className="ambito-meta">
+                                            <div className="meta-item">
+                                                <label>ID:</label>
+                                                <div>{selectedAmbito.id}</div>
+                                            </div>
+                                            <div className="meta-item">
+                                                <label>Ruolo:</label>
+                                                <div>{selectedAmbito.ruolo}</div>
+                                            </div>
+                                        </div>
+                                        <div className="norme-list">
+                                            {selectedAmbito.norme_riferimento.map((norma, index) => (
+                                                <span key={index} className="norma-tag">{norma}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className="sezioni-grid">
+                                        {selectedAmbito.sezioni.map((sezione, index) => (
+                                            <div 
+                                                key={index} 
+                                                className="sezione-card"
+                                                onClick={() => handleSezioneSelect(sezione)}
+                                            >
+                                                <h4>{sezione.nome}</h4>
+                                                <div className="obiettivo-badge">
+                                                    {sezione.obiettivo.codice}
+                                                </div>
+                                                <p>{sezione.obiettivo.descrizione}</p>
+                                                {sezione.aspetti_di_sicurezza && (
+                                                    <div style={{ marginTop: '10px', fontSize: '0.8rem', color: '#6c757d' }}>
+                                                        {sezione.aspetti_di_sicurezza.length} aspetti di sicurezza
+                                                    </div>
+                                                )}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            {currentView === 'sezione-detail' && selectedSezione && (
+                                <div className="sezione-detail">
+                                    <div className="section-block">
+                                        <h2>{selectedSezione.nome}</h2>
+                                        <div style={{ marginBottom: '15px' }}>
+                                            <span className="obiettivo-badge">
+                                                {selectedSezione.obiettivo.codice}
+                                            </span>
+                                        </div>
+                                        <p><strong>Obiettivo:</strong> {selectedSezione.obiettivo.descrizione}</p>
+                                        {selectedSezione.prompt_base && (
+                                            <p><strong>Prompt Base:</strong> {selectedSezione.prompt_base}</p>
+                                        )}
+                                    </div>
+
+                                    {renderArrayItems(selectedSezione.output_attesi, "Output Attesi")}
+                                    {renderAspettiSicurezza(selectedSezione.aspetti_di_sicurezza)}
+                                    {renderObjectDetails(selectedSezione.policy_template, "Policy Template")}
+                                    {renderObjectDetails(selectedSezione.sop_template, "SOP Template")}
+                                    {renderObjectDetails(selectedSezione.repo_branching_model, "Repository Branching Model")}
+                                    {selectedSezione.raci && renderRaciMatrix(selectedSezione.raci)}
+                                    {renderObjectDetails(selectedSezione.parametri_generazione, "Parametri Generazione")}
+                                    {renderObjectDetails(selectedSezione.prompting, "Prompting")}
+                                    {renderArrayItems(selectedSezione.checklist, "Checklist")}
+                                    {renderArrayItems(selectedSezione.campi_contesto_richiesti_per_la_contestualizzazione, "Campi Contesto Richiesti")}
+                                    {renderArrayItems(selectedSezione.avvertenze, "Avvertenze")}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<CybersecurityViewer />, document.getElementById('root'));
+    </script>
+</body>
+</html>

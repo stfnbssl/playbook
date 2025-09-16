@@ -1,0 +1,1089 @@
+$group
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/10"
+            nome "Software Development Life Cycle per OEM & fornitori di componenti (IEC
+                +b 62443-4-1 / 62443-4-2) con supporto LLM"
+            ruolo "Supporto alla conformità e documentazione per fornitori e OEM nel contesto
+                +b OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-4-1"
+                "IEC 62443-4-2"
+                "ISO/IEC 27001"
+                "NIS2"
+                "Cyber Resilience Act (CRA)"
+            descrizione "Questo ambito si concentra sullo sviluppo sicuro del software per componenti
+                +b OT/ICS, con particolare attenzione alla conformità agli standard IEC 62443-4-1
+                +b e 62443-4-2. Include la creazione di pacchetti di evidenze per i clienti (PSEP)
+                +b e l'uso di strumenti LLM per la generazione di documentazione."
+            [ sezioni
+                {
+                    id "cap/10/10.13"
+                    nome "Pacchetto evidenze per clienti (PSEP)"
+                    { obiettivo
+                        codice "OBJ-PSEP-001"
+                        descrizione "Standardizzare ciò che il cliente richiede: Security Profile, SBOM, VEX,
+                            +b manuale integrazione sicura, test report."
+                    [ output_attesi
+                        "Indice PSEP (Product Security Evidence Package)"
+                        "Modelli per SBOM (Software Bill of Materials)"
+                        "Modelli per VEX (Vulnerability Exploitability eXchange)"
+                        "Manuale di integrazione sicura"
+                        "Report di test di sicurezza"
+                    prompt_base "Crea indice PSEP e compila esempi di sezioni chiave (SBOM, VEX, manuale
+                        +b integrazione)."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-PSEP-001"
+                            titolo "Trasparenza della supply chain software"
+                            descrizione_astratta "Garantire che i clienti abbiano visibilità completa sui componenti software
+                                +b utilizzati nei prodotti OT/ICS tramite SBOM e VEX."
+                            [ rischi_mitigati
+                                "Mancata identificazione di vulnerabilità nei componenti di terze parti"
+                                "Ritardi nella risposta a incidenti di sicurezza"
+                            [ pratiche_raccomandate
+                                "Generazione automatica di SBOM conformi a standard come CycloneDX o SPDX"
+                                "Aggiornamento periodico di VEX per vulnerabilità note"
+                                "Documentazione chiara per l'integrazione sicura"
+                            [ metriche_kpi
+                                "Percentuale di componenti coperti da SBOM (target: 100%)"
+                                "Tempo medio di aggiornamento VEX dopo scoperta vulnerabilità (target: < 48 ore)"
+                            { artefatti
+                                [ procedure
+                                    "Procedura per la generazione di SBOM"
+                                    "Procedura per l'aggiornamento di VEX"
+                                [ registri
+                                    "Registro delle versioni SBOM"
+                                    "Registro delle vulnerabilità VEX"
+                                [ evidenze
+                                    "File SBOM generati"
+                                    "Documenti VEX aggiornati"
+                                    "Manuali di integrazione sicura"
+                            [ placeholders_contesto
+                                "[NOME_PRODOTTO]"
+                                "[VERSIONE_PRODOTTO]"
+                                "[CLIENTE_TARGET]"
+                    { policy_template
+                        titolo "Policy per la gestione del Pacchetto Evidenze di Sicurezza Prodotto (PSEP)"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Responsabilità"
+                            "Requisiti per SBOM e VEX"
+                            "Processo di aggiornamento delle evidenze"
+                            "Distribuzione ai clienti"
+                        [ placeholders_contesto
+                            "[NOME_AZIENDA]"
+                            "[SETTORE]"
+                            "[PRODOTTO_SPECIFICO]"
+                    { sop_template
+                        titolo "SOP per la Creazione e Aggiornamento del PSEP"
+                        [ step
+                            "Raccolta dei dati sui componenti software per SBOM"
+                            "Analisi delle vulnerabilità per VEX"
+                            "Redazione del manuale di integrazione sicura"
+                            "Validazione interna del pacchetto PSEP"
+                            "Consegna al cliente con firma di ricezione"
+                        [ registrazioni
+                            "Log delle modifiche SBOM"
+                            "Log delle vulnerabilità aggiornate in VEX"
+                            "Registro delle consegne PSEP ai clienti"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili di PSEP"
+                            "Branch 'develop' per bozze e aggiornamenti"
+                            "Feature branch per nuove sezioni o revisioni (es. 'feature/sbom-update')"
+                            "Pull request obbligatorie con revisione da almeno 2 membri del team"
+                    { raci
+                        [ roles
+                            "Security Product (SP)"
+                            "Asset Owner (AO)"
+                            "Security Integrator (SI)"
+                            "OT Security Team (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione requisiti PSEP"
+                                SP "Responsible"
+                                AO "Accountable"
+                                SI "Consulted"
+                                OTSec "Informed"
+                            {
+                                attivita "Generazione SBOM e VEX"
+                                SP "Responsible"
+                                AO "Informed"
+                                SI "Consulted"
+                                OTSec "Accountable"
+                            {
+                                attivita "Consegna PSEP al cliente"
+                                SP "Responsible"
+                                AO "Informed"
+                                SI "Informed"
+                                OTSec "Accountable"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Indice PSEP"
+                            "SBOM (CycloneDX/SPDX)"
+                            "VEX"
+                            "Manuale integrazione"
+                            "Report di test"
+                        [ audience_possibili
+                            "Clienti finali"
+                            "Integratori di sistema"
+                            "Auditor di conformità"
+                        [ stili
+                            "Tecnico formale"
+                            "Sintetico per auditor"
+                            "Dettagliato per integratori"
+                        [ livello_tecnico
+                            "Base (per clienti non tecnici)"
+                            "Intermedio (per integratori)"
+                            "Avanzato (per auditor e team OTSec)"
+                        [ vincoli
+                            "Conformità a IEC 62443-4-1 e 62443-4-2"
+                            "Rispetto dei formati standard per SBOM e VEX"
+                            "Tempistiche di aggiornamento (massimo 30 giorni per nuove vulnerabilità)"
+                    { prompting
+                        prompt_template_generico "Genera un documento PSEP per [NOME_PRODOTTO] versione [VERSIONE] destinato a
+                            +b [AUDIENCE]. Includi indice, SBOM, VEX e manuale di integrazione sicura. Usa uno
+                            +b stile [STILE] e un livello tecnico [LIVELLO]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico sul processo di creazione di un PSEP per un
+                            +b dispositivo OT/ICS, evidenziando l'importanza di SBOM e VEX per la trasparenza
+                            +b della supply chain."
+                        prompt_esempio_slide "Crea una presentazione di 5 slide sul PSEP per un cliente finale, con focus su
+                            +b cosa include (SBOM, VEX, manuale) e perché è importante per la sicurezza del
+                            +b prodotto."
+                        prompt_esempio_sop "Redigi una SOP dettagliata per la generazione di un PSEP, includendo step per
+                            +b la raccolta dati SBOM, aggiornamento VEX e consegna al cliente."
+                    [ checklist
+                        "Verifica completezza SBOM (tutti i componenti inclusi)"
+                        "Conferma aggiornamento VEX con vulnerabilità note"
+                        "Validazione manuale di integrazione (lingua e chiarezza)"
+                        "Revisione interna del PSEP prima della consegna"
+                        "Conferma ricezione da parte del cliente"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome del prodotto"
+                        "Versione del prodotto"
+                        "Cliente target"
+                        "Settore di applicazione"
+                        "Requisiti specifici del cliente o normativi"
+                    [ avvertenze
+                        "Assicurarsi che i dati sensibili nel PSEP siano protetti o anonimizzati se necessario (conformità GDPR)."
+                        "Verificare che il formato SBOM/VEX sia compatibile con gli strumenti del cliente."
+                        "Non consegnare PSEP senza revisione interna per evitare errori o omissioni."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-15"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/10"
+            nome "Software Development Life Cycle per OEM & fornitori di componenti (IEC
+                +b 62443-4-1 / 62443-4-2) con supporto LLM"
+            ruolo "Supporto alla conformità e automazione dei processi di sviluppo sicuro tramite
+                +b LLM"
+            [ norme_riferimento
+                "IEC 62443-4-1"
+                "IEC 62443-4-2"
+                "ISO/IEC 27001"
+                "NIS2 Directive"
+            descrizione "Questo ambito si concentra sull'integrazione di modelli linguistici di grandi
+                +b dimensioni (LLM) nel ciclo di vita dello sviluppo software (SDLC) per OEM e
+                +b fornitori di componenti, con particolare attenzione alla sicurezza informatica
+                +b in ambito OT/ICS. L'obiettivo è migliorare la conformità agli standard IEC
+                +b 62443-4-1 e 62443-4-2 attraverso l'automazione di attività come la gestione di
+                +b knowledge base, risposte rapide a RFI/RFP e creazione di documentazione
+                +b tecnica."
+            [ sezioni
+                {
+                    id "cap/10/10.14"
+                    nome "Programma LLM-assisted: knowledge base & risposte rapide"
+                    { obiettivo
+                        codice "OBJ-10.14"
+                        descrizione "Usare LLM per catalogare standard, policy, procedure e automatizzare RFI/RFP,
+                            +b FAQ tecniche, advisories, manuali."
+                    [ output_attesi
+                        "Knowledge base indicizzata"
+                        "Prompt templates"
+                        "Guardrail LLM"
+                    prompt_base "Definisci RAG per SDLC: fonti, indici, permessi; crea 6 prompt template (RFI,
+                        +b advisory, SBOM note, manuale, PSEP, FAQ)."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-10.14.1"
+                            titolo "Protezione dei dati sensibili nella knowledge base"
+                            descrizione_astratta "Garantire che i dati sensibili utilizzati per alimentare la knowledge base
+                                +b siano protetti da accessi non autorizzati e conformi al GDPR."
+                            [ rischi_mitigati
+                                "Divulgazione non autorizzata di informazioni riservate"
+                                "Violazione delle normative sulla privacy"
+                            [ pratiche_raccomandate
+                                "Implementare controlli di accesso basati su ruoli (RBAC)"
+                                "Crittografia dei dati a riposo e in transito"
+                                "Anonimizzazione dei dati sensibili"
+                            [ metriche_kpi
+                                "Percentuale di dati sensibili protetti"
+                                "Tempo di risposta a incidenti di sicurezza dati"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di gestione accessi alla knowledge base"
+                                    "Procedura di monitoraggio delle violazioni"
+                                [ registri
+                                    "Log degli accessi alla knowledge base"
+                                    "Registro degli incidenti di sicurezza"
+                                [ evidenze
+                                    "Report di audit sulla sicurezza dei dati"
+                                    "Configurazioni di crittografia implementate"
+                            [ placeholders_contesto
+                                "{azienda}"
+                                "{settore}"
+                                "{normativa_applicabile}"
+                    { policy_template
+                        titolo "Policy per l'uso di LLM nella gestione della knowledge base"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Ruoli e responsabilità"
+                            "Linee guida per l'uso sicuro di LLM"
+                            "Gestione dei dati sensibili"
+                            "Monitoraggio e revisione"
+                        [ placeholders_contesto
+                            "{azienda}"
+                            "{responsabile_sicurezza}"
+                            "{frequenza_revisione}"
+                    { sop_template
+                        titolo "SOP per la creazione di prompt LLM sicuri"
+                        [ step
+                            "Identificazione dell'obiettivo del prompt"
+                            "Selezione delle fonti dati rilevanti"
+                            "Definizione dei guardrail per il prompt"
+                            "Test del prompt in ambiente controllato"
+                            "Validazione dei risultati generati"
+                            "Documentazione e archiviazione del prompt"
+                        [ registrazioni
+                            "Registro dei prompt creati"
+                            "Esiti dei test di validazione"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per rilasci stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuovi prompt o funzionalità"
+                            "Pull request obbligatorie con revisione"
+                    { raci
+                        [ roles
+                            "SP (Security Practitioner)"
+                            "AO (Asset Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Specialist)"
+                        [ matrix
+                            {
+                                attivita "Definizione requisiti knowledge base"
+                                SP "A"
+                                AO "R"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Creazione prompt template"
+                                SP "R"
+                                AO "C"
+                                SI "I"
+                                OTSec "A"
+                            {
+                                attivita "Validazione output LLM"
+                                SP "C"
+                                AO "I"
+                                SI "R"
+                                OTSec "A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "RFI"
+                            "Advisory"
+                            "SBOM note"
+                            "Manuale"
+                            "PSEP"
+                            "FAQ"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Manager"
+                            "Fornitori"
+                            "Auditor"
+                        [ stili
+                            "Tecnico"
+                            "Formale"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443"
+                            "Rispetto GDPR per dati personali"
+                            "Limitazione output a 500 parole per FAQ"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo {tipo_documento} per {audience} con stile {stile} e
+                            +b livello tecnico {livello}. Usa fonti da {fonte_dati} e rispetta i vincoli
+                            +b {vincoli}."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico per auditor su come IEC 62443-4-1 supporta la
+                            +b sicurezza nello SDLC, stile formale, livello avanzato, max 800 parole."
+                        prompt_esempio_slide "Crea una slide sintetica per manager su rischi mitigati da IEC 62443-4-2, stile
+                            +b formale, livello base, max 5 punti chiave."
+                        prompt_esempio_sop "Definisci una SOP per la creazione di un advisory di sicurezza OT, stile
+                            +b tecnico, livello intermedio, con step dettagliati."
+                    [ checklist
+                        "Verifica conformità dati a GDPR"
+                        "Validazione fonti per RAG"
+                        "Test guardrail LLM"
+                        "Revisione output per accuratezza"
+                        "Archiviazione output in repo sicuro"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Settore industriale"
+                        "Normative applicabili"
+                        "Ruolo utente"
+                        "Tipo di dispositivo/componente OT"
+                        "Livello di maturità sicurezza"
+                    [ avvertenze
+                        "Gli output generati da LLM devono essere sempre validati da un esperto umano."
+                        "Non utilizzare dati sensibili non anonimizzati nei prompt."
+                        "Rispettare i guardrail per evitare bias o risposte non conformi."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/10"
+            nome "Software Development Life Cycle per OEM & fornitori di componenti (IEC
+                +b 62443-4-1 / 62443-4-2) con supporto LLM"
+            ruolo "Supporto alla conformità e maturità per OEM e fornitori di componenti OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-4-1"
+                "IEC 62443-4-2"
+                "IEC 27001"
+                "NIS2"
+                "Cyber Resilience Act (CRA)"
+            descrizione "Framework per lo sviluppo sicuro del software e dei componenti in ambito
+                +b OT/ICS, con focus su requisiti di sicurezza, audit di conformità e modelli di
+                +b maturità (L1→L4)."
+            [ sezioni
+                {
+                    id "cap/10/10.15"
+                    nome "Audit di conformità & maturity model"
+                    { obiettivo
+                        codice "OBJ-10.15"
+                        descrizione "Impostare audit interno su IEC 62443-4-1/4-2 e modello di maturità (L1→L4) con
+                            +b gap analysis e piano di remediation."
+                    [ output_attesi
+                        "Checklist audit per IEC 62443-4-1/4-2"
+                        "Scorecard di maturità (L1→L4)"
+                        "Piano di remediation a 90/180/365 giorni"
+                    prompt_base "Compila checklist audit 4-1/4-2 e scorecard maturità con priorità remediation."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-10.15.1"
+                            titolo "Conformità ai requisiti di sicurezza del prodotto"
+                            descrizione_astratta "Valutazione della conformità ai requisiti di sicurezza definiti in IEC
+                                +b 62443-4-1 (processi) e 4-2 (componenti)."
+                            [ rischi_mitigati
+                                "Mancata conformità normativa"
+                                "Vulnerabilità nei componenti software/hardware"
+                                "Esposizione a cyberattacchi"
+                            [ pratiche_raccomandate
+                                "Implementazione di processi SDLC sicuri (IEC 62443-4-1)"
+                                "Verifica dei requisiti tecnici di sicurezza (IEC 62443-4-2)"
+                                "Documentazione delle evidenze di conformità"
+                            [ metriche_kpi
+                                "Percentuale di requisiti conformi (target: >90%)"
+                                "Numero di gap identificati per livello di maturità"
+                                "Tempo medio di remediation per gap critico"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di audit interno per SDLC"
+                                    "Procedura di gap analysis"
+                                [ registri
+                                    "Registro dei risultati audit"
+                                    "Registro delle non conformità"
+                                [ evidenze
+                                    "Report di audit"
+                                    "Scorecard di maturità"
+                            [ placeholders_contesto
+                                "[ORGANIZZAZIONE]"
+                                "[PRODOTTO/COMPONENTE]"
+                                "[LIVELLO MATURITÀ TARGET]"
+                    { policy_template
+                        titolo "Policy per Audit di Conformità e Maturità"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Responsabilità"
+                            "Frequenza degli audit"
+                            "Metodologia di valutazione maturità"
+                            "Gestione delle non conformità"
+                        [ placeholders_contesto
+                            "[ORGANIZZAZIONE]"
+                            "[NORME DI RIFERIMENTO]"
+                            "[LIVELLO MATURITÀ TARGET]"
+                    { sop_template
+                        titolo "SOP per Esecuzione Audit Interno IEC 62443-4-1/4-2"
+                        [ step
+                            "Preparazione dell'audit (definizione scope e team)"
+                            "Raccolta delle evidenze (documentazione e interviste)"
+                            "Valutazione dei requisiti (checklist 4-1/4-2)"
+                            "Analisi dei gap e scoring maturità"
+                            "Definizione piano di remediation"
+                            "Reporting e follow-up"
+                        [ registrazioni
+                            "Checklist compilata"
+                            "Report di audit"
+                            "Piano di remediation"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuovi sviluppi (es. checklist, SOP)"
+                            "Hotfix branch per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "Security Manager (SP)"
+                            "Audit Officer (AO)"
+                            "System Integrator (SI)"
+                            "OT Security Specialist (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione scope audit"
+                                SP "Responsible"
+                                AO "Accountable"
+                                SI "Consulted"
+                                OTSec "Informed"
+                            {
+                                attivita "Esecuzione audit"
+                                SP "Consulted"
+                                AO "Responsible"
+                                SI "Support"
+                                OTSec "Support"
+                            {
+                                attivita "Analisi gap e remediation"
+                                SP "Accountable"
+                                AO "Responsible"
+                                SI "Consulted"
+                                OTSec "Responsible"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Checklist"
+                            "Report"
+                            "Piano di remediation"
+                            "Scorecard"
+                        [ audience_possibili
+                            "Management"
+                            "Team tecnico OT/ICS"
+                            "Auditor esterni"
+                            "Fornitori/OEM"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base (Management)"
+                            "Intermedio (Auditor)"
+                            "Avanzato (Specialisti OT/ICS)"
+                        [ vincoli
+                            "Rispetto delle norme IEC 62443-4-1/4-2"
+                            "Tempi di remediation (90/180/365 giorni)"
+                            "Documentazione in lingua italiana"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [TIPO_DOCUMENTO] per [AUDIENCE] con stile [STILE] e
+                            +b livello tecnico [LIVELLO_TECNICO] relativo a [ARGOMENTO]. Includi
+                            +b [ELEMENTI_SPECIFICI] e rispetta i vincoli [VINCOLI]."
+                        prompt_esempio_articolo "Genera un articolo per il management con stile formale e livello tecnico base
+                            +b relativo all'importanza dell'audit di conformità IEC 62443-4-1/4-2. Includi una
+                            +b panoramica sui livelli di maturità e un esempio di gap analysis. Rispetta il
+                            +b vincolo di lunghezza massima di 800 parole."
+                        prompt_esempio_slide "Genera una presentazione per auditor con stile tecnico e livello intermedio
+                            +b relativo all'esecuzione di un audit IEC 62443-4-1/4-2. Includi slide su
+                            +b checklist, scorecard maturità e piano remediation. Rispetta il vincolo di
+                            +b massimo 15 slide."
+                        prompt_esempio_sop "Genera una SOP per specialisti OT/ICS con stile tecnico e livello avanzato
+                            +b relativo alla conduzione di un audit interno. Includi step dettagliati,
+                            +b registrazioni e riferimenti normativi. Rispetta il vincolo di conformità a IEC
+                            +b 62443."
+                    [ checklist
+                        "Verifica conformità ai requisiti di processo SDLC (IEC 62443-4-1)"
+                        "Valutazione dei requisiti tecnici di sicurezza dei componenti (IEC 62443-4-2)"
+                        "Identificazione livello di maturità attuale (L1→L4)"
+                        "Analisi dei gap rispetto al livello target"
+                        "Definizione priorità di remediation per gap critici"
+                        "Documentazione delle evidenze di conformità"
+                        "Pianificazione follow-up audit"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome organizzazione"
+                        "Tipo di prodotto/componente OT/ICS"
+                        "Livello di maturità target"
+                        "Norme di riferimento applicabili"
+                        "Timeline per remediation"
+                    [ avvertenze
+                        "Assicurarsi che l'audit sia condotto da personale qualificato con competenze OT/ICS."
+                        "Verificare l'allineamento con altre normative applicabili (es. NIS2, CRA)."
+                        "Documentare tutte le non conformità per garantire tracciabilità."
+                        "Considerare l'impatto operativo delle attività di remediation."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/10"
+            nome "Software Development Life Cycle per OEM & fornitori di componenti (IEC
+                +b 62443-4-1 / 62443-4-2) con supporto LLM"
+            ruolo "Supporto alla definizione di processi sicuri di sviluppo software per ambienti
+                +b OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-4-1"
+                "IEC 62443-4-2"
+                "ISO/IEC 27001"
+                "NIS2"
+            descrizione "Questo ambito si concentra sulla definizione di un ciclo di vita sicuro per lo
+                +b sviluppo software (SDLC) destinato a OEM e fornitori di componenti in ambienti
+                +b OT/ICS, con particolare attenzione all'integrazione di strumenti e tecnologie
+                +b sicure supportate da modelli linguistici avanzati (LLM)."
+            [ sezioni
+                {
+                    id "cap/10/10.16"
+                    nome "Roadmap strumenti & selezione (tooling catalog)"
+                    { obiettivo
+                        codice "OBJ-10.16"
+                        descrizione "Selezionare strumenti per SCM, CI/CD, SAST/DAST/SCA, container
+                            +b registry/scanner, signing, secrets, SBOM e ticketing, al fine di garantire un
+                            +b processo di sviluppo software sicuro e conforme agli standard IEC 62443."
+                    [ output_attesi
+                        "Matrice requisiti→tool"
+                        "Criteri di valutazione build vs buy"
+                        "Stima del Total Cost of Ownership (TCO)"
+                    prompt_base "Crea catalogo strumenti con criteri di scelta e matrice requisiti→tool; includi
+                        +b TCO indicativo."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-10.16.1"
+                            titolo "Sicurezza nella selezione degli strumenti di sviluppo"
+                            descrizione_astratta "Garantire che gli strumenti selezionati per il processo di sviluppo software
+                                +b rispettino i requisiti di sicurezza e conformità agli standard OT/ICS."
+                            [ rischi_mitigati
+                                "Introduzione di vulnerabilità tramite strumenti non sicuri"
+                                "Mancata conformità agli standard normativi"
+                                "Esposizione di segreti o dati sensibili"
+                            [ pratiche_raccomandate
+                                "Valutazione della sicurezza degli strumenti tramite framework come IEC 62443-4-1"
+                                "Utilizzo di strumenti con supporto per firma digitale e gestione dei segreti"
+                                "Integrazione di strumenti di scansione per vulnerabilità (SAST/DAST/SCA)"
+                            [ metriche_kpi
+                                "Percentuale di strumenti conformi a IEC 62443"
+                                "Tempo medio di rilevazione delle vulnerabilità"
+                                "Costo medio per strumento (TCO)"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di valutazione della sicurezza degli strumenti"
+                                    "Procedura di integrazione degli strumenti nel SDLC"
+                                [ registri
+                                    "Registro delle valutazioni di sicurezza degli strumenti"
+                                    "Registro dei costi associati (TCO)"
+                                [ evidenze
+                                    "Report di conformità degli strumenti"
+                                    "Matrice requisiti→tool completata"
+                            [ placeholders_contesto
+                                "[ORGANIZZAZIONE]"
+                                "[AMBIENTE_OT/ICS]"
+                                "[BUDGET_DISPONIBILE]"
+                    { policy_template
+                        titolo "Policy per la Selezione degli Strumenti di Sviluppo Software"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Criteri di selezione degli strumenti"
+                            "Requisiti di sicurezza e conformità"
+                            "Processo di valutazione build vs buy"
+                            "Responsabilità e monitoraggio"
+                        [ placeholders_contesto
+                            "[ORGANIZZAZIONE]"
+                            "[NORME_RIFERIMENTO]"
+                            "[AMBIENTE_SPECIFICO]"
+                    { sop_template
+                        titolo "SOP per la Valutazione e Selezione degli Strumenti di Sviluppo"
+                        [ step
+                            "Identificazione dei requisiti funzionali e di sicurezza"
+                            "Ricerca e shortlist degli strumenti disponibili"
+                            "Valutazione build vs buy con analisi TCO"
+                            "Test di sicurezza e conformità degli strumenti"
+                            "Documentazione e approvazione finale"
+                        [ registrazioni
+                            "Registro delle valutazioni degli strumenti"
+                            "Report di test di sicurezza"
+                            "Matrice requisiti→tool"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per rilasci stabili"
+                            "Branch 'develop' per integrazione delle feature"
+                            "Branch 'feature/*' per nuove funzionalità o strumenti"
+                            "Branch 'hotfix/*' per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "SP (Security Product Owner)"
+                            "AO (Automation Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Specialist)"
+                        [ matrix
+                            {
+                                attivita "Definizione requisiti strumenti"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Valutazione build vs buy"
+                                SP "C"
+                                AO "R"
+                                SI "A"
+                                OTSec "I"
+                            {
+                                attivita "Analisi TCO"
+                                SP "I"
+                                AO "C"
+                                SI "R"
+                                OTSec "A"
+                            {
+                                attivita "Integrazione strumenti nel SDLC"
+                                SP "I"
+                                AO "A"
+                                SI "R"
+                                OTSec "C"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Catalogo strumenti"
+                            "Matrice requisiti"
+                            "Report TCO"
+                        [ audience_possibili
+                            "Team di sviluppo"
+                            "Responsabili sicurezza OT"
+                            "Management"
+                        [ stili
+                            "Tecnico"
+                            "Sintetico"
+                            "Esecutivo"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a IEC 62443"
+                            "Budget limitato"
+                            "Integrazione con sistemi esistenti"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [TIPO_DOCUMENTO] per [AUDIENCE] con stile [STILE] e
+                            +b livello tecnico [LIVELLO_TECNICO] sul tema della selezione degli strumenti per
+                            +b SDLC in ambiente OT/ICS, includendo [CONTENUTI_SPECIFICI]."
+                        prompt_esempio_articolo "Genera un articolo tecnico per team di sviluppo con stile tecnico e livello
+                            +b intermedio sulla selezione degli strumenti SCM e CI/CD per SDLC in ambiente
+                            +b OT/ICS, includendo criteri build vs buy e matrice requisiti→tool."
+                        prompt_esempio_slide "Genera una presentazione per il management con stile esecutivo e livello base
+                            +b sulla roadmap degli strumenti per SDLC in ambiente OT/ICS, includendo stima TCO
+                            +b e criteri di selezione."
+                        prompt_esempio_sop "Genera una SOP per responsabili sicurezza OT con stile tecnico e livello
+                            +b avanzato sulla valutazione di strumenti SAST/DAST/SCA per SDLC in ambiente
+                            +b OT/ICS, includendo step operativi e registrazioni."
+                    [ checklist
+                        "Identificazione dei requisiti di sicurezza e funzionali"
+                        "Valutazione della conformità degli strumenti a IEC 62443"
+                        "Analisi build vs buy completata"
+                        "Stima TCO per ogni strumento"
+                        "Documentazione della matrice requisiti→tool"
+                        "Approvazione da parte dei responsabili sicurezza OT"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Organizzazione"
+                        "Budget disponibile"
+                        "Ambiente OT/ICS specifico"
+                        "Norme di riferimento applicabili"
+                        "Strumenti già in uso"
+                    [ avvertenze
+                        "Assicurarsi che gli strumenti selezionati siano compatibili con l'ambiente OT/ICS specifico."
+                        "Considerare i vincoli di budget nella stima TCO."
+                        "Verificare la conformità a norme come IEC 62443 e NIS2 prima dell'adozione."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/10"
+            nome "Software Development Life Cycle per OEM & fornitori di componenti (IEC
+                +b 62443-4-1 / 62443-4-2) con supporto LLM"
+            ruolo "Supporto alla definizione di processi sicuri per lo sviluppo software in ambito
+                +b OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-4-1"
+                "IEC 62443-4-2"
+                "ISO/IEC 27001"
+                "NIS2 Directive"
+            descrizione "Questo ambito si concentra sui processi di sviluppo software sicuro per OEM e
+                +b fornitori di componenti in ambienti OT/ICS, con particolare attenzione alla
+                +b conformità agli standard IEC 62443-4-1 e 62443-4-2. Include l'uso di strumenti
+                +b LLM per supportare la documentazione, il monitoraggio e il reporting."
+            [ sezioni
+                {
+                    id "cap/10/10.17"
+                    nome "KPI & reporting per OEM"
+                    { obiettivo
+                        codice "OBJ-10.17"
+                        descrizione "Definire KPI: SBOM coverage, CVE backlog aging, Time-to-Advisory, Patch
+                            +b adoption, % build firmate, % release con VEX."
+                    [ output_attesi
+                        "Tabella KPI con definizioni, formule e target a 12 mesi"
+                        "Report template per il monitoraggio dei KPI"
+                        "Dashboard mockup per la visualizzazione dei dati"
+                    prompt_base "Definisci 8 KPI con formule, soglie e owner."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-10.17.1"
+                            titolo "Monitoraggio della copertura SBOM"
+                            descrizione_astratta "Garantire che tutti i componenti software siano documentati in una Software
+                                +b Bill of Materials (SBOM) per migliorare la tracciabilità e la gestione delle
+                                +b vulnerabilità."
+                            [ rischi_mitigati
+                                "Mancata identificazione di componenti vulnerabili"
+                                "Ritardi nella risposta a vulnerabilità note"
+                            [ pratiche_raccomandate
+                                "Generazione automatica di SBOM per ogni build"
+                                "Integrazione di SBOM nei processi CI/CD"
+                            [ metriche_kpi
+                                "SBOM Coverage (%) = (Componenti con SBOM / Componenti totali) * 100"
+                                "Target: 95% entro 12 mesi"
+                            { artefatti
+                                [ procedure
+                                    "Procedura per la generazione di SBOM"
+                                [ registri
+                                    "Registro delle build con SBOM associato"
+                                [ evidenze
+                                    "Report di copertura SBOM"
+                            [ placeholders_contesto
+                                "[Nome OEM]"
+                                "[Tipo di prodotto]"
+                                "[Ciclo di rilascio]"
+                        {
+                            id "ASP-10.17.2"
+                            titolo "Gestione dell'invecchiamento del backlog CVE"
+                            descrizione_astratta "Monitorare il tempo medio di permanenza delle vulnerabilità note (CVE) nel
+                                +b backlog per garantire una risposta tempestiva."
+                            [ rischi_mitigati
+                                "Esposizione prolungata a vulnerabilità note"
+                                "Non conformità con i requisiti di sicurezza"
+                            [ pratiche_raccomandate
+                                "Prioritizzazione delle CVE in base alla gravità"
+                                "Automazione del monitoraggio del backlog"
+                            [ metriche_kpi
+                                "CVE Backlog Aging (giorni) = Media dei giorni di permanenza delle CVE nel backlog"
+                                "Target: < 30 giorni entro 12 mesi"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di gestione CVE"
+                                [ registri
+                                    "Registro delle CVE aperte"
+                                [ evidenze
+                                    "Report di invecchiamento CVE"
+                            [ placeholders_contesto
+                                "[Processo di gestione vulnerabilità]"
+                                "[Team responsabile]"
+                    { policy_template
+                        titolo "Policy di monitoraggio KPI per OEM"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Definizione dei KPI"
+                            "Responsabilità e owner"
+                            "Frequenza di reporting"
+                            "Azioni correttive in caso di mancato raggiungimento dei target"
+                        [ placeholders_contesto
+                            "[Nome OEM]"
+                            "[Dipartimento responsabile]"
+                            "[Frequenza di revisione]"
+                    { sop_template
+                        titolo "SOP per la raccolta e reporting dei KPI"
+                        [ step
+                            "Identificazione dei dati necessari per ogni KPI"
+                            "Raccolta dati tramite strumenti automatizzati o manuali"
+                            "Calcolo dei KPI secondo le formule definite"
+                            "Generazione del report mensile"
+                            "Revisione dei risultati con gli stakeholder"
+                            "Archiviazione dei report per audit"
+                        [ registrazioni
+                            "Log delle attività di raccolta dati"
+                            "Report mensili dei KPI"
+                            "Verbali delle revisioni con stakeholder"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione delle feature"
+                            "Branch 'feature/kpi-<id>' per sviluppo di nuovi KPI"
+                            "Pull request obbligatorie con code review"
+                    { raci
+                        [ roles
+                            "Security Manager"
+                            "Product Owner"
+                            "DevOps Engineer"
+                            "OT Security Specialist"
+                        [ matrix
+                            {
+                                attivita "Definizione KPI"
+                                SP "Security Manager"
+                                AO "Product Owner"
+                                SI "DevOps Engineer"
+                                OTSec "OT Security Specialist"
+                            {
+                                attivita "Raccolta dati KPI"
+                                SP "DevOps Engineer"
+                                AO "Security Manager"
+                                SI "Product Owner"
+                                OTSec "OT Security Specialist"
+                            {
+                                attivita "Reporting KPI"
+                                SP "Security Manager"
+                                AO "Product Owner"
+                                SI "DevOps Engineer"
+                                OTSec "OT Security Specialist"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Report"
+                            "Dashboard"
+                            "Presentazione"
+                            "SOP"
+                        [ audience_possibili
+                            "Management"
+                            "Team tecnico"
+                            "Auditor"
+                            "Fornitori"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Alto"
+                            "Medio"
+                            "Basso"
+                        [ vincoli
+                            "Conformità a IEC 62443-4-1"
+                            "Dati sensibili da anonimizzare"
+                            "Tempistiche di reporting mensile"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [tipo_documento] per [audience] con stile [stile] e
+                            +b livello tecnico [livello_tecnico] sul tema dei KPI per OEM in ambito OT/ICS,
+                            +b includendo definizioni, formule e target per i seguenti KPI: [elenco_kpi]."
+                        prompt_esempio_articolo "Scrivi un articolo formale per il management con livello tecnico medio sui KPI
+                            +b di sicurezza per OEM, includendo SBOM Coverage e CVE Backlog Aging con relative
+                            +b formule e target a 12 mesi."
+                        prompt_esempio_slide "Crea una presentazione sintetica per auditor con livello tecnico basso,
+                            +b illustrando i KPI principali per OEM come SBOM Coverage, Time-to-Advisory e
+                            +b Patch Adoption con grafici e target."
+                        prompt_esempio_sop "Elabora una SOP tecnica per il team DevOps con livello tecnico alto,
+                            +b descrivendo passo-passo la raccolta dati e il calcolo dei KPI come % Build
+                            +b Firmate e % Release con VEX."
+                    [ checklist
+                        "Definizione di almeno 8 KPI con formule e target"
+                        "Identificazione degli owner per ogni KPI"
+                        "Creazione di un template di report mensile"
+                        "Verifica della conformità dei KPI con IEC 62443-4-1"
+                        "Validazione dei dati raccolti con il team tecnico"
+                        "Archiviazione dei report per audit futuri"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome dell'OEM"
+                        "Tipo di prodotto o componente"
+                        "Ciclo di rilascio software"
+                        "Team responsabile della sicurezza"
+                        "Strumenti di monitoraggio utilizzati"
+                    [ avvertenze
+                        "I KPI devono essere rivisti trimestralmente per garantire rilevanza"
+                        "I dati sensibili nei report devono essere anonimizzati per conformità GDPR"
+                        "La mancata conformità ai target può comportare rischi di audit secondo IEC 62443"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/10"
+            nome "Software Development Life Cycle per OEM & fornitori di componenti (IEC
+                +b 62443-4-1 / 62443-4-2) con supporto LLM"
+            ruolo "Supporto alla definizione di processi sicuri per lo sviluppo software in ambito
+                +b OT/ICS"
+            [ norme_riferimento
+                "IEC 62443-4-1"
+                "IEC 62443-4-2"
+            descrizione "Questo ambito si concentra sullo sviluppo sicuro del software per componenti
+                +b OT/ICS, con particolare attenzione agli anti-pattern e ai rischi associati,
+                +b mappando i controlli pertinenti della norma IEC 62443."
+            [ sezioni
+                {
+                    id "cap/10/10.18"
+                    nome "Rischi & anti-pattern"
+                    { obiettivo
+                        codice "OBJ-10.18"
+                        descrizione "Evitare errori comuni: segreti nel codice/prompt, firma assente, SBOM non
+                            +b aggiornate, accessi remoti diretti, container privilegiati."
+                    [ output_attesi
+                        "Tabella anti-pattern → controllo 62443 corrispondente"
+                    prompt_base "Elenca 10 anti-pattern e mappa a controlli/processi 4-1/FR pertinenti."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-10.18.1"
+                            titolo "Gestione dei segreti nel codice"
+                            descrizione_astratta "Evitare l'inclusione di segreti (chiavi, password) direttamente nel codice
+                                +b sorgente o nei prompt LLM."
+                            [ rischi_mitigati
+                                "Esposizione di credenziali"
+                                "Accesso non autorizzato"
+                            [ pratiche_raccomandate
+                                "Utilizzo di vault per segreti"
+                                "Revisione del codice per segreti hard-coded"
+                            [ metriche_kpi
+                                "Percentuale di codice rivisto per segreti"
+                                "Numero di incidenti legati a segreti esposti"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di gestione dei segreti"
+                                [ registri
+                                    "Log di revisione codice"
+                                [ evidenze
+                                    "Report di scansione codice"
+                            [ placeholders_contesto
+                                "[Tipo di sistema OT/ICS]"
+                                "[Ambiente di sviluppo]"
+                        {
+                            id "ASP-10.18.2"
+                            titolo "Firma del software"
+                            descrizione_astratta "Garantire che il software sia firmato digitalmente per verificarne
+                                +b l'autenticità e l'integrità."
+                            [ rischi_mitigati
+                                "Manomissione del software"
+                                "Distribuzione di software non autorizzato"
+                            [ pratiche_raccomandate
+                                "Implementazione di firma digitale"
+                                "Verifica della firma prima del deployment"
+                            [ metriche_kpi
+                                "Percentuale di software firmato"
+                                "Numero di deployment non verificati"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di firma software"
+                                [ registri
+                                    "Log di verifica firma"
+                                [ evidenze
+                                    "Certificati di firma"
+                            [ placeholders_contesto
+                                "[Processo di deployment]"
+                                "[Autorità di firma]"
+                    { policy_template
+                        titolo "Policy di Sviluppo Software Sicuro"
+                        [ sezioni
+                            "Introduzione"
+                            "Gestione dei Segreti"
+                            "Firma Software"
+                            "Gestione SBOM"
+                            "Accessi Remoti"
+                            "Container Sicuri"
+                        [ placeholders_contesto
+                            "[Nome organizzazione]"
+                            "[Tipo di sistema OT/ICS]"
+                    { sop_template
+                        titolo "SOP per Revisione Codice e Firma Software"
+                        [ step
+                            "Identificazione dei segreti nel codice"
+                            "Rimozione e spostamento in vault"
+                            "Firma del software"
+                            "Verifica firma"
+                        [ registrazioni
+                            "Registro revisione codice"
+                            "Registro firme software"
+                    { repo_branching_model
+                        modello "Git Flow"
+                        [ regole
+                            "Branch principale per release stabili"
+                            "Branch di sviluppo per feature"
+                            "Pull request obbligatorie con revisione"
+                    { raci
+                        [ roles
+                            "Sviluppatore"
+                            "Responsabile Sicurezza"
+                            "Team Operativo"
+                        [ matrix
+                            {
+                                attivita "Revisione codice per segreti"
+                                SP "Sviluppatore"
+                                AO "Responsabile Sicurezza"
+                                SI "Team Operativo"
+                                OTSec "Responsabile Sicurezza"
+                            {
+                                attivita "Firma software"
+                                SP "Sviluppatore"
+                                AO "Responsabile Sicurezza"
+                                SI "Team Operativo"
+                                OTSec "Responsabile Sicurezza"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                            "Slide"
+                        [ audience_possibili
+                            "Tecnici"
+                            "Manager"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità IEC 62443"
+                            "Lingua italiana"
+                            "Contesto OT/ICS"
+                    { prompting
+                        prompt_template_generico "Genera un documento su [argomento] per [audience] in stile [stile] con livello
+                            +b tecnico [livello]."
+                        prompt_esempio_articolo "Scrivi un articolo su 'Anti-pattern nello sviluppo software OT/ICS' per tecnici
+                            +b in stile formale con livello tecnico avanzato."
+                        prompt_esempio_slide "Crea una presentazione su 'Rischi di segreti nel codice' per manager in stile
+                            +b sintetico con livello tecnico base."
+                        prompt_esempio_sop "Elabora una SOP per 'Revisione codice sicuro' per tecnici in stile tecnico con
+                            +b livello tecnico intermedio."
+                    [ checklist
+                        "Verifica assenza segreti nel codice"
+                        "Controllo firma software"
+                        "Aggiornamento SBOM"
+                        "Disabilitazione accessi remoti diretti"
+                        "Configurazione container non privilegiati"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipo di sistema OT/ICS"
+                        "Ambiente di sviluppo"
+                        "Norme applicabili"
+                        "Ruoli aziendali coinvolti"
+                    [ avvertenze
+                        "Assicurarsi che i controlli siano adattati al contesto specifico dell'organizzazione."
+                        "Verificare la conformità con altre normative correlate (es. GDPR, NIS2)."

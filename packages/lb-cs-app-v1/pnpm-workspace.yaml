@@ -1,0 +1,5 @@
+packages:
+  - frontend
+  - backend
+  # se in futuro avrai altre cartelle, aggiungile qui (o usa glob):
+  # - "packages/*"

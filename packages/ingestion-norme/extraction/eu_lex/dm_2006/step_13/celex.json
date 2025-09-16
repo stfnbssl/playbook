@@ -1,0 +1,3363 @@
+{
+  "articles": [
+    {
+      "id": "1",
+      "title": "Scope",
+      "isArticle": true,
+      "text": [],
+      "anchor": "#art_1",
+      "children": [
+        {
+          "id": 1,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "This Directive applies to the following products:"
+          ],
+          "anchor": "#001.001",
+          "nums": [
+            1,
+            1
+          ],
+          "children": [],
+          "rows": [
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(a)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "a"
+                  }
+                },
+                {
+                  "text": [
+                    "machinery;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "machinery;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(b)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "b"
+                  }
+                },
+                {
+                  "text": [
+                    "interchangeable equipment;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "interchangeable equipment;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(c)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "c"
+                  }
+                },
+                {
+                  "text": [
+                    "safety components;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "safety components;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(d)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "d"
+                  }
+                },
+                {
+                  "text": [
+                    "lifting accessories;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "lifting accessories;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(e)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "e"
+                  }
+                },
+                {
+                  "text": [
+                    "chains, ropes and webbing;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "chains, ropes and webbing;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(f)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "f"
+                  }
+                },
+                {
+                  "text": [
+                    "removable mechanical transmission devices;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "removable mechanical transmission devices;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(g)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "g"
+                  }
+                },
+                {
+                  "text": [
+                    "partly completed machinery."
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "partly completed machinery."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "The following are excluded from the scope of this Directive:"
+          ],
+          "anchor": "#001.002",
+          "nums": [
+            1,
+            2
+          ],
+          "children": [],
+          "rows": [
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(a)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "a"
+                  }
+                },
+                {
+                  "text": [
+                    "safety components intended to be used as spare parts to replace identical components and supplied by the manufacturer of the original machinery;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "safety components intended to be used as spare parts to replace identical components and supplied by the manufacturer of the original machinery;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(b)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "b"
+                  }
+                },
+                {
+                  "text": [
+                    "specific equipment for use in fairgrounds and/or amusement parks;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "specific equipment for use in fairgrounds and/or amusement parks;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(c)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "c"
+                  }
+                },
+                {
+                  "text": [
+                    "machinery specially designed or put into service for nuclear purposes which, in the event of failure, may result in an emission of radioactivity;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "machinery specially designed or put into service for nuclear purposes which, in the event of failure, may result in an emission of radioactivity;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(d)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "d"
+                  }
+                },
+                {
+                  "text": [
+                    "weapons, including firearms;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "weapons, including firearms;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(e)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "e"
+                  }
+                },
+                {
+                  "text": [
+                    "the following means of transport:",
+                    "—\n                                       \n                                       \n                                          agricultural and forestry tractors for the risks covered by Directive 2003/37/EC, with the exclusion of machinery mounted on these vehicles,",
+                    "—\n                                       \n                                       \n                                          agricultural and forestry tractors for the risks covered by Directive 2003/37/EC, with the exclusion of machinery mounted on these vehicles,"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—\n                                       \n                                       \n                                          agricultural and forestry tractors for the risks covered by Directive 2003/37/EC, with the exclusion of machinery mounted on these vehicles,"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "—"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—"
+                  }
+                },
+                {
+                  "text": [
+                    "agricultural and forestry tractors for the risks covered by Directive 2003/37/EC, with the exclusion of machinery mounted on these vehicles,",
+                    "—\n                                       \n                                       \n                                          motor vehicles and their trailers covered by Council Directive 70/156/EEC of 6 February 1970 on the approximation of the laws of the Member States relating to the type-approval of motor vehicles and their trailers (13), with the exclusion of machinery mounted on these vehicles,",
+                    "—\n                                       \n                                       \n                                          motor vehicles and their trailers covered by Council Directive 70/156/EEC of 6 February 1970 on the approximation of the laws of the Member States relating to the type-approval of motor vehicles and their trailers (13), with the exclusion of machinery mounted on these vehicles,"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—\n                                       \n                                       \n                                          motor vehicles and their trailers covered by Council Directive 70/156/EEC of 6 February 1970 on the approximation of the laws of the Member States relating to the type-approval of motor vehicles and their trailers (13), with the exclusion of machinery mounted on these vehicles,"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "—"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—"
+                  }
+                },
+                {
+                  "text": [
+                    "motor vehicles and their trailers covered by Council Directive 70/156/EEC of 6 February 1970 on the approximation of the laws of the Member States relating to the type-approval of motor vehicles and their trailers (13), with the exclusion of machinery mounted on these vehicles,",
+                    "(13)",
+                    "13",
+                    "—\n                                       \n                                       \n                                          vehicles covered by Directive 2002/24/EC of the European Parliament and of the Council of 18 March 2002 relating to the type-approval of two or three-wheel motor vehicles (14), with the exclusion of machinery mounted on these vehicles,",
+                    "—\n                                       \n                                       \n                                          vehicles covered by Directive 2002/24/EC of the European Parliament and of the Council of 18 March 2002 relating to the type-approval of two or three-wheel motor vehicles (14), with the exclusion of machinery mounted on these vehicles,"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—\n                                       \n                                       \n                                          vehicles covered by Directive 2002/24/EC of the European Parliament and of the Council of 18 March 2002 relating to the type-approval of two or three-wheel motor vehicles (14), with the exclusion of machinery mounted on these vehicles,"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "—"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—"
+                  }
+                },
+                {
+                  "text": [
+                    "vehicles covered by Directive 2002/24/EC of the European Parliament and of the Council of 18 March 2002 relating to the type-approval of two or three-wheel motor vehicles (14), with the exclusion of machinery mounted on these vehicles,",
+                    "(14)",
+                    "14",
+                    "—\n                                       \n                                       \n                                          motor vehicles exclusively intended for competition, and",
+                    "—\n                                       \n                                       \n                                          motor vehicles exclusively intended for competition, and"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—\n                                       \n                                       \n                                          motor vehicles exclusively intended for competition, and"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "—"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—"
+                  }
+                },
+                {
+                  "text": [
+                    "motor vehicles exclusively intended for competition, and",
+                    "—\n                                       \n                                       \n                                          means of transport by air, on water and on rail networks with the exclusion of machinery mounted on these means of transport;",
+                    "—\n                                       \n                                       \n                                          means of transport by air, on water and on rail networks with the exclusion of machinery mounted on these means of transport;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—\n                                       \n                                       \n                                          means of transport by air, on water and on rail networks with the exclusion of machinery mounted on these means of transport;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "—"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—"
+                  }
+                },
+                {
+                  "text": [
+                    "means of transport by air, on water and on rail networks with the exclusion of machinery mounted on these means of transport;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "means of transport by air, on water and on rail networks with the exclusion of machinery mounted on these means of transport;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(f)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "f"
+                  }
+                },
+                {
+                  "text": [
+                    "seagoing vessels and mobile offshore units and machinery installed on board such vessels and/or units;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "seagoing vessels and mobile offshore units and machinery installed on board such vessels and/or units;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(g)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "g"
+                  }
+                },
+                {
+                  "text": [
+                    "machinery specially designed and constructed for military or police purposes;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "machinery specially designed and constructed for military or police purposes;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(h)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "h"
+                  }
+                },
+                {
+                  "text": [
+                    "machinery specially designed and constructed for research purposes for temporary use in laboratories;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "machinery specially designed and constructed for research purposes for temporary use in laboratories;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(i)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "i"
+                  }
+                },
+                {
+                  "text": [
+                    "mine winding gear;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "mine winding gear;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(j)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "j"
+                  }
+                },
+                {
+                  "text": [
+                    "machinery intended to move performers during artistic performances;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "machinery intended to move performers during artistic performances;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(k)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "k"
+                  }
+                },
+                {
+                  "text": [
+                    "electrical and electronic products falling within the following areas, insofar as they are covered by Council Directive 73/23/EEC of 19 February 1973 on the harmonisation of the laws of Member States relating to electrical equipment designed for use within certain voltage limits (15):",
+                    "(15)",
+                    "15",
+                    "—\n                                       \n                                       \n                                          household appliances intended for domestic use,",
+                    "—\n                                       \n                                       \n                                          household appliances intended for domestic use,"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—\n                                       \n                                       \n                                          household appliances intended for domestic use,"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "—"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—"
+                  }
+                },
+                {
+                  "text": [
+                    "household appliances intended for domestic use,",
+                    "—\n                                       \n                                       \n                                          audio and video equipment,",
+                    "—\n                                       \n                                       \n                                          audio and video equipment,"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—\n                                       \n                                       \n                                          audio and video equipment,"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "—"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—"
+                  }
+                },
+                {
+                  "text": [
+                    "audio and video equipment,",
+                    "—\n                                       \n                                       \n                                          information technology equipment,",
+                    "—\n                                       \n                                       \n                                          information technology equipment,"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—\n                                       \n                                       \n                                          information technology equipment,"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "—"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—"
+                  }
+                },
+                {
+                  "text": [
+                    "information technology equipment,",
+                    "—\n                                       \n                                       \n                                          ordinary office machinery,",
+                    "—\n                                       \n                                       \n                                          ordinary office machinery,"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—\n                                       \n                                       \n                                          ordinary office machinery,"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "—"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—"
+                  }
+                },
+                {
+                  "text": [
+                    "ordinary office machinery,",
+                    "—\n                                       \n                                       \n                                          low-voltage switchgear and control gear,",
+                    "—\n                                       \n                                       \n                                          low-voltage switchgear and control gear,"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—\n                                       \n                                       \n                                          low-voltage switchgear and control gear,"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "—"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—"
+                  }
+                },
+                {
+                  "text": [
+                    "low-voltage switchgear and control gear,",
+                    "—\n                                       \n                                       \n                                          electric motors;",
+                    "—\n                                       \n                                       \n                                          electric motors;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—\n                                       \n                                       \n                                          electric motors;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "—"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—"
+                  }
+                },
+                {
+                  "text": [
+                    "electric motors;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "electric motors;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(l)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "l"
+                  }
+                },
+                {
+                  "text": [
+                    "the following types of high-voltage electrical equipment:",
+                    "—\n                                       \n                                       \n                                          switch gear and control gear,",
+                    "—\n                                       \n                                       \n                                          switch gear and control gear,"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—\n                                       \n                                       \n                                          switch gear and control gear,"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "—"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—"
+                  }
+                },
+                {
+                  "text": [
+                    "switch gear and control gear,",
+                    "—\n                                       \n                                       \n                                          transformers.",
+                    "—\n                                       \n                                       \n                                          transformers."
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—\n                                       \n                                       \n                                          transformers."
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "—"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "—"
+                  }
+                },
+                {
+                  "text": [
+                    "transformers."
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "transformers."
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "2",
+      "title": "Definitions",
+      "isArticle": true,
+      "text": [
+        "For the purposes of this Directive, ‘machinery’ designates the products listed in Article 1(1)(a) to (f).",
+        "The following definitions shall apply:"
+      ],
+      "anchor": "#art_2",
+      "children": [],
+      "rows": [
+        {
+          "columns": [
+            {
+              "text": [
+                "(a)"
+              ],
+              "class": {
+                "type": "pnt",
+                "value": "a"
+              }
+            },
+            {
+              "text": [
+                "‘machinery’ means:",
+                "—\n                                    \n                                    \n                                       an assembly, fitted with or intended to be fitted with a drive system other than directly applied human or animal effort, consisting of linked parts or components, at least one of which moves, and which are joined together for a specific application,",
+                "—\n                                    \n                                    \n                                       an assembly, fitted with or intended to be fitted with a drive system other than directly applied human or animal effort, consisting of linked parts or components, at least one of which moves, and which are joined together for a specific application,"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                    \n                                    \n                                       an assembly, fitted with or intended to be fitted with a drive system other than directly applied human or animal effort, consisting of linked parts or components, at least one of which moves, and which are joined together for a specific application,"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "an assembly, fitted with or intended to be fitted with a drive system other than directly applied human or animal effort, consisting of linked parts or components, at least one of which moves, and which are joined together for a specific application,",
+                "—\n                                    \n                                    \n                                       an assembly referred to in the first indent, missing only the components to connect it on site or to sources of energy and motion,",
+                "—\n                                    \n                                    \n                                       an assembly referred to in the first indent, missing only the components to connect it on site or to sources of energy and motion,"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                    \n                                    \n                                       an assembly referred to in the first indent, missing only the components to connect it on site or to sources of energy and motion,"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "an assembly referred to in the first indent, missing only the components to connect it on site or to sources of energy and motion,",
+                "—\n                                    \n                                    \n                                       an assembly referred to in the first and second indents, ready to be installed and able to function as it stands only if mounted on a means of transport, or installed in a building or a structure,",
+                "—\n                                    \n                                    \n                                       an assembly referred to in the first and second indents, ready to be installed and able to function as it stands only if mounted on a means of transport, or installed in a building or a structure,"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                    \n                                    \n                                       an assembly referred to in the first and second indents, ready to be installed and able to function as it stands only if mounted on a means of transport, or installed in a building or a structure,"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "an assembly referred to in the first and second indents, ready to be installed and able to function as it stands only if mounted on a means of transport, or installed in a building or a structure,",
+                "—\n                                    \n                                    \n                                       assemblies of machinery referred to in the first, second and third indents or partly completed machinery referred to in point (g) which, in order to achieve the same end, are arranged and controlled so that they function as an integral whole,",
+                "—\n                                    \n                                    \n                                       assemblies of machinery referred to in the first, second and third indents or partly completed machinery referred to in point (g) which, in order to achieve the same end, are arranged and controlled so that they function as an integral whole,"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                    \n                                    \n                                       assemblies of machinery referred to in the first, second and third indents or partly completed machinery referred to in point (g) which, in order to achieve the same end, are arranged and controlled so that they function as an integral whole,"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "assemblies of machinery referred to in the first, second and third indents or partly completed machinery referred to in point (g) which, in order to achieve the same end, are arranged and controlled so that they function as an integral whole,",
+                "—\n                                    \n                                    \n                                       an assembly of linked parts or components, at least one of which moves and which are joined together, intended for lifting loads and whose only power source is directly applied human effort;",
+                "—\n                                    \n                                    \n                                       an assembly of linked parts or components, at least one of which moves and which are joined together, intended for lifting loads and whose only power source is directly applied human effort;"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                    \n                                    \n                                       an assembly of linked parts or components, at least one of which moves and which are joined together, intended for lifting loads and whose only power source is directly applied human effort;"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "an assembly of linked parts or components, at least one of which moves and which are joined together, intended for lifting loads and whose only power source is directly applied human effort;"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "an assembly of linked parts or components, at least one of which moves and which are joined together, intended for lifting loads and whose only power source is directly applied human effort;"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "(b)"
+              ],
+              "class": {
+                "type": "pnt",
+                "value": "b"
+              }
+            },
+            {
+              "text": [
+                "‘interchangeable equipment’ means a device which, after the putting into service of machinery or of a tractor, is assembled with that machinery or tractor by the operator himself in order to change its function or attribute a new function, in so far as this equipment is not a tool;"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "‘interchangeable equipment’ means a device which, after the putting into service of machinery or of a tractor, is assembled with that machinery or tractor by the operator himself in order to change its function or attribute a new function, in so far as this equipment is not a tool;"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "(c)"
+              ],
+              "class": {
+                "type": "pnt",
+                "value": "c"
+              }
+            },
+            {
+              "text": [
+                "‘safety component’ means a component:",
+                "—\n                                    \n                                    \n                                       which serves to fulfil a safety function,",
+                "—\n                                    \n                                    \n                                       which serves to fulfil a safety function,"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                    \n                                    \n                                       which serves to fulfil a safety function,"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "which serves to fulfil a safety function,",
+                "—\n                                    \n                                    \n                                       which is independently placed on the market,",
+                "—\n                                    \n                                    \n                                       which is independently placed on the market,"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                    \n                                    \n                                       which is independently placed on the market,"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "which is independently placed on the market,",
+                "—\n                                    \n                                    \n                                       the failure and/or malfunction of which endangers the safety of persons, and",
+                "—\n                                    \n                                    \n                                       the failure and/or malfunction of which endangers the safety of persons, and"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                    \n                                    \n                                       the failure and/or malfunction of which endangers the safety of persons, and"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "the failure and/or malfunction of which endangers the safety of persons, and",
+                "—\n                                    \n                                    \n                                       which is not necessary in order for the machinery to function, or for which normal components may be substituted in order for the machinery to function.",
+                "—\n                                    \n                                    \n                                       which is not necessary in order for the machinery to function, or for which normal components may be substituted in order for the machinery to function."
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                    \n                                    \n                                       which is not necessary in order for the machinery to function, or for which normal components may be substituted in order for the machinery to function."
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "which is not necessary in order for the machinery to function, or for which normal components may be substituted in order for the machinery to function.",
+                "An indicative list of safety components is set out in Annex V, which may be updated in accordance with Article 8(1)(a);"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "An indicative list of safety components is set out in Annex V, which may be updated in accordance with Article 8(1)(a);"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "(d)"
+              ],
+              "class": {
+                "type": "pnt",
+                "value": "d"
+              }
+            },
+            {
+              "text": [
+                "‘lifting accessory’ means a component or equipment not attached to the lifting machinery, allowing the load to be held, which is placed between the machinery and the load or on the load itself, or which is intended to constitute an integral part of the load and which is independently placed on the market; slings and their components are also regarded as lifting accessories;"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "‘lifting accessory’ means a component or equipment not attached to the lifting machinery, allowing the load to be held, which is placed between the machinery and the load or on the load itself, or which is intended to constitute an integral part of the load and which is independently placed on the market; slings and their components are also regarded as lifting accessories;"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "(e)"
+              ],
+              "class": {
+                "type": "pnt",
+                "value": "e"
+              }
+            },
+            {
+              "text": [
+                "‘chains, ropes and webbing’ means chains, ropes and webbing designed and constructed for lifting purposes as part of lifting machinery or lifting accessories;"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "‘chains, ropes and webbing’ means chains, ropes and webbing designed and constructed for lifting purposes as part of lifting machinery or lifting accessories;"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "(f)"
+              ],
+              "class": {
+                "type": "pnt",
+                "value": "f"
+              }
+            },
+            {
+              "text": [
+                "‘removable mechanical transmission device’ means a removable component for transmitting power between self-propelled machinery or a tractor and another machine by joining them at the first fixed bearing. When it is placed on the market with the guard it shall be regarded as one product;"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "‘removable mechanical transmission device’ means a removable component for transmitting power between self-propelled machinery or a tractor and another machine by joining them at the first fixed bearing. When it is placed on the market with the guard it shall be regarded as one product;"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "(g)"
+              ],
+              "class": {
+                "type": "pnt",
+                "value": "g"
+              }
+            },
+            {
+              "text": [
+                "‘partly completed machinery’ means an assembly which is almost machinery but which cannot in itself perform a specific application. A drive system is partly completed machinery. Partly completed machinery is only intended to be incorporated into or assembled with other machinery or other partly completed machinery or equipment, thereby forming machinery to which this Directive applies;"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "‘partly completed machinery’ means an assembly which is almost machinery but which cannot in itself perform a specific application. A drive system is partly completed machinery. Partly completed machinery is only intended to be incorporated into or assembled with other machinery or other partly completed machinery or equipment, thereby forming machinery to which this Directive applies;"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "(h)"
+              ],
+              "class": {
+                "type": "pnt",
+                "value": "h"
+              }
+            },
+            {
+              "text": [
+                "‘placing on the market’ means making available for the first time in the Community machinery or partly completed machinery with a view to distribution or use, whether for reward or free of charge;"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "‘placing on the market’ means making available for the first time in the Community machinery or partly completed machinery with a view to distribution or use, whether for reward or free of charge;"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "(i)"
+              ],
+              "class": {
+                "type": "pnt",
+                "value": "i"
+              }
+            },
+            {
+              "text": [
+                "‘manufacturer’ means any natural or legal person who designs and/or manufactures machinery or partly completed machinery covered by this Directive and is responsible for the conformity of the machinery or the partly completed machinery with this Directive with a view to its being placed on the market, under his own name or trademark or for his own use. In the absence of a manufacturer as defined above, any natural or legal person who places on the market or puts into service machinery or partly completed machinery covered by this Directive shall be considered a manufacturer;"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "‘manufacturer’ means any natural or legal person who designs and/or manufactures machinery or partly completed machinery covered by this Directive and is responsible for the conformity of the machinery or the partly completed machinery with this Directive with a view to its being placed on the market, under his own name or trademark or for his own use. In the absence of a manufacturer as defined above, any natural or legal person who places on the market or puts into service machinery or partly completed machinery covered by this Directive shall be considered a manufacturer;"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "(j)"
+              ],
+              "class": {
+                "type": "pnt",
+                "value": "j"
+              }
+            },
+            {
+              "text": [
+                "‘authorised representative’ means any natural or legal person established in the Community who has received a written mandate from the manufacturer to perform on his behalf all or part of the obligations and formalities connected with this Directive;"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "‘authorised representative’ means any natural or legal person established in the Community who has received a written mandate from the manufacturer to perform on his behalf all or part of the obligations and formalities connected with this Directive;"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "(k)"
+              ],
+              "class": {
+                "type": "pnt",
+                "value": "k"
+              }
+            },
+            {
+              "text": [
+                "‘putting into service’ means the first use, for its intended purpose, in the Community, of machinery covered by this Directive;"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "‘putting into service’ means the first use, for its intended purpose, in the Community, of machinery covered by this Directive;"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "(l)"
+              ],
+              "class": {
+                "type": "pnt",
+                "value": "l"
+              }
+            },
+            {
+              "text": [
+                "‘harmonised standard’ means a non-binding technical specification adopted by a standardisation body, namely the European Committee for Standardisation (CEN), the European Committee for Electrotechnical Standardisation (CENELEC) or the European Telecommunications Standards Institute (ETSI), on the basis of a remit issued by the Commission in accordance with the procedures laid down in Directive 98/34/EC of the European Parliament and of the Council of 22 June 1998 laying down a procedure for the provision of information in the field of technical standards and regulations and of rules on Information Society services (16).",
+                "(16)",
+                "16"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "16"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Specific Directives",
+      "isArticle": true,
+      "text": [
+        "Where, for machinery, the hazards referred to in Annex I are wholly or partly covered more specifically by other Community Directives, this Directive shall not apply, or shall cease to apply, to that machinery in respect of such hazards from the date of implementation of those other Directives."
+      ],
+      "anchor": "#art_3",
+      "children": [],
+      "rows": []
+    },
+    {
+      "id": "4",
+      "title": "Market surveillance",
+      "isArticle": true,
+      "text": [],
+      "anchor": "#art_4",
+      "children": [
+        {
+          "id": 1,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Member States shall take all appropriate measures to ensure that machinery may be placed on the market and/or put into service only if it satisfies the relevant provisions of this Directive and does not endanger the health and safety of persons and, where appropriate, domestic animals or property, when properly installed and maintained and used for its intended purpose or under conditions which can reasonably be foreseen."
+          ],
+          "anchor": "#004.001",
+          "nums": [
+            4,
+            1
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 2,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Member States shall take all appropriate measures to ensure that partly completed machinery can be placed on the market only if it satisfies the relevant provisions of this Directive."
+          ],
+          "anchor": "#004.002",
+          "nums": [
+            4,
+            2
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 3,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Member States shall institute or appoint the competent authorities to monitor the conformity of machinery and partly completed machinery with the provisions set out in paragraphs 1 and 2."
+          ],
+          "anchor": "#004.003",
+          "nums": [
+            4,
+            3
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 4,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Member States shall define the tasks, organisation and powers of the competent authorities referred to in paragraph 3 and shall notify the Commission and other Member States thereof and also of any subsequent amendment."
+          ],
+          "anchor": "#004.004",
+          "nums": [
+            4,
+            4
+          ],
+          "children": [],
+          "rows": []
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "5",
+      "title": "Placing on the market and putting into service",
+      "isArticle": true,
+      "text": [],
+      "anchor": "#art_5",
+      "children": [
+        {
+          "id": 1,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Before placing machinery on the market and/or putting it into service, the manufacturer or his authorised representative shall:"
+          ],
+          "anchor": "#005.001",
+          "nums": [
+            5,
+            1
+          ],
+          "children": [],
+          "rows": [
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(a)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "a"
+                  }
+                },
+                {
+                  "text": [
+                    "ensure that it satisfies the relevant essential health and safety requirements set out in Annex I;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "ensure that it satisfies the relevant essential health and safety requirements set out in Annex I;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(b)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "b"
+                  }
+                },
+                {
+                  "text": [
+                    "ensure that the technical file referred to in Annex VII, part A is available;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "ensure that the technical file referred to in Annex VII, part A is available;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(c)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "c"
+                  }
+                },
+                {
+                  "text": [
+                    "provide, in particular, the necessary information, such as instructions;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "provide, in particular, the necessary information, such as instructions;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(d)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "d"
+                  }
+                },
+                {
+                  "text": [
+                    "carry out the appropriate procedures for assessing conformity in accordance with Article 12;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "carry out the appropriate procedures for assessing conformity in accordance with Article 12;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(e)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "e"
+                  }
+                },
+                {
+                  "text": [
+                    "draw up the EC declaration of conformity in accordance with Annex II, part 1, Section A and ensure that it accompanies the machinery;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "draw up the EC declaration of conformity in accordance with Annex II, part 1, Section A and ensure that it accompanies the machinery;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(f)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "f"
+                  }
+                },
+                {
+                  "text": [
+                    "affix the CE marking in accordance with Article 16."
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "affix the CE marking in accordance with Article 16."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Before placing partly completed machinery on the market, the manufacturer or his authorised representative shall ensure that the procedure referred to in Article 13 has been completed."
+          ],
+          "anchor": "#005.002",
+          "nums": [
+            5,
+            2
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 3,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "For the purposes of the procedures referred to in Article 12, the manufacturer or his authorised representative shall have, or shall have access to, the necessary means of ensuring that the machinery satisfies the essential health and safety requirements set out in Annex I."
+          ],
+          "anchor": "#005.003",
+          "nums": [
+            5,
+            3
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 4,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Where machinery is also the subject of other Directives relating to other aspects and providing for the affixing of the CE marking, the marking shall indicate that the machinery also conforms to the provisions of those other Directives.",
+            "However, where one or more of those Directives allow the manufacturer or his authorised representative to choose, during a transitional period, the system to be applied, the CE marking shall indicate conformity only to the provisions of those Directives applied by the manufacturer or his authorised representative. Particulars of the Directives applied, as published in the Official Journal of the European Union, shall be given on the EC declaration of conformity.",
+            "Official Journal of the European Union,"
+          ],
+          "anchor": "#005.004",
+          "nums": [
+            5,
+            4
+          ],
+          "children": [],
+          "rows": []
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "6",
+      "title": "Freedom of movement",
+      "isArticle": true,
+      "text": [],
+      "anchor": "#art_6",
+      "children": [
+        {
+          "id": 1,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Member States shall not prohibit, restrict or impede the placing on the market and/or putting into service in their territory of machinery which complies with this Directive."
+          ],
+          "anchor": "#006.001",
+          "nums": [
+            6,
+            1
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 2,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Member States shall not prohibit, restrict or impede the placing on the market of partly completed machinery where the manufacturer or his authorised representative makes a declaration of incorporation, referred to in Annex II, part 1, Section B, stating that it is to be incorporated into machinery or assembled with other partly completed machinery to form machinery."
+          ],
+          "anchor": "#006.002",
+          "nums": [
+            6,
+            2
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 3,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "At trade fairs, exhibitions, demonstrations, and such like, Member States shall not prevent the showing of machinery or partly completed machinery which does not conform to this Directive, provided that a visible sign clearly indicates that it does not conform and that it will not be made available until it has been brought into conformity. Furthermore, during demonstrations of such non-conforming machinery or partly completed machinery, adequate safety measures shall be taken to ensure the protection of persons."
+          ],
+          "anchor": "#006.003",
+          "nums": [
+            6,
+            3
+          ],
+          "children": [],
+          "rows": []
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "7",
+      "title": "Presumption of conformity and harmonised standards",
+      "isArticle": true,
+      "text": [],
+      "anchor": "#art_7",
+      "children": [
+        {
+          "id": 1,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Member States shall regard machinery bearing the CE marking and accompanied by the EC declaration of conformity, the content of which is set out in Annex II, part 1, Section A, as complying with the provisions of this Directive."
+          ],
+          "anchor": "#007.001",
+          "nums": [
+            7,
+            1
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 2,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Machinery manufactured in conformity with a harmonised standard, the references to which have been published in the Official Journal of the European Union, shall be presumed to comply with the essential health and safety requirements covered by such a harmonised standard.",
+            "Official Journal of the European Union,"
+          ],
+          "anchor": "#007.002",
+          "nums": [
+            7,
+            2
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 3,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "The Commission shall publish in the Official Journal of the European Union the references of the harmonised standards.",
+            "Official Journal of the European Union"
+          ],
+          "anchor": "#007.003",
+          "nums": [
+            7,
+            3
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 4,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Member States shall take the appropriate measures to enable the social partners to have an influence at national level on the process of preparing and monitoring the harmonised standards."
+          ],
+          "anchor": "#007.004",
+          "nums": [
+            7,
+            4
+          ],
+          "children": [],
+          "rows": []
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "8",
+      "title": "Specific measures",
+      "isArticle": true,
+      "text": [],
+      "anchor": "#art_8",
+      "children": [
+        {
+          "id": 1,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "The Commission, acting in accordance with the procedure referred to in Article 22(3), may take any appropriate measure to implement the provisions relating to the following points:"
+          ],
+          "anchor": "#008.001",
+          "nums": [
+            8,
+            1
+          ],
+          "children": [],
+          "rows": [
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(a)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "a"
+                  }
+                },
+                {
+                  "text": [
+                    "updating of the indicative list of safety components in Annex V referred to in point (c) in Article 2;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "updating of the indicative list of safety components in Annex V referred to in point (c) in Article 2;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(b)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "b"
+                  }
+                },
+                {
+                  "text": [
+                    "restriction of the placing on the market of machinery referred to in Article 9."
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "restriction of the placing on the market of machinery referred to in Article 9."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "The Commission, acting in accordance with the procedure referred to in Article 22(2), may take any appropriate measure connected with the implementation and practical application of this Directive, including measures necessary to ensure cooperation of Member States with each other and with the Commission, as provided for in Article 19(1)."
+          ],
+          "anchor": "#008.002",
+          "nums": [
+            8,
+            2
+          ],
+          "children": [],
+          "rows": []
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "9",
+      "title": "Specific measures to deal with potentially hazardous machinery",
+      "isArticle": true,
+      "text": [],
+      "anchor": "#art_9",
+      "children": [
+        {
+          "id": 1,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "When, in accordance with the procedure referred to in Article 10, the Commission considers that a harmonised standard does not entirely satisfy the essential health and safety requirements which it covers and which are set out in Annex I, the Commission may, in accordance with paragraph 3 of this Article, take measures requiring Member States to prohibit or restrict the placing on the market of machinery with technical characteristics presenting risks due to the shortcomings in the standard or to make such machinery subject to special conditions.",
+            "When, in accordance with the procedure referred to in Article 11, the Commission considers that a measure taken by a Member State is justified, the Commission may, in accordance with paragraph 3 of this Article, take measures requiring Member States to prohibit or restrict the placing on the market of machinery presenting the same risk by virtue of its technical characteristics or to make such machinery subject to special conditions."
+          ],
+          "anchor": "#009.001",
+          "nums": [
+            9,
+            1
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 2,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Any Member State may request the Commission to examine the need for the adoption of the measures referred to in paragraph 1."
+          ],
+          "anchor": "#009.002",
+          "nums": [
+            9,
+            2
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 3,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "In the cases referred to in paragraph 1, the Commission shall consult the Member States and other interested parties indicating the measures it intends to take, in order to ensure, at Community level, a high level of protection of the health and safety of persons.",
+            "Taking due account of the results of this consultation, it shall adopt the necessary measures in accordance with the procedure referred to in Article 22(3)."
+          ],
+          "anchor": "#009.003",
+          "nums": [
+            9,
+            3
+          ],
+          "children": [],
+          "rows": []
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "10",
+      "title": "Procedure for disputing a harmonised standard",
+      "isArticle": true,
+      "text": [
+        "Where a Member State or the Commission considers that a harmonised standard does not entirely satisfy the essential health and safety requirements which it covers and which are set out in Annex I, the Commission or the Member State shall bring the matter before the committee set up by Directive 98/34/EC, setting out the reasons therefor. The committee shall deliver an opinion without delay. In the light of the committee's opinion, the Commission shall decide to publish, not to publish, to publish with restriction, to maintain, to maintain with restriction or to withdraw the references to the harmonised standard concerned in the Official Journal of the European Union.",
+        "Official Journal of the European Union."
+      ],
+      "anchor": "#art_10",
+      "children": [],
+      "rows": []
+    },
+    {
+      "id": "11",
+      "title": "Safeguard clause",
+      "isArticle": true,
+      "text": [],
+      "anchor": "#art_11",
+      "children": [
+        {
+          "id": 1,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Where a Member State ascertains that machinery covered by this Directive, bearing the CE marking, accompanied by the EC declaration of conformity and used in accordance with its intended purpose or under conditions which can reasonably be foreseen, is liable to compromise the health and safety of persons and, where appropriate, domestic animals or property, it shall take all appropriate measures to withdraw such machinery from the market, to prohibit the placing on the market and/or putting into service of such machinery or to restrict free movement thereof."
+          ],
+          "anchor": "#011.001",
+          "nums": [
+            11,
+            1
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 2,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "The Member State shall immediately inform the Commission and the other Member States of any such measure, indicating the reasons for its decision and, in particular, whether the non-conformity is due to:"
+          ],
+          "anchor": "#011.002",
+          "nums": [
+            11,
+            2
+          ],
+          "children": [],
+          "rows": [
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(a)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "a"
+                  }
+                },
+                {
+                  "text": [
+                    "failure to satisfy the essential requirements referred to in Article 5(1)(a);"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "failure to satisfy the essential requirements referred to in Article 5(1)(a);"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(b)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "b"
+                  }
+                },
+                {
+                  "text": [
+                    "incorrect application of the harmonised standards referred to in Article 7(2);"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "incorrect application of the harmonised standards referred to in Article 7(2);"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(c)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "c"
+                  }
+                },
+                {
+                  "text": [
+                    "shortcomings in the harmonised standards themselves referred to in Article 7(2)."
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "shortcomings in the harmonised standards themselves referred to in Article 7(2)."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "The Commission shall enter into consultation with the parties concerned without delay.",
+            "The Commission shall consider, after this consultation, whether or not the measures taken by the Member State are justified, and it shall communicate its decision to the Member State which took the initiative, the other Member States, and the manufacturer or his authorised representative."
+          ],
+          "anchor": "#011.003",
+          "nums": [
+            11,
+            3
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 4,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Where the measures referred to in paragraph 1 are based on a shortcoming in the harmonised standards and if the Member State which instigated the measures maintains its position, the Commission or the Member State shall initiate the procedure referred to in Article 10."
+          ],
+          "anchor": "#011.004",
+          "nums": [
+            11,
+            4
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 5,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Where machinery does not conform and bears the CE marking, the competent Member State shall take appropriate action against whomsoever has affixed the marking and shall so inform the Commission. The Commission shall inform the other Member States."
+          ],
+          "anchor": "#011.005",
+          "nums": [
+            11,
+            5
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 6,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "The Commission shall ensure that Member States are kept informed of the progress and outcome of the procedure."
+          ],
+          "anchor": "#011.006",
+          "nums": [
+            11,
+            6
+          ],
+          "children": [],
+          "rows": []
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "12",
+      "title": "Procedures for assessing the conformity of machinery",
+      "isArticle": true,
+      "text": [],
+      "anchor": "#art_12",
+      "children": [
+        {
+          "id": 1,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "The manufacturer or his authorised representative shall, in order to certify the conformity of machinery with the provisions of this Directive, apply one of the procedures for assessment of conformity described in paragraphs 2, 3 and 4."
+          ],
+          "anchor": "#012.001",
+          "nums": [
+            12,
+            1
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 2,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Where the machinery is not referred to in Annex IV, the manufacturer or his authorised representative shall apply the procedure for assessment of conformity with internal checks on the manufacture of machinery provided for in Annex VIII."
+          ],
+          "anchor": "#012.002",
+          "nums": [
+            12,
+            2
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 3,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Where the machinery is referred to in Annex IV and manufactured in accordance with the harmonised standards referred to in Article 7(2), and provided that those standards cover all of the relevant essential health and safety requirements, the manufacturer or his authorised representative shall apply one of the following procedures:"
+          ],
+          "anchor": "#012.003",
+          "nums": [
+            12,
+            3
+          ],
+          "children": [],
+          "rows": [
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(a)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "a"
+                  }
+                },
+                {
+                  "text": [
+                    "the procedure for assessment of conformity with internal checks on the manufacture of machinery, provided for in Annex VIII;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "the procedure for assessment of conformity with internal checks on the manufacture of machinery, provided for in Annex VIII;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(b)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "b"
+                  }
+                },
+                {
+                  "text": [
+                    "the EC type-examination procedure provided for in Annex IX, plus the internal checks on the manufacture of machinery provided for in Annex VIII, point 3;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "the EC type-examination procedure provided for in Annex IX, plus the internal checks on the manufacture of machinery provided for in Annex VIII, point 3;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(c)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "c"
+                  }
+                },
+                {
+                  "text": [
+                    "the full quality assurance procedure provided for in Annex X."
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "the full quality assurance procedure provided for in Annex X."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Where the machinery is referred to in Annex IV and has not been manufactured in accordance with the harmonised standards referred to in Article 7(2), or only partly in accordance with such standards, or if the harmonised standards do not cover all the relevant essential health and safety requirements or if no harmonised standards exist for the machinery in question, the manufacturer or his authorised representative shall apply one of the following procedures:"
+          ],
+          "anchor": "#012.004",
+          "nums": [
+            12,
+            4
+          ],
+          "children": [],
+          "rows": [
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(a)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "a"
+                  }
+                },
+                {
+                  "text": [
+                    "the EC type-examination procedure provided for in Annex IX, plus the internal checks on the manufacture of machinery provided for in Annex VIII, point 3;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "the EC type-examination procedure provided for in Annex IX, plus the internal checks on the manufacture of machinery provided for in Annex VIII, point 3;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(b)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "b"
+                  }
+                },
+                {
+                  "text": [
+                    "the full quality assurance procedure provided for in Annex X."
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "the full quality assurance procedure provided for in Annex X."
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "13",
+      "title": "Procedure for partly completed machinery",
+      "isArticle": true,
+      "text": [],
+      "anchor": "#art_13",
+      "children": [
+        {
+          "id": 1,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "The manufacturer of partly completed machinery or his authorised representative shall, before placing it on the market, ensure that:"
+          ],
+          "anchor": "#013.001",
+          "nums": [
+            13,
+            1
+          ],
+          "children": [],
+          "rows": [
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(a)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "a"
+                  }
+                },
+                {
+                  "text": [
+                    "the relevant technical documentation described in Annex VII, part B is prepared;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "the relevant technical documentation described in Annex VII, part B is prepared;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(b)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "b"
+                  }
+                },
+                {
+                  "text": [
+                    "assembly instructions described in Annex VI are prepared;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "assembly instructions described in Annex VI are prepared;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(c)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "c"
+                  }
+                },
+                {
+                  "text": [
+                    "a declaration of incorporation described in Annex II, part 1, Section B has been drawn up."
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "a declaration of incorporation described in Annex II, part 1, Section B has been drawn up."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "The assembly instructions and the declaration of incorporation shall accompany the partly completed machinery until it is incorporated into the final machinery and shall then form part of the technical file for that machinery."
+          ],
+          "anchor": "#013.002",
+          "nums": [
+            13,
+            2
+          ],
+          "children": [],
+          "rows": []
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "14",
+      "title": "Notified bodies",
+      "isArticle": true,
+      "text": [],
+      "anchor": "#art_14",
+      "children": [
+        {
+          "id": 1,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Member States shall notify the Commission and the other Member States of the bodies which they have appointed to carry out the assessment of conformity for placing on the market referred to in Article 12(3) and (4), together with the specific conformity assessment procedures and categories of machinery for which these bodies have been appointed and the identification numbers assigned to them beforehand by the Commission. Member States shall notify the Commission and other Member States of any subsequent amendment."
+          ],
+          "anchor": "#014.001",
+          "nums": [
+            14,
+            1
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 2,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "The Member States shall ensure that the notified bodies are monitored regularly to check that they comply at all times with the criteria set out in Annex XI. The notified body shall provide all relevant information on request, including budgetary documents, to enable the Member States to ensure that the requirements of Annex XI are met."
+          ],
+          "anchor": "#014.002",
+          "nums": [
+            14,
+            2
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 3,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Member States shall apply the criteria set out in Annex XI in assessing the bodies to be notified and the bodies already notified."
+          ],
+          "anchor": "#014.003",
+          "nums": [
+            14,
+            3
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 4,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "The Commission shall publish in the Official Journal of the European Union, for information, a list of the notified bodies and their identification numbers and the tasks for which they have been notified. The Commission shall ensure that this list is kept up to date.",
+            "Official Journal of the European Union,"
+          ],
+          "anchor": "#014.004",
+          "nums": [
+            14,
+            4
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 5,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Bodies meeting the assessment criteria laid down in the relevant harmonised standards, the references of which shall be published in the Official Journal of the European Union, shall be presumed to fulfil the relevant criteria.",
+            "Official Journal of the European Union,"
+          ],
+          "anchor": "#014.005",
+          "nums": [
+            14,
+            5
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 6,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "If a notified body finds that relevant requirements of this Directive have not been met or are no longer met by the manufacturer or that an EC type-examination certificate or the approval of a quality assurance system should not have been issued, it shall, taking account of the principle of proportionality, suspend or withdraw the certificate or the approval issued or place restrictions on it, giving detailed reasons, unless compliance with such requirements is ensured by the implementation of appropriate corrective measures by the manufacturer. In the event of suspension or withdrawal of the certificate or the approval or of any restriction placed on it, or in cases where intervention by the competent authority may prove necessary, the notified body shall inform the competent authority pursuant to Article 4. The Member State shall inform the other Member States and the Commission without delay. An appeal procedure shall be available."
+          ],
+          "anchor": "#014.006",
+          "nums": [
+            14,
+            6
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 7,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "The Commission shall provide for the organisation of an exchange of experience between the authorities responsible for appointment, notification and monitoring of notified bodies in the Member States, and the notified bodies, in order to coordinate the uniform application of this Directive."
+          ],
+          "anchor": "#014.007",
+          "nums": [
+            14,
+            7
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 8,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "A Member State which has notified a body shall immediately withdraw its notification if it finds:",
+            "The Member State shall immediately inform the Commission and the other Member States accordingly."
+          ],
+          "anchor": "#014.008",
+          "nums": [
+            14,
+            8
+          ],
+          "children": [],
+          "rows": [
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(a)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "a"
+                  }
+                },
+                {
+                  "text": [
+                    "that the body no longer meets the criteria set out in Annex XI; or"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "that the body no longer meets the criteria set out in Annex XI; or"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(b)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "b"
+                  }
+                },
+                {
+                  "text": [
+                    "that the body seriously fails to fulfil its responsibilities."
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "that the body seriously fails to fulfil its responsibilities."
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "15",
+      "title": "Installation and use of machinery",
+      "isArticle": true,
+      "text": [
+        "This Directive shall not affect Member States' entitlement to lay down, in due observance of Community law, such requirements as they may deem necessary to ensure that persons, and in particular workers, are protected when using machinery, provided that this does not mean that such machinery is modified in a way not specified in this Directive."
+      ],
+      "anchor": "#art_15",
+      "children": [],
+      "rows": []
+    },
+    {
+      "id": "16",
+      "title": "CE marking",
+      "isArticle": true,
+      "text": [],
+      "anchor": "#art_16",
+      "children": [
+        {
+          "id": 1,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "The CE conformity marking shall consist of the initials ‘CE’ as shown in Annex III."
+          ],
+          "anchor": "#016.001",
+          "nums": [
+            16,
+            1
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 2,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "The CE marking shall be affixed to the machinery visibly, legibly and indelibly in accordance with Annex III."
+          ],
+          "anchor": "#016.002",
+          "nums": [
+            16,
+            2
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 3,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "The affixing on machinery of markings, signs and inscriptions which are likely to mislead third parties as to the meaning or form of the CE marking, or both, shall be prohibited. Any other marking may be affixed to the machinery provided that the visibility, legibility and meaning of the CE marking is not thereby impaired."
+          ],
+          "anchor": "#016.003",
+          "nums": [
+            16,
+            3
+          ],
+          "children": [],
+          "rows": []
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "17",
+      "title": "Non-conformity of marking",
+      "isArticle": true,
+      "text": [],
+      "anchor": "#art_17",
+      "children": [
+        {
+          "id": 1,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Member States shall consider the following marking not to conform:"
+          ],
+          "anchor": "#017.001",
+          "nums": [
+            17,
+            1
+          ],
+          "children": [],
+          "rows": [
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(a)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "a"
+                  }
+                },
+                {
+                  "text": [
+                    "the affixing of the CE marking pursuant to this Directive on products not covered by this Directive;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "the affixing of the CE marking pursuant to this Directive on products not covered by this Directive;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(b)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "b"
+                  }
+                },
+                {
+                  "text": [
+                    "the absence of the CE marking and/or the absence of the EC declaration of conformity for machinery;"
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "the absence of the CE marking and/or the absence of the EC declaration of conformity for machinery;"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "text": [
+                    "(c)"
+                  ],
+                  "class": {
+                    "type": "pnt",
+                    "value": "c"
+                  }
+                },
+                {
+                  "text": [
+                    "the affixing on machinery of a marking, other than the CE marking, which is prohibited under Article 16(3)."
+                  ],
+                  "class": {
+                    "type": "unknown",
+                    "value": "the affixing on machinery of a marking, other than the CE marking, which is prohibited under Article 16(3)."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Where a Member State ascertains that marking does not conform to the relevant provisions of this Directive, the manufacturer or his authorised representative shall be obliged to make the product conform and to put an end to the infringement under conditions fixed by that Member State."
+          ],
+          "anchor": "#017.002",
+          "nums": [
+            17,
+            2
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 3,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Where non-conformity persists, the Member State shall take all appropriate measures to restrict or prohibit the placing on the market of the product in question or to ensure that it is withdrawn from the market in accordance with the procedure laid down in Article 11."
+          ],
+          "anchor": "#017.003",
+          "nums": [
+            17,
+            3
+          ],
+          "children": [],
+          "rows": []
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "18",
+      "title": "Confidentiality",
+      "isArticle": true,
+      "text": [],
+      "anchor": "#art_18",
+      "children": [
+        {
+          "id": 1,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Without prejudice to existing national provisions and practices in the area of confidentiality, Members States shall ensure that all parties and persons concerned by the application of this Directive are required to treat as confidential information obtained in the execution of their tasks. More particularly business, professional and trade secrets shall be treated as confidential, unless the divulging of such information is necessary in order to protect the health and safety of persons."
+          ],
+          "anchor": "#018.001",
+          "nums": [
+            18,
+            1
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 2,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "The provisions of paragraph 1 shall not affect the obligations of the Member States and the notified bodies with regard to mutual exchange of information and the issuing of warnings."
+          ],
+          "anchor": "#018.002",
+          "nums": [
+            18,
+            2
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 3,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Any decisions taken by the Member States and by the Commission in accordance with Articles 9 and 11 shall be published."
+          ],
+          "anchor": "#018.003",
+          "nums": [
+            18,
+            3
+          ],
+          "children": [],
+          "rows": []
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "19",
+      "title": "Cooperation between Member States",
+      "isArticle": true,
+      "text": [],
+      "anchor": "#art_19",
+      "children": [
+        {
+          "id": 1,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Member States shall take the appropriate measures to ensure that the competent authorities referred to in Article 4(3) cooperate with each other and with the Commission and transmit to each other the information necessary to enable this Directive to be applied uniformly."
+          ],
+          "anchor": "#019.001",
+          "nums": [
+            19,
+            1
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 2,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "The Commission shall provide for the organisation of an exchange of experience between the competent authorities responsible for market surveillance in order to coordinate the uniform application of this Directive."
+          ],
+          "anchor": "#019.002",
+          "nums": [
+            19,
+            2
+          ],
+          "children": [],
+          "rows": []
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "20",
+      "title": "Legal remedies",
+      "isArticle": true,
+      "text": [
+        "Any measure taken pursuant to this Directive which restricts the placing on the market and/or putting into service of any machinery covered by this Directive shall state the exact grounds on which it is based. Such a measure shall be notified as soon as possible to the party concerned, who shall at the same time be informed of the legal remedies available to him under the laws in force in the Member State concerned and of the time limits to which such remedies are subject."
+      ],
+      "anchor": "#art_20",
+      "children": [],
+      "rows": []
+    },
+    {
+      "id": "21",
+      "title": "Dissemination of information",
+      "isArticle": true,
+      "text": [
+        "The Commission shall take the necessary measures for appropriate information concerning the implementation of this Directive to be made available."
+      ],
+      "anchor": "#art_21",
+      "children": [],
+      "rows": []
+    },
+    {
+      "id": "22",
+      "title": "Committee",
+      "isArticle": true,
+      "text": [],
+      "anchor": "#art_22",
+      "children": [
+        {
+          "id": 1,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "The Commission shall be assisted by a committee, hereinafter referred to as the ‘Committee’."
+          ],
+          "anchor": "#022.001",
+          "nums": [
+            22,
+            1
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 2,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Where reference is made to this paragraph, Articles 3 and 7 of Decision 1999/468/EC shall apply, having regard to the provisions of Article 8 thereof."
+          ],
+          "anchor": "#022.002",
+          "nums": [
+            22,
+            2
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 3,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Where reference is made to this paragraph, Articles 5 and 7 of Decision 1999/468/EC shall apply, having regard to the provisions of Article 8 thereof.",
+            "The period laid down in Article 5(6) of Decision 1999/468/EC shall be set at three months."
+          ],
+          "anchor": "#022.003",
+          "nums": [
+            22,
+            3
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 4,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "The Committee shall adopt its rules of procedure."
+          ],
+          "anchor": "#022.004",
+          "nums": [
+            22,
+            4
+          ],
+          "children": [],
+          "rows": []
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "23",
+      "title": "Penalties",
+      "isArticle": true,
+      "text": [
+        "Member States shall lay down the rules on penalties applicable to infringements of the national provisions adopted pursuant to this Directive and shall take all measures necessary to ensure that they are implemented. The penalties provided for must be effective, proportionate and dissuasive. Member States shall notify those provisions to the Commission by 29 June 2008 and shall notify it without delay of any subsequent amendment affecting them."
+      ],
+      "anchor": "#art_23",
+      "children": [],
+      "rows": []
+    },
+    {
+      "id": "24",
+      "title": "Amendment of Directive 95/16/EC",
+      "isArticle": true,
+      "text": [
+        "Directive 95/16/EC is hereby amended as follows:"
+      ],
+      "anchor": "#art_24",
+      "children": [],
+      "rows": [
+        {
+          "columns": [
+            {
+              "text": [
+                "1."
+              ],
+              "class": {
+                "type": "sub"
+              }
+            },
+            {
+              "text": [
+                "in Article 1, paragraphs 2 and 3 shall be replaced by the following:",
+                "2.   \n                                    ‘For the purposes of this Directive, “lift” shall mean a lifting appliance serving specific levels, having a carrier moving along guides which are rigid and inclined at an angle of more than 15 degrees to the horizontal, intended for the transport of:\n                              \n                                 \n                                 \n                                 \n                                    \n                                       \n                                          —\n                                       \n                                       \n                                          persons,\n                                       \n                                    \n                                 \n                              \n                              \n                                 \n                                 \n                                 \n                                    \n                                       \n                                          —\n                                       \n                                       \n                                          persons and goods,\n                                       \n                                    \n                                 \n                              \n                              \n                                 \n                                 \n                                 \n                                    \n                                       \n                                          —\n                                       \n                                       \n                                          goods alone if the carrier is accessible, that is to say a person may enter it without difficulty, and fitted with controls situated inside the carrier or within reach of a person inside the carrier.\n                                       \n                                    \n                                 \n                              \n                              Lifting appliances moving along a fixed course even where they do not move along guides which are rigid shall be considered as lifts falling within the scope of this Directive.\n                              A “carrier” means a part of the lift by which persons and/or goods are supported in order to be lifted or lowered.",
+                "2.   \n                                    ‘For the purposes of this Directive, “lift” shall mean a lifting appliance serving specific levels, having a carrier moving along guides which are rigid and inclined at an angle of more than 15 degrees to the horizontal, intended for the transport of:",
+                "—\n                                       \n                                       \n                                          persons,",
+                "—\n                                       \n                                       \n                                          persons,"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                       \n                                       \n                                          persons,"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "persons,",
+                "—\n                                       \n                                       \n                                          persons and goods,",
+                "—\n                                       \n                                       \n                                          persons and goods,"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                       \n                                       \n                                          persons and goods,"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "persons and goods,",
+                "—\n                                       \n                                       \n                                          goods alone if the carrier is accessible, that is to say a person may enter it without difficulty, and fitted with controls situated inside the carrier or within reach of a person inside the carrier.",
+                "—\n                                       \n                                       \n                                          goods alone if the carrier is accessible, that is to say a person may enter it without difficulty, and fitted with controls situated inside the carrier or within reach of a person inside the carrier."
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                       \n                                       \n                                          goods alone if the carrier is accessible, that is to say a person may enter it without difficulty, and fitted with controls situated inside the carrier or within reach of a person inside the carrier."
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "goods alone if the carrier is accessible, that is to say a person may enter it without difficulty, and fitted with controls situated inside the carrier or within reach of a person inside the carrier.",
+                "Lifting appliances moving along a fixed course even where they do not move along guides which are rigid shall be considered as lifts falling within the scope of this Directive.",
+                "A “carrier” means a part of the lift by which persons and/or goods are supported in order to be lifted or lowered.",
+                "3.   This Directive shall not apply to:\n                              \n                                 \n                                 \n                                 \n                                    \n                                       \n                                          —\n                                       \n                                       \n                                          lifting appliances whose speed is not greater than 0,15 m/s,\n                                       \n                                    \n                                 \n                              \n                              \n                                 \n                                 \n                                 \n                                    \n                                       \n                                          —\n                                       \n                                       \n                                          construction site hoists,\n                                       \n                                    \n                                 \n                              \n                              \n                                 \n                                 \n                                 \n                                    \n                                       \n                                          —\n                                       \n                                       \n                                          cableways, including funicular railways,\n                                       \n                                    \n                                 \n                              \n                              \n                                 \n                                 \n                                 \n                                    \n                                       \n                                          —\n                                       \n                                       \n                                          lifts specially designed and constructed for military or police purposes,\n                                       \n                                    \n                                 \n                              \n                              \n                                 \n                                 \n                                 \n                                    \n                                       \n                                          —\n                                       \n                                       \n                                          lifting appliances from which work can be carried out,\n                                       \n                                    \n                                 \n                              \n                              \n                                 \n                                 \n                                 \n                                    \n                                       \n                                          —\n                                       \n                                       \n                                          mine winding gear,\n                                       \n                                    \n                                 \n                              \n                              \n                                 \n                                 \n                                 \n                                    \n                                       \n                                          —\n                                       \n                                       \n                                          lifting appliances intended for lifting performers during artistic performances,\n                                       \n                                    \n                                 \n                              \n                              \n                                 \n                                 \n                                 \n                                    \n                                       \n                                          —\n                                       \n                                       \n                                          lifting appliances fitted in means of transport,\n                                       \n                                    \n                                 \n                              \n                              \n                                 \n                                 \n                                 \n                                    \n                                       \n                                          —\n                                       \n                                       \n                                          lifting appliances connected to machinery and intended exclusively for access to workstations including maintenance and inspection points on the machinery,\n                                       \n                                    \n                                 \n                              \n                              \n                                 \n                                 \n                                 \n                                    \n                                       \n                                          —\n                                       \n                                       \n                                          rack and pinion trains,\n                                       \n                                    \n                                 \n                              \n                              \n                                 \n                                 \n                                 \n                                    \n                                       \n                                          —\n                                       \n                                       \n                                          escalators and mechanical walkways.’;",
+                "3.   This Directive shall not apply to:",
+                "—\n                                       \n                                       \n                                          lifting appliances whose speed is not greater than 0,15 m/s,",
+                "—\n                                       \n                                       \n                                          lifting appliances whose speed is not greater than 0,15 m/s,"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                       \n                                       \n                                          lifting appliances whose speed is not greater than 0,15 m/s,"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "lifting appliances whose speed is not greater than 0,15 m/s,",
+                "—\n                                       \n                                       \n                                          construction site hoists,",
+                "—\n                                       \n                                       \n                                          construction site hoists,"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                       \n                                       \n                                          construction site hoists,"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "construction site hoists,",
+                "—\n                                       \n                                       \n                                          cableways, including funicular railways,",
+                "—\n                                       \n                                       \n                                          cableways, including funicular railways,"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                       \n                                       \n                                          cableways, including funicular railways,"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "cableways, including funicular railways,",
+                "—\n                                       \n                                       \n                                          lifts specially designed and constructed for military or police purposes,",
+                "—\n                                       \n                                       \n                                          lifts specially designed and constructed for military or police purposes,"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                       \n                                       \n                                          lifts specially designed and constructed for military or police purposes,"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "lifts specially designed and constructed for military or police purposes,",
+                "—\n                                       \n                                       \n                                          lifting appliances from which work can be carried out,",
+                "—\n                                       \n                                       \n                                          lifting appliances from which work can be carried out,"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                       \n                                       \n                                          lifting appliances from which work can be carried out,"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "lifting appliances from which work can be carried out,",
+                "—\n                                       \n                                       \n                                          mine winding gear,",
+                "—\n                                       \n                                       \n                                          mine winding gear,"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                       \n                                       \n                                          mine winding gear,"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "mine winding gear,",
+                "—\n                                       \n                                       \n                                          lifting appliances intended for lifting performers during artistic performances,",
+                "—\n                                       \n                                       \n                                          lifting appliances intended for lifting performers during artistic performances,"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                       \n                                       \n                                          lifting appliances intended for lifting performers during artistic performances,"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "lifting appliances intended for lifting performers during artistic performances,",
+                "—\n                                       \n                                       \n                                          lifting appliances fitted in means of transport,",
+                "—\n                                       \n                                       \n                                          lifting appliances fitted in means of transport,"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                       \n                                       \n                                          lifting appliances fitted in means of transport,"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "lifting appliances fitted in means of transport,",
+                "—\n                                       \n                                       \n                                          lifting appliances connected to machinery and intended exclusively for access to workstations including maintenance and inspection points on the machinery,",
+                "—\n                                       \n                                       \n                                          lifting appliances connected to machinery and intended exclusively for access to workstations including maintenance and inspection points on the machinery,"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                       \n                                       \n                                          lifting appliances connected to machinery and intended exclusively for access to workstations including maintenance and inspection points on the machinery,"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "lifting appliances connected to machinery and intended exclusively for access to workstations including maintenance and inspection points on the machinery,",
+                "—\n                                       \n                                       \n                                          rack and pinion trains,",
+                "—\n                                       \n                                       \n                                          rack and pinion trains,"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                       \n                                       \n                                          rack and pinion trains,"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "rack and pinion trains,",
+                "—\n                                       \n                                       \n                                          escalators and mechanical walkways.’;",
+                "—\n                                       \n                                       \n                                          escalators and mechanical walkways.’;"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—\n                                       \n                                       \n                                          escalators and mechanical walkways.’;"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "—"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "—"
+              }
+            },
+            {
+              "text": [
+                "escalators and mechanical walkways.’;"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "escalators and mechanical walkways.’;"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "text": [
+                "2."
+              ],
+              "class": {
+                "type": "sub"
+              }
+            },
+            {
+              "text": [
+                "in Annex I, point 1.2 shall be replaced by the following:",
+                "1.2.   ‘Carrier",
+                "The carrier of each lift must be a car. This car must be designed and constructed to offer the space and strength corresponding to the maximum number of persons and the rated load of the lift set by the installer.",
+                "Where the lift is intended for the transport of persons, and where its dimensions permit, the car must be designed and constructed in such a way that its structural features do not obstruct or impede access and use by disabled persons and so as to allow any appropriate adjustments intended to facilitate its use by them.’"
+              ],
+              "class": {
+                "type": "unknown",
+                "value": "Where the lift is intended for the transport of persons, and where its dimensions permit, the car must be designed and constructed in such a way that its structural features do not obstruct or impede access and use by disabled persons and so as to allow any appropriate adjustments intended to facilitate its use by them.’"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "25",
+      "title": "Repeal",
+      "isArticle": true,
+      "text": [
+        "Directive 98/37/EC is hereby repealed.",
+        "References made to the repealed Directive shall be construed as being made to this Directive and should be read in accordance with the correlation table in Annex XII."
+      ],
+      "anchor": "#art_25",
+      "children": [],
+      "rows": []
+    },
+    {
+      "id": "26",
+      "title": "Transposition",
+      "isArticle": true,
+      "text": [],
+      "anchor": "#art_26",
+      "children": [
+        {
+          "id": 1,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Member States shall adopt and publish the provisions necessary to comply with this Directive by 29 June 2008 at the latest. They shall forthwith inform the Commission thereof.",
+            "They shall apply those provisions with effect from 29 December 2009.",
+            "When Member States adopt those provisions, they shall contain a reference to this Directive or shall be accompanied by such reference on the occasion of their official publication. Member States shall determine how such reference is to be made."
+          ],
+          "anchor": "#026.001",
+          "nums": [
+            26,
+            1
+          ],
+          "children": [],
+          "rows": []
+        },
+        {
+          "id": 2,
+          "title": null,
+          "isParagraph": true,
+          "text": [
+            "Member States shall communicate to the Commission the text of the provisions of national law which they adopt in the field covered by this Directive, together with a table showing how the provisions of this Directive correspond to the national provisions adopted."
+          ],
+          "anchor": "#026.002",
+          "nums": [
+            26,
+            2
+          ],
+          "children": [],
+          "rows": []
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": "27",
+      "title": "Derogation",
+      "isArticle": true,
+      "text": [
+        "Until 29 June 2011 Member States may allow the placing on the market and the putting into service of portable cartridge-operated fixing and other impact machinery which are in conformity with the national provisions in force upon adoption of this Directive."
+      ],
+      "anchor": "#art_27",
+      "children": [],
+      "rows": []
+    },
+    {
+      "id": "28",
+      "title": "Entry into force",
+      "isArticle": true,
+      "text": [
+        "This Directive shall enter into force on the 20th day following its publication in the Official Journal of the European Union.",
+        "Official Journal of the European Union."
+      ],
+      "anchor": "#art_28",
+      "children": [],
+      "rows": []
+    },
+    {
+      "id": "29",
+      "title": "Addressees",
+      "isArticle": true,
+      "text": [
+        "This Directive is addressed to the Member States."
+      ],
+      "anchor": "#art_29",
+      "children": [],
+      "rows": []
+    }
+  ],
+  "currentArticle": null,
+  "currentChild1": null,
+  "currentChild2": null,
+  "extractedContent": [],
+  "rows": null,
+  "currentRow": null,
+  "currentColumn": null,
+  "activeElement": null,
+  "collectingText": null
+}

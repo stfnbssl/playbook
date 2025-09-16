@@ -1,0 +1,37 @@
+$group
+    { iec_62443_profiles
+        [ items
+            { 
+                id "PROFILE-0001"
+                name "Contesto, perimetro e come usare la mini guida"
+            { 
+                id "PROFILE-0002"
+                name "Panoramica 62443"
+            { 
+                id "PROFILE-0003"
+                name "Governance e Security Program"
+            { 
+                id "PROFILE-0004"
+                name "Ciclo di vita della sicurezza IACS"
+            { 
+                id "PROFILE-0005"
+                name "Misure tecniche e organizzative"
+            { 
+                id "PROFILE-0006"
+                name "Mappatura pratica con la Direttiva NIS2"
+            { 
+                id "PROFILE-0007"
+                name "Casi applicativi e buone pratiche"
+            { 
+                id "PROFILE-0008"
+                name "Casi di successo industriali"
+            { 
+                id "PROFILE-0009"
+                name "Checklist essenziale “per non addetti” (15 passi)"
+            { 
+                id "PROFILE-0010"
+                name "Glossario e risorse"
+            { 
+                id "PROFILE-0011"
+                name "LLM come leva organizzativa"
+

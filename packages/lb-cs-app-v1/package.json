@@ -1,0 +1,22 @@
+{
+  "name": "lb-cybersecurity",
+  "private": true,
+  "packageManager": "pnpm@9.1.2",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "install:all": "pnpm -w install",
+    "dev": "pnpm -F frontend dev & pnpm -F backend dev"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "18.3.24",
+      "@types/react-dom": "18.3.7",
+       "react-window": "1.8.9"
+    }
+  }
+}
+
+

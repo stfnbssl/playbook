@@ -1,0 +1,67 @@
+ittf 
+    $ 
+        var x_options = {
+            step_1_JSONSchema: _.stringify(wzCtx.schemas.dbtopic_1, null, null),
+        } 
+        _.log("x_options", x_options);
+
+    $file .wizzi-override/docs/project/dbtopic/from_meta/ia_prompts.txt.ittf
+        txt 
+            ========== 
+            step 1
+            $foreach aiItemGroupKey in Object.keys(wzCtx.documents.dbtopics.sole_24_ore)
+                $ 
+                    var aiItemGroup = wzCtx.documents.dbtopics.sole_24_ore[aiItemGroupKey];
+                    var filterOk = true;
+
+                $foreach aiItem in aiItemGroup.sections
+                    $if filterOk
+                        $ _.log('----> ', '1', 'aiItem.title', aiItem.title);
+                        $ 
+                            var options = {
+                                inputJSON: aiItem,
+                                inputJSONString: _.stringify(aiItem, null, null),
+                                JSONSchema: x_options.step_1_JSONSchema,
+                            } 
+                        ---------- 
+                        SYSTEM
+                        Sei un assistente che genera SOLO JSON UTF-8 valido, senza testo fuori dal JSON.
+                        Sei un esperto di cybersecurity in contesto OT/ICS 
+                        Conosci particolarmente bene lo standard di sicurezza IEC 62443. 
+                        Conosci anche IEC 27001/2, Nis2, CRA, Direttiva macchine 2006, Registro Macchine 2023 e GDPR 2016.
+                        USER 
+                        Genera il “DB Argomenti” seguendo lo schema richiesto. Parametri:
+                        meta:
+                        db_name: "DB Argomenti OT/ICS Cybersecurity"
+                        version: "0.1"
+                        language: "it-IT"
+                        notes: "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con placeholders di contesto."
+                        ambito:
+                        id: "cap/${aiItemGroup.chapter}"
+                        nome: "${aiItemGroup.name}"
+                        norme_riferimento:
+                            - "IEC 62443-2-1 (Program management)"
+                            - "IEC 62443-2-4 (Service providers)"
+                            - "IEC 62443-3-3 (System security requirements)"
+                        sezione:
+                        id: "cap/${aiItemGroup.chapter}/${aiItem.section}"
+                        nome: "${aiItem.name}"
+                        descrizione: 
+                            $foreach line in aiItem.lines
+                                ${line}
+                        $if _.isArray(aiItem.goal) && aiItem.goal.length > 0
+                            obiettivo: 
+                                $foreach line in aiItem.goal
+                                    ${line}
+                        $if _.isArray(aiItem.output) && aiItem.output.length > 0
+                            output: 
+                                $foreach line in aiItem.output
+                                    ${line}
+                        $if _.isArray(aiItem.prompt) && aiItem.prompt.length > 0
+                            prompt_base: 
+                                $foreach line in aiItem.prompt
+                                    ${line}
+                        Popola questo schema
+                        <output_schema>
+                        ${x_options.step_1_JSONSchema}
+                        </output_schema>

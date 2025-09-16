@@ -1,0 +1,227 @@
+ittf 
+    $ 
+        var prompts = wzCtx.root_prompts.llm_rmf_oem_system_machine_prompts.prompts;
+        var input = wzCtx.root_prompts.llm_rmf_oem_system_machine_input;
+        var jsonSchema = wzCtx.schemas.rmf_oem_brainstorming_output;
+        var jsonSchemaString = _.stringify(jsonSchema,null,null);
+        _.log("prompts", prompts);
+        _.log("input", input);
+        function getNestedValue(obj, path) {
+            var keys = path.split('/');
+            var current = obj;            
+            for (var i = 0; i < keys.length; i++) {
+                if (current == null) return undefined;
+                current = current[keys[i]];
+            }            
+            return current;
+        }
+        function setNestedValue(obj, path, value) {
+            var keys = path.split('/');
+            var current = obj;            
+            // Naviga fino al penultimo livello
+            for (var i = 0; i < keys.length - 1; i++) {
+                if (!current[keys[i]]) {
+                    current[keys[i]] = {};
+                }
+                current = current[keys[i]];
+            }            
+            // Imposta il valore finale
+            var lastKey = keys[keys.length - 1];
+            current[lastKey] = value;
+        }
+
+    $file .wizzi-override/docs/project/rmf/from_meta/ia_prompts.txt.ittf
+        txt 
+            $foreach prompt in prompts
+                ==========
+                [MODALITÀ]
+                context_mode: "task"         $$ "task" | "full"
+                task_id: "${prompt.id}"      $$ aggiorna per ogni task
+                task_name: "${prompt.title}"
+                $
+                    var props = ["authorization_boundary/responsibilities", "stakeholders"];
+                    var newObj = {};
+                    for (var i = 0; i < props.length; i++) {
+                        var path = props[i];
+                        var value = getNestedValue(input, path);                        
+                        if (value !== undefined) {
+                            setNestedValue(newObj, path, value);
+                        }
+                    } 
+                [CONTESTO (SLICE)]
+                context_input: ${_.stringify(newObj,null,null)}
+
+                ⚠️ Istruzione importante:
+                Devi restituire SOLO JSON valido conforme allo schema seguente:
+                ${jsonSchemaString}
+
+                [REGOLE]
+                - Usa solo le informazioni in context_input + system_core.
+                - Se mancano dati necessari, NON inventare: compila "assumptions" e "missing_fields".
+                - Riempi i campi "task_links" con {"task_id": "P-10"}.
+                
+                [Linee guida]
+                - Popola "context" con i dati forniti sopra (senza inventare).
+                - Genera almeno 3 threat_scenarios in "results".
+                - Ogni scenario deve includere ≥1 requirement con controlli associati.
+                - Istanzia parametri concreti quando possibile (es. password_min_length=12).
+                - Compila "risk" con scala 1..5 e motivazione.
+                - Usa ID coerenti (es. TSC-###, REQ-###).
+                - Non includere testo fuori dal JSON.
+
+                ⚠️ Restituisci SOLO JSON valido conforme allo schema di output definito in precedenza.
+
+$*            
+            [MODALITÀ]
+            context_mode: "task"         # "task" | "full"
+            task_id: "P-10"              # aggiorna per ogni task
+            context_fingerprint: "<sha256-del-JSON-completo>"  # opz. per coerenza/versioning
+            context_paths_included: ["/system", "/assets"]     # elenca i slice inclusi
+
+            [CORE MINIMO]
+            system_core: {
+                "id": "SYS-PAK-001",
+                "name": "Linea Confezionamento X",
+                "mission": "Throughput imballaggio e tracciabilità"
+            }
+
+            [CONTESTO (SLICE)]
+            context_input: {
+                "assets": [ ... slice dal tuo JSON ... ]
+            }
+
+            [OBIETTIVO]
+            Genera risultati per il task P-10 orientati a asset critici:
+            - minacce pertinenti,
+            - requisiti di protezione,
+            - mappatura a IEC 62443-3-3 / 4-2 e NIST 800-53 (+800-82),
+            - parametri istanziabili.
+
+
+            ========== 
+            step 1
+            ---
+            ## 📌 Esempio di Prompt Completo – **P-10 Asset Identification**
+
+            ```
+            Sistema/Macchina: Linea di confezionamento X
+            Asset identificati:
+            - PLC Siemens S7-1500
+            - HMI Windows 10 Embedded
+            - Firmware OEM proprietario
+            - Rete OT interna (Modbus/TCP)
+            - Dati ricetta (configurazioni prodotto)
+
+            Criticità asset:
+            - PLC: high
+            - HMI: moderate
+            - Firmware: high
+            - Rete OT: moderate
+            - Dati ricetta: confidential, high
+
+            Obiettivo:
+            Genera un ventaglio di possibili minacce e requisiti collegati all’identificazione degli asset critici (Task P-10).
+            - Collega ogni minaccia a requisiti di protezione.
+            - Mappa i requisiti ai controlli IEC 62443-3-3, IEC 62443-4-2, NIST 800-53 (overlay 800-82).
+            - Suggerisci parametri concreti ove possibile (es. lunghezza minima password, protocolli ammessi).
+
+            ⚠️ Istruzione importante:
+            Devi restituire SOLO JSON valido conforme allo schema seguente:
+            [incolla qui lo schema JSON o fornisci link al file .json di riferimento]
+
+            Linee guida:
+            - Popola "context" con i dati forniti sopra (senza inventare).
+            - Genera almeno 3 threat_scenarios in "results".
+            - Ogni scenario deve includere ≥1 requirement con controlli associati.
+            - Istanzia parametri concreti quando possibile (es. password_min_length=12).
+            - Compila "risk" con scala 1..5 e motivazione.
+            - Usa ID coerenti (es. TSC-###, REQ-###).
+            - Non includere testo fuori dal JSON.
+            ```
+
+            ---
+
+            👉 Con questo prompt, l’LLM ti restituirà un JSON strutturato (con `context` e `results`) in linea con lo schema.
+            Così avrai già pronto l’input per compilare la tua **matrice di tracciabilità** o alimentare tool di gestione rischi.
+
+            Vuoi che ti prepari **3 esempi concreti di output JSON** (per P-10, P-11, P-14) validi rispetto allo schema, così hai subito un dataset di riferimento da testare?
+
+
+
+
+---------------
+
+Ottima domanda. In breve: **meglio passare “slice” pertinenti per ciascun task**, insieme a un **nocciolo minimo comune** (ID sistema, mission, funzioni) — e riservare il **JSON completo** solo ai task trasversali (P-14, P-16, P-17) o quando serve correlare molti aspetti. Così:
+
+* riduci token/costi,
+* migliori il focus (meno rumore → meno allucinazioni),
+* limiti l’esposizione di dati sensibili,
+* mantieni coerenza passando sempre un piccolo core.
+
+# Cosa includere per task (suggerito)
+
+| Task                             | Slice da passare (JSON Pointer dal tuo schema input)                                                                     | Core sempre incluso             |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------- |
+| **P-8** Mission                  | `/system/mission`, `/system/functions`, `/system/safety_critical`                                                        | `/system/id`, `/system/name`    |
+| **P-9** Stakeholders             | `/stakeholders`                                                                                                          | `/system/id`, `/system/name`    |
+| **P-10** Asset                   | `/assets`, opz.: `/security_basics/constraints`                                                                          | `/system/id`, `/system/mission` |
+| **P-11** Boundary                | `/authorization_boundary`, `/interfaces`                                                                                 | `/system/id`, `/system/name`    |
+| **P-12** Info Types              | `/information/types`                                                                                                     | `/system/id`, `/system/mission` |
+| **P-13** Info Lifecycle          | `/information/types` (campi `lifecycle`, `retention_days`), opz.: `/interfaces`                                          | Core                            |
+| **P-14** Risk (trasversale)      | **Meglio contesto ampio**: `/assets`, `/interfaces`, `/information/types`, `/authorization_boundary`, `/security_basics` | Core                            |
+| **P-15** Requirements            | `/security_basics/constraints` + qualunque requisito noto (campo ad hoc se lo aggiungi)                                  | Core                            |
+| **P-16** Enterprise Arch         | `/interfaces`, `/stakeholders` (per ownership integrazioni)                                                              | Core                            |
+| **P-17** Requirements Allocation | `/authorization_boundary/responsibilities`, `/stakeholders`                                                              | Core                            |
+| **P-18** Registration            | `/system` (id, oem, name) + eventuale estensione “registration” se la aggiungi                                           | Core                            |
+
+# Wrapper di prompt (riutilizzabile)
+
+Usa sempre una “busta” standard che dica al modello cosa sta vedendo:
+
+```
+[MODALITÀ]
+context_mode: "task"         # "task" | "full"
+task_id: "P-10"              # aggiorna per ogni task
+context_fingerprint: "<sha256-del-JSON-completo>"  # opz. per coerenza/versioning
+context_paths_included: ["/system", "/assets"]     # elenca i slice inclusi
+
+[CORE MINIMO]
+system_core: {
+  "id": "SYS-PAK-001",
+  "name": "Linea Confezionamento X",
+  "mission": "Throughput imballaggio e tracciabilità"
+}
+
+[CONTESTO (SLICE)]
+context_input: {
+  "assets": [ ... slice dal tuo JSON ... ]
+}
+
+[OBIETTIVO]
+Genera risultati per il task P-10 orientati a asset critici:
+- minacce pertinenti,
+- requisiti di protezione,
+- mappatura a IEC 62443-3-3 / 4-2 e NIST 800-53 (+800-82),
+- parametri istanziabili.
+
+[REGOLE]
+- Usa solo le informazioni in context_input + system_core.
+- Se mancano dati necessari, NON inventare: compila "assumptions" e "missing_fields".
+- Riempi i campi "task_links" con {"task_id": "P-10"}.
+
+⚠️ Restituisci SOLO JSON valido conforme allo schema di output definito in precedenza.
+```
+
+# Quando usare il JSON completo
+
+* **P-14, P-16, P-17** (rischio, architettura, allocazione) o quando il modello deve **correlare più dimensioni** (asset ↔ interfacce ↔ dati ↔ responsabilità).
+* In questi casi imposta `context_mode: "full"` e passa l’intero input.
+
+# Tip: coerenza e sicurezza
+
+* Mantieni **ID stabili** (asset, interfacce) e passali anche nei slice.
+* Aggiungi sempre la sezione **“assumptions”** nello schema di output: se il slice è incompleto, l’LLM esplicita cosa ha dovuto assumere.
+* Usa un **fingerprint (SHA-256)** del JSON completo per sapere a quale versione si riferisce il risultato.
+
+Se vuoi, preparo uno **scriptino** (Python) che, dato il JSON completo, estrae automaticamente i “slice” per ciascun task e calcola il fingerprint.
+*$

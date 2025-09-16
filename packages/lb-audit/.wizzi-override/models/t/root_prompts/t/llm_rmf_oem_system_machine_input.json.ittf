@@ -1,0 +1,165 @@
+$group
+    { llm_rmf_oem_system_machine_input
+        { meta
+            version "1.0.0"
+            created_at "2025-09-15T08:30:00Z"
+            author "OEM Security Team"
+            notes "Input per brainstorming LLM su P-10, P-11, P-14."
+        { system
+            id "SYS-PAK-001"
+            name "Linea Confezionamento X"
+            { oem
+                name "Acme Packaging"
+                contact "security@acme.example"
+            deployment "offsite"
+            { site
+                customer_name "Cliente Bravo S.p.A."
+                location "Stabilimento Nord"
+            mission "Garantire throughput di imballaggio e tracciabilità lotto."
+            [ functions
+                "dosaggio" 
+                "sigillatura" 
+                "etichettatura" 
+            safety_critical true
+        [ stakeholders
+            { 
+                name "OEM Service"
+                role "manutentore"
+                [ responsibilities
+                    "patch firmware" 
+                    "accesso remoto sicuro" 
+            { 
+                name "OT Manager Cliente"
+                role "proprietario asset"
+                [ responsibilities
+                    "segmentazione rete" 
+                    "account operatore" 
+            { 
+                name "Cloud Provider Z"
+                role "telemetria"
+                [ responsibilities
+                    "hosting dati telemetria" 
+        [ assets
+            { 
+                id "PLC-1"
+                name "PLC Siemens S7-1500"
+                category "hardware"
+                subcategory "PLC"
+                vendor "Siemens"
+                model "S7-1500"
+                criticality "high"
+                owned_by "OEM"
+            { 
+                id "HMI-1"
+                name "HMI Windows 10 Embedded"
+                category "hardware"
+                subcategory "HMI"
+                vendor "Generic"
+                model "W10E"
+                criticality "moderate"
+                owned_by "OEM"
+            { 
+                id "FW-1"
+                name "Firmware OEM confezionatrice"
+                category "firmware"
+                criticality "high"
+                owned_by "OEM"
+            { 
+                id "DATA-REC"
+                name "Ricette di produzione"
+                category "data"
+                criticality "high"
+                owned_by "Customer"
+            { 
+                id "NET-OT"
+                name "Rete OT interna"
+                category "network"
+                criticality "moderate"
+                owned_by "Customer"
+        [ interfaces
+            { 
+                name "OT-LAN"
+                direction "bidirectional"
+                exposure "internal"
+                [ protocols
+                    "Profinet" 
+                counterparty "linea di produzione"
+            { 
+                name "VPN manutenzione"
+                direction "bidirectional"
+                exposure "external"
+                [ protocols
+                    "IPsec" 
+                    "RDP" 
+                counterparty "OEM Service"
+            { 
+                name "Telemetria Cloud"
+                direction "outbound"
+                exposure "external"
+                [ protocols
+                    "HTTPS/TLS" 
+                counterparty "Cloud Provider Z"
+        { information
+            [ types
+                { 
+                    name "ricette"
+                    sensitivity "confidential"
+                    retention_days 365
+                    [ lifecycle
+                        "storage" 
+                        "transmission" 
+                        "retention" 
+                        "disposal" 
+                { 
+                    name "log operativi"
+                    sensitivity "internal"
+                    retention_days 90
+                    [ lifecycle
+                        "collection" 
+                        "processing" 
+                        "storage" 
+                        "retention" 
+                        "disposal" 
+                { 
+                    name "badge operatore"
+                    sensitivity "personal"
+                    retention_days 30
+                    [ lifecycle
+                        "collection" 
+                        "processing" 
+                        "storage" 
+                        "retention" 
+                        "disposal" 
+        { authorization_boundary
+            [ in_scope
+                "PLC" 
+                "HMI" 
+                "firmware OEM" 
+                "ricette su HMI" 
+            [ out_of_scope
+                "rete fabbrica cliente" 
+                "SIEM cliente" 
+                "Active Directory cliente" 
+            [ responsibilities
+                { 
+                    subject "patch firmware"
+                    owner "OEM"
+                    notes "Erogate via finestra manutenzione"
+                { 
+                    subject "account management"
+                    owner "Customer"
+                    notes "Creazione/rotazione account operatori"
+                { 
+                    subject "telemetria cloud"
+                    owner "ThirdParty"
+                    notes "Contratto con Provider Z"
+        { security_basics
+            remote_maintenance true
+            uses_cloud true
+            logging_monitoring "Log HMI su syslog locale; forward al SIEM cliente (out-of-scope)"
+            [ known_threats
+                "ransomware HMI" 
+                "manipolazione ricette" 
+            [ constraints
+                "compatibilità legacy con driver HMI" 
+                "uptime 24/7, finestre patch limitate" 

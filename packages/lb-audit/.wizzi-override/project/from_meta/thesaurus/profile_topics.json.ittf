@@ -1,0 +1,1736 @@
+{ 
+    name "chapter-topic"
+    [ 
+        { 
+            id "PROFILE-0001"
+            name "Contesto, perimetro e come usare la mini guida"
+            [ topics
+                { 
+                    id "TOPIC-0001"
+                    name "Famiglia IEC 62443"
+                { 
+                    id "TOPIC-0002"
+                    name "IEC 62443-1-1 Terminologia"
+                { 
+                    id "TOPIC-0003"
+                    name "IEC 62443-2-1 Programma di sicurezza"
+                { 
+                    id "TOPIC-0006"
+                    name "IEC 62443-3-2 Risk & SL-Target"
+                { 
+                    id "TOPIC-0016"
+                    name "Comitato ICS/OT"
+                { 
+                    id "TOPIC-0017"
+                    name "Policy di sicurezza OT"
+                { 
+                    id "TOPIC-0019"
+                    name "RACI"
+                { 
+                    id "TOPIC-0020"
+                    name "Registro asset (inventario)"
+                { 
+                    id "TOPIC-0022"
+                    name "Registro rischi OT"
+                { 
+                    id "TOPIC-0024"
+                    name "Ruolo: Asset Owner"
+                { 
+                    id "TOPIC-0029"
+                    name "Ruolo: HSE/Safety"
+                { 
+                    id "TOPIC-0113"
+                    name "Marcatura N/A con motivazione"
+                { 
+                    id "TOPIC-0115"
+                    name "Glossario minimo"
+                { 
+                    id "TOPIC-0116"
+                    name "Riferimenti normativi"
+                { 
+                    id "TOPIC-0130"
+                    name "Template roadmap 30/90/180"
+        { 
+            id "PROFILE-0002"
+            name "Panoramica 62443"
+            [ topics
+                { 
+                    id "TOPIC-0001"
+                    name "Famiglia IEC 62443"
+                { 
+                    id "TOPIC-0002"
+                    name "IEC 62443-1-1 Terminologia"
+                { 
+                    id "TOPIC-0006"
+                    name "IEC 62443-3-2 Risk & SL-Target"
+                { 
+                    id "TOPIC-0007"
+                    name "IEC 62443-3-3 System Requirements"
+                { 
+                    id "TOPIC-0009"
+                    name "IEC 62443-4-2 Requisiti di componente"
+                { 
+                    id "TOPIC-0010"
+                    name "Security Levels SL0–SL4"
+                { 
+                    id "TOPIC-0011"
+                    name "SL-Target vs SL-Achieved"
+                { 
+                    id "TOPIC-0012"
+                    name "Foundational Requirements FR1–FR7"
+                { 
+                    id "TOPIC-0013"
+                    name "Defense-in-Depth"
+                { 
+                    id "TOPIC-0014"
+                    name "Zone & Conduits"
+                { 
+                    id "TOPIC-0015"
+                    name "DMZ industriale"
+                { 
+                    id "TOPIC-0021"
+                    name "Matrice SL-Target per zona × FR"
+                { 
+                    id "TOPIC-0032"
+                    name "Requisiti di componente 4-2"
+                { 
+                    id "TOPIC-0050"
+                    name "Risk scoring OT"
+                { 
+                    id "TOPIC-0081"
+                    name "Profilo minacce per zona"
+                { 
+                    id "TOPIC-0094"
+                    name "KPI: % zone con SL-Target"
+                { 
+                    id "TOPIC-0115"
+                    name "Glossario minimo"
+                { 
+                    id "TOPIC-0116"
+                    name "Riferimenti normativi"
+                { 
+                    id "TOPIC-0124"
+                    name "Template matrice FR × SL"
+                { 
+                    id "TOPIC-0131"
+                    name "Criticità: SL4 ovunque"
+                { 
+                    id "TOPIC-0136"
+                    name "Criticità: dipendenze IT non gestite"
+        { 
+            id "PROFILE-0003"
+            name "Governance e Security Program"
+            [ topics
+                { 
+                    id "TOPIC-0001"
+                    name "Famiglia IEC 62443"
+                { 
+                    id "TOPIC-0003"
+                    name "IEC 62443-2-1 Programma di sicurezza"
+                { 
+                    id "TOPIC-0004"
+                    name "IEC 62443-2-3 Patch & Vulnerability Management"
+                { 
+                    id "TOPIC-0005"
+                    name "IEC 62443-2-4 Service Providers"
+                { 
+                    id "TOPIC-0006"
+                    name "IEC 62443-3-2 Risk & SL-Target"
+                { 
+                    id "TOPIC-0008"
+                    name "IEC 62443-4-1 Secure Development Lifecycle"
+                { 
+                    id "TOPIC-0009"
+                    name "IEC 62443-4-2 Requisiti di componente"
+                { 
+                    id "TOPIC-0010"
+                    name "Security Levels SL0–SL4"
+                { 
+                    id "TOPIC-0011"
+                    name "SL-Target vs SL-Achieved"
+                { 
+                    id "TOPIC-0016"
+                    name "Comitato ICS/OT"
+                { 
+                    id "TOPIC-0017"
+                    name "Policy di sicurezza OT"
+                { 
+                    id "TOPIC-0018"
+                    name "Standard tecnici OT"
+                { 
+                    id "TOPIC-0019"
+                    name "RACI"
+                { 
+                    id "TOPIC-0021"
+                    name "Matrice SL-Target per zona × FR"
+                { 
+                    id "TOPIC-0022"
+                    name "Registro rischi OT"
+                { 
+                    id "TOPIC-0023"
+                    name "Eccezioni & compensating controls"
+                { 
+                    id "TOPIC-0024"
+                    name "Ruolo: Asset Owner"
+                { 
+                    id "TOPIC-0025"
+                    name "Ruolo: System Integrator"
+                { 
+                    id "TOPIC-0026"
+                    name "Ruolo: OEM/Product Supplier"
+                { 
+                    id "TOPIC-0027"
+                    name "Ruolo: Service Provider"
+                { 
+                    id "TOPIC-0028"
+                    name "Ruolo: OT Security/SOC"
+                { 
+                    id "TOPIC-0029"
+                    name "Ruolo: HSE/Safety"
+                { 
+                    id "TOPIC-0030"
+                    name "Owner di zona"
+                { 
+                    id "TOPIC-0031"
+                    name "Clausole SDL 4-1"
+                { 
+                    id "TOPIC-0032"
+                    name "Requisiti di componente 4-2"
+                { 
+                    id "TOPIC-0033"
+                    name "SBOM obbligatoria"
+                { 
+                    id "TOPIC-0034"
+                    name "PSIRT attivo"
+                { 
+                    id "TOPIC-0035"
+                    name "Patch policy con SLA"
+                { 
+                    id "TOPIC-0036"
+                    name "Accessi remoti contrattualizzati"
+                { 
+                    id "TOPIC-0037"
+                    name "Logging interventi terze parti"
+                { 
+                    id "TOPIC-0038"
+                    name "Data ownership & restituzione"
+                { 
+                    id "TOPIC-0040"
+                    name "Qualifica fornitori"
+                { 
+                    id "TOPIC-0042"
+                    name "Autenticazione MFA"
+                { 
+                    id "TOPIC-0043"
+                    name "Autorizzazioni time-bound"
+                { 
+                    id "TOPIC-0044"
+                    name "Least privilege"
+                { 
+                    id "TOPIC-0045"
+                    name "Session recording"
+                { 
+                    id "TOPIC-0046"
+                    name "Separation of duties"
+                { 
+                    id "TOPIC-0047"
+                    name "Two-person rule"
+                { 
+                    id "TOPIC-0048"
+                    name "Account temporanei"
+                { 
+                    id "TOPIC-0049"
+                    name "Break-glass"
+                { 
+                    id "TOPIC-0050"
+                    name "Risk scoring OT"
+                { 
+                    id "TOPIC-0051"
+                    name "CVSS adattato all’OT"
+                { 
+                    id "TOPIC-0052"
+                    name "OT-feasibility"
+                { 
+                    id "TOPIC-0054"
+                    name "Change approval"
+                { 
+                    id "TOPIC-0056"
+                    name "Registro eccezioni"
+                { 
+                    id "TOPIC-0062"
+                    name "Integrazione SOC"
+                { 
+                    id "TOPIC-0081"
+                    name "Profilo minacce per zona"
+                { 
+                    id "TOPIC-0085"
+                    name "Change management"
+                { 
+                    id "TOPIC-0086"
+                    name "Audit periodico"
+                { 
+                    id "TOPIC-0087"
+                    name "Charter PSIRT"
+                { 
+                    id "TOPIC-0088"
+                    name "Triage SLA PSIRT"
+                { 
+                    id "TOPIC-0089"
+                    name "Contatto PGP PSIRT"
+                { 
+                    id "TOPIC-0090"
+                    name "Template advisory pubblico"
+                { 
+                    id "TOPIC-0093"
+                    name "KPI: % asset inventariati"
+                { 
+                    id "TOPIC-0094"
+                    name "KPI: % zone con SL-Target"
+                { 
+                    id "TOPIC-0095"
+                    name "KPI: Patch coverage"
+                { 
+                    id "TOPIC-0096"
+                    name "KPI: TTR"
+                { 
+                    id "TOPIC-0097"
+                    name "KPI: % sessioni MFA registrate"
+                { 
+                    id "TOPIC-0101"
+                    name "KPI: % fornitori qualificati"
+                { 
+                    id "TOPIC-0102"
+                    name "KPI: Tempo approvazione accessi"
+                { 
+                    id "TOPIC-0108"
+                    name "Due diligence fornitori"
+                { 
+                    id "TOPIC-0109"
+                    name "Business Continuity & Crisis Management"
+                { 
+                    id "TOPIC-0112"
+                    name "Audit accessi terze parti"
+                { 
+                    id "TOPIC-0113"
+                    name "Marcatura N/A con motivazione"
+                { 
+                    id "TOPIC-0114"
+                    name "Azioni correttive con scadenze"
+                { 
+                    id "TOPIC-0119"
+                    name "Identità OT separate da IT"
+                { 
+                    id "TOPIC-0120"
+                    name "Service account minimizzati"
+                { 
+                    id "TOPIC-0121"
+                    name "Vault segreti & rotazione"
+                { 
+                    id "TOPIC-0122"
+                    name "Approvals tracciati"
+                { 
+                    id "TOPIC-0123"
+                    name "Evidenze standard di chiusura"
+                { 
+                    id "TOPIC-0126"
+                    name "Template piano patch/vuln"
+                { 
+                    id "TOPIC-0128"
+                    name "Template advisory PSIRT"
+                { 
+                    id "TOPIC-0130"
+                    name "Template roadmap 30/90/180"
+                { 
+                    id "TOPIC-0131"
+                    name "Criticità: SL4 ovunque"
+                { 
+                    id "TOPIC-0132"
+                    name "Criticità: accessi remoti diretti"
+                { 
+                    id "TOPIC-0135"
+                    name "Criticità: mancanza di evidenze"
+                { 
+                    id "TOPIC-0136"
+                    name "Criticità: dipendenze IT non gestite"
+        { 
+            id "PROFILE-0004"
+            name "Ciclo di vita della sicurezza IACS"
+            [ topics
+                { 
+                    id "TOPIC-0001"
+                    name "Famiglia IEC 62443"
+                { 
+                    id "TOPIC-0003"
+                    name "IEC 62443-2-1 Programma di sicurezza"
+                { 
+                    id "TOPIC-0006"
+                    name "IEC 62443-3-2 Risk & SL-Target"
+                { 
+                    id "TOPIC-0007"
+                    name "IEC 62443-3-3 System Requirements"
+                { 
+                    id "TOPIC-0010"
+                    name "Security Levels SL0–SL4"
+                { 
+                    id "TOPIC-0011"
+                    name "SL-Target vs SL-Achieved"
+                { 
+                    id "TOPIC-0014"
+                    name "Zone & Conduits"
+                { 
+                    id "TOPIC-0020"
+                    name "Registro asset (inventario)"
+                { 
+                    id "TOPIC-0021"
+                    name "Matrice SL-Target per zona × FR"
+                { 
+                    id "TOPIC-0022"
+                    name "Registro rischi OT"
+                { 
+                    id "TOPIC-0025"
+                    name "Ruolo: System Integrator"
+                { 
+                    id "TOPIC-0050"
+                    name "Risk scoring OT"
+                { 
+                    id "TOPIC-0052"
+                    name "OT-feasibility"
+                { 
+                    id "TOPIC-0053"
+                    name "Ambiente di staging"
+                { 
+                    id "TOPIC-0054"
+                    name "Change approval"
+                { 
+                    id "TOPIC-0055"
+                    name "Rollback plan"
+                { 
+                    id "TOPIC-0068"
+                    name "Repository configurazioni"
+                { 
+                    id "TOPIC-0081"
+                    name "Profilo minacce per zona"
+                { 
+                    id "TOPIC-0082"
+                    name "Piano di test FR1–FR7"
+                { 
+                    id "TOPIC-0083"
+                    name "FAT/SAT"
+                { 
+                    id "TOPIC-0084"
+                    name "Evidenze di validazione"
+                { 
+                    id "TOPIC-0085"
+                    name "Change management"
+                { 
+                    id "TOPIC-0122"
+                    name "Approvals tracciati"
+                { 
+                    id "TOPIC-0129"
+                    name "Template registro change"
+                { 
+                    id "TOPIC-0133"
+                    name "Criticità: assenza di staging"
+                { 
+                    id "TOPIC-0134"
+                    name "Criticità: config-drift"
+        { 
+            id "PROFILE-0005"
+            name "Misure tecniche e organizzative"
+            [ topics
+                { 
+                    id "TOPIC-0001"
+                    name "Famiglia IEC 62443"
+                { 
+                    id "TOPIC-0004"
+                    name "IEC 62443-2-3 Patch & Vulnerability Management"
+                { 
+                    id "TOPIC-0005"
+                    name "IEC 62443-2-4 Service Providers"
+                { 
+                    id "TOPIC-0006"
+                    name "IEC 62443-3-2 Risk & SL-Target"
+                { 
+                    id "TOPIC-0007"
+                    name "IEC 62443-3-3 System Requirements"
+                { 
+                    id "TOPIC-0008"
+                    name "IEC 62443-4-1 Secure Development Lifecycle"
+                { 
+                    id "TOPIC-0009"
+                    name "IEC 62443-4-2 Requisiti di componente"
+                { 
+                    id "TOPIC-0010"
+                    name "Security Levels SL0–SL4"
+                { 
+                    id "TOPIC-0011"
+                    name "SL-Target vs SL-Achieved"
+                { 
+                    id "TOPIC-0012"
+                    name "Foundational Requirements FR1–FR7"
+                { 
+                    id "TOPIC-0013"
+                    name "Defense-in-Depth"
+                { 
+                    id "TOPIC-0014"
+                    name "Zone & Conduits"
+                { 
+                    id "TOPIC-0015"
+                    name "DMZ industriale"
+                { 
+                    id "TOPIC-0017"
+                    name "Policy di sicurezza OT"
+                { 
+                    id "TOPIC-0018"
+                    name "Standard tecnici OT"
+                { 
+                    id "TOPIC-0019"
+                    name "RACI"
+                { 
+                    id "TOPIC-0020"
+                    name "Registro asset (inventario)"
+                { 
+                    id "TOPIC-0021"
+                    name "Matrice SL-Target per zona × FR"
+                { 
+                    id "TOPIC-0023"
+                    name "Eccezioni & compensating controls"
+                { 
+                    id "TOPIC-0024"
+                    name "Ruolo: Asset Owner"
+                { 
+                    id "TOPIC-0025"
+                    name "Ruolo: System Integrator"
+                { 
+                    id "TOPIC-0026"
+                    name "Ruolo: OEM/Product Supplier"
+                { 
+                    id "TOPIC-0027"
+                    name "Ruolo: Service Provider"
+                { 
+                    id "TOPIC-0028"
+                    name "Ruolo: OT Security/SOC"
+                { 
+                    id "TOPIC-0029"
+                    name "Ruolo: HSE/Safety"
+                { 
+                    id "TOPIC-0030"
+                    name "Owner di zona"
+                { 
+                    id "TOPIC-0031"
+                    name "Clausole SDL 4-1"
+                { 
+                    id "TOPIC-0032"
+                    name "Requisiti di componente 4-2"
+                { 
+                    id "TOPIC-0033"
+                    name "SBOM obbligatoria"
+                { 
+                    id "TOPIC-0034"
+                    name "PSIRT attivo"
+                { 
+                    id "TOPIC-0035"
+                    name "Patch policy con SLA"
+                { 
+                    id "TOPIC-0036"
+                    name "Accessi remoti contrattualizzati"
+                { 
+                    id "TOPIC-0037"
+                    name "Logging interventi terze parti"
+                { 
+                    id "TOPIC-0039"
+                    name "Manuale di integrazione sicura"
+                { 
+                    id "TOPIC-0041"
+                    name "Broker di accesso privilegiato"
+                { 
+                    id "TOPIC-0042"
+                    name "Autenticazione MFA"
+                { 
+                    id "TOPIC-0043"
+                    name "Autorizzazioni time-bound"
+                { 
+                    id "TOPIC-0044"
+                    name "Least privilege"
+                { 
+                    id "TOPIC-0045"
+                    name "Session recording"
+                { 
+                    id "TOPIC-0046"
+                    name "Separation of duties"
+                { 
+                    id "TOPIC-0047"
+                    name "Two-person rule"
+                { 
+                    id "TOPIC-0048"
+                    name "Account temporanei"
+                { 
+                    id "TOPIC-0049"
+                    name "Break-glass"
+                { 
+                    id "TOPIC-0051"
+                    name "CVSS adattato all’OT"
+                { 
+                    id "TOPIC-0052"
+                    name "OT-feasibility"
+                { 
+                    id "TOPIC-0053"
+                    name "Ambiente di staging"
+                { 
+                    id "TOPIC-0054"
+                    name "Change approval"
+                { 
+                    id "TOPIC-0055"
+                    name "Rollback plan"
+                { 
+                    id "TOPIC-0056"
+                    name "Registro eccezioni"
+                { 
+                    id "TOPIC-0057"
+                    name "Secure update"
+                { 
+                    id "TOPIC-0058"
+                    name "Centralizzazione log"
+                { 
+                    id "TOPIC-0059"
+                    name "Retention log"
+                { 
+                    id "TOPIC-0060"
+                    name "Sincronizzazione oraria (NTP)"
+                { 
+                    id "TOPIC-0061"
+                    name "Use case minimi di detection"
+                { 
+                    id "TOPIC-0062"
+                    name "Integrazione SOC"
+                { 
+                    id "TOPIC-0063"
+                    name "IDS OT"
+                { 
+                    id "TOPIC-0064"
+                    name "Tuning falsi positivi"
+                { 
+                    id "TOPIC-0065"
+                    name "Baseline di hardening"
+                { 
+                    id "TOPIC-0066"
+                    name "Servizi non necessari disabilitati"
+                { 
+                    id "TOPIC-0067"
+                    name "Secure-by-default"
+                { 
+                    id "TOPIC-0068"
+                    name "Repository configurazioni"
+                { 
+                    id "TOPIC-0069"
+                    name "Golden image"
+                { 
+                    id "TOPIC-0070"
+                    name "Application allow-listing"
+                { 
+                    id "TOPIC-0071"
+                    name "Firma/Hash firmware"
+                { 
+                    id "TOPIC-0072"
+                    name "RPO/RTO"
+                { 
+                    id "TOPIC-0073"
+                    name "Regola 3-2-1"
+                { 
+                    id "TOPIC-0074"
+                    name "Test di ripristino periodici"
+                { 
+                    id "TOPIC-0075"
+                    name "Bare-metal restore"
+                { 
+                    id "TOPIC-0076"
+                    name "Isolamento repository backup"
+                { 
+                    id "TOPIC-0077"
+                    name "Deny-by-default"
+                { 
+                    id "TOPIC-0078"
+                    name "Whitelisting protocolli OT"
+                { 
+                    id "TOPIC-0079"
+                    name "Conduits unidirezionali"
+                { 
+                    id "TOPIC-0080"
+                    name "Matrice flussi approvata"
+                { 
+                    id "TOPIC-0081"
+                    name "Profilo minacce per zona"
+                { 
+                    id "TOPIC-0082"
+                    name "Piano di test FR1–FR7"
+                { 
+                    id "TOPIC-0083"
+                    name "FAT/SAT"
+                { 
+                    id "TOPIC-0084"
+                    name "Evidenze di validazione"
+                { 
+                    id "TOPIC-0085"
+                    name "Change management"
+                { 
+                    id "TOPIC-0086"
+                    name "Audit periodico"
+                { 
+                    id "TOPIC-0087"
+                    name "Charter PSIRT"
+                { 
+                    id "TOPIC-0088"
+                    name "Triage SLA PSIRT"
+                { 
+                    id "TOPIC-0089"
+                    name "Contatto PGP PSIRT"
+                { 
+                    id "TOPIC-0090"
+                    name "Template advisory pubblico"
+                { 
+                    id "TOPIC-0091"
+                    name "Coordinamento con CERT/ISAC"
+                { 
+                    id "TOPIC-0092"
+                    name "Mitigazioni e workaround"
+                { 
+                    id "TOPIC-0093"
+                    name "KPI: % asset inventariati"
+                { 
+                    id "TOPIC-0094"
+                    name "KPI: % zone con SL-Target"
+                { 
+                    id "TOPIC-0095"
+                    name "KPI: Patch coverage"
+                { 
+                    id "TOPIC-0096"
+                    name "KPI: TTR"
+                { 
+                    id "TOPIC-0097"
+                    name "KPI: % sessioni MFA registrate"
+                { 
+                    id "TOPIC-0098"
+                    name "KPI: MTTD"
+                { 
+                    id "TOPIC-0099"
+                    name "KPI: MTTR"
+                { 
+                    id "TOPIC-0100"
+                    name "KPI: % backup/restore testati"
+                { 
+                    id "TOPIC-0102"
+                    name "KPI: Tempo approvazione accessi"
+                { 
+                    id "TOPIC-0103"
+                    name "KPI: Incidenti notificati entro SLA"
+                { 
+                    id "TOPIC-0107"
+                    name "Registro incidenti"
+                { 
+                    id "TOPIC-0109"
+                    name "Business Continuity & Crisis Management"
+                { 
+                    id "TOPIC-0110"
+                    name "Operare in modalità degradata"
+                { 
+                    id "TOPIC-0111"
+                    name "Esercitazioni IR/BC"
+                { 
+                    id "TOPIC-0112"
+                    name "Audit accessi terze parti"
+                { 
+                    id "TOPIC-0114"
+                    name "Azioni correttive con scadenze"
+                { 
+                    id "TOPIC-0119"
+                    name "Identità OT separate da IT"
+                { 
+                    id "TOPIC-0120"
+                    name "Service account minimizzati"
+                { 
+                    id "TOPIC-0121"
+                    name "Vault segreti & rotazione"
+                { 
+                    id "TOPIC-0122"
+                    name "Approvals tracciati"
+                { 
+                    id "TOPIC-0123"
+                    name "Evidenze standard di chiusura"
+                { 
+                    id "TOPIC-0124"
+                    name "Template matrice FR × SL"
+                { 
+                    id "TOPIC-0125"
+                    name "Template matrice flussi"
+                { 
+                    id "TOPIC-0126"
+                    name "Template piano patch/vuln"
+                { 
+                    id "TOPIC-0127"
+                    name "Template runbook incident"
+                { 
+                    id "TOPIC-0128"
+                    name "Template advisory PSIRT"
+                { 
+                    id "TOPIC-0129"
+                    name "Template registro change"
+                { 
+                    id "TOPIC-0131"
+                    name "Criticità: SL4 ovunque"
+                { 
+                    id "TOPIC-0132"
+                    name "Criticità: accessi remoti diretti"
+                { 
+                    id "TOPIC-0133"
+                    name "Criticità: assenza di staging"
+                { 
+                    id "TOPIC-0134"
+                    name "Criticità: config-drift"
+                { 
+                    id "TOPIC-0135"
+                    name "Criticità: mancanza di evidenze"
+                { 
+                    id "TOPIC-0136"
+                    name "Criticità: dipendenze IT non gestite"
+                { 
+                    id "TOPIC-0137"
+                    name "Criticità: raccolta log invasiva"
+        { 
+            id "PROFILE-0006"
+            name "Mappatura pratica con la Direttiva NIS2"
+            [ topics
+                { 
+                    id "TOPIC-0001"
+                    name "Famiglia IEC 62443"
+                { 
+                    id "TOPIC-0003"
+                    name "IEC 62443-2-1 Programma di sicurezza"
+                { 
+                    id "TOPIC-0004"
+                    name "IEC 62443-2-3 Patch & Vulnerability Management"
+                { 
+                    id "TOPIC-0005"
+                    name "IEC 62443-2-4 Service Providers"
+                { 
+                    id "TOPIC-0008"
+                    name "IEC 62443-4-1 Secure Development Lifecycle"
+                { 
+                    id "TOPIC-0009"
+                    name "IEC 62443-4-2 Requisiti di componente"
+                { 
+                    id "TOPIC-0022"
+                    name "Registro rischi OT"
+                { 
+                    id "TOPIC-0023"
+                    name "Eccezioni & compensating controls"
+                { 
+                    id "TOPIC-0026"
+                    name "Ruolo: OEM/Product Supplier"
+                { 
+                    id "TOPIC-0028"
+                    name "Ruolo: OT Security/SOC"
+                { 
+                    id "TOPIC-0031"
+                    name "Clausole SDL 4-1"
+                { 
+                    id "TOPIC-0032"
+                    name "Requisiti di componente 4-2"
+                { 
+                    id "TOPIC-0033"
+                    name "SBOM obbligatoria"
+                { 
+                    id "TOPIC-0034"
+                    name "PSIRT attivo"
+                { 
+                    id "TOPIC-0038"
+                    name "Data ownership & restituzione"
+                { 
+                    id "TOPIC-0040"
+                    name "Qualifica fornitori"
+                { 
+                    id "TOPIC-0050"
+                    name "Risk scoring OT"
+                { 
+                    id "TOPIC-0051"
+                    name "CVSS adattato all’OT"
+                { 
+                    id "TOPIC-0056"
+                    name "Registro eccezioni"
+                { 
+                    id "TOPIC-0058"
+                    name "Centralizzazione log"
+                { 
+                    id "TOPIC-0059"
+                    name "Retention log"
+                { 
+                    id "TOPIC-0086"
+                    name "Audit periodico"
+                { 
+                    id "TOPIC-0087"
+                    name "Charter PSIRT"
+                { 
+                    id "TOPIC-0088"
+                    name "Triage SLA PSIRT"
+                { 
+                    id "TOPIC-0089"
+                    name "Contatto PGP PSIRT"
+                { 
+                    id "TOPIC-0090"
+                    name "Template advisory pubblico"
+                { 
+                    id "TOPIC-0091"
+                    name "Coordinamento con CERT/ISAC"
+                { 
+                    id "TOPIC-0101"
+                    name "KPI: % fornitori qualificati"
+                { 
+                    id "TOPIC-0103"
+                    name "KPI: Incidenti notificati entro SLA"
+                { 
+                    id "TOPIC-0104"
+                    name "KPI: Tempo alla prima notifica"
+                { 
+                    id "TOPIC-0105"
+                    name "Crosswalk NIS2 ⇄ IEC 62443"
+                { 
+                    id "TOPIC-0106"
+                    name "Policy di notifica incidenti"
+                { 
+                    id "TOPIC-0107"
+                    name "Registro incidenti"
+                { 
+                    id "TOPIC-0108"
+                    name "Due diligence fornitori"
+                { 
+                    id "TOPIC-0109"
+                    name "Business Continuity & Crisis Management"
+                { 
+                    id "TOPIC-0111"
+                    name "Esercitazioni IR/BC"
+                { 
+                    id "TOPIC-0116"
+                    name "Riferimenti normativi"
+                { 
+                    id "TOPIC-0127"
+                    name "Template runbook incident"
+                { 
+                    id "TOPIC-0128"
+                    name "Template advisory PSIRT"
+                { 
+                    id "TOPIC-0135"
+                    name "Criticità: mancanza di evidenze"
+        { 
+            id "PROFILE-0010"
+            name "Glossario e risorse"
+            [ topics
+                { 
+                    id "TOPIC-0001"
+                    name "Famiglia IEC 62443"
+                { 
+                    id "TOPIC-0002"
+                    name "IEC 62443-1-1 Terminologia"
+                { 
+                    id "TOPIC-0115"
+                    name "Glossario minimo"
+                { 
+                    id "TOPIC-0116"
+                    name "Riferimenti normativi"
+                { 
+                    id "TOPIC-0117"
+                    name "Risorse utili"
+                { 
+                    id "TOPIC-0118"
+                    name "Note su link e licenze"
+        { 
+            id "PROFILE-0011"
+            name "LLM come leva organizzativa"
+            [ topics
+                { 
+                    id "TOPIC-0001"
+                    name "Famiglia IEC 62443"
+                { 
+                    id "TOPIC-0003"
+                    name "IEC 62443-2-1 Programma di sicurezza"
+                { 
+                    id "TOPIC-0004"
+                    name "IEC 62443-2-3 Patch & Vulnerability Management"
+                { 
+                    id "TOPIC-0006"
+                    name "IEC 62443-3-2 Risk & SL-Target"
+                { 
+                    id "TOPIC-0008"
+                    name "IEC 62443-4-1 Secure Development Lifecycle"
+                { 
+                    id "TOPIC-0011"
+                    name "SL-Target vs SL-Achieved"
+                { 
+                    id "TOPIC-0016"
+                    name "Comitato ICS/OT"
+                { 
+                    id "TOPIC-0017"
+                    name "Policy di sicurezza OT"
+                { 
+                    id "TOPIC-0019"
+                    name "RACI"
+                { 
+                    id "TOPIC-0020"
+                    name "Registro asset (inventario)"
+                { 
+                    id "TOPIC-0021"
+                    name "Matrice SL-Target per zona × FR"
+                { 
+                    id "TOPIC-0022"
+                    name "Registro rischi OT"
+                { 
+                    id "TOPIC-0024"
+                    name "Ruolo: Asset Owner"
+                { 
+                    id "TOPIC-0026"
+                    name "Ruolo: OEM/Product Supplier"
+                { 
+                    id "TOPIC-0028"
+                    name "Ruolo: OT Security/SOC"
+                { 
+                    id "TOPIC-0031"
+                    name "Clausole SDL 4-1"
+                { 
+                    id "TOPIC-0033"
+                    name "SBOM obbligatoria"
+                { 
+                    id "TOPIC-0034"
+                    name "PSIRT attivo"
+                { 
+                    id "TOPIC-0038"
+                    name "Data ownership & restituzione"
+                { 
+                    id "TOPIC-0050"
+                    name "Risk scoring OT"
+                { 
+                    id "TOPIC-0058"
+                    name "Centralizzazione log"
+                { 
+                    id "TOPIC-0061"
+                    name "Use case minimi di detection"
+                { 
+                    id "TOPIC-0062"
+                    name "Integrazione SOC"
+                { 
+                    id "TOPIC-0068"
+                    name "Repository configurazioni"
+                { 
+                    id "TOPIC-0085"
+                    name "Change management"
+                { 
+                    id "TOPIC-0086"
+                    name "Audit periodico"
+                { 
+                    id "TOPIC-0087"
+                    name "Charter PSIRT"
+                { 
+                    id "TOPIC-0088"
+                    name "Triage SLA PSIRT"
+                { 
+                    id "TOPIC-0090"
+                    name "Template advisory pubblico"
+                { 
+                    id "TOPIC-0091"
+                    name "Coordinamento con CERT/ISAC"
+                { 
+                    id "TOPIC-0093"
+                    name "KPI: % asset inventariati"
+                { 
+                    id "TOPIC-0094"
+                    name "KPI: % zone con SL-Target"
+                { 
+                    id "TOPIC-0095"
+                    name "KPI: Patch coverage"
+                { 
+                    id "TOPIC-0096"
+                    name "KPI: TTR"
+                { 
+                    id "TOPIC-0097"
+                    name "KPI: % sessioni MFA registrate"
+                { 
+                    id "TOPIC-0098"
+                    name "KPI: MTTD"
+                { 
+                    id "TOPIC-0099"
+                    name "KPI: MTTR"
+                { 
+                    id "TOPIC-0100"
+                    name "KPI: % backup/restore testati"
+                { 
+                    id "TOPIC-0101"
+                    name "KPI: % fornitori qualificati"
+                { 
+                    id "TOPIC-0102"
+                    name "KPI: Tempo approvazione accessi"
+                { 
+                    id "TOPIC-0103"
+                    name "KPI: Incidenti notificati entro SLA"
+                { 
+                    id "TOPIC-0104"
+                    name "KPI: Tempo alla prima notifica"
+                { 
+                    id "TOPIC-0105"
+                    name "Crosswalk NIS2 ⇄ IEC 62443"
+                { 
+                    id "TOPIC-0106"
+                    name "Policy di notifica incidenti"
+                { 
+                    id "TOPIC-0107"
+                    name "Registro incidenti"
+                { 
+                    id "TOPIC-0111"
+                    name "Esercitazioni IR/BC"
+                { 
+                    id "TOPIC-0118"
+                    name "Note su link e licenze"
+                { 
+                    id "TOPIC-0122"
+                    name "Approvals tracciati"
+                { 
+                    id "TOPIC-0123"
+                    name "Evidenze standard di chiusura"
+                { 
+                    id "TOPIC-0126"
+                    name "Template piano patch/vuln"
+                { 
+                    id "TOPIC-0127"
+                    name "Template runbook incident"
+                { 
+                    id "TOPIC-0128"
+                    name "Template advisory PSIRT"
+                { 
+                    id "TOPIC-0129"
+                    name "Template registro change"
+                { 
+                    id "TOPIC-0130"
+                    name "Template roadmap 30/90/180"
+                { 
+                    id "TOPIC-0131"
+                    name "Criticità: SL4 ovunque"
+        { 
+            id "PROFILE-0009"
+            name "Checklist essenziale “per non addetti” (15 passi)"
+            [ topics
+                { 
+                    id "TOPIC-0003"
+                    name "IEC 62443-2-1 Programma di sicurezza"
+                { 
+                    id "TOPIC-0004"
+                    name "IEC 62443-2-3 Patch & Vulnerability Management"
+                { 
+                    id "TOPIC-0005"
+                    name "IEC 62443-2-4 Service Providers"
+                { 
+                    id "TOPIC-0006"
+                    name "IEC 62443-3-2 Risk & SL-Target"
+                { 
+                    id "TOPIC-0010"
+                    name "Security Levels SL0–SL4"
+                { 
+                    id "TOPIC-0011"
+                    name "SL-Target vs SL-Achieved"
+                { 
+                    id "TOPIC-0012"
+                    name "Foundational Requirements FR1–FR7"
+                { 
+                    id "TOPIC-0014"
+                    name "Zone & Conduits"
+                { 
+                    id "TOPIC-0015"
+                    name "DMZ industriale"
+                { 
+                    id "TOPIC-0017"
+                    name "Policy di sicurezza OT"
+                { 
+                    id "TOPIC-0018"
+                    name "Standard tecnici OT"
+                { 
+                    id "TOPIC-0019"
+                    name "RACI"
+                { 
+                    id "TOPIC-0020"
+                    name "Registro asset (inventario)"
+                { 
+                    id "TOPIC-0021"
+                    name "Matrice SL-Target per zona × FR"
+                { 
+                    id "TOPIC-0023"
+                    name "Eccezioni & compensating controls"
+                { 
+                    id "TOPIC-0024"
+                    name "Ruolo: Asset Owner"
+                { 
+                    id "TOPIC-0025"
+                    name "Ruolo: System Integrator"
+                { 
+                    id "TOPIC-0027"
+                    name "Ruolo: Service Provider"
+                { 
+                    id "TOPIC-0028"
+                    name "Ruolo: OT Security/SOC"
+                { 
+                    id "TOPIC-0030"
+                    name "Owner di zona"
+                { 
+                    id "TOPIC-0035"
+                    name "Patch policy con SLA"
+                { 
+                    id "TOPIC-0036"
+                    name "Accessi remoti contrattualizzati"
+                { 
+                    id "TOPIC-0037"
+                    name "Logging interventi terze parti"
+                { 
+                    id "TOPIC-0041"
+                    name "Broker di accesso privilegiato"
+                { 
+                    id "TOPIC-0042"
+                    name "Autenticazione MFA"
+                { 
+                    id "TOPIC-0043"
+                    name "Autorizzazioni time-bound"
+                { 
+                    id "TOPIC-0044"
+                    name "Least privilege"
+                { 
+                    id "TOPIC-0045"
+                    name "Session recording"
+                { 
+                    id "TOPIC-0046"
+                    name "Separation of duties"
+                { 
+                    id "TOPIC-0047"
+                    name "Two-person rule"
+                { 
+                    id "TOPIC-0048"
+                    name "Account temporanei"
+                { 
+                    id "TOPIC-0049"
+                    name "Break-glass"
+                { 
+                    id "TOPIC-0053"
+                    name "Ambiente di staging"
+                { 
+                    id "TOPIC-0054"
+                    name "Change approval"
+                { 
+                    id "TOPIC-0055"
+                    name "Rollback plan"
+                { 
+                    id "TOPIC-0056"
+                    name "Registro eccezioni"
+                { 
+                    id "TOPIC-0057"
+                    name "Secure update"
+                { 
+                    id "TOPIC-0058"
+                    name "Centralizzazione log"
+                { 
+                    id "TOPIC-0059"
+                    name "Retention log"
+                { 
+                    id "TOPIC-0060"
+                    name "Sincronizzazione oraria (NTP)"
+                { 
+                    id "TOPIC-0061"
+                    name "Use case minimi di detection"
+                { 
+                    id "TOPIC-0063"
+                    name "IDS OT"
+                { 
+                    id "TOPIC-0065"
+                    name "Baseline di hardening"
+                { 
+                    id "TOPIC-0066"
+                    name "Servizi non necessari disabilitati"
+                { 
+                    id "TOPIC-0068"
+                    name "Repository configurazioni"
+                { 
+                    id "TOPIC-0069"
+                    name "Golden image"
+                { 
+                    id "TOPIC-0072"
+                    name "RPO/RTO"
+                { 
+                    id "TOPIC-0073"
+                    name "Regola 3-2-1"
+                { 
+                    id "TOPIC-0074"
+                    name "Test di ripristino periodici"
+                { 
+                    id "TOPIC-0077"
+                    name "Deny-by-default"
+                { 
+                    id "TOPIC-0078"
+                    name "Whitelisting protocolli OT"
+                { 
+                    id "TOPIC-0080"
+                    name "Matrice flussi approvata"
+                { 
+                    id "TOPIC-0084"
+                    name "Evidenze di validazione"
+                { 
+                    id "TOPIC-0085"
+                    name "Change management"
+                { 
+                    id "TOPIC-0086"
+                    name "Audit periodico"
+                { 
+                    id "TOPIC-0092"
+                    name "Mitigazioni e workaround"
+                { 
+                    id "TOPIC-0093"
+                    name "KPI: % asset inventariati"
+                { 
+                    id "TOPIC-0094"
+                    name "KPI: % zone con SL-Target"
+                { 
+                    id "TOPIC-0095"
+                    name "KPI: Patch coverage"
+                { 
+                    id "TOPIC-0097"
+                    name "KPI: % sessioni MFA registrate"
+                { 
+                    id "TOPIC-0100"
+                    name "KPI: % backup/restore testati"
+                { 
+                    id "TOPIC-0105"
+                    name "Crosswalk NIS2 ⇄ IEC 62443"
+                { 
+                    id "TOPIC-0106"
+                    name "Policy di notifica incidenti"
+                { 
+                    id "TOPIC-0107"
+                    name "Registro incidenti"
+                { 
+                    id "TOPIC-0109"
+                    name "Business Continuity & Crisis Management"
+                { 
+                    id "TOPIC-0110"
+                    name "Operare in modalità degradata"
+                { 
+                    id "TOPIC-0111"
+                    name "Esercitazioni IR/BC"
+                { 
+                    id "TOPIC-0112"
+                    name "Audit accessi terze parti"
+                { 
+                    id "TOPIC-0113"
+                    name "Marcatura N/A con motivazione"
+                { 
+                    id "TOPIC-0114"
+                    name "Azioni correttive con scadenze"
+                { 
+                    id "TOPIC-0119"
+                    name "Identità OT separate da IT"
+                { 
+                    id "TOPIC-0120"
+                    name "Service account minimizzati"
+                { 
+                    id "TOPIC-0121"
+                    name "Vault segreti & rotazione"
+                { 
+                    id "TOPIC-0122"
+                    name "Approvals tracciati"
+                { 
+                    id "TOPIC-0123"
+                    name "Evidenze standard di chiusura"
+                { 
+                    id "TOPIC-0124"
+                    name "Template matrice FR × SL"
+                { 
+                    id "TOPIC-0125"
+                    name "Template matrice flussi"
+                { 
+                    id "TOPIC-0126"
+                    name "Template piano patch/vuln"
+                { 
+                    id "TOPIC-0127"
+                    name "Template runbook incident"
+                { 
+                    id "TOPIC-0129"
+                    name "Template registro change"
+                { 
+                    id "TOPIC-0130"
+                    name "Template roadmap 30/90/180"
+                { 
+                    id "TOPIC-0131"
+                    name "Criticità: SL4 ovunque"
+                { 
+                    id "TOPIC-0132"
+                    name "Criticità: accessi remoti diretti"
+                { 
+                    id "TOPIC-0133"
+                    name "Criticità: assenza di staging"
+                { 
+                    id "TOPIC-0134"
+                    name "Criticità: config-drift"
+                { 
+                    id "TOPIC-0135"
+                    name "Criticità: mancanza di evidenze"
+        { 
+            id "PROFILE-0007"
+            name "Casi applicativi e buone pratiche"
+            [ topics
+                { 
+                    id "TOPIC-0004"
+                    name "IEC 62443-2-3 Patch & Vulnerability Management"
+                { 
+                    id "TOPIC-0005"
+                    name "IEC 62443-2-4 Service Providers"
+                { 
+                    id "TOPIC-0006"
+                    name "IEC 62443-3-2 Risk & SL-Target"
+                { 
+                    id "TOPIC-0007"
+                    name "IEC 62443-3-3 System Requirements"
+                { 
+                    id "TOPIC-0008"
+                    name "IEC 62443-4-1 Secure Development Lifecycle"
+                { 
+                    id "TOPIC-0009"
+                    name "IEC 62443-4-2 Requisiti di componente"
+                { 
+                    id "TOPIC-0010"
+                    name "Security Levels SL0–SL4"
+                { 
+                    id "TOPIC-0011"
+                    name "SL-Target vs SL-Achieved"
+                { 
+                    id "TOPIC-0012"
+                    name "Foundational Requirements FR1–FR7"
+                { 
+                    id "TOPIC-0013"
+                    name "Defense-in-Depth"
+                { 
+                    id "TOPIC-0014"
+                    name "Zone & Conduits"
+                { 
+                    id "TOPIC-0015"
+                    name "DMZ industriale"
+                { 
+                    id "TOPIC-0018"
+                    name "Standard tecnici OT"
+                { 
+                    id "TOPIC-0019"
+                    name "RACI"
+                { 
+                    id "TOPIC-0020"
+                    name "Registro asset (inventario)"
+                { 
+                    id "TOPIC-0021"
+                    name "Matrice SL-Target per zona × FR"
+                { 
+                    id "TOPIC-0024"
+                    name "Ruolo: Asset Owner"
+                { 
+                    id "TOPIC-0025"
+                    name "Ruolo: System Integrator"
+                { 
+                    id "TOPIC-0026"
+                    name "Ruolo: OEM/Product Supplier"
+                { 
+                    id "TOPIC-0027"
+                    name "Ruolo: Service Provider"
+                { 
+                    id "TOPIC-0028"
+                    name "Ruolo: OT Security/SOC"
+                { 
+                    id "TOPIC-0029"
+                    name "Ruolo: HSE/Safety"
+                { 
+                    id "TOPIC-0030"
+                    name "Owner di zona"
+                { 
+                    id "TOPIC-0031"
+                    name "Clausole SDL 4-1"
+                { 
+                    id "TOPIC-0032"
+                    name "Requisiti di componente 4-2"
+                { 
+                    id "TOPIC-0033"
+                    name "SBOM obbligatoria"
+                { 
+                    id "TOPIC-0034"
+                    name "PSIRT attivo"
+                { 
+                    id "TOPIC-0035"
+                    name "Patch policy con SLA"
+                { 
+                    id "TOPIC-0036"
+                    name "Accessi remoti contrattualizzati"
+                { 
+                    id "TOPIC-0037"
+                    name "Logging interventi terze parti"
+                { 
+                    id "TOPIC-0038"
+                    name "Data ownership & restituzione"
+                { 
+                    id "TOPIC-0039"
+                    name "Manuale di integrazione sicura"
+                { 
+                    id "TOPIC-0040"
+                    name "Qualifica fornitori"
+                { 
+                    id "TOPIC-0041"
+                    name "Broker di accesso privilegiato"
+                { 
+                    id "TOPIC-0042"
+                    name "Autenticazione MFA"
+                { 
+                    id "TOPIC-0043"
+                    name "Autorizzazioni time-bound"
+                { 
+                    id "TOPIC-0044"
+                    name "Least privilege"
+                { 
+                    id "TOPIC-0045"
+                    name "Session recording"
+                { 
+                    id "TOPIC-0048"
+                    name "Account temporanei"
+                { 
+                    id "TOPIC-0050"
+                    name "Risk scoring OT"
+                { 
+                    id "TOPIC-0051"
+                    name "CVSS adattato all’OT"
+                { 
+                    id "TOPIC-0052"
+                    name "OT-feasibility"
+                { 
+                    id "TOPIC-0053"
+                    name "Ambiente di staging"
+                { 
+                    id "TOPIC-0055"
+                    name "Rollback plan"
+                { 
+                    id "TOPIC-0057"
+                    name "Secure update"
+                { 
+                    id "TOPIC-0058"
+                    name "Centralizzazione log"
+                { 
+                    id "TOPIC-0060"
+                    name "Sincronizzazione oraria (NTP)"
+                { 
+                    id "TOPIC-0061"
+                    name "Use case minimi di detection"
+                { 
+                    id "TOPIC-0062"
+                    name "Integrazione SOC"
+                { 
+                    id "TOPIC-0063"
+                    name "IDS OT"
+                { 
+                    id "TOPIC-0064"
+                    name "Tuning falsi positivi"
+                { 
+                    id "TOPIC-0065"
+                    name "Baseline di hardening"
+                { 
+                    id "TOPIC-0066"
+                    name "Servizi non necessari disabilitati"
+                { 
+                    id "TOPIC-0067"
+                    name "Secure-by-default"
+                { 
+                    id "TOPIC-0068"
+                    name "Repository configurazioni"
+                { 
+                    id "TOPIC-0069"
+                    name "Golden image"
+                { 
+                    id "TOPIC-0070"
+                    name "Application allow-listing"
+                { 
+                    id "TOPIC-0071"
+                    name "Firma/Hash firmware"
+                { 
+                    id "TOPIC-0072"
+                    name "RPO/RTO"
+                { 
+                    id "TOPIC-0073"
+                    name "Regola 3-2-1"
+                { 
+                    id "TOPIC-0074"
+                    name "Test di ripristino periodici"
+                { 
+                    id "TOPIC-0075"
+                    name "Bare-metal restore"
+                { 
+                    id "TOPIC-0076"
+                    name "Isolamento repository backup"
+                { 
+                    id "TOPIC-0077"
+                    name "Deny-by-default"
+                { 
+                    id "TOPIC-0078"
+                    name "Whitelisting protocolli OT"
+                { 
+                    id "TOPIC-0079"
+                    name "Conduits unidirezionali"
+                { 
+                    id "TOPIC-0080"
+                    name "Matrice flussi approvata"
+                { 
+                    id "TOPIC-0081"
+                    name "Profilo minacce per zona"
+                { 
+                    id "TOPIC-0082"
+                    name "Piano di test FR1–FR7"
+                { 
+                    id "TOPIC-0083"
+                    name "FAT/SAT"
+                { 
+                    id "TOPIC-0084"
+                    name "Evidenze di validazione"
+                { 
+                    id "TOPIC-0086"
+                    name "Audit periodico"
+                { 
+                    id "TOPIC-0091"
+                    name "Coordinamento con CERT/ISAC"
+                { 
+                    id "TOPIC-0092"
+                    name "Mitigazioni e workaround"
+                { 
+                    id "TOPIC-0093"
+                    name "KPI: % asset inventariati"
+                { 
+                    id "TOPIC-0094"
+                    name "KPI: % zone con SL-Target"
+                { 
+                    id "TOPIC-0095"
+                    name "KPI: Patch coverage"
+                { 
+                    id "TOPIC-0096"
+                    name "KPI: TTR"
+                { 
+                    id "TOPIC-0097"
+                    name "KPI: % sessioni MFA registrate"
+                { 
+                    id "TOPIC-0098"
+                    name "KPI: MTTD"
+                { 
+                    id "TOPIC-0099"
+                    name "KPI: MTTR"
+                { 
+                    id "TOPIC-0100"
+                    name "KPI: % backup/restore testati"
+                { 
+                    id "TOPIC-0101"
+                    name "KPI: % fornitori qualificati"
+                { 
+                    id "TOPIC-0102"
+                    name "KPI: Tempo approvazione accessi"
+                { 
+                    id "TOPIC-0107"
+                    name "Registro incidenti"
+                { 
+                    id "TOPIC-0108"
+                    name "Due diligence fornitori"
+                { 
+                    id "TOPIC-0109"
+                    name "Business Continuity & Crisis Management"
+                { 
+                    id "TOPIC-0110"
+                    name "Operare in modalità degradata"
+                { 
+                    id "TOPIC-0111"
+                    name "Esercitazioni IR/BC"
+                { 
+                    id "TOPIC-0112"
+                    name "Audit accessi terze parti"
+                { 
+                    id "TOPIC-0119"
+                    name "Identità OT separate da IT"
+                { 
+                    id "TOPIC-0123"
+                    name "Evidenze standard di chiusura"
+                { 
+                    id "TOPIC-0125"
+                    name "Template matrice flussi"
+                { 
+                    id "TOPIC-0130"
+                    name "Template roadmap 30/90/180"
+                { 
+                    id "TOPIC-0131"
+                    name "Criticità: SL4 ovunque"
+                { 
+                    id "TOPIC-0132"
+                    name "Criticità: accessi remoti diretti"
+                { 
+                    id "TOPIC-0133"
+                    name "Criticità: assenza di staging"
+                { 
+                    id "TOPIC-0134"
+                    name "Criticità: config-drift"
+                { 
+                    id "TOPIC-0136"
+                    name "Criticità: dipendenze IT non gestite"
+                { 
+                    id "TOPIC-0137"
+                    name "Criticità: raccolta log invasiva"
+        { 
+            id "PROFILE-0008"
+            name "Casi di successo industriali"
+            [ topics
+                { 
+                    id "TOPIC-0008"
+                    name "IEC 62443-4-1 Secure Development Lifecycle"
+                { 
+                    id "TOPIC-0009"
+                    name "IEC 62443-4-2 Requisiti di componente"
+                { 
+                    id "TOPIC-0026"
+                    name "Ruolo: OEM/Product Supplier"
+                { 
+                    id "TOPIC-0031"
+                    name "Clausole SDL 4-1"
+                { 
+                    id "TOPIC-0032"
+                    name "Requisiti di componente 4-2"
+                { 
+                    id "TOPIC-0033"
+                    name "SBOM obbligatoria"
+                { 
+                    id "TOPIC-0034"
+                    name "PSIRT attivo"
+                { 
+                    id "TOPIC-0038"
+                    name "Data ownership & restituzione"
+                { 
+                    id "TOPIC-0039"
+                    name "Manuale di integrazione sicura"
+                { 
+                    id "TOPIC-0040"
+                    name "Qualifica fornitori"
+                { 
+                    id "TOPIC-0087"
+                    name "Charter PSIRT"
+                { 
+                    id "TOPIC-0088"
+                    name "Triage SLA PSIRT"
+                { 
+                    id "TOPIC-0089"
+                    name "Contatto PGP PSIRT"
+                { 
+                    id "TOPIC-0090"
+                    name "Template advisory pubblico"
+                { 
+                    id "TOPIC-0091"
+                    name "Coordinamento con CERT/ISAC"
+                { 
+                    id "TOPIC-0101"
+                    name "KPI: % fornitori qualificati"
+                { 
+                    id "TOPIC-0108"
+                    name "Due diligence fornitori"
+                { 
+                    id "TOPIC-0128"
+                    name "Template advisory PSIRT"

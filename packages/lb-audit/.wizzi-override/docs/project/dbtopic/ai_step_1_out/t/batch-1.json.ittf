@@ -1,0 +1,1000 @@
+$group
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/1"
+            nome "Contesto, perimetro e come usare la mini guida (IEC 62443)"
+            ruolo "Definizione del contesto e del perimetro di applicazione per la sicurezza
+                +b OT/ICS"
+            [ norme_riferimento
+                "IEC 62443"
+                "IEC 27001"
+                "NIS2"
+            descrizione "Questo capitolo introduce il contesto e il perimetro della sicurezza OT/ICS,
+                +b chiarendo cosa è incluso (es. PLC, DCS/SCADA, HMI, server OT, VPN) e cosa resta
+                +b fuori (es. IT office, endpoint non OT). Si descrivono i confini IT/OT, la DMZ
+                +b come zona cuscinetto, i conduits come canali controllati e le trust boundaries
+                +b per garantire una separazione logica e fisica tra ambienti."
+            [ sezioni
+                {
+                    id "cap/1/1.1"
+                    nome "Scopo e perimetro"
+                    { obiettivo
+                        codice "OBJ-1.1"
+                        descrizione "Definire il perimetro di applicazione della sicurezza OT/ICS e chiarire i
+                            +b confini IT/OT."
+                    [ output_attesi
+                        "Documento di definizione del perimetro OT/ICS"
+                        "Mappa dei confini IT/OT con DMZ e conduits"
+                        "Elenco degli asset OT inclusi ed esclusi"
+                    prompt_base "Scrivi 8–12 righe su scopo e perimetro del Cap. 1, chiarendo confine IT/OT, DMZ
+                        +b e conduits, con esempi di asset OT e interfacce. Il testo deve spiegare
+                        +b l'importanza di identificare gli asset OT come PLC, SCADA e HMI, distinguendoli
+                        +b da sistemi IT office non rilevanti per l'operatività. Descrivi la DMZ come zona
+                        +b cuscinetto per interfacce sicure con MES/ERP e i conduits come canali
+                        +b controllati per flussi di dati tra zone di fiducia diverse."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-1.1.1"
+                            titolo "Definizione del perimetro OT"
+                            descrizione_astratta "Identificazione degli asset e dei sistemi che rientrano nel perimetro OT/ICS
+                                +b per garantire una protezione mirata."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato a sistemi OT"
+                                "Confusione tra asset IT e OT"
+                            [ pratiche_raccomandate
+                                "Inventario degli asset OT"
+                                "Mappatura delle interfacce IT/OT"
+                                "Definizione delle trust boundaries"
+                            [ metriche_kpi
+                                "Percentuale di asset OT inventariati"
+                                "Numero di conduits identificati e controllati"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di inventario asset OT"
+                                [ registri
+                                    "Registro degli asset OT"
+                                [ evidenze
+                                    "Report di mappatura IT/OT"
+                            [ placeholders_contesto
+                                "[Nome Azienda]"
+                                "[Settore Industriale]"
+                                "[Tipologia Impianto]"
+                    { policy_template
+                        titolo "Policy di definizione del perimetro OT/ICS"
+                        [ sezioni
+                            "Scopo della policy"
+                            "Perimetro di applicazione"
+                            "Confini IT/OT e DMZ"
+                            "Responsabilità"
+                        [ placeholders_contesto
+                            "[Nome Azienda]"
+                            "[Elenco Asset OT]"
+                            "[Descrizione DMZ]"
+                    { sop_template
+                        titolo "SOP per la mappatura del perimetro OT"
+                        [ step
+                            "Identificazione degli asset OT"
+                            "Definizione dei confini IT/OT"
+                            "Configurazione dei conduits"
+                            "Documentazione delle interfacce"
+                        [ registrazioni
+                            "Registro asset OT"
+                            "Mappa dei conduits"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch principale per contenuti stabili"
+                            "Branch di sviluppo per revisioni"
+                            "Pull request obbligatorie per merge"
+                    { raci
+                        [ roles
+                            "Responsabile OT"
+                            "Team Sicurezza IT"
+                            "Ingegnere di Processo"
+                        [ matrix
+                            {
+                                attivita "Definizione perimetro OT"
+                                SP "Responsabile OT"
+                                AO "Team Sicurezza IT"
+                                SI "Ingegnere di Processo"
+                                OTSec "Team Sicurezza IT"
+                            {
+                                attivita "Mappatura conduits"
+                                SP "Team Sicurezza IT"
+                                AO "Responsabile OT"
+                                SI "Ingegnere di Processo"
+                                OTSec "Team Sicurezza IT"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Manager"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Rispetto IEC 62443"
+                            "Inclusione esempi pratici"
+                            "Linguaggio accessibile"
+                    { prompting
+                        prompt_template_generico "Genera un documento sul perimetro OT/ICS per [audience] con stile [stile] e
+                            +b livello tecnico [livello]. Includi definizioni di DMZ e conduits con esempi
+                            +b pratici per [contesto aziendale]."
+                        prompt_esempio_articolo "Scrivi un articolo di 500 parole sul perimetro OT/ICS per tecnici OT, stile
+                            +b tecnico, livello intermedio. Spiega DMZ e conduits con esempi di asset come PLC
+                            +b e SCADA in un contesto di [settore industriale]."
+                        prompt_esempio_slide "Crea una presentazione di 10 slide sul perimetro OT/ICS per manager, stile
+                            +b formale, livello base. Includi grafici su DMZ e conduits con esempi di confini
+                            +b IT/OT per [nome azienda]."
+                        prompt_esempio_sop "Redigi una SOP per la mappatura del perimetro OT per tecnici OT, stile tecnico,
+                            +b livello avanzato. Descrivi step per identificare asset OT e configurare
+                            +b conduits in [impianto specifico]."
+                    [ checklist
+                        "Inventario asset OT completato"
+                        "Confini IT/OT definiti"
+                        "DMZ configurata"
+                        "Conduits identificati e documentati"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome Azienda"
+                        "Settore Industriale"
+                        "Tipologia Impianto"
+                        "Elenco Asset OT"
+                    [ avvertenze
+                        "Assicurarsi che tutti gli asset OT siano inclusi nell'inventario"
+                        "Verificare che i conduits siano monitorati costantemente"
+                        "Evitare sovrapposizioni tra perimetri IT e OT senza controlli"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/1"
+            nome "Contesto, perimetro e come usare la mini guida (IEC 62443)"
+            ruolo "Introduzione al contesto normativo e operativo per la sicurezza OT/ICS"
+            [ norme_riferimento
+                "IEC 62443"
+                "IEC 27001"
+                "NIS2"
+            descrizione "Questo capitolo introduce il contesto della sicurezza OT/ICS, definendo il
+                +b perimetro di applicazione della mini guida basata su IEC 62443. Si focalizza
+                +b sull'importanza di un approccio strutturato per diverse tipologie di
+                +b stakeholder, evidenziando obiettivi e benefici attesi."
+            [ sezioni
+                {
+                    id "cap/1/1.2"
+                    nome "A chi serve (pubblico)"
+                    { obiettivo
+                        codice "OBJ-1.2"
+                        descrizione "Identificare i segmenti di pubblico target della guida e definire value
+                            +b proposition specifiche per ciascun segmento."
+                    [ output_attesi
+                        "Documento descrittivo per PMI/Asset Owner con focus su programma di sicurezza OT essenziale."
+                        "Linee guida per OEM/Product Supplier su allineamento SDL e capacità di sicurezza."
+                        "Procedure operative per Service Provider/System Integrator su gestione accessi remoti e conformità."
+                    prompt_base "Descrivi in 10-12 righe 'a chi serve', con value proposition distinta per
+                        +b PMI/Owner, OEM e Service Provider, includendo esempi di risultati attesi. Per
+                        +b le PMI/Asset Owner, evidenzia come un programma di sicurezza OT essenziale
+                        +b possa ridurre i rischi operativi (es. downtime ridotto del 30% grazie a policy
+                        +b di accesso). Per gli OEM/Product Supplier, sottolinea l'importanza di integrare
+                        +b SDL 62443-4-1 e capacità 4-2 per garantire prodotti sicuri by design (es.
+                        +b riduzione vulnerabilità del 25%). Per i Service Provider/System Integrator,
+                        +b focalizzati su operazioni conformi a 2-4 con tracciabilità accessi remoti (es.
+                        +b audit completati con successo al 100%)."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-1.2.1"
+                            titolo "Segmentazione del pubblico target"
+                            descrizione_astratta "Definizione dei bisogni specifici di sicurezza per ciascun segmento di
+                                +b pubblico, con mappatura dei rischi e delle soluzioni applicabili."
+                            [ rischi_mitigati
+                                "Mancata identificazione dei bisogni di sicurezza"
+                                "Implementazione di soluzioni non adeguate"
+                            [ pratiche_raccomandate
+                                "Analisi dei bisogni per segmento"
+                                "Personalizzazione delle value proposition"
+                            [ metriche_kpi
+                                "Percentuale di stakeholder coperti dalla guida"
+                                "Tasso di adozione delle raccomandazioni per segmento"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di identificazione stakeholder"
+                                [ registri
+                                    "Registro dei bisogni per segmento"
+                                [ evidenze
+                                    "Report di adozione delle soluzioni"
+                            [ placeholders_contesto
+                                "[Segmento]"
+                                "[Bisogno specifico]"
+                                "[Risultato atteso]"
+                    { policy_template
+                        titolo "Policy di Segmentazione Stakeholder"
+                        [ sezioni
+                            "Introduzione"
+                            "Definizione Segmenti"
+                            "Bisogni Specifici"
+                            "Value Proposition"
+                        [ placeholders_contesto
+                            "[Segmento Target]"
+                            "[Obiettivo Sicurezza]"
+                    { sop_template
+                        titolo "SOP per Identificazione Pubblico Target"
+                        [ step
+                            "Identificare stakeholder"
+                            "Analizzare bisogni"
+                            "Definire value proposition"
+                            "Validare con stakeholder"
+                        [ registrazioni
+                            "Elenco stakeholder"
+                            "Matrice bisogni"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch principale per contenuti stabili"
+                            "Branch di feature per segmenti specifici"
+                            "Pull request con revisione obbligatoria"
+                    { raci
+                        [ roles
+                            "SP (Service Provider)"
+                            "AO (Asset Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Team)"
+                        [ matrix
+                            {
+                                attivita "Identificazione bisogni"
+                                SP "C"
+                                AO "R"
+                                SI "C"
+                                OTSec "A"
+                            {
+                                attivita "Definizione value proposition"
+                                SP "C"
+                                AO "C"
+                                SI "C"
+                                OTSec "R/A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Articolo"
+                            "Slide"
+                            "SOP"
+                            "Policy"
+                        [ audience_possibili
+                            "PMI/Asset Owner"
+                            "OEM/Product Supplier"
+                            "Service Provider/System Integrator"
+                        [ stili
+                            "Formale"
+                            "Didattico"
+                            "Operativo"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità IEC 62443"
+                            "Linguaggio accessibile"
+                            "Focus su risultati misurabili"
+                    { prompting
+                        prompt_template_generico "Genera un contenuto per [audience] su [argomento] in stile [stile] con livello
+                            +b tecnico [livello]. Includi esempi pratici e risultati attesi come [esempio]."
+                        prompt_esempio_articolo "Scrivi un articolo per PMI/Asset Owner sulla sicurezza OT in stile formale,
+                            +b livello base. Includi un esempio di riduzione downtime del 30% con policy di
+                            +b accesso."
+                        prompt_esempio_slide "Crea una slide per OEM/Product Supplier su SDL 62443-4-1 in stile didattico,
+                            +b livello intermedio. Mostra riduzione vulnerabilità del 25%."
+                        prompt_esempio_sop "Sviluppa una SOP per Service Provider su accessi remoti tracciati in stile
+                            +b operativo, livello avanzato. Evidenzia audit al 100%."
+                    [ checklist
+                        "Identificazione segmenti completata"
+                        "Value proposition definita per ogni segmento"
+                        "Esempi di risultati attesi inclusi"
+                        "Conformità a IEC 62443 verificata"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Settore industriale"
+                        "Dimensione azienda"
+                        "Livello di maturità sicurezza OT"
+                        "Norme applicabili"
+                    [ avvertenze
+                        "Adattare i contenuti al contesto specifico dell'organizzazione"
+                        "Verificare conformità con normative locali oltre a IEC 62443"
+                        "Coinvolgere stakeholder interni per validazione bisogni"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/1"
+            nome "Contesto, perimetro e come usare la mini guida (IEC 62443)"
+            ruolo "Introduzione al framework IEC 62443 e chiarimento dei miti comuni"
+            [ norme_riferimento
+                "IEC 62443"
+                "NIS2"
+                "ISO/IEC 27001"
+            descrizione "Questo ambito introduce il contesto della sicurezza OT/ICS secondo IEC 62443,
+                +b definendo il perimetro di applicazione e chiarendo cosa NON è lo standard, per
+                +b evitare fraintendimenti comuni."
+            [ sezioni
+                {
+                    id "cap/1/1.3"
+                    nome "Cosa **NON** è la IEC 62443"
+                    { obiettivo
+                        codice "OBJ-1.3"
+                        descrizione "Chiarire i fraintendimenti comuni sullo standard IEC 62443 per garantire una
+                            +b corretta comprensione del suo scopo e applicazione."
+                    [ output_attesi
+                        "Box informativo 'Cosa NON è la IEC 62443'"
+                        "Articolo di approfondimento con esempi pratici"
+                        "Slide di presentazione per formazione interna"
+                        "SOP per comunicazione interna su IEC 62443"
+                    prompt_base "Scrivi un box ‘cosa NON è la 62443’ in 6–8 righe con esempi pratici e
+                        +b correzione dei miti ricorrenti. Esempio: 'Non è solo IT: un firewall IT non
+                        +b basta per proteggere un PLC che richiede tempi reali.' 'Non è un prodotto:
+                        +b comprare un dispositivo certificato non rende l’impianto conforme.' 'Non è una
+                        +b checklist: non basta spuntare requisiti, serve un processo continuo.' 'Non
+                        +b garantisce zero incidenti: un attacco può comunque verificarsi, ma il rischio è
+                        +b ridotto.' 'Non è compliance legale automatica: supporta NIS2, ma servono report
+                        +b specifici.'"
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-1.3.1"
+                            titolo "Distinzione tra IT e OT"
+                            descrizione_astratta "IEC 62443 non si limita a paradigmi IT, ma considera esigenze specifiche OT
+                                +b come disponibilità e safety."
+                            [ rischi_mitigati
+                                "Fraintendimento delle priorità OT"
+                                "Implementazione di soluzioni IT non adatte"
+                            [ pratiche_raccomandate
+                                "Analisi delle esigenze OT"
+                                "Formazione specifica OT per il personale IT"
+                            [ metriche_kpi
+                                "Percentuale di sistemi OT mappati"
+                                "Tempo medio di risposta a incidenti OT"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di mappatura sistemi OT"
+                                [ registri
+                                    "Registro delle differenze IT/OT"
+                                [ evidenze
+                                    "Report di analisi dei requisiti OT"
+                            [ placeholders_contesto
+                                "[Settore industriale]"
+                                "[Tipologia di impianti OT]"
+                    { policy_template
+                        titolo "Policy di consapevolezza IEC 62443"
+                        [ sezioni
+                            "Scopo"
+                            "Ambito di applicazione"
+                            "Definizioni"
+                            "Responsabilità"
+                            "Miti da sfatare"
+                        [ placeholders_contesto
+                            "[Organizzazione]"
+                            "[Settore]"
+                    { sop_template
+                        titolo "SOP per comunicazione interna su IEC 62443"
+                        [ step
+                            "Identificare il pubblico target"
+                            "Preparare il materiale informativo"
+                            "Distribuire il box 'Cosa NON è'"
+                            "Raccogliere feedback"
+                        [ registrazioni
+                            "Registro distribuzione materiali"
+                            "Feedback ricevuti"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili"
+                            "Branch 'develop' per draft"
+                            "Feature branch per nuovi contenuti"
+                    { raci
+                        [ roles
+                            "Security Manager"
+                            "OT Engineer"
+                            "IT Manager"
+                            "Compliance Officer"
+                        [ matrix
+                            {
+                                attivita "Creazione contenuti IEC 62443"
+                                SP "Security Manager"
+                                AO "OT Engineer"
+                                SI "IT Manager"
+                                OTSec "Compliance Officer"
+                            {
+                                attivita "Revisione contenuti"
+                                SP "Compliance Officer"
+                                AO "Security Manager"
+                                SI "OT Engineer"
+                                OTSec "IT Manager"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Articolo"
+                            "Slide"
+                            "SOP"
+                            "Policy"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Manager"
+                            "Compliance Team"
+                            "Personale IT"
+                        [ stili
+                            "Formale"
+                            "Didattico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Massimo 8 righe per box"
+                            "Esempi pratici obbligatori"
+                            "Riferimenti a norme correlate"
+                    { prompting
+                        prompt_template_generico "Genera un contenuto sul tema 'Cosa NON è la IEC 62443' per [audience] in stile
+                            +b [stile] con livello tecnico [livello]. Includi esempi pratici e riferimenti a
+                            +b [norma]."
+                        prompt_esempio_articolo "Scrivi un articolo di 500 parole su 'Cosa NON è la IEC 62443' per tecnici OT in
+                            +b stile didattico, livello intermedio. Spiega con esempi come non sia solo IT
+                            +b (es. firewall vs PLC) e non sia una checklist."
+                        prompt_esempio_slide "Crea una slide su 'Cosa NON è la IEC 62443' per manager in stile sintetico,
+                            +b livello base. Usa bullet points e un esempio pratico (es. prodotto certificato
+                            +b non basta)."
+                        prompt_esempio_sop "Elabora una SOP per comunicare 'Cosa NON è la IEC 62443' al personale IT, stile
+                            +b formale, livello base. Includi step per distribuzione materiali e raccolta
+                            +b feedback."
+                    [ checklist
+                        "Verifica presenza di almeno un esempio pratico"
+                        "Conferma che il contenuto sfati almeno 3 miti"
+                        "Assicurati che il linguaggio sia adatto all’audience"
+                        "Controlla riferimenti a norme correlate (es. NIS2)"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Settore industriale"
+                        "Tipologia di impianti OT"
+                        "Livello di maturità cybersecurity"
+                        "Norme locali applicabili"
+                    [ avvertenze
+                        "Non utilizzare esempi non pertinenti al settore OT"
+                        "Evitare tecnicismi non necessari per audience non tecniche"
+                        "Assicurarsi che i contenuti non siano interpretati come consulenza legale"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/1"
+            nome "Contesto, perimetro e come usare la mini guida (IEC 62443)"
+            ruolo "Introduzione e orientamento per l'impostazione di un programma di sicurezza OT"
+            [ norme_riferimento
+                "IEC 62443"
+                "IEC 27001"
+                "NIS2"
+            descrizione "Questo ambito introduce i concetti fondamentali della sicurezza OT/ICS,
+                +b definendo il perimetro di applicazione e fornendo una guida executive per
+                +b l'impostazione di un programma di sicurezza. Include indicazioni su rischi,
+                +b benefici e decisioni chiave, con un approccio orientato al decision-making e
+                +b non operativo."
+            [ sezioni
+                {
+                    id "cap/1/1.4"
+                    nome "Come usare la mini guida"
+                    { obiettivo
+                        codice "OBJ-1.4"
+                        descrizione "Fornire un quadro di riferimento per l'utilizzo della mini guida come strumento
+                            +b executive, chiarendo i livelli di lettura e i limiti operativi."
+                    [ output_attesi
+                        "Documento executive di orientamento"
+                        "Slide di sintesi per stakeholder"
+                        "Checklist di utilizzo della guida"
+                    prompt_base "Genera un contenuto che spieghi come utilizzare una mini guida sulla sicurezza
+                        +b OT/ICS per decisori, fornitori di prodotti e integratori di sistemi,
+                        +b evidenziando i tre livelli di lettura (Executive, OEM/Product Supplier, Service
+                        +b Provider/System Integrator) e sottolineando che non si tratta di un manuale
+                        +b operativo."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-1.4-01"
+                            titolo "Interpretazione corretta della guida"
+                            descrizione_astratta "Assicurare che la guida venga utilizzata come strumento di orientamento
+                                +b strategico e non come manuale operativo, evitando implementazioni parziali o
+                                +b errate."
+                            [ rischi_mitigati
+                                "Implementazione incompleta di misure di sicurezza"
+                                "Fraintendimento del livello di dettaglio tecnico"
+                                "Mancata consultazione di specialisti per approfondimenti"
+                            [ pratiche_raccomandate
+                                "Comunicare chiaramente i limiti della guida"
+                                "Coinvolgere specialisti per implementazioni tecniche"
+                                "Allineare stakeholder sui tre livelli di lettura"
+                            [ metriche_kpi
+                                "Percentuale di stakeholder formati sull'uso della guida"
+                                "Numero di sessioni di allineamento con specialisti"
+                                "Tasso di adozione della guida come quadro di riferimento"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di distribuzione della guida"
+                                [ registri
+                                    "Registro delle sessioni di formazione"
+                                [ evidenze
+                                    "Feedback degli stakeholder sull'uso della guida"
+                            [ placeholders_contesto
+                                "[ORGANIZZAZIONE]"
+                                "[SETTORE]"
+                                "[LIVELLO DI MATURITÀ SICUREZZA]"
+                    { policy_template
+                        titolo "Policy per l'uso della mini guida OT/ICS"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Livelli di lettura e audience"
+                            "Limiti e avvertenze"
+                            "Responsabilità e riferimenti"
+                        [ placeholders_contesto
+                            "[NOME ORGANIZZAZIONE]"
+                            "[RUOLO RESPONSABILE]"
+                            "[DATA PUBBLICAZIONE]"
+                    { sop_template
+                        titolo "SOP per la distribuzione e utilizzo della mini guida"
+                        [ step
+                            "Identificazione degli stakeholder"
+                            "Distribuzione della guida con istruzioni"
+                            "Formazione sui livelli di lettura"
+                            "Monitoraggio dell'uso e raccolta feedback"
+                        [ registrazioni
+                            "Elenco stakeholder formati"
+                            "Feedback raccolti"
+                            "Report di utilizzo"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch principale per contenuti stabili (main)"
+                            "Branch di sviluppo per revisioni (develop)"
+                            "Feature branch per nuovi contenuti"
+                            "Release branch per versioni finali"
+                    { raci
+                        [ roles
+                            "Sponsor (SP)"
+                            "Accountable Officer (AO)"
+                            "System Integrator (SI)"
+                            "OT Security Team (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Distribuzione della guida"
+                                SP "I"
+                                AO "A"
+                                SI "R"
+                                OTSec "C"
+                            {
+                                attivita "Formazione stakeholder"
+                                SP "I"
+                                AO "C"
+                                SI "R"
+                                OTSec "A"
+                            {
+                                attivita "Monitoraggio utilizzo"
+                                SP "C"
+                                AO "A"
+                                SI "I"
+                                OTSec "R"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Executive Summary"
+                            "Presentazione Slide"
+                            "Checklist"
+                        [ audience_possibili
+                            "Executive"
+                            "OEM/Product Supplier"
+                            "Service Provider/System Integrator"
+                        [ stili
+                            "Formale"
+                            "Sintetico"
+                            "Didattico"
+                        [ livello_tecnico
+                            "Alto livello"
+                            "Introduttivo"
+                        [ vincoli
+                            "Non includere dettagli operativi"
+                            "Evidenziare necessità di specialisti per approfondimenti"
+                            "Rispettare i tre livelli di lettura"
+                    { prompting
+                        prompt_template_generico "Crea un documento sulla sicurezza OT/ICS per [AUDIENCE] con stile [STILE] e
+                            +b livello tecnico [LIVELLO TECNICO], focalizzato su [OBIETTIVO]. Includi
+                            +b riferimenti a [NORMA RIFERIMENTO] e avvertenze su [VINCOLI]."
+                        prompt_esempio_articolo "Scrivi un articolo executive sulla sicurezza OT/ICS per decisori, con stile
+                            +b formale e livello tecnico introduttivo, che spieghi come usare una mini guida
+                            +b per impostare un programma di sicurezza. Evidenzia i tre livelli di lettura e
+                            +b la necessità di specialisti per approfondimenti tecnici."
+                        prompt_esempio_slide "Crea una presentazione di 5 slide per executive sulla sicurezza OT/ICS, stile
+                            +b sintetico, livello tecnico alto livello, che introduca l'uso della mini guida
+                            +b con focus sui rischi, benefici e decisioni chiave."
+                        prompt_esempio_sop "Genera una SOP per la distribuzione della mini guida OT/ICS, con step chiari
+                            +b per identificare stakeholder, distribuire il documento e raccogliere feedback,
+                            +b includendo registrazioni obbligatorie."
+                    [ checklist
+                        "Verifica che il documento chiarisca i tre livelli di lettura"
+                        "Conferma che siano evidenziati i limiti operativi della guida"
+                        "Assicurati che siano inclusi riferimenti alla necessità di specialisti"
+                        "Controlla che il contenuto sia allineato con IEC 62443"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome organizzazione"
+                        "Settore industriale"
+                        "Livello di maturità sicurezza OT"
+                        "Audience target"
+                        "Norme di riferimento applicabili"
+                    [ avvertenze
+                        "Interpretare il documento come guida operativa potrebbe portare a implementazioni parziali o scorrette, con impatti sulla sicurezza degli impianti."
+                        "La guida non sostituisce manuali tecnici o operativi."
+                        "Per approfondimenti tecnici, coinvolgere specialisti qualificati."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/1"
+            nome "Contesto, perimetro e come usare la mini guida (IEC 62443)"
+            ruolo "Definizione del contesto operativo e strategico per la sicurezza OT/ICS"
+            [ norme_riferimento
+                "IEC 62443"
+                "ISO/IEC 27001"
+                "NIS2"
+                "CRA"
+            descrizione "Questo ambito introduce il contesto operativo e normativo per la sicurezza
+                +b OT/ICS, definendo il perimetro di applicazione e fornendo una guida pratica per
+                +b l'implementazione delle misure di sicurezza in conformità con IEC 62443.
+                +b Include la mappatura dei rischi, la definizione degli SL-Target e la
+                +b pianificazione delle misure di mitigazione."
+            [ sezioni
+                {
+                    id "cap/1/1.5"
+                    nome "Output attesi dal lettore (deliverable)"
+                    { obiettivo
+                        codice "OBJ-1.5"
+                        descrizione "Fornire al lettore deliverables concreti per la gestione della sicurezza
+                            +b OT/ICS, inclusi strumenti di analisi dei rischi, pianificazione e monitoraggio
+                            +b del progresso."
+                    [ output_attesi
+                        "Mappa dei rischi OT per zona (asset critici, minacce, impatti, rischio residuo)."
+                        "SL-Target per zona (FR1–FR7) coerenti con vincoli operativi."
+                        "Piano misure prioritizzato (costo/beneficio, owner, prerequisiti, finestre di downtime)."
+                        "Roadmap 30/90/180+ con quick wins (remoto, backup, logging), interventi strutturali (segmentazione, identity OT) e iniziative di programma."
+                    prompt_base "Gli output attesi includono una mappa dei rischi OT dettagliata per
+                        +b identificare asset critici e minacce per zona, con valutazione degli impatti e
+                        +b del rischio residuo. Inoltre, il lettore dovrà definire gli SL-Target per ogni
+                        +b zona basandosi sui requisiti fondamentali (FR1–FR7) di IEC 62443, rispettando i
+                        +b vincoli operativi. Un piano di misure prioritizzate sarà sviluppato
+                        +b considerando costi, benefici, responsabilità e finestre di downtime. Infine,
+                        +b una roadmap a breve, medio e lungo termine (30/90/180+ giorni) dovrà includere
+                        +b quick wins come gestione remota sicura e backup, oltre a interventi strutturali
+                        +b come segmentazione di rete e gestione delle identità OT. Metriche chiave per
+                        +b misurare il progresso includono: percentuale di asset inventariati, percentuale
+                        +b di sessioni remote con MFA, copertura delle patch, MTTD/MTTR, e percentuale di
+                        +b zone con SL-Target formalizzati."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-1.5.1"
+                            titolo "Mappatura dei Rischi OT"
+                            descrizione_astratta "Identificazione e classificazione dei rischi per zona, con focus su asset
+                                +b critici e minacce specifiche al contesto OT."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Interruzione operativa"
+                                "Perdita di dati"
+                            [ pratiche_raccomandate
+                                "Inventario asset"
+                                "Analisi delle minacce"
+                                "Valutazione impatto"
+                            [ metriche_kpi
+                                "% asset inventariati"
+                                "Numero di rischi identificati per zona"
+                                "% rischi con piano di mitigazione"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di inventario asset"
+                                    "Procedura di analisi rischio"
+                                [ registri
+                                    "Registro asset OT"
+                                    "Registro rischi per zona"
+                                [ evidenze
+                                    "Report analisi rischio"
+                                    "Mappa rischi per zona"
+                            [ placeholders_contesto
+                                "[Nome Zona]"
+                                "[Tipo Asset]"
+                                "[Minacce Specifiche]"
+                    { policy_template
+                        titolo "Policy di Gestione Rischi OT"
+                        [ sezioni
+                            "Scopo"
+                            "Ambito di applicazione"
+                            "Responsabilità"
+                            "Processo di mappatura rischi"
+                            "Monitoraggio e revisione"
+                        [ placeholders_contesto
+                            "[Organizzazione]"
+                            "[Perimetro OT]"
+                            "[Responsabile Sicurezza]"
+                    { sop_template
+                        titolo "SOP per Mappatura Rischi OT"
+                        [ step
+                            "Identificazione asset"
+                            "Classificazione criticità"
+                            "Analisi minacce"
+                            "Valutazione impatto"
+                            "Documentazione rischi"
+                        [ registrazioni
+                            "Registro asset"
+                            "Report analisi minacce"
+                            "Mappa rischi"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch principale per rilasci stabili"
+                            "Branch di sviluppo per nuove funzionalità"
+                            "Pull request obbligatorie per merge"
+                    { raci
+                        [ roles
+                            "Responsabile Sicurezza"
+                            "Team OT"
+                            "Team IT"
+                            "Management"
+                        [ matrix
+                            {
+                                attivita "Mappatura Rischi"
+                                SP "Responsabile Sicurezza"
+                                AO "Team OT"
+                                SI "Team IT"
+                                OTSec "Responsabile Sicurezza"
+                            {
+                                attivita "Definizione SL-Target"
+                                SP "Responsabile Sicurezza"
+                                AO "Team OT"
+                                SI "Team IT"
+                                OTSec "Responsabile Sicurezza"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Report"
+                            "Presentazione"
+                            "SOP"
+                            "Policy"
+                        [ audience_possibili
+                            "Management"
+                            "Tecnici OT"
+                            "Auditor"
+                            "Team IT"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità IEC 62443"
+                            "Rispetto vincoli operativi"
+                            "No dati sensibili"
+                    { prompting
+                        prompt_template_generico "Genera un documento sul tema {tema} per {audience} con stile {stile} e livello
+                            +b tecnico {livello}. Includi {elementi_specifici} e rispetta i vincoli {vincoli}."
+                        prompt_esempio_articolo "Scrivi un articolo sulla mappatura dei rischi OT per un audience di management,
+                            +b stile formale, livello tecnico base. Includi una descrizione del processo e
+                            +b l'importanza della conformità a IEC 62443."
+                        prompt_esempio_slide "Crea una presentazione sulla definizione degli SL-Target per tecnici OT, stile
+                            +b tecnico, livello intermedio. Includi esempi di FR1–FR7 e metriche di successo."
+                        prompt_esempio_sop "Redigi una SOP per la mappatura dei rischi OT per team operativi, stile
+                            +b tecnico, livello avanzato. Includi step dettagliati e registrazioni
+                            +b obbligatorie."
+                    [ checklist
+                        "Inventario asset completato"
+                        "Minacce identificate per zona"
+                        "SL-Target definiti per ogni zona"
+                        "Piano misure prioritizzato redatto"
+                        "Roadmap temporale definita"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome organizzazione"
+                        "Perimetro OT"
+                        "Tipologia asset critici"
+                        "Vincoli operativi"
+                        "Responsabile sicurezza"
+                    [ avvertenze
+                        "Non includere dati sensibili nei deliverables"
+                        "Assicurare conformità a IEC 62443 per SL-Target"
+                        "Validare roadmap con stakeholder operativi"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/1"
+            nome "Contesto, perimetro e come usare la mini guida (IEC 62443)"
+            ruolo "Introduzione al contesto OT/ICS e definizione del perimetro di sicurezza"
+            [ norme_riferimento
+                "IEC 62443"
+                "IEC 27001"
+                "NIS2"
+            descrizione "Capitolo introduttivo che definisce il contesto operativo OT/ICS, il perimetro
+                +b di sicurezza e fornisce strumenti pratici come figure e template per supportare
+                +b l'implementazione delle misure di sicurezza. Include glossario minimo e
+                +b checklist redazionale."
+            [ sezioni
+                {
+                    id "cap/1/1.6"
+                    nome "Figure e template (segnaposto)"
+                    { obiettivo
+                        codice "OBJ-1.6"
+                        descrizione "Fornire strumenti visivi e template per supportare la comprensione e
+                            +b l'implementazione delle misure di sicurezza OT/ICS."
+                    [ output_attesi
+                        "Schema Zone & Conduits con DMZ (Figura 1)"
+                        "Tabella FR × SL (Figura 2)"
+                        "Tabella RACI essenziale (Tabella 1)"
+                        "Template: Inventario Asset"
+                        "Template: Matrice SL-Target"
+                        "Template: Piano Patch/Vuln"
+                        "Template: Policy Accessi Remoti"
+                    prompt_base "Indica figure e template che inserirai in Cap. 1 e dove verranno richiamati nei
+                        +b capitoli successivi."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-1.6.1"
+                            titolo "Segmentazione di rete tramite Zone e Conduits"
+                            descrizione_astratta "Definizione di zone con profili di rischio simili e canali di comunicazione
+                                +b controllati (conduits) per limitare la propagazione di minacce."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Propagazione di malware tra zone"
+                            [ pratiche_raccomandate
+                                "Definire zone basate su criticità"
+                                "Implementare controlli sui conduits"
+                                "Utilizzare DMZ come cuscinetto IT/OT"
+                            [ metriche_kpi
+                                "Numero di zone definite"
+                                "Percentuale di flussi filtrati nei conduits"
+                                "Tempo medio di rilevazione intrusioni"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di definizione delle zone"
+                                    "Procedura di configurazione dei conduits"
+                                [ registri
+                                    "Registro delle zone definite"
+                                    "Registro dei flussi nei conduits"
+                                [ evidenze
+                                    "Report di conformità ai requisiti SL"
+                                    "Log di filtraggio nei conduits"
+                            [ placeholders_contesto
+                                "Tipologia di impianto"
+                                "Criticità degli asset"
+                                "Requisiti normativi specifici"
+                    { policy_template
+                        titolo "Policy Accessi Remoti"
+                        [ sezioni
+                            "Scopo"
+                            "Ambito di applicazione"
+                            "Requisiti di autenticazione (MFA)"
+                            "Restrizioni basate su whitelisting"
+                            "Monitoraggio e logging"
+                        [ placeholders_contesto
+                            "Tipologia di utenti remoti"
+                            "Sistemi OT coinvolti"
+                            "Requisiti di conformità"
+                    { sop_template
+                        titolo "SOP per Gestione Patch e Vulnerabilità"
+                        [ step
+                            "Identificazione delle vulnerabilità"
+                            "Valutazione del rischio"
+                            "Pianificazione delle patch"
+                            "Test in ambiente non produttivo"
+                            "Distribuzione delle patch"
+                            "Verifica post-applicazione"
+                        [ registrazioni
+                            "Registro delle vulnerabilità identificate"
+                            "Piano di patching"
+                            "Report di test e distribuzione"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili"
+                            "Branch 'develop' per contenuti in lavorazione"
+                            "Feature branch per ogni figura/template"
+                    { raci
+                        [ roles
+                            "SP (Sponsor)"
+                            "AO (Asset Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Team)"
+                        [ matrix
+                            {
+                                attivita "Definizione Zone & Conduits"
+                                SP "A"
+                                AO "R"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Creazione Template Inventario Asset"
+                                SP "I"
+                                AO "C"
+                                SI "R"
+                                OTSec "A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Articolo"
+                            "Slide"
+                            "SOP"
+                            "Policy"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Manager"
+                            "Auditor"
+                        [ stili
+                            "Pratico-operativo"
+                            "Formale"
+                            "Didattico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Vendor-neutral"
+                            "Mapping a FR/SL"
+                            "Tono pratico"
+                    { prompting
+                        prompt_template_generico "Genera un contenuto per {audience} con stile {stile} e livello tecnico
+                            +b {livello} sul tema {tema}, includendo riferimenti a {norma} e mapping a
+                            +b {requisito}."
+                        prompt_esempio_articolo "Scrivi un articolo per tecnici OT con stile pratico-operativo e livello
+                            +b intermedio su 'Segmentazione Zone & Conduits', includendo riferimenti a IEC
+                            +b 62443 e mapping a FR1 (Identificazione e Autenticazione)."
+                        prompt_esempio_slide "Crea una slide per manager con stile formale e livello base su 'Introduzione a
+                            +b Zone & Conduits', con schema visivo e riferimento a IEC 62443."
+                        prompt_esempio_sop "Elabora una SOP per tecnici OT con stile pratico e livello avanzato su
+                            +b 'Gestione Patch e Vulnerabilità', con step dettagliati e registrazioni
+                            +b richieste."
+                    [ checklist
+                        "Acronomi spiegati alla prima occorrenza"
+                        "Tecnicismi parafrasati"
+                        "Box 'Per i ruoli' presente"
+                        "Takeaway e avvertenza safety inclusi"
+                        "Mapping a FR/SL dove pertinente"
+                        "Figure/template elencati e coerenti"
+                        "Tono pratico-operativo, vendor-neutral"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipologia di impianto (es. manifatturiero, energetico)"
+                        "Criticità degli asset"
+                        "Requisiti normativi applicabili"
+                        "Livello di maturità cybersecurity attuale"
+                    [ avvertenze
+                        "Le figure e i template sono generici e richiedono adattamento al contesto specifico."
+                        "La sicurezza OT non deve mai compromettere la safety degli impianti."
+                        "Consultare esperti OT/ICS prima di implementare cambiamenti critici."

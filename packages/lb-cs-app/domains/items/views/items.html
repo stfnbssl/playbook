@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Items</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <style> body{font-family:system-ui;margin:1.5rem} ul{padding-left:1.2rem} </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const e = React.createElement;
+    function App() {
+      const [items, setItems] = React.useState([]);
+      const [name, setName] = React.useState("");
+
+      async function load() {
+        const r = await fetch('/api/items');
+        if (r.status === 401) return location.href = '/login?next=' + encodeURIComponent(location.pathname);
+        setItems(await r.json());
+      }
+
+      async function addItem(ev) {
+        ev.preventDefault();
+        const r = await fetch('/api/items', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name })
+        });
+        if (!r.ok) return alert('Errore salvataggio');
+        setName("");
+        load();
+      }
+
+      React.useEffect(() => { load(); }, []);
+
+      return e('div', null,
+        e('h1', null, 'Items'),
+        e('form', { onSubmit: addItem, style:{display:'flex',gap:'.5rem'} },
+          e('input', { value: name, onChange: (e)=>setName(e.target.value), placeholder: 'Nome item' }),
+          e('button', { type: 'submit' }, 'Aggiungi')
+        ),
+        e('p', null, e('a', { href: '/logout' }, 'Logout')),
+        e('ul', null, items.map(it => e('li', { key: (it._id && it._id.$oid) ? it._id.$oid : String(it._id) }, it.name)))
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(e(App));
+  </script>
+</body>
+</html>

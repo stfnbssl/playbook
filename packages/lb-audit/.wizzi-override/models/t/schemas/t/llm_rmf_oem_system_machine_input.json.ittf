@@ -1,0 +1,321 @@
+$group
+    { llm_rmf_oem_system_machine_input
+        $schema "https://json-schema.org/draft/2020-12/schema"
+        $id "https://example.com/schemas/rmf-oem-system-input.schema.json"
+        title "RMF OEM - System/Machine Input"
+        description "Schema di input strutturato per descrivere una macchina/sistema OT/ICS 
+            +b ai fini del brainstorming RMF (Prepare)."
+        type "object"
+        additionalProperties false
+        [ required
+            "meta" 
+            "system" 
+            "stakeholders" 
+            "assets" 
+            "interfaces" 
+            "information" 
+            "authorization_boundary" 
+        { properties
+            { meta
+                type "object"
+                description "Metadati del documento di input."
+                additionalProperties false
+                [ required
+                    "version" 
+                    "created_at" 
+                    "author" 
+                { properties
+                    { version
+                        type "string"
+                        description "Versione del modello di input (es. '1.0.0')."
+                    { created_at
+                        type "string"
+                        format "date-time"
+                        description "Timestamp ISO 8601 di creazione dell’input."
+                    { author
+                        type "string"
+                        description "Autore/ente che compila (es. OEM Security, auditor esterno)."
+                    { notes
+                        type "string"
+                        description "Note contestuali sull’uso di questo input."
+            { system
+                type "object"
+                description "Descrizione ad alto livello della macchina/sistema."
+                additionalProperties false
+                [ required
+                    "id" 
+                    "name" 
+                    "oem" 
+                    "deployment" 
+                    "mission" 
+                    "functions" 
+                { properties
+                    { id
+                        type "string"
+                        description "Identificativo univoco del sistema/macchina."
+                    { name
+                        type "string"
+                        description "Nome commerciale o tecnico del sistema."
+                    { oem
+                        type "object"
+                        additionalProperties false
+                        [ required
+                            "name" 
+                        { properties
+                            { name
+                                type "string"
+                                description "Nome del produttore (OEM)."
+                            { contact
+                                type "string"
+                                description "Contatto OEM per sicurezza/assistenza."
+                    { deployment
+                        type "string"
+                        [ enum
+                            "offsite" 
+                            "onsite" 
+                            "hybrid" 
+                        description "Stato/contesto di installazione al momento dell’assessment."
+                    { site
+                        type "object"
+                        additionalProperties false
+                        description "Informazioni di sito (se note/pertinenti)."
+                        { properties
+                            { customer_name
+                                type "string"
+                                description "Cliente/destinatario finale."
+                            { location
+                                type "string"
+                                description "Località/impianto (se già definito)."
+                    { mission
+                        type "string"
+                        description "Mission/business focus del sistema."
+                    { functions
+                        type "array"
+                        description "Funzioni operative principali (P-8)."
+                        { items
+                            type "string"
+                        minItems 1
+                    { safety_critical
+                        type "boolean"
+                        description "Indica se il sistema ha rilevanza safety (influenza su salute/sicurezza)."
+            { stakeholders
+                type "array"
+                description "Stakeholder rilevanti (P-9) e ruolo nel sistema."
+                { items
+                    type "object"
+                    additionalProperties false
+                    [ required
+                        "name" 
+                        "role" 
+                    { properties
+                        { name
+                            type "string"
+                            description "Nome/ente (es. OEM Service, OT Manager Cliente)."
+                        { role
+                            type "string"
+                            description "Ruolo (es. proprietario asset, manutentore, DPO, CISO)."
+                        { responsibilities
+                            type "array"
+                            { items
+                                type "string"
+                            description "Responsabilità chiave lato sicurezza/privacy."
+            { assets
+                type "array"
+                description "Asset inventariati (P-10)."
+                minItems 1
+                { items
+                    type "object"
+                    additionalProperties false
+                    [ required
+                        "id" 
+                        "name" 
+                        "category" 
+                    { properties
+                        { id
+                            type "string"
+                            description "ID univoco asset (es. PLC-1)."
+                        { name
+                            type "string"
+                            description "Nome/descrizione asset."
+                        { category
+                            type "string"
+                            [ enum
+                                "hardware" 
+                                "software" 
+                                "firmware" 
+                                "network" 
+                                "data" 
+                                "service" 
+                                "documentation" 
+                            description "Categoria asset."
+                        { subcategory
+                            type "string"
+                            description "Sottocategoria libera (es. PLC, HMI, switch, hypervisor…)."
+                        { vendor
+                            type "string"
+                            description "Vendor/produttore del componente (se pertinente)."
+                        { model
+                            type "string"
+                            description "Modello/versione (se pertinente)."
+                        { criticality
+                            type "string"
+                            [ enum
+                                "low" 
+                                "moderate" 
+                                "high" 
+                                "very_high" 
+                            description "Criticità per missione/sicurezza."
+                        { owned_by
+                            type "string"
+                            [ enum
+                                "OEM" 
+                                "Customer" 
+                                "ThirdParty" 
+                            description "Titolare del controllo/gestione."
+            { interfaces
+                type "array"
+                description "Interfacce e connessioni (P-16)."
+                { items
+                    type "object"
+                    additionalProperties false
+                    [ required
+                        "name" 
+                        "direction" 
+                        "exposure" 
+                        "protocols" 
+                    { properties
+                        { name
+                            type "string"
+                            description "Nome interfaccia (es. OT-LAN, VPN manutenzione, API cloud)."
+                        { direction
+                            type "string"
+                            [ enum
+                                "inbound" 
+                                "outbound" 
+                                "bidirectional" 
+                            description "Direzione logica dominante."
+                        { exposure
+                            type "string"
+                            [ enum
+                                "internal" 
+                                "site-perimeter" 
+                                "external" 
+                            description "Esposizione logica."
+                        { protocols
+                            type "array"
+                            { items
+                                type "string"
+                            description "Protocolli usati (es. Modbus/TCP, OPC UA, HTTPS/TLS, RDP)."
+                        { counterparty
+                            type "string"
+                            description "Controparte (es. MES, ERP, cloud, manutenzione remota)."
+            { information
+                type "object"
+                description "Tipi di informazione e ciclo di vita (P-12, P-13)."
+                additionalProperties false
+                [ required
+                    "types" 
+                { properties
+                    { types
+                        type "array"
+                        { items
+                            type "object"
+                            additionalProperties false
+                            [ required
+                                "name" 
+                                "sensitivity" 
+                            { properties
+                                { name
+                                    type "string"
+                                    description "Tipo informativo (es. ricette, log operativi, dati badge)."
+                                { sensitivity
+                                    type "string"
+                                    [ enum
+                                        "public" 
+                                        "internal" 
+                                        "restricted" 
+                                        "confidential" 
+                                        "personal" 
+                                    description "Classificazione."
+                                { retention_days
+                                    type "integer"
+                                    minimum 0
+                                    description "Giorni di retention previsti (se noti)."
+                                { lifecycle
+                                    type "array"
+                                    { items
+                                        type "string"
+                                        [ enum
+                                            "collection" 
+                                            "processing" 
+                                            "storage" 
+                                            "transmission" 
+                                            "retention" 
+                                            "disposal" 
+                                    description "Fasi del ciclo di vita applicabili."
+            { authorization_boundary
+                type "object"
+                description "Boundary e responsabilità (P-11, P-17)."
+                additionalProperties false
+                [ required
+                    "in_scope" 
+                    "out_of_scope" 
+                    "responsibilities" 
+                { properties
+                    { in_scope
+                        type "array"
+                        { items
+                            type "string"
+                        description "Componenti/processi sotto responsabilità OEM."
+                    { out_of_scope
+                        type "array"
+                        { items
+                            type "string"
+                        description "Componenti/processi fuori responsabilità OEM (cliente/terzi)."
+                    { responsibilities
+                        type "array"
+                        description "Matrice sintetica di allocazione (chi fa cosa)."
+                        { items
+                            type "object"
+                            additionalProperties false
+                            [ required
+                                "subject"
+                                "owner"
+                            { properties
+                                { subject
+                                    type "string"
+                                    description "Attività/oggetto (es. patch firmware, account management)."
+                                { owner
+                                    type "string"
+                                    [ enum
+                                        "OEM" 
+                                        "Customer" 
+                                        "ThirdParty" 
+                                    description "Responsabile primario."
+                                { notes
+                                    type "string"
+                                    description "Dettagli (es. ruolo specifico, processi)."
+            { security_basics
+                type "object"
+                description "Informazioni sintetiche utili al brainstorming (opzionali)."
+                additionalProperties false
+                { properties
+                    { remote_maintenance
+                        type "boolean"
+                        description "Esiste manutenzione remota?"
+                    { uses_cloud
+                        type "boolean"
+                        description "Il sistema interagisce con servizi cloud?"
+                    { logging_monitoring
+                        type "string"
+                        description "Meccanismi di logging/monitoring noti (es. syslog, agenti, SIEM cliente)."
+                    { known_threats
+                        type "array"
+                        { items
+                            type "string"
+                        description "Minacce già note/preoccupazioni principali."
+                    { constraints
+                        type "array"
+                        { items
+                            type "string"
+                        description "Vincoli (legacy, safety, disponibilità, certificazioni)."

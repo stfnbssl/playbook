@@ -1,0 +1,1530 @@
+$group
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/5"
+            nome "Misure tecniche e organizzative (IEC 62443)"
+            ruolo "Definizione di misure per la protezione di sistemi OT/ICS"
+            [ norme_riferimento
+                "IEC 62443"
+                "IEC 27001"
+                "NIS2"
+            descrizione "Questo ambito copre le misure tecniche e organizzative per garantire la
+                +b sicurezza dei sistemi OT/ICS, con focus su backup e ripristino come elementi
+                +b chiave per la continuità operativa."
+            [ sezioni
+                {
+                    id "cap/5/5.4"
+                    nome "Backup & Restore (**FR7 — RA**)"
+                    { obiettivo
+                        codice "FR7-RA"
+                        descrizione "Garantire disponibilità e recupero rapido tramite backup affidabili e test di
+                            +b ripristino."
+                    [ output_attesi
+                        "Policy backup/restore"
+                        "Runbook di ripristino"
+                        "Registro test di ripristino"
+                        "Risultati dei test di ripristino"
+                    prompt_base "Redigi 8–10 righe su backup/restore (FR7): RPO/RTO, regola 3-2-1, test
+                        +b periodici, isolamento e runbook di ripristino. Spiega l'importanza di definire
+                        +b politiche RPO/RTO per asset OT critici, l'applicazione della regola 3-2-1 (3
+                        +b copie, 2 media, 1 offline/offsite), la necessità di test di ripristino
+                        +b pianificati con evidenze, l'isolamento dei repository di backup dall'IT e la
+                        +b segregazione delle credenziali, e infine la creazione di un runbook di
+                        +b ripristino dettagliato per garantire il recupero rapido in caso di incidente."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "asp/5.4.1"
+                            titolo "Politiche RPO/RTO per asset OT critici"
+                            descrizione_astratta "Definizione di obiettivi di ripristino (RPO) e tempi di ripristino (RTO) per
+                                +b garantire la continuità operativa degli asset OT critici come sistemi di
+                                +b controllo e ricette/processi."
+                            [ rischi_mitigati
+                                "Perdita di dati critici"
+                                "Interruzione prolungata delle operazioni"
+                            [ pratiche_raccomandate
+                                "Classificazione degli asset OT per priorità"
+                                "Definizione di RPO/RTO specifici per ogni categoria di asset"
+                            [ metriche_kpi
+                                "Percentuale di asset con RPO/RTO definiti"
+                                "Tempo medio di ripristino effettivo"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di classificazione asset"
+                                    "Procedura di definizione RPO/RTO"
+                                [ registri
+                                    "Registro delle priorità degli asset"
+                                [ evidenze
+                                    "Report di conformità RPO/RTO"
+                            [ placeholders_contesto
+                                "[Elenco asset critici]"
+                                "[Valori RPO/RTO specifici]"
+                        {
+                            id "asp/5.4.2"
+                            titolo "Regola 3-2-1 per i backup"
+                            descrizione_astratta "Implementazione della regola 3-2-1 per i backup: 3 copie dei dati, su 2 media
+                                +b diversi, con 1 copia offline/offsite, includendo cifratura e gestione delle
+                                +b chiavi."
+                            [ rischi_mitigati
+                                "Perdita totale dei dati"
+                                "Accesso non autorizzato ai backup"
+                            [ pratiche_raccomandate
+                                "Creazione di 3 copie dei dati critici"
+                                "Utilizzo di 2 media diversi per i backup"
+                                "Conservazione di 1 copia offline/offsite"
+                                "Cifratura dei backup e gestione sicura delle chiavi"
+                            [ metriche_kpi
+                                "Percentuale di backup conformi alla regola 3-2-1"
+                                "Tempo di accesso alla copia offline"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di creazione backup 3-2-1"
+                                    "Procedura di cifratura backup"
+                                [ registri
+                                    "Registro delle copie di backup"
+                                [ evidenze
+                                    "Report di verifica conformità 3-2-1"
+                            [ placeholders_contesto
+                                "[Tipologia media utilizzati]"
+                                "[Ubicazione copia offsite]"
+                        {
+                            id "asp/5.4.3"
+                            titolo "Test di ripristino pianificati"
+                            descrizione_astratta "Esecuzione di test di ripristino periodici (mensili/trimestrali) con evidenze
+                                +b documentate, includendo scenari bare-metal dove necessario."
+                            [ rischi_mitigati
+                                "Fallimento del ripristino in caso di incidente"
+                                "Tempi di inattività prolungati"
+                            [ pratiche_raccomandate
+                                "Pianificazione di test di ripristino regolari"
+                                "Documentazione dei risultati dei test"
+                                "Simulazione di ripristino bare-metal per sistemi critici"
+                            [ metriche_kpi
+                                "Frequenza dei test di ripristino"
+                                "Percentuale di test riusciti"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di test di ripristino"
+                                [ registri
+                                    "Registro dei test di ripristino"
+                                [ evidenze
+                                    "Report dei risultati dei test"
+                            [ placeholders_contesto
+                                "[Frequenza test]"
+                                "[Sistemi testati]"
+                        {
+                            id "asp/5.4.4"
+                            titolo "Isolamento dei repository di backup"
+                            descrizione_astratta "Segregazione dei repository di backup dall'ambiente IT, con gestione separata
+                                +b delle credenziali per prevenire accessi non autorizzati."
+                            [ rischi_mitigati
+                                "Compromissione dei backup da attacchi IT"
+                                "Accesso non autorizzato ai dati di backup"
+                            [ pratiche_raccomandate
+                                "Isolamento fisico o logico dei repository di backup"
+                                "Segregazione delle credenziali di accesso ai backup"
+                            [ metriche_kpi
+                                "Percentuale di repository isolati"
+                                "Numero di accessi non autorizzati rilevati"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di isolamento repository"
+                                    "Procedura di gestione credenziali"
+                                [ registri
+                                    "Registro accessi ai repository"
+                                [ evidenze
+                                    "Report di verifica isolamento"
+                            [ placeholders_contesto
+                                "[Metodo di isolamento]"
+                                "[Politica gestione credenziali]"
+                    { policy_template
+                        titolo "Policy di Backup e Ripristino per Sistemi OT/ICS"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Definizione di RPO/RTO per asset critici"
+                            "Implementazione regola 3-2-1"
+                            "Pianificazione test di ripristino"
+                            "Isolamento repository e gestione credenziali"
+                            "Responsabilità e monitoraggio"
+                        [ placeholders_contesto
+                            "[Asset critici]"
+                            "[Valori RPO/RTO]"
+                            "[Ubicazione backup offsite]"
+                    { sop_template
+                        titolo "SOP per Test di Ripristino Sistemi OT"
+                        [ step
+                            "Preparazione del test (identificazione asset e scenario)"
+                            "Esecuzione del ripristino da backup"
+                            "Verifica dell'integrità dei dati ripristinati"
+                            "Documentazione dei risultati e azioni correttive"
+                        [ registrazioni
+                            "Registro test di ripristino"
+                            "Report risultati test"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per versioni stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuovi contenuti"
+                            "Release branch per preparazione pubblicazioni"
+                    { raci
+                        [ roles
+                            "Responsabile Sicurezza OT (SP)"
+                            "Amministratore Operativo (AO)"
+                            "Specialista IT (SI)"
+                            "Team OT Security (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione policy backup/restore"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Esecuzione test di ripristino"
+                                SP "A"
+                                AO "R"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Gestione repository backup"
+                                SP "I"
+                                AO "A"
+                                SI "R"
+                                OTSec "C"
+                            {
+                                attivita "Aggiornamento runbook ripristino"
+                                SP "C"
+                                AO "A"
+                                SI "I"
+                                OTSec "R"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                            "Slide"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Manager"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità IEC 62443"
+                            "Integrazione con sistemi esistenti"
+                            "Documentazione in lingua italiana"
+                    { prompting
+                        prompt_template_generico "Redigi un documento su {argomento} per {audience} con stile {stile} e livello
+                            +b tecnico {livello}. Includi {contenuti_specifici} e considera i vincoli
+                            +b {vincoli}."
+                        prompt_esempio_articolo "Redigi un articolo su Backup & Restore per tecnici OT con stile tecnico e
+                            +b livello intermedio. Spiega RPO/RTO, regola 3-2-1, test periodici e isolamento
+                            +b repository, conformemente a IEC 62443."
+                        prompt_esempio_slide "Crea una presentazione su Backup & Restore per manager con stile formale e
+                            +b livello base. Sintetizza obiettivi RPO/RTO, regola 3-2-1 e importanza dei test
+                            +b di ripristino."
+                        prompt_esempio_sop "Scrivi una SOP per test di ripristino sistemi OT per tecnici OT con stile
+                            +b tecnico e livello avanzato. Dettaglia step operativi, registrazione risultati e
+                            +b conformità a IEC 62443."
+                    [ checklist
+                        "Definizione RPO/RTO per asset critici completata"
+                        "Implementazione regola 3-2-1 verificata"
+                        "Test di ripristino pianificati ed eseguiti"
+                        "Isolamento repository backup confermato"
+                        "Runbook di ripristino aggiornato e accessibile"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Elenco asset OT critici"
+                        "Valori RPO/RTO specifici"
+                        "Ubicazione backup offsite"
+                        "Frequenza test di ripristino"
+                        "Metodo di isolamento repository"
+                    [ avvertenze
+                        "Assicurarsi che i test di ripristino non interferiscano con le operazioni in corso"
+                        "Verificare periodicamente l'integrità delle copie offline/offsite"
+                        "Garantire che le credenziali dei repository siano gestite in modo sicuro e segregato"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/5"
+            nome "Misure tecniche e organizzative (IEC 62443)"
+            ruolo "Definizione di misure tecniche e organizzative per la sicurezza OT/ICS"
+            [ norme_riferimento
+                "IEC 62443"
+                "IEC 27001"
+                "NIS2"
+            descrizione "Questo ambito copre le misure tecniche e organizzative per la protezione degli
+                +b ambienti OT/ICS, con focus su segregazione di rete, accesso remoto e conformità
+                +b agli standard di sicurezza come IEC 62443."
+            [ sezioni
+                {
+                    id "cap/5/5.5"
+                    nome "Rete, segregazione & accesso remoto (**FR5 — RDF**)"
+                    { obiettivo
+                        codice "OBJ-5.5"
+                        descrizione "Implementare politiche di rete e segmentazione: Zone & Conduits, DMZ, accessi
+                            +b remoti brokered."
+                    [ output_attesi
+                        "Diagramma rete OT/DMZ"
+                        "Policy conduits"
+                        "Matrice flussi approvata"
+                    prompt_base "Scrivi 12–14 righe su rete/segregazione (FR5): zone, conduits, DMZ, flussi
+                        +b consentiti, remote access brokered e test periodici delle regole."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-5.5.1"
+                            titolo "Segmentazione di rete tramite Zone e Conduits"
+                            descrizione_astratta "La segmentazione di rete in zone (cell/area/impianto) e conduits garantisce un
+                                +b controllo granulare dei flussi di dati, riducendo la superficie di attacco."
+                            [ rischi_mitigati
+                                "Propagazione di attacchi tra sistemi"
+                                "Accesso non autorizzato a sistemi critici"
+                            [ pratiche_raccomandate
+                                "Definire zone in base ai livelli di criticità"
+                                "Implementare conduits con whitelisting di protocolli/porte/direzioni"
+                                "Documentare e revisionare periodicamente le configurazioni"
+                            [ metriche_kpi
+                                "Percentuale di flussi non autorizzati bloccati"
+                                "Tempo medio di rilevazione di violazioni delle regole di rete"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di definizione delle zone"
+                                    "Procedura di configurazione dei conduits"
+                                [ registri
+                                    "Log delle regole di firewall"
+                                    "Registro delle revisioni delle configurazioni"
+                                [ evidenze
+                                    "Report di test delle regole"
+                                    "Matrice dei flussi consentiti"
+                            [ placeholders_contesto
+                                "[Livello zona]"
+                                "[Protocolli consentiti]"
+                                "[Direzioni flussi]"
+                        {
+                            id "ASP-5.5.2"
+                            titolo "DMZ Industriale come cuscinetto IT/OT"
+                            descrizione_astratta "La DMZ industriale funge da zona intermedia per isolare i sistemi OT da quelli
+                                +b IT, riducendo i rischi di compromissione diretta."
+                            [ rischi_mitigati
+                                "Attacchi cross-domain IT-to-OT"
+                                "Esposizione diretta di sistemi OT"
+                            [ pratiche_raccomandate
+                                "Implementare servizi intermedi come jump host, proxy e broker"
+                                "Limitare i flussi bidirezionali tra IT e OT"
+                                "Monitorare costantemente il traffico nella DMZ"
+                            [ metriche_kpi
+                                "Numero di accessi non autorizzati rilevati nella DMZ"
+                                "Tempo di risposta a incidenti nella DMZ"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione DMZ"
+                                    "Procedura di monitoraggio DMZ"
+                                [ registri
+                                    "Log degli accessi alla DMZ"
+                                    "Registro degli incidenti rilevati"
+                                [ evidenze
+                                    "Report di audit della DMZ"
+                                    "Configurazioni dei servizi intermedi"
+                            [ placeholders_contesto
+                                "[Servizi intermedi]"
+                                "[Configurazioni DMZ]"
+                    { policy_template
+                        titolo "Policy di Segregazione di Rete e Accesso Remoto"
+                        [ sezioni
+                            "Definizione delle Zone e dei Conduits"
+                            "Configurazione della DMZ Industriale"
+                            "Regole per i Flussi Consentiti"
+                            "Gestione degli Accessi Remoti"
+                            "Test Periodici e Riconciliazione"
+                        [ placeholders_contesto
+                            "[Zone specifiche]"
+                            "[Regole flussi]"
+                            "[Parametri MFA]"
+                    { sop_template
+                        titolo "SOP per Configurazione e Monitoraggio Rete OT"
+                        [ step
+                            "Identificazione delle zone e dei livelli di criticità"
+                            "Configurazione dei conduits con whitelisting"
+                            "Setup della DMZ con servizi intermedi"
+                            "Definizione dei flussi consentiti e policy deny-by-default"
+                            "Implementazione di accessi remoti con MFA e session recording"
+                            "Esecuzione di test periodici delle regole"
+                        [ registrazioni
+                            "Registro delle configurazioni di rete"
+                            "Log dei test delle regole"
+                            "Registro degli accessi remoti"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili"
+                            "Branch 'develop' per contenuti in lavorazione"
+                            "Feature branch per ogni aspetto di sicurezza"
+                    { raci
+                        [ roles
+                            "Security Manager"
+                            "OT Engineer"
+                            "IT Admin"
+                            "Compliance Officer"
+                        [ matrix
+                            {
+                                attivita "Definizione Zone e Conduits"
+                                SP "OT Engineer"
+                                AO "Security Manager"
+                                SI "IT Admin"
+                                OTSec "Compliance Officer"
+                            {
+                                attivita "Configurazione DMZ"
+                                SP "IT Admin"
+                                AO "Security Manager"
+                                SI "OT Engineer"
+                                OTSec "Compliance Officer"
+                            {
+                                attivita "Test Periodici Regole"
+                                SP "Security Manager"
+                                AO "Compliance Officer"
+                                SI "OT Engineer"
+                                OTSec "IT Admin"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                            "Slide"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Manager"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità IEC 62443"
+                            "Inclusione di placeholder contestuali"
+                            "Riferimenti a norme correlate (NIS2, IEC 27001)"
+                    { prompting
+                        prompt_template_generico "Genera un documento su [argomento] per [audience] con stile [stile] e livello
+                            +b tecnico [livello]. Includi riferimenti a [norma] e placeholder per [contesto]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico su 'Segregazione di Rete in OT/ICS' per tecnici OT
+                            +b con stile formale e livello intermedio. Includi riferimenti a IEC 62443 e
+                            +b placeholder per zone specifiche."
+                        prompt_esempio_slide "Crea una presentazione su 'DMZ Industriale' per manager con stile sintetico e
+                            +b livello base. Includi schema grafico e riferimenti a IEC 62443."
+                        prompt_esempio_sop "Redigi una SOP per 'Configurazione Accessi Remoti OT' per tecnici OT con stile
+                            +b tecnico e livello avanzato. Includi step dettagliati e placeholder per
+                            +b parametri MFA."
+                    [ checklist
+                        "Definizione delle zone completata"
+                        "Configurazione conduits con whitelisting attiva"
+                        "DMZ operativa con servizi intermedi"
+                        "Matrice flussi consentiti approvata"
+                        "Accessi remoti configurati con MFA e session recording"
+                        "Test periodici delle regole pianificati"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Livelli di zona specifici"
+                        "Protocolli e porte consentiti"
+                        "Configurazioni servizi DMZ"
+                        "Parametri di accesso remoto (MFA, time-bound)"
+                        "Criteri di test delle regole"
+                    [ avvertenze
+                        "Assicurarsi che le configurazioni siano conformi a IEC 62443 FR5"
+                        "Documentare ogni modifica alle regole di rete per audit"
+                        "Evitare flussi bidirezionali non necessari tra IT e OT"
+                        "Testare le regole in ambiente di staging prima del deploy"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/5"
+            nome "Misure tecniche e organizzative (IEC 62443)"
+            ruolo "Definizione di misure tecniche e organizzative per la sicurezza in ambienti
+                +b OT/ICS"
+            [ norme_riferimento
+                "IEC 62443"
+                "IEC 27001"
+                "NIS2"
+                "CRA"
+            descrizione "Questo ambito copre le misure tecniche e organizzative necessarie per garantire
+                +b la sicurezza degli ambienti OT/ICS, con particolare attenzione alla gestione
+                +b delle vulnerabilità e degli aggiornamenti software in conformità con lo
+                +b standard IEC 62443."
+            [ sezioni
+                {
+                    id "cap/5/5.6"
+                    nome "Vulnerability & Patch Management + **Inventory & SBOM** (richiami **‑2‑3**,
+                        +b **‑4‑1**, **‑4‑2**)"
+                    { obiettivo
+                        codice "OBJ-5.6"
+                        descrizione "Gestire **vulnerabilità** e **aggiornamenti** in OT, basandosi su
+                            +b **inventario** e **SBOM**."
+                    [ output_attesi
+                        "Inventario asset e **SBOM** per impianto"
+                        "Piano patch/vuln"
+                        "Registro eccezioni/compensazioni"
+                    prompt_base "Redigi 12–14 righe su vuln & patch mgmt in OT (‑2‑3): inventario e SBOM,
+                        +b priorità risk-based, SLA, staging/test, secure update ed evidenze."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-5.6.1"
+                            titolo "Inventario Asset e SBOM"
+                            descrizione_astratta "Creazione e manutenzione di un inventario completo degli asset OT con dettagli
+                                +b su modello, versione, firmware, owner e criticità, integrato con Software Bill
+                                +b of Materials (SBOM)."
+                            [ rischi_mitigati
+                                "Mancata identificazione di asset vulnerabili"
+                                "Esposizione a vulnerabilità note"
+                            [ pratiche_raccomandate
+                                "Auto-discovery non intrusivo per identificare asset"
+                                "Integrazione con SBOM per tracciamento componenti software"
+                                "Classificazione asset per criticità e impatto OT"
+                            [ metriche_kpi
+                                "Percentuale di asset inventariati rispetto al totale"
+                                "Tempo medio per aggiornamento inventario"
+                                "Percentuale di asset con SBOM associato"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di inventario asset"
+                                    "Procedura di aggiornamento SBOM"
+                                [ registri
+                                    "Registro inventario asset"
+                                    "Registro SBOM"
+                                [ evidenze
+                                    "Report di auto-discovery"
+                                    "Log di aggiornamento inventario"
+                            [ placeholders_contesto
+                                "[Impianto]"
+                                "[Tipologia asset]"
+                                "[Criticità asset]"
+                        {
+                            id "ASP-5.6.2"
+                            titolo "Prioritizzazione Risk-Based e OT-Feasibility"
+                            descrizione_astratta "Valutazione e prioritizzazione delle vulnerabilità basata su rischio (CVSS,
+                                +b impatto OT, esposizione) e fattibilità di applicazione in ambiente OT."
+                            [ rischi_mitigati
+                                "Ritardi in patching critico"
+                                "Interruzioni operative da patch non testati"
+                            [ pratiche_raccomandate
+                                "Utilizzo di CVSS combinato con impatto OT per prioritizzazione"
+                                "Valutazione della fattibilità OT prima del deployment"
+                                "Definizione di compensating controls per vulnerabilità non patchabili"
+                            [ metriche_kpi
+                                "Tempo medio per prioritizzazione vulnerabilità"
+                                "Percentuale di vulnerabilità critiche gestite entro SLA"
+                                "Numero di compensating controls attivi"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di prioritizzazione vulnerabilità"
+                                    "Procedura di valutazione OT-feasibility"
+                                [ registri
+                                    "Registro prioritizzazione vulnerabilità"
+                                    "Registro compensating controls"
+                                [ evidenze
+                                    "Report di analisi rischio"
+                                    "Documentazione compensating controls"
+                            [ placeholders_contesto
+                                "[Livello rischio]"
+                                "[Impatto OT]"
+                                "[SLA patching]"
+                    { policy_template
+                        titolo "Policy di Vulnerability & Patch Management"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Responsabilità e ruoli"
+                            "Inventario e SBOM"
+                            "Processo di gestione vulnerabilità"
+                            "SLA e prioritizzazione"
+                            "Secure update e test"
+                            "Eccezioni e compensating controls"
+                        [ placeholders_contesto
+                            "[Organizzazione]"
+                            "[Impianto]"
+                            "[SLA specifici]"
+                    { sop_template
+                        titolo "SOP per Vulnerability & Patch Management"
+                        [ step
+                            "Raccolta dati inventario e aggiornamento SBOM"
+                            "Monitoraggio fonti vulnerabilità (CVE, PSIRT, ICS-CERT)"
+                            "Analisi e prioritizzazione vulnerabilità"
+                            "Pianificazione patch con staging e test"
+                            "Esecuzione secure update in finestra di fermo"
+                            "Registrazione evidenze e gestione eccezioni"
+                        [ registrazioni
+                            "Registro vulnerabilità"
+                            "Registro patch applicati"
+                            "Registro eccezioni"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili e approvati"
+                            "Branch 'develop' per contenuti in lavorazione"
+                            "Feature branch per ogni aspetto di sicurezza"
+                            "Pull request obbligatorie con review"
+                    { raci
+                        [ roles
+                            "Security Manager"
+                            "OT Engineer"
+                            "IT Support"
+                            "Compliance Officer"
+                        [ matrix
+                            {
+                                attivita "Inventario Asset e SBOM"
+                                SP "OT Engineer"
+                                AO "Security Manager"
+                                SI "IT Support"
+                                OTSec "Security Manager"
+                            {
+                                attivita "Gestione Vulnerabilità"
+                                SP "Security Manager"
+                                AO "OT Engineer"
+                                SI "Compliance Officer"
+                                OTSec "Security Manager"
+                            {
+                                attivita "Applicazione Patch"
+                                SP "OT Engineer"
+                                AO "Security Manager"
+                                SI "IT Support"
+                                OTSec "Security Manager"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                            "Slide"
+                        [ audience_possibili
+                            "Tecnici OT"
+                            "Management"
+                            "Auditor"
+                            "Compliance Team"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Rispetto normative IEC 62443 e NIS2"
+                            "Adattamento a contesti OT con minima interruzione operativa"
+                            "Inclusione di compensating controls per eccezioni"
+                    { prompting
+                        prompt_template_generico "Redigi un documento su [argomento] per [audience] con stile [stile] e livello
+                            +b tecnico [livello]. Includi [elementi specifici] e considera [vincoli]."
+                        prompt_esempio_articolo "Scrivi un articolo di 500 parole su Vulnerability & Patch Management in OT per
+                            +b tecnici OT, stile tecnico, livello intermedio. Includi inventario, SBOM,
+                            +b prioritizzazione e secure update."
+                        prompt_esempio_slide "Crea una presentazione di 10 slide su Vulnerability Management in OT per il
+                            +b management, stile formale, livello base. Includi flusso processo e KPI."
+                        prompt_esempio_sop "Redigi una SOP dettagliata per Patch Management in OT per tecnici OT, stile
+                            +b tecnico, livello avanzato. Includi step operativi e registrazioni."
+                    [ checklist
+                        "Inventario asset completo e aggiornato"
+                        "SBOM associato agli asset critici"
+                        "Fonti vulnerabilità monitorate (CVE, PSIRT, ICS-CERT)"
+                        "Prioritizzazione risk-based definita"
+                        "SLA per patching rispettati"
+                        "Processo di staging e test implementato"
+                        "Secure update con pacchetti firmati e canali sicuri"
+                        "Registro vulnerabilità e patch aggiornato"
+                        "Compensating controls documentati per eccezioni"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipologia impianto OT"
+                        "Criticità asset"
+                        "Finestre di fermo disponibili"
+                        "SLA specifici per patching"
+                        "Normative locali applicabili"
+                    [ avvertenze
+                        "Evitare patching senza test preliminari in ambiente OT per rischio interruzioni"
+                        "Garantire che compensating controls siano documentati e approvati"
+                        "Monitorare costantemente fonti vulnerabilità per aggiornamenti tempestivi"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/5"
+            nome "Misure tecniche e organizzative (IEC 62443)"
+            ruolo "Definizione e implementazione di misure per la sicurezza OT/ICS"
+            [ norme_riferimento
+                "IEC 62443"
+                "ISO/IEC 27001"
+                "NIS2"
+                "CRA"
+            descrizione "Questo ambito si concentra sulle misure tecniche e organizzative necessarie per
+                +b garantire la sicurezza degli ambienti OT/ICS, in conformità con lo standard IEC
+                +b 62443. Include la definizione di metriche, KPI e pratiche per monitorare e
+                +b migliorare la resilienza dei sistemi industriali."
+            [ sezioni
+                {
+                    id "cap/5/5.7"
+                    nome "Metriche & KPI"
+                    { obiettivo
+                        codice "OBJ-5.7"
+                        descrizione "Misurare adozione ed efficacia delle misure tecniche e organizzative per la
+                            +b sicurezza OT/ICS."
+                    [ output_attesi
+                        "Cruscotto KPI con trend mensili e soglie obiettivo."
+                    prompt_base "Scrivi 8–10 righe sulle metriche chiave per Cap. 5, indicando come raccoglierle
+                        +b senza esporre dati sensibili. Le metriche devono includere: % asset
+                        +b inventariati/classificati, % zone con SL-Target formalizzati, patch coverage
+                        +b per criticità, TTR (Time-To-Remediate) mediano, numero di eccezioni attive, %
+                        +b sessioni remote con MFA e session recording, tempo medio di approvazione,
+                        +b MTTD/MTTR eventi OT, % backup/restore testati, success rate dei restore, %
+                        +b conduits con policy aggiornate e testate."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-5.7.1"
+                            titolo "Monitoraggio Asset e Zone"
+                            descrizione_astratta "Monitoraggio della completezza dell'inventario degli asset e della
+                                +b formalizzazione dei livelli di sicurezza target per le zone definite."
+                            [ rischi_mitigati
+                                "Mancata identificazione di asset critici"
+                                "Esposizione a vulnerabilità non mitigate"
+                            [ pratiche_raccomandate
+                                "Inventario centralizzato"
+                                "Classificazione asset per criticità"
+                                "Definizione SL-Target per zone"
+                            [ metriche_kpi
+                                "% asset inventariati/classificati"
+                                "% zone con SL-Target formalizzati"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di inventario asset"
+                                    "Procedura di definizione zone"
+                                [ registri
+                                    "Registro asset"
+                                    "Registro zone e SL-Target"
+                                [ evidenze
+                                    "Report di conformità inventario"
+                                    "Documentazione SL-Target"
+                            [ placeholders_contesto
+                                "[TIPOLOGIA_ASSET]"
+                                "[NUMERO_ZONE]"
+                                "[CRITERI_CLASSIFICAZIONE]"
+                        {
+                            id "ASP-5.7.2"
+                            titolo "Gestione Patch e Vulnerabilità"
+                            descrizione_astratta "Valutazione della copertura delle patch e dei tempi di remediation per
+                                +b vulnerabilità identificate nei sistemi OT/ICS."
+                            [ rischi_mitigati
+                                "Esposizione a vulnerabilità note"
+                                "Ritardi nella mitigazione"
+                            [ pratiche_raccomandate
+                                "Policy di patch management"
+                                "Monitoraggio vulnerabilità"
+                                "Piani di remediation"
+                            [ metriche_kpi
+                                "Patch coverage per criticità"
+                                "TTR (Time-To-Remediate) mediano"
+                                "Numero eccezioni attive"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di patch management"
+                                    "Procedura di gestione eccezioni"
+                                [ registri
+                                    "Registro patch applicate"
+                                    "Registro eccezioni"
+                                [ evidenze
+                                    "Report di scansione vulnerabilità"
+                                    "Log remediation"
+                            [ placeholders_contesto
+                                "[CRITERI_CRITICITA]"
+                                "[SISTEMI_TARGET]"
+                                "[POLICY_PATCH]"
+                    { policy_template
+                        titolo "Policy per la Definizione e Monitoraggio KPI OT/ICS"
+                        [ sezioni
+                            "Scopo"
+                            "Ambito di applicazione"
+                            "Definizione KPI"
+                            "Metodo di raccolta dati"
+                            "Soglie e obiettivi"
+                            "Responsabilità"
+                            "Revisione periodica"
+                        [ placeholders_contesto
+                            "[AMBIENTE_OT]"
+                            "[TIPOLOGIA_KPI]"
+                            "[FREQUENZA_MONITORAGGIO]"
+                    { sop_template
+                        titolo "SOP per la Raccolta e Analisi KPI OT/ICS"
+                        [ step
+                            "Identificazione fonti dati"
+                            "Raccolta dati aggregati"
+                            "Calcolo KPI"
+                            "Confronto con soglie"
+                            "Generazione report"
+                            "Comunicazione risultati"
+                        [ registrazioni
+                            "Log raccolta dati"
+                            "Report KPI"
+                            "Registro revisioni"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuovi KPI"
+                            "Hotfix branch per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "Security Manager"
+                            "OT Engineer"
+                            "IT Manager"
+                            "Compliance Officer"
+                        [ matrix
+                            {
+                                attivita "Definizione KPI"
+                                SP "Security Manager"
+                                AO "Compliance Officer"
+                                SI "OT Engineer"
+                                OTSec "Security Manager"
+                            {
+                                attivita "Raccolta Dati"
+                                SP "OT Engineer"
+                                AO "IT Manager"
+                                SI "Security Manager"
+                                OTSec "Security Manager"
+                            {
+                                attivita "Analisi KPI"
+                                SP "Security Manager"
+                                AO "Compliance Officer"
+                                SI "OT Engineer"
+                                OTSec "Security Manager"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Report"
+                            "Policy"
+                            "SOP"
+                            "Slide"
+                        [ audience_possibili
+                            "Management"
+                            "Tecnici OT"
+                            "Auditor"
+                            "Compliance Team"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "No dati sensibili"
+                            "Conformità IEC 62443"
+                            "Riferimenti normativi chiari"
+                    { prompting
+                        prompt_template_generico "Genera un documento sul tema delle metriche e KPI per la sicurezza OT/ICS,
+                            +b focalizzandosi su [TEMA_SPECIFICO]. Includi definizioni, esempi di metriche
+                            +b come [ELENCO_METRICHE], e indicazioni su come raccoglierle senza esporre dati
+                            +b sensibili. Adatta il contenuto per [AUDIENCE] con stile [STILE] e livello
+                            +b tecnico [LIVELLO]."
+                        prompt_esempio_articolo "Scrivi un articolo sulle metriche chiave per la sicurezza OT/ICS, includendo %
+                            +b asset inventariati, patch coverage e MTTD/MTTR. Spiega come raccoglierli in
+                            +b modo anonimo. Target: Management, stile formale, livello base."
+                        prompt_esempio_slide "Crea una presentazione sulle metriche OT/ICS con focus su % zone con SL-Target
+                            +b e TTR. Usa grafici e bullet point. Target: Tecnici OT, stile tecnico, livello
+                            +b intermedio."
+                        prompt_esempio_sop "Elabora una SOP per la raccolta di KPI come % backup testati e success rate
+                            +b restore. Dettaglia i passaggi operativi. Target: Tecnici OT, stile tecnico,
+                            +b livello avanzato."
+                    [ checklist
+                        "Verifica conformità metriche a IEC 62443"
+                        "Assicurati che i dati raccolti siano anonimizzati"
+                        "Definisci soglie realistiche per i KPI"
+                        "Documenta responsabilità per ogni metrica"
+                        "Pianifica revisioni periodiche dei KPI"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipologia ambiente OT (es. manifatturiero, energetico)"
+                        "Numero di asset/zones gestiti"
+                        "Livello di maturità sicurezza attuale"
+                        "Norme di riferimento applicabili"
+                    [ avvertenze
+                        "Non includere dati sensibili o identificativi nei report KPI."
+                        "Assicurarsi che le metriche siano rappresentative dell'ambiente OT."
+                        "Verificare periodicamente l'allineamento con le evoluzioni normative."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/5"
+            nome "Misure tecniche e organizzative (IEC 62443)"
+            ruolo "Definizione delle misure tecniche e organizzative per la sicurezza OT/ICS in
+                +b conformità a IEC 62443."
+            [ norme_riferimento
+                "IEC 62443"
+                "ISO/IEC 27001"
+                "ISO/IEC 27002"
+                "NIS2"
+                "CRA"
+                "Direttiva Macchine 2006/42/CE"
+                "Registro Macchine 2023"
+                "GDPR 2016/679"
+            descrizione "Questo ambito copre le misure tecniche e organizzative necessarie per garantire
+                +b la sicurezza degli ambienti OT/ICS, con focus su policy, standard, piani
+                +b operativi e artefatti di conformità come richiesto da IEC 62443 e altre
+                +b normative correlate."
+            [ sezioni
+                {
+                    id "cap/5/5.8"
+                    nome "Artefatti & Evidenze (deliverable)"
+                    { obiettivo
+                        codice "OBJ-5.8"
+                        descrizione "Definire e produrre artefatti ed evidenze documentali per dimostrare la
+                            +b conformità alle misure di sicurezza OT/ICS."
+                    [ output_attesi
+                        "Policy Identity & Access OT"
+                        "Matrice ruolo→permessi"
+                        "Registro audit"
+                        "Standard di hardening"
+                        "Checklist per asset"
+                        "Repository configurazioni versionato"
+                        "Piano logging & monitoring"
+                        "Use case e runbook"
+                        "Report KPI (MTTD/MTTR)"
+                        "Policy backup/restore"
+                        "Runbook backup/restore"
+                        "Registro test backup/restore"
+                        "Diagramma rete Zone & Conduits con DMZ"
+                        "Matrice flussi approvata"
+                        "Inventario asset + SBOM"
+                        "Piano patch/vuln"
+                        "Registro eccezioni/compensazioni"
+                    prompt_base "Genera documentazione conforme a IEC 62443 per artefatti ed evidenze di
+                        +b sicurezza OT/ICS, includendo policy, piani, registri e diagrammi di rete, con
+                        +b focus su [specifica contesto]."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-5.8.1"
+                            titolo "Gestione Identity & Access OT"
+                            descrizione_astratta "Controllo degli accessi agli asset OT per prevenire accessi non autorizzati e
+                                +b garantire la tracciabilità delle azioni."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Abuso di privilegi"
+                                "Mancata tracciabilità"
+                            [ pratiche_raccomandate
+                                "Definizione di policy di accesso basata su ruoli"
+                                "Implementazione di autenticazione multifattore (MFA)"
+                                "Audit periodico degli accessi"
+                            [ metriche_kpi
+                                "Percentuale di account con MFA attivo"
+                                "Tempo medio di rilevazione accessi anomali"
+                                "Numero di violazioni di accesso rilevate"
+                            { artefatti
+                                [ procedure
+                                    "Policy Identity & Access OT"
+                                [ registri
+                                    "Registro audit accessi"
+                                [ evidenze
+                                    "Matrice ruolo→permessi"
+                            [ placeholders_contesto
+                                "[organizzazione]"
+                                "[sistemi OT specifici]"
+                                "[ruoli aziendali]"
+                        {
+                            id "ASP-5.8.2"
+                            titolo "Hardening degli Asset OT"
+                            descrizione_astratta "Riduzione delle superfici di attacco attraverso configurazioni sicure degli
+                                +b asset OT."
+                            [ rischi_mitigati
+                                "Exploit di vulnerabilità note"
+                                "Configurazioni non sicure"
+                                "Accesso non autorizzato a servizi esposti"
+                            [ pratiche_raccomandate
+                                "Applicazione di standard di hardening (es. CIS Benchmarks)"
+                                "Disabilitazione di servizi non necessari"
+                                "Versionamento delle configurazioni"
+                            [ metriche_kpi
+                                "Percentuale di asset conformi agli standard di hardening"
+                                "Tempo medio per applicare configurazioni aggiornate"
+                            { artefatti
+                                [ procedure
+                                    "Standard di hardening"
+                                [ registri
+                                    "Checklist per asset"
+                                [ evidenze
+                                    "Repository configurazioni versionato"
+                            [ placeholders_contesto
+                                "[tipologia asset]"
+                                "[ambiente OT]"
+                                "[requisiti specifici]"
+                        {
+                            id "ASP-5.8.3"
+                            titolo "Logging & Monitoring"
+                            descrizione_astratta "Monitoraggio continuo degli eventi di sicurezza per rilevare e rispondere a
+                                +b incidenti in tempo reale."
+                            [ rischi_mitigati
+                                "Incidenti non rilevati"
+                                "Ritardo nella risposta agli incidenti"
+                                "Mancanza di evidenze forensi"
+                            [ pratiche_raccomandate
+                                "Definizione di use case di monitoraggio"
+                                "Implementazione di SIEM per correlazione eventi"
+                                "Revisione periodica dei log"
+                            [ metriche_kpi
+                                "MTTD (Mean Time to Detect)"
+                                "MTTR (Mean Time to Respond)"
+                                "Percentuale di eventi critici rilevati"
+                            { artefatti
+                                [ procedure
+                                    "Piano logging & monitoring"
+                                [ registri
+                                    "Report KPI"
+                                [ evidenze
+                                    "Use case e runbook"
+                            [ placeholders_contesto
+                                "[sistemi monitorati]"
+                                "[KPI target]"
+                                "[team responsabile]"
+                        {
+                            id "ASP-5.8.4"
+                            titolo "Backup & Restore"
+                            descrizione_astratta "Garantire la continuità operativa attraverso strategie di backup e ripristino
+                                +b testate."
+                            [ rischi_mitigati
+                                "Perdita di dati critici"
+                                "Interruzione prolungata delle operazioni"
+                                "Fallimento del ripristino"
+                            [ pratiche_raccomandate
+                                "Definizione di policy di backup"
+                                "Test periodici di ripristino"
+                                "Protezione dei backup da accessi non autorizzati"
+                            [ metriche_kpi
+                                "Frequenza dei test di ripristino riusciti"
+                                "Tempo medio di ripristino (RTO)"
+                                "Percentuale di dati coperti da backup"
+                            { artefatti
+                                [ procedure
+                                    "Policy backup/restore"
+                                [ registri
+                                    "Registro test"
+                                [ evidenze
+                                    "Runbook backup/restore"
+                            [ placeholders_contesto
+                                "[asset critici]"
+                                "[frequenza backup]"
+                                "[locazione storage]"
+                        {
+                            id "ASP-5.8.5"
+                            titolo "Segmentazione Rete (Zone & Conduits)"
+                            descrizione_astratta "Isolamento logico e fisico delle reti OT per limitare la propagazione di
+                                +b attacchi."
+                            [ rischi_mitigati
+                                "Propagazione di malware"
+                                "Accesso non autorizzato tra zone"
+                                "Interferenza tra flussi di rete"
+                            [ pratiche_raccomandate
+                                "Definizione di Zone e Conduits (IEC 62443)"
+                                "Implementazione di DMZ per interfacce IT/OT"
+                                "Controllo dei flussi di rete con firewall"
+                            [ metriche_kpi
+                                "Numero di violazioni di segmentazione rilevate"
+                                "Percentuale di flussi di rete approvati"
+                            { artefatti
+                                [ procedure
+                                    "Diagramma rete Zone & Conduits"
+                                [ registri
+                                    "Matrice flussi approvata"
+                                [ evidenze
+                                    "Configurazioni firewall"
+                            [ placeholders_contesto
+                                "[topologia rete]"
+                                "[zone definite]"
+                                "[conduits critici]"
+                        {
+                            id "ASP-5.8.6"
+                            titolo "Gestione Asset e Vulnerabilità"
+                            descrizione_astratta "Inventario completo degli asset e gestione proattiva delle vulnerabilità per
+                                +b ridurre i rischi."
+                            [ rischi_mitigati
+                                "Asset non identificati"
+                                "Vulnerabilità non mitigate"
+                                "Ritardo nell'applicazione delle patch"
+                            [ pratiche_raccomandate
+                                "Mantenimento di un inventario aggiornato con SBOM"
+                                "Pianificazione di patch management"
+                                "Definizione di misure compensative per vulnerabilità non risolvibili"
+                            [ metriche_kpi
+                                "Percentuale di asset inventariati"
+                                "Tempo medio per applicare patch critiche"
+                                "Numero di vulnerabilità aperte"
+                            { artefatti
+                                [ procedure
+                                    "Piano patch/vuln"
+                                [ registri
+                                    "Registro eccezioni/compensazioni"
+                                [ evidenze
+                                    "Inventario asset + SBOM"
+                            [ placeholders_contesto
+                                "[categorie asset]"
+                                "[vendor software]"
+                                "[criteri priorità patch]"
+                    { policy_template
+                        titolo "Policy di Sicurezza OT/ICS - [specifica contesto]"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Definizioni e riferimenti normativi"
+                            "Ruoli e responsabilità"
+                            "Requisiti di sicurezza"
+                            "Procedure operative"
+                            "Monitoraggio e revisione"
+                        [ placeholders_contesto
+                            "[organizzazione]"
+                            "[ambito OT/ICS]"
+                            "[normative applicabili]"
+                    { sop_template
+                        titolo "Procedura Operativa Standard - [specifica attività]"
+                        [ step
+                            "Preparazione e contesto"
+                            "Esecuzione attività"
+                            "Verifica e validazione"
+                            "Gestione anomalie"
+                            "Chiusura e report"
+                        [ registrazioni
+                            "Log delle attività eseguite"
+                            "Esiti delle verifiche"
+                            "Eventuali deviazioni e azioni correttive"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuovi artefatti"
+                            "Pull request obbligatorie con review"
+                    { raci
+                        [ roles
+                            "SP (Sponsor)"
+                            "AO (Accountable Owner)"
+                            "SI (Security Implementer)"
+                            "OTSec (OT Security Team)"
+                        [ matrix
+                            {
+                                attivita "Definizione Policy"
+                                SP "I"
+                                AO "A"
+                                SI "R"
+                                OTSec "C"
+                            {
+                                attivita "Implementazione Misure"
+                                SP "C"
+                                AO "R"
+                                SI "A"
+                                OTSec "I"
+                            {
+                                attivita "Produzione Artefatti"
+                                SP "I"
+                                AO "C"
+                                SI "R"
+                                OTSec "A"
+                            {
+                                attivita "Audit e Revisione"
+                                SP "C"
+                                AO "I"
+                                SI "R"
+                                OTSec "A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                            "Checklist"
+                            "Diagramma"
+                        [ audience_possibili
+                            "Management"
+                            "Tecnici OT"
+                            "Auditor"
+                            "Team IT/OT"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Alto"
+                            "Medio"
+                            "Basso"
+                        [ vincoli
+                            "Conformità a IEC 62443"
+                            "Inclusione di riferimenti normativi"
+                            "Adattamento al contesto organizzativo"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [tipo documento] per [audience] con stile [stile] e
+                            +b livello tecnico [livello tecnico] sul tema [tema specifico] in conformità a
+                            +b [normativa]. Includi sezioni su [sezioni specifiche] e considera il contesto
+                            +b [placeholders contesto]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico per il team OT sul tema 'Segmentazione rete Zone &
+                            +b Conduits' con stile formale e livello tecnico alto, conforme a IEC 62443.
+                            +b Includi sezioni su definizioni, pratiche raccomandate e diagrammi."
+                        prompt_esempio_slide "Crea una presentazione per il management sul piano logging & monitoring con
+                            +b stile sintetico e livello tecnico medio. Includi slide su obiettivi, KPI
+                            +b (MTTD/MTTR) e use case principali."
+                        prompt_esempio_sop "Genera una SOP per il backup/restore di asset OT con stile tecnico e livello
+                            +b tecnico alto. Includi step operativi, verifiche e registrazioni per il contesto
+                            +b [organizzazione]."
+                    [ checklist
+                        "Verifica conformità a IEC 62443"
+                        "Inclusione di tutti gli artefatti richiesti"
+                        "Definizione chiara di ruoli e responsabilità"
+                        "Presenza di metriche KPI per monitoraggio"
+                        "Adattamento al contesto organizzativo"
+                        "Validazione con stakeholder rilevanti"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome organizzazione"
+                        "Tipologia ambiente OT/ICS"
+                        "Asset critici"
+                        "Normative applicabili"
+                        "Ruoli aziendali coinvolti"
+                        "Topologia rete"
+                    [ avvertenze
+                        "Gli artefatti devono essere validati da esperti OT prima dell'implementazione."
+                        "Le policy devono essere riviste annualmente o in caso di cambiamenti normativi."
+                        "I diagrammi di rete devono riflettere la topologia reale per essere utili."
+                        "Le misure compensative per vulnerabilità devono essere documentate e approvate."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/5"
+            nome "Misure tecniche e organizzative (IEC 62443)"
+            ruolo "Responsabili OT/ICS Security, Ingegneri di sistema, Auditor"
+            [ norme_riferimento
+                "IEC 62443"
+                "ISO/IEC 27001"
+                "ISO/IEC 27002"
+                "NIS2 Directive"
+                "Cyber Resilience Act (CRA)"
+                "Direttiva Macchine 2006/42/CE"
+                "Registro Macchine 2023"
+                "GDPR 2016/679"
+            descrizione "Questo ambito copre le misure tecniche e organizzative per la sicurezza in
+                +b ambienti OT/ICS, con focus su architetture, flussi operativi, ruoli e
+                +b responsabilità, conformità agli standard IEC 62443 e integrazione con altre
+                +b normative rilevanti. Include figure, tabelle e template per supportare
+                +b l'implementazione pratica."
+            [ sezioni
+                {
+                    id "cap/5/5.9"
+                    nome "Figure & Template (riepilogo segnaposto)"
+                    { obiettivo
+                        codice "OBJ-5.9"
+                        descrizione "Fornire una panoramica visiva e documentale delle misure tecniche e
+                            +b organizzative per la sicurezza OT/ICS attraverso figure, tabelle e template."
+                    [ output_attesi
+                        "Figura 5.1 — Architettura privileged access con broker"
+                        "Tabella 5.1 — Matrice ruolo→permessi (RBAC)"
+                        "Tabella 5.2 — Checklist hardening per asset"
+                        "Figura 5.2 — Flusso change→backup→deploy→rollback"
+                        "Figura 5.3 — Flusso log→analisi→risposta"
+                        "Tabella 5.3 — Use case minimi e log richiesti"
+                        "Figura 5.4 — Architettura backup OT isolata"
+                        "Template — Registro test di ripristino"
+                        "Figura 5.5 — Schema Zone & Conduits con DMZ"
+                        "Tabella 5.5 — Matrice flussi per conduit"
+                        "Tabella 5.6 — Inventario minimo + SBOM"
+                        "Figura 5.6 — Flusso vuln→priorità→test→deploy→evidenze"
+                        "Template — Cruscotto KPI"
+                    prompt_base "Genera contenuti visivi e documentali per rappresentare misure di sicurezza
+                        +b OT/ICS conformi a IEC 62443, includendo architetture, flussi operativi,
+                        +b checklist e template pratici per l'implementazione."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-5.9.1"
+                            titolo "Identificazione & Autenticazione (IAC/UC)"
+                            descrizione_astratta "Controllo degli accessi basato su identificazione e autenticazione per
+                                +b garantire che solo utenti autorizzati possano accedere ai sistemi OT/ICS
+                                +b (FR1/FR2)."
+                            [ rischi_mitigati
+                                "Accesso non autorizzato"
+                                "Furto di credenziali"
+                                "Compromissione di sistemi critici"
+                            [ pratiche_raccomandate
+                                "Implementazione di RBAC (Role-Based Access Control)"
+                                "Utilizzo di broker per privileged access"
+                                "Autenticazione multifattore (MFA)"
+                            [ metriche_kpi
+                                "Percentuale di utenti con MFA abilitata"
+                                "Tempo medio di rilevazione accessi anomali"
+                                "Numero di violazioni di accesso rilevate"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di gestione accessi privilegiati"
+                                    "Procedura di revisione ruoli e permessi"
+                                [ registri
+                                    "Registro degli accessi privilegiati"
+                                    "Registro delle revisioni RBAC"
+                                [ evidenze
+                                    "Report di audit sugli accessi"
+                                    "Configurazioni del broker di accesso"
+                            [ placeholders_contesto
+                                "Tipologia di asset OT/ICS"
+                                "Ruoli specifici aziendali"
+                                "Livello di sicurezza target (SL-T)"
+                        {
+                            id "ASP-5.9.2"
+                            titolo "System Integrity (SI)"
+                            descrizione_astratta "Protezione dell'integrità dei sistemi OT/ICS per prevenire modifiche non
+                                +b autorizzate o compromissioni (FR3)."
+                            [ rischi_mitigati
+                                "Alterazione del software/firmware"
+                                "Installazione di malware"
+                                "Configurazioni non autorizzate"
+                            [ pratiche_raccomandate
+                                "Implementazione di allow-listing per software/servizi"
+                                "Monitoraggio continuo dell'integrità dei file"
+                                "Gestione delle vulnerabilità con SBOM"
+                            [ metriche_kpi
+                                "Percentuale di asset con allow-listing attivo"
+                                "Tempo medio di rilevazione modifiche non autorizzate"
+                                "Numero di vulnerabilità critiche non mitigate"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di hardening degli asset"
+                                    "Procedura di gestione vulnerabilità"
+                                [ registri
+                                    "Registro delle modifiche software"
+                                    "Registro SBOM aggiornato"
+                                [ evidenze
+                                    "Report di scansione integrità"
+                                    "Checklist di hardening completate"
+                            [ placeholders_contesto
+                                "Inventario asset OT"
+                                "Tipologia di software in uso"
+                                "Frequenza di aggiornamento SBOM"
+                        {
+                            id "ASP-5.9.3"
+                            titolo "Timely Response to Events (TRE)"
+                            descrizione_astratta "Capacità di rilevare, analizzare e rispondere tempestivamente a eventi di
+                                +b sicurezza in ambiente OT/ICS (FR6)."
+                            [ rischi_mitigati
+                                "Ritardo nella risposta a incidenti"
+                                "Propagazione di attacchi"
+                                "Perdita di dati critici"
+                            [ pratiche_raccomandate
+                                "Implementazione di flussi log→analisi→risposta"
+                                "Sincronizzazione oraria (NTP) per log accurati"
+                                "Definizione di use case minimi per il monitoraggio"
+                            [ metriche_kpi
+                                "Tempo medio di rilevazione (MTTD)"
+                                "Tempo medio di risposta (MTTR)"
+                                "Percentuale di eventi critici analizzati entro SLA"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di gestione incidenti"
+                                    "Procedura di analisi log"
+                                [ registri
+                                    "Registro degli eventi di sicurezza"
+                                    "Registro delle risposte agli incidenti"
+                                [ evidenze
+                                    "Report di analisi post-incidente"
+                                    "Configurazioni SIEM correlate"
+                            [ placeholders_contesto
+                                "Tipologia di log raccolti"
+                                "Strumenti di monitoraggio in uso"
+                                "SLA aziendali per risposta"
+                        {
+                            id "ASP-5.9.4"
+                            titolo "Resource Availability (RA)"
+                            descrizione_astratta "Garantire la disponibilità delle risorse critiche OT/ICS attraverso backup e
+                                +b piani di ripristino (FR7)."
+                            [ rischi_mitigati
+                                "Perdita di dati critici"
+                                "Interruzione delle operazioni"
+                                "Tempi di ripristino prolungati"
+                            [ pratiche_raccomandate
+                                "Architettura di backup OT isolata"
+                                "Definizione di RPO/RTO"
+                                "Test periodici di ripristino"
+                            [ metriche_kpi
+                                "Percentuale di backup completati con successo"
+                                "Tempo di ripristino effettivo vs RTO"
+                                "Frequenza dei test di ripristino"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di backup e ripristino"
+                                    "Procedura di test di ripristino"
+                                [ registri
+                                    "Registro dei backup eseguiti"
+                                    "Registro dei test di ripristino"
+                                [ evidenze
+                                    "Report dei test di ripristino"
+                                    "Configurazioni di backup"
+                            [ placeholders_contesto
+                                "RPO/RTO definiti"
+                                "Tipologia di dati critici"
+                                "Frequenza dei backup"
+                    { policy_template
+                        titolo "Policy di Sicurezza OT/ICS - Misure Tecniche e Organizzative"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Ruoli e responsabilità (RBAC)"
+                            "Gestione accessi e autenticazione (IAC/UC)"
+                            "Protezione integrità sistemi (SI)"
+                            "Risposta agli eventi (TRE)"
+                            "Disponibilità risorse (RA)"
+                            "Riferimenti normativi (IEC 62443, ISO 27001)"
+                            "Monitoraggio e miglioramento continuo"
+                        [ placeholders_contesto
+                            "Organizzazione specifica"
+                            "Asset OT/ICS coperti"
+                            "Livelli di sicurezza target (SL-T)"
+                    { sop_template
+                        titolo "SOP - Gestione Sicurezza OT/ICS"
+                        [ step
+                            "Identificazione degli asset critici e inventario (SBOM incluso)"
+                            "Configurazione hardening degli asset"
+                            "Implementazione controlli di accesso (RBAC, MFA)"
+                            "Setup monitoraggio log e sincronizzazione NTP"
+                            "Esecuzione backup e test di ripristino"
+                            "Gestione vulnerabilità e patch (flusso vuln→deploy)"
+                            "Analisi e risposta agli eventi di sicurezza"
+                            "Documentazione e aggiornamento registri"
+                        [ registrazioni
+                            "Registro inventario asset"
+                            "Registro test di ripristino"
+                            "Registro eventi di sicurezza"
+                            "Registro gestione vulnerabilità"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili e validati"
+                            "Branch 'develop' per contenuti in lavorazione"
+                            "Feature branch per ogni figura/template (es. 'feature/figura-5.1')"
+                            "Release branch per revisioni finali prima di merge su 'main'"
+                            "Hotfix branch per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "SP (Security Practitioner)"
+                            "AO (Asset Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Team)"
+                        [ matrix
+                            {
+                                attivita "Definizione RBAC e permessi"
+                                SP "Responsible"
+                                AO "Accountable"
+                                SI "Consulted"
+                                OTSec "Informed"
+                            {
+                                attivita "Configurazione hardening asset"
+                                SP "Consulted"
+                                AO "Informed"
+                                SI "Responsible"
+                                OTSec "Accountable"
+                            {
+                                attivita "Gestione backup e ripristino"
+                                SP "Informed"
+                                AO "Accountable"
+                                SI "Responsible"
+                                OTSec "Consulted"
+                            {
+                                attivita "Monitoraggio log e risposta eventi"
+                                SP "Responsible"
+                                AO "Consulted"
+                                SI "Informed"
+                                OTSec "Accountable"
+                            {
+                                attivita "Gestione vulnerabilità e patch"
+                                SP "Consulted"
+                                AO "Informed"
+                                SI "Responsible"
+                                OTSec "Accountable"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Figure (diagrammi, flussi)"
+                            "Tabelle (matrici, checklist)"
+                            "Template (registri, cruscotti)"
+                            "Documenti descrittivi (policy, SOP)"
+                        [ audience_possibili
+                            "Responsabili OT Security"
+                            "Ingegneri di sistema"
+                            "Auditor interni/esterni"
+                            "Management non tecnico"
+                        [ stili
+                            "Tecnico-operativo"
+                            "Sintetico per slide"
+                            "Dettagliato per documentazione"
+                            "Visuale per diagrammi"
+                        [ livello_tecnico
+                            "Base (per management)"
+                            "Intermedio (per auditor)"
+                            "Avanzato (per tecnici OT/ICS)"
+                        [ vincoli
+                            "Conformità a IEC 62443 (FR1-FR7)"
+                            "Vendor-neutrality"
+                            "Mapping chiaro a SL-Target"
+                            "Inclusione di avvertenze safety"
+                    { prompting
+                        prompt_template_generico "Genera un contenuto per [tipo_output] su [argomento] per [audience] con stile
+                            +b [stile] e livello tecnico [livello]. Assicurati conformità a [norma] e includi
+                            +b [elementi_specifici]. Usa un tono pratico e vendor-neutral."
+                        prompt_esempio_articolo "Genera un articolo dettagliato su 'Architettura privileged access con broker'
+                            +b per responsabili OT Security con stile tecnico-operativo e livello avanzato.
+                            +b Assicurati conformità a IEC 62443 (FR1/FR2) e includi riferimenti a RBAC e MFA.
+                            +b Usa un tono pratico e vendor-neutral."
+                        prompt_esempio_slide "Genera una slide sintetica su 'Flusso log→analisi→risposta' per management non
+                            +b tecnico con stile visuale e livello base. Assicurati conformità a IEC 62443
+                            +b (FR6) e includi un diagramma chiaro. Usa un tono pratico e vendor-neutral."
+                        prompt_esempio_sop "Genera una SOP su 'Gestione backup OT isolati' per ingegneri di sistema con
+                            +b stile dettagliato e livello intermedio. Assicurati conformità a IEC 62443 (FR7)
+                            +b e includi step operativi con RPO/RTO. Usa un tono pratico e vendor-neutral."
+                    [ checklist
+                        "Acronomi spiegati e tecnicismi parafrasati"
+                        "Box 'Per i ruoli' in ogni sezione"
+                        "Mapping chiaro a FR1–FR7 e SL-Target realistici"
+                        "Figure/template elencati e coerenti"
+                        "Deliverable/Artefatti specificati"
+                        "Takeaway + avvertenza safety per sezione"
+                        "Tono pratico-operativo, vendor-neutral"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Tipologia di organizzazione (es. manifatturiero, energia)"
+                        "Inventario asset OT/ICS"
+                        "Livelli di sicurezza target (SL-T)"
+                        "Ruoli e responsabilità specifici"
+                        "RPO/RTO definiti"
+                        "Strumenti di monitoraggio e backup in uso"
+                    [ avvertenze
+                        "Le misure di sicurezza devono essere bilanciate con requisiti di safety per evitare impatti su operazioni critiche."
+                        "Test di ripristino e patch devono essere eseguiti in ambienti di staging per evitare downtime imprevisti."
+                        "La configurazione di Zone & Conduits richiede un'analisi preliminare dei flussi di rete per garantire isolamento efficace."
+                        "Eventuali deroghe a policy devono essere documentate e approvate da ruoli accountable."

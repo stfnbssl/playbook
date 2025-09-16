@@ -1,0 +1,1302 @@
+$group
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/6"
+            nome "Mappatura pratica **NIS2 ⇄ IEC 62443**"
+            ruolo "Supporto alla conformità normativa e tecnica in ambito OT/ICS"
+            [ norme_riferimento
+                "NIS2"
+                "IEC 62443"
+            descrizione "Analisi della relazione tra la direttiva NIS2 e lo standard IEC 62443 per
+                +b facilitare l'adeguamento normativo e tecnico in contesti OT/ICS, con focus su
+                +b governance, gestione del rischio e misure di sicurezza."
+            [ sezioni
+                {
+                    id "cap/6/6.1"
+                    nome "NIS2 in breve (contesto e perimetro)"
+                    { obiettivo
+                        codice "OBJ-NIS2-001"
+                        descrizione "Fornire una panoramica sintetica della direttiva NIS2, identificando soggetti
+                            +b coinvolti, obblighi principali e collegamenti con IEC 62443."
+                    [ output_attesi
+                        "Documento di sintesi su NIS2 per stakeholder OT"
+                        "Slide di presentazione per formazione interna"
+                        "Checklist preliminare per gap analysis NIS2-IEC 62443"
+                    prompt_base "Scrivi 8–10 righe che riassumano NIS2 per il lettore OT: chi è coinvolto, quali
+                        +b macro-obblighi, e perché una base IEC 62443 accelera l’adeguamento. La
+                        +b direttiva NIS2 si applica a entità essenziali e importanti in settori critici
+                        +b (energia, trasporti, acqua, ecc.), imponendo obblighi di governance, gestione
+                        +b del rischio, misure tecniche e organizzative, sicurezza della supply chain,
+                        +b business continuity e reporting di incidenti verso autorità/CSIRT entro X
+                        +b ore/giorni (da confermare a livello nazionale). Per chi opera in OT, NIS2
+                        +b richiede un approccio strutturato alla cybersecurity, che IEC 62443 già
+                        +b fornisce con i suoi framework per sicurezza industriale, zone e livelli di
+                        +b protezione. Adottare IEC 62443 significa anticipare molte richieste NIS2,
+                        +b riducendo il gap di conformità e ottimizzando risorse."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-NIS2-001"
+                            titolo "Governance e gestione del rischio"
+                            descrizione_astratta "Definizione di responsabilità e processi per identificare, valutare e mitigare
+                                +b i rischi cyber in ambito OT/ICS in linea con NIS2."
+                            [ rischi_mitigati
+                                "Mancata conformità normativa"
+                                "Esposizione a incidenti cyber"
+                            [ pratiche_raccomandate
+                                "Definire ruoli di responsabilità"
+                                "Implementare analisi del rischio basata su IEC 62443"
+                            [ metriche_kpi
+                                "Percentuale di rischi identificati coperti da misure"
+                                "Tempo medio di risposta a incidenti"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di gestione del rischio"
+                                [ registri
+                                    "Registro dei rischi cyber"
+                                [ evidenze
+                                    "Report di analisi del rischio"
+                            [ placeholders_contesto
+                                "Settore specifico"
+                                "Dimensione entità"
+                    { policy_template
+                        titolo "Policy di Conformità NIS2 per OT"
+                        [ sezioni
+                            "Scopo"
+                            "Ambito di applicazione"
+                            "Responsabilità"
+                            "Misure richieste"
+                            "Reporting"
+                        [ placeholders_contesto
+                            "Settore"
+                            "Tempi di notifica nazionali"
+                    { sop_template
+                        titolo "SOP per Notifica Incidenti NIS2"
+                        [ step
+                            "Identificazione incidente"
+                            "Valutazione gravità"
+                            "Notifica autorità entro X ore"
+                            "Documentazione"
+                        [ registrazioni
+                            "Log incidente"
+                            "Prova di notifica"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch principale per contenuti stabili"
+                            "Branch di sviluppo per draft"
+                            "Pull request con review obbligatoria"
+                    { raci
+                        [ roles
+                            "Responsabile Sicurezza (SP)"
+                            "Amministratore Operativo (AO)"
+                            "Specialista IT (SI)"
+                            "OT Security (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Analisi requisiti NIS2"
+                                SP "R"
+                                AO "A"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Implementazione misure IEC 62443"
+                                SP "A"
+                                AO "R"
+                                SI "I"
+                                OTSec "C"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Articolo"
+                            "Slide"
+                            "SOP"
+                            "Checklist"
+                        [ audience_possibili
+                            "Management"
+                            "Tecnici OT"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Didattico"
+                            "Operativo"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Rispetto normative locali"
+                            "Placeholder per tempi di notifica"
+                    { prompting
+                        prompt_template_generico "Genera un contenuto su NIS2 per [audience] in stile [stile] con livello tecnico
+                            +b [livello], focalizzandoti su [argomento]."
+                        prompt_esempio_articolo "Scrivi un articolo su NIS2 per tecnici OT in stile didattico con livello
+                            +b tecnico intermedio, spiegando obblighi e collegamenti con IEC 62443."
+                        prompt_esempio_slide "Crea slide su NIS2 per management in stile formale con livello tecnico base,
+                            +b evidenziando obblighi di governance e reporting."
+                        prompt_esempio_sop "Elabora una SOP per notifica incidenti NIS2 per tecnici OT in stile operativo
+                            +b con livello tecnico intermedio, includendo step e registrazioni."
+                    [ checklist
+                        "Identificare se l’entità rientra in NIS2 (essenziale/importante)"
+                        "Mappare obblighi NIS2 su framework IEC 62443"
+                        "Definire tempi di notifica nazionali (placeholder X ore/giorni)"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Settore di appartenenza"
+                        "Classificazione entità (essenziale/importante)"
+                        "Recepimento nazionale NIS2 (tempi e procedure)"
+                    [ avvertenze
+                        "I tempi di notifica sono placeholders e devono essere confermati con normative nazionali."
+                        "La mappatura NIS2-IEC 62443 richiede adattamento al contesto aziendale."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/6"
+            nome "Mappatura pratica **NIS2 ⇄ IEC 62443**"
+            ruolo "Asset Owner, Service Provider, System Integrator, OEM"
+            [ norme_riferimento
+                "NIS2"
+                "IEC 62443"
+            descrizione "Fornire una guida pratica per allineare i requisiti della direttiva NIS2 con i
+                +b controlli e le parti dello standard IEC 62443, identificando evidenze
+                +b richieste, ruoli responsabili e gap da colmare."
+            [ sezioni
+                {
+                    id "cap/6/6.2"
+                    nome "**Tabella di mappatura NIS2 ⇄ IEC 62443**"
+                    { obiettivo
+                        codice "OBJ-6.2"
+                        descrizione "Fornire una **crosswalk** pratica tra obblighi NIS2 e controlli/parti IEC
+                            +b 62443, con evidenze richieste."
+                    [ output_attesi
+                        "Tabella di mappatura NIS2-IEC 62443"
+                        "Elenco evidenze e deliverable per conformità"
+                        "Identificazione ruoli responsabili"
+                        "Note su gap e azioni di mitigazione"
+                    prompt_base "Compila la tabella NIS2 ⇄ IEC 62443 usando il modello: per ogni obbligo NIS2
+                        +b indica la parte 62443 che aiuta a soddisfarlo, le **evidenze** richieste e il
+                        +b **ruolo** responsabile; annota eventuali **gap** (da colmare con
+                        +b processi/documenti NIS2)."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-6.2.1"
+                            titolo "Governance & Risk Management"
+                            descrizione_astratta "Definizione di un programma di sicurezza e gestione dei rischi in ambito OT/ICS
+                                +b in linea con NIS2 e IEC 62443."
+                            [ rischi_mitigati
+                                "Mancata identificazione rischi"
+                                "Non conformità normativa"
+                            [ pratiche_raccomandate
+                                "Definizione Security Policy OT"
+                                "Registro rischi"
+                                "SL-Target per zona"
+                            [ metriche_kpi
+                                "Percentuale di rischi mappati"
+                                "Conformità SL-Target"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di risk assessment"
+                                [ registri
+                                    "Registro dei rischi"
+                                [ evidenze
+                                    "Security Policy OT"
+                                    "SL-Target definiti"
+                            [ placeholders_contesto
+                                "Settore industriale"
+                                "Normative nazionali"
+                        {
+                            id "ASP-6.2.2"
+                            titolo "Incident Handling & Business Continuity"
+                            descrizione_astratta "Gestione degli incidenti e piani di continuità operativa per garantire
+                                +b resilienza in ambito OT."
+                            [ rischi_mitigati
+                                "Interruzione operativa"
+                                "Ritardo nella risposta agli incidenti"
+                            [ pratiche_raccomandate
+                                "Runbook IR"
+                                "Piani BC/DR"
+                                "Test esercitazioni"
+                            [ metriche_kpi
+                                "Tempo medio di risposta (MTTR)"
+                                "Frequenza test BC/DR"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di incident response"
+                                [ registri
+                                    "Log incidenti"
+                                [ evidenze
+                                    "Runbook IR"
+                                    "Report test BC/DR"
+                            [ placeholders_contesto
+                                "Tipologia di impianti"
+                                "Requisiti di notifica nazionali"
+                        {
+                            id "ASP-6.2.3"
+                            titolo "Supply Chain Security"
+                            descrizione_astratta "Sicurezza della supply chain per componenti e servizi critici in ambito OT/ICS."
+                            [ rischi_mitigati
+                                "Vulnerabilità da fornitori"
+                                "Mancata tracciabilità componenti"
+                            [ pratiche_raccomandate
+                                "Clausole contrattuali"
+                                "SBOM"
+                                "Qualifica fornitori"
+                            [ metriche_kpi
+                                "Percentuale fornitori qualificati"
+                                "Copertura SBOM"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di qualifica fornitori"
+                                [ registri
+                                    "Registro fornitori"
+                                [ evidenze
+                                    "Contratti con clausole sicurezza"
+                                    "SBOM"
+                            [ placeholders_contesto
+                                "Tipologia di fornitori"
+                                "Requisiti contrattuali locali"
+                        {
+                            id "ASP-6.2.4"
+                            titolo "Logging & Monitoring"
+                            descrizione_astratta "Implementazione di sistemi di logging e monitoraggio per rilevare anomalie e
+                                +b incidenti."
+                            [ rischi_mitigati
+                                "Mancata rilevazione incidenti"
+                                "Non conformità retention dati"
+                            [ pratiche_raccomandate
+                                "Piano logging"
+                                "Use case SOC"
+                                "Evidenze monitoraggio"
+                            [ metriche_kpi
+                                "Copertura logging"
+                                "Tempo di rilevazione anomalie"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di configurazione logging"
+                                [ registri
+                                    "Log eventi"
+                                [ evidenze
+                                    "Report SOC"
+                                    "Piano logging"
+                            [ placeholders_contesto
+                                "Requisiti retention dati"
+                                "Infrastruttura OT"
+                        {
+                            id "ASP-6.2.5"
+                            titolo "Accessi Remoti Sicuri"
+                            descrizione_astratta "Gestione sicura degli accessi remoti per proteggere sistemi OT da accessi non
+                                +b autorizzati."
+                            [ rischi_mitigati
+                                "Accessi non autorizzati"
+                                "Mancata tracciabilità sessioni"
+                            [ pratiche_raccomandate
+                                "Broker accessi"
+                                "MFA"
+                                "Session recording"
+                            [ metriche_kpi
+                                "Percentuale accessi con MFA"
+                                "Tracciabilità sessioni"
+                            { artefatti
+                                [ procedure
+                                    "Procedura gestione accessi remoti"
+                                [ registri
+                                    "Log accessi"
+                                [ evidenze
+                                    "Configurazione MFA"
+                                    "Registrazioni sessioni"
+                            [ placeholders_contesto
+                                "Policy aziendali"
+                                "Tipologia utenti remoti"
+                        {
+                            id "ASP-6.2.6"
+                            titolo "Patch & Vulnerability Management"
+                            descrizione_astratta "Gestione delle vulnerabilità e applicazione patch in ambienti OT con vincoli
+                                +b operativi."
+                            [ rischi_mitigati
+                                "Vulnerabilità sfruttabili"
+                                "Ritardi applicazione patch"
+                            [ pratiche_raccomandate
+                                "Inventario asset"
+                                "Calendario patch"
+                                "Registro eccezioni"
+                            [ metriche_kpi
+                                "Percentuale patch applicate"
+                                "Tempo medio risoluzione vulnerabilità"
+                            { artefatti
+                                [ procedure
+                                    "Procedura patch management"
+                                [ registri
+                                    "Registro vulnerabilità"
+                                [ evidenze
+                                    "Inventario asset"
+                                    "Calendario patch"
+                            [ placeholders_contesto
+                                "Finestre manutenzione OT"
+                                "Tipologia sistemi"
+                        {
+                            id "ASP-6.2.7"
+                            titolo "Reporting & Notifiche"
+                            descrizione_astratta "Gestione delle notifiche agli enti competenti in caso di incidenti rilevanti."
+                            [ rischi_mitigati
+                                "Non conformità obblighi di notifica"
+                                "Ritardi comunicazione"
+                            [ pratiche_raccomandate
+                                "Procedure notifica"
+                                "Template comunicazione"
+                                "Registro eventi"
+                            [ metriche_kpi
+                                "Tempo di notifica"
+                                "Conformità tempistiche nazionali"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di notifica"
+                                [ registri
+                                    "Registro notifiche"
+                                [ evidenze
+                                    "Template notifica"
+                                    "Report eventi"
+                            [ placeholders_contesto
+                                "Canali nazionali"
+                                "Tempistiche normative"
+                    { policy_template
+                        titolo "Policy di Allineamento NIS2-IEC 62443"
+                        [ sezioni
+                            "Scopo e ambito applicazione"
+                            "Riferimenti normativi (NIS2, IEC 62443)"
+                            "Ruoli e responsabilità"
+                            "Mappatura requisiti e controlli"
+                            "Gestione gap e azioni correttive"
+                        [ placeholders_contesto
+                            "Settore aziendale"
+                            "Requisiti nazionali"
+                            "Struttura organizzativa"
+                    { sop_template
+                        titolo "SOP per Conformità NIS2 con IEC 62443"
+                        [ step
+                            "Identificazione obblighi NIS2 applicabili"
+                            "Mappatura con controlli IEC 62443"
+                            "Raccolta evidenze e deliverable"
+                            "Valutazione gap e definizione azioni"
+                            "Monitoraggio e reporting"
+                        [ registrazioni
+                            "Registro gap"
+                            "Elenco evidenze"
+                            "Report conformità"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili"
+                            "Branch 'develop' per contenuti in lavorazione"
+                            "Feature branch per ogni aspetto di sicurezza"
+                            "Pull request con revisione obbligatoria"
+                    { raci
+                        [ roles
+                            "SP (Service Provider)"
+                            "AO (Asset Owner)"
+                            "SI (System Integrator)"
+                            "OTSec (OT Security Team)"
+                        [ matrix
+                            {
+                                attivita "Definizione Security Policy"
+                                SP "C"
+                                AO "R"
+                                SI "A"
+                                OTSec "I"
+                            {
+                                attivita "Gestione Rischi OT"
+                                SP "C"
+                                AO "R"
+                                SI "A"
+                                OTSec "I"
+                            {
+                                attivita "Incident Response"
+                                SP "A"
+                                AO "R"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Supply Chain Security"
+                                SP "A"
+                                AO "R"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Logging & Monitoring"
+                                SP "A"
+                                AO "R"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Gestione Accessi Remoti"
+                                SP "A"
+                                AO "R"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Patch Management"
+                                SP "A"
+                                AO "R"
+                                SI "C"
+                                OTSec "I"
+                            {
+                                attivita "Reporting & Notifiche"
+                                SP "I"
+                                AO "R"
+                                SI "C"
+                                OTSec "A"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Tabella mappatura"
+                            "Policy"
+                            "SOP"
+                            "Report conformità"
+                        [ audience_possibili
+                            "Management"
+                            "Team tecnico OT"
+                            "Auditor"
+                            "Autorità regolamentari"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Alto (esperti OT/ICS)"
+                            "Medio (management)"
+                            "Basso (stakeholder esterni)"
+                        [ vincoli
+                            "Conformità NIS2"
+                            "Allineamento IEC 62443"
+                            "Requisiti nazionali"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo {tipo_documento} per {audience} con stile {stile} e
+                            +b livello tecnico {livello_tecnico} sulla mappatura NIS2-IEC 62443, includendo
+                            +b {contenuti_specifici}."
+                        prompt_esempio_articolo "Genera un articolo per il management con stile formale e livello tecnico medio
+                            +b sulla mappatura NIS2-IEC 62443, includendo una sintesi della tabella e i gap
+                            +b principali."
+                        prompt_esempio_slide "Genera una presentazione per auditor con stile sintetico e livello tecnico alto
+                            +b sulla mappatura NIS2-IEC 62443, includendo la tabella completa e le evidenze
+                            +b richieste."
+                        prompt_esempio_sop "Genera una SOP per team tecnico OT con stile tecnico e livello tecnico alto
+                            +b sulla conformità NIS2 con IEC 62443, includendo step operativi e registrazioni."
+                    [ checklist
+                        "Verifica completezza mappatura NIS2-IEC 62443"
+                        "Identificazione ruoli responsabili per ogni requisito"
+                        "Definizione evidenze e deliverable per conformità"
+                        "Valutazione gap e azioni correttive"
+                        "Allineamento con requisiti nazionali NIS2"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Settore industriale (es. energia, manifatturiero)"
+                        "Requisiti nazionali di recepimento NIS2"
+                        "Tipologia di asset OT/ICS"
+                        "Struttura organizzativa e ruoli"
+                        "Vincoli operativi OT (es. finestre manutenzione)"
+                    [ avvertenze
+                        "La mappatura è generica e richiede adattamento al contesto nazionale e settoriale."
+                        "I gap identificati devono essere validati con esperti legali e tecnici."
+                        "Le evidenze richieste possono variare in base a interpretazioni normative."
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/6"
+            nome "Mappatura pratica **NIS2 ⇄ IEC 62443**"
+            ruolo "Supporto alla conformità normativa e tecnica in ambito OT/ICS"
+            [ norme_riferimento
+                "IEC 62443"
+                "NIS2"
+            descrizione "Analisi comparativa tra i requisiti di sicurezza definiti dallo standard IEC
+                +b 62443 e le disposizioni aggiuntive richieste dalla direttiva NIS2, con focus su
+                +b integrazioni necessarie per la conformità."
+            [ sezioni
+                {
+                    id "cap/6/6.3"
+                    nome "**Cosa copre la 62443** e **cosa serve in più** per NIS2"
+                    { obiettivo
+                        codice "OBJ-6.3"
+                        descrizione "Identificare le coperture dello standard IEC 62443 rispetto ai requisiti NIS2 e
+                            +b definire le integrazioni necessarie per garantire la conformità."
+                    [ output_attesi
+                        "Documento di mappatura tra IEC 62443 e NIS2"
+                        "Linee guida per l'implementazione dei requisiti aggiuntivi NIS2"
+                        "Checklist di conformità integrata"
+                    prompt_base "Scrivi 10–12 righe che distinguano tra coperture 62443 e requisiti aggiuntivi
+                        +b NIS2: elenca cosa aggiungere (notifiche, governance, supply chain, BC/crisis,
+                        +b audit) e dove attingere alle parti 62443 per i controlli tecnici. La IEC 62443
+                        +b copre programmi OT (2-1), gestione del rischio e SL-T (3-2), requisiti di
+                        +b sistema (3-3, FR1–FR7), sicurezza dei service provider (2-4), processi di
+                        +b patch/vuln (2-3) e sicurezza prodotto con SDL (4-1) e componenti (4-2). Per
+                        +b NIS2, è necessario integrare notifiche di incidente a autorità/CSIRT con
+                        +b tempistiche definite, governance formale su ruoli e risk appetite, due
+                        +b diligence sulla supply chain con monitoraggio e clausole contrattuali, business
+                        +b continuity e crisis management enterprise, oltre a documentazione e audit trail
+                        +b per verifiche."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-6.3.1"
+                            titolo "Notifiche di Incidente per NIS2"
+                            descrizione_astratta "Gestione delle notifiche di incidente verso autorità competenti e CSIRT con
+                                +b tempistiche definite da recepimenti nazionali."
+                            [ rischi_mitigati
+                                "Mancata conformità normativa"
+                                "Ritardi nella gestione degli incidenti"
+                            [ pratiche_raccomandate
+                                "Definizione di template di notifica"
+                                "Creazione di runbook per la comunicazione"
+                            [ metriche_kpi
+                                "Tempo medio di notifica"
+                                "Percentuale di notifiche conformi"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di notifica incidente"
+                                [ registri
+                                    "Log delle notifiche inviate"
+                                [ evidenze
+                                    "Ricevute di notifica da autorità/CSIRT"
+                            [ placeholders_contesto
+                                "Autorità competente"
+                                "Tempistiche nazionali"
+                        {
+                            id "ASP-6.3.2"
+                            titolo "Governance e Reporting NIS2"
+                            descrizione_astratta "Definizione di ruoli, responsabilità e reporting al vertice per conformità
+                                +b NIS2, con focus su risk appetite."
+                            [ rischi_mitigati
+                                "Mancanza di accountability"
+                                "Non conformità strategica"
+                            [ pratiche_raccomandate
+                                "Formalizzazione di ruoli NIS2"
+                                "Definizione di policy di risk appetite"
+                            [ metriche_kpi
+                                "Frequenza di reporting al vertice"
+                                "Copertura dei ruoli definiti"
+                            { artefatti
+                                [ procedure
+                                    "Policy di governance NIS2"
+                                [ registri
+                                    "Report periodici al vertice"
+                                [ evidenze
+                                    "Documentazione di risk appetite"
+                            [ placeholders_contesto
+                                "Struttura organizzativa"
+                                "Ruoli specifici"
+                    { policy_template
+                        titolo "Policy di Conformità NIS2 Integrata con IEC 62443"
+                        [ sezioni
+                            "Scopo"
+                            "Ambito di applicazione"
+                            "Ruoli e responsabilità"
+                            "Requisiti tecnici (IEC 62443)"
+                            "Requisiti aggiuntivi NIS2"
+                            "Monitoraggio e audit"
+                        [ placeholders_contesto
+                            "Settore aziendale"
+                            "Autorità di riferimento"
+                            "Tempistiche notifiche"
+                    { sop_template
+                        titolo "SOP per Notifica Incidenti NIS2"
+                        [ step
+                            "Identificazione dell'incidente"
+                            "Valutazione della gravità"
+                            "Preparazione della notifica"
+                            "Invio a autorità/CSIRT"
+                            "Registrazione dell'attività"
+                        [ registrazioni
+                            "Log dell'incidente"
+                            "Copia della notifica inviata"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch principale per contenuti stabili"
+                            "Branch di feature per nuovi argomenti"
+                            "Pull request obbligatorie per merge"
+                    { raci
+                        [ roles
+                            "Security Manager"
+                            "OT Engineer"
+                            "Compliance Officer"
+                        [ matrix
+                            {
+                                attivita "Definizione notifiche incidente"
+                                SP "Security Manager"
+                                AO "Compliance Officer"
+                                SI "OT Engineer"
+                                OTSec "Security Manager"
+                            {
+                                attivita "Implementazione governance NIS2"
+                                SP "Compliance Officer"
+                                AO "Security Manager"
+                                SI "OT Engineer"
+                                OTSec "Security Manager"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Report"
+                            "Checklist"
+                        [ audience_possibili
+                            "Management"
+                            "Tecnici OT"
+                            "Auditor"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Conformità a NIS2"
+                            "Allineamento con IEC 62443"
+                            "Tempistiche di notifica"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo {tipo_documento} per {audience} con stile {stile} e
+                            +b livello tecnico {livello_tecnico} sul tema {tema}, includendo
+                            +b {elementi_specifici}."
+                        prompt_esempio_articolo "Scrivi un articolo per il management con stile formale e livello tecnico base
+                            +b sulla mappatura NIS2-IEC 62443, includendo differenze e integrazioni
+                            +b necessarie."
+                        prompt_esempio_slide "Crea una presentazione per tecnici OT con stile tecnico e livello intermedio
+                            +b sulla copertura IEC 62443 e requisiti aggiuntivi NIS2, con focus su notifiche e
+                            +b governance."
+                        prompt_esempio_sop "Elabora una SOP per auditor con stile sintetico e livello avanzato sulla
+                            +b gestione delle notifiche di incidente NIS2, includendo step operativi e
+                            +b registrazioni."
+                    [ checklist
+                        "Verifica copertura IEC 62443 per controlli tecnici"
+                        "Definizione tempistiche notifiche NIS2"
+                        "Formalizzazione governance e ruoli"
+                        "Integrazione supply chain due diligence"
+                        "Documentazione per audit trail"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Settore industriale"
+                        "Autorità nazionale di riferimento"
+                        "Struttura organizzativa"
+                        "Tempistiche di notifica nazionali"
+                    [ avvertenze
+                        "Verificare recepimenti nazionali di NIS2 per tempistiche e obblighi specifici"
+                        "Assicurare integrazione tra requisiti tecnici IEC 62443 e obblighi normativi NIS2"
+                        "Coinvolgere il vertice aziendale per definizione di governance e risk appetite"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/6"
+            nome "Mappatura pratica **NIS2 ⇄ IEC 62443**"
+            ruolo "Guida operativa per l'adeguamento normativo e tecnico in ambito OT/ICS"
+            [ norme_riferimento
+                "NIS2"
+                "IEC 62443"
+                "IEC 27001/2"
+            descrizione "Framework operativo per allineare i requisiti della direttiva NIS2 con lo
+                +b standard IEC 62443, focalizzandosi su gap analysis, governance, notifiche e
+                +b gestione della supply chain."
+            [ sezioni
+                {
+                    id "cap/6/6.4"
+                    nome "Processo operativo di adeguamento (combina NIS2 + 62443)"
+                    { obiettivo
+                        codice "OBJ-6.4"
+                        descrizione "Definire un processo strutturato per l'adeguamento combinato NIS2 e IEC 62443,
+                            +b con focus su gap analysis, governance e supply chain."
+                    [ output_attesi
+                        "Tabella di gap analysis compilata (basata su tabella 6.2)"
+                        "Policy di governance e notifica incidenti"
+                        "Runbook di notifica con template e SLA"
+                        "Registro incidenti e KPI di conformità"
+                        "Capitolati aggiornati per la supply chain con flussi SBOM/PSIRT"
+                    prompt_base "Redigi 8–10 righe sul processo operativo di adeguamento: come usare la tabella
+                        +b 6.2 per il gap analysis, definire governance/notifiche e attivare supply chain
+                        +b & KPI. Il processo inizia con la verifica dell'applicabilità NIS2 (entità
+                        +b essenziali/importanti e perimetro impianti/servizi). Utilizza la tabella 6.2
+                        +b per mappare i requisiti NIS2 con IEC 62443, identificando i gap. Definisci una
+                        +b governance chiara con responsabili, policy di notifica e registro incidenti.
+                        +b Aggiorna i capitolati della supply chain (IEC 62443-2-4, 4-1/4-2) e integra
+                        +b flussi SBOM/PSIRT. Prepara un runbook di notifica con template e SLA verso
+                        +b autorità/CSIRT. Infine, raccogli evidenze documentali e allestisci un cruscotto
+                        +b KPI per monitorare la conformità."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-6.4.1"
+                            titolo "Gap Analysis NIS2-IEC 62443"
+                            descrizione_astratta "Mappatura dei requisiti normativi e tecnici per identificare discrepanze e aree
+                                +b di intervento prioritarie."
+                            [ rischi_mitigati
+                                "Non conformità normativa"
+                                "Esposizione a sanzioni"
+                                "Lacune nei controlli di sicurezza"
+                            [ pratiche_raccomandate
+                                "Utilizzo della tabella 6.2 per il crosswalk"
+                                "Documentazione dei gap con priorità"
+                                "Pianificazione delle azioni correttive"
+                            [ metriche_kpi
+                                "Percentuale di requisiti mappati"
+                                "Numero di gap identificati"
+                                "Tempo medio di risoluzione gap"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di gap analysis"
+                                [ registri
+                                    "Registro dei gap identificati"
+                                [ evidenze
+                                    "Report di mappatura completato"
+                            [ placeholders_contesto
+                                "[Settore aziendale]"
+                                "[Perimetro impianti]"
+                                "[Tipologia entità NIS2]"
+                        {
+                            id "ASP-6.4.2"
+                            titolo "Governance e Notifiche"
+                            descrizione_astratta "Definizione di ruoli, responsabilità e procedure per la gestione degli
+                                +b incidenti e la notifica alle autorità competenti."
+                            [ rischi_mitigati
+                                "Ritardi nelle notifiche"
+                                "Mancata conformità NIS2"
+                                "Disorganizzazione interna"
+                            [ pratiche_raccomandate
+                                "Nomina di responsabili dedicati"
+                                "Definizione policy di notifica"
+                                "Creazione registro incidenti"
+                            [ metriche_kpi
+                                "Tempo di notifica medio"
+                                "Percentuale di incidenti registrati"
+                                "Conformità SLA notifica"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di notifica incidenti"
+                                [ registri
+                                    "Registro incidenti"
+                                [ evidenze
+                                    "Template di notifica compilati"
+                            [ placeholders_contesto
+                                "[Autorità competente]"
+                                "[CSIRT di riferimento]"
+                                "[SLA notifica]"
+                    { policy_template
+                        titolo "Policy di Adeguamento NIS2-IEC 62443"
+                        [ sezioni
+                            "Scopo"
+                            "Ambito di applicazione"
+                            "Ruoli e responsabilità"
+                            "Processo di gap analysis"
+                            "Gestione notifiche"
+                            "Monitoraggio KPI"
+                        [ placeholders_contesto
+                            "[Nome organizzazione]"
+                            "[Settore]"
+                            "[Perimetro impianti]"
+                    { sop_template
+                        titolo "SOP - Gestione Gap Analysis e Notifiche"
+                        [ step
+                            "Verifica applicabilità NIS2"
+                            "Compilazione tabella 6.2"
+                            "Identificazione gap"
+                            "Definizione azioni correttive"
+                            "Notifica incidenti con template"
+                            "Aggiornamento registro incidenti"
+                        [ registrazioni
+                            "Registro gap"
+                            "Registro incidenti"
+                            "Report di notifica"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per release stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuovi contenuti"
+                            "Hotfix per correzioni urgenti"
+                    { raci
+                        [ roles
+                            "Security Officer"
+                            "Plant Manager"
+                            "IT Manager"
+                            "Compliance Officer"
+                        [ matrix
+                            {
+                                attivita "Compilazione tabella 6.2"
+                                SP "Security Officer"
+                                AO "Compliance Officer"
+                                SI "Plant Manager"
+                                OTSec "IT Manager"
+                            {
+                                attivita "Definizione governance"
+                                SP "Compliance Officer"
+                                AO "Security Officer"
+                                SI "IT Manager"
+                                OTSec "Plant Manager"
+                            {
+                                attivita "Notifica incidenti"
+                                SP "Security Officer"
+                                AO "Compliance Officer"
+                                SI "Plant Manager"
+                                OTSec "IT Manager"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Report"
+                            "Policy"
+                            "SOP"
+                            "Slide"
+                        [ audience_possibili
+                            "Management"
+                            "Tecnici OT"
+                            "Compliance Team"
+                            "Fornitori"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Base"
+                            "Intermedio"
+                            "Avanzato"
+                        [ vincoli
+                            "Rispetto normative NIS2/IEC 62443"
+                            "Inclusione placeholders contesto"
+                            "Allineamento con tabella 6.2"
+                    { prompting
+                        prompt_template_generico "Redigi un documento sul processo di adeguamento NIS2-IEC 62443 per [audience]
+                            +b con stile [stile] e livello tecnico [livello]. Includi dettagli su gap analysis
+                            +b con tabella 6.2, governance, notifiche e supply chain. Usa i seguenti
+                            +b placeholders: [placeholders]."
+                        prompt_esempio_articolo "Scrivi un articolo per il management sul processo di adeguamento NIS2-IEC
+                            +b 62443, stile formale, livello base. Spiega come usare la tabella 6.2 per i gap,
+                            +b definire governance e notifiche, e attivare KPI. Usa [Nome organizzazione] e
+                            +b [Settore]."
+                        prompt_esempio_slide "Crea una presentazione per tecnici OT sul processo di adeguamento NIS2-IEC
+                            +b 62443, stile tecnico, livello intermedio. Includi slide su gap analysis
+                            +b (tabella 6.2), governance e supply chain. Usa [Perimetro impianti]."
+                        prompt_esempio_sop "Redigi una SOP per il team compliance sul processo di notifica incidenti NIS2,
+                            +b stile sintetico, livello avanzato. Dettaglia step, template e SLA. Usa
+                            +b [Autorità competente] e [CSIRT di riferimento]."
+                    [ checklist
+                        "Verifica applicabilità NIS2 completata"
+                        "Tabella 6.2 compilata con gap identificati"
+                        "Responsabili governance nominati"
+                        "Policy di notifica definita"
+                        "Runbook di notifica con template pronto"
+                        "Capitolati supply chain aggiornati"
+                        "Cruscotto KPI operativo"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Nome organizzazione"
+                        "Settore di attività"
+                        "Perimetro impianti/servizi"
+                        "Tipologia entità NIS2 (essenziale/importante)"
+                        "Autorità competente/CSIRT"
+                        "SLA notifiche"
+                    [ avvertenze
+                        "Verificare periodicamente aggiornamenti normativi NIS2"
+                        "Assicurare allineamento con IEC 62443 per ogni livello di maturità"
+                        "Coinvolgere fornitori nella gestione SBOM/PSIRT"
+                        "Documentare ogni step per audit futuri"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/6"
+            nome "Mappatura pratica **NIS2 ⇄ IEC 62443**"
+            ruolo "Supporto alla conformità normativa e tecnica in ambito OT/ICS"
+            [ norme_riferimento
+                "NIS2"
+                "IEC 62443"
+                "ISO/IEC 27001"
+                "ISO/IEC 27002"
+            descrizione "Questo ambito si concentra sulla mappatura pratica tra i requisiti della
+                +b direttiva NIS2 e lo standard IEC 62443, fornendo un framework per allineare le
+                +b esigenze normative con le implementazioni tecniche di sicurezza in ambienti
+                +b OT/ICS. Include metriche e KPI per monitorare la conformità e l'efficacia delle
+                +b misure di sicurezza."
+            [ sezioni
+                {
+                    id "cap/6/6.5"
+                    nome "Metriche & KPI (focus NIS2)"
+                    { obiettivo
+                        codice "OBJ-6.5"
+                        descrizione "Definire e monitorare KPI specifici per la conformità NIS2, garantendo
+                            +b tracciabilità e miglioramento continuo senza esposizione di dati sensibili."
+                    [ output_attesi
+                        "Elenco di KPI specifici per NIS2 con metodologie di raccolta dati"
+                        "Report di conformità basati su metriche misurabili"
+                        "Dashboard di monitoraggio per la gestione del rischio OT/ICS"
+                    prompt_base "Indica 5–7 KPI specifici per NIS2 e come raccoglierli senza dati sensibili
+                        +b (fonti: ticket, log, registro incidenti, audit)."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-6.5.1"
+                            titolo "Notifica degli Incidenti"
+                            descrizione_astratta "Monitoraggio della tempestività e completezza delle notifiche di incidenti come
+                                +b richiesto da NIS2."
+                            [ rischi_mitigati
+                                "Non conformità normativa"
+                                "Ritardi nella gestione degli incidenti"
+                            [ pratiche_raccomandate
+                                "Definire SLA per la notifica degli incidenti"
+                                "Implementare un sistema di ticketing per tracciare le notifiche"
+                            [ metriche_kpi
+                                "% incidenti notificati entro SLA"
+                                "Tempo medio alla prima notifica"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di notifica incidenti"
+                                [ registri
+                                    "Registro delle notifiche"
+                                [ evidenze
+                                    "Report di conformità SLA"
+                            [ placeholders_contesto
+                                "[SLA_target]"
+                                "[Sistema_ticketing]"
+                        {
+                            id "ASP-6.5.2"
+                            titolo "Gestione Fornitori e Supply Chain"
+                            descrizione_astratta "Valutazione della conformità dei fornitori ai requisiti NIS2 per garantire la
+                                +b sicurezza della supply chain."
+                            [ rischi_mitigati
+                                "Vulnerabilità introdotte da fornitori"
+                                "Mancata conformità normativa"
+                            [ pratiche_raccomandate
+                                "Audit periodici dei fornitori"
+                                "Richiesta di SBOM per i prodotti acquisiti"
+                            [ metriche_kpi
+                                "% fornitori qualificati rispetto ai criteri NIS2"
+                                "% prodotti con SBOM ricevuto"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di qualifica fornitori"
+                                [ registri
+                                    "Registro audit fornitori"
+                                [ evidenze
+                                    "Elenco SBOM ricevuti"
+                            [ placeholders_contesto
+                                "[Criteri_NIS2_fornitori]"
+                                "[Processo_audit]"
+                        {
+                            id "ASP-6.5.3"
+                            titolo "Implementazione Controlli IEC 62443"
+                            descrizione_astratta "Monitoraggio dell'implementazione dei controlli di sicurezza IEC 62443 in
+                                +b conformità con NIS2."
+                            [ rischi_mitigati
+                                "Lacune nei controlli di sicurezza"
+                                "Esposizione a cyberattacchi"
+                            [ pratiche_raccomandate
+                                "Pianificazione dei controlli IEC 62443"
+                                "Monitoraggio continuo della copertura dei controlli"
+                            [ metriche_kpi
+                                "% controlli 62443 implementati vs piano"
+                                "Copertura patch per criticità"
+                                "MTTD/MTTR OT"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di implementazione controlli"
+                                [ registri
+                                    "Registro stato controlli"
+                                [ evidenze
+                                    "Report di copertura patch"
+                            [ placeholders_contesto
+                                "[Piano_controlli]"
+                                "[Sistema_monitoraggio]"
+                    { policy_template
+                        titolo "Policy di Monitoraggio KPI NIS2"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Definizione dei KPI"
+                            "Metodologie di raccolta dati"
+                            "Responsabilità e reporting"
+                            "Revisione periodica"
+                        [ placeholders_contesto
+                            "[Organizzazione]"
+                            "[SLA_target]"
+                            "[Sistema_monitoraggio]"
+                    { sop_template
+                        titolo "SOP per Raccolta Dati KPI NIS2"
+                        [ step
+                            "Identificazione delle fonti dati (ticket, log, audit)"
+                            "Estrazione dati aggregati senza informazioni sensibili"
+                            "Calcolo dei KPI secondo definizioni"
+                            "Registrazione dei risultati in dashboard"
+                            "Revisione e validazione dei dati"
+                        [ registrazioni
+                            "Registro dati KPI"
+                            "Report di validazione"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per contenuti stabili e validati"
+                            "Branch 'develop' per contenuti in lavorazione"
+                            "Feature branch per ogni KPI o metrica specifica"
+                    { raci
+                        [ roles
+                            "Security Manager (SP)"
+                            "Audit Officer (AO)"
+                            "Sistema IT (SI)"
+                            "OT Security Team (OTSec)"
+                        [ matrix
+                            {
+                                attivita "Definizione KPI"
+                                SP "Responsible"
+                                AO "Accountable"
+                                SI "Consulted"
+                                OTSec "Informed"
+                            {
+                                attivita "Raccolta Dati"
+                                SP "Consulted"
+                                AO "Informed"
+                                SI "Responsible"
+                                OTSec "Accountable"
+                            {
+                                attivita "Reporting Conformità"
+                                SP "Accountable"
+                                AO "Responsible"
+                                SI "Informed"
+                                OTSec "Consulted"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Report"
+                            "Policy"
+                            "SOP"
+                            "Slide"
+                        [ audience_possibili
+                            "Management"
+                            "Team Tecnico OT"
+                            "Auditor"
+                            "Fornitori"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Alto (OT/ICS Specialist)"
+                            "Medio (Security Manager)"
+                            "Basso (Executive)"
+                        [ vincoli
+                            "No dati sensibili nei report"
+                            "Conformità a NIS2 e IEC 62443"
+                            "Uso di fonti dati anonime o aggregate"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [tipo_documento] per [audience] con stile [stile] e
+                            +b livello tecnico [livello_tecnico] sul tema dei KPI NIS2, includendo
+                            +b [contenuto_specifico]. Assicurati di rispettare i vincoli [vincoli]."
+                        prompt_esempio_articolo "Scrivi un articolo formale per il management con livello tecnico basso sui KPI
+                            +b NIS2, spiegando l'importanza della notifica degli incidenti e della gestione
+                            +b fornitori senza dati sensibili."
+                        prompt_esempio_slide "Crea una presentazione sintetica per auditor con livello tecnico medio,
+                            +b mostrando 5 KPI NIS2 con esempi di metriche e fonti dati aggregate."
+                        prompt_esempio_sop "Elabora una SOP tecnica per il team OT con livello tecnico alto, descrivendo
+                            +b passo-passo come raccogliere dati per i KPI NIS2 da log e ticket senza esporre
+                            +b informazioni sensibili."
+                    [ checklist
+                        "Definire KPI conformi a NIS2"
+                        "Identificare fonti dati non sensibili"
+                        "Validare metodologie di raccolta"
+                        "Creare report aggregati"
+                        "Verificare conformità con audit"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Organizzazione"
+                        "SLA_target"
+                        "Sistema_monitoraggio"
+                        "Criteri_NIS2_fornitori"
+                        "Piano_controlli"
+                    [ avvertenze
+                        "Non includere dati sensibili o identificativi nei report"
+                        "Assicurarsi che i KPI siano allineati con i requisiti NIS2 specifici per l'organizzazione"
+                        "Validare le fonti dati con il team legale per conformità GDPR"
+    {
+        { meta
+            db_name "DB Argomenti OT/ICS Cybersecurity"
+            version "0.1"
+            last_updated "2023-10-01"
+            language "it-IT"
+            notes "Database orientato a oggetti su tre livelli. Contenuti ad alto livello con
+                +b placeholders di contesto."
+        { ambito
+            id "cap/6"
+            nome "Mappatura pratica **NIS2 ⇄ IEC 62443**"
+            ruolo "Supporto alla conformità normativa e tecnica in ambito OT/ICS"
+            [ norme_riferimento
+                "NIS2"
+                "IEC 62443"
+                "IEC 27001/2"
+                "GDPR 2016"
+            descrizione "Questo ambito fornisce una mappatura pratica tra i requisiti della direttiva
+                +b NIS2 e lo standard IEC 62443, con focus su artefatti, evidenze e deliverable
+                +b per garantire conformità e sicurezza nei sistemi OT/ICS."
+            [ sezioni
+                {
+                    id "cap/6/6.6"
+                    nome "Artefatti & Evidenze (deliverable)"
+                    { obiettivo
+                        codice "OBJ-6.6"
+                        descrizione "Definire e produrre artefatti ed evidenze documentali per dimostrare la
+                            +b conformità ai requisiti NIS2 e IEC 62443, supportando audit e verifiche."
+                    [ output_attesi
+                        "Tabella di mappatura NIS2 ⇄ IEC 62443 aggiornata"
+                        "Policy di notifica con template e canali verso autorità/CSIRT"
+                        "Registro incidenti e registro rischi"
+                        "Clausole procurement (‑2‑4) e qualifica fornitori; SBOM/PSIRT integrati"
+                        "Prove di esercitazioni (IR/BC) e verbali; audit trail"
+                    prompt_base "Genera documentazione conforme a NIS2 e IEC 62443 per il contesto OT/ICS,
+                        +b includendo artefatti come tabelle di mappatura, policy di notifica, registri e
+                        +b clausole di procurement. Considera i requisiti di sicurezza e conformità per
+                        +b [contesto specifico]."
+                    [ aspetti_di_sicurezza
+                        {
+                            id "ASP-6.6.1"
+                            titolo "Conformità normativa e tecnica"
+                            descrizione_astratta "Garantire che tutti gli artefatti prodotti siano conformi ai requisiti
+                                +b normativi (NIS2) e tecnici (IEC 62443) per il contesto OT/ICS."
+                            [ rischi_mitigati
+                                "Non conformità normativa"
+                                "Sanzioni regolamentari"
+                                "Lacune nella sicurezza OT/ICS"
+                            [ pratiche_raccomandate
+                                "Mappatura diretta tra requisiti NIS2 e controlli IEC 62443"
+                                "Revisione periodica degli artefatti con stakeholder"
+                                "Integrazione di SBOM e PSIRT nei processi di procurement"
+                            [ metriche_kpi
+                                "Percentuale di requisiti NIS2 mappati su IEC 62443"
+                                "Tempo medio di aggiornamento dei registri di rischio/incidenti"
+                                "Numero di esercitazioni IR/BC completate con successo"
+                            { artefatti
+                                [ procedure
+                                    "Procedura di mappatura normativa"
+                                    "Procedura di notifica incidenti"
+                                [ registri
+                                    "Registro rischi"
+                                    "Registro incidenti"
+                                [ evidenze
+                                    "Verbali esercitazioni"
+                                    "Audit trail"
+                            [ placeholders_contesto
+                                "Settore industriale"
+                                "Tipologia di asset OT"
+                                "Autorità di riferimento"
+                    { policy_template
+                        titolo "Policy di Notifica Incidenti"
+                        [ sezioni
+                            "Scopo e ambito di applicazione"
+                            "Definizioni e riferimenti normativi"
+                            "Processo di notifica (tempistiche e canali)"
+                            "Ruoli e responsabilità"
+                            "Template di notifica"
+                        [ placeholders_contesto
+                            "Nome organizzazione"
+                            "Autorità competente"
+                            "Tipologia di incidente"
+                    { sop_template
+                        titolo "SOP per Esercitazioni IR/BC"
+                        [ step
+                            "Preparazione dell'esercitazione"
+                            "Esecuzione dello scenario"
+                            "Registrazione delle attività"
+                            "Analisi post-esercitazione e redazione verbale"
+                        [ registrazioni
+                            "Log delle attività"
+                            "Verbale finale"
+                    { repo_branching_model
+                        modello "GitFlow"
+                        [ regole
+                            "Branch 'main' per versioni stabili"
+                            "Branch 'develop' per integrazione"
+                            "Feature branch per nuovi artefatti o aggiornamenti"
+                    { raci
+                        [ roles
+                            "SP (Sponsor)"
+                            "AO (Accountable Owner)"
+                            "SI (Security Implementer)"
+                            "OTSec (OT Security Specialist)"
+                        [ matrix
+                            {
+                                attivita "Produzione tabella di mappatura"
+                                SP "I"
+                                AO "A"
+                                SI "R"
+                                OTSec "C"
+                            {
+                                attivita "Definizione policy di notifica"
+                                SP "I"
+                                AO "A"
+                                SI "C"
+                                OTSec "R"
+                            {
+                                attivita "Gestione registri rischi/incidenti"
+                                SP "I"
+                                AO "R"
+                                SI "A"
+                                OTSec "C"
+                    { parametri_generazione
+                        [ tipi_documento_supportati
+                            "Policy"
+                            "SOP"
+                            "Registro"
+                            "Report"
+                            "Tabella di mappatura"
+                        [ audience_possibili
+                            "Management"
+                            "Team tecnico OT"
+                            "Auditor"
+                            "Autorità regolamentari"
+                        [ stili
+                            "Formale"
+                            "Tecnico"
+                            "Sintetico"
+                        [ livello_tecnico
+                            "Alto (esperti OT/ICS)"
+                            "Medio (management)"
+                            "Basso (stakeholder esterni)"
+                        [ vincoli
+                            "Conformità a NIS2 e IEC 62443"
+                            "Inclusione di placeholders per contesto"
+                            "Rispetto delle tempistiche di notifica (es. 24/72h per NIS2)"
+                    { prompting
+                        prompt_template_generico "Genera un documento di tipo [tipo_documento] per il contesto OT/ICS, con focus
+                            +b su [obiettivo], destinato a [audience], in stile [stile], con livello tecnico
+                            +b [livello]. Includi riferimenti a NIS2 e IEC 62443 e considera i seguenti
+                            +b vincoli: [vincoli]."
+                        prompt_esempio_articolo "Scrivi un articolo tecnico sulla mappatura NIS2-IEC 62443 per esperti OT/ICS,
+                            +b in stile formale, con livello tecnico alto. Spiega come gli artefatti prodotti
+                            +b supportano la conformità."
+                        prompt_esempio_slide "Crea una presentazione di 5 slide sulla gestione degli incidenti in ambito
+                            +b OT/ICS secondo NIS2, per il management, in stile sintetico, livello tecnico
+                            +b medio."
+                        prompt_esempio_sop "Genera una SOP per la notifica di incidenti in ambito OT/ICS, con step
+                            +b dettagliati, per il team tecnico, in stile tecnico, livello tecnico alto."
+                    [ checklist
+                        "Verifica conformità dei deliverable a NIS2"
+                        "Verifica mappatura con IEC 62443"
+                        "Inclusione di template e registri"
+                        "Validazione con stakeholder"
+                        "Documentazione di audit trail"
+                    [ campi_contesto_richiesti_per_la_contestualizzazione
+                        "Settore industriale (es. energia, manifatturiero)"
+                        "Tipologia di sistemi OT/ICS"
+                        "Autorità regolamentare di riferimento"
+                        "Dimensioni organizzazione"
+                        "Livello di maturità sicurezza"
+                    [ avvertenze
+                        "Assicurarsi che i deliverable siano aggiornati con le ultime versioni di NIS2 e IEC 62443."
+                        "Verificare la compatibilità delle policy con il GDPR per la gestione dei dati personali negli incidenti."
+                        "Coinvolgere esperti legali per clausole di procurement."
