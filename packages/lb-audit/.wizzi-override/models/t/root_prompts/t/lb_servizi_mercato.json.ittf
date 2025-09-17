@@ -1,0 +1,10 @@
+$group
+    [ servizi_mercato
+        $include lb_servizi_mercato/audit_compliance
+        $include lb_servizi_mercato/audit_efficacia_implementazioni
+        $include lb_servizi_mercato/consulenza_governance
+        $include lb_servizi_mercato/consulenza_implementazione_procedure_tecniche
+        $include lb_servizi_mercato/consulenza_specialistica_rischio
+        $include lb_servizi_mercato/elaborazioni_tecniche
+        $include lb_servizi_mercato/installazioni_tecniche_domini_sicurezza
+        $include lb_servizi_mercato/servizi_remoti

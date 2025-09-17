@@ -1,0 +1,81 @@
+$group 
+    { 
+        nome "Secure Remote Access & Perimeter Hardening"
+        categoria "installazioni tecnico-organizzative"
+        [ ambito
+            "OT" 
+            "IT" 
+        descrizione "Implementazione di accessi remoti sicuri per operatori, con controllo multiplo; 
+            +b indurimento del perimetro di rete industriale per ridurre superficie di attacco."
+        [ output
+            "VPN sicure" 
+            "Accesso multi-fattore" 
+            "Controlli accesso remoto" 
+        [ fonte
+            "Rockwell Automation" 
+    { 
+        nome "Implementazione Secure Development Lifecycle (IEC 62443-4-1)"
+        categoria "consulenza organizzativa implementazione procedure tecniche"
+        [ ambito
+            "organizzativo" 
+            "sistema/macchina" 
+        descrizione "Supporto nell’introduzione e integrazione di un ciclo di sviluppo sicuro per componenti software embedded e sistemi di controllo, in linea con la norma IEC 62443-4-1: policy, standard, processi, training e prove di conformità."
+        [ deliverable_tipici
+            "Policy SDLC definita (documento)" 
+            "Matrice di gap analysis rispetto a IEC 62443-4-1" 
+            "Modelli di check-list per fasi di sviluppo e test" 
+            "Piani di formazione per sviluppatori su secure coding" 
+        link_fonte "https://limessecurity.com/en/secure-development-lifecycle/ – consulenza e gap analysis IEC 62443-4-1, secure development lifecycle"
+    { 
+        nome "Introduzione di Secure SDLC / SSDLC per software e firmware"
+        categoria "consulenza organizzativa implementazione procedure tecniche"
+        [ ambito
+            "organizzativo" 
+            "sistema/macchina" 
+        descrizione "Consulenza per integrare il Secure Software Development Lifecycle (SSDLC) nei processi di sviluppo, includendo sicurezza sin dalla fase di definizione dei requisiti fino al deployment e maintenance."
+        [ deliverable_tipici
+            "Diagramma del processo SSDLC integrato in SDLC esistente" 
+            "Linee guida best practices (es. secure coding, threat modeling)" 
+            "Template per attività di SAST, DAST, review architetturale" 
+            "Piano phased rollout di sicurezza nel ciclo di sviluppo" 
+        link_fonte "https://blog.codacy.com/secure-software-development-lifecycle-ssdlc – descrizione fasi SSDLC, best practices"
+    { 
+        nome "Policy & Procedure per gestione SBOM e supply chain security"
+        categoria "consulenza organizzativa implementazione procedure tecniche"
+        [ ambito
+            "organizzativo" 
+            "sistema/macchina" 
+        descrizione "Realizzazione di procedure organizzative e tecniche per la gestione della Software Bill of Materials (SBOM), valutazione fornitori software e componenti (inclusi open source), in ottica di supply chain security."
+        [ deliverable_tipici
+            "Template SBOM (format e data fields)" 
+            "Procedure per generazione e aggiornamento SBOM" 
+            "Policy vendor/software third-party evaluation" 
+            "Checklist di sicurezza per integrazione componenti" 
+        link_fonte "https://www.medcrypt.com/blog/medical-device-manufacturer-secure-development-lifecycle – include misure pre- e post-market per componenti, SBOM e gestione della supply chain"
+    { 
+        nome "Framework NIST Cybersecurity nel settore manifatturiero"
+        categoria "consulenza organizzativa implementazione procedure tecniche"
+        [ ambito
+            "organizzativo" 
+            "sistema/macchina" 
+        descrizione "Supporto all’adozione dei core functions del NIST Cybersecurity Framework (Identify, Protect, Detect, Respond, Recover) nel contesto manifatturiero: definizione procedure operative e governance tecniche coerenti."
+        [ deliverable_tipici
+            "Mapping processo vs Funzioni NIST CSF" 
+            "Procedure tecniche per protezione & monitoraggio (es. change control, patching)" 
+            "Templates per playbook incident response" 
+            "Indicatori KPI per ciascuna funzione NIST" 
+        link_fonte "https://www.cisa.gov/sites/default/files/c3vp/framework_guidance/critical-manufacturing-framework-implementation-guide-2015-508.pdf – guida DHS NIST CSF per Critical Manufacturing"
+    { 
+        nome "Incident Response & Threat Hunting per manifattura"
+        categoria "audit efficacia implementazione / elaborazioni tecniche"
+        [ ambito
+            "OT" 
+            "IT" 
+        descrizione "Esercitazioni di risposta a incidenti (tabletop, live), 
+            +b ricerca attiva di minacce nascoste (Threat Hunting) su sistemi industriali."
+        [ output
+            "Esercizio tabletop" 
+            "Report threat hunting" 
+            "Piano Incident Response customizzato" 
+        [ fonte
+            "Dragos" 

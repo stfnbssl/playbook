@@ -1,11 +1,16 @@
 import OpenAI from "openai";
 import type { ProviderCallInput, ProviderCallOutput } from "./openai";
 
-export async function callGrok({ model, messages, params = {}, timeoutMs = 45000 }: ProviderCallInput): Promise<ProviderCallOutput> {
+export async function callGrok({ model, messages, params = {}, timeoutMs = 120000 }: ProviderCallInput): Promise<ProviderCallOutput> {
   const client = new OpenAI({
     apiKey: process.env.XAI_API_KEY ?? "",
     baseURL: "https://api.x.ai/v1",
   });
+  console.log("baseURL", "https://api.x.ai/v1");
+  console.log("apiKey", process.env.XAI_API_KEY);
+  console.log("model", model);
+  console.log("messages", messages);
+  console.log("params", params);
   const ctrl = new AbortController();
   const t = setTimeout(() => ctrl.abort(), timeoutMs);
   try {
@@ -20,8 +25,11 @@ export async function callGrok({ model, messages, params = {}, timeoutMs = 45000
       { signal: ctrl.signal }
     );
     const content = resp.choices?.[0]?.message?.content ?? "";
+    console.log("callGrok response", content);
     const u = resp.usage;
     return { content, info: { tokens: { in: u?.prompt_tokens, out: u?.completion_tokens, total: u?.total_tokens } }, raw: resp };
+  } catch(ex:any) {
+    console.log("callGrok error", ex)
   } finally {
     clearTimeout(t);
   }

@@ -1,0 +1,114 @@
+$group 
+    { 
+        nome "Cyber Risk Assessment Avanzato (FAIR, NIST, ISO)"
+        [ ambito
+            "organizzativo" 
+            "sistema/macchina" 
+        descrizione "Valutazioni basate su modelli quantitativi (es. FAIR) o 
+            +b standard (NIST SP 800-30, ISO 27005), con priorità di rischio e scenari what-if."
+        [ deliverable_tipici
+            "Modello quantitativo rischio" 
+            "Risk heatmap e loss event frequency" 
+            "Report strategico per board" 
+        [ chi_puo_offrirlo
+            "Grandi società di consulenza" 
+            "Libero professionista esperto di risk quantification" 
+            "Fractional CISO" 
+        [ piattaforme_dove_trovarli
+            "Upwork – Security Risk Consultants" 
+            "Toptal – Cybersecurity Experts" 
+            "LinkedIn ProFinder" 
+    { 
+        nome "Threat Modeling STRIDE / PASTA / LINDDUN"
+        [ ambito
+            "sistema/macchina" 
+        descrizione "Analisi strutturata delle minacce a sistemi specifici tramite framework di threat modeling, 
+            +b utile per software ICS, cloud OT, IoT."
+        [ deliverable_tipici
+            "Diagrammi di data flow" 
+            "Matrice minacce/vulnerabilità" 
+            "Threat mitigation plan" 
+        [ chi_puo_offrirlo
+            "Security architects freelance" 
+            "Esperti threat modeling indipendenti" 
+        [ piattaforme_dove_trovarli
+            "Owasp community freelance" 
+            "Maven – Freelance cybersecurity consultants" 
+            "Freelancer.com – OT threat modeling" 
+    { 
+        nome "Valutazioni ICS/OT e Modellazione Attacchi"
+        [ ambito
+            "OT" 
+            "sistema/macchina" 
+        descrizione "Consulenza specializzata su ICS/OT per identificare attacchi plausibili, 
+            +b mappare kill chain (MITRE ATT&CK for ICS), e stimare impatti."
+        [ deliverable_tipici
+            "Scenario attack tree/kill chain" 
+            "ICS vulnerability prioritization" 
+            "Strategic mitigation roadmap" 
+        [ chi_puo_offrirlo
+            "Ex-SOC manager OT freelance" 
+            "Consulenti ICS indipendenti" 
+        [ piattaforme_dove_trovarli
+            "SANS instructor freelance" 
+            "Dragos community advisors" 
+            "LinkedIn profili specialisti ICS" 
+    { 
+        nome "AI & Simulation per Scenari Complessi"
+        [ ambito
+            "organizzativo" 
+            "sistema/macchina" 
+        descrizione "Utilizzo di agent-based modeling o AI (es. MAESTRO, digital twin) 
+            +b per simulare impatti di cyber attacchi su reti industriali."
+        [ deliverable_tipici
+            "Scenario simulation report" 
+            "Sensitivity analysis" 
+            "AI-driven mitigation strategies" 
+        [ chi_puo_offrirlo
+            "Ricercatori indipendenti" 
+            "Consulenti accademici freelance" 
+            "Boutique firm AI security" 
+        [ piattaforme_dove_trovarli
+            "ResearchGate / arXiv collab" 
+            "Consultant marketplaces (Catalant, Kolabtree)" 
+            "Università + spin-off" 
+    { 
+        nome "Cyber PHA (Cyber HAZOP)"
+        categoria "consulenza specialistica"
+        [ ambito
+            "OT" 
+        descrizione "Applicazione di metodologia HAZOP tradizionale in chiave cybersecurity 
+            +b per identificare rischi connessi a eventi pericolosi correlati a 
+            +b sistemi di controllo industriale."
+        [ output
+            "Sessione Cyber PHA" 
+            "Lista cyber-hazards" 
+            "Azioni di mitigazione integrate" 
+        [ fonte
+            "Cyber PHA (Wikipedia)" 
+    { 
+        nome "Supply Chain Cyber Risk Assessment"
+        categoria "consulenza organizzativa / consulenza specialistica"
+        [ ambito
+            "IT" 
+        descrizione "Analisi dei rischi cyber derivanti dai fornitori e partner; valutazione della sicurezza nella supply chain, rischi di terze parti."
+        [ output
+            "Mappa fornitori" 
+            "Valutazioni rischio vendor" 
+            "Policy supply chain security" 
+        [ fonte
+            "PwC" 
+    { 
+        nome "Cybersecurity Maturity Assessment per Smart Factory"
+        categoria "audit compliance / consulenza specialistica"
+        [ ambito
+            "OT" 
+            "IT" 
+        descrizione "Valutazione della maturità cybersecurity in ambienti industria 4.0, 
+            +b includendo IT-OT convergence, governance, processi, tecnologie."
+        [ output
+            "Indice di maturità" 
+            "Roadmap miglioramento sicurezza" 
+            "Gap analysis OT/IT" 
+        [ fonte
+            "Deloitte" 

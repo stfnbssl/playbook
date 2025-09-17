@@ -27,5 +27,6 @@ $group
         $include product_supplier_ai_step_2_schema
         $include promo_relate_a_norme
         $include rmf_oem_brainstorming_output
+        $include rmf_oem_brainstorming_output_v2
         
         

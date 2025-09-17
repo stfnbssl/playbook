@@ -8,6 +8,7 @@ $group
         $include iec_62443_topics
         $include iec_62443_profiles
         $include linee_guida_concetti
+        $include lb_servizi_cybersecurity
         $include lb_site_themes
         $include lb_vision_strategic_goals
         $include lb_vision_tactical_goals

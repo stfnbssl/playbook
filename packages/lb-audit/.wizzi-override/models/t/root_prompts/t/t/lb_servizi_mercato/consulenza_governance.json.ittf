@@ -1,0 +1,122 @@
+$group 
+    { 
+        nome "Formazione e Awareness specifica per OT"
+        categoria "consulenza organizzativa"
+        [ ambito
+            "OT" 
+        descrizione "Programmi di training per operatori e personale tecnologico sul funzionamento sicuro degli ambienti industriali, riconoscimento phishing, procedure incidenti."
+        [ output
+            "Corsi training" 
+            "Materiali formativi OT" 
+            "Quiz e sessioni pratiche" 
+        [ fonte
+            "Verve Industrial" 
+            "ABS Group" 
+    { 
+        nome "Definizione Cybersecurity Governance Framework"
+        categoria "consulenza organizzativa e governance"
+        [ ambito
+            "organizzativo" 
+        descrizione "Supporto nella progettazione di un framework di governance per la cybersecurity: definizione di ruoli, responsabilità, comitati, flussi decisionali, e integrazione con la direzione aziendale."
+        [ elementi_coperti
+            "Struttura di governance (es. CISO, board, comitato sicurezza)" 
+            "RACI matrix per ruoli e funzioni" 
+            "Policy di escalation e reporting" 
+            "Allineamento cybersecurity con obiettivi di business" 
+        [ deliverable_tipici
+            "Organigramma governance" 
+            "RACI matrix" 
+            "Cybersecurity Governance Charter" 
+            "Template di reporting periodico al board" 
+        [ fonti
+            { 
+                sito "https://verveindustrial.com/resources/blog/5-principles-for-guiding-cyber-security-governance/?utm_source=chatgpt.com"
+                focus "Principi di governance OT (ruoli, responsabilità, accountability, allineamento IT-OT)"
+    { 
+        nome "Sviluppo di Policies & Procedures Organizzative"
+        categoria "consulenza organizzativa e governance"
+        [ ambito
+            "organizzativo" 
+        descrizione "Creazione o revisione di politiche e procedure scritte, quali SOP, processi di Management of Change (MoC), vendor management, access control e incident response processuale."
+        [ elementi_coperti
+            "Procedure SOP integrate con controlli di sicurezza" 
+            "Processo formale di Management of Change" 
+            "Policy di vendor management" 
+            "Piani e procedure di incident response (non tecniche)" 
+        [ deliverable_tipici
+            "Policy book (es. accessi, vendor, incidenti)" 
+            "Manuale SOP aggiornato" 
+            "Workflow approvativi documentati" 
+            "Checklist di conformità per MoC" 
+        [ fonti
+            { 
+                sito "https://industrialcyber.co/features/prioritizing-organizational-cybersecurity-governance-boosting-operational-resilience-across-ot-ics-environments/?utm_source=chatgpt.com"
+                focus "Importanza di SOP, MoC e processi organizzativi per resilienza OT/ICS"
+            { 
+                sito "https://cybersecop.com/security-policy?utm_source=chatgpt.com"
+                focus "Servizi di consulenza per sviluppo policies e procedures di sicurezza"
+    { 
+        nome "Programma Audit e Miglioramento Processi"
+        categoria "consulenza organizzativa e governance"
+        [ ambito
+            "organizzativo" 
+        descrizione "Consulenza per avviare un programma di audit interno sui processi cybersecurity, integrato con un ciclo di miglioramento continuo (CPI) e metriche KPI."
+        [ elementi_coperti
+            "Audit interni periodici" 
+            "Framework PDCA (Plan-Do-Check-Act)" 
+            "Metriche KPI di efficacia processi" 
+            "Feedback loop documentato" 
+        [ deliverable_tipici
+            "Audit plan annuale" 
+            "Checklist audit processi" 
+            "Dashboard KPI (excel o tool BI)" 
+            "Rapporti di audit con raccomandazioni" 
+        [ fonti
+            { 
+                sito "https://www.cai.io/resources/thought-leadership/process-improvement-to-reduce-risks-improve-cybersecurity-compliance?utm_source=chatgpt.com"
+                focus "Miglioramento processi e approccio PDCA applicato alla cybersecurity"
+    { 
+        nome "Risk Management e Appetito al Rischio Integrato"
+        categoria "consulenza organizzativa e governance"
+        [ ambito
+            "organizzativo" 
+        descrizione "Supporto nella creazione di un processo di risk management cyber a livello di governance, con definizione di risk appetite, criteri decisionali e supervisione del board."
+        [ elementi_coperti
+            "Oversight del board" 
+            "Processo di identificazione e valutazione rischi" 
+            "Definizione risk appetite" 
+            "Cruscotti rischio a livello dirigenziale" 
+        [ deliverable_tipici
+            "Cyber Risk Management Framework" 
+            "Documento Risk Appetite approvato dal board" 
+            "Registro rischi con scoring" 
+            "Dashboard rischio per CISO/board" 
+        [ fonti
+            { 
+                sito "https://corpgov.law.harvard.edu/2022/11/10/building-effective-cybersecurity-governance/?utm_source=chatgpt.com"
+                focus "Guida Harvard Corporate Governance: governance, strategia, risk management e metriche per board"
+            { 
+                sito "https://www.dataguard.com/cyber-security/governance/?utm_source=chatgpt.com"
+                focus "Cybersecurity governance: policies, processi, controlli e legame con risk management"
+    { 
+        nome "Allineamento IT-OT Governance"
+        categoria "consulenza organizzativa e governance"
+        [ ambito
+            "organizzativo" 
+        descrizione "Consulenza per armonizzare i processi di governance tra IT e OT, con definizione chiara di ruoli e processi comuni."
+        [ elementi_coperti
+            "Mappatura governance IT vs OT" 
+            "Processi congiunti di approvazione e audit" 
+            "RACI condivisa" 
+            "Policy comuni IT-OT" 
+        [ deliverable_tipici
+            "Documento congiunto di governance IT-OT" 
+            "RACI integrata" 
+            "Policy comune IT-OT" 
+            "Flussi di escalation inter-dipartimentali" 
+        [ fonti
+            { 
+                sito "https://verveindustrial.com/resources/blog/5-principles-for-guiding-cyber-security-governance/?utm_source=chatgpt.com"
+                focus "Principi di governance OT (ruoli, responsabilità, accountability, allineamento IT-OT)"
+
+

@@ -4414,6 +4414,240 @@
                 }
             ]
         },
+        "lb_servizi_cybersecurity": {
+            "livelli": [
+                {
+                    "nome": "Tecnologico",
+                    "descrizione": ""
+                },
+                {
+                    "nome": "Organizzativo",
+                    "descrizione": ""
+                },
+                {
+                    "nome": "Governance",
+                    "descrizione": ""
+                },
+                {
+                    "nome": "Normativo/Compliance",
+                    "descrizione": ""
+                }
+            ],
+            "ruoli_destinatari": [
+                {
+                    "nome": "Asset Owners",
+                    "descrizione": "Proprietari di asset esistenti, focus su protezione continua."
+                },
+                {
+                    "nome": "Component Manufacturers",
+                    "descrizione": "Produttori di componenti, focus su produzione sicura."
+                },
+                {
+                    "nome": "System Integrators",
+                    "descrizione": "Integratori di sistemi, off-site (produzione macchine) e on-site (impianti)."
+                }
+            ],
+            "tipi_servizi_erogati": [
+                {
+                    "nome": "audit compliance",
+                    "esempio": "controllo requirements organizzativi e di sistema (matrice di analisi), produzione policies e procedures, ecc.."
+                },
+                {
+                    "nome": "audit efficacia implementazione",
+                    "esempio": "penetration test, ecc.."
+                },
+                {
+                    "nome": "consulenza organizzativa",
+                    "esempio": "avvio procedure governance (CSMS), avvio procedure requirements organizzativi: gestione account, gestione personale, gestione awareness e formazione, gestione supply-chain , ecc.."
+                },
+                {
+                    "nome": "consulenza specialistica",
+                    "esempio": "super-consulenza risk assessment, threat modeling, ecc.."
+                },
+                {
+                    "nome": "installazioni tecnico-organizzative",
+                    "esempio": "gestione incidenti, gestione risposte clienti RFP/RFI, gestione segnalazioni anomalie, ecc.."
+                },
+                {
+                    "nome": "installazioni tecniche domini di sicurezza",
+                    "esempio": "inventario asset, SIEM, crittografia, gestione certificati, ecc.."
+                },
+                {
+                    "nome": "elaborazioni tecniche",
+                    "esempio": "analisi statica software, ecc.."
+                },
+                {
+                    "nome": "servizi cybersecurity piattaforma cloud",
+                    "esempio": "installazione patch, containerizzazione, servizi vari IoT, ecc.."
+                },
+                {
+                    "nome": "prodotti sw/hw a catalogo",
+                    "esempio": "..."
+                }
+            ],
+            "modalita_erogazione": [
+                "Remota/Digitale (app, template)",
+                "On-Site (audit, consulenza/coaching)",
+                "AI-Assisted (brainstorming iniziale)",
+                "Specializzato (esperti ad alta tariffa)",
+                "In Sito (coaching/consulenza fisica)",
+                "Web-meet A Distanza (Cyber Security as a Service)",
+                "Piattaforma Cloud (Cyber Security as a Service - CSaaS)"
+            ],
+            "profili_servizio": [
+                {
+                    "livello": "Organizzativo",
+                    "ruolo": "Asset Owners",
+                    "nome": "Consulenza per Cultura e Processi",
+                    "descrizione": "Assistenza remota/on-site per cultura cyber e gestione risorse, inclusi coaching per procedure organizzative CSMS.",
+                    "modalita": [
+                        "Remota",
+                        "On-Site",
+                        "AI-Assisted",
+                        "In Sito"
+                    ],
+                    "specializzato": true,
+                    "tipo_prestazione": "Consulenza organizzativa/coaching in sito - Procedure organizzative CSMS"
+                },
+                {
+                    "livello": "Organizzativo",
+                    "ruolo": "Component Manufacturers",
+                    "nome": "Gestione Procedure di Produzione",
+                    "descrizione": "Supporto per incidenti e risposte clienti; AI per brainstorming; supporto a distanza per procedure CSMS.",
+                    "modalita": [
+                        "Remota",
+                        "AI-Assisted",
+                        "A Distanza (CaaS)"
+                    ],
+                    "specializzato": false,
+                    "tipo_prestazione": "Supporto procedurale a distanza (Cyber Security as a Service) - Procedure organizzative CSMS"
+                },
+                {
+                    "livello": "Organizzativo",
+                    "ruolo": "System Integrators",
+                    "nome": "Integrazione e Training On-Site/Off-Site",
+                    "descrizione": "Consulenza per processi integrazione sicura, con coaching in sito per CSMS.",
+                    "modalita": [
+                        "On-Site",
+                        "Off-Site",
+                        "In Sito"
+                    ],
+                    "specializzato": true,
+                    "tipo_prestazione": "Consulenza organizzativa/coaching in sito - Procedure organizzative CSMS"
+                },
+                {
+                    "livello": "Governance",
+                    "ruolo": "Asset Owners",
+                    "nome": "Strumenti di Pianificazione e Decisione",
+                    "descrizione": "Template e app per governance, inclusi coaching per Governance CSMS.",
+                    "modalita": [
+                        "Remota",
+                        "Digitale",
+                        "In Sito"
+                    ],
+                    "specializzato": false,
+                    "tipo_prestazione": "Consulenza organizzativa/coaching in sito - Governance CSMS"
+                },
+                {
+                    "livello": "Governance",
+                    "ruolo": "Component Manufacturers",
+                    "nome": "Framework per Componenti",
+                    "descrizione": "Pianificazione per supply chain; supporto a distanza per Governance CSMS.",
+                    "modalita": [
+                        "AI-Assisted",
+                        "A Distanza (CaaS)"
+                    ],
+                    "specializzato": true,
+                    "tipo_prestazione": "Supporto procedurale a distanza (Cyber Security as a Service) - Governance CSMS"
+                },
+                {
+                    "livello": "Governance",
+                    "ruolo": "System Integrators",
+                    "nome": "Governance per Integrazioni",
+                    "descrizione": "Strumenti per multi-sito, con coaching per CSMS.",
+                    "modalita": [
+                        "Remota",
+                        "On-Site",
+                        "In Sito"
+                    ],
+                    "specializzato": false,
+                    "tipo_prestazione": "Consulenza organizzativa/coaching in sito - Governance CSMS"
+                },
+                {
+                    "livello": "Normativo/Compliance",
+                    "ruolo": "Asset Owners",
+                    "nome": "Gestione Audit e Checklist",
+                    "descrizione": "App per checklist e audit, focus su requirements organizzativi per compliance.",
+                    "modalita": [
+                        "Digitale",
+                        "On-Site"
+                    ],
+                    "specializzato": true,
+                    "tipo_prestazione": "Audit compliance - Requirements organizzativi"
+                },
+                {
+                    "livello": "Normativo/Compliance",
+                    "ruolo": "Component Manufacturers",
+                    "nome": "Compliance per Produzione",
+                    "descrizione": "Profili e software inventario, inclusi audit per requirements di sistema.",
+                    "modalita": [
+                        "Digitale"
+                    ],
+                    "specializzato": false,
+                    "tipo_prestazione": "Audit compliance - Requirements di sistema"
+                },
+                {
+                    "livello": "Normativo/Compliance",
+                    "ruolo": "System Integrators",
+                    "nome": "Audit per Integrazioni",
+                    "descrizione": "Conformità off/on-site, con verifica efficacia implementazioni di sistema.",
+                    "modalita": [
+                        "On-Site",
+                        "Off-Site"
+                    ],
+                    "specializzato": true,
+                    "tipo_prestazione": "Audit efficacia implementazioni - Requirements di sistema"
+                },
+                {
+                    "livello": "Normativo/Compliance",
+                    "ruolo": "Asset Owners",
+                    "nome": "Audit Efficacia Organizzativa",
+                    "descrizione": "Valutazione efficacia implementazioni per requirements organizzativi.",
+                    "modalita": [
+                        "On-Site",
+                        "Remota"
+                    ],
+                    "specializzato": true,
+                    "tipo_prestazione": "Audit efficacia implementazioni - Requirements organizzativi"
+                },
+                {
+                    "livello": "Normativo/Compliance",
+                    "ruolo": "Component Manufacturers",
+                    "nome": "Audit Efficacia di Sistema",
+                    "descrizione": "Audit per efficacia requirements di sistema in produzione.",
+                    "modalita": [
+                        "Digitale",
+                        "On-Site"
+                    ],
+                    "specializzato": true,
+                    "tipo_prestazione": "Audit efficacia implementazioni - Requirements di sistema"
+                },
+                {
+                    "livello": "Tecnologico",
+                    "ruolo": "Tutti",
+                    "nome": "Servizi Tecnici Aggiuntivi",
+                    "descrizione": "Analisi rete, backup, incidenti; include prodotti a listino, servizi da ingegneri e piattaforma cloud.",
+                    "modalita": [
+                        "Remota",
+                        "On-Site",
+                        "Specializzato",
+                        "Piattaforma Cloud"
+                    ],
+                    "specializzato": true,
+                    "tipo_prestazione": "Tecnologie Cyber Security - Prodotti a listino / Servizi elaborazione erogati da ingegneri / Servizi erogabili dalla piattaforma cloud"
+                }
+            ]
+        },
         "lb_site_themes": {
             "items": [
                 {
@@ -14813,6 +15047,359 @@
                         }
                     },
                     "additionalProperties": false
+                }
+            }
+        },
+        "rmf_oem_brainstorming_output_v2": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$id": "https://example.com/schemas/rmf-oem-brainstorming.essential.schema.json",
+            "title": "RMF OEM Brainstorming Output (Essential)",
+            "description": "Output minimo per brainstorming di minacce e requisiti collegati a controlli IEC 62443 / NIST.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "meta",
+                "context",
+                "results"
+            ],
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                        "version",
+                        "generated_at",
+                        "generator"
+                    ],
+                    "properties": {
+                        "version": {
+                            "type": "string",
+                            "description": "Versione documento logico (es. 1.0.0)"
+                        },
+                        "generated_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Timestamp ISO 8601"
+                        },
+                        "generator": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "required": [
+                                "name"
+                            ],
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "description": "Nome/ID del modello"
+                                },
+                                "version": {
+                                    "type": "string",
+                                    "description": "Versione del modello (se nota)"
+                                }
+                            }
+                        }
+                    }
+                },
+                "context": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                        "system_core",
+                        "rmf_tasks_considered"
+                    ],
+                    "properties": {
+                        "system_core": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "required": [
+                                "id",
+                                "name",
+                                "mission"
+                            ],
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "description": "ID sistema"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "description": "Nome sistema"
+                                },
+                                "mission": {
+                                    "type": "string",
+                                    "description": "Mission/obiettivo"
+                                }
+                            }
+                        },
+                        "rmf_tasks_considered": {
+                            "type": "array",
+                            "minItems": 1,
+                            "uniqueItems": true,
+                            "items": {
+                                "type": "string",
+                                "pattern": "^P-(8|9|1[0-8])$"
+                            }
+                        }
+                    }
+                },
+                "results": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                        "threat_scenarios"
+                    ],
+                    "properties": {
+                        "threat_scenarios": {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                                "$ref": "#/$defs/threatScenario"
+                            }
+                        },
+                        "summary": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "top_risks": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "description": "ID scenari prioritari"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "$defs": {
+                "threatScenario": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                        "id",
+                        "title",
+                        "assets",
+                        "threat",
+                        "requirements"
+                    ],
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                            "description": "ID scenario (es. TSC-001)"
+                        },
+                        "title": {
+                            "type": "string",
+                            "description": "Titolo sintetico"
+                        },
+                        "assets": {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "Asset coinvolti (ID o nomi brevi)"
+                        },
+                        "threat": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "required": [
+                                "category",
+                                "description"
+                            ],
+                            "properties": {
+                                "category": {
+                                    "type": "string",
+                                    "enum": [
+                                        "malware",
+                                        "unauthorized-access",
+                                        "network-eavesdrop",
+                                        "misconfiguration",
+                                        "supply-chain",
+                                        "physical",
+                                        "insider",
+                                        "dos",
+                                        "data-exfiltration",
+                                        "safety-impact",
+                                        "other"
+                                    ]
+                                },
+                                "description": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "vulnerabilities": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "consequences": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "requirements": {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                                "$ref": "#/$defs/requirement"
+                            }
+                        },
+                        "risk": {
+                            "$ref": "#/$defs/riskScore"
+                        },
+                        "priority": {
+                            "type": "string",
+                            "enum": [
+                                "low",
+                                "medium",
+                                "high"
+                            ],
+                            "description": "Priorità di trattamento"
+                        },
+                        "task_links": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": [
+                                    "task_id"
+                                ],
+                                "properties": {
+                                    "task_id": {
+                                        "type": "string",
+                                        "pattern": "^P-(8|9|1[0-8])$"
+                                    },
+                                    "note": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "assumptions": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "Assunzioni (se input incompleto)"
+                        }
+                    }
+                },
+                "requirement": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                        "statement",
+                        "controls"
+                    ],
+                    "properties": {
+                        "statement": {
+                            "type": "string",
+                            "description": "Requisito di protezione"
+                        },
+                        "controls": {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                                "$ref": "#/$defs/controlRef"
+                            }
+                        },
+                        "parameters": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/$defs/parameter"
+                            }
+                        }
+                    }
+                },
+                "controlRef": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                        "standard",
+                        "id"
+                    ],
+                    "properties": {
+                        "standard": {
+                            "type": "string",
+                            "enum": [
+                                "IEC 62443-3-3",
+                                "IEC 62443-4-2",
+                                "NIST 800-53",
+                                "NIST 800-82"
+                            ]
+                        },
+                        "id": {
+                            "type": "string",
+                            "description": "Es. 'SR 5.2', 'CR 1.2', 'AC-2', 'SC-7'",
+                            "pattern": "^(SR \\\\d+(?:\\\\.\\\\d+)?|CR \\\\d+(?:\\\\.\\\\d+)?|[A-Z]{2,3}-\\\\d{1,3}(?:\\\\([a-z]\\\\))?)$"
+                        },
+                        "note": {
+                            "type": "string",
+                            "description": "Nota opzionale"
+                        }
+                    }
+                },
+                "parameter": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                        "name",
+                        "value"
+                    ],
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "Es. password_min_length, tls_min"
+                        },
+                        "value": {
+                            "type": [
+                                "string",
+                                "number",
+                                "integer",
+                                "boolean"
+                            ]
+                        },
+                        "unit": {
+                            "type": "string"
+                        },
+                        "rationale": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "riskScore": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                        "likelihood",
+                        "impact"
+                    ],
+                    "properties": {
+                        "likelihood": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 5,
+                            "description": "Probabilità 1..5"
+                        },
+                        "impact": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 5,
+                            "description": "Impatto 1..5 (sintetico su C/I/A)"
+                        },
+                        "score": {
+                            "type": "number",
+                            "description": "Opz.: calcolo (es. L*I)"
+                        },
+                        "rationale": {
+                            "type": "string",
+                            "description": "Motivazione breve"
+                        }
+                    }
                 }
             }
         }

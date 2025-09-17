@@ -1,0 +1,566 @@
+$group
+    {
+        { meta
+            version "1.0.0"
+            generated_at "2024-06-15T10:30:00Z"
+            { generator
+                name "OT-Security-Assistant"
+                version "2.1"
+        { context
+            { system_core
+                id "SYS-PAK-001"
+                name "Linea Confezionamento X"
+                mission "Garantire throughput di imballaggio e tracciabilità lotto."
+            [ rmf_tasks_considered
+                "P-18"
+        { results
+            [ threat_scenarios
+                {
+                    id "TSC-001"
+                    title "Interruzione DOS/DDOS su controllori di linea"
+                    [ assets
+                        "PLC dosaggio"
+                        "HMI sigillatura"
+                        "Server etichettatura"
+                    { threat
+                        category "dos"
+                        description "Attacco di denial of service che interrompe le comunicazioni tra i controllori,
+                            +b causando arresto della linea di confezionamento"
+                    [ vulnerabilities
+                        "Comunicazioni non protette"
+                        "Assenza di segmentazione di rete"
+                        "Dispositivi non aggiornati"
+                    [ consequences
+                        "Interruzione produzione"
+                        "Perdita throughput"
+                        "Mancata tracciabilità lotti"
+                    [ requirements
+                        {
+                            statement "Implementare segmentazione di rete con zone e condotti secondo IEC 62443"
+                            [ controls
+                                {
+                                    standard "IEC 62443-3-3"
+                                    id "SR 3.1"
+                                    note "Segmentazione fisica e logica"
+                                {
+                                    standard "NIST 800-82"
+                                    id "SC-7"
+                                    note "Boundary Protection"
+                            [ parameters
+                                {
+                                    name "network_segments_min"
+                                    value 3
+                                    unit "zone"
+                                    rationale "Separazione funzioni critiche: dosaggio, sigillatura, etichettatura"
+                    { risk
+                        likelihood 3
+                        impact 5
+                        score 15
+                        rationale "Alto impatto su missione business, media probabilità in ambiente OT esposto"
+                    priority "high"
+                    [ task_links
+                        {
+                            task_id "P-10"
+                            note "Collegamento a task di protezione perimetrale"
+                    [ assumptions
+                        "Sistema connesso a rete enterprise"
+                        "Presenza di interfacce remote"
+                {
+                    id "TSC-002"
+                    title "Manomissione parametri di processo da accesso non autorizzato"
+                    [ assets
+                        "PLC dosaggio"
+                        "Sistema tracciabilità"
+                        "Database parametri"
+                    { threat
+                        category "unauthorized-access"
+                        description "Accesso non autorizzato ai sistemi di controllo che modifica parametri di
+                            +b processo critici per qualità prodotto"
+                    [ vulnerabilities
+                        "Credenziali default"
+                        "Assenza MFA"
+                        "Logiche accesso deboli"
+                    [ consequences
+                        "Prodotto non conforme"
+                        "Richieste qualità"
+                        "Rischio sicurezza alimentare"
+                    [ requirements
+                        {
+                            statement "Implementare autenticazione multi-fattore per accessi amministrativi"
+                            [ controls
+                                {
+                                    standard "IEC 62443-3-3"
+                                    id "SR 5.2"
+                                    note "Strong authentication"
+                                {
+                                    standard "NIST 800-53"
+                                    id "IA-2"
+                                    note "Identification and Authentication"
+                            [ parameters
+                                {
+                                    name "mfa_required"
+                                    value true
+                                    rationale "Obbligatorio per accessi privilegiati a sistemi critici"
+                                {
+                                    name "password_min_length"
+                                    value 12
+                                    unit "characters"
+                                    rationale "Lunghezza minima per resistenza a brute force"
+                    { risk
+                        likelihood 4
+                        impact 4
+                        score 16
+                        rationale "Alta probabilità per credenziali deboli, alto impatto su qualità e sicurezza"
+                    priority "high"
+                    [ task_links
+                        {
+                            task_id "P-10"
+                            note "Collegamento a gestione identità e accessi"
+                    [ assumptions
+                        "Presenza di account amministrativi"
+                        "Accessi remoti possibili"
+                {
+                    id "TSC-003"
+                    title "Interruzione servizi critici per malware su sistemi di controllo"
+                    [ assets
+                        "SCADA sistema"
+                        "Server storico"
+                        "Workstation operative"
+                    { threat
+                        category "malware"
+                        description "Infezione da ransomware o malware che cifra/corrompe sistemi di controllo,
+                            +b bloccando l'intera linea"
+                    [ vulnerabilities
+                        "Assenza antivirus"
+                        "Patch non applicate"
+                        "USB non controllati"
+                    [ consequences
+                        "Arresto prolungato produzione"
+                        "Perdita dati tracciabilità"
+                        "Tempi di recovery lunghi"
+                    [ requirements
+                        {
+                            statement "Implementare protezione antimalware con aggiornamenti automatici e scansioni
+                                +b periodiche"
+                            [ controls
+                                {
+                                    standard "IEC 62443-3-3"
+                                    id "SR 4.1"
+                                    note "Malware protection"
+                                {
+                                    standard "NIST 800-53"
+                                    id "SI-3"
+                                    note "Malicious Code Protection"
+                            [ parameters
+                                {
+                                    name "av_signature_update_frequency"
+                                    value 24
+                                    unit "hours"
+                                    rationale "Aggiornamento signature almeno giornaliero"
+                                {
+                                    name "full_scan_frequency"
+                                    value 7
+                                    unit "days"
+                                    rationale "Scansione completa settimanale"
+                    { risk
+                        likelihood 3
+                        impact 5
+                        score 15
+                        rationale "Media probabilità ma impatto catastrofico su continuità operativa"
+                    priority "high"
+                    [ task_links
+                        {
+                            task_id "P-10"
+                            note "Collegamento a protezione endpoint e gestione vulnerabilità"
+                    [ assumptions
+                        "Presenza di sistemi Windows/IT"
+                        "Utilizzo di supporti rimovibili"
+            { summary
+                [ top_risks
+                    "TSC-001"
+                    "TSC-002"
+                    "TSC-003"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{ 
+    { meta
+        version "1.0.0"
+        generated_at "2025-09-16T10:30:00Z"
+        { generator
+            name "OT-Security-Assistant"
+            version "1.0"
+    { context
+        { system_core
+            id "SYS-PAK-001"
+            name "Linea Confezionamento X"
+            mission "Garantire throughput di imballaggio e tracciabilità lotto."
+        [ rmf_tasks_considered
+            "P-10" 
+    { results
+        [ threat_scenarios
+            { 
+                id "TSC-001"
+                title "Infezione ransomware su HMI tramite VPN manutenzione"
+                [ assets
+                    "HMI-1" 
+                    "PLC-1" 
+                    "DATA-REC" 
+                { threat
+                    category "malware"
+                    description "Attaccante compromette la VPN di manutenzione OEM e deploya ransomware sull'HMI Windows, cifrando dati critici e interrompendo le operazioni."
+                [ vulnerabilities
+                    "HMI Windows esposta tramite VPN" 
+                    "Mancanza di segmentazione rete tra VPN e HMI" 
+                    "Possibile uso di RDP non sufficientemente protetto" 
+                [ consequences
+                    "Blocco operativo della linea" 
+                    "Perdita temporanea delle ricette di produzione (DATA-REC)" 
+                    "Tempo di recovery prolungato" 
+                    "Impatto sulla tracciabilità lotto" 
+                [ requirements
+                    { 
+                        statement "L'accesso remoto alla VPN di manutenzione deve essere protetto da autenticazione multi-fattore (MFA) per tutti gli utenti."
+                        [ controls
+                            { 
+                                standard "IEC 62443-3-3"
+                                id "SR 1.1"
+                                note "Identificazione e autenticazione"
+                            { 
+                                standard "NIST 800-53"
+                                id "IA-2"
+                                note "Identificazione e autenticazione (utenti organizzazionali)"
+                        [ parameters
+                            { 
+                                name "mfa_required"
+                                value true
+                                rationale "Mitigazione accesso non autorizzato via VPN"
+                    { 
+                        statement "Le sessioni RDP devono essere configurate con crittografia di livello enterprise e limitate agli specifici endpoint autorizzati."
+                        [ controls
+                            { 
+                                standard "IEC 62443-3-3"
+                                id "SR 4.2"
+                                note "Confidentialità dei dati in transito"
+                            { 
+                                standard "NIST 800-53"
+                                id "AC-17"
+                                note "Accesso remoto"
+                        [ parameters
+                            { 
+                                name "rdp_encryption_level"
+                                value "High"
+                                rationale "Prevenzione eavesdropping e manipolazione sessione"
+                { risk
+                    likelihood 3
+                    impact 5
+                    score 15
+                    rationale "Probabilità media data l'esposizione VPN; Impatto molto alto su disponibilità e integrità dati operativi."
+                priority "high"
+                [ task_links
+                    { 
+                        task_id "P-10"
+                [ assumptions
+                    "La VPN è configurata ma i dettagli di hardening non sono specificati" 
+            { 
+                id "TSC-002"
+                title "Errore configurazione rete OT che espone PLC a segmenti non autorizzati"
+                [ assets
+                    "PLC-1" 
+                    "NET-OT" 
+                { threat
+                    category "misconfiguration"
+                    description "Configurazione errata della rete OT (es. regole firewall troppo permissive) permette accesso non autorizzato al PLC da segmenti di rete non critici."
+                [ vulnerabilities
+                    "Configurazione di rete non hardened" 
+                    "Mancanza di segmentazione granulare" 
+                    "Mancanza di review delle configurazioni di sicurezza" 
+                [ consequences
+                    "Accesso non autorizzato al PLC" 
+                    "Possibile manipolazione dei parametri operativi" 
+                    "Interruzione del processo" 
+                    "Potenziale danno fisico al macchinario" 
+                [ requirements
+                    { 
+                        statement "La rete OT deve essere segmentata logicamente per isolare il traffico verso/dai PLC solo agli host strettamente necessari."
+                        [ controls
+                            { 
+                                standard "IEC 62443-3-3"
+                                id "SR 3.1"
+                                note "Segmentazione della rete"
+                            { 
+                                standard "NIST 800-82"
+                                id "SC-7"
+                                note "Protection boundaries"
+                        [ parameters
+                            { 
+                                name "network_segmentation_enforced"
+                                value true
+                                rationale "Contenimento di incidenti e limitazione accesso"
+                    { 
+                        statement "Le configurazioni di sicurezza della rete (es. regole firewall) devono essere revisionate e testate almeno annualmente o dopo cambiamenti significativi."
+                        [ controls
+                            { 
+                                standard "IEC 62443-3-3"
+                                id "SR 7.1"
+                                note "Gestione delle configurazioni di sicurezza"
+                            { 
+                                standard "NIST 800-53"
+                                id "CM-3"
+                                note "Controllo cambiamenti configurazione"
+                        [ parameters
+                            { 
+                                name "config_review_frequency"
+                                value 12
+                                unit "months"
+                                rationale "Identificazione tempestiva di errori di configurazione"
+                { risk
+                    likelihood 4
+                    impact 4
+                    score 16
+                    rationale "Probabilità alta data la complessità di configurazione; Impatto alto su disponibilità e integrità."
+                priority "high"
+                [ task_links
+                    { 
+                        task_id "P-10"
+                [ assumptions
+                    "La rete OT è configurata ma il livello di dettaglio della segmentazione non è specificato" 
+            { 
+                id "TSC-003"
+                title "Compromissione supply chain firmware OEM con backdoor"
+                [ assets
+                    "FW-1" 
+                    "PLC-1" 
+                { threat
+                    category "supply-chain"
+                    description "Il firmware OEM della confezionatrice contiene una vulnerabilità introdotta volontariamente (backdoor) o involontariamente durante lo sviluppo/supply chain, sfruttabile remotamente."
+                [ vulnerabilities
+                    "Mancanza di controllo di integrità e autenticità del firmware" 
+                    "Processo di sviluppo firmware non sicuro presso OEM" 
+                    "Catena di fornitura software non verificata" 
+                [ consequences
+                    "Compromissione completa del controllo della macchina" 
+                    "Interruzione prolungata per sostituzione firmware" 
+                    "Possibile danno alla sicurezza fisica" 
+                    "Perdita di tracciabilità" 
+                [ requirements
+                    { 
+                        statement "Il firmware deve essere verificato per integrità e autenticità prima dell'installazione, utilizzando meccanismi cryptographic verificabili."
+                        [ controls
+                            { 
+                                standard "IEC 62443-4-2"
+                                id "CR 4.2"
+                                note "Integrità dell'informazione"
+                            { 
+                                standard "NIST 800-53"
+                                id "SI-7"
+                                note "Software, Firmware, and Information Integrity"
+                        [ parameters
+                            { 
+                                name "firmware_verification_required"
+                                value true
+                                rationale "Prevenzione installazione firmware malevolo o alterato"
+                    { 
+                        statement "Deve esistere un processo formale con l'OEM per la gestione delle vulnerabilità scoperte nel firmware, inclusi tempi di risposta attesi per le patch."
+                        [ controls
+                            { 
+                                standard "IEC 62443-3-3"
+                                id "SR 5.1"
+                                note "Gestione delle vulnerabilità"
+                            { 
+                                standard "NIST 800-53"
+                                id "SR-5"
+                                note "Supply chain risk management"
+                        [ parameters
+                            { 
+                                name "vulnerability_response_time"
+                                value 30
+                                unit "days"
+                                rationale "Mitigazione tempestiva delle vulnerabilità critiche"
+                { risk
+                    likelihood 2
+                    impact 5
+                    score 10
+                    rationale "Probabilità bassa ma non nulla; Impatto molto alto in caso di sfruttamento, con tempi di recovery lunghi."
+                priority "medium"
+                [ task_links
+                    { 
+                        task_id "P-10"
+                [ assumptions
+                    "Il processo di sviluppo e distribuzione del firmware OEM non è descritto in dettaglio" 
+        { summary
+            [ top_risks
+                "TSC-001" 
+                "TSC-002"                     
+
+{ 
+    { meta
+        version "1.0.0"
+        generated_at "2025-09-16T09:02:00Z"
+        { generator
+            name "Grok"
+            version "unknown"
+    { context
+        { system_core
+            id "SYS-PAK-001"
+            name "Packaging System"
+            mission "Garantire throughput di imballaggio e tracciabilità lotto."
+        [ rmf_tasks_considered
+            "P-10" 
+    { results
+        [ threat_scenarios
+            { 
+                id "TSC-001"
+                title "Compromissione del PLC Siemens S7-1500 tramite accesso non autorizzato"
+                [ assets
+                    "PLC-1" 
+                { threat
+                    category "unauthorized-access"
+                    description "Un attaccante ottiene accesso non autorizzato al PLC Siemens S7-1500 tramite credenziali deboli o vulnerabilità di rete."
+                [ vulnerabilities
+                    "Credenziali di default non modificate" 
+                    "Mancanza di autenticazione a due fattori" 
+                [ consequences
+                    "Modifica non autorizzata dei parametri di controllo" 
+                    "Interruzione del throughput di imballaggio" 
+                [ requirements
+                    { 
+                        statement "Implementare autenticazione robusta per l'accesso al PLC."
+                        [ controls
+                            { 
+                                standard "IEC 62443-3-3"
+                                id "SR 1.1"
+                                note "Autenticazione utente per accesso al sistema."
+                            { 
+                                standard "NIST 800-53"
+                                id "IA-2"
+                                note "Autenticazione multifattore."
+                        [ parameters
+                            { 
+                                name "password_min_length"
+                                value 12
+                                unit "caratteri"
+                                rationale "Riduce il rischio di attacchi a forza bruta."
+                { risk
+                    likelihood 3
+                    impact 5
+                    score 15
+                    rationale "Probabilità moderata data l'esposizione del PLC in rete OT; impatto elevato per criticità alta e rischio di fermo produzione."
+                priority "high"
+                [ task_links
+                    { 
+                        task_id "P-10"
+                        note "Identificazione asset critici per protezione."
+                [ assumptions
+                    "Il PLC è accessibile dalla rete OT senza segmentazione adeguata." 
+            { 
+                id "TSC-002"
+                title "Perdita di integrità delle ricette di produzione"
+                [ assets
+                    "DATA-REC" 
+                { threat
+                    category "data-exfiltration"
+                    description "Un attaccante compromette l'integrità delle ricette di produzione tramite accesso non autorizzato o malware."
+                [ vulnerabilities
+                    "Mancanza di controlli di integrità sui dati" 
+                    "Accesso non autenticato ai dati sensibili" 
+                [ consequences
+                    "Produzione di lotti non conformi" 
+                    "Perdita di tracciabilità" 
+                    "Danno reputazionale" 
+                [ requirements
+                    { 
+                        statement "Garantire l'integrità dei dati delle ricette di produzione."
+                        [ controls
+                            { 
+                                standard "IEC 62443-3-3"
+                                id "SR 3.2"
+                                note "Protezione contro modifiche non autorizzate."
+                            { 
+                                standard "NIST 800-53"
+                                id "SI-7"
+                                note "Controlli di integrità del software e dei dati."
+                        [ parameters
+                            { 
+                                name "hash_algorithm"
+                                value "SHA-256"
+                                unit "algoritmo"
+                                rationale "Garantisce rilevamento di modifiche non autorizzate."
+                { risk
+                    likelihood 2
+                    impact 5
+                    score 10
+                    rationale "Probabilità bassa con controlli esistenti, ma impatto critico per la tracciabilità."
+                priority "high"
+                [ task_links
+                    { 
+                        task_id "P-10"
+                        note "Protezione dati sensibili."
+                [ assumptions
+                    "Le ricette sono memorizzate in un sistema accessibile dalla rete OT." 
+            { 
+                id "TSC-003"
+                title "Interruzione della rete OT interna (DoS)"
+                [ assets
+                    "NET-OT" 
+                    "PLC-1" 
+                    "HMI-1" 
+                { threat
+                    category "dos"
+                    description "Un attacco DoS sulla rete OT interna causa perdita di disponibilità del sistema di imballaggio."
+                [ vulnerabilities
+                    "Mancanza di segmentazione di rete" 
+                    "Capacità limitata di gestione del traffico" 
+                [ consequences
+                    "Fermo produzione" 
+                    "Perdita di throughput" 
+                    "Ritardi nella consegna" 
+                [ requirements
+                    { 
+                        statement "Implementare misure per garantire la disponibilità della rete OT."
+                        [ controls
+                            { 
+                                standard "IEC 62443-3-3"
+                                id "SR 7.1"
+                                note "Protezione contro attacchi DoS."
+                            { 
+                                standard "NIST 800-53"
+                                id "SC-7"
+                                note "Controlli di confine per la rete."
+                        [ parameters
+                            { 
+                                name "traffic_filter_rate"
+                                value 1000
+                                unit "pacchetti/secondo"
+                                rationale "Limita il traffico anomalo per prevenire sovraccarico."
+                { risk
+                    likelihood 3
+                    impact 4
+                    score 12
+                    rationale "Probabilità moderata per esposizione della rete OT; impatto elevato per fermo produzione."
+                priority "medium"
+                [ task_links
+                    { 
+                        task_id "P-10"
+                        note "Valutazione disponibilità asset di rete."
+                [ assumptions
+                    "La rete OT non ha filtri di traffico avanzati." 
+        { summary
+            [ top_risks
+                "TSC-001" 
+                "TSC-002" 
+

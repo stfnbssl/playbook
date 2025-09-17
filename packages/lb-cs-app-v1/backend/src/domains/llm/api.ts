@@ -30,10 +30,15 @@ function pickProvider(p: ProviderName){
   const e: any = new Error("invalid provider"); e.status = 400; throw e;
 }
 
-router.post("/chat", requireAuth, async (req: Request, res: Response) => {
+// router.post("/aiapicall", requireAuth, async (req: Request, res: Response) => {
+router.post("/aiapicall", async (req: Request, res: Response) => {
+  console.log("aiapicall", 1);
   await connectMongo();
+  console.log("aiapicall", 2);
   try {
+    console.log("aiapicall", 3, req.body);
     assertBody(req.body);
+    console.log("aiapicall", 4, req.body);
     const { provider, model, messages, params = {} } = req.body;
     const id = hashFor({ provider, model, messages, params });
 
@@ -46,6 +51,7 @@ router.post("/chat", requireAuth, async (req: Request, res: Response) => {
       }});
     }
 
+    console.log("provider", provider);
     const call = pickProvider(provider);
     const t0 = Date.now();
     const out = await call({ model, messages, params });

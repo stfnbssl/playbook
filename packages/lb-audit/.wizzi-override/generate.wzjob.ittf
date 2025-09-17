@@ -388,8 +388,8 @@ wzjob lb-audit/job
 
     line ittf-docs-project-rmf-step-1
         cwd-folder ${jobCtx.ittf_docs_folder}/project/rmf/ai_step_1_in
-        dest-folder ${jobCtx.dest_folder}/docs/project/rmf/ai_step_1_out
-        wzjobs(any_json, &jobCtx)
+        dest-folder ${jobCtx.dest_folder}/.wizzi-override/docs/project/rmf/ai_step_1_out/t
+        wzjobs(any_ai, &jobCtx)
 
     production
         dest-folder ${jobCtx.dest_folder}
@@ -417,7 +417,7 @@ wzjob lb-audit/job
             line-ref ittf-meta-lbvsa 
         $if false
             line-ref ittf-meta-specific-practices           
-        $if true
+        $if false
             line-ref ittf-meta-project
         $if false
             line-ref ittf-docs

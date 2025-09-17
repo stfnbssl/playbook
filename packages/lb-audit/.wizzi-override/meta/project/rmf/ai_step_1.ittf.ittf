@@ -1,0 +1,109 @@
+ittf 
+    $include step_1_code
+    $ 
+        var step_name = 'rmf.step_1';
+        var prompts = wzCtx.root_prompts.llm_rmf_oem_system_machine_prompts.prompts;
+        var input = wzCtx.root_prompts.llm_rmf_oem_system_machine_input;
+        var jsonSchema = wzCtx.schemas.rmf_oem_brainstorming_output_v2;
+        var jsonSchemaString = _.stringify(jsonSchema,null,null);
+        // var provider = 'chatGPT';
+        // var provider = 'grok';
+        var provider = 'deepseek';
+        var maxNumInBatch = 1;
+        var batches = [];
+        var currentBatch = {
+            id: 1,
+            items: []
+        } 
+        var count = 0;
+
+    $foreach aiItem in prompts
+        $ 
+            _.log('----> ', step_name, 'aiItem.name', aiItem.title);
+
+        $if count >= maxNumInBatch
+            $ 
+                batches.push(currentBatch); 
+                currentBatch = {
+                    id: currentBatch.id + 1,
+                    items: [aiItem]
+                } 
+                count = 1;
+        $else 
+            $ 
+                currentBatch.items.push(aiItem); 
+                count++; 
+
+    $if currentBatch.items.length > 0
+        $ batches.push(currentBatch);
+    $ _.log('----> batches.length', batches.length);
+
+    $foreach batch in batches
+        $file .wizzi-override/docs/project/rmf/ai_step_1_in/batch-${batch.id}.ai.ittf
+            ai ${step_name}
+                api-url http://localhost:3005
+                $foreach batchItem in batch.items
+                    call ${batchItem.title}
+                        $if provider == 'deepseek'
+                            llm_service deepseek
+                            llm_model deepseek-chat
+                            max_tokens 8192 $$ max for DeepSeek
+                        $elif provider == 'grok'
+                            llm_service grok
+                            llm_model grok-3
+                            max_tokens 8192 $$ to equal DeepSeek
+                        temperature 0.2
+                        description rmf step - ${batchItem.title}
+                        message 
+                            role system
+                            content 
+                                ${''}\n Sei un assistente che genera SOLO JSON UTF-8 valido, senza testo fuori dal JSON.
+                                ${''}\n Sei un esperto di cybersecurity in contesto OT/ICS 
+                                ${''}\n Conosci particolarmente bene gli standard di sicurezza IEC 62443 e NIST. 
+                        message 
+                            role user
+                            content 
+                                ${''}\n [MODALITÀ]
+                                ${''}\n context_mode: "task"         $$ "task" | "full"
+                                ${''}\n task_id: "${aiItem.id}"      $$ aggiorna per ogni task
+                                ${''}\n task_name: "${aiItem.title}"
+                                $
+                                    var props = batchItem.propertiesCore;
+                                    props = props.concat(batchItem.properties)
+                                    var newObj = {};
+                                    for (var i = 0; i < props.length; i++) {
+                                        var path = props[i];
+                                        var value = getNestedValue(input, path);
+                                        if (value !== undefined) {
+                                            setNestedValue(newObj, path, value);
+                                        }
+                                    } 
+
+                                ${''}\n [CONTESTO (SLICE)]
+                                ${''}\n context_input: ${_.stringify(newObj,null,null)}
+                                ${''}\n [OBIETTIVO]
+                                $foreach line in batchItem.promptLines
+                                    ${''}\n ${line}
+                                ${''}\n ⚠️ Istruzione importante:
+                                ${''}\n Devi restituire SOLO JSON valido conforme allo schema seguente:
+                                ${''}\n ${jsonSchemaString}
+                                ${''}\n [REGOLE]
+                                ${''}\n - Usa solo le informazioni in context_input + system_core.
+                                ${''}\n - Se mancano dati necessari, NON inventare: compila "assumptions" e "missing_fields".
+                                ${''}\n - Riempi i campi "task_links" con {"task_id": "P-10"}.
+                                ${''}\n [Linee guida]
+                                ${''}\n - Popola "context" con i dati forniti sopra (senza inventare).
+                                ${''}\n - Genera almeno 3 threat_scenarios in "results".
+                                ${''}\n - Ogni scenario deve includere ≥1 requirement con controlli associati.
+                                ${''}\n - Istanzia parametri concreti quando possibile (es. password_min_length=12).
+                                ${''}\n - Compila "risk" con scala 1..5 e motivazione.
+                                ${''}\n - Usa ID coerenti (es. TSC-###, REQ-###).
+                                ${''}\n - Non includere testo fuori dal JSON.
+                                ${''}\n ⚠️ Restituisci SOLO JSON valido conforme allo schema di output definito in precedenza.
+                                ${''}\n ⚠️ Non includere le schema nella risposta, non serve, bastano i dati.
+
+    ${'$'}file .wizzi-override/docs/project/rmf/ai_step_1_out/index.json.ittf
+        { 
+            [ items
+                $foreach batch in batches
+                    ${'$'}include batch-${batch.id}

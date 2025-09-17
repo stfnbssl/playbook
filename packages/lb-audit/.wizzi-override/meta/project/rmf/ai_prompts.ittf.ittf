@@ -2,7 +2,7 @@ ittf
     $ 
         var prompts = wzCtx.root_prompts.llm_rmf_oem_system_machine_prompts.prompts;
         var input = wzCtx.root_prompts.llm_rmf_oem_system_machine_input;
-        var jsonSchema = wzCtx.schemas.rmf_oem_brainstorming_output;
+        var jsonSchema = wzCtx.schemas.rmf_oem_brainstorming_output_v2;
         var jsonSchemaString = _.stringify(jsonSchema,null,null);
         _.log("prompts", prompts);
         _.log("input", input);
@@ -39,7 +39,8 @@ ittf
                 task_id: "${prompt.id}"      $$ aggiorna per ogni task
                 task_name: "${prompt.title}"
                 $
-                    var props = ["authorization_boundary/responsibilities", "stakeholders"];
+                    var props = prompt.propertiesCore;
+                    props = props.concat(prompt.properties)
                     var newObj = {};
                     for (var i = 0; i < props.length; i++) {
                         var path = props[i];
@@ -48,8 +49,13 @@ ittf
                             setNestedValue(newObj, path, value);
                         }
                     } 
+
                 [CONTESTO (SLICE)]
                 context_input: ${_.stringify(newObj,null,null)}
+
+                [OBIETTIVO]
+                $foreach line in prompt.promptLines
+                    ${line}
 
                 ⚠️ Istruzione importante:
                 Devi restituire SOLO JSON valido conforme allo schema seguente:
@@ -70,6 +76,7 @@ ittf
                 - Non includere testo fuori dal JSON.
 
                 ⚠️ Restituisci SOLO JSON valido conforme allo schema di output definito in precedenza.
+                ⚠️ Non includere le schema nella risposta, non serve, bastano i dati.
 
 $*            
             [MODALITÀ]

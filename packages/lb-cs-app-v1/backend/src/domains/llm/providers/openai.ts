@@ -13,7 +13,7 @@ export interface ProviderCallOutput {
   raw: unknown;
 }
 
-export async function callOpenAI({ model, messages, params = {}, timeoutMs = 45000 }: ProviderCallInput): Promise<ProviderCallOutput> {
+export async function callOpenAI({ model, messages, params = {}, timeoutMs = 120000 }: ProviderCallInput): Promise<ProviderCallOutput> {
   const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY ?? "" });
   const ctrl = new AbortController();
   const t = setTimeout(() => ctrl.abort(), timeoutMs);

@@ -1,0 +1,109 @@
+$group
+    { 
+        nome "Industrial Risk & Vulnerability Assessment"
+        categoria "audit efficacia implementazione"
+        [ ambito
+            "OT" 
+            "IT" 
+        descrizione "Valutazione dei rischi e delle vulnerabilità su sistemi ICS/SCADA, 
+            +b reti industriali e asset connessi; 
+            +b include inventory asset, vulnerability scan, penetration test e gap analysis."
+        [ output
+            "Report dei rischi" 
+            "Piano di mitigazione" 
+            "Prioritizzazione remediation" 
+        [ fonte
+            "Rockwell Automation" 
+            "Dragos" 
+    { 
+        nome "Valutazione Efficacia Governance e Ruoli"
+        categoria "audit efficacia implementazione"
+        [ ambito
+            "organizzativo" 
+        descrizione "Audit che misura se le funzioni di governance, i ruoli, le responsabilità e le policy sono stati implementati correttamente e operano efficacemente nel tempo."
+        [ requisiti_organizzativi_verificati
+            "Governance definita con accountability chiara" 
+            "Ruoli e responsabilità assegnati e compresi" 
+            "Procedure operative in uso attivo" 
+            "Processi di Management of Change (MoC) applicati per modifiche rilevanti" 
+        [ metriche_efficacia
+            "Numero di deviazioni dalle policy documentate" 
+            "Frequenza di revisione delle policy" 
+            "Tempo medio per approvazione delle modifiche" 
+            "Audit trail di decisioni governance" 
+        [ output
+            "Report gap tra policy scritte e uso effettivo" 
+            "Raccomandazioni organizzative per migliorare efficienza governance" 
+            "Piani di training o refactoring di struttura operativa" 
+        [ fonti
+            "Auditboard – Cybersecurity Audit Essentials (ruoli, responsabilità) :contentReference[oaicite:0]{index=0}" 
+            "Industrialcyber.co – Governance OT/ICS efficacia :contentReference[oaicite:1]{index=1}" 
+    { 
+        nome "Verifica Efficacia Controlli Tecnici OT/ICS"
+        categoria "audit efficacia implementazione"
+        [ ambito
+            "sistema/macchina" 
+        descrizione "Audit che testa l’effettivo funzionamento dei controlli tecnici implementati nei sistemi OT/ICS rispetto alle specifiche (es. segmentazione, autenticazione, patching, integrità)."
+        [ requisiti_sistema_macchina_verificati
+            "Segmentazione rete (zone & conduits) operativa" 
+            "Controlli di accesso funzionanti (es. least privilege)" 
+            "Patching aggiornamenti applicati regolarmente" 
+            "Integrità del software di controllo verificata (secure boot, HSM)" 
+        [ metriche_efficacia
+            "Numero di dispositivi non conformi segmentazione" 
+            "Tempi di patching medi per sistema critico" 
+            "Percentuale di autenticazioni fallite anomale rilevate" 
+            "Verifiche di integrità/firmware compiute con esito positivo" 
+        [ output
+            "Report di test su controlli tecnici effettivi" 
+            "Lista dispositivi/sistemi con non conformità reale" 
+            "Raccomandazioni tecniche operative per remediation" 
+        [ fonti
+            "NIST SP 800-82r3 – controlli OT e loro efficacia :contentReference[oaicite:2]{index=2}" 
+            "Simspace – implementazione efficace di standard OT come IEC 62443, NIST CSF :contentReference[oaicite:3]{index=3}" 
+    { 
+        nome "Valutazione Funzionale dei Safety-Security SL/PL"
+        categoria "audit efficacia implementazione"
+        [ ambito
+            "sistema/macchina" 
+        descrizione "Verifica che le funzioni di sicurezza intelligenti (safety functions) rispettino i livelli di sicurezza (Security Level, SL) in relazione ai livelli prestazionali (Performance Level, PL) assegnati alle macchine."
+        [ requisiti_sistema_macchina_verificati
+            "Correlazione tra PL (sicurezza funzionale) e SL (cybersecurity) definita e rispettata" 
+            "Misure di sicurezza attive sulle safety functions conformi" 
+            "Controlli firmware/sicurezza incorporati nelle macchine" 
+        [ metriche_efficacia
+            "Numero di safety functions con mismatch SL/PL" 
+            "Valutazione rischio associato a mancata protezione SL" 
+            "Test funzionali eseguiti con esito regressivo" 
+        [ output
+            "Analisi di conformità tra SL e PL" 
+            "Report comparativo tra requisiti definito (normativo) e implementato" 
+            "Azioni correttive sulle implementazioni safety-security" 
+        [ fonti
+            "Kasprzyczak et al. – Machine Control Systems, SL e PL relazione :contentReference[oaicite:4]{index=4}" 
+    { 
+        nome "Efficacia del Lifecycle Secure Development per Componenti OT"
+        categoria "audit efficacia implementazione"
+        [ ambito
+            "organizzativo" 
+            "sistema/macchina" 
+        descrizione "Audit che valuta l’effettiva integrazione del secure development lifecycle (SDLC) nei processi aziendali, sia a livello di organizzazione (processi, formazione) che tecnico (implementazione, evidenze)."
+        [ requisiti_organizzativi_verificati
+            "Processi SDLC formalmente definiti e seguiti" 
+            "Formazione sviluppatori su sicurezza embedded" 
+            "Gestione evidenze di sicurezza nei deliverable" 
+        [ requisiti_sistema_macchina_verificati
+            "Controlli di sicurezza nel firmware e software componenti" 
+            "Patch/pipeline di rilascio sicuro attiva" 
+            "Logging/audit dei componenti integrato" 
+        [ metriche_efficacia
+            "Percentuale commit o build con evidenze di sicurezza" 
+            "Numero di vulnerabilità risolte via SDLC rispetto a risolte post-rilascio" 
+            "Qualità e completezza degli artifacts di sicurezza (documenti, test)" 
+        [ output
+            "Report SDLC compliance e efficacia" 
+            "Raccomandazioni proattive su processi, formazione, tooling" 
+            "Evidenze strutturate per audit futuro" 
+        [ fonti
+            "Effects of the Cyber Resilience Act – SDLC e evidenze nelle aziende manifatturiere :contentReference[oaicite:5]{index=5}" 
+            "Managing Security Evidence in Safety-Critical Organizations – maturità evidenze & processi :contentReference[oaicite:6]{index=6}" 

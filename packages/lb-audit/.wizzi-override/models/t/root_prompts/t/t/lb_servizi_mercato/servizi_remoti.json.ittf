@@ -1,0 +1,94 @@
+$group 
+    { 
+        nome "Managed OT Cybersecurity & Monitoring"
+        categoria "servizi cybersecurity piattaforma cloud / managed services"
+        [ ambito
+            "OT" 
+            "IT" 
+        descrizione "Servizio continuo di monitoraggio, gestione eventi, 
+            +b raccolta informazioni di threat intelligence, alerting e 
+            +b risposta incidente in ambienti di produzione."
+        [ output
+            "Alert 24/7" 
+            "Report periodici" 
+            "Interventi su incidenti OT" 
+        [ fonte
+            "ABS Group" 
+
+    { 
+        nome "Verve Security Center – OT/ICS Managed Security Services"
+        tipologia "Piattaforma remota + consulenza continua"
+        descrizione "Piattaforma cloud-based per gestione asset OT, vulnerability management, patch, 
+            +b configurazioni, con moduli di policy compliance, advisory e roadmap, erogati da remoto."
+        erogazione "Remota via dashboard + reportistica + supporto specialistico"
+        [ attività_coperte
+            "Inventory continuo degli asset OT" 
+            "Gestione patch e vulnerabilità" 
+            "Configuration baseline e hardening" 
+            "Consulenza su roadmap sicurezza e compliance OT (es. IEC 62443, NIST CSF)" 
+        [ target
+            "Asset Owner" 
+            "System Maker - OEM" 
+        link_fonte "https://verveindustrial.com/resources/whitepaper/ot-ics-managed-security-services/"
+    { 
+        nome "Microland – Industrial Cybersecurity (OT-IT Converged SOC)"
+        tipologia "Managed SOC remoto + policy enforcement"
+        descrizione "Soluzione per monitoraggio remoto 24×7 delle reti industriali, con visibilità completa, 
+            +b enforcement di policy OT/IT e supporto anche per policy/documentazione organizzativa."
+        erogazione "Remota con visibilità centralizzata, report, advisory"
+        [ attività_coperte
+            "Asset inventory dinamico OT" 
+            "Monitoraggio e alerting realtime" 
+            "Definizione e monitoraggio policy di sicurezza industriale" 
+            "Threat intelligence e compliance continuo" 
+        [ target
+            "Asset Owner" 
+            "System Maker - OEM" 
+        link_fonte "https://www.microland.com/digital/industrial-iot/ot-security-services"
+    { 
+        nome "ABS Group – Industrial Cybersecurity Managed Services"
+        tipologia "MSSP OT/ICS remoto + policy advisory"
+        descrizione "Servizi gestiti remoti in ottica OT/ICS con supporto vendor-agnostic, policy compliance, 
+            +b monitoring, per asset owner e System Maker - OEM, tramite ISOC (Industrial SOC)."
+        erogazione "Remoto, ISOC centralizzato, report, linee guida policy"
+        [ attività_coperte
+            "Network monitoring e alerting OT" 
+            "Analisi del rischio in contesto OT" 
+            "Supporto nella definizione e mantenimento di policy di sicurezza" 
+            "Advisory continuo per compliance e gestione documentale" 
+        [ target
+            "Asset Owner" 
+            "System Maker - OEM" 
+        link_fonte "https://www.abs-group.com/Solutions/Cybersecurity/Industrial-Cybersecurity-Managed-Services/"
+    { 
+        nome "Industrial Defender Platform – Policy Compliance & Management"
+        tipologia "Piattaforma cloud + consulenza documentale e compliance"
+        descrizione "Piattaforma per asset management OT, configuration & change management, 
+            +b policy compliance e reportistica automatizzata, con evidenze pronte per audit."
+        erogazione "Remota via piattaforma + dashboard + report export"
+        [ attività_coperte
+            "Policy compliance continua" 
+            "Configurazione e Change Management" 
+            "Asset discovery e audit evidence automatico" 
+            "Supporto documentale per adempimenti regulatorî" 
+        [ target
+            "Asset Owner" 
+            "System Maker - OEM" 
+            "Component Maker" 
+        link_fonte "https://industrialdefender.com/solutions/policy-compliance"
+    { 
+        nome "Mandiant / Google Cloud OT/ICS Security Consulting Remoto"
+        tipologia "Assessment e advisory remoto per OT/ICS"
+        descrizione "Valutazione sicurezza remota per ambienti OT/ICS, maturity assessment, 
+            +b healthcheck, embedded device assessment, con documentazione e policy recommendation."
+        erogazione "Remoto, assessment tramite strumenti e reportistica specialistica"
+        [ attività_coperte
+            "Maturità del programma OT/ICS" 
+            "Healthcheck sistemi OT (non invasivo)" 
+            "Embedded device assessment" 
+            "Linee guida policy e documentazione tecnica" 
+        [ target
+            "Asset Owner" 
+            "System Maker - OEM" 
+            "Component Maker" 
+        link_fonte "https://cloud.google.com/security/solutions/mandiant-operational-technology"

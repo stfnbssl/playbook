@@ -1,0 +1,190 @@
+$group
+    { lb_servizi_cybersecurity
+        [ livelli
+            {
+                nome "Tecnologico"
+                descrizione ""
+            {
+                nome "Organizzativo"
+                descrizione ""
+            {
+                nome "Governance" 
+                descrizione ""
+            {
+                nome "Normativo/Compliance" 
+                descrizione ""
+        [ ruoli_destinatari
+            { 
+                nome "Asset Owners"
+                descrizione "Proprietari di asset esistenti, focus su protezione continua."
+            { 
+                nome "Component Manufacturers"
+                descrizione "Produttori di componenti, focus su produzione sicura."
+            { 
+                nome "System Integrators"
+                descrizione "Integratori di sistemi, off-site (produzione macchine) e on-site (impianti)."
+        [ tipi_servizi_erogati
+            { 
+                nome "audit compliance"
+                esempio "Controllo dei requirements organizzativi, come strutture di governance, programmi di formazione e gestione delle risorse umane, e di sistema, inclusi controlli tecnici come firewall, antivirus e sistemi di crittografia, tramite matrice di analisi per valutare la conformità; produzione e revisione di policies e procedures per allinearsi a standard regolatori specifici come SOC 2, GDPR, HIPAA o PCI DSS, con generazione di report dettagliati su gap e raccomandazioni per remediation; valutazioni periodiche per monitorare l'aderenza continua alle normative, inclusi audit interni e esterni per evitare sanzioni legali."
+            { 
+                nome "audit efficacia implementazione"
+                esempio "Penetration testing per simulare attacchi reali su reti, sistemi e applicazioni, identificando vulnerabilità come exploit di configurazione errata o debolezze in firewall; valutazioni di efficacia dei controlli implementati, come test di breach per verificare la resilienza contro minacce reali; vulnerability assessment combinate con report dettagliati su findings, priorità di rischi e piani di mitigazione; inclusione di test attivi per breacciare sistemi e dimostrare impatti potenziali, spesso integrati in audit più ampi per misurare l'efficacia complessiva delle misure di sicurezza."
+            { 
+                nome "consulenza organizzativa"
+                esempio "Avvio e implementazione di procedure per Cyber Security Management System (CSMS), inclusa la definizione di strutture organizzative, ruoli e responsabilità per la cybersecurity; avvio di procedure per requirements organizzativi come gestione account tramite Identity and Access Management (IAM), gestione personale con valutazioni di background e policy HR, gestione awareness e formazione attraverso programmi educativi per dipendenti su phishing e best practices; gestione supply-chain con risk assessment dei vendor, contratti sicuri e monitoraggio continuo per mitigare rischi esterni; sviluppo di governance processes per allineare la cybersecurity con obiettivi aziendali."
+            { 
+                nome "consulenza specialistica"
+                esempio "Super-consulenza avanzata per risk assessment, inclusa identificazione, valutazione e prioritizzazione di rischi cyber tramite framework come NIST o ISO 27001; threat modeling utilizzando metodologie come STRIDE, PASTA o quantitative per analizzare potenziali minacce e vulnerabilità in sistemi specifici; integrazione di modellazione AI per scenari complessi, come MAESTRO per agentic AI; consigli su mitigazioni personalizzate, inclusa integrazione con operazioni di cybersecurity per rafforzare difese oltre le soluzioni tecnologiche; valutazioni approfondite per ambienti enterprise con report strategici."
+            { 
+                nome "installazioni tecnico-organizzative"
+                esempio "Implementazione di sistemi per gestione incidenti, inclusi piani di Incident Response (IR) con fasi di identificazione, containment, eradication e recovery, supportati da review di log e analisi eventi; gestione risposte a clienti per RFP/RFI, preparando documentazioni su capabilities cybersecurity, come anomaly detection tramite AI e behavioral analysis; setup per gestione segnalazioni anomalie con tool per monitoraggio network traffic, reporting automatico di eventi sospetti e integrazione con SIEM per alert in tempo reale; configurazione di processi ibridi tecnico-organizzativi per compliance e risk mitigation."
+            { 
+                nome "installazioni tecniche domini di sicurezza"
+                esempio "Installazione e configurazione di tool per inventario asset, come sistemi per tracking automatico di hardware, software e dispositivi OT/IT con aggiornamenti in tempo reale; deployment di SIEM per aggregazione e analisi di log eventi, monitoraggio continuo per anomalie e generazione di alert; implementazione di crittografia per dati at rest e in transit, utilizzando standard come AES o TLS; gestione certificati con Public Key Infrastructure (PKI) per emissione, renewal e revocation; integrazione con framework come CIS Controls per salvaguardare domini specifici come software inventory e network security."
+            { 
+                nome "elaborazioni tecniche"
+                esempio "Analisi statica software (SAST) per identificare vulnerabilità nel codice senza esecuzione, come scansioni per coding standards violations, security flaws e tainted data; elaborazioni per malware analysis tramite esame di file per segni di intent malevolo; valutazioni automatizzate per errori potenziali e deviazioni da best practices, integrate in pipeline DevSecOps; report dettagliati su metriche di sicurezza per prioritizzare fix; esempi includono tool che tracciano dati sensibili per prevenire leak."
+            { 
+                nome "servizi cybersecurity piattaforma cloud"
+                esempio "Installazione e gestione automatica di patch per aggiornamenti software e OS su ambienti cloud; containerizzazione per isolare applicazioni tramite tool come Docker o Kubernetes, migliorando security con microsegmentation; servizi per IoT cybersecurity, inclusi provisioning sicuro di dispositivi, connettività MQTT/HTTPS protetta e monitoraggio cloud-based per anomalie; integrazione con piattaforme come Azure, AWS o Google Cloud per features come AI-driven threat detection e secure data storage; esempi includono aggiornamenti over-the-air per dispositivi IoT e container orchestration per ridurne i rischi."
+            { 
+                nome "prodotti sw/hw a catalogo"
+                esempio "Prodotti software come antivirus e anti-malware (es. CrowdStrike Falcon), firewalls software-based per blocking traffic sospetto; hardware come firewall appliances (es. Fortinet FortiGate) per scansione encrypted traffic; tool SIEM (es. IBM QRadar) per intelligence analysis; prodotti da cataloghi approvati come CDM Approved Products List, inclusi vulnerability scanners, encryption tools e secure routers; esempi includono pacchetti per mobile security, fraud protection e mainframe security, spesso venduti con licenze e supporto."
+        [ modalita_erogazione
+            "Remota/Digitale (app, template)" 
+            "On-Site (audit, consulenza/coaching)" 
+            "AI-Assisted (brainstorming iniziale)" 
+            "Specializzato (esperti ad alta tariffa)" 
+            "In Sito (coaching/consulenza fisica)" 
+            "Web-meet A Distanza (Cyber Security as a Service)" 
+            "Piattaforma Cloud (Cyber Security as a Service - CSaaS)" 
+        [ profili_servizio
+            { 
+                livello "Organizzativo"
+                ruolo "Asset Owners"
+                nome "Consulenza per Cultura e Processi"
+                descrizione "Assistenza remota/on-site per cultura cyber e gestione risorse, inclusi coaching per procedure organizzative CSMS."
+                [ modalita
+                    "Remota" 
+                    "On-Site" 
+                    "AI-Assisted" 
+                    "In Sito" 
+                specializzato true
+                tipo_prestazione "Consulenza organizzativa/coaching in sito - Procedure organizzative CSMS"
+            { 
+                livello "Organizzativo"
+                ruolo "Component Manufacturers"
+                nome "Gestione Procedure di Produzione"
+                descrizione "Supporto per incidenti e risposte clienti; AI per brainstorming; supporto a distanza per procedure CSMS."
+                [ modalita
+                    "Remota" 
+                    "AI-Assisted" 
+                    "A Distanza (CaaS)" 
+                specializzato false
+                tipo_prestazione "Supporto procedurale a distanza (Cyber Security as a Service) - Procedure organizzative CSMS"
+            { 
+                livello "Organizzativo"
+                ruolo "System Integrators"
+                nome "Integrazione e Training On-Site/Off-Site"
+                descrizione "Consulenza per processi integrazione sicura, con coaching in sito per CSMS."
+                [ modalita
+                    "On-Site" 
+                    "Off-Site" 
+                    "In Sito" 
+                specializzato true
+                tipo_prestazione "Consulenza organizzativa/coaching in sito - Procedure organizzative CSMS"
+            { 
+                livello "Governance"
+                ruolo "Asset Owners"
+                nome "Strumenti di Pianificazione e Decisione"
+                descrizione "Template e app per governance, inclusi coaching per Governance CSMS."
+                [ modalita
+                    "Remota" 
+                    "Digitale" 
+                    "In Sito" 
+                specializzato false
+                tipo_prestazione "Consulenza organizzativa/coaching in sito - Governance CSMS"
+            { 
+                livello "Governance"
+                ruolo "Component Manufacturers"
+                nome "Framework per Componenti"
+                descrizione "Pianificazione per supply chain; supporto a distanza per Governance CSMS."
+                [ modalita
+                    "AI-Assisted" 
+                    "A Distanza (CaaS)" 
+                specializzato true
+                tipo_prestazione "Supporto procedurale a distanza (Cyber Security as a Service) - Governance CSMS"
+            { 
+                livello "Governance"
+                ruolo "System Integrators"
+                nome "Governance per Integrazioni"
+                descrizione "Strumenti per multi-sito, con coaching per CSMS."
+                [ modalita
+                    "Remota" 
+                    "On-Site" 
+                    "In Sito" 
+                specializzato false
+                tipo_prestazione "Consulenza organizzativa/coaching in sito - Governance CSMS"
+            { 
+                livello "Normativo/Compliance"
+                ruolo "Asset Owners"
+                nome "Gestione Audit e Checklist"
+                descrizione "App per checklist e audit, focus su requirements organizzativi per compliance."
+                [ modalita
+                    "Digitale" 
+                    "On-Site" 
+                specializzato true
+                tipo_prestazione "Audit compliance - Requirements organizzativi"
+            { 
+                livello "Normativo/Compliance"
+                ruolo "Component Manufacturers"
+                nome "Compliance per Produzione"
+                descrizione "Profili e software inventario, inclusi audit per requirements di sistema."
+                [ modalita
+                    "Digitale" 
+                specializzato false
+                tipo_prestazione "Audit compliance - Requirements di sistema"
+            { 
+                livello "Normativo/Compliance"
+                ruolo "System Integrators"
+                nome "Audit per Integrazioni"
+                descrizione "Conformità off/on-site, con verifica efficacia implementazioni di sistema."
+                [ modalita
+                    "On-Site" 
+                    "Off-Site" 
+                specializzato true
+                tipo_prestazione "Audit efficacia implementazioni - Requirements di sistema"
+            { 
+                livello "Normativo/Compliance"
+                ruolo "Asset Owners"
+                nome "Audit Efficacia Organizzativa"
+                descrizione "Valutazione efficacia implementazioni per requirements organizzativi."
+                [ modalita
+                    "On-Site" 
+                    "Remota" 
+                specializzato true
+                tipo_prestazione "Audit efficacia implementazioni - Requirements organizzativi"
+            { 
+                livello "Normativo/Compliance"
+                ruolo "Component Manufacturers"
+                nome "Audit Efficacia di Sistema"
+                descrizione "Audit per efficacia requirements di sistema in produzione."
+                [ modalita
+                    "Digitale" 
+                    "On-Site" 
+                specializzato true
+                tipo_prestazione "Audit efficacia implementazioni - Requirements di sistema"
+            { 
+                livello "Tecnologico"
+                ruolo "Tutti"
+                nome "Servizi Tecnici Aggiuntivi"
+                descrizione "Analisi rete, backup, incidenti; include prodotti a listino, servizi da ingegneri e piattaforma cloud."
+                [ modalita
+                    "Remota" 
+                    "On-Site" 
+                    "Specializzato" 
+                    "Piattaforma Cloud" 
+                specializzato true
+                tipo_prestazione "Tecnologie Cyber Security - Prodotti a listino / Servizi elaborazione erogati da ingegneri / Servizi erogabili dalla piattaforma cloud"
+

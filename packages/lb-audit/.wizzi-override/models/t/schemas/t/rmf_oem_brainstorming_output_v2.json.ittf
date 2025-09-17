@@ -1,0 +1,260 @@
+$group
+    { rmf_oem_brainstorming_output_v2
+        $schema "https://json-schema.org/draft/2020-12/schema"
+        $id "https://example.com/schemas/rmf-oem-brainstorming.essential.schema.json"
+        title "RMF OEM Brainstorming Output (Essential)"
+        description "Output minimo per brainstorming di minacce e requisiti collegati a controlli IEC 62443 / NIST."
+        type "object"
+        additionalProperties false
+        [ required
+            "meta" 
+            "context" 
+            "results" 
+        { properties
+            { meta
+                type "object"
+                additionalProperties false
+                [ required
+                    "version" 
+                    "generated_at" 
+                    "generator" 
+                { properties
+                    { version
+                        type "string"
+                        description "Versione documento logico (es. 1.0.0)"
+                    { generated_at
+                        type "string"
+                        format "date-time"
+                        description "Timestamp ISO 8601"
+                    { generator
+                        type "object"
+                        additionalProperties false
+                        [ required
+                            "name" 
+                        { properties
+                            { name
+                                type "string"
+                                description "Nome/ID del modello"
+                            { version
+                                type "string"
+                                description "Versione del modello (se nota)"
+            { context
+                type "object"
+                additionalProperties false
+                [ required
+                    "system_core" 
+                    "rmf_tasks_considered" 
+                { properties
+                    { system_core
+                        type "object"
+                        additionalProperties false
+                        [ required
+                            "id" 
+                            "name" 
+                            "mission" 
+                        { properties
+                            { id
+                                type "string"
+                                description "ID sistema"
+                            { name
+                                type "string"
+                                description "Nome sistema"
+                            { mission
+                                type "string"
+                                description "Mission/obiettivo"
+                    { rmf_tasks_considered
+                        type "array"
+                        minItems 1
+                        uniqueItems true
+                        { items
+                            type "string"
+                            pattern "^P-(8|9|1[0-8])$"
+            { results
+                type "object"
+                additionalProperties false
+                [ required
+                    "threat_scenarios" 
+                { properties
+                    { threat_scenarios
+                        type "array"
+                        minItems 1
+                        { items
+                            $ref "#/$defs/threatScenario"
+                    { summary
+                        type "object"
+                        additionalProperties false
+                        { properties
+                            { top_risks
+                                type "array"
+                                { items
+                                    type "string"
+                                description "ID scenari prioritari"
+        { $defs
+            { threatScenario
+                type "object"
+                additionalProperties false
+                [ required
+                    "id" 
+                    "title" 
+                    "assets" 
+                    "threat" 
+                    "requirements" 
+                { properties
+                    { id
+                        type "string"
+                        description "ID scenario (es. TSC-001)"
+                    { title
+                        type "string"
+                        description "Titolo sintetico"
+                    { assets
+                        type "array"
+                        minItems 1
+                        { items
+                            type "string"
+                        description "Asset coinvolti (ID o nomi brevi)"
+                    { threat
+                        type "object"
+                        additionalProperties false
+                        [ required
+                            "category" 
+                            "description" 
+                        { properties
+                            { category
+                                type "string"
+                                [ enum
+                                    "malware" 
+                                    "unauthorized-access" 
+                                    "network-eavesdrop" 
+                                    "misconfiguration" 
+                                    "supply-chain" 
+                                    "physical" 
+                                    "insider" 
+                                    "dos" 
+                                    "data-exfiltration" 
+                                    "safety-impact" 
+                                    "other" 
+                            { description
+                                type "string"
+                    { vulnerabilities
+                        type "array"
+                        { items
+                            type "string"
+                    { consequences
+                        type "array"
+                        { items
+                            type "string"
+                    { requirements
+                        type "array"
+                        minItems 1
+                        { items
+                            $ref "#/$defs/requirement"
+                    { risk
+                        $ref "#/$defs/riskScore"
+                    { priority
+                        type "string"
+                        [ enum
+                            "low" 
+                            "medium" 
+                            "high" 
+                        description "Priorità di trattamento"
+                    { task_links
+                        type "array"
+                        { items
+                            type "object"
+                            additionalProperties false
+                            [ required
+                                "task_id" 
+                            { properties
+                                { task_id
+                                    type "string"
+                                    pattern "^P-(8|9|1[0-8])$"
+                                { note
+                                    type "string"
+                    { assumptions
+                        type "array"
+                        { items
+                            type "string"
+                        description "Assunzioni (se input incompleto)"
+            { requirement
+                type "object"
+                additionalProperties false
+                [ required
+                    "statement" 
+                    "controls" 
+                { properties
+                    { statement
+                        type "string"
+                        description "Requisito di protezione"
+                    { controls
+                        type "array"
+                        minItems 1
+                        { items
+                            $ref "#/$defs/controlRef"
+                    { parameters
+                        type "array"
+                        { items
+                            $ref "#/$defs/parameter"
+            { controlRef
+                type "object"
+                additionalProperties false
+                [ required
+                    "standard" 
+                    "id" 
+                { properties
+                    { standard
+                        type "string"
+                        [ enum
+                            "IEC 62443-3-3" 
+                            "IEC 62443-4-2" 
+                            "NIST 800-53" 
+                            "NIST 800-82" 
+                    { id
+                        type "string"
+                        description "Es. 'SR 5.2', 'CR 1.2', 'AC-2', 'SC-7'"
+                        pattern "^(SR \\d+(?:\\.\\d+)?|CR \\d+(?:\\.\\d+)?|[A-Z]{2,3}-\\d{1,3}(?:\\([a-z]\\))?)$"
+                    { note
+                        type "string"
+                        description "Nota opzionale"
+            { parameter
+                type "object"
+                additionalProperties false
+                [ required
+                    "name" 
+                    "value" 
+                { properties
+                    { name
+                        type "string"
+                        description "Es. password_min_length, tls_min"
+                    { value
+                        [ type
+                            "string" 
+                            "number" 
+                            "integer" 
+                            "boolean" 
+                    { unit
+                        type "string"
+                    { rationale
+                        type "string"
+            { riskScore
+                type "object"
+                additionalProperties false
+                [ required
+                    "likelihood" 
+                    "impact" 
+                { properties
+                    { likelihood
+                        type "integer"
+                        minimum 1
+                        maximum 5
+                        description "Probabilità 1..5"
+                    { impact
+                        type "integer"
+                        minimum 1
+                        maximum 5
+                        description "Impatto 1..5 (sintetico su C/I/A)"
+                    { score
+                        type "number"
+                        description "Opz.: calcolo (es. L*I)"
+                    { rationale
+                        type "string"
+                        description "Motivazione breve"

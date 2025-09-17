@@ -1,0 +1,99 @@
+$group
+    { 
+        nome "SAST as a Service per Componenti Embedded"
+        categoria "elaborazioni tecniche"
+        [ ambito
+            "sistema/macchina" 
+            "organizzativo" 
+        descrizione "Servizio remoto che esegue analisi statica del codice (SAST) per componenti embedded 
+            +b in sistemi di controllo OT/ICS, individuando vulnerabilità come buffer overflow, 
+            +b input validation errors, coding standards violations e potenziali leak di dati."
+        [ attività_coperte
+            "Scansione codice sorgente o binary statica" 
+            "Analisi control-flow e data-flow" 
+            "Integrazione in pipeline CI/CD o toolchain OEM" 
+            "Report prioritizzati per criticità" 
+        [ deliverable_tipici
+            "Rapporto SAST con vulnerabilità classificate (severity/risk)" 
+            "Trends e metriche per sviluppo sicuro" 
+            "Presets e configurazioni custom per il codice OT" 
+            "Sessioni di remediation guidance" 
+        link_fonte "https://www.paralus.io/blog/remote-sast-service?utm_source=chatgpt.com oppure, strumento generico SAST: https://www.checkmarx.com/cxsast-source-code-scanning/ – Checkmarx SAST"
+    { 
+        nome "Malware Analysis Sandbox per Firmware OT"
+        categoria "elaborazioni tecniche"
+        [ ambito
+            "sistema/macchina" 
+        descrizione "Servizio di analisi malware su firmware o componenti binari OT, 
+            +b utilizzando sandbox personalizzate (es. con side-channel monitoring) per rilevare 
+            +b comportamento malevolo senza impattare ambiente di produzione."
+        [ attività_coperte
+            "Esecuzione in sandbox isolata" 
+            "Monitoraggio comportamentale (system calls, network, I/O, etc.)" 
+            "Analisi di indicatori di compromissione (IoCs)" 
+            "Report su potenziali minacce nascosti" 
+        [ deliverable_tipici
+            "Rapporto malware analysis" 
+            "Indicatori di compromissione dettagliati" 
+            "Grafici di comportamenti anomali" 
+            "Raccomandazioni di containment" 
+        link_fonte "SaMOSA: sandbox Linux per malware analysis su OT/CPS con raccolta multi-channel. https://arxiv.org/abs/2508.14261"
+    { 
+        nome "Analisi Automatica DevSecOps per Pipeline OT/ICS"
+        categoria "elaborazioni tecniche"
+        [ ambito
+            "sistema/macchina" 
+            "organizzativo" 
+        descrizione "Integrazione di tool per analisi automatizzata (SAST, SCA, linting, controllo standard) 
+            +b all’interno delle pipeline DevSecOps per progetti di sistemi OT, 
+            +b con alerting proattivo e metriche di qualità codice."
+        [ attività_coperte
+            "Analisi continua di pull request o commit" 
+            "SCA/SBOM e vulnerability tracking" 
+            "Linting e standard checking automatico" 
+            "Dashboard metriche e trend" 
+        [ deliverable_tipici
+            "Pipeline configurata con tool security" 
+            "Cruscotto metriche (coverage, vulnerabilità nuove/risolte)" 
+            "Alert automatici per codice non conforme" 
+            "Policy di sviluppo sicuro" 
+        link_fonte "Strumenti SAST/SCA in pipeline: SonarQube/SonarCloud. https://www.sonarsource.com/solutions/security/sast/ e SAST overview CrowdStrike/Palo Alto"
+    { 
+        nome "Software Supply Chain Inspection (SCA + SAST)"
+        categoria "elaborazioni tecniche"
+        [ ambito
+            "sistema/macchina" 
+            "organizzativo" 
+        descrizione "Analisi combinata del codice sorgente e delle componenti di terze parti (open source, COTS), 
+            +b con SAST e SCA/SBOM per identificare vulnerabilità e dipendenze non conformi nei moduli integrati 
+            +b nei sistemi OT/ICS."
+        [ attività_coperte
+            "Scansione open source components (SCA)" 
+            "SAST del codice custom" 
+            "Generazione e aggiornamento SBOM" 
+            "Prioritizzazione vulnerabilità componenti terzi" 
+        [ deliverable_tipici
+            "SBOM aggiornato" 
+            "Relazione SAST + SCA" 
+            "Piano remediations per vulnerabilità open source" 
+            "Linee guida vendor/componenti sicuri" 
+        link_fonte "CodeSecure SAST/SCA per applicazioni industriali (compliance, supply chain, functional safety) https://codesecure.com/our-industries/industrial/"
+    { 
+        nome "Malware Threat Intelligence & Sandbox Analysis Remoto"
+        categoria "elaborazioni tecniche"
+        [ ambito
+            "sistema/macchina" 
+        descrizione "Servizio cloud per analisi interattiva malware, per file sospetti o comportamenti anomali, 
+            +b con generazione di IOCs e report, utili anche su dispositivi OT/assembly 
+            +b lines software (senza impatto produzione)."
+        [ attività_coperte
+            "Sandbox malware interattiva" 
+            "Threat intelligence feed" 
+            "Indagini file sospetti via browser" 
+            "Reporting visual e IOC" 
+        [ deliverable_tipici
+            "Report di analisi interattiva" 
+            "Indicatori di compromissione" 
+            "Grafici dinamici del comportamento" 
+            "Supporto per integrazione in processi IR" 
+        link_fonte "ANY.RUN – sandbox interattiva malware come servizio cloud. https://any.run/"

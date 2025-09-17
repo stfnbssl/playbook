@@ -1,0 +1,129 @@
+$group
+    { 
+        nome "Audit Compliance IEC 62443 completo"
+        categoria "audit compliance"
+        [ ambito
+            "OT" 
+            "IT" 
+        descrizione "Valutazione della conformità all’intera serie IEC 62443 (es. 1-1, 2-1, 2-4, 3-3, 4-1, 4-2), 
+            +b coprendo termini, concetti, politiche, procedure di gestione, 
+            +b requisiti tecnici di sistema e componenti, 
+            +b sviluppo sicuro, 
+            +b gestione zone e conduits."
+        [ requisiti_organizzativi_coperti
+            "programmi di sicurezza (IEC 62443-2-1)" 
+            "gestione dei service provider (2-4)" 
+            "governance, policy e procedure" 
+        [ requisiti_sistema_macchina_coperti
+            "sicurezza del sistema (IEC 62443-3-3)" 
+            "componenti sicuri (IEC 62443-4-2)" 
+            "sviluppo sicuro (IEC 62443-4-1)" 
+        [ output
+            "Gap analysis rispetto a tutti i livelli IEC 62443" 
+            "Piano di remediation" 
+            "Certificazione readiness" 
+        [ fonti
+            "ISA/IEC 62443 standards" 
+            "UL services on IEC 62443" 
+    { 
+        nome "Audit Compliance ISO/IEC 27001 + IEC 62443 (Governance e Gestione)"
+        categoria "audit compliance"
+        [ ambito
+            "IT" 
+            "OT (governance)" 
+        descrizione "Audit integrato per le strutture organizzative e di governance IT e OT, 
+            +b con focus su policy, gestione del rischio, 
+            +b gestione della conformità normativa (ISO 27001) e 
+            +b aspetti organizzativi di OT (IEC 62443-2-1)."
+        [ requisiti_organizzativi_coperti
+            "Information Security Management System (ISMS)" 
+            "Risk Management e Statement of Applicability" 
+            "Security program per OT" 
+        [ requisiti_sistema_macchina_coperti
+        [ output
+            "Report compliance ISO 27001 + IEC 62443-2-1" 
+            "Piano di adeguamento policy/procedure" 
+            "Roadmap governance integrata" 
+        [ fonti
+            "Manufacturing cybersecurity compliance guides" 
+    { 
+        nome "Valutazione Requisiti di Sistema / Machine (IEC 62443-3-3)"
+        categoria "audit compliance"
+        [ ambito
+            "OT" 
+        descrizione "Controllo specifico dei requisiti tecnici di sistema secondo IEC 62443-3-3: 
+            +b design e implementazione di sistema sicuro, segmentazione, restrizione dati, 
+            +b integrità e disponibilità machine side."
+        [ requisiti_organizzativi_coperti
+        [ requisiti_sistema_macchina_coperti
+            "Requisiti di sistema sicuro (SL-levels)" 
+            "Zone & conduits" 
+            "Controllo integrità, disponibilità, autenticazione, flusso dati" 
+        [ output
+            "Diagramma struttura zona-sistema" 
+            "Matrix di conformità (SL1–SL4)" 
+            "Raccomandazioni tecniche e di configurazione" 
+        [ fonti
+            "IEC 62443 standard summary" 
+            "Rockwell IEC 62443 guide" 
+    { 
+        nome "Audit Requisiti di Prodotto / Componenti (IEC 62443-4-2, 4-1)"
+        categoria "audit compliance"
+        [ ambito
+            "OT" 
+        descrizione "Verifica dei requisiti di sicurezza per componenti embedded e di sistema macchina: 
+            +b sviluppo sicuro (lifecycle), funzioni di sicurezza, autenticazione, gestione patch, 
+            +b logging, sviluppo di componenti conformi IEC 62443-4-2 e 4-1."
+        [ requisiti_organizzativi_coperti
+        [ requisiti_sistema_macchina_coperti
+            "Sviluppo sicuro" 
+            "Funzioni di sicurezza integrate" 
+            "Gestione patch, log, autenticazione" 
+        [ output
+            "Assessment componenti SW/HW" 
+            "Report di conformità ciclo di sviluppo" 
+            "Raccomandazioni per fornitori integratori" 
+        [ fonti
+            "Verve Industrial IEC 62443 explanation" 
+    { 
+        nome "Audit Requisiti Organizzativi – Governance, Account, Fornitori, Formazione"
+        categoria "audit compliance / requisiti organizzativi"
+        [ ambito
+            "OT" 
+            "IT" 
+        descrizione "Audit focalizzato sugli aspetti organizzativi interni: definizione di policy, 
+            +b gestione utenti e ruoli (IAM), formazione personale, gestione dei fornitori, gestione patch, 
+            +b logging e reporting organizzato secondo IEC 62443-2-4 e ISO 27001."
+        [ requisiti_organizzativi_coperti
+            "Policy e procedure scritte" 
+            "IAM e gestione ruoli/accessi" 
+            "Formazione e awareness" 
+            "Vendor risk & gestione fornitori" 
+            "Patch management, logging, event management" 
+        [ requisiti_sistema_macchina_coperti
+        [ output
+            "Matrice conformità organizzativa" 
+            "Raccomandazioni processuali" 
+            "Piano di formazione & vendor governance" 
+        [ fonti
+            "IEC 62443 standard parts" 
+            "Industry best practices manufacturing" 
+    { 
+        nome "Audit Compliance per contratti/government (es. CMMC, NIST, ITAR) nell’IT Manufacturing"
+        categoria "audit compliance"
+        [ ambito
+            "IT" 
+        descrizione "Audit compliance IT rivolti ad aziende manifatturiere che partecipano a 
+            +b supply chain governative o militari: NIST SP 800-171/53, CMMC, ITAR, FDA Part 11, 
+            +b ISO 27001, con mappatura requisiti contrattuali, gap analysis, remediation."
+        [ requisiti_organizzativi_coperti
+            "IT policy e processi" 
+            "Documentazione conformità" 
+            "Controllo accessi, protezione dati" 
+        [ requisiti_sistema_macchina_coperti
+        [ output
+            "Rapporto gap rispetto a standard militari/governativi" 
+            "Piano di remediation contrattuale" 
+            "Evidence pack per audit" 
+        [ fonti
+            "Manufacturing IT compliance audits (Keystone)"

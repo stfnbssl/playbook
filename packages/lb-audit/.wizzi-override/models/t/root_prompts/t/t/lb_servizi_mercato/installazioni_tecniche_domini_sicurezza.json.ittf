@@ -1,0 +1,117 @@
+$group 
+    { 
+        nome "Asset Inventory & Network Segmentation"
+        categoria "installazioni tecniche domini di sicurezza"
+        [ ambito
+            "OT" 
+        descrizione "Creazione di un inventario dettagliato delle componenti OT, 
+            +b segmentazione reti mediante firewalls, IDMZ, 
+            +b zone demilitarizzate per isolare le aree sensibili."
+        [ output
+            "Inventario asset OT" 
+            "Diagrammi di rete segmentata" 
+            "Configurazione firewall/IDMZ" 
+        [ fonte
+            "Rockwell Automation" 
+    { 
+        nome "OT Asset Inventory & Visibility Platform (Dragos)"
+        tipo "Piattaforma gestita / SaaS"
+        descrizione "Piattaforma OT-specifica che automatizza la discovery degli asset fisici e logici, incluse componenti legacy, protocolli OT; correla vulnerabilità e offre visibilità in tempo reale; supporta DPI, monitoraggio passivo/attivo."
+        [ attività_coperte
+            "Discovery asset OT/IT/IoT" 
+            "Correlazione asset–vulnerabilità" 
+            "Visibilità in tempo reale dello stato asset" 
+        [ target
+            "Asset Owner" 
+            "OEM" 
+        link_fonte "https://www.dragos.com/cybersecurity-platform/asset-visibility/"
+    { 
+        nome "OT Asset Management (Lansweeper)"
+        tipo "Strumento/software passivo + cloud optional"
+        descrizione "Soluzione per inventario asset in ambienti OT tramite scansione non intrusiva; supporta protocolli industriali (es. Siemens, Rockwell); fornisce discovery passivo senza impattare la produzione."
+        [ attività_coperte
+            "Discovery passiva asset" 
+            "Protocol OT specifici supportati" 
+            "Inventario continuo e reportistica" 
+        [ target
+            "Asset Owner" 
+            "OEM" 
+            "Assemblatori" 
+        link_fonte "https://www.lansweeper.com/solutions/use-cases/ot-asset-management/"
+    { 
+        nome "SIEM as a Service (Flexis)"
+        tipo "Managed SIEM / SECaaS"
+        descrizione "Servizio SIEM completamente gestito via cloud: rimozione degli overhead di deployment, configurazione e manutenzione; include rilevazione minacce, supporto compliance, integrazione con SOC/NOC."
+        [ attività_coperte
+            "Aggregazione log da fonti multiple" 
+            "Threat detection" 
+            "Report compliance" 
+            "Gestione centralizzata via cloud" 
+        [ target
+            "Asset Owner" 
+            "OEM" 
+            "IT/OT convergenti" 
+        link_fonte "https://www.flexisit.com/siem-as-a-service.html"
+    { 
+        nome "Cloud SIEM Solutions (general)"
+        tipo "Piattaforma SaaS SIEM"
+        descrizione "Soluzioni SIEM basate su cloud che consentono di monitorare log da molteplici sorgenti (IT/OT) via dashboard unificati; più scalabili, facili da mantenere rispetto a on-premise."
+        [ attività_coperte
+            "Monitoraggio log centralizzato" 
+            "Threat intelligence integrata" 
+            "Alerting via cloud" 
+        [ target
+            "Asset Owner" 
+            "OEM" 
+        link_fonte "https://www.paloaltonetworks.com/cyberpedia/what-is-cloud-siem"
+    { 
+        nome "Asset Inventory Management – Nozomi Networks"
+        tipo "Piattaforma gestita/Cloud-enable"
+        descrizione "Offre inventario completo di asset OT/IoT e contesto, mediante monitoraggio passivo e attivo, Deep Packet Inspection (DPI) e AI-powered detection."
+        [ attività_coperte
+            "Inventario asset OT/IoT" 
+            "DPI protocolli industriali" 
+            "Intelligenza assetiva tramite AI" 
+        [ target
+            "Asset Owner" 
+            "OEM" 
+        link_fonte "https://www.nozominetworks.com/solutions/iot-ot-asset-inventory-management"
+    { 
+        nome "Mixed Managed SIEM Services (Vertilocity)"
+        tipo "Managed SIEM remoto"
+        descrizione "Servizio SIEM gestito che fornisce monitoraggio continuativo, rilevazione anomalie e attività sospette, tramite servizio remoto."
+        [ attività_coperte
+            "Analisi continua degli eventi" 
+            "Alerting e dashboard" 
+            "Supporto risposta incidente" 
+        [ target
+            "Asset Owner" 
+            "OEM" 
+        link_fonte "https://vertilocity.com/service/managed-siem-services/"
+    { 
+        nome "Implementazione crittografia / PKI (generica)"
+        tipo "Servizio consulenza + tool"
+        descrizione "Mentre i servizi sopra forniscono inventario e log/alert, la crittografia dei dati e la gestione certificati (PKI) sono tipicamente integrate tramite consulenza remota e tool di gestione certificati e infrastrutture chiave; possono essere gestiti via servizi cloud gestiti o offerte SaaS-PKI."
+        [ attività_coperte
+            "Crittografia TLS / AES per dati in transito e at rest" 
+            "Deployment gestione certificati PKI" 
+            "Automazione di issuance, renewal, revocation" 
+        [ target
+            "OEM" 
+            "Asset Owner" 
+            "Costruttori di macchine" 
+        link_fonte " — generalmente disponibile via Managed PKI service providers (es. DigiCert, AWS Certificate Manager, etc.)"
+
+    { 
+        nome "Robot & Embedded System Security"
+        categoria "installazioni tecniche domini di sicurezza / consulenza specialistica"
+        [ ambito
+            "OT" 
+        descrizione "Sicurezza approfondita per robotica e sistemi embedded: analisi firmware, 
+            +b hardening di dispositivi, verifica di comunicazioni industriali."
+        [ output
+            "Analisi firmware" 
+            "Report sicurezza robot" 
+            "Mitigazioni configurazioni embedded" 
+        [ fonte
+            "SwRI" 
